@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol TextRegexFormFieldProtocol: TextFormFieldProtocol {
+public protocol TextRegexFormFieldProtocol: TextFormFieldProtocol {
     func set(regex: String)
 }
 
-class TextRegexFormField: TextFormField, TextRegexFormFieldProtocol {
+public class TextRegexFormField: TextFormField, TextRegexFormFieldProtocol {
     
     private var regex: String?
     
-    func set(regex: String) {
+    public func set(regex: String) {
         self.regex = regex
     }
     
@@ -39,7 +39,7 @@ class TextRegexFormField: TextFormField, TextRegexFormFieldProtocol {
     }
 }
 
-enum TextRegexFormFieldError: FormFieldErrorProtocol {
+public enum TextRegexFormFieldError: FormFieldErrorProtocol {
     case missingRegex
     case notMatchingRegex
 }
