@@ -38,7 +38,7 @@ public extension TextFormatter {
             return resource
         }
     }
-    
+
     func remove(format: TextFormat, to resource: String) throws -> String {
         switch format {
         case .currency:
@@ -49,24 +49,24 @@ public extension TextFormatter {
             return resource
         }
     }
-    
+
     private func formatCurrency(resource: String) -> String {
         guard let amount = Int(resource) else {
             return resource
         }
-        
+
         let formatter = getCurrencyFormatter()
-        
+
         guard let currency = formatter.string(from: amount as NSNumber) else {
             return resource
         }
-        
+
         return currency
     }
-    
+
     private func formatResource(phoneNumber: String) -> String {
         let numbersOnly = phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-        
+
         return numbersOnly.reduce(Constants.Values.empty) { (result, individualNumber) in
             if result.count == Constants.TextFormating.phonePrefixIndex || result.count == Constants.TextFormating.phoneSuffixIndex {
                 return result + Constants.Values.hyphen + String(individualNumber)
@@ -74,10 +74,10 @@ public extension TextFormatter {
             return result + String(individualNumber)
         }
     }
-    
+
     private func removeCurrencyFormat(from resource: String) -> String {
         let formatter = getCurrencyFormatter()
-        
+
         if let formattedNumber = formatter.number(from: resource) as? Int {
             return String(describing: formattedNumber)
         } else {
@@ -87,16 +87,16 @@ public extension TextFormatter {
             return resource
         }
     }
-    
+
     private func getCurrencyFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()
-        
+
         formatter.locale = Locale(identifier: Constants.Values.localIdentifier)
         formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 0
         formatter.currencySymbol = Constants.Values.dollar
         formatter.generatesDecimalNumbers = false
-        
+
         return formatter
     }
 }

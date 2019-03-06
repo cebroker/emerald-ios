@@ -19,6 +19,9 @@
 		9BA4919722288EFF00837D07 /* SelectorFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */; };
 		9BA4919822288EFF00837D07 /* TextSelectionFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */; };
 		9BE4033A22301EF6003C64AD /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */; };
+		9BE4034122303104003C64AD /* FormFieldErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4034022303104003C64AD /* FormFieldErrorType.swift */; };
+		9BE4034322303227003C64AD /* FormFieldNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4034222303227003C64AD /* FormFieldNotifiable.swift */; };
+		9BE403452230357D003C64AD /* DateFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE403442230357D003C64AD /* DateFormFieldChangeNotifiable.swift */; };
 		9BE5A5572228813B004A59B9 /* CondorUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE5A5492228813B004A59B9 /* CondorUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9BE5A563222881A8004A59B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A562222881A7004A59B9 /* Constants.swift */; };
 		9BE5A565222881D1004A59B9 /* Extensions+NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A564222881D1004A59B9 /* Extensions+NSRegularExpression.swift */; };
@@ -65,6 +68,9 @@
 		9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormFieldTests.swift; sourceTree = "<group>"; };
 		9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxFormFieldTests.swift; sourceTree = "<group>"; };
 		9BA491A422288FEE00837D07 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BE4034022303104003C64AD /* FormFieldErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldErrorType.swift; sourceTree = "<group>"; };
+		9BE4034222303227003C64AD /* FormFieldNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldNotifiable.swift; sourceTree = "<group>"; };
+		9BE403442230357D003C64AD /* DateFormFieldChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormFieldChangeNotifiable.swift; sourceTree = "<group>"; };
 		9BE5A5462228813A004A59B9 /* CondorUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CondorUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE5A5492228813B004A59B9 /* CondorUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CondorUIComponents.h; sourceTree = "<group>"; };
 		9BE5A54A2228813B004A59B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,13 +137,32 @@
 			path = CondorUIComponentsTests;
 			sourceTree = "<group>";
 		};
-		9BE4033D223028DC003C64AD /* TextField */ = {
+		9BE4033D223028DC003C64AD /* Text */ = {
 			isa = PBXGroup;
 			children = (
 				9BE5A56E222882CD004A59B9 /* TextFormField.swift */,
 				9BE5A56C222882B1004A59B9 /* TextFormatter.swift */,
 			);
-			path = TextField;
+			path = Text;
+			sourceTree = "<group>";
+		};
+		9BE4033E22302F52003C64AD /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				9BE5A57422288318004A59B9 /* DateFormField.swift */,
+				9BE403442230357D003C64AD /* DateFormFieldChangeNotifiable.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		9BE4033F223030F2003C64AD /* FormField */ = {
+			isa = PBXGroup;
+			children = (
+				9BE5A57622288336004A59B9 /* FormField.swift */,
+				9BE4034022303104003C64AD /* FormFieldErrorType.swift */,
+				9BE4034222303227003C64AD /* FormFieldNotifiable.swift */,
+			);
+			path = FormField;
 			sourceTree = "<group>";
 		};
 		9BE5A53C2228813A004A59B9 = {
@@ -175,15 +200,15 @@
 		9BE5A5602228816B004A59B9 /* UIModels */ = {
 			isa = PBXGroup;
 			children = (
-				9BE4033D223028DC003C64AD /* TextField */,
+				9BE4033F223030F2003C64AD /* FormField */,
+				9BE4033E22302F52003C64AD /* Date */,
+				9BE4033D223028DC003C64AD /* Text */,
 				9BE5A581222883BF004A59B9 /* Checkbox */,
 				9BE5A57D2228839C004A59B9 /* RadioGroup */,
 				9BE5A57822288365004A59B9 /* MultipleSelection */,
 				9BE5A56A2228829C004A59B9 /* SelectorFormField.swift */,
 				9BE5A570222882E8004A59B9 /* TextRegexFormField.swift */,
 				9BE5A572222882FB004A59B9 /* TextSelectionFormField.swift */,
-				9BE5A57422288318004A59B9 /* DateFormField.swift */,
-				9BE5A57622288336004A59B9 /* FormField.swift */,
 			);
 			path = UIModels;
 			sourceTree = "<group>";
@@ -433,14 +458,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE5A563222881A8004A59B9 /* Constants.swift in Sources */,
+				9BE4034122303104003C64AD /* FormFieldErrorType.swift in Sources */,
 				9BE5A567222881EA004A59B9 /* Extensions+UIStackView.swift in Sources */,
 				9BE5A57722288336004A59B9 /* FormField.swift in Sources */,
 				9BE5A573222882FB004A59B9 /* TextSelectionFormField.swift in Sources */,
 				9BE5A569222881FC004A59B9 /* Extensions+UIView.swift in Sources */,
 				9BE5A571222882E8004A59B9 /* TextRegexFormField.swift in Sources */,
+				9BE403452230357D003C64AD /* DateFormFieldChangeNotifiable.swift in Sources */,
 				9BE5A57A22288378004A59B9 /* MultipleSelectionFormField.swift in Sources */,
 				9BE5A56D222882B1004A59B9 /* TextFormatter.swift in Sources */,
 				9BE5A583222883DA004A59B9 /* CheckboxFormField.swift in Sources */,
+				9BE4034322303227003C64AD /* FormFieldNotifiable.swift in Sources */,
 				9BE5A580222883B4004A59B9 /* RadioGroupFormField.swift in Sources */,
 				9BE5A57C2228838D004A59B9 /* MultipleSelectionItem.swift in Sources */,
 				9BE5A57522288318004A59B9 /* DateFormField.swift in Sources */,

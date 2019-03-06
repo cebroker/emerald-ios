@@ -6,12 +6,7 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public protocol FormFieldErrorProtocol {
-
-    var description: String? { get }
-}
-
-public enum FormFieldError: FormFieldErrorProtocol {
+public enum FormFieldError: FormFieldErrorType {
     case emptyField
 }
 
@@ -26,8 +21,8 @@ public extension FormFieldError {
 
 public class ValidationResult {
     let isValid: Bool
-    let error: FormFieldErrorProtocol?
-    init(isValid: Bool, error: FormFieldErrorProtocol? = nil) {
+    let error: FormFieldErrorType?
+    init(isValid: Bool, error: FormFieldErrorType? = nil) {
         self.isValid = isValid
         self.error = error
     }
@@ -51,7 +46,7 @@ public class FormFieldType<ReturnType>: UIView {
         return ValidationResult.init(isValid: false, error: FormFieldError.emptyField)
     }
 
-    func show(error: FormFieldErrorProtocol) {
+    func show(error: FormFieldErrorType) {
 
     }
 

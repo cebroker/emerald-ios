@@ -12,7 +12,7 @@ public protocol Selectable {
     func getSelectableText() -> String
 }
 
-public protocol SelectorFormFieldProtocol: TextFormFieldProtocol {
+public protocol SelectorFormFieldProtocol: TextFormFieldType {
     func set(listener: SelectorFormFieldListener)
     func set(data: [Selectable])
     func clearData()
@@ -158,7 +158,7 @@ extension SelectorFormField: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
-public enum SelectorFormFieldError: FormFieldErrorProtocol {
+public enum SelectorFormFieldError: FormFieldErrorType {
     case missingSelectedValue
     case uiSelectedValueMismatch
 }

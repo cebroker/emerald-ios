@@ -56,7 +56,7 @@ class DateFormFieldTests: XCTestCase {
     }
     
     func testShouldPassValidation() {
-        guard let dateFormField = self.dateFormField as? DateFormFieldProtocol else {
+        guard let dateFormField = self.dateFormField as? DateFormFieldType else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
@@ -89,7 +89,7 @@ class DateFormFieldTests: XCTestCase {
     }
     
     func testShouldNotPassValidationEmpty() {
-        guard let dateFormField = self.dateFormField as? DateFormFieldProtocol else {
+        guard let dateFormField = self.dateFormField as? DateFormFieldType else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
@@ -115,7 +115,7 @@ class DateFormFieldTests: XCTestCase {
     }
     
     func testShouldNotPassValidationLowerThanMinimumDate() {
-        guard let dateFormField = self.dateFormField as? DateFormFieldProtocol else {
+        guard let dateFormField = self.dateFormField as? DateFormFieldType else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
@@ -156,7 +156,7 @@ class DateFormFieldTests: XCTestCase {
     }
     
     func testShouldNotPassValidationGreaterThanMaximumDate() {
-        guard let dateFormField = self.dateFormField as? DateFormFieldProtocol else {
+        guard let dateFormField = self.dateFormField as? DateFormFieldType else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }

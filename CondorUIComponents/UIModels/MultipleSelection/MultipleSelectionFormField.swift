@@ -125,7 +125,7 @@ public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSe
         return ValidationResult(isValid: true)
     }
 
-    public override func show(error: FormFieldErrorProtocol) {
+    public override func show(error: FormFieldErrorType) {
         guard self.errorLabel == nil else {
             return
         }

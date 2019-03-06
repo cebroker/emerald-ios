@@ -8,7 +8,7 @@
 
 import MaterialComponents.MaterialTextFields
 
-public protocol TextFormFieldProtocol {
+public protocol TextFormFieldType {
     func set(placeholder: String?)
     func getPlaceholder() -> String?
     func set(text: String?)
@@ -20,7 +20,7 @@ public protocol TextFormFieldProtocol {
     func getUnformattedText() -> String?
 }
 
-public class TextFormField: FormFieldType<String>, TextFormFieldProtocol, TextFormatter, UITextFieldDelegate {
+public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormatter, UITextFieldDelegate {
 
     private var textField: MDCTextField?
 
@@ -126,7 +126,7 @@ public class TextFormField: FormFieldType<String>, TextFormFieldProtocol, TextFo
         }
     }
 
-    public override func show(error: FormFieldErrorProtocol) {
+    public override func show(error: FormFieldErrorType) {
         self.textField?.placeholder = error.description
     }
 

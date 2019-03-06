@@ -26,7 +26,7 @@ public class AddressState: Selectable {
     }
 }
 
-protocol TextSelectionFormFieldProtocol: TextFormFieldProtocol {
+protocol TextSelectionFormFieldProtocol: TextFormFieldType {
     func set(availableOptions: [String])
     func getAvailableOptions() -> [String]?
 }
@@ -62,7 +62,7 @@ class TextSelectionFormField: TextFormField, TextSelectionFormFieldProtocol {
     }
 }
 
-enum TextSelectionFormFieldError: FormFieldErrorProtocol {
+enum TextSelectionFormFieldError: FormFieldErrorType {
     case missingAvailableOptions
     case optionNotFound
 }
