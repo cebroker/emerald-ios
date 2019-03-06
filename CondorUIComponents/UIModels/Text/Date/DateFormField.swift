@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DateFormFieldType: TextFormFieldType {
-    func set(notifiable: DateFormFieldChangeNotifiable)
+    func set(notifiable: DateFormFieldChangeNotifiable?)
     func set(minimumDate: Date?)
     func getMinimumDate() -> Date?
     func set(maximumDate: Date?)
@@ -29,20 +29,20 @@ protocol TestableDateFormFieldProtocol {
     func setMaximum(day: Int, month: Int, year: Int)
 }
 
-class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProtocol {
+public class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProtocol {
 
     private var selectedDate: Date?
-    
+
     private var dateFormatter: DateFormatter = DateFormatter()
 
     private weak var notifiable: DateFormFieldChangeNotifiable?
 
     private var pickerView: UIDatePicker = UIDatePicker()
-    
+
     private let toolbar: UIToolbar = UIToolbar()
-    
-    override func commonInit() {
-        super.commonInit()
+
+    override func postInit() {
+        super.postInit()
         self.setupPickerView()
         self.setupToolbar()
         self.setupDefaultDateFormat()
@@ -79,7 +79,7 @@ class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProt
         }
     }
 
-    func set(notifiable: DateFormFieldChangeNotifiable) {
+    func set(notifiable: DateFormFieldChangeNotifiable?) {
         self.notifiable = notifiable
     }
 

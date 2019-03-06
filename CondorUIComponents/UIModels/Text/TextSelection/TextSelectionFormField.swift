@@ -1,0 +1,39 @@
+//
+//  TextSelectionFormField.swift
+//  CondorUIComponents
+//
+//  Created by Luis David Goyes Garces on 2/28/19.
+//  Copyright © 2019 Condor Labs. All rights reserved.
+//
+
+protocol TextSelectionFormFieldProtocol: TextFormFieldType {
+    func set(availableOptions: [String])
+    func getAvailableOptions() -> [String]
+}
+
+class TextSelectionFormField: TextFormField, TextSelectionFormFieldProtocol {
+
+    private var availableOptions: [String] = []
+
+    func set(availableOptions: [String]) {
+        self.availableOptions = availableOptions
+    }
+
+    func getAvailableOptions() -> [String] {
+        return self.availableOptions
+    }
+
+    override func validateContent() -> ValidationResult {
+        guard let text = self.getValue(), !text.isEmpty else {
+            return ValidationResult(isValid: false, error: FormFieldError.emptyField)
+        }
+
+        guard let _ = self.availableOptions.first(where: { option -> Bool in
+            option == text.uppercased()
+        }) else {
+            return ValidationResult(isValid: false, error: TextSelectionFormFieldError.optionNotFound)
+        }
+
+        return ValidationResult(isValid: true)
+    }
+}

@@ -121,7 +121,7 @@ public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSe
         return nil
     }
 
-    func validateContent() -> ValidationResult {
+    override func validateContent() -> ValidationResult {
         return ValidationResult(isValid: true)
     }
 
