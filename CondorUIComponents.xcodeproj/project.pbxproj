@@ -25,6 +25,7 @@
 		9BA4919722288EFF00837D07 /* SelectorFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */; };
 		9BA4919822288EFF00837D07 /* TextSelectionFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */; };
 		9BBCBA3A22307C150050FD58 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B6D2E3E22288AD1002079AF /* Info.plist */; };
+		9BBCBA3C22307CAA0050FD58 /* SimpleSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */; };
 		9BE4033A22301EF6003C64AD /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */; };
 		9BE4034122303104003C64AD /* FormFieldErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4034022303104003C64AD /* FormFieldErrorType.swift */; };
 		9BE403452230357D003C64AD /* DateFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE403442230357D003C64AD /* DateFormFieldChangeNotifiable.swift */; };
@@ -81,6 +82,7 @@
 		9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormFieldTests.swift; sourceTree = "<group>"; };
 		9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxFormFieldTests.swift; sourceTree = "<group>"; };
 		9BA491A422288FEE00837D07 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSetup.swift; sourceTree = "<group>"; };
 		9BE4034022303104003C64AD /* FormFieldErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldErrorType.swift; sourceTree = "<group>"; };
 		9BE403442230357D003C64AD /* DateFormFieldChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormFieldChangeNotifiable.swift; sourceTree = "<group>"; };
 		9BE5A5462228813A004A59B9 /* CondorUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CondorUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 				9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */,
 				9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */,
 				9B6D2E3E22288AD1002079AF /* Info.plist */,
+				9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */,
 			);
 			path = CondorUIComponentsTests;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 			files = (
 				9BA4918D22288EE600837D07 /* DateFormFieldTests.swift in Sources */,
 				9BA4918E22288EE600837D07 /* PhoneTextFieldTests.swift in Sources */,
+				9BBCBA3C22307CAA0050FD58 /* SimpleSetup.swift in Sources */,
 				9BA4918F22288EE600837D07 /* RadioGroupFormFieldTests.swift in Sources */,
 				9BE4033A22301EF6003C64AD /* CheckboxFormFieldTests.swift in Sources */,
 				9BA4919022288EE600837D07 /* SelectorFormFieldTests.swift in Sources */,
