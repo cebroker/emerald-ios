@@ -25,7 +25,7 @@ class TextSelectionFormFieldTests: XCTestCase {
         }
     }
     
-    var cityFormField: TextSelectionFormField?
+    var cityFormField: FormFieldType<String>?
     
     override func setUp() {
         cityFormField = TextSelectionFormField(frame: Constants.MockedData.mockFrame)
@@ -36,19 +36,18 @@ class TextSelectionFormFieldTests: XCTestCase {
     }
     
     func testShouldPassValidation() {
-        guard let cityFormField = self.cityFormField as? TextSelectionFormFieldProtocol else {
+        guard let cityFormField = self.cityFormField else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
         
-        cityFormField.set(availableOptions: InnerConstants.Settings.mockedState.cities)
-        
-        guard let testableCityFormField = self.cityFormField as? TestableTextFormFieldProtocol else {
+        guard let cityFormFieldDataSetter = self.cityFormField as? TextSelectionFormFieldProtocol else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
         
-        testableCityFormField.set(text: InnerConstants.Strings.passValidation)
+        cityFormFieldDataSetter.set(availableOptions: InnerConstants.Settings.mockedState.cities)
+        cityFormFieldDataSetter.set(text: InnerConstants.Strings.passValidation)
         
         guard cityFormField.isValid().isValid else {
             if let error = cityFormField.isValid().error?.description {
@@ -61,19 +60,18 @@ class TextSelectionFormFieldTests: XCTestCase {
     }
     
     func testShouldNotPassValidationEmpty() {
-        guard let cityFormField = self.cityFormField as? TextSelectionFormFieldProtocol else {
+        guard let cityFormField = self.cityFormField else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
         
-        cityFormField.set(availableOptions: InnerConstants.Settings.mockedState.cities)
-        
-        guard let testableCityFormField = self.cityFormField as? TestableTextFormFieldProtocol else {
+        guard let cityFormFieldDataSetter = self.cityFormField as? TextSelectionFormFieldProtocol else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
         
-        testableCityFormField.set(text: InnerConstants.Strings.emptyValidation)
+        cityFormFieldDataSetter.set(availableOptions: InnerConstants.Settings.mockedState.cities)
+        cityFormFieldDataSetter.set(text: InnerConstants.Strings.emptyValidation)
         
         let validationResult = cityFormField.isValid()
         
@@ -94,17 +92,17 @@ class TextSelectionFormFieldTests: XCTestCase {
     }
     
     func testShouldNotPassValidationMissingState() {
-        guard let cityFormField = self.cityFormField as? TextSelectionFormFieldProtocol else {
+        guard let cityFormField = self.cityFormField else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
         
-        guard let testableCityFormField = self.cityFormField as? TestableTextFormFieldProtocol else {
+        guard let cityFormFieldDataSetter = self.cityFormField as? TextSelectionFormFieldProtocol else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
         
-        testableCityFormField.set(text: InnerConstants.Strings.passValidation)
+        cityFormFieldDataSetter.set(text: InnerConstants.Strings.passValidation)
         
         let validationResult = cityFormField.isValid()
         
@@ -125,19 +123,18 @@ class TextSelectionFormFieldTests: XCTestCase {
     }
     
     func testShouldNotPassValidationCityNotFound() {
-        guard let cityFormField = self.cityFormField as? TextSelectionFormFieldProtocol else {
+        guard let cityFormField = self.cityFormField else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
         
-        cityFormField.set(availableOptions: InnerConstants.Settings.mockedState.cities)
-        
-        guard let testableCityFormField = self.cityFormField as? TestableTextFormFieldProtocol else {
+        guard let cityFormFieldDataSetter = self.cityFormField as? TextSelectionFormFieldProtocol else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
         
-        testableCityFormField.set(text: InnerConstants.Strings.cityNotFoundValidation)
+        cityFormFieldDataSetter.set(availableOptions: InnerConstants.Settings.mockedState.cities)
+        cityFormFieldDataSetter.set(text: InnerConstants.Strings.cityNotFoundValidation)
         
         let validationResult = cityFormField.isValid()
         
