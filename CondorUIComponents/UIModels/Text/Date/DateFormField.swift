@@ -21,7 +21,7 @@ protocol DateFormFieldType: TextFormFieldType {
     func set(dateFormat: String)
 }
 
-protocol TestableDateFormFieldProtocol {
+protocol DateFormFieldTestableType {
     func set(selectedDate: Date)
     func set(day: Int, month: Int, year: Int)
     func set(hour: Int, minute: Int)
@@ -29,7 +29,7 @@ protocol TestableDateFormFieldProtocol {
     func setMaximum(day: Int, month: Int, year: Int)
 }
 
-public class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProtocol {
+public class DateFormField: TextFormField, DateFormFieldType, DateFormFieldTestableType {
 
     private var selectedDate: Date?
 

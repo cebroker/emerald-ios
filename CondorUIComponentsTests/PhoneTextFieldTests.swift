@@ -28,8 +28,7 @@ class PhoneTextFieldTests: XCTestCase {
         }
     }
 
-//    var phoneTextField: FormFieldType?
-    var phoneTextField: TextRegexFormField?
+    var phoneTextField: FormFieldType<String>?
 
     override func setUp() {
 
@@ -41,19 +40,19 @@ class PhoneTextFieldTests: XCTestCase {
     }
 
     func testShouldPassValidation() {
-        guard let phoneTextField = self.phoneTextField as? TextRegexFormFieldProtocol else {
+
+        guard let phoneTextField = self.phoneTextField else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
 
-        phoneTextField.set(regex: Constants.Regex.phone)
-
-        guard let testablePhoneTextField = self.phoneTextField as? TestableTextFormFieldProtocol else {
+        guard let phoneTextFieldDataSetter = self.phoneTextField as? TextRegexFormFieldProtocol else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
 
-        testablePhoneTextField.set(text: InnerConstants.Strings.successfulPhone)
+        phoneTextFieldDataSetter.set(regex: Constants.Regex.phone)
+        phoneTextFieldDataSetter.set(text: InnerConstants.Strings.successfulPhone)
 
         guard phoneTextField.isValid().isValid else {
             if let error = phoneTextField.isValid().error?.description {
@@ -66,19 +65,18 @@ class PhoneTextFieldTests: XCTestCase {
     }
 
     func testShouldNotPassValidationEmpty() {
-        guard let phoneTextField = self.phoneTextField as? TextRegexFormFieldProtocol else {
+        guard let phoneTextField = self.phoneTextField else {
+            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
+            return
+        }
+        
+        guard let phoneTextFieldDataSetter = self.phoneTextField as? TextRegexFormFieldProtocol else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
 
-        phoneTextField.set(regex: Constants.Regex.phone)
-
-        guard let testablePhoneTextField = self.phoneTextField as? TestableTextFormFieldProtocol else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-
-        testablePhoneTextField.set(text: InnerConstants.Strings.emptyPhone)
+        phoneTextFieldDataSetter.set(regex: Constants.Regex.phone)
+        phoneTextFieldDataSetter.set(text: InnerConstants.Strings.emptyPhone)
 
 
         let validationResult = phoneTextField.isValid()
@@ -100,17 +98,17 @@ class PhoneTextFieldTests: XCTestCase {
     }
 
     func testShouldNotPassValidationMissingRegex() {
-        guard let phoneTextField = self.phoneTextField as? TextRegexFormFieldProtocol else {
+        guard let phoneTextField = self.phoneTextField else {
+            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
+            return
+        }
+        
+        guard let phoneTextFieldDataSetter = self.phoneTextField as? TextRegexFormFieldProtocol else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
 
-        guard let testablePhoneTextField = self.phoneTextField as? TestableTextFormFieldProtocol else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-
-        testablePhoneTextField.set(text: InnerConstants.Strings.successfulPhone)
+        phoneTextFieldDataSetter.set(text: InnerConstants.Strings.successfulPhone)
 
         let validationResult = phoneTextField.isValid()
 
@@ -131,19 +129,18 @@ class PhoneTextFieldTests: XCTestCase {
     }
 
     func testShouldNotPassValidationRegexNotMaching() {
-        guard let phoneTextField = self.phoneTextField as? TextRegexFormFieldProtocol else {
+        guard let phoneTextField = self.phoneTextField else {
+            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
+            return
+        }
+        
+        guard let phoneTextFieldDataSetter = self.phoneTextField as? TextRegexFormFieldProtocol else {
             XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
             return
         }
 
-        phoneTextField.set(regex: Constants.Regex.phone)
-
-        guard let testablePhoneTextField = self.phoneTextField as? TestableTextFormFieldProtocol else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-
-        testablePhoneTextField.set(text: InnerConstants.Strings.notNumeric)
+        phoneTextFieldDataSetter.set(regex: Constants.Regex.phone)
+        phoneTextFieldDataSetter.set(text: InnerConstants.Strings.notNumeric)
 
         let validationResult = phoneTextField.isValid()
 
