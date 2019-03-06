@@ -26,7 +26,7 @@ class SelectorFormFieldTests: XCTestCase {
         }
     }
     
-    var stateSelectorField: FormFieldProtocol?
+    var stateSelectorField: SelectorFormField?
     
     override func setUp() {
         stateSelectorField = SelectorFormField(frame: Constants.MockedData.mockFrame)

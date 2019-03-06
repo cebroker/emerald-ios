@@ -21,7 +21,7 @@ public class TextRegexFormField: TextFormField, TextRegexFormFieldProtocol {
     }
     
     override func validateContent() -> ValidationResult {
-        guard let text = self.text, !text.isEmpty else {
+        guard let text = self.getValue(), !text.isEmpty else {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
         }
         

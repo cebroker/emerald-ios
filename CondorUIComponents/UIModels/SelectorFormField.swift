@@ -67,7 +67,7 @@ public class SelectorFormField: TextFormField, SelectorFormFieldProtocol {
             return ValidationResult(isValid: false, error: SelectorFormFieldError.missingSelectedValue)
         }
         
-        guard data.contains(where: { $0.getSelectableText() == self.getText() }) else {
+        guard data.contains(where: { $0.getSelectableText() == self.getValue() }) else {
             return ValidationResult(isValid: false, error: SelectorFormFieldError.uiSelectedValueMismatch)
         }
         

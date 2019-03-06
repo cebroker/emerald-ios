@@ -25,7 +25,7 @@ class TextSelectionFormFieldTests: XCTestCase {
         }
     }
     
-    var cityFormField: FormFieldProtocol?
+    var cityFormField: TextSelectionFormField?
     
     override func setUp() {
         cityFormField = TextSelectionFormField(frame: Constants.MockedData.mockFrame)

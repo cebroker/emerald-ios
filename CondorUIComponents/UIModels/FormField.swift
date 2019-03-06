@@ -7,7 +7,7 @@
 //
 
 public protocol FormFieldErrorProtocol {
-    
+
     var description: String? { get }
 }
 
@@ -33,17 +33,41 @@ public class ValidationResult {
     }
 }
 
-public protocol FormFieldProtocol {
-    var isRequired: Bool { get set }
+public class FormFieldType<ReturnType>: UIView {
     
-    func isValid() -> ValidationResult
-    func show(error: FormFieldErrorProtocol)
-    func clearError()
-    mutating func set(isRequired: Bool)
-}
+    var required: Bool = true
+    
+    var fieldValue: ReturnType?
 
-extension FormFieldProtocol {
-    mutating public func set(isRequired: Bool ){
-        self.isRequired = isRequired
+    func isValid() -> ValidationResult {
+        guard required else {
+            return ValidationResult(isValid: true)
+        }
+
+        return validateContent()
+    }
+
+    func validateContent() -> ValidationResult {
+        return ValidationResult.init(isValid: false, error: FormFieldError.emptyField)
+    }
+
+    func show(error: FormFieldErrorProtocol) {
+
+    }
+
+    func clearError() {
+
+    }
+
+    func getValue() -> ReturnType? {
+        return self.fieldValue
+    }
+
+    func set(value: ReturnType) {
+        self.fieldValue = value
+    }
+
+    func set(required: Bool) {
+        self.required = required
     }
 }

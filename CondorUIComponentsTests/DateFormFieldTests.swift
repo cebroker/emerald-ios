@@ -45,7 +45,7 @@ class DateFormFieldTests: XCTestCase {
         }
     }
     
-    var dateFormField: FormFieldProtocol?
+    var dateFormField: DateFormField?
     
     override func setUp() {
         dateFormField = DateFormField(frame: Constants.MockedData.mockFrame)
@@ -82,7 +82,7 @@ class DateFormFieldTests: XCTestCase {
             return
         }
         
-        guard testableDateFormField.getText() == InnerConstants.Strings.success else {
+        guard dateFormField.getValue() == InnerConstants.Strings.success else {
             XCTFail(Constants.TestsErrors.validationFailed.localizedDescription)
             return
         }

@@ -61,7 +61,7 @@ class DateFormField: TextFormField, DateFormFieldProtocol, TestableDateFormField
     }
     
     override func validateContent() -> ValidationResult {
-        guard let text = self.text, !text.isEmpty, let date = self.date else {
+        guard let text = self.getValue(), !text.isEmpty, let date = self.date else {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
         }
         
@@ -96,7 +96,7 @@ class DateFormField: TextFormField, DateFormFieldProtocol, TestableDateFormField
         self.date = date
         if let date = self.date {
             let formattedDate = dateFormatter.string(from: date)
-            self.text = formattedDate
+            self.set(text: formattedDate)
             listener?.onSelected(dateString: formattedDate, date: date, from: self)
         }
     }

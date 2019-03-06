@@ -8,18 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		010D952A26C63B5DEEEBE1F6 /* Pods_CondorUIComponentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */; };
-		9BA4918C22288EE600837D07 /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */; };
 		9BA4918D22288EE600837D07 /* DateFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4917F22288E5200837D07 /* DateFormFieldTests.swift */; };
 		9BA4918E22288EE600837D07 /* PhoneTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918122288E5200837D07 /* PhoneTextFieldTests.swift */; };
 		9BA4918F22288EE600837D07 /* RadioGroupFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918022288E5200837D07 /* RadioGroupFormFieldTests.swift */; };
 		9BA4919022288EE600837D07 /* SelectorFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */; };
 		9BA4919122288EE600837D07 /* TextSelectionFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */; };
-		9BA4919322288EFF00837D07 /* CheckboxFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */; };
 		9BA4919422288EFF00837D07 /* DateFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4917F22288E5200837D07 /* DateFormFieldTests.swift */; };
 		9BA4919522288EFF00837D07 /* PhoneTextFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918122288E5200837D07 /* PhoneTextFieldTests.swift */; };
 		9BA4919622288EFF00837D07 /* RadioGroupFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918022288E5200837D07 /* RadioGroupFormFieldTests.swift */; };
 		9BA4919722288EFF00837D07 /* SelectorFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */; };
 		9BA4919822288EFF00837D07 /* TextSelectionFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */; };
+		9BE4033A22301EF6003C64AD /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */; };
 		9BE5A5572228813B004A59B9 /* CondorUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE5A5492228813B004A59B9 /* CondorUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9BE5A563222881A8004A59B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A562222881A7004A59B9 /* Constants.swift */; };
 		9BE5A565222881D1004A59B9 /* Extensions+NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A564222881D1004A59B9 /* Extensions+NSRegularExpression.swift */; };
@@ -38,6 +37,16 @@
 		9BE5A583222883DA004A59B9 /* CheckboxFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A582222883DA004A59B9 /* CheckboxFormField.swift */; };
 		A953FC70989E1D24BA292008 /* Pods_CondorUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A09684886839E6F689C9AA5 /* Pods_CondorUIComponents.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BE4033B22301F27003C64AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BE5A53D2228813A004A59B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BE5A5452228813A004A59B9;
+			remoteInfo = CondorUIComponents;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1A09684886839E6F689C9AA5 /* Pods_CondorUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +131,15 @@
 			path = CondorUIComponentsTests;
 			sourceTree = "<group>";
 		};
+		9BE4033D223028DC003C64AD /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				9BE5A56E222882CD004A59B9 /* TextFormField.swift */,
+				9BE5A56C222882B1004A59B9 /* TextFormatter.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		9BE5A53C2228813A004A59B9 = {
 			isa = PBXGroup;
 			children = (
@@ -157,12 +175,11 @@
 		9BE5A5602228816B004A59B9 /* UIModels */ = {
 			isa = PBXGroup;
 			children = (
+				9BE4033D223028DC003C64AD /* TextField */,
 				9BE5A581222883BF004A59B9 /* Checkbox */,
 				9BE5A57D2228839C004A59B9 /* RadioGroup */,
 				9BE5A57822288365004A59B9 /* MultipleSelection */,
 				9BE5A56A2228829C004A59B9 /* SelectorFormField.swift */,
-				9BE5A56C222882B1004A59B9 /* TextFormatter.swift */,
-				9BE5A56E222882CD004A59B9 /* TextFormField.swift */,
 				9BE5A570222882E8004A59B9 /* TextRegexFormField.swift */,
 				9BE5A572222882FB004A59B9 /* TextSelectionFormField.swift */,
 				9BE5A57422288318004A59B9 /* DateFormField.swift */,
@@ -247,6 +264,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9BE4033C22301F27003C64AD /* PBXTargetDependency */,
 			);
 			name = CondorUIComponentsTests;
 			productName = CondorUIComponentsTests;
@@ -315,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA4919322288EFF00837D07 /* CheckboxFormFieldTests.swift in Resources */,
 				9BA4919422288EFF00837D07 /* DateFormFieldTests.swift in Resources */,
 				9BA4919522288EFF00837D07 /* PhoneTextFieldTests.swift in Resources */,
 				9BA4919622288EFF00837D07 /* RadioGroupFormFieldTests.swift in Resources */,
@@ -402,10 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA4918C22288EE600837D07 /* CheckboxFormFieldTests.swift in Sources */,
 				9BA4918D22288EE600837D07 /* DateFormFieldTests.swift in Sources */,
 				9BA4918E22288EE600837D07 /* PhoneTextFieldTests.swift in Sources */,
 				9BA4918F22288EE600837D07 /* RadioGroupFormFieldTests.swift in Sources */,
+				9BE4033A22301EF6003C64AD /* CheckboxFormFieldTests.swift in Sources */,
 				9BA4919022288EE600837D07 /* SelectorFormFieldTests.swift in Sources */,
 				9BA4919122288EE600837D07 /* TextSelectionFormFieldTests.swift in Sources */,
 			);
@@ -434,6 +451,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BE4033C22301F27003C64AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BE5A5452228813A004A59B9 /* CondorUIComponents */;
+			targetProxy = 9BE4033B22301F27003C64AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9B6D2E4322288AD1002079AF /* Debug */ = {

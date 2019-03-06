@@ -25,7 +25,7 @@ class RadioGroupFormFieldTests: XCTestCase {
         }
     }
     
-    var radioGroupField: FormFieldProtocol?
+    var radioGroupField: RadioGroupFormField?
     
     override func setUp() {
         radioGroupField = RadioGroupFormField(frame: InnerConstants.Settings.mockFrame)

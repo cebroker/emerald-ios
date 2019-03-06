@@ -26,7 +26,7 @@ class CheckboxFormFieldTests: XCTestCase {
         }
     }
     
-    var checkboxField: FormFieldProtocol?
+    var checkboxField: CheckboxFormFieldProtocol?
     
     override func setUp() {
         checkboxField = CheckboxFormField(frame: InnerConstants.Settings.mockFrame)
