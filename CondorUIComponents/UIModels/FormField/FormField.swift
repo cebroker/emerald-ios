@@ -29,10 +29,24 @@ public class ValidationResult {
 }
 
 public class FormFieldType<ReturnType>: UIView {
-    
+
     var required: Bool = true
-    
+
     var fieldValue: ReturnType?
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.postInit()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.postInit()
+    }
+
+    func postInit() {
+        // Method intentionally left in blank
+    }
 
     func isValid() -> ValidationResult {
         guard required else {
@@ -47,11 +61,11 @@ public class FormFieldType<ReturnType>: UIView {
     }
 
     func show(error: FormFieldErrorType) {
-
+        // Method intentionally left in blank
     }
 
     func clearError() {
-
+        // Method intentionally left in blank
     }
 
     func getValue() -> ReturnType? {

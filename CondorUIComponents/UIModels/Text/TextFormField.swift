@@ -33,18 +33,16 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     private var format: TextFormat = .none
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
         self.textField = MDCTextField(coder: aDecoder)
-        self.postInit()
+        super.init(coder: aDecoder)
     }
 
     override init(frame: CGRect) {
-        super.init(frame: frame)
         self.textField = MDCTextField(frame: frame)
-        self.postInit()
+        super.init(frame: frame)
     }
 
-    func postInit() {
+    override func postInit() {
         guard let textField = self.textField else {
             return
         }
