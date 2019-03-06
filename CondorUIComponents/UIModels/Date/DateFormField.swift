@@ -9,10 +9,10 @@
 import UIKit
 
 protocol DateFormFieldType: TextFormFieldType {
-    func set(listener: DateFormFieldChangeNotifiable)
-    func set(minimumDate: Date)
+    func set(notifiable: DateFormFieldChangeNotifiable)
+    func set(minimumDate: Date?)
     func getMinimumDate() -> Date?
-    func set(maximumDate: Date)
+    func set(maximumDate: Date?)
     func getMaximumDate() -> Date?
     func forbidDatesPreviousThanToday()
     func allowDatesPreviousThanToday()
@@ -22,7 +22,7 @@ protocol DateFormFieldType: TextFormFieldType {
 }
 
 protocol TestableDateFormFieldProtocol {
-    func set(date: Date)
+    func set(selectedDate: Date)
     func set(day: Int, month: Int, year: Int)
     func set(hour: Int, minute: Int)
     func setMinimum(day: Int, month: Int, year: Int)
@@ -31,30 +31,96 @@ protocol TestableDateFormFieldProtocol {
 
 class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProtocol {
 
-    private weak var listener: DateFormFieldChangeNotifiable?
-
-    private var pickerView: UIDatePicker = UIDatePicker()
-
-    private let toolbar: UIToolbar = UIToolbar()
-
-    private let previousDatesAllowed: Bool = true
-
-    private var date: Date?
-
+    private var selectedDate: Date?
+    
     private var dateFormatter: DateFormatter = DateFormatter()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
+    private weak var notifiable: DateFormFieldChangeNotifiable?
+
+    private var pickerView: UIDatePicker = UIDatePicker()
+    
+    private let toolbar: UIToolbar = UIToolbar()
+    
+    override func commonInit() {
+        super.commonInit()
+        self.setupPickerView()
+        self.setupToolbar()
+        self.setupDefaultDateFormat()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
+    func set(selectedDate: Date) {
+        self.selectedDate = selectedDate
+        let formattedDate = dateFormatter.string(from: selectedDate)
+        self.set(text: formattedDate)
+        notifiable?.onSelected(dateString: formattedDate, date: selectedDate, from: self)
     }
 
-    override func validateContent() -> ValidationResult {
-        guard let text = self.getValue(), !text.isEmpty, let date = self.date else {
+    func set(day: Int, month: Int, year: Int) {
+        if let date = getDateFrom(day: day, month: month, year: year) {
+            self.set(selectedDate: date)
+        }
+    }
+
+    func set(hour: Int, minute: Int) {
+        if let date = getDateFrom(hour: hour, minute: minute) {
+            self.set(selectedDate: date)
+        }
+    }
+
+    func setMinimum(day: Int, month: Int, year: Int) {
+        if let date = getDateFrom(day: day, month: month, year: year) {
+            self.pickerView.minimumDate = date
+        }
+    }
+
+    func setMaximum(day: Int, month: Int, year: Int) {
+        if let date = getDateFrom(day: day, month: month, year: year) {
+            self.pickerView.maximumDate = date
+        }
+    }
+
+    func set(notifiable: DateFormFieldChangeNotifiable) {
+        self.notifiable = notifiable
+    }
+
+    func set(minimumDate: Date?) {
+        pickerView.minimumDate = minimumDate
+    }
+
+    func getMinimumDate() -> Date? {
+        return pickerView.minimumDate
+    }
+
+    func set(maximumDate: Date?) {
+        pickerView.maximumDate = maximumDate
+    }
+
+    func getMaximumDate() -> Date? {
+        return pickerView.maximumDate
+    }
+
+    func forbidDatesPreviousThanToday() {
+        self.pickerView.minimumDate = Date()
+    }
+
+    func allowDatesPreviousThanToday() {
+        self.pickerView.minimumDate = nil
+    }
+
+    func forbidDatesLaterThanToday() {
+        self.pickerView.maximumDate = Date()
+    }
+
+    func allowDatesLaterThanToday() {
+        self.pickerView.maximumDate = nil
+    }
+
+    func set(dateFormat: String) {
+        self.dateFormatter.dateFormat = dateFormat
+    }
+
+    public override func validateContent() -> ValidationResult {
+        guard let text = self.getValue(), !text.isEmpty, let date = self.selectedDate else {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
         }
 
@@ -73,78 +139,6 @@ class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProt
         return ValidationResult(isValid: true)
     }
 
-    func set(listener: DateFormFieldChangeNotifiable) {
-        self.listener = listener
-    }
-
-    func set(minimumDate: Date) {
-        pickerView.minimumDate = minimumDate
-    }
-
-    func set(maximumDate: Date) {
-        pickerView.maximumDate = maximumDate
-    }
-
-    func set(date: Date) {
-        self.date = date
-        if let date = self.date {
-            let formattedDate = dateFormatter.string(from: date)
-            self.set(text: formattedDate)
-            listener?.onSelected(dateString: formattedDate, date: date, from: self)
-        }
-    }
-
-    func set(day: Int, month: Int, year: Int) {
-        if let date = getDateFrom(day: day, month: month, year: year) {
-            self.set(date: date)
-        }
-    }
-
-    func setMinimum(day: Int, month: Int, year: Int) {
-        if let date = getDateFrom(day: day, month: month, year: year) {
-            self.pickerView.minimumDate = date
-        }
-    }
-
-    func setMaximum(day: Int, month: Int, year: Int) {
-        if let date = getDateFrom(day: day, month: month, year: year) {
-            self.pickerView.maximumDate = date
-        }
-    }
-
-    func set(hour: Int, minute: Int) {
-        if let date = getDateFrom(hour: hour, minute: minute) {
-            self.set(date: date)
-        }
-    }
-
-    func areDatesPreviousThanTodayAllowed(_ state: Bool) {
-        if !state {
-            self.pickerView.minimumDate = Date()
-        } else {
-            self.pickerView.minimumDate = nil
-        }
-    }
-
-    func areDatesLaterThanTodayAllowed(_ state: Bool) {
-        if !state {
-            self.pickerView.maximumDate = Date()
-        } else {
-            self.pickerView.maximumDate = nil
-        }
-    }
-
-    func set(format: String) {
-        self.dateFormatter.dateFormat = format
-    }
-
-    override func commonInit() {
-        super.commonInit()
-        self.setupPickerView()
-        self.setupToolbar()
-        self.setupDefaultDateFormat()
-    }
-
     private func setupToolbar() {
         self.toolbar.barStyle = UIBarStyle.default
         self.toolbar.isTranslucent = true
@@ -154,7 +148,7 @@ class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProt
         self.toolbar.setItems([doneButton], animated: false)
         self.toolbar.isUserInteractionEnabled = true
 
-        self.inputAccessoryView = toolbar
+        self.textField?.inputAccessoryView = toolbar
     }
 
     private func setupPickerView() {
@@ -162,27 +156,27 @@ class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProt
 
         pickerView.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
 
-        self.inputView = pickerView
+        self.textField?.inputView = pickerView
+    }
+
+    @objc private func datePickerValueChanged() {
+        self.set(selectedDate: pickerView.date)
+    }
+
+    @objc private func onDoneButtonPressed() {
+        self.set(selectedDate: pickerView.date)
+
+        self.textField?.resignFirstResponder()
+        toolbar.removeFromSuperview()
+        pickerView.removeFromSuperview()
+
+        notifiable?.onDoneButtonPressed(from: self)
     }
 
     private func setupDefaultDateFormat() {
         dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
         dateFormatter.timeZone = TimeZone(abbreviation: Constants.DateFormat.defaultTimeZone)
         dateFormatter.dateFormat = Constants.DateFormat.defaultFormat
-    }
-
-    @objc private func datePickerValueChanged() {
-        self.set(date: pickerView.date)
-    }
-
-    @objc private func onDoneButtonPressed() {
-        self.set(date: pickerView.date)
-
-        self.resignFirstResponder()
-        toolbar.removeFromSuperview()
-        pickerView.removeFromSuperview()
-
-        listener?.onDoneButtonPressed(from: self)
     }
 
     private func getDateFrom(
@@ -214,24 +208,6 @@ class DateFormField: TextFormField, DateFormFieldType, TestableDateFormFieldProt
             dateComponents.minute = minute
         }
 
-        let userCalendar = Calendar.current
-
-        return userCalendar.date(from: dateComponents)
-    }
-}
-
-enum DateFormFieldError: FormFieldErrorType {
-    case lowerThanMinimumDate
-    case greaterThanMaximumDate
-}
-
-extension DateFormFieldError {
-    public var description: String? {
-        switch self {
-        case .lowerThanMinimumDate:
-            return "Picked date is lower than minimum."
-        case .greaterThanMaximumDate:
-            return "Picked date is greater than maximum."
-        }
+        return Calendar.current.date(from: dateComponents)
     }
 }

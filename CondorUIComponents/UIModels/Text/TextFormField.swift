@@ -22,7 +22,7 @@ public protocol TextFormFieldType {
 
 public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormatter, UITextFieldDelegate {
 
-    private var textField: MDCTextField?
+    var textField: MDCTextField?
 
     private var textFieldControllerFloating: MDCTextInputController?
 
