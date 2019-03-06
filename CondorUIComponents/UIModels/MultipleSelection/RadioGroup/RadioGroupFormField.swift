@@ -8,45 +8,33 @@
 
 import Foundation
 
-protocol RadioGroupFormFieldProtocol: MultipleSelectionFormFieldProtocol {
-    
-}
-
 protocol TestableRadioGroupFormFieldProtocol {
     func select(option: Selectable)
 }
 
-class RadioGroupFormField: MultipleSelectionFormField, RadioGroupFormFieldProtocol, TestableRadioGroupFormFieldProtocol {
-    private var selectedOption: Selectable?
-    
+class RadioGroupFormField: MultipleSelectionFormField, TestableRadioGroupFormFieldProtocol {
+
     func select(option: Selectable) {
-        self.selectedOption = option
+        self.getChildren()?.forEach({
+            $0.set(status: $0.getAssociatedSelectable()?.getSelectableText() == option.getSelectableText())
+        })
     }
-    
-    override func validateContent() -> ValidationResult {
-        guard let _ = self.selectedOption else {
-            return ValidationResult(isValid: false, error: FormFieldError.emptyField)
-        }
-        
-        return ValidationResult(isValid: true)
-    }
-    
-    override func onItemClicked(title: String?, from item: MultipleSelectionItem) {
-        super.onItemClicked(title: title, from: item)
-        
-        guard let radioButtons = self.stackView?.arrangedSubviews as? [MultipleSelectionItemProtocol] else {
+
+    override func onItemClicked(associatedSelectable: Selectable, from item: MultipleSelectionItemType) {
+        super.onItemClicked(associatedSelectable: associatedSelectable, from: item)
+
+        guard let radioButtonsToBeUnselected = self.getChildren()?.filter({
+            !$0.equals(item)
+        }) else {
             return
         }
-        
-        radioButtons.forEach {
+
+        radioButtonsToBeUnselected.forEach {
             $0.set(status: false)
         }
+
         item.set(status: true)
-        
-        selectedOption = data?.first {
-            $0.getSelectableText() == title
-        }
-        
-        listener?.onItemClicked(title: title, from: item)
+
+        notifiable?.onItemClicked(associatedSelectable: associatedSelectable, from: item)
     }
 }

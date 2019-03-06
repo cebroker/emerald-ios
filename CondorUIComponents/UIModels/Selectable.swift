@@ -6,6 +6,6 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public protocol Selectable {
+public protocol Selectable: class {
     func getSelectableText() -> String
 }

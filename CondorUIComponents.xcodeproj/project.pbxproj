@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		010D952A26C63B5DEEEBE1F6 /* Pods_CondorUIComponentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */; };
-		9B209870223061B80039057B /* MultipleSelectionChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B20986F223061B80039057B /* MultipleSelectionChangeNotifiable.swift */; };
+		9B209872223067A30039057B /* MultipleSelectionItemChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B209871223067A30039057B /* MultipleSelectionItemChangeNotifiable.swift */; };
 		9B7F449F22305BBE0059D36D /* TextRegexFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F449E22305BBE0059D36D /* TextRegexFormFieldError.swift */; };
 		9B7F44A122305E470059D36D /* TextSelectionFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A022305E470059D36D /* TextSelectionFormFieldError.swift */; };
 		9B7F44A322305EC20059D36D /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A222305EC20059D36D /* Selectable.swift */; };
@@ -64,7 +64,7 @@
 		50415D9DE5213B24F9BEAD0E /* Pods-CondorUIComponentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponentsTests.debug.xcconfig"; path = "Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862EACA607A1D76CC51DFF6D /* Pods-CondorUIComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponents.debug.xcconfig"; path = "Target Support Files/Pods-CondorUIComponents/Pods-CondorUIComponents.debug.xcconfig"; sourceTree = "<group>"; };
-		9B20986F223061B80039057B /* MultipleSelectionChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionChangeNotifiable.swift; sourceTree = "<group>"; };
+		9B209871223067A30039057B /* MultipleSelectionItemChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionItemChangeNotifiable.swift; sourceTree = "<group>"; };
 		9B660FA64B0492298D00A315 /* Pods-CondorUIComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponents.release.xcconfig"; path = "Target Support Files/Pods-CondorUIComponents/Pods-CondorUIComponents.release.xcconfig"; sourceTree = "<group>"; };
 		9B6D2E3A22288AD1002079AF /* CondorUIComponentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CondorUIComponentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6D2E3E22288AD1002079AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +133,15 @@
 				6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B2098732230680E0039057B /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				9B209871223067A30039057B /* MultipleSelectionItemChangeNotifiable.swift */,
+				9BE5A57B2228838D004A59B9 /* MultipleSelectionItem.swift */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		9B6D2E3B22288AD1002079AF /* CondorUIComponentsTests */ = {
@@ -266,11 +275,10 @@
 		9BE5A57822288365004A59B9 /* MultipleSelection */ = {
 			isa = PBXGroup;
 			children = (
+				9B2098732230680E0039057B /* Item */,
 				9BE5A581222883BF004A59B9 /* Checkbox */,
 				9BE5A57D2228839C004A59B9 /* RadioGroup */,
 				9BE5A57922288378004A59B9 /* MultipleSelectionFormField.swift */,
-				9BE5A57B2228838D004A59B9 /* MultipleSelectionItem.swift */,
-				9B20986F223061B80039057B /* MultipleSelectionChangeNotifiable.swift */,
 			);
 			path = MultipleSelection;
 			sourceTree = "<group>";
@@ -501,6 +509,7 @@
 			files = (
 				9BE5A563222881A8004A59B9 /* Constants.swift in Sources */,
 				9BE4034122303104003C64AD /* FormFieldErrorType.swift in Sources */,
+				9B209872223067A30039057B /* MultipleSelectionItemChangeNotifiable.swift in Sources */,
 				9BE5A567222881EA004A59B9 /* Extensions+UIStackView.swift in Sources */,
 				9BE5A57722288336004A59B9 /* FormField.swift in Sources */,
 				9BE5A573222882FB004A59B9 /* TextSelectionFormField.swift in Sources */,
@@ -514,7 +523,6 @@
 				9B7F44A7223061120059D36D /* SelectorFormFieldError.swift in Sources */,
 				9B7F449F22305BBE0059D36D /* TextRegexFormFieldError.swift in Sources */,
 				9BE5A57A22288378004A59B9 /* MultipleSelectionFormField.swift in Sources */,
-				9B209870223061B80039057B /* MultipleSelectionChangeNotifiable.swift in Sources */,
 				9BE5A56D222882B1004A59B9 /* TextFormatter.swift in Sources */,
 				9BE5A583222883DA004A59B9 /* CheckboxFormField.swift in Sources */,
 				9BE5A580222883B4004A59B9 /* RadioGroupFormField.swift in Sources */,

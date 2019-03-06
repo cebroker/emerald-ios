@@ -12,10 +12,10 @@ public protocol MultipleSelectionFormFieldProtocol {
     func set(data: [Selectable])
     func set(spacing: CGFloat)
     func enable(innerBorder: Bool)
-    func set(notifiable: MultipleSelectionChangeNotifiable)
+    func set(notifiable: SingleItemChangeNotifiable)
 }
 
-public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSelectionFormFieldProtocol, MultipleSelectionItemListener {
+public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSelectionFormFieldProtocol, SingleItemChangeNotifiable {
 
     var stackView: UIStackView?
 
@@ -35,27 +35,21 @@ public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSe
 
     private var individualItemFrame: CGRect?
 
-    private var notifiable: MultipleSelectionChangeNotifiable?
+    var notifiable: SingleItemChangeNotifiable?
 
     private var errorLabel: UILabel?
 
-    private var data: [Selectable]?
-
-    private var innerBorder: Bool = false
-
-    public func set(data: [Selectable]) {
-        self.data = data
-    }
+    private var childrenHaveBorder: Bool = false
 
     public func set(spacing: CGFloat) {
         self.stackView?.spacing = spacing
     }
 
-    public func enable(innerBorder: Bool) {
-        self.innerBorder = innerBorder
+    public func enable(innerBorder childrenHaveBorder: Bool) {
+        self.childrenHaveBorder = childrenHaveBorder
     }
 
-    public func set(notifiable: MultipleSelectionChangeNotifiable) {
+    public func set(notifiable: SingleItemChangeNotifiable) {
         self.notifiable = notifiable
     }
 
@@ -90,9 +84,13 @@ public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSe
             height: CGFloat(Constants.Dimens.SingleRadioButton.height))
     }
 
-    public func onItemClicked(title: String?, from item: MultipleSelectionItem) {
+    func getChildren() -> [MultipleSelectionItemType]? {
+        return self.stackView?.arrangedSubviews as? [MultipleSelectionItemType]
+    }
+
+    public func onItemClicked(associatedSelectable: Selectable, from item: MultipleSelectionItemType) {
         self.clearError()
-        self.notifiable?.onItemClicked(title: title, from: item)
+        self.notifiable?.onItemClicked(associatedSelectable: associatedSelectable, from: item)
     }
 
     public override func clearError() {
@@ -107,67 +105,55 @@ public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSe
         self.errorLabel = nil
     }
 
+    override func getValue() -> [Selectable]? {
+        return nil
+    }
+    
+    override func validateContent() -> ValidationResult {
+        if let _ = getChildren()?.first(where: {
+            $0.getStatus() == true
+        }) {
+            return ValidationResult(isValid: true)
+        }
+        
+        return ValidationResult(isValid: false, error: FormFieldError.emptyField)
+    }
 
+    public func set(data: [Selectable]) {
+        self.stackView?.removeAllArrangedSubviews()
 
-//
-//
-//
-//
-//    func setInnerPadding(top: CGFloat, left: CGFloat, bottom: CGFloat, rigth: CGFloat) {
-//        self.stackView?.arrangedSubviews.forEach({
-//            guard let multipleSelectionItem = $0 as? MultipleSelectionItemProtocol else {
-//                return
-//            }
-//
-//            multipleSelectionItem.setPadding(top: top, left: left, bottom: bottom, rigth: rigth)
-//        })
-//    }
-//
-//    public func set(data: [Selectable]) {
-//        self.data = data
-//        self.stackView?.removeAllArrangedSubviews()
-//
-//        data.forEach {
-//            addSelectableToStackView($0)
-//        }
-//    }
-//
-//    func addSelectableToStackView(_ item: Selectable) {
-//        guard let radioButtonFrame = self.individualItemFrame else {
-//            return
-//        }
-//
-//        let subview = MultipleSelectionItem(
-//            frame: radioButtonFrame,
-//            title: item.getSelectableText(),
-//            hasBorder: innerBorder)
-//        subview.set(listener: self)
-//
-//        self.stackView?.addArrangedSubview(subview)
-//    }
-//
-//    public override func getValue() -> [Selectable]? {
-//        return nil
-//    }
-//
-//    override func validateContent() -> ValidationResult {
-//        return ValidationResult(isValid: true)
-//    }
-//
-//    public override func show(error: FormFieldErrorType) {
-//        guard self.errorLabel == nil else {
-//            return
-//        }
-//
-//        self.errorLabel = UILabel()
-//
-//        guard let errorLabel = self.errorLabel else {
-//            return
-//        }
-//
-//        errorLabel.text = error.description
-//        errorLabel.textColor = UIColor.red
-//        self.stackView?.addArrangedSubview(errorLabel)
-//    }
-//
+        data.forEach {
+            self.addSelectableToStackView($0)
+        }
+    }
+
+    func addSelectableToStackView(_ item: Selectable) {
+        guard let radioButtonFrame = self.individualItemFrame else {
+            return
+        }
+
+        let subview = MultipleSelectionItem(
+            frame: radioButtonFrame,
+            hasBorder: childrenHaveBorder,
+            associatedSelectable: item)
+        subview.set(notifiable: self)
+
+        self.stackView?.addArrangedSubview(subview)
+    }
+
+    override func show(error: FormFieldErrorType) {
+        guard self.errorLabel == nil else {
+            return
+        }
+
+        self.errorLabel = UILabel()
+
+        guard let errorLabel = self.errorLabel else {
+            return
+        }
+
+        errorLabel.text = error.description
+        errorLabel.textColor = UIColor.red
+        self.stackView?.addArrangedSubview(errorLabel)
+    }
 }
