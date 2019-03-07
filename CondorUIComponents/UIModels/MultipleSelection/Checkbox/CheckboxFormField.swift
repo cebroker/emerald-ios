@@ -17,21 +17,13 @@ public class CheckboxFormField: MultipleSelectionFormField, TestableCheckboxForm
     public override func set(data: [Selectable]) {
         super.set(data: data)
         
-        guard let checkboxes = getChildren() else {
-            return
-        }
-        
-        checkboxes.forEach {
+        getChildren()?.forEach {
             $0.setSquareShape(true)
         }
     }
     
     public func select(option: Selectable, status: Bool) {
-        guard let checkboxes = getChildren() else {
-            return
-        }
-        
-        if let existingOption = checkboxes.first(where: {
+        if let existingOption =  getChildren()?.first(where: {
             $0.getTitle() == option.getSelectableText()
         }) {
             existingOption.set(status: status)

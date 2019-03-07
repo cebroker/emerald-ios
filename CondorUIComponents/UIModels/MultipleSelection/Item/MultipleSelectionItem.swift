@@ -12,7 +12,6 @@ import BEMCheckBox
 public protocol MultipleSelectionItemType: class {
     func set(status: Bool)
     func getStatus() -> Bool
-    func set(title: String)
     func getTitle() -> String
     func set(notifiable: SingleItemChangeNotifiable)
     func setPadding(top: CGFloat, left: CGFloat, bottom: CGFloat, rigth: CGFloat)
@@ -71,11 +70,7 @@ public class MultipleSelectionItem: UIView, MultipleSelectionItemType {
     }
 
     public func equals(_ referenceAbstraction: MultipleSelectionItemType) -> Bool {
-        guard let reference = referenceAbstraction as? MultipleSelectionItem else {
-            return false
-        }
-
-        return self == reference
+        return self == (referenceAbstraction as? MultipleSelectionItem)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -92,10 +87,6 @@ public class MultipleSelectionItem: UIView, MultipleSelectionItemType {
 
     public func set(notifiable: SingleItemChangeNotifiable) {
         self.notifiable = notifiable
-    }
-
-    public func set(title: String) {
-        self.label?.text = title
     }
 
     public func getTitle() -> String {
@@ -197,10 +188,9 @@ public class MultipleSelectionItem: UIView, MultipleSelectionItemType {
 
         self.button?.setContentHuggingPriority(UILayoutPriority(2), for: NSLayoutConstraint.Axis.horizontal)
 
-        guard let button = self.button else {
-            return
+        if let button = self.button {
+            self.stackView?.addArrangedSubview(button)
         }
-        self.stackView?.addArrangedSubview(button)
     }
 
     private func setupLabel(with text: String) {
@@ -215,10 +205,9 @@ public class MultipleSelectionItem: UIView, MultipleSelectionItemType {
 
         self.label?.setContentHuggingPriority(UILayoutPriority(1), for: NSLayoutConstraint.Axis.horizontal)
 
-        guard let label = self.label else {
-            return
+        if let label = self.label {
+            self.stackView?.addArrangedSubview(label)
         }
-        self.stackView?.addArrangedSubview(label)
     }
 }
 
