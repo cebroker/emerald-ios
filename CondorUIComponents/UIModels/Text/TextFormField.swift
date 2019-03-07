@@ -20,17 +20,49 @@ public protocol TextFormFieldType {
     func getUnformattedText() -> String?
 }
 
+@IBDesignable
 public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormatter, UITextFieldDelegate {
 
     var textField: MDCTextField?
 
+    @IBInspectable
+    public var maxLength: Int = 0
+
+    @IBInspectable
+    public var title: String? {
+        set {
+            self.set(text: title)
+        }
+        get {
+            return self.getText()
+        }
+    }
+
+    @IBInspectable
+    public var placeHolder: String? {
+        set {
+            self.set(placeholder: placeHolder)
+        }
+        get {
+            return self.getPlaceholder()
+        }
+    }
+
+    @IBInspectable
+    public var format: Int {
+        set {
+            self.set(format: TextFormat.init(rawValue: format) ?? .none)
+        }
+        get {
+            return self.getFormat().hashValue
+        }
+    }
+
     private var textFieldControllerFloating: MDCTextInputController?
 
-    private var placeholder: String?
+    private var initialPlaceHolder: String?
 
-    private var maxLength: Int = 0
-
-    private var format: TextFormat = .none
+    private var innerFormat: TextFormat = .none
 
     required init?(coder aDecoder: NSCoder) {
         self.textField = MDCTextField(coder: aDecoder)
@@ -69,8 +101,8 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         let updatedText = oldText.replacingCharacters(in: textRange, with: string)
 
         do {
-            let textWithoutFormat = try remove(format: self.format, to: updatedText)
-            textField.text = try apply(format: self.format, to: textWithoutFormat)
+            let textWithoutFormat = try remove(format: self.innerFormat, to: updatedText)
+            textField.text = try apply(format: self.innerFormat, to: textWithoutFormat)
             return false
         } catch {
             return false
@@ -78,12 +110,12 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     public func set(placeholder: String?) {
-        self.placeholder = placeholder
+        self.initialPlaceHolder = placeholder
         self.textField?.placeholder = placeholder
     }
 
     public func getPlaceholder() -> String? {
-        return self.placeholder
+        return self.initialPlaceHolder
     }
 
     public func set(text: String?) {
@@ -105,11 +137,11 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     public func set(format: TextFormat) {
-        self.format = format
+        self.innerFormat = format
     }
 
     public func getFormat() -> TextFormat {
-        return self.format
+        return self.innerFormat
     }
 
     public func getUnformattedText() -> String? {
@@ -118,7 +150,7 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         }
 
         do {
-            return try self.remove(format: self.format, to: textWithFormat)
+            return try self.remove(format: self.innerFormat, to: textWithFormat)
         } catch {
             return nil
         }
@@ -129,7 +161,7 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     public override func clearError() {
-        self.textField?.placeholder = self.placeholder
+        self.textField?.placeholder = self.initialPlaceHolder
     }
 
     internal override func validateContent() -> ValidationResult {
