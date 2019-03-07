@@ -8,10 +8,10 @@
 
 import Foundation
 
-public enum TextFormat {
+public enum TextFormat: Int {
+    case none = 0
     case currency
     case phone
-    case none
 }
 
 public enum TextFormatterError: Error {

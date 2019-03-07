@@ -28,6 +28,7 @@ public class ValidationResult {
     }
 }
 
+@IBDesignable
 public class FormFieldType<ReturnType>: UIView {
 
     var required: Bool = true
