@@ -9,23 +9,19 @@
 import UIKit
 import BEMCheckBox
 
-public protocol MultipleSelectionItemProtocol {
+public protocol MultipleSelectionItemType: class {
     func set(status: Bool)
     func getStatus() -> Bool
-    func set(title: String)
     func getTitle() -> String
-    func set(listener: MultipleSelectionItemListener)
-    func enableBorder(_ status: Bool)
+    func set(notifiable: SingleItemChangeNotifiable)
     func setPadding(top: CGFloat, left: CGFloat, bottom: CGFloat, rigth: CGFloat)
     func setSquareShape(_ status: Bool)
+    func getAssociatedSelectable() -> Selectable?
+    func equals(_ referenceAbstraction: MultipleSelectionItemType) -> Bool
 }
 
-public protocol MultipleSelectionItemListener: class {
-    func onItemClicked(title: String?, from item: MultipleSelectionItem)
-}
+public class MultipleSelectionItem: UIView, MultipleSelectionItemType {
 
-public class MultipleSelectionItem: UIView, MultipleSelectionItemProtocol {
-    
     private struct InnerConstants {
         struct Button {
             static let frameButtonHeighRatio: CGFloat = 1.0 / 5.0
@@ -57,56 +53,60 @@ public class MultipleSelectionItem: UIView, MultipleSelectionItemProtocol {
             static let borderColor = UIColor.lightGray.cgColor
         }
     }
-    
+
     private var button: BEMCheckBox?
+
     private var label: UILabel?
-    private weak var listener: MultipleSelectionItemListener?
+
+    private weak var notifiable: SingleItemChangeNotifiable?
+
     private var stackView: UIStackView?
-    
-    init(frame: CGRect, title: String?, hasBorder: Bool) {
+
+    private var associatedSelectable: Selectable?
+
+    init(frame: CGRect, hasBorder: Bool, associatedSelectable: Selectable) {
         super.init(frame: frame)
-        self.ownInit(title: title, hasBorder: hasBorder)
+        self.postInit(hasBorder: hasBorder, associatedSelectable: associatedSelectable)
     }
-    
+
+    public func equals(_ referenceAbstraction: MultipleSelectionItemType) -> Bool {
+        return self == (referenceAbstraction as? MultipleSelectionItem)
+    }
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.ownInit()
     }
-    
+
     public func set(status: Bool) {
         self.button?.setOn(status, animated: false)
     }
-    
+
     public func getStatus() -> Bool {
         return self.button?.on ?? false
     }
-    
-    public func set(listener: MultipleSelectionItemListener) {
-        self.listener = listener
+
+    public func set(notifiable: SingleItemChangeNotifiable) {
+        self.notifiable = notifiable
     }
-    
-    public func set(title: String) {
-        self.label?.text = title
-    }
-    
+
     public func getTitle() -> String {
         return self.label?.text ?? InnerConstants.Label.emptyTitle
     }
-    
+
     public func setSquareShape(_ status: Bool) {
         self.button?.boxType = status ? .square : .circle
     }
-    
-    public func enableBorder(_ status: Bool) {
-        self.layer.borderWidth = status ? CGFloat(InnerConstants.Border.borderWidth) : CGFloat(InnerConstants.Border.zeroWidth)
+
+    public func getAssociatedSelectable() -> Selectable? {
+        return associatedSelectable
     }
-    
+
     public func setPadding(
         top: CGFloat,
         left: CGFloat,
         bottom: CGFloat,
         rigth: CGFloat) {
-        
+
         self.stackView?.anchor(
             top: self.topAnchor,
             left: self.leftAnchor,
@@ -119,32 +119,65 @@ public class MultipleSelectionItem: UIView, MultipleSelectionItemProtocol {
             width: 0,
             height: 0)
     }
-    
-    private func ownInit(title: String? = nil, hasBorder: Bool = false) {
-        self.stackView = UIStackView()
-        if let stackView = self.stackView {
-            self.addSubview(stackView)
+
+    private func postInit(hasBorder: Bool, associatedSelectable: Selectable) {
+
+        self.associatedSelectable = associatedSelectable
+
+        self.setupStackView()
+        self.setupDefaultBorderPadding(hasBorder)
+        self.setupBorder(hasBorder)
+        self.setupCheckboxButton()
+        self.setupLabel(with: associatedSelectable.getSelectableText())
+
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTheWholeView)))
+    }
+
+    @objc private func didTapTheWholeView() {
+        guard let associatedSelectable = self.associatedSelectable else {
+            return
         }
-        
+
+        self.set(status: !self.getStatus())
+        self.notifiable?.onItemClicked(associatedSelectable: associatedSelectable, from: self)
+    }
+
+    private func setupStackView() {
+        self.stackView = UIStackView()
+
         self.stackView?.axis = .horizontal
         self.stackView?.distribution = .fill
         self.stackView?.alignment = .fill
-        
+
+        self.stackView?.spacing = CGFloat(InnerConstants.StackView.spacing)
+
+        if let stackView = self.stackView {
+            self.addSubview(stackView)
+        }
+    }
+
+    private func setupDefaultBorderPadding(_ hasBorder: Bool) {
         self.setPadding(
             top: hasBorder ? CGFloat(InnerConstants.StackView.Padding.top) : CGFloat(InnerConstants.StackView.Padding.noPadding),
             left: hasBorder ? CGFloat(InnerConstants.StackView.Padding.left) : CGFloat(InnerConstants.StackView.Padding.noPadding),
             bottom: hasBorder ? CGFloat(InnerConstants.StackView.Padding.bottom) : CGFloat(InnerConstants.StackView.Padding.noPadding),
             rigth: hasBorder ? CGFloat(InnerConstants.StackView.Padding.right) : CGFloat(InnerConstants.StackView.Padding.noPadding))
-        
-        self.enableBorder(hasBorder)
-        
+    }
+
+    private func setupBorder(_ hasBorder: Bool) {
+        self.layer.borderWidth = hasBorder ? CGFloat(InnerConstants.Border.borderWidth) : CGFloat(InnerConstants.Border.zeroWidth)
+        self.layer.borderColor = InnerConstants.Border.borderColor
+        self.layer.cornerRadius = CGFloat(InnerConstants.Border.cornerRadius)
+    }
+
+    private func setupCheckboxButton() {
         self.button = BEMCheckBox(frame:
-            CGRect(
-                x: 0,
-                y: 0,
-                width: frame.height * InnerConstants.Button.frameButtonHeighRatio,
-                height: 0))
-        
+                CGRect(
+                    x: 0,
+                    y: 0,
+                    width: frame.height * InnerConstants.Button.frameButtonHeighRatio,
+                    height: 0))
+
         self.button?.animationDuration = CGFloat(InnerConstants.Button.animationDuration)
         self.button?.delegate = self
         self.button?.onAnimationType = .fade
@@ -152,48 +185,38 @@ public class MultipleSelectionItem: UIView, MultipleSelectionItemProtocol {
         self.button?.onCheckColor = .white
         self.button?.onTintColor = .white
         self.button?.onFillColor = InnerConstants.Colors.blue
-        
+
         self.button?.setContentHuggingPriority(UILayoutPriority(2), for: NSLayoutConstraint.Axis.horizontal)
-        
-        guard let button = self.button else {
-            return
+
+        if let button = self.button {
+            self.stackView?.addArrangedSubview(button)
         }
-        self.stackView?.addArrangedSubview(button)
-        
-        self.label = UILabel(frame:
-            CGRect(
-                x: 0,
-                y: 0,
-                width: frame.width,
-                height: 0))
-        
-        self.label?.text = title
-        
-        self.label?.setContentHuggingPriority(UILayoutPriority(1), for: NSLayoutConstraint.Axis.horizontal)
-        
-        guard let label = self.label else {
-            return
-        }
-        self.stackView?.addArrangedSubview(label)
-        
-        self.stackView?.spacing = CGFloat(InnerConstants.StackView.spacing)
-        
-        self.layer.borderColor = InnerConstants.Border.borderColor
-        self.layer.cornerRadius = CGFloat(InnerConstants.Border.cornerRadius)
-        
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTheWholeView)))
     }
-    
-    @objc private func didTapTheWholeView() {
-        self.set(status: !self.getStatus())
-        self.listener?.onItemClicked(title: self.label?.text, from: self)
+
+    private func setupLabel(with text: String) {
+        self.label = UILabel(frame:
+                CGRect(
+                    x: 0,
+                    y: 0,
+                    width: frame.width,
+                    height: 0))
+
+        self.label?.text = text
+
+        self.label?.setContentHuggingPriority(UILayoutPriority(1), for: NSLayoutConstraint.Axis.horizontal)
+
+        if let label = self.label {
+            self.stackView?.addArrangedSubview(label)
+        }
     }
 }
 
 extension MultipleSelectionItem: BEMCheckBoxDelegate {
     public func didTap(_ checkBox: BEMCheckBox) {
-        self.listener?.onItemClicked(title: self.label?.text, from: self)
+        guard let associatedSelectable = self.associatedSelectable else {
+            return
+        }
+
+        self.notifiable?.onItemClicked(associatedSelectable: associatedSelectable, from: self)
     }
 }
-
-

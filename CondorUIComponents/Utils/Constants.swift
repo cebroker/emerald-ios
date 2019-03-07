@@ -9,12 +9,32 @@
 import UIKit
 
 struct Constants {
+    
+    public class AddressState: Selectable {
+        let name: String
+        let id: Int
+        let cities: [String]
+        public init(
+            name: String,
+            id: Int,
+            cities: [String]) {
+            self.name = name
+            self.id = id
+            self.cities = cities
+        }
+        
+        public func getSelectableText() -> String {
+            return name
+        }
+    }
+    
     struct Regex {
         static let ssn = "^[0-9]{9}$"
         static let npi = "^[0-9]{10}$"
         static let phone = "^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}$"
         static let zip = "^[0-9]{5}$"
         static let email = "^[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])*$"
+        static let any = "(.*?)"
     }
     
     struct TextFormating{
