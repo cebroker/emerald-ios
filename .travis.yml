@@ -4,9 +4,6 @@ cache:
 before_install:
    - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
    - pod install --repo-update
-branches:
-only:
-- develop
 os: osx
 osx_image: xcode10.1
 
