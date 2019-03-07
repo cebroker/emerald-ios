@@ -64,12 +64,12 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
 
     private var innerFormat: TextFormat = .none
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         self.textField = MDCTextField(coder: aDecoder)
         super.init(coder: aDecoder)
     }
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         self.textField = MDCTextField(frame: frame)
         super.init(frame: frame)
     }
