@@ -13,16 +13,28 @@ public protocol TextRegexFormFieldProtocol: TextFormFieldType {
     func getRegex() -> String
 }
 
+@IBDesignable
 public class TextRegexFormField: TextFormField, TextRegexFormFieldProtocol {
 
-    private var regex: String = Constants.Regex.any
+    @IBInspectable
+    public var regex: String {
+        set {
+            self.set(regex: regex)
+        }
+        
+        get {
+            return self.getRegex()
+        }
+    }
+
+    private var innerRegex: String = Constants.Regex.any
 
     public func set(regex: String) {
-        self.regex = regex
+        self.innerRegex = regex
     }
 
     public func getRegex() -> String {
-        return self.regex
+        return self.innerRegex
     }
 
     override func validateContent() -> ValidationResult {
@@ -30,7 +42,7 @@ public class TextRegexFormField: TextFormField, TextRegexFormFieldProtocol {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
         }
 
-        let regex = NSRegularExpression(self.regex)
+        let regex = NSRegularExpression(self.innerRegex)
 
         guard regex.matches(text) else {
             return ValidationResult(isValid: false, error: TextRegexFormFieldError.notMatchingRegex)
