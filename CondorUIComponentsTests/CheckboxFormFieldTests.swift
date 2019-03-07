@@ -26,73 +26,28 @@ class CheckboxFormFieldTests: XCTestCase {
         }
     }
 
-    var checkboxField: FormFieldType<[Selectable]>?
-
-    override func setUp() {
-        checkboxField = CheckboxFormField(frame: InnerConstants.Settings.mockFrame)
-    }
-
-    override func tearDown() {
-        checkboxField = nil
-    }
+    var checkboxField: FormFieldType<[Selectable]> = CheckboxFormField(frame: InnerConstants.Settings.mockFrame)
 
     func testShouldPassValidation() {
-        guard let checkboxField = self.checkboxField else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let checkboxFieldDataSetter = self.checkboxField as? MultipleSelectionFormFieldProtocol else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
+        (self.checkboxField as? MultipleSelectionFormFieldProtocol)?.set(data: Constants.MockedData.educationTypes)
 
-        checkboxFieldDataSetter.set(data: Constants.MockedData.educationTypes)
-
-        guard let testableCheckboxField = self.checkboxField as? TestableCheckboxFormFieldProtocol else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-
-        testableCheckboxField.select(option: InnerConstants.Values.successful1, status: true)
-        testableCheckboxField.select(option: InnerConstants.Values.successful2, status: true)
+        (self.checkboxField as? TestableCheckboxFormFieldProtocol)?.select(option: InnerConstants.Values.successful1, status: true)
+        (self.checkboxField as? TestableCheckboxFormFieldProtocol)?.select(option: InnerConstants.Values.successful2, status: true)
 
         let validationResult = checkboxField.isValid()
 
-        guard validationResult.isValid else {
-            XCTFail(Constants.TestsErrors.validationFailed.localizedDescription)
-            return
-        }
+        XCTAssert(validationResult.isValid)
     }
 
     func testShouldNotPassValidationEmpty() {
-        guard let checkboxField = self.checkboxField else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let checkboxFieldDataSetter = self.checkboxField as? MultipleSelectionFormFieldProtocol else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-
-        checkboxFieldDataSetter.set(data: Constants.MockedData.educationTypes)
+        (self.checkboxField as? MultipleSelectionFormFieldProtocol)?.set(data: Constants.MockedData.educationTypes)
 
         let validationResult = checkboxField.isValid()
 
-        guard !validationResult.isValid else {
-            XCTFail(Constants.TestsErrors.validationFailed.localizedDescription)
-            return
-        }
+        XCTAssert(!validationResult.isValid)
 
-        guard let errorDescription = validationResult.error?.description else {
-            XCTFail(Constants.TestsErrors.unexpectedError.localizedDescription)
-            return
-        }
-
-        guard errorDescription == FormFieldError.emptyField.description else {
-            XCTFail(errorDescription)
-            return
-        }
+        XCTAssertEqual(
+            validationResult.error?.description,
+            FormFieldError.emptyField.description)
     }
 }

@@ -45,175 +45,80 @@ class DateFormFieldTests: XCTestCase {
         }
     }
 
-    var dateFormField: FormFieldType<String>?
-
-    override func setUp() {
-        dateFormField = DateFormField(frame: Constants.MockedData.mockFrame)
-    }
-
-    override func tearDown() {
-        dateFormField = nil
-    }
+    var dateFormField: FormFieldType<String> = DateFormField(frame: Constants.MockedData.mockFrame)
 
     func testShouldPassValidation() {
-        guard let dateFormField = self.dateFormField else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let dateFormFieldDataSetter = self.dateFormField as? DateFormFieldType else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let testableDateFormFieldDataSetter = self.dateFormField as? DateFormFieldTestableType else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        dateFormFieldDataSetter.set(dateFormat: Constants.DateFormat.defaultFormat)
 
-        testableDateFormFieldDataSetter.set(
+        (self.dateFormField as? DateFormFieldType)?.set(dateFormat: Constants.DateFormat.defaultFormat)
+
+        (self.dateFormField as? DateFormFieldTestableType)?.set(
             day: InnerConstants.Values.SuccessTest.day,
             month: InnerConstants.Values.SuccessTest.month,
             year: InnerConstants.Values.SuccessTest.year)
 
-        guard dateFormField.isValid().isValid else {
-            if let error = dateFormField.isValid().error?.description {
-                XCTFail(error)
-            } else {
-                XCTFail(Constants.TestsErrors.validationFailed.localizedDescription)
-            }
-            return
-        }
+        XCTAssert(dateFormField.isValid().isValid)
 
-        guard dateFormField.getValue() == InnerConstants.Strings.success else {
-            XCTFail(Constants.TestsErrors.validationFailed.localizedDescription)
-            return
-        }
+        XCTAssertEqual(
+            dateFormField.getValue(),
+            InnerConstants.Strings.success)
     }
 
     func testShouldNotPassValidationEmpty() {
 
-        guard let dateFormField = self.dateFormField else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let dateFormFieldDataSetter = self.dateFormField as? DateFormFieldType else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-
-        dateFormFieldDataSetter.set(dateFormat: Constants.DateFormat.defaultFormat)
+        (self.dateFormField as? DateFormFieldType)?.set(dateFormat: Constants.DateFormat.defaultFormat)
 
         let validationResult = dateFormField.isValid()
 
-        guard !validationResult.isValid else {
-            XCTFail(Constants.TestsErrors.validationSucceded.localizedDescription)
-            return
-        }
+        XCTAssert(!validationResult.isValid)
 
-        guard let errorDescription = validationResult.error?.description else {
-            XCTFail(Constants.TestsErrors.unexpectedError.localizedDescription)
-            return
-        }
-
-        guard errorDescription == FormFieldError.emptyField.description else {
-            XCTFail(errorDescription)
-            return
-        }
+        XCTAssertEqual(
+            validationResult.error?.description,
+            FormFieldError.emptyField.description)
     }
 
     func testShouldNotPassValidationLowerThanMinimumDate() {
-        guard let dateFormField = self.dateFormField else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let dateFormFieldDataSetter = self.dateFormField as? DateFormFieldType else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let testableDateFormField = self.dateFormField as? DateFormFieldTestableType else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
 
-        dateFormFieldDataSetter.set(dateFormat: Constants.DateFormat.defaultFormat)
+        (self.dateFormField as? DateFormFieldType)?.set(dateFormat: Constants.DateFormat.defaultFormat)
 
-        testableDateFormField.setMinimum(
+        (self.dateFormField as? DateFormFieldTestableType)?.setMinimum(
             day: InnerConstants.Values.ReferenceDate.day,
             month: InnerConstants.Values.ReferenceDate.month,
             year: InnerConstants.Values.ReferenceDate.year)
 
-        testableDateFormField.set(
+        (self.dateFormField as? DateFormFieldTestableType)?.set(
             day: InnerConstants.Values.FailedMinimumDate.day,
             month: InnerConstants.Values.FailedMinimumDate.month,
             year: InnerConstants.Values.FailedMinimumDate.year)
 
         let validationResult = dateFormField.isValid()
 
-        guard !validationResult.isValid else {
-            XCTFail(Constants.TestsErrors.validationSucceded.localizedDescription)
-            return
-        }
+        XCTAssert(!validationResult.isValid)
 
-        guard let errorDescription = validationResult.error?.description else {
-            XCTFail(Constants.TestsErrors.unexpectedError.localizedDescription)
-            return
-        }
-
-        guard errorDescription == DateFormFieldError.lowerThanMinimumDate.description else {
-            XCTFail(errorDescription)
-            return
-        }
+        XCTAssertEqual(
+            validationResult.error?.description,
+            DateFormFieldError.lowerThanMinimumDate.description)
     }
 
     func testShouldNotPassValidationGreaterThanMaximumDate() {
-        guard let dateFormField = self.dateFormField else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let dateFormFieldDataSetter = self.dateFormField as? DateFormFieldType else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
-        
-        guard let testableDateFormField = self.dateFormField as? DateFormFieldTestableType else {
-            XCTFail(Constants.TestsErrors.formFieldCastingError.localizedDescription)
-            return
-        }
 
-        dateFormFieldDataSetter.set(dateFormat: Constants.DateFormat.defaultFormat)
+        (self.dateFormField as? DateFormFieldType)?.set(dateFormat: Constants.DateFormat.defaultFormat)
 
-        testableDateFormField.setMaximum(
+        (self.dateFormField as? DateFormFieldTestableType)?.setMaximum(
             day: InnerConstants.Values.ReferenceDate.day,
             month: InnerConstants.Values.ReferenceDate.month,
             year: InnerConstants.Values.ReferenceDate.year)
 
-        testableDateFormField.set(
+        (self.dateFormField as? DateFormFieldTestableType)?.set(
             day: InnerConstants.Values.FailedMaximumDate.day,
             month: InnerConstants.Values.FailedMaximumDate.month,
             year: InnerConstants.Values.FailedMaximumDate.year)
 
         let validationResult = dateFormField.isValid()
 
-        guard !validationResult.isValid else {
-            XCTFail(Constants.TestsErrors.validationSucceded.localizedDescription)
-            return
-        }
+        XCTAssert(!validationResult.isValid)
 
-        guard let errorDescription = validationResult.error?.description else {
-            XCTFail(Constants.TestsErrors.unexpectedError.localizedDescription)
-            return
-        }
-
-        guard errorDescription == DateFormFieldError.greaterThanMaximumDate.description else {
-            XCTFail(errorDescription)
-            return
-        }
+        XCTAssertEqual(
+            validationResult.error?.description,
+            DateFormFieldError.greaterThanMaximumDate.description)
     }
 }

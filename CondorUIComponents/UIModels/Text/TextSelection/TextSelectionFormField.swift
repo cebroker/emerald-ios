@@ -27,6 +27,10 @@ class TextSelectionFormField: TextFormField, TextSelectionFormFieldProtocol {
         guard let text = self.getValue(), !text.isEmpty else {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
         }
+        
+        guard !availableOptions.isEmpty else {
+            return ValidationResult(isValid: false, error: TextSelectionFormFieldError.missingAvailableOptions)
+        }
 
         guard let _ = self.availableOptions.first(where: { option -> Bool in
             option == text.uppercased()
