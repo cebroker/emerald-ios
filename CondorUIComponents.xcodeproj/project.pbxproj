@@ -24,7 +24,6 @@
 		9BA4919622288EFF00837D07 /* RadioGroupFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918022288E5200837D07 /* RadioGroupFormFieldTests.swift */; };
 		9BA4919722288EFF00837D07 /* SelectorFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */; };
 		9BA4919822288EFF00837D07 /* TextSelectionFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */; };
-		9BBCBA3A22307C150050FD58 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B6D2E3E22288AD1002079AF /* Info.plist */; };
 		9BBCBA3C22307CAA0050FD58 /* SimpleSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */; };
 		9BE4033A22301EF6003C64AD /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */; };
 		9BE4034122303104003C64AD /* FormFieldErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4034022303104003C64AD /* FormFieldErrorType.swift */; };
@@ -414,7 +413,6 @@
 			files = (
 				9BA4919422288EFF00837D07 /* DateFormFieldTests.swift in Resources */,
 				9BA4919522288EFF00837D07 /* PhoneTextFieldTests.swift in Resources */,
-				9BBCBA3A22307C150050FD58 /* Info.plist in Resources */,
 				9BA4919622288EFF00837D07 /* RadioGroupFormFieldTests.swift in Resources */,
 				9BA4919722288EFF00837D07 /* SelectorFormFieldTests.swift in Resources */,
 				9BA4919822288EFF00837D07 /* TextSelectionFormFieldTests.swift in Resources */,
