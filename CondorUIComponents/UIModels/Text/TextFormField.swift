@@ -18,6 +18,10 @@ public protocol TextFormFieldType {
     func set(format: TextFormat)
     func getFormat() -> TextFormat
     func getUnformattedText() -> String?
+    func set(font: UIFont?)
+    func getFont() -> UIFont?
+    func set(textColor: UIColor?)
+    func getTextColor() -> UIColor?
 }
 
 @IBDesignable
@@ -112,6 +116,7 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     public func set(placeholder: String?) {
         self.initialPlaceHolder = placeholder
         self.textField?.placeholder = placeholder
+        self.textField?.placeholderLabel.textColor = UIColor.gray
     }
 
     public func getPlaceholder() -> String? {
@@ -144,6 +149,22 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         return self.innerFormat
     }
 
+    public func set(font: UIFont?) {
+        self.textField?.font = font
+    }
+
+    public func getFont() -> UIFont? {
+        return self.textField?.font
+    }
+
+    public func set(textColor: UIColor?) {
+        self.textField?.textColor = textColor
+    }
+
+    public func getTextColor() -> UIColor? {
+        return self.textField?.textColor
+    }
+
     public func getUnformattedText() -> String? {
         guard let textWithFormat = self.textField?.text else {
             return nil
@@ -158,10 +179,12 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
 
     public override func show(error: FormFieldErrorType) {
         self.textField?.placeholder = error.description
+        self.textField?.placeholderLabel.textColor = UIColor.red
     }
 
     public override func clearError() {
         self.textField?.placeholder = self.initialPlaceHolder
+        self.textField?.placeholderLabel.textColor = UIColor.gray
     }
 
     internal override func validateContent() -> ValidationResult {
