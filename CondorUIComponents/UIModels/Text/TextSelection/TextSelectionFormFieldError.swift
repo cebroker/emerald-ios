@@ -6,12 +6,12 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-enum TextSelectionFormFieldError: FormFieldErrorType {
+public enum TextSelectionFormFieldError: FormFieldErrorType {
     case missingAvailableOptions
     case optionNotFound
 }
 
-extension TextSelectionFormFieldError {
+public extension TextSelectionFormFieldError {
     public var description: String? {
         switch self {
         case .missingAvailableOptions:

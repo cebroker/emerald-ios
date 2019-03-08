@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DateFormFieldType: TextFormFieldType {
+public protocol DateFormFieldType: TextFormFieldType {
     func set(notifiable: DateFormFieldChangeNotifiable?)
     func set(minimumDate: Date?)
     func getMinimumDate() -> Date?
@@ -21,7 +21,7 @@ protocol DateFormFieldType: TextFormFieldType {
     func set(dateFormat: String)
 }
 
-protocol DateFormFieldTestableType {
+public protocol DateFormFieldTestableType {
     func set(selectedDate: Date)
     func set(day: Int, month: Int, year: Int)
     func set(hour: Int, minute: Int)
@@ -48,74 +48,74 @@ public class DateFormField: TextFormField, DateFormFieldType, DateFormFieldTesta
         self.setupDefaultDateFormat()
     }
 
-    func set(selectedDate: Date) {
+    public func set(selectedDate: Date) {
         self.selectedDate = selectedDate
         let formattedDate = dateFormatter.string(from: selectedDate)
         self.set(text: formattedDate)
         notifiable?.onSelected(dateString: formattedDate, date: selectedDate, from: self)
     }
 
-    func set(day: Int, month: Int, year: Int) {
+    public func set(day: Int, month: Int, year: Int) {
         if let date = getDateFrom(day: day, month: month, year: year) {
             self.set(selectedDate: date)
         }
     }
 
-    func set(hour: Int, minute: Int) {
+    public func set(hour: Int, minute: Int) {
         if let date = getDateFrom(hour: hour, minute: minute) {
             self.set(selectedDate: date)
         }
     }
 
-    func setMinimum(day: Int, month: Int, year: Int) {
+    public func setMinimum(day: Int, month: Int, year: Int) {
         if let date = getDateFrom(day: day, month: month, year: year) {
             self.pickerView.minimumDate = date
         }
     }
 
-    func setMaximum(day: Int, month: Int, year: Int) {
+    public func setMaximum(day: Int, month: Int, year: Int) {
         if let date = getDateFrom(day: day, month: month, year: year) {
             self.pickerView.maximumDate = date
         }
     }
 
-    func set(notifiable: DateFormFieldChangeNotifiable?) {
+    public func set(notifiable: DateFormFieldChangeNotifiable?) {
         self.notifiable = notifiable
     }
 
-    func set(minimumDate: Date?) {
+    public func set(minimumDate: Date?) {
         pickerView.minimumDate = minimumDate
     }
 
-    func getMinimumDate() -> Date? {
+    public func getMinimumDate() -> Date? {
         return pickerView.minimumDate
     }
 
-    func set(maximumDate: Date?) {
+    public func set(maximumDate: Date?) {
         pickerView.maximumDate = maximumDate
     }
 
-    func getMaximumDate() -> Date? {
+    public func getMaximumDate() -> Date? {
         return pickerView.maximumDate
     }
 
-    func forbidDatesPreviousThanToday() {
+    public func forbidDatesPreviousThanToday() {
         self.pickerView.minimumDate = Date()
     }
 
-    func allowDatesPreviousThanToday() {
+    public func allowDatesPreviousThanToday() {
         self.pickerView.minimumDate = nil
     }
 
-    func forbidDatesLaterThanToday() {
+    public func forbidDatesLaterThanToday() {
         self.pickerView.maximumDate = Date()
     }
 
-    func allowDatesLaterThanToday() {
+    public func allowDatesLaterThanToday() {
         self.pickerView.maximumDate = nil
     }
 
-    func set(dateFormat: String) {
+    public func set(dateFormat: String) {
         self.dateFormatter.dateFormat = dateFormat
     }
 
