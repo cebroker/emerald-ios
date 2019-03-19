@@ -32,16 +32,16 @@ class PhoneTextFieldTests: XCTestCase {
 
     func testShouldPassValidation() {
 
-        (self.phoneTextField as? TextRegexFormFieldProtocol)?.set(regex: Constants.Regex.phone)
-        (self.phoneTextField as? TextRegexFormFieldProtocol)?.set(text: InnerConstants.Strings.successfulPhone)
+        (self.phoneTextField as? TextRegexFormFieldType)?.set(regex: Constants.Regex.phone)
+        (self.phoneTextField as? TextRegexFormFieldType)?.set(text: InnerConstants.Strings.successfulPhone)
 
         XCTAssert(phoneTextField.isValid().isValid)
     }
 
     func testShouldNotPassValidationEmpty() {
 
-        (self.phoneTextField as? TextRegexFormFieldProtocol)?.set(regex: Constants.Regex.phone)
-        (self.phoneTextField as? TextRegexFormFieldProtocol)?.set(text: InnerConstants.Strings.emptyPhone)
+        (self.phoneTextField as? TextRegexFormFieldType)?.set(regex: Constants.Regex.phone)
+        (self.phoneTextField as? TextRegexFormFieldType)?.set(text: InnerConstants.Strings.emptyPhone)
 
         let validationResult = phoneTextField.isValid()
 
@@ -54,8 +54,8 @@ class PhoneTextFieldTests: XCTestCase {
 
     func testShouldNotPassValidationRegexNotMaching() {
 
-        (self.phoneTextField as? TextRegexFormFieldProtocol)?.set(regex: Constants.Regex.phone)
-        (self.phoneTextField as? TextRegexFormFieldProtocol)?.set(text: InnerConstants.Strings.notNumeric)
+        (self.phoneTextField as? TextRegexFormFieldType)?.set(regex: Constants.Regex.phone)
+        (self.phoneTextField as? TextRegexFormFieldType)?.set(text: InnerConstants.Strings.notNumeric)
 
         let validationResult = phoneTextField.isValid()
 

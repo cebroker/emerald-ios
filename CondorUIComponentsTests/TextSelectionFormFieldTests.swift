@@ -29,16 +29,16 @@ class TextSelectionFormFieldTests: XCTestCase {
 
     func testShouldPassValidation() {
 
-        (self.cityFormField as? TextSelectionFormFieldProtocol)?.set(availableOptions: InnerConstants.Settings.mockedState.cities)
-        (self.cityFormField as? TextSelectionFormFieldProtocol)?.set(text: InnerConstants.Strings.passValidation)
+        (self.cityFormField as? TextSelectionFormFieldType)?.set(availableOptions: InnerConstants.Settings.mockedState.cities)
+        (self.cityFormField as? TextSelectionFormFieldType)?.set(text: InnerConstants.Strings.passValidation)
 
         XCTAssert(cityFormField.isValid().isValid)
     }
 
     func testShouldNotPassValidationEmpty() {
 
-        (self.cityFormField as? TextSelectionFormFieldProtocol)?.set(availableOptions: InnerConstants.Settings.mockedState.cities)
-        (self.cityFormField as? TextSelectionFormFieldProtocol)?.set(text: InnerConstants.Strings.emptyValidation)
+        (self.cityFormField as? TextSelectionFormFieldType)?.set(availableOptions: InnerConstants.Settings.mockedState.cities)
+        (self.cityFormField as? TextSelectionFormFieldType)?.set(text: InnerConstants.Strings.emptyValidation)
 
         let validationResult = cityFormField.isValid()
 
@@ -51,7 +51,7 @@ class TextSelectionFormFieldTests: XCTestCase {
 
     func testShouldNotPassValidationMissingState() {
 
-        (self.cityFormField as? TextSelectionFormFieldProtocol)?.set(text: InnerConstants.Strings.passValidation)
+        (self.cityFormField as? TextSelectionFormFieldType)?.set(text: InnerConstants.Strings.passValidation)
 
         let validationResult = cityFormField.isValid()
 
@@ -64,8 +64,8 @@ class TextSelectionFormFieldTests: XCTestCase {
 
     func testShouldNotPassValidationCityNotFound() {
 
-        (self.cityFormField as? TextSelectionFormFieldProtocol)?.set(availableOptions: InnerConstants.Settings.mockedState.cities)
-        (self.cityFormField as? TextSelectionFormFieldProtocol)?.set(text: InnerConstants.Strings.cityNotFoundValidation)
+        (self.cityFormField as? TextSelectionFormFieldType)?.set(availableOptions: InnerConstants.Settings.mockedState.cities)
+        (self.cityFormField as? TextSelectionFormFieldType)?.set(text: InnerConstants.Strings.cityNotFoundValidation)
 
         let validationResult = cityFormField.isValid()
 

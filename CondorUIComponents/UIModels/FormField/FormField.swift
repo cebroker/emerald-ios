@@ -35,6 +35,8 @@ public class FormFieldType<ReturnType>: UIView {
 
     var fieldValue: ReturnType?
 
+    var id: String?
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.postInit()
@@ -43,6 +45,14 @@ public class FormFieldType<ReturnType>: UIView {
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.postInit()
+    }
+
+    func set(id: String) {
+        self.id = id
+    }
+
+    func getId() -> String? {
+        return self.id
     }
 
     func postInit() {

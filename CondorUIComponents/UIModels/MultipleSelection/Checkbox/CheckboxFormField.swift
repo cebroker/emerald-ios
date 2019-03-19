@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol TestableCheckboxFormFieldProtocol {
+public protocol TestableCheckboxFormFieldType {
     func select(option: Selectable, status: Bool)
 }
 
-public class CheckboxFormField: MultipleSelectionFormField, TestableCheckboxFormFieldProtocol {
+public class CheckboxFormField: MultipleSelectionFormField, TestableCheckboxFormFieldType {
     
     public override func set(data: [Selectable]) {
         super.set(data: data)
