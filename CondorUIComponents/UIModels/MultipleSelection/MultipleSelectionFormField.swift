@@ -8,14 +8,14 @@
 
 import UIKit
 
-public protocol MultipleSelectionFormFieldProtocol {
+public protocol MultipleSelectionFormFieldType {
     func set(data: [Selectable])
     func set(spacing: CGFloat)
     func enable(innerBorder: Bool)
     func set(notifiable: SingleItemChangeNotifiable)
 }
 
-public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSelectionFormFieldProtocol, SingleItemChangeNotifiable {
+public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSelectionFormFieldType, SingleItemChangeNotifiable {
 
     var stackView: UIStackView?
 

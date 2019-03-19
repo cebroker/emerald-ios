@@ -30,15 +30,15 @@ class SelectorFormFieldTests: XCTestCase {
 
     func testShouldPassValidation() {
 
-        (self.stateSelectorField as? SelectorFormFieldProtocol)?.set(data: Constants.MockedData.states)
-        (self.stateSelectorField as? SelectorFormFieldProtocol)?.set(selectedRow: InnerConstants.Values.successfulState)
+        (self.stateSelectorField as? SelectorFormFieldType)?.set(data: Constants.MockedData.states)
+        (self.stateSelectorField as? SelectorFormFieldType)?.set(selectedRow: InnerConstants.Values.successfulState)
 
         XCTAssert(stateSelectorField.isValid().isValid)
     }
 
     func testShouldNotPassValidationEmpty() {
 
-        (self.stateSelectorField as? SelectorFormFieldProtocol)?.set(data: Constants.MockedData.states)
+        (self.stateSelectorField as? SelectorFormFieldType)?.set(data: Constants.MockedData.states)
 
         let validationResult = stateSelectorField.isValid()
 
@@ -51,8 +51,8 @@ class SelectorFormFieldTests: XCTestCase {
 
     func testShouldNotPassValidationMissingSelectedRow() {
 
-        (self.stateSelectorField as? SelectorFormFieldProtocol)?.set(data: [Constants.MockedData.states[0]])
-        (self.stateSelectorField as? SelectorFormFieldProtocol)?.set(selectedRow: Constants.MockedData.states[1])
+        (self.stateSelectorField as? SelectorFormFieldType)?.set(data: [Constants.MockedData.states[0]])
+        (self.stateSelectorField as? SelectorFormFieldType)?.set(selectedRow: Constants.MockedData.states[1])
 
         let validationResult = stateSelectorField.isValid()
 
@@ -65,9 +65,9 @@ class SelectorFormFieldTests: XCTestCase {
 
     func testShouldNotPassValidationUISelectedValueMismatch() {
 
-        (self.stateSelectorField as? SelectorFormFieldProtocol)?.set(data: [Constants.MockedData.states[0]])
-        (self.stateSelectorField as? SelectorFormFieldProtocol)?.set(selectedRow: Constants.MockedData.states[0])
-        (self.stateSelectorField as? SelectorFormFieldProtocol)?.set(text: Constants.MockedData.states[0].name + " ")
+        (self.stateSelectorField as? SelectorFormFieldType)?.set(data: [Constants.MockedData.states[0]])
+        (self.stateSelectorField as? SelectorFormFieldType)?.set(selectedRow: Constants.MockedData.states[0])
+        (self.stateSelectorField as? SelectorFormFieldType)?.set(text: Constants.MockedData.states[0].name + " ")
 
         let validationResult = stateSelectorField.isValid()
 

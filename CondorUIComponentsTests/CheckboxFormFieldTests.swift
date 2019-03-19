@@ -29,10 +29,10 @@ class CheckboxFormFieldTests: XCTestCase {
     var checkboxField: FormFieldType<[Selectable]> = CheckboxFormField(frame: InnerConstants.Settings.mockFrame)
 
     func testShouldPassValidation() {
-        (self.checkboxField as? MultipleSelectionFormFieldProtocol)?.set(data: Constants.MockedData.educationTypes)
+        (self.checkboxField as? MultipleSelectionFormFieldType)?.set(data: Constants.MockedData.educationTypes)
 
-        (self.checkboxField as? TestableCheckboxFormFieldProtocol)?.select(option: InnerConstants.Values.successful1, status: true)
-        (self.checkboxField as? TestableCheckboxFormFieldProtocol)?.select(option: InnerConstants.Values.successful2, status: true)
+        (self.checkboxField as? TestableCheckboxFormFieldType)?.select(option: InnerConstants.Values.successful1, status: true)
+        (self.checkboxField as? TestableCheckboxFormFieldType)?.select(option: InnerConstants.Values.successful2, status: true)
 
         let validationResult = checkboxField.isValid()
 
@@ -40,7 +40,7 @@ class CheckboxFormFieldTests: XCTestCase {
     }
 
     func testShouldNotPassValidationEmpty() {
-        (self.checkboxField as? MultipleSelectionFormFieldProtocol)?.set(data: Constants.MockedData.educationTypes)
+        (self.checkboxField as? MultipleSelectionFormFieldType)?.set(data: Constants.MockedData.educationTypes)
 
         let validationResult = checkboxField.isValid()
 

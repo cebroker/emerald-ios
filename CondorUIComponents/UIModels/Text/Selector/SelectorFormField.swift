@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol SelectorFormFieldProtocol: TextFormFieldType {
+public protocol SelectorFormFieldType: TextFormFieldType {
     func set(notifiable: SelectorFormFieldChangeNotifiable?)
     func set(data: [Selectable])
     func clearData()
@@ -16,7 +16,7 @@ public protocol SelectorFormFieldProtocol: TextFormFieldType {
     func set(selectedRow: Selectable)
 }
 
-public class SelectorFormField: TextFormField, SelectorFormFieldProtocol, UIPickerViewDelegate, UIPickerViewDataSource {
+public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerViewDelegate, UIPickerViewDataSource {
 
     private struct InnerConstants {
         static let numberOfComponents = 1
