@@ -6,12 +6,12 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public protocol TextSelectionFormFieldProtocol: TextFormFieldType {
+public protocol TextSelectionFormFieldType: TextFormFieldType {
     func set(availableOptions: [String])
     func getAvailableOptions() -> [String]
 }
 
-public class TextSelectionFormField: TextFormField, TextSelectionFormFieldProtocol {
+public class TextSelectionFormField: TextFormField, TextSelectionFormFieldType {
 
     private var availableOptions: [String] = []
 

@@ -29,16 +29,16 @@ class RadioGroupFormFieldTests: XCTestCase {
 
     func testShouldPassValidation() {
 
-        (self.radioGroupField as? MultipleSelectionFormFieldProtocol)?.set(data: Constants.MockedData.educationTypes)
+        (self.radioGroupField as? MultipleSelectionFormFieldType)?.set(data: Constants.MockedData.educationTypes)
 
-        (self.radioGroupField as? TestableRadioGroupFormFieldProtocol)?.select(option: InnerConstants.Values.successful)
+        (self.radioGroupField as? TestableRadioGroupFormFieldType)?.select(option: InnerConstants.Values.successful)
 
         XCTAssert(radioGroupField.isValid().isValid)
     }
 
     func testShouldNotPassValidationEmpty() {
 
-        (self.radioGroupField as? MultipleSelectionFormFieldProtocol)?.set(data: Constants.MockedData.educationTypes)
+        (self.radioGroupField as? MultipleSelectionFormFieldType)?.set(data: Constants.MockedData.educationTypes)
 
         let validationResult = radioGroupField.isValid()
 

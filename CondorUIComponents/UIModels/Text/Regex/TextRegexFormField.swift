@@ -8,13 +8,13 @@
 
 import UIKit
 
-public protocol TextRegexFormFieldProtocol: TextFormFieldType {
+public protocol TextRegexFormFieldType: TextFormFieldType {
     func set(regex: String)
     func getRegex() -> String
 }
 
 @IBDesignable
-public class TextRegexFormField: TextFormField, TextRegexFormFieldProtocol {
+public class TextRegexFormField: TextFormField, TextRegexFormFieldType {
 
     @IBInspectable
     public var regex: String {

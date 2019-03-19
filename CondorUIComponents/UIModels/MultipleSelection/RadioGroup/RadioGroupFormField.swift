@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol TestableRadioGroupFormFieldProtocol {
+protocol TestableRadioGroupFormFieldType {
     func select(option: Selectable)
 }
 
-class RadioGroupFormField: MultipleSelectionFormField, TestableRadioGroupFormFieldProtocol {
+class RadioGroupFormField: MultipleSelectionFormField, TestableRadioGroupFormFieldType {
 
     func select(option: Selectable) {
         self.getChildren()?.forEach({
