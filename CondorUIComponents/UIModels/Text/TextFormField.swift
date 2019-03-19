@@ -22,6 +22,8 @@ public protocol TextFormFieldType {
     func getFont() -> UIFont?
     func set(textColor: UIColor?)
     func getTextColor() -> UIColor?
+    func set(inputType: UIKeyboardType)
+    func getInputType() -> UIKeyboardType?
 }
 
 @IBDesignable
@@ -111,6 +113,14 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         } catch {
             return false
         }
+    }
+
+    public func set(inputType: UIKeyboardType) {
+        self.textField?.keyboardType = inputType
+    }
+
+    public func getInputType() -> UIKeyboardType? {
+        return self.textField?.keyboardType
     }
 
     public func set(placeholder: String?) {
