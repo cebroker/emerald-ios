@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="607"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="FormStackView" customModule="ProofOfConcept" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="50" width="335" height="647"/>
+                                                <rect key="frame" x="20" y="50" width="268" height="647"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="647" placeholder="YES" id="MeL-8e-2J1"/>
                                                 </constraints>
@@ -43,7 +43,7 @@
                                 <constraints>
                                     <constraint firstItem="mBN-35-axl" firstAttribute="centerY" secondItem="tv5-H0-FWI" secondAttribute="centerY" id="1K5-fV-xOQ"/>
                                     <constraint firstItem="mBN-35-axl" firstAttribute="centerX" secondItem="tv5-H0-FWI" secondAttribute="centerX" id="5uY-yc-DE3"/>
-                                    <constraint firstItem="H8W-5V-jo4" firstAttribute="width" secondItem="tv5-H0-FWI" secondAttribute="width" placeholder="YES" id="97C-VU-eqF"/>
+                                    <constraint firstItem="H8W-5V-jo4" firstAttribute="width" secondItem="tv5-H0-FWI" secondAttribute="width" multiplier="0.8" id="97C-VU-eqF"/>
                                     <constraint firstItem="mBN-35-axl" firstAttribute="top" secondItem="tv5-H0-FWI" secondAttribute="top" id="AtE-LW-sFx"/>
                                     <constraint firstAttribute="bottom" secondItem="mBN-35-axl" secondAttribute="bottom" id="Sc0-ZD-kEr"/>
                                     <constraint firstAttribute="trailing" secondItem="mBN-35-axl" secondAttribute="trailing" id="nW2-s3-Fs0"/>

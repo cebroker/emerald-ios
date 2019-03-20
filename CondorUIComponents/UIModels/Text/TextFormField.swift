@@ -72,24 +72,33 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         return CGSize(width: UIView.noIntrinsicMetric, height: 58.0)
     }
 
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+    let placeholderLabel: UILabel = UILabel()
 
     override func postInit() {
         self.addSubview(textField)
+        self.addSubview(placeholderLabel)
+        
+        textField.delegate = self
+        self.setupTextFieldConstraints()
+        self.setupLabelConstraints()
+    }
+    
+    private func setupTextFieldConstraints() {
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        textField.topAnchor.constraint(equalTo: placeholderLabel.bottomAnchor).isActive = true
         textField.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         textField.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         textField.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        textField.delegate = self
     }
-
+    
+    private func setupLabelConstraints() {
+        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        placeholderLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        placeholderLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        placeholderLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+    }
+    
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         guard let oldText = textField.text, let textRange = Range(range, in: oldText) else {
@@ -125,8 +134,8 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
 
     public func set(placeholder: String?) {
         self.initialPlaceHolder = placeholder
-        self.textField.placeholder = placeholder
-//        self.textField.placeholderLabel.textColor = UIColor.gray
+        self.placeholderLabel.text = placeholder
+        self.placeholderLabel.textColor = UIColor.gray
     }
 
     public func getPlaceholder() -> String? {
@@ -188,13 +197,13 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     public override func show(error: FormFieldErrorType) {
-        self.textField.placeholder = error.description
-//        self.textField.placeholderLabel.textColor = UIColor.red
+        self.placeholderLabel.text = error.description
+        self.placeholderLabel.textColor = UIColor.red
     }
 
     public override func clearError() {
-        self.textField.placeholder = self.initialPlaceHolder
-//        self.textField.placeholderLabel.textColor = UIColor.gray
+        self.placeholderLabel.text = self.initialPlaceHolder
+        self.placeholderLabel.textColor = UIColor.gray
     }
 
     internal override func validateContent() -> ValidationResult {

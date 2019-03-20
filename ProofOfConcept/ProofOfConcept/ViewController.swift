@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         
         paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
 //
-        for i in 0..<9{
+        for i in 0..<1{
             _ = formStackView.createTextFormField(placeholder: "Contact name \(i)")
         }
         
