@@ -71,14 +71,14 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
 
     public func set(selectedRow: Selectable) {
         self.selectedRow = selectedRow
-        self.textField?.text = selectedRow.getSelectableText()
+        self.textField.text = selectedRow.getSelectableText()
         notifiable?.onSelected(row: selectedRow, from: self)
     }
 
     @objc private func onDoneButtonPressed() {
-        self.textField?.text = self.selectedRow?.getSelectableText()
+        self.textField.text = self.selectedRow?.getSelectableText()
 
-        self.textField?.resignFirstResponder()
+        self.textField.resignFirstResponder()
         toolbar.removeFromSuperview()
         pickerView.removeFromSuperview()
 
@@ -104,14 +104,14 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
         self.toolbar.setItems([doneButton], animated: false)
         self.toolbar.isUserInteractionEnabled = true
 
-        self.textField?.inputAccessoryView = toolbar
+        self.textField.inputAccessoryView = toolbar
     }
 
     private func setupPickerView() {
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
 
-        self.textField?.inputView = pickerView
+        self.textField.inputView = pickerView
     }
 
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {

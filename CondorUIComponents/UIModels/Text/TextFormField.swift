@@ -6,7 +6,7 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-import MaterialComponents.MaterialTextFields
+import UIKit
 
 public protocol TextFormFieldType {
     func set(placeholder: String?)
@@ -29,7 +29,7 @@ public protocol TextFormFieldType {
 @IBDesignable
 public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormatter, UITextFieldDelegate {
 
-    var textField: MDCTextField?
+    var textField: UITextField = UITextField()
 
     @IBInspectable
     public var maxLength: Int = 0
@@ -64,29 +64,25 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         }
     }
 
-    private var textFieldControllerFloating: MDCTextInputController?
-
     private var initialPlaceHolder: String?
 
     private var innerFormat: TextFormat = .none
 
     required public init?(coder aDecoder: NSCoder) {
-        self.textField = MDCTextField(coder: aDecoder)
         super.init(coder: aDecoder)
     }
 
     override public init(frame: CGRect) {
-        self.textField = MDCTextField(frame: frame)
         super.init(frame: frame)
     }
 
     override func postInit() {
-        guard let textField = self.textField else {
-            return
-        }
-
         self.addSubview(textField)
-        self.textFieldControllerFloating = MDCTextInputControllerUnderline(textInput: textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        textField.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        textField.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        textField.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         textField.delegate = self
     }
 
@@ -116,17 +112,17 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     public func set(inputType: UIKeyboardType) {
-        self.textField?.keyboardType = inputType
+        self.textField.keyboardType = inputType
     }
 
     public func getInputType() -> UIKeyboardType? {
-        return self.textField?.keyboardType
+        return self.textField.keyboardType
     }
 
     public func set(placeholder: String?) {
         self.initialPlaceHolder = placeholder
-        self.textField?.placeholder = placeholder
-        self.textField?.placeholderLabel.textColor = UIColor.gray
+        self.textField.placeholder = placeholder
+//        self.textField.placeholderLabel.textColor = UIColor.gray
     }
 
     public func getPlaceholder() -> String? {
@@ -134,11 +130,11 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     public func set(text: String?) {
-        self.textField?.text = text
+        self.textField.text = text
     }
 
     public func getText() -> String? {
-        return self.textField?.text
+        return self.textField.text
     }
 
     public func set(maxLength: Int) {
@@ -160,23 +156,23 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     public func set(font: UIFont?) {
-        self.textField?.font = font
+        self.textField.font = font
     }
 
     public func getFont() -> UIFont? {
-        return self.textField?.font
+        return self.textField.font
     }
 
     public func set(textColor: UIColor?) {
-        self.textField?.textColor = textColor
+        self.textField.textColor = textColor
     }
 
     public func getTextColor() -> UIColor? {
-        return self.textField?.textColor
+        return self.textField.textColor
     }
 
     public func getUnformattedText() -> String? {
-        guard let textWithFormat = self.textField?.text else {
+        guard let textWithFormat = self.textField.text else {
             return nil
         }
 
@@ -188,13 +184,13 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     public override func show(error: FormFieldErrorType) {
-        self.textField?.placeholder = error.description
-        self.textField?.placeholderLabel.textColor = UIColor.red
+        self.textField.placeholder = error.description
+//        self.textField.placeholderLabel.textColor = UIColor.red
     }
 
     public override func clearError() {
-        self.textField?.placeholder = self.initialPlaceHolder
-        self.textField?.placeholderLabel.textColor = UIColor.gray
+        self.textField.placeholder = self.initialPlaceHolder
+//        self.textField.placeholderLabel.textColor = UIColor.gray
     }
 
     internal override func validateContent() -> ValidationResult {
