@@ -18,38 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv5-H0-FWI">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tv5-H0-FWI">
                                 <rect key="frame" x="20" y="36" width="335" height="615"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="615"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dCT-GS-KB7" customClass="FormStackView" customModule="ProofOfConcept" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="207" width="335" height="200"/>
+                                            <stackView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dCT-GS-KB7" customClass="FormStackView" customModule="ProofOfConcept" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="10" width="335" height="595"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </stackView>
                                         </subviews>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="mBN-35-axl" firstAttribute="leading" secondItem="tv5-H0-FWI" secondAttribute="leading" id="5nL-Q6-pYi"/>
-                                    <constraint firstItem="dCT-GS-KB7" firstAttribute="width" secondItem="tv5-H0-FWI" secondAttribute="width" id="CaY-fP-d0i"/>
-                                    <constraint firstAttribute="bottom" secondItem="mBN-35-axl" secondAttribute="bottom" id="JwI-Lq-LkP"/>
-                                    <constraint firstAttribute="bottom" secondItem="dCT-GS-KB7" secondAttribute="bottom" constant="208" id="KAZ-rh-Gdy"/>
-                                    <constraint firstItem="mBN-35-axl" firstAttribute="top" secondItem="tv5-H0-FWI" secondAttribute="top" id="WKB-dI-qxe"/>
-                                    <constraint firstItem="dCT-GS-KB7" firstAttribute="centerX" secondItem="tv5-H0-FWI" secondAttribute="centerX" id="ZSI-jU-vIJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="mBN-35-axl" secondAttribute="trailing" id="nRc-X0-nOj"/>
-                                    <constraint firstItem="dCT-GS-KB7" firstAttribute="top" secondItem="tv5-H0-FWI" secondAttribute="top" constant="207" id="u7k-vV-KNd"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tv5-H0-FWI" secondAttribute="trailing" constant="20" id="Lqc-Kr-cWs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tv5-H0-FWI" secondAttribute="bottom" constant="16" id="eyd-Fd-RxV"/>
-                            <constraint firstItem="tv5-H0-FWI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="pI2-BZ-qfQ"/>
-                            <constraint firstItem="tv5-H0-FWI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vy0-zk-g9E"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>

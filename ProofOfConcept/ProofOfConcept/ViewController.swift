@@ -55,18 +55,23 @@ class ViewController: UIViewController {
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
         state?.set(notifiable: self)
         
-//        zip = formStackView.createTextFormField(placeholder: "Zip")
-//        zip?.set(maxLength: 5)
-//        zip?.set(inputType: .numberPad)
-//        contactName = formStackView.createTextFormField(placeholder: "Contact name")
-//        membershipDuesAmount = formStackView.createTextFormField(placeholder: "Membership dues")
-//        membershipDuesAmount?.set(format: .currency)
-//        //        membershipDuesAmount?.set(inputType: .numberPad)
-//        dueDateForDues = formStackView.createDateFormField(placeholder: "Due date for dues")
-//        amountPaid = formStackView.createTextFormField(placeholder: "Amount paid")
-//        amountPaid?.set(format: .currency)
-//        //        amountPaid?.set(inputType: .numberPad)
-//        paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
+        zip = formStackView.createTextFormField(placeholder: "Zip")
+        zip?.set(maxLength: 5)
+        zip?.set(inputType: .numberPad)
+        
+        contactName = formStackView.createTextFormField(placeholder: "Contact name")
+        
+        membershipDuesAmount = formStackView.createTextFormField(placeholder: "Membership dues")
+        membershipDuesAmount?.set(format: .currency)
+        membershipDuesAmount?.set(inputType: .numberPad)
+        
+        dueDateForDues = formStackView.createDateFormField(placeholder: "Due date for dues")
+        
+        amountPaid = formStackView.createTextFormField(placeholder: "Amount paid")
+        amountPaid?.set(format: .currency)
+        amountPaid?.set(inputType: .numberPad)
+        
+        paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
 //
 //        _ = formStackView.createTextFormField(placeholder: "Contact name 1")
 //        _ = formStackView.createTextFormField(placeholder: "Contact name 2")

@@ -19,7 +19,7 @@ public class FormStackView: UIStackView {
         super.init(coder: coder)
         self.spacing = 30
         self.axis = .vertical
-        self.distribution = .fillEqually
+        self.distribution = .equalSpacing
         self.alignment = .fill
     }
 }
@@ -58,6 +58,7 @@ extension FormStackView: FormStackViewConfigurable {
     
     private func defaultSetup(textFormField: TextFormField, with placeholder: String) {
         textFormField.set(placeholder: placeholder)
+//        textFormField.heightAnchor.constraint(equalToConstant: 58).isActive = true
         self.fields.append(textFormField)
     }
     

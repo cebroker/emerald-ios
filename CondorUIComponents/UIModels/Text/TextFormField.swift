@@ -67,6 +67,10 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     private var initialPlaceHolder: String?
 
     private var innerFormat: TextFormat = .none
+    
+    public override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 58.0)
+    }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
