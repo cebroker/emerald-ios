@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ProofOfConcept/ProofOfConcept.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CondorUIComponents.xcodeproj">
    </FileRef>
    <FileRef

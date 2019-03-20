@@ -12,3 +12,8 @@ end
 target 'CondorUIComponentsTests' do
   inherit! :search_paths
 end
+
+target 'ProofOfConcept' do
+  project 'ProofOfConcept/ProofOfConcept'
+  pod 'CondorUIComponentsIOS', :path=>'./'
+end
