@@ -73,13 +73,10 @@ class ViewController: UIViewController {
         
         paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
 //
-//        _ = formStackView.createTextFormField(placeholder: "Contact name 1")
-//        _ = formStackView.createTextFormField(placeholder: "Contact name 2")
-//
-//        _ = formStackView.createTextFormField(placeholder: "Contact name 3")
-//
-//        _ = formStackView.createTextFormField(placeholder: "Contact name 4")
-//
+        for i in 0..<1{
+            _ = formStackView.createTextFormField(placeholder: "Contact name \(i)")
+        }
+        
         formStackView.reloadFields()
     }
 }
