@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B6D2E3922288AD1002079AF"
+               BlueprintIdentifier = "9BC82E242242777F007BC5BD"
                BuildableName = "CondorUIComponentsTests.xctest"
                BlueprintName = "CondorUIComponentsTests"
                ReferencedContainer = "container:CondorUIComponents.xcodeproj">
@@ -53,7 +53,7 @@
          </BuildableReference>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B6D2E3922288AD1002079AF"
+            BlueprintIdentifier = "9BC82E242242777F007BC5BD"
             BuildableName = "CondorUIComponentsTests.xctest"
             BlueprintName = "CondorUIComponentsTests"
             ReferencedContainer = "container:CondorUIComponents.xcodeproj">
@@ -64,7 +64,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B6D2E3922288AD1002079AF"
+               BlueprintIdentifier = "9BC82E242242777F007BC5BD"
                BuildableName = "CondorUIComponentsTests.xctest"
                BlueprintName = "CondorUIComponentsTests"
                ReferencedContainer = "container:CondorUIComponents.xcodeproj">

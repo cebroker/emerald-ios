@@ -3,29 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010D952A26C63B5DEEEBE1F6 /* Pods_CondorUIComponentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */; };
+		4163D55B4945E7F85964A005 /* Pods_CondorUIComponentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */; };
 		9B209872223067A30039057B /* MultipleSelectionItemChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B209871223067A30039057B /* MultipleSelectionItemChangeNotifiable.swift */; };
 		9B7F449F22305BBE0059D36D /* TextRegexFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F449E22305BBE0059D36D /* TextRegexFormFieldError.swift */; };
 		9B7F44A122305E470059D36D /* TextSelectionFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A022305E470059D36D /* TextSelectionFormFieldError.swift */; };
 		9B7F44A322305EC20059D36D /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A222305EC20059D36D /* Selectable.swift */; };
 		9B7F44A522305F2A0059D36D /* SelectorFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A422305F2A0059D36D /* SelectorFormFieldChangeNotifiable.swift */; };
 		9B7F44A7223061120059D36D /* SelectorFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A6223061120059D36D /* SelectorFormFieldError.swift */; };
-		9BA4918D22288EE600837D07 /* DateFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4917F22288E5200837D07 /* DateFormFieldTests.swift */; };
-		9BA4918E22288EE600837D07 /* PhoneTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918122288E5200837D07 /* PhoneTextFieldTests.swift */; };
-		9BA4918F22288EE600837D07 /* RadioGroupFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918022288E5200837D07 /* RadioGroupFormFieldTests.swift */; };
-		9BA4919022288EE600837D07 /* SelectorFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */; };
-		9BA4919122288EE600837D07 /* TextSelectionFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */; };
-		9BA4919422288EFF00837D07 /* DateFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4917F22288E5200837D07 /* DateFormFieldTests.swift */; };
-		9BA4919522288EFF00837D07 /* PhoneTextFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918122288E5200837D07 /* PhoneTextFieldTests.swift */; };
-		9BA4919622288EFF00837D07 /* RadioGroupFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918022288E5200837D07 /* RadioGroupFormFieldTests.swift */; };
-		9BA4919722288EFF00837D07 /* SelectorFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */; };
-		9BA4919822288EFF00837D07 /* TextSelectionFormFieldTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */; };
-		9BBCBA3C22307CAA0050FD58 /* SimpleSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */; };
-		9BE4033A22301EF6003C64AD /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */; };
+		9BC82E282242777F007BC5BD /* CondorUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E272242777F007BC5BD /* CondorUIComponentsTests.swift */; };
+		9BC82E2A2242777F007BC5BD /* CondorUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE5A5462228813A004A59B9 /* CondorUIComponents.framework */; };
+		9BC82E302242778A007BC5BD /* DateFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4917F22288E5200837D07 /* DateFormFieldTests.swift */; };
+		9BC82E312242778A007BC5BD /* TextSelectionFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */; };
+		9BC82E322242778A007BC5BD /* RadioGroupFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918022288E5200837D07 /* RadioGroupFormFieldTests.swift */; };
+		9BC82E332242778A007BC5BD /* PhoneTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918122288E5200837D07 /* PhoneTextFieldTests.swift */; };
+		9BC82E342242778A007BC5BD /* SimpleSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */; };
+		9BC82E352242778A007BC5BD /* SelectorFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */; };
+		9BC82E362242778A007BC5BD /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */; };
 		9BE4034122303104003C64AD /* FormFieldErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4034022303104003C64AD /* FormFieldErrorType.swift */; };
 		9BE403452230357D003C64AD /* DateFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE403442230357D003C64AD /* DateFormFieldChangeNotifiable.swift */; };
 		9BE5A5572228813B004A59B9 /* CondorUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BE5A5492228813B004A59B9 /* CondorUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,7 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9BE4033B22301F27003C64AD /* PBXContainerItemProxy */ = {
+		9BC82E2B2242777F007BC5BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9BE5A53D2228813A004A59B9 /* Project object */;
 			proxyType = 1;
@@ -60,15 +57,11 @@
 
 /* Begin PBXFileReference section */
 		1A09684886839E6F689C9AA5 /* Pods_CondorUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2955C82998D7EBF3DDC1A7B9 /* Pods-UIComponents-CondorUIComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIComponents-CondorUIComponents.debug.xcconfig"; path = "Target Support Files/Pods-UIComponents-CondorUIComponents/Pods-UIComponents-CondorUIComponents.debug.xcconfig"; sourceTree = "<group>"; };
-		30603D308298CFF188E99E7E /* Pods-UIComponents-CondorUIComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIComponents-CondorUIComponents.release.xcconfig"; path = "Target Support Files/Pods-UIComponents-CondorUIComponents/Pods-UIComponents-CondorUIComponents.release.xcconfig"; sourceTree = "<group>"; };
 		50415D9DE5213B24F9BEAD0E /* Pods-CondorUIComponentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponentsTests.debug.xcconfig"; path = "Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862EACA607A1D76CC51DFF6D /* Pods-CondorUIComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponents.debug.xcconfig"; path = "Target Support Files/Pods-CondorUIComponents/Pods-CondorUIComponents.debug.xcconfig"; sourceTree = "<group>"; };
 		9B209871223067A30039057B /* MultipleSelectionItemChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionItemChangeNotifiable.swift; sourceTree = "<group>"; };
 		9B660FA64B0492298D00A315 /* Pods-CondorUIComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponents.release.xcconfig"; path = "Target Support Files/Pods-CondorUIComponents/Pods-CondorUIComponents.release.xcconfig"; sourceTree = "<group>"; };
-		9B6D2E3A22288AD1002079AF /* CondorUIComponentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CondorUIComponentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B6D2E3E22288AD1002079AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B7F449E22305BBE0059D36D /* TextRegexFormFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRegexFormFieldError.swift; sourceTree = "<group>"; };
 		9B7F44A022305E470059D36D /* TextSelectionFormFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSelectionFormFieldError.swift; sourceTree = "<group>"; };
 		9B7F44A222305EC20059D36D /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
@@ -82,6 +75,8 @@
 		9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxFormFieldTests.swift; sourceTree = "<group>"; };
 		9BA491A422288FEE00837D07 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSetup.swift; sourceTree = "<group>"; };
+		9BC82E252242777F007BC5BD /* CondorUIComponentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CondorUIComponentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC82E272242777F007BC5BD /* CondorUIComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondorUIComponentsTests.swift; sourceTree = "<group>"; };
 		9BE4034022303104003C64AD /* FormFieldErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldErrorType.swift; sourceTree = "<group>"; };
 		9BE403442230357D003C64AD /* DateFormFieldChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormFieldChangeNotifiable.swift; sourceTree = "<group>"; };
 		9BE5A5462228813A004A59B9 /* CondorUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CondorUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,15 +99,17 @@
 		9BE5A582222883DA004A59B9 /* CheckboxFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxFormField.swift; sourceTree = "<group>"; };
 		9BE5A58422288556004A59B9 /* CondorUIComponentsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CondorUIComponentsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		9BF5D1A222305065008ECF18 /* DateFormFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormFieldError.swift; sourceTree = "<group>"; };
+		A87715415C325A5BEBBAC940 /* Pods_CondorUIComponents_CondorUIComponentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponents_CondorUIComponentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E76038FF1ED128893A6062 /* Pods-CondorUIComponentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponentsTests.release.xcconfig"; path = "Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9B6D2E3722288AD1002079AF /* Frameworks */ = {
+		9BC82E222242777F007BC5BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				010D952A26C63B5DEEEBE1F6 /* Pods_CondorUIComponentsTests.framework in Frameworks */,
+				9BC82E2A2242777F007BC5BD /* CondorUIComponents.framework in Frameworks */,
+				4163D55B4945E7F85964A005 /* Pods_CondorUIComponentsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +130,7 @@
 				9BA491A422288FEE00837D07 /* BEMCheckBox.framework */,
 				1A09684886839E6F689C9AA5 /* Pods_CondorUIComponents.framework */,
 				6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */,
+				A87715415C325A5BEBBAC940 /* Pods_CondorUIComponents_CondorUIComponentsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,21 +142,6 @@
 				9BE5A57B2228838D004A59B9 /* MultipleSelectionItem.swift */,
 			);
 			path = Item;
-			sourceTree = "<group>";
-		};
-		9B6D2E3B22288AD1002079AF /* CondorUIComponentsTests */ = {
-			isa = PBXGroup;
-			children = (
-				9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */,
-				9BA4917F22288E5200837D07 /* DateFormFieldTests.swift */,
-				9BA4918122288E5200837D07 /* PhoneTextFieldTests.swift */,
-				9BA4918022288E5200837D07 /* RadioGroupFormFieldTests.swift */,
-				9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */,
-				9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */,
-				9B6D2E3E22288AD1002079AF /* Info.plist */,
-				9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */,
-			);
-			path = CondorUIComponentsTests;
 			sourceTree = "<group>";
 		};
 		9B7F449B22305B350059D36D /* Regex */ = {
@@ -187,6 +170,21 @@
 				9B7F44A6223061120059D36D /* SelectorFormFieldError.swift */,
 			);
 			path = Selector;
+			sourceTree = "<group>";
+		};
+		9BC82E262242777F007BC5BD /* CondorUIComponentsTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */,
+				9BA4917F22288E5200837D07 /* DateFormFieldTests.swift */,
+				9BA4918122288E5200837D07 /* PhoneTextFieldTests.swift */,
+				9BA4918022288E5200837D07 /* RadioGroupFormFieldTests.swift */,
+				9BA4918222288E5300837D07 /* SelectorFormFieldTests.swift */,
+				9BA4918322288E5300837D07 /* TextSelectionFormFieldTests.swift */,
+				9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */,
+				9BC82E272242777F007BC5BD /* CondorUIComponentsTests.swift */,
+			);
+			path = CondorUIComponentsTests;
 			sourceTree = "<group>";
 		};
 		9BE4033D223028DC003C64AD /* Text */ = {
@@ -225,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				9BE5A5482228813A004A59B9 /* CondorUIComponents */,
-				9B6D2E3B22288AD1002079AF /* CondorUIComponentsTests */,
+				9BC82E262242777F007BC5BD /* CondorUIComponentsTests */,
 				9BE5A5472228813A004A59B9 /* Products */,
 				A6AE4D6358A62159C26DC1BE /* Pods */,
 				020D608AD19213BC5CEBF10D /* Frameworks */,
@@ -237,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				9BE5A5462228813A004A59B9 /* CondorUIComponents.framework */,
-				9B6D2E3A22288AD1002079AF /* CondorUIComponentsTests.xctest */,
+				9BC82E252242777F007BC5BD /* CondorUIComponentsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,8 +307,6 @@
 				9B660FA64B0492298D00A315 /* Pods-CondorUIComponents.release.xcconfig */,
 				50415D9DE5213B24F9BEAD0E /* Pods-CondorUIComponentsTests.debug.xcconfig */,
 				B4E76038FF1ED128893A6062 /* Pods-CondorUIComponentsTests.release.xcconfig */,
-				2955C82998D7EBF3DDC1A7B9 /* Pods-UIComponents-CondorUIComponents.debug.xcconfig */,
-				30603D308298CFF188E99E7E /* Pods-UIComponents-CondorUIComponents.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -329,24 +325,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9B6D2E3922288AD1002079AF /* CondorUIComponentsTests */ = {
+		9BC82E242242777F007BC5BD /* CondorUIComponentsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B6D2E4222288AD1002079AF /* Build configuration list for PBXNativeTarget "CondorUIComponentsTests" */;
+			buildConfigurationList = 9BC82E2D2242777F007BC5BD /* Build configuration list for PBXNativeTarget "CondorUIComponentsTests" */;
 			buildPhases = (
-				D5FFAFA72E4B0A644C1E5ABE /* [CP] Check Pods Manifest.lock */,
-				9B6D2E3622288AD1002079AF /* Sources */,
-				9B6D2E3722288AD1002079AF /* Frameworks */,
-				9B6D2E3822288AD1002079AF /* Resources */,
-				6474D5FC20366059A47472F5 /* [CP] Embed Pods Frameworks */,
+				9F93352FC1105C8D3A3DF699 /* [CP] Check Pods Manifest.lock */,
+				9BC82E212242777F007BC5BD /* Sources */,
+				9BC82E222242777F007BC5BD /* Frameworks */,
+				9BC82E232242777F007BC5BD /* Resources */,
+				93E1EA69C9E03A9ED342EED1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9BE4033C22301F27003C64AD /* PBXTargetDependency */,
+				9BC82E2C2242777F007BC5BD /* PBXTargetDependency */,
 			);
 			name = CondorUIComponentsTests;
 			productName = CondorUIComponentsTests;
-			productReference = 9B6D2E3A22288AD1002079AF /* CondorUIComponentsTests.xctest */;
+			productReference = 9BC82E252242777F007BC5BD /* CondorUIComponentsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		9BE5A5452228813A004A59B9 /* CondorUIComponents */ = {
@@ -379,7 +375,7 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Condor Labs";
 				TargetAttributes = {
-					9B6D2E3922288AD1002079AF = {
+					9BC82E242242777F007BC5BD = {
 						CreatedOnToolsVersion = 10.1;
 					};
 					9BE5A5452228813A004A59B9 = {
@@ -401,21 +397,16 @@
 			projectRoot = "";
 			targets = (
 				9BE5A5452228813A004A59B9 /* CondorUIComponents */,
-				9B6D2E3922288AD1002079AF /* CondorUIComponentsTests */,
+				9BC82E242242777F007BC5BD /* CondorUIComponentsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9B6D2E3822288AD1002079AF /* Resources */ = {
+		9BC82E232242777F007BC5BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA4919422288EFF00837D07 /* DateFormFieldTests.swift in Resources */,
-				9BA4919522288EFF00837D07 /* PhoneTextFieldTests.swift in Resources */,
-				9BA4919622288EFF00837D07 /* RadioGroupFormFieldTests.swift in Resources */,
-				9BA4919722288EFF00837D07 /* SelectorFormFieldTests.swift in Resources */,
-				9BA4919822288EFF00837D07 /* TextSelectionFormFieldTests.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,24 +420,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6474D5FC20366059A47472F5 /* [CP] Embed Pods Frameworks */ = {
+		93E1EA69C9E03A9ED342EED1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D5FFAFA72E4B0A644C1E5ABE /* [CP] Check Pods Manifest.lock */ = {
+		9F93352FC1105C8D3A3DF699 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -493,17 +493,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9B6D2E3622288AD1002079AF /* Sources */ = {
+		9BC82E212242777F007BC5BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA4918D22288EE600837D07 /* DateFormFieldTests.swift in Sources */,
-				9BA4918E22288EE600837D07 /* PhoneTextFieldTests.swift in Sources */,
-				9BBCBA3C22307CAA0050FD58 /* SimpleSetup.swift in Sources */,
-				9BA4918F22288EE600837D07 /* RadioGroupFormFieldTests.swift in Sources */,
-				9BE4033A22301EF6003C64AD /* CheckboxFormFieldTests.swift in Sources */,
-				9BA4919022288EE600837D07 /* SelectorFormFieldTests.swift in Sources */,
-				9BA4919122288EE600837D07 /* TextSelectionFormFieldTests.swift in Sources */,
+				9BC82E332242778A007BC5BD /* PhoneTextFieldTests.swift in Sources */,
+				9BC82E362242778A007BC5BD /* CheckboxFormFieldTests.swift in Sources */,
+				9BC82E322242778A007BC5BD /* RadioGroupFormFieldTests.swift in Sources */,
+				9BC82E312242778A007BC5BD /* TextSelectionFormFieldTests.swift in Sources */,
+				9BC82E352242778A007BC5BD /* SelectorFormFieldTests.swift in Sources */,
+				9BC82E342242778A007BC5BD /* SimpleSetup.swift in Sources */,
+				9BC82E302242778A007BC5BD /* DateFormFieldTests.swift in Sources */,
+				9BC82E282242777F007BC5BD /* CondorUIComponentsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,15 +542,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9BE4033C22301F27003C64AD /* PBXTargetDependency */ = {
+		9BC82E2C2242777F007BC5BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9BE5A5452228813A004A59B9 /* CondorUIComponents */;
-			targetProxy = 9BE4033B22301F27003C64AD /* PBXContainerItemProxy */;
+			targetProxy = 9BC82E2B2242777F007BC5BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		9B6D2E4322288AD1002079AF /* Debug */ = {
+		9BC82E2E2242777F007BC5BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 50415D9DE5213B24F9BEAD0E /* Pods-CondorUIComponentsTests.debug.xcconfig */;
 			buildSettings = {
@@ -568,7 +569,7 @@
 			};
 			name = Debug;
 		};
-		9B6D2E4422288AD1002079AF /* Release */ = {
+		9BC82E2F2242777F007BC5BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B4E76038FF1ED128893A6062 /* Pods-CondorUIComponentsTests.release.xcconfig */;
 			buildSettings = {
@@ -769,11 +770,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9B6D2E4222288AD1002079AF /* Build configuration list for PBXNativeTarget "CondorUIComponentsTests" */ = {
+		9BC82E2D2242777F007BC5BD /* Build configuration list for PBXNativeTarget "CondorUIComponentsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B6D2E4322288AD1002079AF /* Debug */,
-				9B6D2E4422288AD1002079AF /* Release */,
+				9BC82E2E2242777F007BC5BD /* Debug */,
+				9BC82E2F2242777F007BC5BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

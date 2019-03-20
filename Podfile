@@ -1,6 +1,14 @@
+platform :ios, '11.0'
+workspace 'CondorUIComponents.xcworkspace'
 use_frameworks!
-pod 'MaterialComponents/TextFields'
-pod 'BEMCheckBox'
 
-target 'CondorUIComponents'
-target 'CondorUIComponentsTests'
+target 'CondorUIComponents' do
+  project 'CondorUIComponents'
+  inherit! :search_paths
+  pod 'MaterialComponents/TextFields'
+  pod 'BEMCheckBox'
+end
+
+target 'CondorUIComponentsTests' do
+  inherit! :search_paths
+end
