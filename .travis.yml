@@ -13,3 +13,8 @@ osx_image: xcode10.1
 script:
    - xcodebuild build-for-testing -workspace CondorUIComponents.xcworkspace -scheme CondorUIComponents -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
    - xctool run-tests -workspace CondorUIComponents.xcworkspace -scheme CondorUIComponents -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+
+notifications:
+   slack:
+      rooms:
+         - secure: A+TReYYtlU170Ajjrw8qsxqm1DmkPQ9dib7yN4/YB0xYIAFOH2tNlz8fKO4ig+x/6tQJGAwG7dRm0JtC4tEPS6iTRSuiHzmRgkHeQ/O8PxsE5Z5w+7FB2WdNG3iVthad38CKqQH/WTUp+niRPnV0fHW9oL31LYCKlnWcPReFsHcnbUDrMgjg2+2tYLQ/AtYcfSUZCWm7IiJB3QAc/uhoE80FBaRwZfCESMNqwlFHmqixy1Ha5ulFrMZ9jvySpqohDq+l2OP1C/Sf+ZaLhK1WERn98Qoq+awkcp20TMG+OHN50m+NxkweDP4/krvHzySfC/jYQLe/cKAq2Klfu0GYW1KjXD10lZHLbYYsUvwWqAH1aaISTZvm7+FxCHDx2s9ZmMqESWTnBJ+t+604EiWkVghN5G9JPfLjMDn6ChQ4tE1L9IbjtUYSPsuCu+fFusaT9zlZbJijVpI3fXbwn/VATwBej2yUQB+COcYjGjmNf0j1Pfe56NW8PHwS0qLvBnbxlMrEFuoW+2oTFpmLVuYPSYUAB4fV5Ik0BhWy8YmZ1j9AF7K82Kvvs7ZRmmmPyMnHELPaBP7C7neLGLhb+gnjV7qJRAlhd9iwnlaIhnO42xT0/nIO8CJZ7j/g53kTNcNcQCC+JStgCpVCTmioZ/SCUFrjDtUS00eS0u7NXj+CVck=
