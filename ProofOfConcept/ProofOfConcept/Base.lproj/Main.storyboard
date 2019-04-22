@@ -37,7 +37,6 @@
                                             <constraint firstItem="H8W-5V-jo4" firstAttribute="top" secondItem="mBN-35-axl" secondAttribute="top" constant="50" id="V1C-ld-1pp"/>
                                             <constraint firstAttribute="trailing" secondItem="H8W-5V-jo4" secondAttribute="trailing" constant="33.5" id="Xqc-4F-oX4"/>
                                             <constraint firstItem="H8W-5V-jo4" firstAttribute="width" secondItem="mBN-35-axl" secondAttribute="width" multiplier="0.8" id="ZNO-86-9nx"/>
-                                            <constraint firstItem="H8W-5V-jo4" firstAttribute="centerX" secondItem="mBN-35-axl" secondAttribute="centerX" id="rvc-iA-eCU"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>

@@ -29,7 +29,8 @@ public protocol TextFormFieldType {
 @IBDesignable
 public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormatter, UITextFieldDelegate {
 
-    var textField: UITextField = UITextField()
+    let textField: UITextField = UITextField()
+    let placeholderLabel: UILabel = UILabel()
 
     @IBInspectable
     public var maxLength: Int = 0
@@ -80,26 +81,50 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         static let maximumFontSize: CGFloat = Constants.Design.FontSize.body
         static let borderWidth: CGFloat = 1
         static let cornerRadiousValue: CGFloat = 2
+        static let placeHolderLabelSize: CGFloat = Constants.Design.FontSize.body * 1.5
+        static let initialPosition: Int = 0
+        static let heightDivider: CGFloat = 2
+        static let animationDuration: Double = 0.15
+        static var frameOriginFieldOff = CGPoint(x: 10, y: Constants.Design.FontSize.body * 1.3)
+        static let frameOriginFieldOn = CGPoint(x: 10, y: 10)
+        struct Padding {
+            static let top: CGFloat = 10
+            static let bottom: CGFloat = 10
+            static let left: CGFloat = 10
+            static let right: CGFloat = 10
+        }
     }
 
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 58.0)
     }
 
-    let placeholderLabel: UILabel = UILabel()
-
     override func postInit() {
         self.addSubview(textField)
         self.addSubview(placeholderLabel)
+        textField.delegate = self
 
         self.setupLayout()
 
-        textField.delegate = self
         self.setupTextFieldConstraints()
-        self.setupLabelConstraints()
+        self.setupPlaceholderLabelConstraints()
     }
 
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+        self.setupPlaceholderTheme(
+            font: Constants.Design.font,
+            fontSize: InnerConstants.maximumFontSize,
+            labelHeight: InnerConstants.placeHolderLabelSize,
+            positionX: InnerConstants.initialPosition,
+            positionY: (Int(self.bounds.midY - InnerConstants.maximumFontSize / InnerConstants.heightDivider)),
+            color: Constants.Design.Color.grayBorder)
+    }
+
+    public func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String) -> Bool {
 
         guard let oldText = textField.text, let textRange = Range(range, in: oldText) else {
             return true
@@ -122,6 +147,14 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         } catch {
             return false
         }
+    }
+
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        activateField()
+    }
+
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        deactivateField()
     }
 
     public func set(inputType: UIKeyboardType) {
@@ -211,14 +244,15 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     }
 
     private func setupLayout() {
-//        self.font = UIFont.init(
-//            name: Constants.Design.font,
-//            size: InnerConstants.maximumFontSize)
-//
-//        self.set(textColor: UIColor.darkGray)
-//
+        self.font = UIFont.init(
+            name: Constants.Design.font,
+            size: InnerConstants.maximumFontSize)
+
+        self.set(textColor: UIColor.darkGray)
+
         self.layer.borderWidth = InnerConstants.borderWidth
         self.layer.borderColor = Constants.Design.Color.grayBorder.cgColor
+        self.layer.cornerRadius = InnerConstants.cornerRadiousValue
     }
 
     internal override func validateContent() -> ValidationResult {
@@ -229,19 +263,142 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         return ValidationResult(isValid: true)
     }
 
-    private func setupTextFieldConstraints() {
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.topAnchor.constraint(equalTo: placeholderLabel.bottomAnchor).isActive = true
-        textField.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        textField.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        textField.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+    private func activateField() {
+        let onActiveColor = Constants.Design.Color.lightGreen
+
+        self.layer.borderColor = onActiveColor.cgColor
+
+        self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
+
+        self.placeholderLabel.textColor = onActiveColor
+
+        if textField.text != nil {
+            self.movePlaceholderUp()
+        }
     }
 
-    private func setupLabelConstraints() {
+    private func deactivateField() {
+        let onDeactivateColor = Constants.Design.Color.grayBorder
+
+        self.layer.borderColor = onDeactivateColor.cgColor
+
+        self.placeholderLabel.textColor = onDeactivateColor
+
+        if let text = textField.text, text == Constants.Values.empty {
+            self.movePlaceholderDown()
+        }
+    }
+
+    private func setupTextFieldConstraints() {
+        textField.translatesAutoresizingMaskIntoConstraints = false
+
+        textField
+            .topAnchor
+            .constraint(
+                equalTo: self.topAnchor,
+                constant: InnerConstants.Padding.top)
+            .isActive = true
+
+        textField
+            .bottomAnchor
+            .constraint(
+                equalTo: self.bottomAnchor,
+                constant: InnerConstants.Padding.bottom)
+            .isActive = true
+
+        textField
+            .leftAnchor
+            .constraint(
+                equalTo: self.leftAnchor,
+                constant: InnerConstants.Padding.left)
+            .isActive = true
+
+        textField
+            .rightAnchor
+            .constraint(
+                equalTo: self.rightAnchor,
+                constant: InnerConstants.Padding.right)
+            .isActive = true
+    }
+
+    private func setupPlaceholderLabelConstraints() {
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        placeholderLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        placeholderLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        placeholderLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+
+        placeholderLabel
+            .topAnchor
+            .constraint(
+                equalTo: self.topAnchor,
+                constant: InnerConstants.Padding.top)
+            .isActive = true
+
+        placeholderLabel
+            .leftAnchor
+            .constraint(
+                equalTo: self.leftAnchor,
+                constant: InnerConstants.Padding.left)
+            .isActive = true
+
+        placeholderLabel
+            .rightAnchor
+            .constraint(
+                equalTo: self.rightAnchor,
+                constant: InnerConstants.Padding.right)
+            .isActive = true
+
+        placeholderLabel
+            .heightAnchor
+            .constraint(equalToConstant: InnerConstants.maximumFontSize)
+            .isActive = true
+
+    }
+
+    private func setupPlaceholderTheme(
+        font: String,
+        fontSize: CGFloat,
+        labelHeight: CGFloat,
+        positionX: Int,
+        positionY: Int,
+        color: UIColor) {
+        DispatchQueue.main.async {
+            self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
+            self.placeholderLabel.textColor = Constants.Design.Color.grayBorder
+            self.placeholderLabel.font = UIFont.init(name: font, size: fontSize)
+            self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+            self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
+        }
+    }
+
+    private func movePlaceholderUp() {
+        let reducerScale: CGFloat = InnerConstants.middleFontSize / InnerConstants.maximumFontSize
+
+        DispatchQueue.main.async {
+            UIView.animate(
+                withDuration: InnerConstants.animationDuration,
+                delay: InnerConstants.animationDuration,
+                options: [],
+                animations: {
+                    self.placeholderLabel.transform =
+                        CGAffineTransform(
+                            scaleX: reducerScale,
+                            y: reducerScale)
+                    self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOn
+                },
+                completion: { _ in })
+        }
+    }
+
+    private func movePlaceholderDown() {
+        DispatchQueue.main.async {
+            UIView.animate(
+                withDuration: InnerConstants.animationDuration,
+                delay: InnerConstants.animationDuration,
+                options: [],
+                animations: {
+                    self.placeholderLabel.transform =
+                        CGAffineTransform.identity
+                    self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+                },
+                completion: { _ in })
+        }
     }
 }

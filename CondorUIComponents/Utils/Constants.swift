@@ -124,6 +124,7 @@ struct Constants {
 
         struct Color {
             static let grayBorder = UIColor(hex: 0xC0C0C0)
+            static let lightGreen = UIColor(hex: 0x33DB95)
         }
     }
 }
