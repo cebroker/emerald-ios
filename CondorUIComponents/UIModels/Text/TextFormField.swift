@@ -64,10 +64,24 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         }
     }
 
+    @IBInspectable
+    public var font: UIFont? {
+        didSet {
+            self.textField.font = self.font
+        }
+    }
+
     private var initialPlaceHolder: String?
 
     private var innerFormat: TextFormat = .none
-    
+
+    private struct InnerConstants {
+        static let middleFontSize: CGFloat = Constants.Design.FontSize.form
+        static let maximumFontSize: CGFloat = Constants.Design.FontSize.body
+        static let borderWidth: CGFloat = 1
+        static let cornerRadiousValue: CGFloat = 2
+    }
+
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 58.0)
     }
@@ -77,28 +91,14 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     override func postInit() {
         self.addSubview(textField)
         self.addSubview(placeholderLabel)
-        
+
+        self.setupLayout()
+
         textField.delegate = self
         self.setupTextFieldConstraints()
         self.setupLabelConstraints()
     }
-    
-    private func setupTextFieldConstraints() {
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.topAnchor.constraint(equalTo: placeholderLabel.bottomAnchor).isActive = true
-        textField.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        textField.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        textField.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-    }
-    
-    private func setupLabelConstraints() {
-        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        placeholderLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        placeholderLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        placeholderLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-    }
-    
+
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         guard let oldText = textField.text, let textRange = Range(range, in: oldText) else {
@@ -206,6 +206,21 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         self.placeholderLabel.textColor = UIColor.gray
     }
 
+    override func getValue() -> String? {
+        return getText()
+    }
+
+    private func setupLayout() {
+//        self.font = UIFont.init(
+//            name: Constants.Design.font,
+//            size: InnerConstants.maximumFontSize)
+//
+//        self.set(textColor: UIColor.darkGray)
+//
+        self.layer.borderWidth = InnerConstants.borderWidth
+        self.layer.borderColor = Constants.Design.Color.grayBorder.cgColor
+    }
+
     internal override func validateContent() -> ValidationResult {
         guard let text = self.getText(), !text.isEmpty else {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
@@ -214,7 +229,19 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         return ValidationResult(isValid: true)
     }
 
-    override func getValue() -> String? {
-        return getText()
+    private func setupTextFieldConstraints() {
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.topAnchor.constraint(equalTo: placeholderLabel.bottomAnchor).isActive = true
+        textField.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        textField.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        textField.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+    }
+
+    private func setupLabelConstraints() {
+        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        placeholderLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        placeholderLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        placeholderLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
     }
 }
