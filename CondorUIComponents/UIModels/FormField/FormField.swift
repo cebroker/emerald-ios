@@ -6,6 +6,8 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
+import UIKit
+
 public enum FormFieldError: FormFieldErrorType {
     case emptyField
 }
