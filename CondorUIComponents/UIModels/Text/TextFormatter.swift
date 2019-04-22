@@ -12,6 +12,7 @@ public enum TextFormat: Int {
     case none = 0
     case currency
     case phone
+    case number
 }
 
 public enum TextFormatterError: Error {
@@ -34,7 +35,7 @@ public extension TextFormatter {
             return formatCurrency(resource: resource)
         case .phone:
             return formatResource(phoneNumber: resource)
-        case .none:
+        default:
             return resource
         }
     }
@@ -45,7 +46,7 @@ public extension TextFormatter {
             return removeCurrencyFormat(from: resource)
         case .phone:
             return resource.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-        case .none:
+        default:
             return resource
         }
     }

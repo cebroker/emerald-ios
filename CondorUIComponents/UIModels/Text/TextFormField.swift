@@ -87,6 +87,7 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         static let animationDuration: Double = 0.15
         static var frameOriginFieldOff = CGPoint(x: 10, y: Constants.Design.FontSize.body * 1.3)
         static let frameOriginFieldOn = CGPoint(x: 10, y: 10)
+        static let maximumDoubleLength = 10
         struct Padding {
             static let top: CGFloat = 10
             static let bottom: CGFloat = 10
@@ -195,6 +196,15 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
 
     public func set(format: TextFormat) {
         self.innerFormat = format
+        switch format {
+        case .currency:
+            self.set(maxLength: InnerConstants.maximumDoubleLength)
+            self.set(inputType: .decimalPad)
+        case .number:
+            self.set(inputType: .numberPad)
+        default:
+            self.set(inputType: .asciiCapable)
+        }
     }
 
     public func getFormat() -> TextFormat {

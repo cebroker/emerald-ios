@@ -93,6 +93,7 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
         super.postInit()
         self.setupPickerView()
         self.setupToolbar()
+        self.addDropdownIcon()
     }
 
     private func setupToolbar() {
@@ -100,11 +101,26 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
         self.toolbar.isTranslucent = true
         self.toolbar.sizeToFit()
 
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDoneButtonPressed))
-        self.toolbar.setItems([doneButton], animated: false)
+        self.toolbar.setItems([flexibleSpace, doneButton], animated: false)
         self.toolbar.isUserInteractionEnabled = true
 
         self.textField.inputAccessoryView = toolbar
+    }
+
+    private func addDropdownIcon() {
+        guard let image = UIImage(named: "dropdownicon.png") else {
+            return
+        }
+        
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 12, height: 12))
+
+        self.textField.addSubview(imageView)
+
+        imageView.rightAnchor.constraint(equalTo: self.textField.rightAnchor).isActive = true
+
     }
 
     private func setupPickerView() {

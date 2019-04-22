@@ -144,8 +144,10 @@ public class DateFormField: TextFormField, DateFormFieldType, DateFormFieldTesta
         self.toolbar.isTranslucent = true
         self.toolbar.sizeToFit()
 
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDoneButtonPressed))
-        self.toolbar.setItems([doneButton], animated: false)
+
+        self.toolbar.setItems([flexibleSpace, doneButton], animated: false)
         self.toolbar.isUserInteractionEnabled = true
 
         self.textField.inputAccessoryView = toolbar
