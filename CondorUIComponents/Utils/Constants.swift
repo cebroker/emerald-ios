@@ -112,6 +112,7 @@ struct Constants {
         static let dollarWithSpace = "$ "
         static let localIdentifier = "en_US_POSIX"
         static let dot: Character = "."
+        static let space = " "
     }
 
     struct Design {

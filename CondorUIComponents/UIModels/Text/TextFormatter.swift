@@ -55,7 +55,7 @@ public extension TextFormatter {
         if resource == Constants.Values.empty {
             return resource
         }
-        
+
         return Constants.Values.dollarWithSpace + resource
     }
 
@@ -75,14 +75,16 @@ public extension TextFormatter {
             return Constants.Values.empty
         }
 
-        var rawNumber = resource.replacingOccurrences(
-            of: Constants.Values.dollarWithSpace,
-            with: Constants.Values.empty)
+        var rawNumber = resource
+            .replacingOccurrences(
+                of: Constants.Values.dollar,
+                with: Constants.Values.empty)
+            .trimmingCharacters(in: .whitespaces)
 
         if let dotIndex = rawNumber.firstIndex(
             of: Constants.Values.dot) {
 
-            if let secondDotIndex = rawNumber.indices.first(where: { index  in
+            if let secondDotIndex = rawNumber.indices.first(where: { index in
                 rawNumber[index] == Constants.Values.dot && dotIndex != index
             }) {
                 rawNumber.remove(at: secondDotIndex)
