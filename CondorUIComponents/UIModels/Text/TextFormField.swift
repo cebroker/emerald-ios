@@ -152,8 +152,14 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         let updatedText = oldText.replacingCharacters(in: textRange, with: string)
 
         do {
-            let textWithoutFormat = try remove(format: self.innerFormat, to: updatedText)
-            textField.text = try apply(format: self.innerFormat, to: textWithoutFormat)
+            let textWithoutFormat = try remove(
+                format: self.innerFormat,
+                to: updatedText)
+            
+            textField.text = try apply(
+                format: self.innerFormat,
+                to: textWithoutFormat)
+            
             return false
         } catch {
             return false

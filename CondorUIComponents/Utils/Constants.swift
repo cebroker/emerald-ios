@@ -109,7 +109,9 @@ struct Constants {
         static let hyphen = "-"
         static let stringComma: String = ","
         static let dollar = "$"
+        static let dollarWithSpace = "$ "
         static let localIdentifier = "en_US_POSIX"
+        static let dot: Character = "."
     }
 
     struct Design {
