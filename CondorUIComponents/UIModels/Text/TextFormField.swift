@@ -11,6 +11,8 @@ import UIKit
 public protocol TextFormFieldType {
     func set(placeholder: String?)
     func getPlaceholder() -> String?
+    func set(hint: String?)
+    func getHint() -> String?
     func set(text: String?)
     func getText() -> String?
     func set(maxLength: Int)
@@ -72,6 +74,8 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         }
     }
 
+    private var hint: String?
+
     private var initialPlaceHolder: String?
 
     private var innerFormat: TextFormat = .none
@@ -96,6 +100,14 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         }
     }
 
+    public func set(hint: String?) {
+        self.hint = hint
+    }
+
+    public func getHint() -> String? {
+        return self.hint
+    }
+
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 58.0)
     }
@@ -117,8 +129,6 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
             font: Constants.Design.font,
             fontSize: InnerConstants.maximumFontSize,
             labelHeight: InnerConstants.placeHolderLabelSize,
-            positionX: InnerConstants.initialPosition,
-            positionY: (Int(self.bounds.midY - InnerConstants.maximumFontSize / InnerConstants.heightDivider)),
             color: Constants.Design.Color.grayBorder)
     }
 
@@ -282,7 +292,7 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
 
         self.placeholderLabel.textColor = onActiveColor
 
-        if textField.text != nil {
+        if textField.text == nil || textField.text == Constants.Values.empty {
             self.movePlaceholderUp()
         }
     }
@@ -294,7 +304,7 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
 
         self.placeholderLabel.textColor = onDeactivateColor
 
-        if let text = textField.text, text == Constants.Values.empty {
+        if textField.text == nil || textField.text == Constants.Values.empty {
             self.movePlaceholderDown()
         }
     }
@@ -366,14 +376,14 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         font: String,
         fontSize: CGFloat,
         labelHeight: CGFloat,
-        positionX: Int,
-        positionY: Int,
         color: UIColor) {
         DispatchQueue.main.async {
             self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
             self.placeholderLabel.textColor = Constants.Design.Color.grayBorder
             self.placeholderLabel.font = UIFont.init(name: font, size: fontSize)
-            self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+            self.placeholderLabel.frame.origin = CGPoint(
+                x: self.textField.frame.origin.x,
+                y: self.textField.frame.origin.y + labelHeight / 2)
             self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
         }
     }
@@ -393,12 +403,15 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
                             y: reducerScale)
                     self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOn
                 },
-                completion: { _ in })
+                completion: { _ in
+                    self.textField.placeholder = self.hint
+                })
         }
     }
 
     private func movePlaceholderDown() {
         DispatchQueue.main.async {
+            self.textField.placeholder = nil
             UIView.animate(
                 withDuration: InnerConstants.animationDuration,
                 delay: InnerConstants.animationDuration,

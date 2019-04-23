@@ -49,6 +49,11 @@ public class FormFieldType<ReturnType>: UIView {
         self.postInit()
     }
 
+    public init() {
+        super.init(frame: CGRect.zero)
+        self.postInit()
+    }
+
     func set(id: String) {
         self.id = id
     }

@@ -47,33 +47,47 @@ class ViewController: UIViewController {
 
     private func createFields() {
         organizationName = formStackView.createTextFormField(placeholder: "Organization name")
+        organizationName?.set(hint: "Condor Labs")
+        
         address = formStackView.createTextFormField(placeholder: "Address")
+        address?.set(hint: "Calle NN # NN - NN")
+        
         city = formStackView.createTextSelectionField(placeholder: "City")
+        city?.set(hint: "Medellín")
+        
         state = formStackView.createSelectorFormField(placeholder: "State")
         state?.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
         state?.set(notifiable: self)
+        state?.set(hint: "Antioquia")
 
         zip = formStackView.createTextFormField(placeholder: "Zip")
         zip?.set(maxLength: 5)
         zip?.set(format: .number)
         zip?.set(inputType: .numberPad)
+        zip?.set(hint: "12345")
 
         contactName = formStackView.createTextFormField(placeholder: "Contact name")
+        contactName?.set(hint: "John Doe")
 
         membershipDuesAmount = formStackView.createTextFormField(placeholder: "Membership dues")
         membershipDuesAmount?.set(format: .currency)
+        membershipDuesAmount?.set(hint: "$ 1234")
 
         dueDateForDues = formStackView.createDateFormField(placeholder: "Due date for dues")
+        dueDateForDues?.set(hint: "dd/MM/yyyy")
 
         amountPaid = formStackView.createTextFormField(placeholder: "Amount paid")
         amountPaid?.set(format: .currency)
+        amountPaid?.set(hint: "$ 1234")
 
         paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
+        paymentDate?.set(hint: "dd/MM/yyyy")
 
         for i in 0..<1 {
-            _ = formStackView.createTextFormField(placeholder: "Contact name \(i)")
+            let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
+            contactName?.set(hint: "John Doe")
         }
 
         formStackView.reloadFields()

@@ -14,8 +14,6 @@
 		9B7F44A322305EC20059D36D /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A222305EC20059D36D /* Selectable.swift */; };
 		9B7F44A522305F2A0059D36D /* SelectorFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A422305F2A0059D36D /* SelectorFormFieldChangeNotifiable.swift */; };
 		9B7F44A7223061120059D36D /* SelectorFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F44A6223061120059D36D /* SelectorFormFieldError.swift */; };
-		9BC034C8226E6423007DCE4B /* dropdownicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC034C7226E6423007DCE4B /* dropdownicon.png */; };
-		9BC034CA226E6F42007DCE4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC034C9226E6F42007DCE4B /* Assets.xcassets */; };
 		9BC82E282242777F007BC5BD /* CondorUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E272242777F007BC5BD /* CondorUIComponentsTests.swift */; };
 		9BC82E2A2242777F007BC5BD /* CondorUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE5A5462228813A004A59B9 /* CondorUIComponents.framework */; };
 		9BC82E302242778A007BC5BD /* DateFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4917F22288E5200837D07 /* DateFormFieldTests.swift */; };
@@ -77,8 +75,6 @@
 		9BA4918422288E5300837D07 /* CheckboxFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxFormFieldTests.swift; sourceTree = "<group>"; };
 		9BA491A422288FEE00837D07 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBCBA3B22307CAA0050FD58 /* SimpleSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSetup.swift; sourceTree = "<group>"; };
-		9BC034C7226E6423007DCE4B /* dropdownicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownicon.png; sourceTree = "<group>"; };
-		9BC034C9226E6F42007DCE4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BC82E252242777F007BC5BD /* CondorUIComponentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CondorUIComponentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC82E272242777F007BC5BD /* CondorUIComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondorUIComponentsTests.swift; sourceTree = "<group>"; };
 		9BE4034022303104003C64AD /* FormFieldErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldErrorType.swift; sourceTree = "<group>"; };
@@ -251,8 +247,6 @@
 				9BE5A5602228816B004A59B9 /* UIModels */,
 				9BE5A5492228813B004A59B9 /* CondorUIComponents.h */,
 				9BE5A54A2228813B004A59B9 /* Info.plist */,
-				9BC034C7226E6423007DCE4B /* dropdownicon.png */,
-				9BC034C9226E6F42007DCE4B /* Assets.xcassets */,
 			);
 			path = CondorUIComponents;
 			sourceTree = "<group>";
@@ -420,8 +414,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BC034CA226E6F42007DCE4B /* Assets.xcassets in Resources */,
-				9BC034C8226E6423007DCE4B /* dropdownicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

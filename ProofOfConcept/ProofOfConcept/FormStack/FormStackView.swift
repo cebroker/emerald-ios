@@ -12,9 +12,9 @@ import CondorUIComponentsIOS
 public class FormStackView: UIStackView {
 
     private var fields: [UIView] = []
-    
+
     private var defaultSingleLineFrame: CGRect?
-    
+
     required init(coder: NSCoder) {
         super.init(coder: coder)
         self.spacing = 30
@@ -25,51 +25,50 @@ public class FormStackView: UIStackView {
 }
 
 extension FormStackView: FormStackViewConfigurable {
-    
+
     public func createDateFormField(placeholder: String) -> DateFormField? {
         let x = DateFormField()
         defaultSetup(textFormField: x, with: placeholder)
         return x
     }
-    
+
     public func createSelectorFormField(placeholder: String) -> SelectorFormField? {
-        let x = SelectorFormField()
+        let x = SelectorFormField(dropdownIcon: UIImage(named: "dropdownicon"))
         defaultSetup(textFormField: x, with: placeholder)
         return x
     }
-    
+
     public func createTextSelectionField(placeholder: String) -> TextSelectionFormField? {
         let x = TextSelectionFormField()
         defaultSetup(textFormField: x, with: placeholder)
         return x
     }
-    
+
     public func createTextRegexFormField(placeholder: String) -> TextRegexFormField? {
         let x = TextRegexFormField()
         defaultSetup(textFormField: x, with: placeholder)
         return x
     }
-    
+
     public func createTextFormField(placeholder: String) -> TextFormField? {
         let x = TextFormField()
         defaultSetup(textFormField: x, with: placeholder)
         return x
     }
-    
+
     private func defaultSetup(textFormField: TextFormField, with placeholder: String) {
         textFormField.set(placeholder: placeholder)
-//        textFormField.heightAnchor.constraint(equalToConstant: 58).isActive = true
         self.fields.append(textFormField)
     }
-    
+
     public func reloadFields() {
         self.removeAllArrangedSubviews()
         fields.forEach {
             self.addArrangedSubview($0)
         }
     }
-    
-    private func setupDefaultAutoLayout(to view: UIView){
+
+    private func setupDefaultAutoLayout(to view: UIView) {
         view.anchor(
             top: nil,
             left: self.leftAnchor,

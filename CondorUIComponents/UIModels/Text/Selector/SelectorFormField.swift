@@ -32,6 +32,17 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
 
     private var selectedRow: Selectable?
 
+    private var dropdownIcon: UIImage?
+
+    public required init(dropdownIcon: UIImage?) {
+        self.dropdownIcon = dropdownIcon
+        super.init()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     override func validateContent() -> ValidationResult {
         guard let text = self.getValue(), !text.isEmpty else {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
@@ -110,17 +121,37 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
     }
 
     private func addDropdownIcon() {
-        guard let image = UIImage(named: "dropdownicon.png") else {
+        guard let image = self.dropdownIcon else {
             return
         }
-        
+
         let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 12, height: 12))
 
         self.textField.addSubview(imageView)
 
-        imageView.rightAnchor.constraint(equalTo: self.textField.rightAnchor).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
+        imageView
+            .rightAnchor
+            .constraint(
+                equalTo: self.rightAnchor,
+                constant: -24)
+            .isActive = true
+
+        imageView
+            .heightAnchor
+            .constraint(equalToConstant: 12)
+            .isActive = true
+
+        imageView
+            .widthAnchor
+            .constraint(equalToConstant: 20)
+            .isActive = true
+
+        imageView
+            .centerYAnchor
+            .constraint(equalTo: self.centerYAnchor)
+            .isActive = true
     }
 
     private func setupPickerView() {
@@ -146,4 +177,3 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
         self.set(selectedRow: data[row])
     }
 }
-
