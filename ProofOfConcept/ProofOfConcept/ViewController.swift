@@ -76,14 +76,14 @@ class ViewController: UIViewController {
         membershipDuesAmount?.set(hint: "$ 1234")
 
         dueDateForDues = formStackView.createDateFormField(placeholder: "Due date for dues")
-        dueDateForDues?.set(hint: "dd/MM/yyyy")
+        dueDateForDues?.set(hint: "MM/dd/yyyy")
 
         amountPaid = formStackView.createTextFormField(placeholder: "Amount paid")
         amountPaid?.set(format: .currency)
         amountPaid?.set(hint: "$ 1234")
 
         paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
-        paymentDate?.set(hint: "dd/MM/yyyy")
+        paymentDate?.set(hint: "MM/dd/yyyy")
 
         for i in 0..<1 {
             let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
