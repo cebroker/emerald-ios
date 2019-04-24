@@ -258,11 +258,13 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
     public override func show(error: FormFieldErrorType) {
         self.placeholderLabel.text = error.description
         self.placeholderLabel.textColor = UIColor.red
+        self.layer.borderColor = UIColor.red.cgColor
     }
 
     public override func clearError() {
         self.placeholderLabel.text = self.initialPlaceHolder
         self.placeholderLabel.textColor = UIColor.gray
+        self.layer.borderColor = Constants.Design.Color.grayBorder.cgColor
     }
 
     override public func getValue() -> String? {
