@@ -5,7 +5,6 @@ use_frameworks!
 target 'CondorUIComponents' do
   project 'CondorUIComponents'
   inherit! :search_paths
-  pod 'MaterialComponents/TextFields'
   pod 'BEMCheckBox'
 end
 

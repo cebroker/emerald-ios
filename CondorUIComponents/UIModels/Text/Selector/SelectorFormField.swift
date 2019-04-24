@@ -32,6 +32,21 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
 
     private var selectedRow: Selectable?
 
+    private var dropdownIcon: UIImage?
+
+    public required init(dropdownIcon: UIImage?) {
+        self.dropdownIcon = dropdownIcon
+        super.init()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
     override func validateContent() -> ValidationResult {
         guard let text = self.getValue(), !text.isEmpty else {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
@@ -71,14 +86,14 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
 
     public func set(selectedRow: Selectable) {
         self.selectedRow = selectedRow
-        self.textField?.text = selectedRow.getSelectableText()
+        self.textField.text = selectedRow.getSelectableText()
         notifiable?.onSelected(row: selectedRow, from: self)
     }
 
     @objc private func onDoneButtonPressed() {
-        self.textField?.text = self.selectedRow?.getSelectableText()
+        self.textField.text = self.selectedRow?.getSelectableText()
 
-        self.textField?.resignFirstResponder()
+        self.textField.resignFirstResponder()
         toolbar.removeFromSuperview()
         pickerView.removeFromSuperview()
 
@@ -93,6 +108,7 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
         super.postInit()
         self.setupPickerView()
         self.setupToolbar()
+        self.addDropdownIcon()
     }
 
     private func setupToolbar() {
@@ -100,18 +116,53 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
         self.toolbar.isTranslucent = true
         self.toolbar.sizeToFit()
 
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDoneButtonPressed))
-        self.toolbar.setItems([doneButton], animated: false)
+        self.toolbar.setItems([flexibleSpace, doneButton], animated: false)
         self.toolbar.isUserInteractionEnabled = true
 
-        self.textField?.inputAccessoryView = toolbar
+        self.textField.inputAccessoryView = toolbar
+    }
+
+    private func addDropdownIcon() {
+        guard let image = self.dropdownIcon else {
+            return
+        }
+
+        let imageView = UIImageView(image: image)
+
+        self.textField.addSubview(imageView)
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        imageView
+            .rightAnchor
+            .constraint(
+                equalTo: self.rightAnchor,
+                constant: -24)
+            .isActive = true
+
+        imageView
+            .heightAnchor
+            .constraint(equalToConstant: 12)
+            .isActive = true
+
+        imageView
+            .widthAnchor
+            .constraint(equalToConstant: 20)
+            .isActive = true
+
+        imageView
+            .centerYAnchor
+            .constraint(equalTo: self.centerYAnchor)
+            .isActive = true
     }
 
     private func setupPickerView() {
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
 
-        self.textField?.inputView = pickerView
+        self.textField.inputView = pickerView
     }
 
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -130,4 +181,3 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
         self.set(selectedRow: data[row])
     }
 }
-

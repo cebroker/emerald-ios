@@ -20,6 +20,20 @@
                ReferencedContainer = "container:ProofOfConcept.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9BE5A5452228813A004A59B9"
+               BuildableName = "CondorUIComponents.framework"
+               BlueprintName = "CondorUIComponents"
+               ReferencedContainer = "container:../CondorUIComponents.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

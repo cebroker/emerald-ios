@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B392E04224281C5006678B4 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B392E02224281C5006678B4 /* FormStackView.swift */; };
+		9B392E05224281C5006678B4 /* FormStackViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B392E03224281C5006678B4 /* FormStackViewContract.swift */; };
 		9BC45BCC8A18523C2B8CBA20 /* Pods_ProofOfConcept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E7568E3296FFF4DFCD4B62 /* Pods_ProofOfConcept.framework */; };
 		9BC82E46224278FA007BC5BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E45224278FA007BC5BD /* AppDelegate.swift */; };
 		9BC82E48224278FA007BC5BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E47224278FA007BC5BD /* ViewController.swift */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		2C9575E69501CA754AE94A6A /* Pods-ProofOfConcept.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofOfConcept.debug.xcconfig"; path = "Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept.debug.xcconfig"; sourceTree = "<group>"; };
+		9B392E02224281C5006678B4 /* FormStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
+		9B392E03224281C5006678B4 /* FormStackViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackViewContract.swift; sourceTree = "<group>"; };
 		9BC82E42224278FA007BC5BD /* ProofOfConcept.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProofOfConcept.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC82E45224278FA007BC5BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BC82E47224278FA007BC5BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		9B392E012242818C006678B4 /* FormStack */ = {
+			isa = PBXGroup;
+			children = (
+				9B392E02224281C5006678B4 /* FormStackView.swift */,
+				9B392E03224281C5006678B4 /* FormStackViewContract.swift */,
+			);
+			path = FormStack;
+			sourceTree = "<group>";
+		};
 		9BC82E39224278FA007BC5BD = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +117,7 @@
 		9BC82E44224278FA007BC5BD /* ProofOfConcept */ = {
 			isa = PBXGroup;
 			children = (
+				9B392E012242818C006678B4 /* FormStack */,
 				9BC82E45224278FA007BC5BD /* AppDelegate.swift */,
 				9BC82E47224278FA007BC5BD /* ViewController.swift */,
 				9BC82E49224278FA007BC5BD /* Main.storyboard */,
@@ -254,8 +268,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/CondorUIComponentsIOS/CondorUIComponentsIOS.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -263,8 +275,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CondorUIComponentsIOS.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC82E48224278FA007BC5BD /* ViewController.swift in Sources */,
+				9B392E05224281C5006678B4 /* FormStackViewContract.swift in Sources */,
+				9B392E04224281C5006678B4 /* FormStackView.swift in Sources */,
 				9BC82E46224278FA007BC5BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

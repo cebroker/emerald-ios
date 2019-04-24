@@ -6,6 +6,8 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
+import UIKit
+
 public enum FormFieldError: FormFieldErrorType {
     case emptyField
 }
@@ -44,6 +46,11 @@ public class FormFieldType<ReturnType>: UIView {
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.postInit()
+    }
+
+    public init() {
+        super.init(frame: CGRect.zero)
         self.postInit()
     }
 

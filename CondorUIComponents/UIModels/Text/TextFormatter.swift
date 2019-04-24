@@ -12,6 +12,7 @@ public enum TextFormat: Int {
     case none = 0
     case currency
     case phone
+    case number
 }
 
 public enum TextFormatterError: Error {
@@ -34,7 +35,7 @@ public extension TextFormatter {
             return formatCurrency(resource: resource)
         case .phone:
             return formatResource(phoneNumber: resource)
-        case .none:
+        default:
             return resource
         }
     }
@@ -45,23 +46,17 @@ public extension TextFormatter {
             return removeCurrencyFormat(from: resource)
         case .phone:
             return resource.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-        case .none:
+        default:
             return resource
         }
     }
 
     private func formatCurrency(resource: String) -> String {
-        guard let amount = Int(resource) else {
+        if resource == Constants.Values.empty {
             return resource
         }
 
-        let formatter = getCurrencyFormatter()
-
-        guard let currency = formatter.string(from: amount as NSNumber) else {
-            return resource
-        }
-
-        return currency
+        return Constants.Values.dollarWithSpace + resource
     }
 
     private func formatResource(phoneNumber: String) -> String {
@@ -76,27 +71,30 @@ public extension TextFormatter {
     }
 
     private func removeCurrencyFormat(from resource: String) -> String {
-        let formatter = getCurrencyFormatter()
-
-        if let formattedNumber = formatter.number(from: resource) as? Int {
-            return String(describing: formattedNumber)
-        } else {
-            if resource == Constants.Values.dollar {
-                return Constants.Values.empty
-            }
-            return resource
+        if resource == Constants.Values.dollar {
+            return Constants.Values.empty
         }
-    }
 
-    private func getCurrencyFormatter() -> NumberFormatter {
-        let formatter = NumberFormatter()
+        var rawNumber = resource
+            .replacingOccurrences(
+                of: Constants.Values.dollar,
+                with: Constants.Values.empty)
+            .trimmingCharacters(in: .whitespaces)
 
-        formatter.locale = Locale(identifier: Constants.Values.localIdentifier)
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 0
-        formatter.currencySymbol = Constants.Values.dollar
-        formatter.generatesDecimalNumbers = false
+        if let dotIndex = rawNumber.firstIndex(
+            of: Constants.Values.dot) {
 
-        return formatter
+            if let secondDotIndex = rawNumber.indices.first(where: { index in
+                rawNumber[index] == Constants.Values.dot && dotIndex != index
+            }) {
+                rawNumber.remove(at: secondDotIndex)
+            }
+
+            if rawNumber.count - 1 >= dotIndex.encodedOffset + 3 {
+                rawNumber.remove(at: rawNumber.index(dotIndex, offsetBy: 3))
+            }
+        }
+
+        return rawNumber
     }
 }
