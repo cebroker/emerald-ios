@@ -20,6 +20,7 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
 
     private struct InnerConstants {
         static let numberOfComponents = 1
+        static let dropdownIconName = "Resources.bundle/dropdownicon.png"
     }
 
     private weak var notifiable: SelectorFormFieldChangeNotifiable?
@@ -34,17 +35,16 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
 
     private var dropdownIcon: UIImage?
 
-    public required init(dropdownIcon: UIImage?) {
-        self.dropdownIcon = dropdownIcon
-        super.init()
-    }
-
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+
+    public override init() {
+        super.init()
     }
 
     override func validateContent() -> ValidationResult {
@@ -125,6 +125,8 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
     }
 
     private func addDropdownIcon() {
+        self.dropdownIcon = UIImage(named: InnerConstants.dropdownIconName, in: Bundle(for: ClassBundle.self), compatibleWith: nil)
+
         guard let image = self.dropdownIcon else {
             return
         }

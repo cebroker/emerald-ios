@@ -26,7 +26,7 @@ class ClassBundle { }
 public class EsmeraldInitializer {
     private struct InnerConstants {
         static let fontType = ".ttf"
-        static let bundlePath = "Fonts.bundle"
+        static let bundlePath = "Resources.bundle"
     }
 
     public static func registerFonts() throws {
@@ -50,19 +50,19 @@ public class EsmeraldInitializer {
         guard let url = Bundle(for: ClassBundle.self).url(
             forResource: resourceName,
             withExtension: type) else {
-            throw FontRegisterError.urlNotFound
+            throw DynamicResourceAllocationError.urlNotFound
         }
 
         guard let cfFontData = try Data(contentsOf: url) as? CFData else {
-            throw FontRegisterError.cfDataNotFound
+            throw DynamicResourceAllocationError.cfDataNotFound
         }
 
         guard let provider = CGDataProvider(data: cfFontData) else {
-            throw FontRegisterError.providerCannotBeCreated
+            throw DynamicResourceAllocationError.providerCannotBeCreated
         }
 
         guard let font = CGFont(provider) else {
-            throw FontRegisterError.fontCannotBeInstantiated
+            throw DynamicResourceAllocationError.fontCannotBeInstantiated
         }
 
         var error: Unmanaged<CFError>?
@@ -73,7 +73,7 @@ public class EsmeraldInitializer {
     }
 }
 
-enum FontRegisterError: Error {
+enum DynamicResourceAllocationError: Error {
     case urlNotFound
     case cfDataNotFound
     case providerCannotBeCreated

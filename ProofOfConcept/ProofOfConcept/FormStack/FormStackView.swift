@@ -51,7 +51,7 @@ extension FormStackView: FormStackViewConfigurable {
     }
 
     public func createSelectorFormField(placeholder: String) -> SelectorFormField? {
-        let field = SelectorFormField(dropdownIcon: UIImage(named: "dropdownicon"))
+        let field = SelectorFormField()
         defaultSetup(textFormField: field, with: placeholder)
         return field
     }
