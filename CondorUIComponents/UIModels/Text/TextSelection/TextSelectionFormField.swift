@@ -33,7 +33,7 @@ public class TextSelectionFormField: TextFormField, TextSelectionFormFieldType {
         }
 
         guard let _ = self.availableOptions.first(where: { option -> Bool in
-            option == text.uppercased()
+            option.uppercased() == text.uppercased()
         }) else {
             return ValidationResult(isValid: false, error: TextSelectionFormFieldError.optionNotFound)
         }

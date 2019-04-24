@@ -22,6 +22,24 @@ public class FormStackView: UIStackView {
         self.distribution = .equalSpacing
         self.alignment = .fill
     }
+
+    func areFieldsValid() {
+        fields
+            .filter { $0 is FormFieldType<String> }
+            .map { $0 as? FormFieldType<String> }
+            .forEach {
+                guard let validationResult = $0?.isValid() else {
+                    return
+                }
+
+                if !validationResult.isValid,
+                    let error = validationResult.error {
+                    $0?.show(error: error)
+                } else {
+                    $0?.clearError()
+                }
+        }
+    }
 }
 
 extension FormStackView: FormStackViewConfigurable {

@@ -22,9 +22,9 @@ public extension FormFieldError {
 }
 
 public class ValidationResult {
-    let isValid: Bool
-    let error: FormFieldErrorType?
-    init(isValid: Bool, error: FormFieldErrorType? = nil) {
+    public let isValid: Bool
+    public let error: FormFieldErrorType?
+    public init(isValid: Bool, error: FormFieldErrorType? = nil) {
         self.isValid = isValid
         self.error = error
     }
@@ -66,7 +66,7 @@ public class FormFieldType<ReturnType>: UIView {
         // Method intentionally left in blank
     }
 
-    func isValid() -> ValidationResult {
+    public func isValid() -> ValidationResult {
         guard required else {
             return ValidationResult(isValid: true)
         }
@@ -78,23 +78,23 @@ public class FormFieldType<ReturnType>: UIView {
         return ValidationResult.init(isValid: false, error: FormFieldError.emptyField)
     }
 
-    func show(error: FormFieldErrorType) {
+    public func show(error: FormFieldErrorType) {
         // Method intentionally left in blank
     }
 
-    func clearError() {
+    public func clearError() {
         // Method intentionally left in blank
     }
 
-    func getValue() -> ReturnType? {
+    public func getValue() -> ReturnType? {
         return self.fieldValue
     }
 
-    func set(value: ReturnType) {
+    public func set(value: ReturnType) {
         self.fieldValue = value
     }
 
-    func set(required: Bool) {
+    public func set(required: Bool) {
         self.required = required
     }
 }

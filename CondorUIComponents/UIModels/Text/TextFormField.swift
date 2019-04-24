@@ -265,7 +265,7 @@ public class TextFormField: FormFieldType<String>, TextFormFieldType, TextFormat
         self.placeholderLabel.textColor = UIColor.gray
     }
 
-    override func getValue() -> String? {
+    override public func getValue() -> String? {
         return getText()
     }
 
