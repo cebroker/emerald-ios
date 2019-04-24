@@ -42,6 +42,10 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
 
     override func validateContent() -> ValidationResult {
         guard let text = self.getValue(), !text.isEmpty else {

@@ -26,7 +26,8 @@ class SelectorFormFieldTests: XCTestCase {
         }
     }
 
-    var stateSelectorField: FormFieldType<String> = SelectorFormField(frame: Constants.MockedData.mockFrame)
+    var stateSelectorField: FormFieldType<String> =
+        SelectorFormField(frame: Constants.MockedData.mockFrame)
 
     func testShouldPassValidation() {
 

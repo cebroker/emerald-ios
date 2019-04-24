@@ -27,33 +27,40 @@ public class FormStackView: UIStackView {
 extension FormStackView: FormStackViewConfigurable {
 
     public func createDateFormField(placeholder: String) -> DateFormField? {
-        let x = DateFormField()
-        defaultSetup(textFormField: x, with: placeholder)
-        return x
+        let field = DateFormField()
+        defaultSetup(textFormField: field, with: placeholder)
+        return field
     }
 
     public func createSelectorFormField(placeholder: String) -> SelectorFormField? {
-        let x = SelectorFormField(dropdownIcon: UIImage(named: "dropdownicon"))
-        defaultSetup(textFormField: x, with: placeholder)
-        return x
+        let field = SelectorFormField(dropdownIcon: UIImage(named: "dropdownicon"))
+        defaultSetup(textFormField: field, with: placeholder)
+        return field
     }
 
     public func createTextSelectionField(placeholder: String) -> TextSelectionFormField? {
-        let x = TextSelectionFormField()
-        defaultSetup(textFormField: x, with: placeholder)
-        return x
+        let field = TextSelectionFormField()
+        defaultSetup(textFormField: field, with: placeholder)
+        return field
     }
 
     public func createTextRegexFormField(placeholder: String) -> TextRegexFormField? {
-        let x = TextRegexFormField()
-        defaultSetup(textFormField: x, with: placeholder)
-        return x
+        let field = TextRegexFormField()
+        defaultSetup(textFormField: field, with: placeholder)
+        return field
     }
 
     public func createTextFormField(placeholder: String) -> TextFormField? {
-        let x = TextFormField()
-        defaultSetup(textFormField: x, with: placeholder)
-        return x
+        let field = TextFormField()
+        defaultSetup(textFormField: field, with: placeholder)
+        return field
+    }
+
+    public func createFormButton(with title: String) -> FormButton? {
+        let button = FormButton()
+        button.setTitle(title, for: .normal)
+        fields.append(button)
+        return button
     }
 
     private func defaultSetup(textFormField: TextFormField, with placeholder: String) {

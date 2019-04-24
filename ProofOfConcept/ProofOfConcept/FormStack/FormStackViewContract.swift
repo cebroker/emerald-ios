@@ -13,5 +13,6 @@ public protocol FormStackViewConfigurable {
     func createTextRegexFormField(placeholder: String) -> TextRegexFormField?
     func createTextSelectionField(placeholder: String) -> TextSelectionFormField?
     func createDateFormField(placeholder: String) -> DateFormField?
+    func createFormButton(with title: String) -> FormButton?
     func reloadFields()
 }

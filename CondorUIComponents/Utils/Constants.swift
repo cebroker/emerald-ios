@@ -116,6 +116,7 @@ struct Constants {
     }
 
     struct Design {
+
         static let font = "OpenSans-Regular"
         static let fontSemiBold = "OpenSans-SemiBold"
         static let fontBold = "OpenSans-Bold"
@@ -123,11 +124,13 @@ struct Constants {
         struct FontSize {
             static let form: CGFloat = 12
             static let body: CGFloat = 16
+            static let button: CGFloat = 18
         }
 
         struct Color {
             static let grayBorder = UIColor(hex: 0xC0C0C0)
             static let lightGreen = UIColor(hex: 0x33DB95)
+            static let blueAccent = UIColor(hex: 0x42A5F5)
         }
     }
 }

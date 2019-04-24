@@ -38,6 +38,8 @@ class ViewController: UIViewController {
     private var dueDateForDues: DateFormField?
     private var amountPaid: TextFormField?
     private var paymentDate: DateFormField?
+    
+    private var formButton: FormButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +91,8 @@ class ViewController: UIViewController {
             let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
             contactName?.set(hint: "John Doe")
         }
+        
+        formButton = formStackView.createFormButton(with: "Submit form")
 
         formStackView.reloadFields()
     }
