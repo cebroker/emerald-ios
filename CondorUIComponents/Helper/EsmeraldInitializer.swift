@@ -28,10 +28,10 @@ public class EsmeraldInitializer {
     }
 
     public static func registerFonts() throws {
-//        UIFont.familyNames.forEach { familiName in
-//            let fontNames = UIFont.fontNames(forFamilyName: familiName)
-//            print(familiName, fontNames)
-//        }
+        UIFont.familyNames.forEach { familiName in
+            let fontNames = UIFont.fontNames(forFamilyName: familiName)
+            print(familiName, fontNames)
+        }
         try OpenSansFonts.allCases.forEach { font in
             try UIFont.register(
                 path: InnerConstants.path,
