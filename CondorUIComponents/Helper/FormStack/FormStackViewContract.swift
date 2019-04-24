@@ -2,11 +2,9 @@
 //  FormStackViewContract.swift
 //  CondorUIComponents
 //
-//  Created by Luis David Goyes Garces on 3/20/19.
+//  Created by Luis David Goyes Garces on 4/24/19.
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
-
-import CondorUIComponentsIOS
 
 public protocol FormStackViewConfigurable {
     func createTextFormField(placeholder: String) -> TextFormField?
