@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.resource_bundles  = { "Resources" => ["Resources/Fonts/*.ttf", "Resources/Images/*.png"] }
   spec.name                 = "CondorUIComponentsIOS"
-  spec.version              = "0.0.9"
+  spec.version              = "0.0.10"
   spec.summary              = "Custom widgets management"
   spec.description          = "Custom widgets management."
   spec.homepage             = "https://github.com/cebroker/CondorUIComponentsIOS"
