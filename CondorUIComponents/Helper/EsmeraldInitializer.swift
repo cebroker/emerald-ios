@@ -21,22 +21,61 @@ enum OpenSansFonts: String, CaseIterable {
     case BoldItalic = "OpenSans-BoldItalic"
 }
 
+class ClassBundle { }
+
 public class EsmeraldInitializer {
     private struct InnerConstants {
-        static let path = "CondorUIComponentsIOS/Fonts"
         static let fontType = ".ttf"
+        static let bundlePath = "Fonts.bundle"
     }
 
     public static func registerFonts() throws {
-        UIFont.familyNames.forEach { familiName in
-            let fontNames = UIFont.fontNames(forFamilyName: familiName)
-            print(familiName, fontNames)
-        }
+
         try OpenSansFonts.allCases.forEach { font in
-            try UIFont.register(
-                path: InnerConstants.path,
-                fileNameString: font.rawValue,
-                type: InnerConstants.fontType)
+
+            try dynamicallyLoadFont(
+                name: font.rawValue,
+                in: InnerConstants.bundlePath,
+                with: InnerConstants.fontType)
         }
     }
+
+    private static func dynamicallyLoadFont(
+        name: String,
+        in bundlePath: String,
+        with type: String) throws {
+
+        let resourceName = "\(bundlePath)/\(name)"
+
+        guard let url = Bundle(for: ClassBundle.self).url(
+            forResource: resourceName,
+            withExtension: type) else {
+            throw FontRegisterError.urlNotFound
+        }
+
+        guard let cfFontData = try Data(contentsOf: url) as? CFData else {
+            throw FontRegisterError.cfDataNotFound
+        }
+
+        guard let provider = CGDataProvider(data: cfFontData) else {
+            throw FontRegisterError.providerCannotBeCreated
+        }
+
+        guard let font = CGFont(provider) else {
+            throw FontRegisterError.fontCannotBeInstantiated
+        }
+
+        var error: Unmanaged<CFError>?
+        if !CTFontManagerRegisterGraphicsFont(font, &error) {
+            let errorDescription = CFErrorCopyDescription(error as! CFError)
+            print("Failed to load font: \(errorDescription)")
+        }
+    }
+}
+
+enum FontRegisterError: Error {
+    case urlNotFound
+    case cfDataNotFound
+    case providerCannotBeCreated
+    case fontCannotBeInstantiated
 }

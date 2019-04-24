@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.ios.resource_bundle  = { "Fonts" => "CondorUIComponentsIOS/Resources/Fonts/*.ttf"}
+  spec.resource_bundle  = { "Fonts" => "Resources/Fonts/*.ttf"}
   spec.name                 = "CondorUIComponentsIOS"
   spec.version              = "0.0.9"
   spec.summary              = "Custom widgets management"

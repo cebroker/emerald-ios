@@ -42,9 +42,7 @@
 		9BE5A580222883B4004A59B9 /* RadioGroupFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A57F222883B4004A59B9 /* RadioGroupFormField.swift */; };
 		9BE5A583222883DA004A59B9 /* CheckboxFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A582222883DA004A59B9 /* CheckboxFormField.swift */; };
 		9BF2630522709A99004AD6F7 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2630422709A99004AD6F7 /* FormButton.swift */; };
-		9BF2631E2270ACC7004AD6F7 /* Extensions+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2631D2270ACC7004AD6F7 /* Extensions+UIFont.swift */; };
 		9BF263212270AD83004AD6F7 /* EsmeraldInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF263202270AD83004AD6F7 /* EsmeraldInitializer.swift */; };
-		9BF263242270B625004AD6F7 /* Fonts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263232270B625004AD6F7 /* Fonts.bundle */; };
 		9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */; };
 		9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */; };
 		9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263282270B6A7004AD6F7 /* LICENSE.txt */; };
@@ -114,9 +112,7 @@
 		9BE5A582222883DA004A59B9 /* CheckboxFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxFormField.swift; sourceTree = "<group>"; };
 		9BE5A58422288556004A59B9 /* CondorUIComponentsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CondorUIComponentsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		9BF2630422709A99004AD6F7 /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
-		9BF2631D2270ACC7004AD6F7 /* Extensions+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIFont.swift"; sourceTree = "<group>"; };
 		9BF263202270AD83004AD6F7 /* EsmeraldInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmeraldInitializer.swift; sourceTree = "<group>"; };
-		9BF263232270B625004AD6F7 /* Fonts.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Fonts.bundle; sourceTree = "<group>"; };
 		9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		9BF263282270B6A7004AD6F7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -253,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				9BF263252270B69D004AD6F7 /* Resources */,
-				9BF263232270B625004AD6F7 /* Fonts.bundle */,
 				9BE5A5482228813A004A59B9 /* CondorUIComponents */,
 				9BC82E262242777F007BC5BD /* CondorUIComponentsTests */,
 				9BE5A5472228813A004A59B9 /* Products */,
@@ -303,7 +298,6 @@
 				9BE5A564222881D1004A59B9 /* Extensions+NSRegularExpression.swift */,
 				9BE5A566222881EA004A59B9 /* Extensions+UIStackView.swift */,
 				9BE5A568222881FC004A59B9 /* Extensions+UIView.swift */,
-				9BF2631D2270ACC7004AD6F7 /* Extensions+UIFont.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -497,7 +491,6 @@
 				9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */,
 				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
-				9BF263242270B625004AD6F7 /* Fonts.bundle in Resources */,
 				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,
 				9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */,
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
@@ -622,7 +615,6 @@
 				9BE5A57522288318004A59B9 /* DateFormField.swift in Sources */,
 				9BE5A56B2228829C004A59B9 /* SelectorFormField.swift in Sources */,
 				9BE5A565222881D1004A59B9 /* Extensions+NSRegularExpression.swift in Sources */,
-				9BF2631E2270ACC7004AD6F7 /* Extensions+UIFont.swift in Sources */,
 				9BE5A56F222882CD004A59B9 /* TextFormField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
