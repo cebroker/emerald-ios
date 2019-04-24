@@ -25,7 +25,7 @@ public class FormButton: UIButton {
 
     private func setupTheme() {
         if let font = UIFont(
-            name: Constants.Design.font,
+            name: Constants.Design.fontBold,
             size: Constants.Design.FontSize.button) {
             self.titleLabel?.font = font
         }

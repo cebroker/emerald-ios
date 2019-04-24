@@ -42,9 +42,7 @@
 		9BE5A580222883B4004A59B9 /* RadioGroupFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A57F222883B4004A59B9 /* RadioGroupFormField.swift */; };
 		9BE5A583222883DA004A59B9 /* CheckboxFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE5A582222883DA004A59B9 /* CheckboxFormField.swift */; };
 		9BF2630522709A99004AD6F7 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2630422709A99004AD6F7 /* FormButton.swift */; };
-		9BF2631E2270ACC7004AD6F7 /* Extensions+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2631D2270ACC7004AD6F7 /* Extensions+UIFont.swift */; };
 		9BF263212270AD83004AD6F7 /* EsmeraldInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF263202270AD83004AD6F7 /* EsmeraldInitializer.swift */; };
-		9BF263242270B625004AD6F7 /* Fonts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263232270B625004AD6F7 /* Fonts.bundle */; };
 		9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */; };
 		9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */; };
 		9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263282270B6A7004AD6F7 /* LICENSE.txt */; };
@@ -56,6 +54,9 @@
 		9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */; };
 		9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */; };
 		9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */; };
+		9BF2633F2270E79A004AD6F7 /* dropdownicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2633E2270E799004AD6F7 /* dropdownicon.png */; };
+		9BF263422270ED06004AD6F7 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF263412270ED06004AD6F7 /* FormStackView.swift */; };
+		9BF263442270ED14004AD6F7 /* FormStackViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF263432270ED14004AD6F7 /* FormStackViewContract.swift */; };
 		9BF5D1A322305065008ECF18 /* DateFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5D1A222305065008ECF18 /* DateFormFieldError.swift */; };
 		A953FC70989E1D24BA292008 /* Pods_CondorUIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A09684886839E6F689C9AA5 /* Pods_CondorUIComponents.framework */; };
 /* End PBXBuildFile section */
@@ -114,9 +115,7 @@
 		9BE5A582222883DA004A59B9 /* CheckboxFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxFormField.swift; sourceTree = "<group>"; };
 		9BE5A58422288556004A59B9 /* CondorUIComponentsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CondorUIComponentsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		9BF2630422709A99004AD6F7 /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
-		9BF2631D2270ACC7004AD6F7 /* Extensions+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIFont.swift"; sourceTree = "<group>"; };
 		9BF263202270AD83004AD6F7 /* EsmeraldInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsmeraldInitializer.swift; sourceTree = "<group>"; };
-		9BF263232270B625004AD6F7 /* Fonts.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Fonts.bundle; sourceTree = "<group>"; };
 		9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		9BF263282270B6A7004AD6F7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -128,6 +127,9 @@
 		9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		9BF2633E2270E799004AD6F7 /* dropdownicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownicon.png; sourceTree = "<group>"; };
+		9BF263412270ED06004AD6F7 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
+		9BF263432270ED14004AD6F7 /* FormStackViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackViewContract.swift; sourceTree = "<group>"; };
 		9BF5D1A222305065008ECF18 /* DateFormFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormFieldError.swift; sourceTree = "<group>"; };
 		A87715415C325A5BEBBAC940 /* Pods_CondorUIComponents_CondorUIComponentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponents_CondorUIComponentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E76038FF1ED128893A6062 /* Pods-CondorUIComponentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponentsTests.release.xcconfig"; path = "Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				9BF263252270B69D004AD6F7 /* Resources */,
-				9BF263232270B625004AD6F7 /* Fonts.bundle */,
 				9BE5A5482228813A004A59B9 /* CondorUIComponents */,
 				9BC82E262242777F007BC5BD /* CondorUIComponentsTests */,
 				9BE5A5472228813A004A59B9 /* Products */,
@@ -303,7 +304,6 @@
 				9BE5A564222881D1004A59B9 /* Extensions+NSRegularExpression.swift */,
 				9BE5A566222881EA004A59B9 /* Extensions+UIStackView.swift */,
 				9BE5A568222881FC004A59B9 /* Extensions+UIView.swift */,
-				9BF2631D2270ACC7004AD6F7 /* Extensions+UIFont.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -346,6 +346,7 @@
 		9BF2631F2270AD6A004AD6F7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				9BF263402270ECF0004AD6F7 /* FormStack */,
 				9BF263202270AD83004AD6F7 /* EsmeraldInitializer.swift */,
 			);
 			path = Helper;
@@ -354,6 +355,7 @@
 		9BF263252270B69D004AD6F7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9BF2633D2270E745004AD6F7 /* Images */,
 				9BF2633C2270B6C4004AD6F7 /* Fonts */,
 			);
 			path = Resources;
@@ -375,6 +377,23 @@
 				9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BF2633D2270E745004AD6F7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9BF2633E2270E799004AD6F7 /* dropdownicon.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		9BF263402270ECF0004AD6F7 /* FormStack */ = {
+			isa = PBXGroup;
+			children = (
+				9BF263412270ED06004AD6F7 /* FormStackView.swift */,
+				9BF263432270ED14004AD6F7 /* FormStackViewContract.swift */,
+			);
+			path = FormStack;
 			sourceTree = "<group>";
 		};
 		A6AE4D6358A62159C26DC1BE /* Pods */ = {
@@ -497,10 +516,10 @@
 				9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */,
 				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
-				9BF263242270B625004AD6F7 /* Fonts.bundle in Resources */,
 				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,
 				9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */,
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				9BF2633F2270E79A004AD6F7 /* dropdownicon.png in Resources */,
 				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
 				9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */,
 			);
@@ -613,16 +632,17 @@
 				9BE5A571222882E8004A59B9 /* TextRegexFormField.swift in Sources */,
 				9BE403452230357D003C64AD /* DateFormFieldChangeNotifiable.swift in Sources */,
 				9B7F44A7223061120059D36D /* SelectorFormFieldError.swift in Sources */,
+				9BF263422270ED06004AD6F7 /* FormStackView.swift in Sources */,
 				9B7F449F22305BBE0059D36D /* TextRegexFormFieldError.swift in Sources */,
 				9BE5A57A22288378004A59B9 /* MultipleSelectionFormField.swift in Sources */,
 				9BE5A56D222882B1004A59B9 /* TextFormatter.swift in Sources */,
 				9BE5A583222883DA004A59B9 /* CheckboxFormField.swift in Sources */,
+				9BF263442270ED14004AD6F7 /* FormStackViewContract.swift in Sources */,
 				9BE5A580222883B4004A59B9 /* RadioGroupFormField.swift in Sources */,
 				9BE5A57C2228838D004A59B9 /* MultipleSelectionItem.swift in Sources */,
 				9BE5A57522288318004A59B9 /* DateFormField.swift in Sources */,
 				9BE5A56B2228829C004A59B9 /* SelectorFormField.swift in Sources */,
 				9BE5A565222881D1004A59B9 /* Extensions+NSRegularExpression.swift in Sources */,
-				9BF2631E2270ACC7004AD6F7 /* Extensions+UIFont.swift in Sources */,
 				9BE5A56F222882CD004A59B9 /* TextFormField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

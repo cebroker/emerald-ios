@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     private var dueDateForDues: DateFormField?
     private var amountPaid: TextFormField?
     private var paymentDate: DateFormField?
-    
+
     private var formButton: FormButton?
 
     override func viewDidLoad() {
@@ -50,13 +50,13 @@ class ViewController: UIViewController {
     private func createFields() {
         organizationName = formStackView.createTextFormField(placeholder: "Organization name")
         organizationName?.set(hint: "Condor Labs")
-        
+
         address = formStackView.createTextFormField(placeholder: "Address")
         address?.set(hint: "Calle NN # NN - NN")
-        
+
         city = formStackView.createTextSelectionField(placeholder: "City")
         city?.set(hint: "Medellín")
-        
+
         state = formStackView.createSelectorFormField(placeholder: "State")
         state?.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
@@ -90,11 +90,17 @@ class ViewController: UIViewController {
         for i in 0..<1 {
             let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
             contactName?.set(hint: "John Doe")
+            contactName?.set(required: false)
         }
-        
+
         formButton = formStackView.createFormButton(with: "Submit form")
+        formButton?.addTarget(self, action: #selector(submitFormOnTouchInside(_:)), for: .touchUpInside)
 
         formStackView.reloadFields()
+    }
+
+    @objc private func submitFormOnTouchInside(_ sender: UIButton) {
+        formStackView.areFieldsValid()
     }
 }
 

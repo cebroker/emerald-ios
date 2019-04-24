@@ -105,7 +105,7 @@ public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSe
         self.errorLabel = nil
     }
 
-    override func getValue() -> [Selectable]? {
+    override public func getValue() -> [Selectable]? {
         return nil
     }
     
@@ -141,7 +141,7 @@ public class MultipleSelectionFormField: FormFieldType<[Selectable]>, MultipleSe
         self.stackView?.addArrangedSubview(subview)
     }
 
-    override func show(error: FormFieldErrorType) {
+    override public func show(error: FormFieldErrorType) {
         guard self.errorLabel == nil else {
             return
         }
