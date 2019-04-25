@@ -179,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */,
-				9B3BCC6D2272033400DC5D79 /* FormStack */,
 				9B3BCC6E2272033400DC5D79 /* Helper */,
 				9B3BCC732272033400DC5D79 /* Info.plist */,
 				9B3BCC4B2272033400DC5D79 /* UIModels */,
@@ -313,13 +312,6 @@
 				9B3BCC6B2272033400DC5D79 /* TextRegexFormFieldError.swift */,
 			);
 			path = Regex;
-			sourceTree = "<group>";
-		};
-		9B3BCC6D2272033400DC5D79 /* FormStack */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FormStack;
 			sourceTree = "<group>";
 		};
 		9B3BCC6E2272033400DC5D79 /* Helper */ = {
