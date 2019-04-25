@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9BC45BCC8A18523C2B8CBA20 /* Pods_ProofOfConcept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E7568E3296FFF4DFCD4B62 /* Pods_ProofOfConcept.framework */; };
+		21D7DB4765C3CD07B7545F02 /* Pods_ProofOfConcept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C93176FDCFFBE65330EB5A /* Pods_ProofOfConcept.framework */; };
 		9BC82E46224278FA007BC5BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E45224278FA007BC5BD /* AppDelegate.swift */; };
 		9BC82E48224278FA007BC5BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E47224278FA007BC5BD /* ViewController.swift */; };
 		9BC82E4B224278FA007BC5BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E49224278FA007BC5BD /* Main.storyboard */; };
 		9BC82E4D224278FB007BC5BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E4C224278FB007BC5BD /* Assets.xcassets */; };
 		9BC82E50224278FB007BC5BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E4E224278FB007BC5BD /* LaunchScreen.storyboard */; };
-		9BC82E5B224278FB007BC5BD /* ProofOfConceptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E5A224278FB007BC5BD /* ProofOfConceptUITests.swift */; };
+		9BE1140F22720874007D1493 /* ProofOfConceptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E5A224278FB007BC5BD /* ProofOfConceptUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C9575E69501CA754AE94A6A /* Pods-ProofOfConcept.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofOfConcept.debug.xcconfig"; path = "Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept.debug.xcconfig"; sourceTree = "<group>"; };
+		802A24AF8143A440094BDE1D /* Pods-ProofOfConcept.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofOfConcept.release.xcconfig"; path = "Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept.release.xcconfig"; sourceTree = "<group>"; };
+		896FAA815D51595C7060D6A4 /* Pods-ProofOfConcept.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofOfConcept.debug.xcconfig"; path = "Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept.debug.xcconfig"; sourceTree = "<group>"; };
 		9BC82E42224278FA007BC5BD /* ProofOfConcept.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProofOfConcept.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC82E45224278FA007BC5BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BC82E47224278FA007BC5BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,9 +39,7 @@
 		9BC82E56224278FB007BC5BD /* ProofOfConceptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProofOfConceptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC82E5A224278FB007BC5BD /* ProofOfConceptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfConceptUITests.swift; sourceTree = "<group>"; };
 		9BC82E5C224278FB007BC5BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BC82E652242790B007BC5BD /* CondorUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CondorUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7E7568E3296FFF4DFCD4B62 /* Pods_ProofOfConcept.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofOfConcept.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF640141EB3BF9F753093144 /* Pods-ProofOfConcept.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofOfConcept.release.xcconfig"; path = "Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept.release.xcconfig"; sourceTree = "<group>"; };
+		C3C93176FDCFFBE65330EB5A /* Pods_ProofOfConcept.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofOfConcept.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BC45BCC8A18523C2B8CBA20 /* Pods_ProofOfConcept.framework in Frameworks */,
+				21D7DB4765C3CD07B7545F02 /* Pods_ProofOfConcept.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,19 +61,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6733A3989B09A64C1B61DE41 /* Frameworks */ = {
+		7F5C8B4C0A4C8042F70788DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D7E7568E3296FFF4DFCD4B62 /* Pods_ProofOfConcept.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		908E7481889FF2FAE53D89EB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2C9575E69501CA754AE94A6A /* Pods-ProofOfConcept.debug.xcconfig */,
-				EF640141EB3BF9F753093144 /* Pods-ProofOfConcept.release.xcconfig */,
+				896FAA815D51595C7060D6A4 /* Pods-ProofOfConcept.debug.xcconfig */,
+				802A24AF8143A440094BDE1D /* Pods-ProofOfConcept.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -83,12 +74,11 @@
 		9BC82E39224278FA007BC5BD = {
 			isa = PBXGroup;
 			children = (
-				9BC82E652242790B007BC5BD /* CondorUIComponents.framework */,
 				9BC82E44224278FA007BC5BD /* ProofOfConcept */,
 				9BC82E59224278FB007BC5BD /* ProofOfConceptUITests */,
 				9BC82E43224278FA007BC5BD /* Products */,
-				908E7481889FF2FAE53D89EB /* Pods */,
-				6733A3989B09A64C1B61DE41 /* Frameworks */,
+				7F5C8B4C0A4C8042F70788DB /* Pods */,
+				D96819F64A0DE6461FC172EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +111,14 @@
 				9BC82E5C224278FB007BC5BD /* Info.plist */,
 			);
 			path = ProofOfConceptUITests;
+			sourceTree = "<group>";
+		};
+		D96819F64A0DE6461FC172EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3C93176FDCFFBE65330EB5A /* Pods_ProofOfConcept.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,14 +252,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
-				"${BUILT_PRODUCTS_DIR}/CondorUIComponentsIOS/CondorUIComponentsIOS.framework",
+				"${BUILT_PRODUCTS_DIR}/EmeraldIOS/EmeraldIOS.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CondorUIComponentsIOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmeraldIOS.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -284,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BC82E5B224278FB007BC5BD /* ProofOfConceptUITests.swift in Sources */,
+				9BE1140F22720874007D1493 /* ProofOfConceptUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +434,7 @@
 		};
 		9BC82E60224278FB007BC5BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C9575E69501CA754AE94A6A /* Pods-ProofOfConcept.debug.xcconfig */;
+			baseConfigurationReference = 896FAA815D51595C7060D6A4 /* Pods-ProofOfConcept.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -455,7 +453,7 @@
 		};
 		9BC82E61224278FB007BC5BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF640141EB3BF9F753093144 /* Pods-ProofOfConcept.release.xcconfig */;
+			baseConfigurationReference = 802A24AF8143A440094BDE1D /* Pods-ProofOfConcept.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

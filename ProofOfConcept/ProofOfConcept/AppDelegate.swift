@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CondorUIComponentsIOS
+import EmeraldIOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CondorUIComponentsIOS
+import EmeraldIOS
 
 class State: Selectable {
     let name: String

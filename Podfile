@@ -1,18 +1,18 @@
 platform :ios, '11.0'
-workspace 'CondorUIComponents.xcworkspace'
+workspace 'EmeraldIOS.xcworkspace'
 use_frameworks!
 
-target 'CondorUIComponents' do
-  project 'CondorUIComponents'
+target 'EmeraldIOS' do
+  project 'EmeraldIOS'
   inherit! :search_paths
   pod 'BEMCheckBox'
 end
 
-target 'CondorUIComponentsTests' do
+target 'EmeraldIOSTests' do
   inherit! :search_paths
 end
 
 target 'ProofOfConcept' do
   project 'ProofOfConcept/ProofOfConcept'
-  pod 'CondorUIComponentsIOS', :path=>'./'
+  pod 'EmeraldIOS', :path=>'./'
 end

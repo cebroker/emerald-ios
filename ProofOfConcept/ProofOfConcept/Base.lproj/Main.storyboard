@@ -24,7 +24,7 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="607"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="FormStackView" customModule="CondorUIComponentsIOS">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="FormStackView" customModule="EmeraldIOS">
                                                 <rect key="frame" x="33.5" y="50" width="268" height="647"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="647" placeholder="YES" id="MeL-8e-2J1"/>
