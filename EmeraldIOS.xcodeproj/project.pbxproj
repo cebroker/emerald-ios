@@ -1,0 +1,909 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC422272033400DC5D79 /* Constants.swift */; };
+		9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */; };
+		9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */; };
+		9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC452272033400DC5D79 /* Extensions+UIStackView.swift */; };
+		9B3BCC842272033400DC5D79 /* RadioGroupFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC4E2272033400DC5D79 /* RadioGroupFormField.swift */; };
+		9B3BCC852272033400DC5D79 /* MultipleSelectionFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC4F2272033400DC5D79 /* MultipleSelectionFormField.swift */; };
+		9B3BCC862272033400DC5D79 /* CheckboxFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC512272033400DC5D79 /* CheckboxFormField.swift */; };
+		9B3BCC872272033400DC5D79 /* MultipleSelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC532272033400DC5D79 /* MultipleSelectionItem.swift */; };
+		9B3BCC882272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC542272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift */; };
+		9B3BCC892272033400DC5D79 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC562272033400DC5D79 /* FormButton.swift */; };
+		9B3BCC8A2272033400DC5D79 /* FormFieldErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC582272033400DC5D79 /* FormFieldErrorType.swift */; };
+		9B3BCC8B2272033400DC5D79 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC592272033400DC5D79 /* FormField.swift */; };
+		9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5A2272033400DC5D79 /* Selectable.swift */; };
+		9B3BCC8D2272033400DC5D79 /* TextFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5C2272033400DC5D79 /* TextFormField.swift */; };
+		9B3BCC8E2272033400DC5D79 /* SelectorFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */; };
+		9B3BCC8F2272033400DC5D79 /* SelectorFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */; };
+		9B3BCC902272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC602272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift */; };
+		9B3BCC912272033400DC5D79 /* TextSelectionFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC622272033400DC5D79 /* TextSelectionFormField.swift */; };
+		9B3BCC922272033400DC5D79 /* TextSelectionFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC632272033400DC5D79 /* TextSelectionFormFieldError.swift */; };
+		9B3BCC932272033400DC5D79 /* DateFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC652272033400DC5D79 /* DateFormFieldChangeNotifiable.swift */; };
+		9B3BCC942272033400DC5D79 /* DateFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC662272033400DC5D79 /* DateFormFieldError.swift */; };
+		9B3BCC952272033400DC5D79 /* DateFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC672272033400DC5D79 /* DateFormField.swift */; };
+		9B3BCC962272033400DC5D79 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC682272033400DC5D79 /* TextFormatter.swift */; };
+		9B3BCC972272033400DC5D79 /* TextRegexFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC6A2272033400DC5D79 /* TextRegexFormField.swift */; };
+		9B3BCC982272033400DC5D79 /* TextRegexFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC6B2272033400DC5D79 /* TextRegexFormFieldError.swift */; };
+		9B3BCC992272033400DC5D79 /* EmeraldIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B3BCC9A2272033400DC5D79 /* EsmeraldInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC6F2272033400DC5D79 /* EsmeraldInitializer.swift */; };
+		9B3BCC9B2272033400DC5D79 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC712272033400DC5D79 /* FormStackView.swift */; };
+		9B3BCC9C2272033400DC5D79 /* FormStackViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC722272033400DC5D79 /* FormStackViewContract.swift */; };
+		9BC82E2A2242777F007BC5BD /* EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */; };
+		9BE114102272087A007D1493 /* SimpleSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC752272033400DC5D79 /* SimpleSetup.swift */; };
+		9BE114112272087E007D1493 /* TextSelectionFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC762272033400DC5D79 /* TextSelectionFormFieldTests.swift */; };
+		9BE1141222720880007D1493 /* RadioGroupFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC772272033400DC5D79 /* RadioGroupFormFieldTests.swift */; };
+		9BE114132272088D007D1493 /* PhoneTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC782272033400DC5D79 /* PhoneTextFieldTests.swift */; };
+		9BE1141422720890007D1493 /* SelectorFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC792272033400DC5D79 /* SelectorFormFieldTests.swift */; };
+		9BE1141522720892007D1493 /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC7A2272033400DC5D79 /* CheckboxFormFieldTests.swift */; };
+		9BE1141622720894007D1493 /* DateFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC7B2272033400DC5D79 /* DateFormFieldTests.swift */; };
+		9BE1141722720897007D1493 /* CondorUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC7C2272033400DC5D79 /* CondorUIComponentsTests.swift */; };
+		9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */; };
+		9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */; };
+		9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263282270B6A7004AD6F7 /* LICENSE.txt */; };
+		9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263292270B6A7004AD6F7 /* OpenSans-LightItalic.ttf */; };
+		9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632A2270B6A7004AD6F7 /* OpenSans-ExtraBold.ttf */; };
+		9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632B2270B6A7004AD6F7 /* OpenSans-Regular.ttf */; };
+		9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632C2270B6A7004AD6F7 /* OpenSans-BoldItalic.ttf */; };
+		9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632D2270B6A7004AD6F7 /* OpenSans-Light.ttf */; };
+		9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */; };
+		9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */; };
+		9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */; };
+		9BF2633F2270E79A004AD6F7 /* dropdownicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2633E2270E799004AD6F7 /* dropdownicon.png */; };
+		A3AA1CA819746A45C03E0B9E /* Pods_EmeraldIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA5F26E9E2E091AC1EC1ED /* Pods_EmeraldIOSTests.framework */; };
+		BE8EA3A5049F378B1518D032 /* Pods_EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356885229B6EC75600C29D5F /* Pods_EmeraldIOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BC82E2B2242777F007BC5BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BE5A53D2228813A004A59B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BE5A5452228813A004A59B9;
+			remoteInfo = CondorUIComponents;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2886ECAFCEF796385AA7B56B /* Pods-EmeraldIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.release.xcconfig"; sourceTree = "<group>"; };
+		356885229B6EC75600C29D5F /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C0FD3F6CB9D3CC5F8B2D470 /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B3FA2C3B3EB6280397581E7 /* Pods-EmeraldIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		9B3BCC422272033400DC5D79 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+NSRegularExpression.swift"; sourceTree = "<group>"; };
+		9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		9B3BCC452272033400DC5D79 /* Extensions+UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIStackView.swift"; sourceTree = "<group>"; };
+		9B3BCC4E2272033400DC5D79 /* RadioGroupFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupFormField.swift; sourceTree = "<group>"; };
+		9B3BCC4F2272033400DC5D79 /* MultipleSelectionFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSelectionFormField.swift; sourceTree = "<group>"; };
+		9B3BCC512272033400DC5D79 /* CheckboxFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxFormField.swift; sourceTree = "<group>"; };
+		9B3BCC532272033400DC5D79 /* MultipleSelectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSelectionItem.swift; sourceTree = "<group>"; };
+		9B3BCC542272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSelectionItemChangeNotifiable.swift; sourceTree = "<group>"; };
+		9B3BCC562272033400DC5D79 /* FormButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
+		9B3BCC582272033400DC5D79 /* FormFieldErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFieldErrorType.swift; sourceTree = "<group>"; };
+		9B3BCC592272033400DC5D79 /* FormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		9B3BCC5A2272033400DC5D79 /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		9B3BCC5C2272033400DC5D79 /* TextFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormField.swift; sourceTree = "<group>"; };
+		9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormField.swift; sourceTree = "<group>"; };
+		9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormFieldError.swift; sourceTree = "<group>"; };
+		9B3BCC602272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormFieldChangeNotifiable.swift; sourceTree = "<group>"; };
+		9B3BCC622272033400DC5D79 /* TextSelectionFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormField.swift; sourceTree = "<group>"; };
+		9B3BCC632272033400DC5D79 /* TextSelectionFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormFieldError.swift; sourceTree = "<group>"; };
+		9B3BCC652272033400DC5D79 /* DateFormFieldChangeNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormFieldChangeNotifiable.swift; sourceTree = "<group>"; };
+		9B3BCC662272033400DC5D79 /* DateFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormFieldError.swift; sourceTree = "<group>"; };
+		9B3BCC672272033400DC5D79 /* DateFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormField.swift; sourceTree = "<group>"; };
+		9B3BCC682272033400DC5D79 /* TextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
+		9B3BCC6A2272033400DC5D79 /* TextRegexFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextRegexFormField.swift; sourceTree = "<group>"; };
+		9B3BCC6B2272033400DC5D79 /* TextRegexFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextRegexFormFieldError.swift; sourceTree = "<group>"; };
+		9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmeraldIOS.h; sourceTree = "<group>"; };
+		9B3BCC6F2272033400DC5D79 /* EsmeraldInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EsmeraldInitializer.swift; sourceTree = "<group>"; };
+		9B3BCC712272033400DC5D79 /* FormStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
+		9B3BCC722272033400DC5D79 /* FormStackViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackViewContract.swift; sourceTree = "<group>"; };
+		9B3BCC732272033400DC5D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B3BCC752272033400DC5D79 /* SimpleSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSetup.swift; sourceTree = "<group>"; };
+		9B3BCC762272033400DC5D79 /* TextSelectionFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormFieldTests.swift; sourceTree = "<group>"; };
+		9B3BCC772272033400DC5D79 /* RadioGroupFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupFormFieldTests.swift; sourceTree = "<group>"; };
+		9B3BCC782272033400DC5D79 /* PhoneTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneTextFieldTests.swift; sourceTree = "<group>"; };
+		9B3BCC792272033400DC5D79 /* SelectorFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormFieldTests.swift; sourceTree = "<group>"; };
+		9B3BCC7A2272033400DC5D79 /* CheckboxFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxFormFieldTests.swift; sourceTree = "<group>"; };
+		9B3BCC7B2272033400DC5D79 /* DateFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormFieldTests.swift; sourceTree = "<group>"; };
+		9B3BCC7C2272033400DC5D79 /* CondorUIComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CondorUIComponentsTests.swift; sourceTree = "<group>"; };
+		9B3BCC7D2272033400DC5D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BA491A422288FEE00837D07 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC82E252242777F007BC5BD /* EmeraldIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmeraldIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		9BF263282270B6A7004AD6F7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		9BF263292270B6A7004AD6F7 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		9BF2632A2270B6A7004AD6F7 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		9BF2632B2270B6A7004AD6F7 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		9BF2632C2270B6A7004AD6F7 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9BF2632D2270B6A7004AD6F7 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		9BF2633E2270E799004AD6F7 /* dropdownicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownicon.png; sourceTree = "<group>"; };
+		A2EA5F26E9E2E091AC1EC1ED /* Pods_EmeraldIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3253E19369EC7BE0466C590 /* Pods-EmeraldIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BC82E222242777F007BC5BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BC82E2A2242777F007BC5BD /* EmeraldIOS.framework in Frameworks */,
+				A3AA1CA819746A45C03E0B9E /* Pods_EmeraldIOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BE5A5432228813A004A59B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE8EA3A5049F378B1518D032 /* Pods_EmeraldIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		020D608AD19213BC5CEBF10D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BA491A422288FEE00837D07 /* BEMCheckBox.framework */,
+				356885229B6EC75600C29D5F /* Pods_EmeraldIOS.framework */,
+				A2EA5F26E9E2E091AC1EC1ED /* Pods_EmeraldIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B3BCC402272033400DC5D79 /* EmeraldIOS */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */,
+				9B3BCC6E2272033400DC5D79 /* Helper */,
+				9B3BCC732272033400DC5D79 /* Info.plist */,
+				9B3BCC4B2272033400DC5D79 /* UIModels */,
+				9B3BCC412272033400DC5D79 /* Utils */,
+			);
+			path = EmeraldIOS;
+			sourceTree = "<group>";
+		};
+		9B3BCC412272033400DC5D79 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC422272033400DC5D79 /* Constants.swift */,
+				9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */,
+				9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */,
+				9B3BCC452272033400DC5D79 /* Extensions+UIStackView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B3BCC4B2272033400DC5D79 /* UIModels */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC4C2272033400DC5D79 /* MultipleSelection */,
+				9B3BCC552272033400DC5D79 /* FormButton */,
+				9B3BCC572272033400DC5D79 /* FormField */,
+				9B3BCC5A2272033400DC5D79 /* Selectable.swift */,
+				9B3BCC5B2272033400DC5D79 /* Text */,
+			);
+			path = UIModels;
+			sourceTree = "<group>";
+		};
+		9B3BCC4C2272033400DC5D79 /* MultipleSelection */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC4D2272033400DC5D79 /* RadioGroup */,
+				9B3BCC4F2272033400DC5D79 /* MultipleSelectionFormField.swift */,
+				9B3BCC502272033400DC5D79 /* Checkbox */,
+				9B3BCC522272033400DC5D79 /* Item */,
+			);
+			path = MultipleSelection;
+			sourceTree = "<group>";
+		};
+		9B3BCC4D2272033400DC5D79 /* RadioGroup */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC4E2272033400DC5D79 /* RadioGroupFormField.swift */,
+			);
+			path = RadioGroup;
+			sourceTree = "<group>";
+		};
+		9B3BCC502272033400DC5D79 /* Checkbox */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC512272033400DC5D79 /* CheckboxFormField.swift */,
+			);
+			path = Checkbox;
+			sourceTree = "<group>";
+		};
+		9B3BCC522272033400DC5D79 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC532272033400DC5D79 /* MultipleSelectionItem.swift */,
+				9B3BCC542272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		9B3BCC552272033400DC5D79 /* FormButton */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC562272033400DC5D79 /* FormButton.swift */,
+			);
+			path = FormButton;
+			sourceTree = "<group>";
+		};
+		9B3BCC572272033400DC5D79 /* FormField */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC582272033400DC5D79 /* FormFieldErrorType.swift */,
+				9B3BCC592272033400DC5D79 /* FormField.swift */,
+			);
+			path = FormField;
+			sourceTree = "<group>";
+		};
+		9B3BCC5B2272033400DC5D79 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC5C2272033400DC5D79 /* TextFormField.swift */,
+				9B3BCC5D2272033400DC5D79 /* Selector */,
+				9B3BCC612272033400DC5D79 /* TextSelection */,
+				9B3BCC642272033400DC5D79 /* Date */,
+				9B3BCC682272033400DC5D79 /* TextFormatter.swift */,
+				9B3BCC692272033400DC5D79 /* Regex */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		9B3BCC5D2272033400DC5D79 /* Selector */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */,
+				9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */,
+				9B3BCC602272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift */,
+			);
+			path = Selector;
+			sourceTree = "<group>";
+		};
+		9B3BCC612272033400DC5D79 /* TextSelection */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC622272033400DC5D79 /* TextSelectionFormField.swift */,
+				9B3BCC632272033400DC5D79 /* TextSelectionFormFieldError.swift */,
+			);
+			path = TextSelection;
+			sourceTree = "<group>";
+		};
+		9B3BCC642272033400DC5D79 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC652272033400DC5D79 /* DateFormFieldChangeNotifiable.swift */,
+				9B3BCC662272033400DC5D79 /* DateFormFieldError.swift */,
+				9B3BCC672272033400DC5D79 /* DateFormField.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		9B3BCC692272033400DC5D79 /* Regex */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC6A2272033400DC5D79 /* TextRegexFormField.swift */,
+				9B3BCC6B2272033400DC5D79 /* TextRegexFormFieldError.swift */,
+			);
+			path = Regex;
+			sourceTree = "<group>";
+		};
+		9B3BCC6E2272033400DC5D79 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC6F2272033400DC5D79 /* EsmeraldInitializer.swift */,
+				9B3BCC702272033400DC5D79 /* FormStack */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9B3BCC702272033400DC5D79 /* FormStack */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC712272033400DC5D79 /* FormStackView.swift */,
+				9B3BCC722272033400DC5D79 /* FormStackViewContract.swift */,
+			);
+			path = FormStack;
+			sourceTree = "<group>";
+		};
+		9B3BCC742272033400DC5D79 /* EmeraldIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC752272033400DC5D79 /* SimpleSetup.swift */,
+				9B3BCC762272033400DC5D79 /* TextSelectionFormFieldTests.swift */,
+				9B3BCC772272033400DC5D79 /* RadioGroupFormFieldTests.swift */,
+				9B3BCC782272033400DC5D79 /* PhoneTextFieldTests.swift */,
+				9B3BCC792272033400DC5D79 /* SelectorFormFieldTests.swift */,
+				9B3BCC7A2272033400DC5D79 /* CheckboxFormFieldTests.swift */,
+				9B3BCC7B2272033400DC5D79 /* DateFormFieldTests.swift */,
+				9B3BCC7C2272033400DC5D79 /* CondorUIComponentsTests.swift */,
+				9B3BCC7D2272033400DC5D79 /* Info.plist */,
+			);
+			path = EmeraldIOSTests;
+			sourceTree = "<group>";
+		};
+		9BE5A53C2228813A004A59B9 = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC402272033400DC5D79 /* EmeraldIOS */,
+				9B3BCC742272033400DC5D79 /* EmeraldIOSTests */,
+				020D608AD19213BC5CEBF10D /* Frameworks */,
+				A6AE4D6358A62159C26DC1BE /* Pods */,
+				9BE5A5472228813A004A59B9 /* Products */,
+				9BF263252270B69D004AD6F7 /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+		9BE5A5472228813A004A59B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */,
+				9BC82E252242777F007BC5BD /* EmeraldIOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BF263252270B69D004AD6F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9BF2633D2270E745004AD6F7 /* Images */,
+				9BF2633C2270B6C4004AD6F7 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9BF2633C2270B6C4004AD6F7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9BF263282270B6A7004AD6F7 /* LICENSE.txt */,
+				9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */,
+				9BF2632C2270B6A7004AD6F7 /* OpenSans-BoldItalic.ttf */,
+				9BF2632A2270B6A7004AD6F7 /* OpenSans-ExtraBold.ttf */,
+				9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */,
+				9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */,
+				9BF2632D2270B6A7004AD6F7 /* OpenSans-Light.ttf */,
+				9BF263292270B6A7004AD6F7 /* OpenSans-LightItalic.ttf */,
+				9BF2632B2270B6A7004AD6F7 /* OpenSans-Regular.ttf */,
+				9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */,
+				9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BF2633D2270E745004AD6F7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9BF2633E2270E799004AD6F7 /* dropdownicon.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		A6AE4D6358A62159C26DC1BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B3FA2C3B3EB6280397581E7 /* Pods-EmeraldIOS.debug.xcconfig */,
+				2886ECAFCEF796385AA7B56B /* Pods-EmeraldIOS.release.xcconfig */,
+				D3253E19369EC7BE0466C590 /* Pods-EmeraldIOSTests.debug.xcconfig */,
+				5C0FD3F6CB9D3CC5F8B2D470 /* Pods-EmeraldIOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9BE5A5412228813A004A59B9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B3BCC992272033400DC5D79 /* EmeraldIOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9BC82E242242777F007BC5BD /* EmeraldIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BC82E2D2242777F007BC5BD /* Build configuration list for PBXNativeTarget "EmeraldIOSTests" */;
+			buildPhases = (
+				9F93352FC1105C8D3A3DF699 /* [CP] Check Pods Manifest.lock */,
+				9BC82E212242777F007BC5BD /* Sources */,
+				9BC82E222242777F007BC5BD /* Frameworks */,
+				9BC82E232242777F007BC5BD /* Resources */,
+				93E1EA69C9E03A9ED342EED1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BC82E2C2242777F007BC5BD /* PBXTargetDependency */,
+			);
+			name = EmeraldIOSTests;
+			productName = CondorUIComponentsTests;
+			productReference = 9BC82E252242777F007BC5BD /* EmeraldIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9BE5A5452228813A004A59B9 /* EmeraldIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BE5A55A2228813B004A59B9 /* Build configuration list for PBXNativeTarget "EmeraldIOS" */;
+			buildPhases = (
+				ED2C181BBD8369AA1F2BC099 /* [CP] Check Pods Manifest.lock */,
+				9BE5A5412228813A004A59B9 /* Headers */,
+				9BE5A5422228813A004A59B9 /* Sources */,
+				9BE5A5432228813A004A59B9 /* Frameworks */,
+				9BE5A5442228813A004A59B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EmeraldIOS;
+			productName = CondorUIComponents;
+			productReference = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BE5A53D2228813A004A59B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Condor Labs";
+				TargetAttributes = {
+					9BC82E242242777F007BC5BD = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					9BE5A5452228813A004A59B9 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+				};
+			};
+			buildConfigurationList = 9BE5A5402228813A004A59B9 /* Build configuration list for PBXProject "EmeraldIOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9BE5A53C2228813A004A59B9;
+			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BE5A5452228813A004A59B9 /* EmeraldIOS */,
+				9BC82E242242777F007BC5BD /* EmeraldIOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BC82E232242777F007BC5BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BE5A5442228813A004A59B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */,
+				9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */,
+				9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */,
+				9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */,
+				9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */,
+				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
+				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,
+				9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */,
+				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				9BF2633F2270E79A004AD6F7 /* dropdownicon.png in Resources */,
+				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
+				9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93E1EA69C9E03A9ED342EED1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F93352FC1105C8D3A3DF699 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmeraldIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED2C181BBD8369AA1F2BC099 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmeraldIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BC82E212242777F007BC5BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BE1141222720880007D1493 /* RadioGroupFormFieldTests.swift in Sources */,
+				9BE1141422720890007D1493 /* SelectorFormFieldTests.swift in Sources */,
+				9BE114112272087E007D1493 /* TextSelectionFormFieldTests.swift in Sources */,
+				9BE1141522720892007D1493 /* CheckboxFormFieldTests.swift in Sources */,
+				9BE1141722720897007D1493 /* CondorUIComponentsTests.swift in Sources */,
+				9BE114132272088D007D1493 /* PhoneTextFieldTests.swift in Sources */,
+				9BE1141622720894007D1493 /* DateFormFieldTests.swift in Sources */,
+				9BE114102272087A007D1493 /* SimpleSetup.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BE5A5422228813A004A59B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */,
+				9B3BCC902272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift in Sources */,
+				9B3BCC872272033400DC5D79 /* MultipleSelectionItem.swift in Sources */,
+				9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */,
+				9B3BCC942272033400DC5D79 /* DateFormFieldError.swift in Sources */,
+				9B3BCC972272033400DC5D79 /* TextRegexFormField.swift in Sources */,
+				9B3BCC922272033400DC5D79 /* TextSelectionFormFieldError.swift in Sources */,
+				9B3BCC8E2272033400DC5D79 /* SelectorFormField.swift in Sources */,
+				9B3BCC882272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift in Sources */,
+				9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */,
+				9B3BCC8B2272033400DC5D79 /* FormField.swift in Sources */,
+				9B3BCC862272033400DC5D79 /* CheckboxFormField.swift in Sources */,
+				9B3BCC842272033400DC5D79 /* RadioGroupFormField.swift in Sources */,
+				9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */,
+				9B3BCC9A2272033400DC5D79 /* EsmeraldInitializer.swift in Sources */,
+				9B3BCC982272033400DC5D79 /* TextRegexFormFieldError.swift in Sources */,
+				9B3BCC952272033400DC5D79 /* DateFormField.swift in Sources */,
+				9B3BCC9B2272033400DC5D79 /* FormStackView.swift in Sources */,
+				9B3BCC912272033400DC5D79 /* TextSelectionFormField.swift in Sources */,
+				9B3BCC8F2272033400DC5D79 /* SelectorFormFieldError.swift in Sources */,
+				9B3BCC932272033400DC5D79 /* DateFormFieldChangeNotifiable.swift in Sources */,
+				9B3BCC8D2272033400DC5D79 /* TextFormField.swift in Sources */,
+				9B3BCC962272033400DC5D79 /* TextFormatter.swift in Sources */,
+				9B3BCC892272033400DC5D79 /* FormButton.swift in Sources */,
+				9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */,
+				9B3BCC9C2272033400DC5D79 /* FormStackViewContract.swift in Sources */,
+				9B3BCC852272033400DC5D79 /* MultipleSelectionFormField.swift in Sources */,
+				9B3BCC8A2272033400DC5D79 /* FormFieldErrorType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BC82E2C2242777F007BC5BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BE5A5452228813A004A59B9 /* EmeraldIOS */;
+			targetProxy = 9BC82E2B2242777F007BC5BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9BC82E2E2242777F007BC5BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3253E19369EC7BE0466C590 /* Pods-EmeraldIOSTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRFNDLT6FX;
+				INFOPLIST_FILE = EmeraldIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BC82E2F2242777F007BC5BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C0FD3F6CB9D3CC5F8B2D470 /* Pods-EmeraldIOSTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRFNDLT6FX;
+				INFOPLIST_FILE = EmeraldIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9BE5A5582228813B004A59B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9BE5A5592228813B004A59B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9BE5A55B2228813B004A59B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B3FA2C3B3EB6280397581E7 /* Pods-EmeraldIOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XRFNDLT6FX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EmeraldIOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BE5A55C2228813B004A59B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2886ECAFCEF796385AA7B56B /* Pods-EmeraldIOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XRFNDLT6FX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EmeraldIOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BC82E2D2242777F007BC5BD /* Build configuration list for PBXNativeTarget "EmeraldIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC82E2E2242777F007BC5BD /* Debug */,
+				9BC82E2F2242777F007BC5BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BE5A5402228813A004A59B9 /* Build configuration list for PBXProject "EmeraldIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BE5A5582228813B004A59B9 /* Debug */,
+				9BE5A5592228813B004A59B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BE5A55A2228813B004A59B9 /* Build configuration list for PBXNativeTarget "EmeraldIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BE5A55B2228813B004A59B9 /* Debug */,
+				9BE5A55C2228813B004A59B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BE5A53D2228813A004A59B9 /* Project object */;
+}

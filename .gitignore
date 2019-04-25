@@ -1,3 +1,83 @@
+
 Pods/
-.DS_Store
 Podfile.lock
+
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+#
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+# Package.pins
+.build/
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+###
+### Recommended ###
+###
+.*.sw*
+*~
+Derived/
+DerivedData/
+# *xcodeproj/*mode*
+# *xcodeproj/*pbxuser
+# *xcodeproj/*per*
+*tmproj
+External/GHUnit/*
+.svn
+
+# XCode (and ancestors) per-user config (very noisy, and not relevant)
+*.mode1
+*.perspective
+
+# xcode 4
+*.xcodeproj/xcuserdata
+*.xcworkspace/xcuserdata
