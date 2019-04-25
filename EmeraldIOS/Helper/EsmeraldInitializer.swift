@@ -26,7 +26,7 @@ class ClassBundle { }
 public class EsmeraldInitializer {
     private struct InnerConstants {
         static let fontType = ".ttf"
-        static let bundlePath = "Resources.bundle"
+        static let bundlePath = "."
     }
 
     public static func registerFonts() throws {

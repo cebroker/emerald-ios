@@ -20,7 +20,7 @@ public class SelectorFormField: TextFormField, SelectorFormFieldType, UIPickerVi
 
     private struct InnerConstants {
         static let numberOfComponents = 1
-        static let dropdownIconName = "Resources.bundle/dropdownicon.png"
+        static let dropdownIconName = "./dropdownicon.png"
     }
 
     private weak var notifiable: SelectorFormFieldChangeNotifiable?

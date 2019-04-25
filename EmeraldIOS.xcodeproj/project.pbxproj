@@ -72,14 +72,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A09684886839E6F689C9AA5 /* Pods_CondorUIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2886ECAFCEF796385AA7B56B /* Pods-EmeraldIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.release.xcconfig"; sourceTree = "<group>"; };
 		356885229B6EC75600C29D5F /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50415D9DE5213B24F9BEAD0E /* Pods-CondorUIComponentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponentsTests.debug.xcconfig"; path = "Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C0FD3F6CB9D3CC5F8B2D470 /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B3FA2C3B3EB6280397581E7 /* Pods-EmeraldIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.debug.xcconfig"; sourceTree = "<group>"; };
-		862EACA607A1D76CC51DFF6D /* Pods-CondorUIComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponents.debug.xcconfig"; path = "Target Support Files/Pods-CondorUIComponents/Pods-CondorUIComponents.debug.xcconfig"; sourceTree = "<group>"; };
 		9B3BCC422272033400DC5D79 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+NSRegularExpression.swift"; sourceTree = "<group>"; };
 		9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
@@ -119,7 +115,6 @@
 		9B3BCC7B2272033400DC5D79 /* DateFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormFieldTests.swift; sourceTree = "<group>"; };
 		9B3BCC7C2272033400DC5D79 /* CondorUIComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CondorUIComponentsTests.swift; sourceTree = "<group>"; };
 		9B3BCC7D2272033400DC5D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B660FA64B0492298D00A315 /* Pods-CondorUIComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponents.release.xcconfig"; path = "Target Support Files/Pods-CondorUIComponents/Pods-CondorUIComponents.release.xcconfig"; sourceTree = "<group>"; };
 		9BA491A422288FEE00837D07 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC82E252242777F007BC5BD /* EmeraldIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmeraldIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,8 +131,6 @@
 		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		9BF2633E2270E799004AD6F7 /* dropdownicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownicon.png; sourceTree = "<group>"; };
 		A2EA5F26E9E2E091AC1EC1ED /* Pods_EmeraldIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A87715415C325A5BEBBAC940 /* Pods_CondorUIComponents_CondorUIComponentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CondorUIComponents_CondorUIComponentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4E76038FF1ED128893A6062 /* Pods-CondorUIComponentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CondorUIComponentsTests.release.xcconfig"; path = "Target Support Files/Pods-CondorUIComponentsTests/Pods-CondorUIComponentsTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3253E19369EC7BE0466C590 /* Pods-EmeraldIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,9 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				9BA491A422288FEE00837D07 /* BEMCheckBox.framework */,
-				1A09684886839E6F689C9AA5 /* Pods_CondorUIComponents.framework */,
-				6AE8B073B4F1A5DC9F7F1CD7 /* Pods_CondorUIComponentsTests.framework */,
-				A87715415C325A5BEBBAC940 /* Pods_CondorUIComponents_CondorUIComponentsTests.framework */,
 				356885229B6EC75600C29D5F /* Pods_EmeraldIOS.framework */,
 				A2EA5F26E9E2E091AC1EC1ED /* Pods_EmeraldIOSTests.framework */,
 			);
@@ -407,10 +397,6 @@
 		A6AE4D6358A62159C26DC1BE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				862EACA607A1D76CC51DFF6D /* Pods-CondorUIComponents.debug.xcconfig */,
-				9B660FA64B0492298D00A315 /* Pods-CondorUIComponents.release.xcconfig */,
-				50415D9DE5213B24F9BEAD0E /* Pods-CondorUIComponentsTests.debug.xcconfig */,
-				B4E76038FF1ED128893A6062 /* Pods-CondorUIComponentsTests.release.xcconfig */,
 				7B3FA2C3B3EB6280397581E7 /* Pods-EmeraldIOS.debug.xcconfig */,
 				2886ECAFCEF796385AA7B56B /* Pods-EmeraldIOS.release.xcconfig */,
 				D3253E19369EC7BE0466C590 /* Pods-EmeraldIOSTests.debug.xcconfig */,

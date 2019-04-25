@@ -94,12 +94,12 @@ class ViewController: UIViewController {
         }
 
         formButton = formStackView.createFormButton(with: "Submit form")
-        formButton?.addTarget(self, action: #selector(submitFormOnTouchInside(_:)), for: .touchUpInside)
+        formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
 
         formStackView.reloadFields()
     }
 
-    @objc private func submitFormOnTouchInside(_ sender: UIButton) {
+    @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
         formStackView.areFieldsValid()
     }
 }
