@@ -44,7 +44,7 @@ public class TextRegexFormField: TextFormField, TextRegexFormFieldType {
 
         let regex = NSRegularExpression(self.innerRegex)
 
-        guard regex.matches(text) else {
+        guard regex.matchesString(with: text) else {
             return ValidationResult(isValid: false, error: TextRegexFormFieldError.notMatchingRegex)
         }
 
