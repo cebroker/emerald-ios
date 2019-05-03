@@ -45,9 +45,18 @@ public class EmeraldLabel: UILabel {
         return Font(size: fontSize, weight: fontWeight)
     }
     
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        applyTheme()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
-        
         applyTheme()
     }
     

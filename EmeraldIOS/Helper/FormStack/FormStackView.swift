@@ -79,8 +79,8 @@ extension FormStackView: FormStackViewConfigurable {
         return field
     }
     
-    public func createFormButton(with title: String) -> FormButton? {
-        let button = FormButton()
+    public func createButton(with title: String) -> EmeraldButton? {
+        let button = EmeraldButton()
         button.setTitle(title, for: .normal)
         fields.append(button)
         return button

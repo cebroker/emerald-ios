@@ -57,11 +57,11 @@ public enum FontSize: String, Inspectable {
         case .navigationTitleText:
             return 17
         case .button:
-            return 15
+            return 18
         case .smallButton:
             return 12
         case .largeButton:
-            return 18
+            return 20
         case .label:
             return UIFont.labelFontSize
         case .tableHeader:

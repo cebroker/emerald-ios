@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     private var amountPaid: TextFormField?
     private var paymentDate: DateFormField?
 
-    private var formButton: FormButton?
+    private var formButton: EmeraldButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +115,8 @@ class ViewController: UIViewController {
             contactName?.set(required: false)
         }
 
-        formButton = formStackView.createFormButton(with: "Submit form")
+        formButton = formStackView.createButton(with: "Submit form")
+        formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
 
         formStackView.reloadFields()

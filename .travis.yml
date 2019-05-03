@@ -11,8 +11,8 @@ os: osx
 osx_image: xcode10.1
 
 script:
-   - xcodebuild build-for-testing -workspace CondorUIComponents.xcworkspace -scheme CondorUIComponents -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
-   - xctool run-tests -workspace CondorUIComponents.xcworkspace -scheme CondorUIComponents -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+   - xcodebuild build-for-testing -workspace EmeraldIOS.xcworkspace -scheme EmeraldIOS -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+   - xctool run-tests -workspace EmeraldIOS.xcworkspace -scheme EmeraldIOS -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 
 notifications:
    slack:
