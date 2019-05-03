@@ -45,7 +45,7 @@ enum FontSize: String, Inspectable {
         case .h2:
             return 24
         case .h3:
-            return 17
+            return 16
         case .h4:
             return 14
         case .h5:
@@ -65,7 +65,7 @@ enum FontSize: String, Inspectable {
         case .label:
             return UIFont.labelFontSize
         case .tableHeader:
-            return 12
+            return 14
         }
     }
     
