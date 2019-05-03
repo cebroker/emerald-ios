@@ -43,6 +43,12 @@ public class FormStackView: UIStackView {
 
 extension FormStackView: FormStackViewConfigurable {
     
+    public func createLabel() -> EmeraldLabel? {
+        let field = EmeraldLabel()
+        defaultSetup(anyView: field)
+        return field
+    }
+    
     public func createDateFormField(placeholder: String) -> DateFormField? {
         let field = DateFormField()
         defaultSetup(textFormField: field, with: placeholder)
@@ -83,6 +89,10 @@ extension FormStackView: FormStackViewConfigurable {
     private func defaultSetup(textFormField: TextFormField, with placeholder: String) {
         textFormField.set(placeholder: placeholder)
         self.fields.append(textFormField)
+    }
+    
+    private func defaultSetup(anyView: UIView) {
+        self.fields.append(anyView)
     }
     
     public func reloadFields() {

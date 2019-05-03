@@ -7,6 +7,7 @@
 //
 
 public protocol FormStackViewConfigurable {
+    func createLabel() -> EmeraldLabel?
     func createTextFormField(placeholder: String) -> TextFormField?
     func createTextRegexFormField(placeholder: String) -> TextRegexFormField?
     func createTextSelectionField(placeholder: String) -> TextSelectionFormField?

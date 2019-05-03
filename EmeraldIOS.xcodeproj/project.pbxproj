@@ -39,7 +39,7 @@
 		9B3BCC972272033400DC5D79 /* TextRegexFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC6A2272033400DC5D79 /* TextRegexFormField.swift */; };
 		9B3BCC982272033400DC5D79 /* TextRegexFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC6B2272033400DC5D79 /* TextRegexFormFieldError.swift */; };
 		9B3BCC992272033400DC5D79 /* EmeraldIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9B3BCC9A2272033400DC5D79 /* EsmeraldInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC6F2272033400DC5D79 /* EsmeraldInitializer.swift */; };
+		9B3BCC9A2272033400DC5D79 /* EmeraldInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC6F2272033400DC5D79 /* EmeraldInitializer.swift */; };
 		9B3BCC9B2272033400DC5D79 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC712272033400DC5D79 /* FormStackView.swift */; };
 		9B3BCC9C2272033400DC5D79 /* FormStackViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC722272033400DC5D79 /* FormStackViewContract.swift */; };
 		9BC82E2A2242777F007BC5BD /* EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */; };
@@ -114,7 +114,7 @@
 		9B3BCC6A2272033400DC5D79 /* TextRegexFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextRegexFormField.swift; sourceTree = "<group>"; };
 		9B3BCC6B2272033400DC5D79 /* TextRegexFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextRegexFormFieldError.swift; sourceTree = "<group>"; };
 		9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmeraldIOS.h; sourceTree = "<group>"; };
-		9B3BCC6F2272033400DC5D79 /* EsmeraldInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EsmeraldInitializer.swift; sourceTree = "<group>"; };
+		9B3BCC6F2272033400DC5D79 /* EmeraldInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldInitializer.swift; sourceTree = "<group>"; };
 		9B3BCC712272033400DC5D79 /* FormStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
 		9B3BCC722272033400DC5D79 /* FormStackViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormStackViewContract.swift; sourceTree = "<group>"; };
 		9B3BCC732272033400DC5D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 		9B3BCC6E2272033400DC5D79 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				9B3BCC6F2272033400DC5D79 /* EsmeraldInitializer.swift */,
+				9B3BCC6F2272033400DC5D79 /* EmeraldInitializer.swift */,
 				9B3BCC702272033400DC5D79 /* FormStack */,
 			);
 			path = Helper;
@@ -518,6 +518,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 9BE5A53C2228813A004A59B9;
 			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
@@ -659,7 +660,7 @@
 				6C807C6F227C8E7F00FC328E /* Inspectable.swift in Sources */,
 				9B3BCC842272033400DC5D79 /* RadioGroupFormField.swift in Sources */,
 				9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */,
-				9B3BCC9A2272033400DC5D79 /* EsmeraldInitializer.swift in Sources */,
+				9B3BCC9A2272033400DC5D79 /* EmeraldInitializer.swift in Sources */,
 				6C807C71227C99B300FC328E /* Theme.swift in Sources */,
 				9B3BCC982272033400DC5D79 /* TextRegexFormFieldError.swift in Sources */,
 				9B3BCC952272033400DC5D79 /* DateFormField.swift in Sources */,

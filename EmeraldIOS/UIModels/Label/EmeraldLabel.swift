@@ -7,27 +7,27 @@
 //
 
 @IBDesignable
-class EmeraldLabel: UILabel {
+public class EmeraldLabel: UILabel {
     
-    @IBInspectable var themeStyle: String = EmeraldLabelStyle.custom.IBInspectable {
+    @IBInspectable public var themeStyle: String = EmeraldLabelStyle.custom.IBInspectable {
         didSet {
             applyTheme()
         }
     }
     
-    @IBInspectable var themeColor: String = Color.text.IBInspectable {
+    @IBInspectable public var themeColor: String = Color.text.IBInspectable {
         didSet {
             applyTheme()
         }
     }
     
-    @IBInspectable var themeFontSize: String = FontSize.body.rawValue {
+    @IBInspectable public var themeFontSize: String = FontSize.body.rawValue {
         didSet {
             applyTheme()
         }
     }
     
-    @IBInspectable var themeFontWeight: String = FontWeight.regular.rawValue {
+    @IBInspectable public var themeFontWeight: String = FontWeight.regular.rawValue {
         didSet {
             applyTheme()
         }
@@ -45,13 +45,13 @@ class EmeraldLabel: UILabel {
         return Font(size: fontSize, weight: fontWeight)
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         
         applyTheme()
     }
     
-    override func prepareForInterfaceBuilder() {
+    override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
         applyTheme()

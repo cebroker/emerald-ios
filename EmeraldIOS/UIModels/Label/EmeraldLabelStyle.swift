@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum EmeraldLabelStyle: String, Inspectable {
+public enum EmeraldLabelStyle: String, Inspectable {
     case mainTitle
     case subtitle
     case body

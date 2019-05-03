@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Color: String, Inspectable {
+public enum Color: String, Inspectable {
     case white
     case black
     case green

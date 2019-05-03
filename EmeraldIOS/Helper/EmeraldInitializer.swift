@@ -1,5 +1,5 @@
 //
-//  EsmeraldInitializer.swift
+//  EmeraldInitializer.swift
 //  EmeraldIOS
 //
 //  Created by Luis David Goyes Garces on 4/24/19.
@@ -10,7 +10,7 @@ import UIKit
 
 class ClassBundle { }
 
-public class EsmeraldInitializer {
+public class EmeraldInitializer {
     private struct InnerConstants {
         static let fontType = ".ttf"
         static let bundlePath = "."

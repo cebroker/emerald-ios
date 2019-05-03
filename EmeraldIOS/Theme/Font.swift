@@ -8,14 +8,14 @@
 
 import UIKit
 
-enum OpenSansFonts: String, CaseIterable {
+public enum OpenSansFonts: String, CaseIterable {
     case Light = "OpenSans-Light"
     case Regular = "OpenSans-Regular"
     case SemiBold = "OpenSans-SemiBold"
     case Bold = "OpenSans-Bold"
 }
 
-enum FontSize: String, Inspectable {
+public enum FontSize: String, Inspectable {
     case h1
     case h2
     case h3
@@ -74,7 +74,7 @@ enum FontSize: String, Inspectable {
     }
 }
 
-enum FontWeight: String, Inspectable {
+public enum FontWeight: String, Inspectable {
     case light
     case regular
     case semibold
@@ -89,7 +89,7 @@ enum FontWeight: String, Inspectable {
     }
 }
 
-struct Font {
+public struct Font {
     let size: FontSize
     let weight: FontWeight
     
