@@ -12,7 +12,7 @@ public enum SelectorFormFieldError: FormFieldErrorType {
 }
 
 public extension SelectorFormFieldError {
-    public var description: String? {
+    var description: String? {
         switch self {
         case .missingSelectedValue:
             return "Missing selected value."

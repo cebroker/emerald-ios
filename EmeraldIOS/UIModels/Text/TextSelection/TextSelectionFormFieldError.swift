@@ -12,7 +12,7 @@ public enum TextSelectionFormFieldError: FormFieldErrorType {
 }
 
 public extension TextSelectionFormFieldError {
-    public var description: String? {
+    var description: String? {
         switch self {
         case .missingAvailableOptions:
             return "No available options to validate with."

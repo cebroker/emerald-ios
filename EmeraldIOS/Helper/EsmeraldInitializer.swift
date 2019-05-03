@@ -8,19 +8,6 @@
 
 import UIKit
 
-enum OpenSansFonts: String, CaseIterable {
-    case SemiBold = "OpenSans-SemiBold"
-    case Light = "OpenSans-Light"
-    case Italic = "OpenSans-Italic"
-    case ExtraBold = "OpenSans-ExtraBold"
-    case LightItalic = "OpenSans-LightItalic"
-    case Bold = "OpenSans-Bold"
-    case SemiBoldItalic = "OpenSans-SemiBoldItalic"
-    case ExtraBoldItalic = "OpenSans-ExtraBoldItalic"
-    case Regular = "OpenSans-Regular"
-    case BoldItalic = "OpenSans-BoldItalic"
-}
-
 class ClassBundle { }
 
 public class EsmeraldInitializer {
@@ -53,9 +40,7 @@ public class EsmeraldInitializer {
             throw DynamicResourceAllocationError.urlNotFound
         }
 
-        guard let cfFontData = try Data(contentsOf: url) as? CFData else {
-            throw DynamicResourceAllocationError.cfDataNotFound
-        }
+        let cfFontData = try Data(contentsOf: url) as CFData
 
         guard let provider = CGDataProvider(data: cfFontData) else {
             throw DynamicResourceAllocationError.providerCannotBeCreated
@@ -67,8 +52,8 @@ public class EsmeraldInitializer {
 
         var error: Unmanaged<CFError>?
         if !CTFontManagerRegisterGraphicsFont(font, &error) {
-            let errorDescription = CFErrorCopyDescription(error as! CFError)
-            print("Failed to load font: \(errorDescription)")
+            let errorDescription = CFErrorCopyDescription((error as! CFError))
+            print("Failed to load font: \(String(describing: errorDescription))")
         }
     }
 }

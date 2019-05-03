@@ -90,7 +90,7 @@ public extension TextFormatter {
                 rawNumber.remove(at: secondDotIndex)
             }
 
-            if rawNumber.count - 1 >= dotIndex.encodedOffset + 3 {
+            if rawNumber.count - 1 >= dotIndex.utf16Offset(in: Constants.Values.empty) + 3 {
                 rawNumber.remove(at: rawNumber.index(dotIndex, offsetBy: 3))
             }
         }
