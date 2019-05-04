@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIStackView {
-    public func removeAllArrangedSubviews() {
+    func removeAllArrangedSubviews() {
         let arrangedSubviewsSize = arrangedSubviews.count
         for i in 0 ..< arrangedSubviewsSize {
             let subview = arrangedSubviews[i]

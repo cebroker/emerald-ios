@@ -13,7 +13,7 @@ public enum FormFieldError: FormFieldErrorType {
 }
 
 public extension FormFieldError {
-    public var description: String? {
+    var description: String? {
         switch self {
         case .emptyField:
             return "This field can not be empty."

@@ -9,7 +9,7 @@
 import Foundation
 
 public extension NSRegularExpression {
-    public convenience init(_ pattern: String) {
+    convenience init(_ pattern: String) {
         do {
             try self.init(pattern: pattern)
         } catch {
@@ -17,7 +17,7 @@ public extension NSRegularExpression {
         }
     }
     
-    public func matchesString(with value: String) -> Bool {
+    func matchesString(with value: String) -> Bool {
         let range = NSRange(location: 0, length: value.utf16.count)
         return firstMatch(in: value, options: [], range: range) != nil
     }

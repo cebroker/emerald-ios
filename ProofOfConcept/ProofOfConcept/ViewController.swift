@@ -26,7 +26,8 @@ class State: Selectable {
 class ViewController: UIViewController {
 
     @IBOutlet private weak var formStackView: FormStackView!
-
+    
+    //Text fields
     private var organizationName: TextFormFieldType?
     private var address: TextFormFieldType?
     private var city: TextSelectionFormFieldType?
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
     private var amountPaid: TextFormField?
     private var paymentDate: DateFormField?
 
-    private var formButton: FormButton?
+    private var formButton: EmeraldButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,28 @@ class ViewController: UIViewController {
     }
 
     private func createFields() {
+        let mainTitle = formStackView.createLabel()
+        mainTitle?.themeStyle = EmeraldLabelStyle.mainTitle.rawValue
+        mainTitle?.text = "Main title"
+        
+        let subtitle = formStackView.createLabel()
+        subtitle?.themeStyle = EmeraldLabelStyle.subtitle.rawValue
+        subtitle?.text = "Subtitle text"
+
+        let body = formStackView.createLabel()
+        body?.themeStyle = EmeraldLabelStyle.body.rawValue
+        body?.text = "Body text"
+
+        let tableHeader = formStackView.createLabel()
+        tableHeader?.themeStyle = EmeraldLabelStyle.tableHeader.rawValue
+        tableHeader?.text = "Table header text"
+        
+        let customTitle = formStackView.createLabel()
+        customTitle?.themeColor = Color.primary.rawValue
+        customTitle?.themeFontSize = FontSize.h1.rawValue
+        customTitle?.themeFontWeight = FontWeight.bold.rawValue
+        customTitle?.text = "H1 Custom title"
+        
         organizationName = formStackView.createTextFormField(placeholder: "Organization name")
         organizationName?.set(hint: "Condor Labs")
 
@@ -92,7 +115,8 @@ class ViewController: UIViewController {
             contactName?.set(required: false)
         }
 
-        formButton = formStackView.createFormButton(with: "Submit form")
+        formButton = formStackView.createButton(with: "Submit form")
+        formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
 
         formStackView.reloadFields()
