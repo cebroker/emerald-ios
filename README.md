@@ -18,6 +18,17 @@ Emerald UI for iOS Apps
 
 - Swift 4.0+
 
+### Documentation
+<ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Theme">Theme palettes & typography</a></li>
+ </ul>
+<ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/UIModels/Button">Buttons</a></li>
+  </ul>
+ <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/UIModels/Label">Label</a></li>
+  </ul>
+
 ### CocoaPods
 
  [CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. You can install it with the following command:
