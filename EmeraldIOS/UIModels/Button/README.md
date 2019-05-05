@@ -1,3 +1,5 @@
+<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/Header.PNG" /></p>
+
 # Buttons
 <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec">EmeraldButton</li>
