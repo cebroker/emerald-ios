@@ -311,7 +311,6 @@
 				9B3BCC5D2272033400DC5D79 /* Selector */,
 				9B3BCC612272033400DC5D79 /* TextSelection */,
 				9B3BCC642272033400DC5D79 /* Date */,
-				9B3BCC682272033400DC5D79 /* TextFormatter.swift */,
 				9B3BCC692272033400DC5D79 /* Regex */,
 			);
 			path = Text;
@@ -359,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				9B3BCC6F2272033400DC5D79 /* EmeraldInitializer.swift */,
+				9B3BCC682272033400DC5D79 /* TextFormatter.swift */,
 				9B3BCC702272033400DC5D79 /* FormStack */,
 			);
 			path = Helper;

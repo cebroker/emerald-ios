@@ -27,10 +27,25 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="EmeraldStackView" customModule="EmeraldIOS">
                                                 <rect key="frame" x="33.5" y="34" width="299" height="647"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-eS-81u" customClass="EmeraldTextField" customModule="EmeraldIOS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="299" height="647"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV6-cl-gbd" customClass="EmeraldLabel" customModule="EmeraldIOS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="299" height="30"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="6rB-o3-mX3"/>
+                                                            <constraint firstAttribute="height" constant="30" id="8Ps-dd-xeu"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="custom"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeColor" value="primary"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeFontSize" value="h1"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeFontWeight" value="bold"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-eS-81u" customClass="EmeraldTextField" customModule="EmeraldIOS">
+                                                        <rect key="frame" x="0.0" y="290.5" width="299" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="58" id="6rB-o3-mX3"/>
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -46,15 +61,33 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                                 <integer key="value" value="0"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="id" value="someid"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-jJ-wYo" customClass="EmeraldButton" customModule="EmeraldIOS">
+                                                        <rect key="frame" x="0.0" y="599" width="299" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="LJz-xL-a2b"/>
+                                                        </constraints>
+                                                        <state key="normal" title="My submit button"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="secondary"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="submitFromStory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Chq-sB-AAG"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="mKU-jJ-wYo" secondAttribute="trailing" constant="10" id="7zu-Eu-7PU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DV6-cl-gbd" secondAttribute="trailing" constant="10" id="I6a-cC-f9o"/>
                                                     <constraint firstAttribute="height" constant="647" placeholder="YES" id="MeL-8e-2J1"/>
                                                     <constraint firstItem="91Z-eS-81u" firstAttribute="leading" secondItem="H8W-5V-jo4" secondAttribute="leading" constant="10" id="VGK-k3-tr7"/>
+                                                    <constraint firstItem="mKU-jJ-wYo" firstAttribute="centerX" secondItem="H8W-5V-jo4" secondAttribute="centerX" id="flh-YX-dvq"/>
+                                                    <constraint firstItem="mKU-jJ-wYo" firstAttribute="leading" secondItem="H8W-5V-jo4" secondAttribute="leading" constant="10" id="fxI-ra-Md9"/>
                                                     <constraint firstAttribute="trailing" secondItem="91Z-eS-81u" secondAttribute="trailing" constant="10" id="hbP-hA-keM"/>
                                                     <constraint firstItem="91Z-eS-81u" firstAttribute="centerX" secondItem="H8W-5V-jo4" secondAttribute="centerX" id="jfS-Lr-40f"/>
+                                                    <constraint firstItem="DV6-cl-gbd" firstAttribute="centerX" secondItem="H8W-5V-jo4" secondAttribute="centerX" id="uJ2-tG-sFU"/>
+                                                    <constraint firstItem="DV6-cl-gbd" firstAttribute="leading" secondItem="H8W-5V-jo4" secondAttribute="leading" constant="10" id="yb0-BT-jd3"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -89,6 +122,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="emeraldButtonByStory" destination="mKU-jJ-wYo" id="geC-qS-F3W"/>
+                        <outlet property="emeraldLabelByStory" destination="DV6-cl-gbd" id="xpu-1B-NAf"/>
                         <outlet property="emeraldTextByStory" destination="91Z-eS-81u" id="CJF-G3-LXm"/>
                         <outlet property="formStackView" destination="H8W-5V-jo4" id="4nC-Xx-RlT"/>
                     </connections>

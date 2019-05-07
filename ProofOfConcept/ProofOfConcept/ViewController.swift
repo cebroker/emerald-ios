@@ -27,9 +27,12 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var formStackView: EmeraldStackView!
     
+    @IBOutlet weak var emeraldLabelByStory: EmeraldLabel!
     @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
-    //Text fields
+    @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
+    
     private var organizationName: EmeraldTextFormFieldType?
+    
     private var address: EmeraldTextFormFieldType?
     //    private var city: TextSelectionFormFieldType?
     //    private var state: SelectorFormFieldType?
@@ -46,8 +49,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createHideKeyboardGesture()
-        self.createFields()
-//        self.createStoryBoardFields()
+//        self.createFields()
+        self.createStoryBoardFields()
     }
     
     private func createHideKeyboardGesture() {
@@ -61,13 +64,7 @@ class ViewController: UIViewController {
     }
     
     private func createStoryBoardFields() {
-        let button = EmeraldButton()
-        button.setTitle("SUBMIT", for: .normal)
-        button.themeStyle = EmeraldButtonStyle.primary.rawValue
-        button.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
-        formStackView.fields.append(emeraldTextByStory)
-        formStackView.fields.append(button)
-        formStackView.reloadFields()
+        emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
     }
     
     private func createFields() {
@@ -145,6 +142,14 @@ class ViewController: UIViewController {
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
         
         formStackView.reloadFields()
+    }
+    
+    @IBAction func submitFromStory(_ sender: Any) {
+        let validationResult = emeraldTextByStory.isValid()
+        if !validationResult.isValid,
+            let error = validationResult.error {
+            emeraldTextByStory.show(error: error)
+        }
     }
     
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
