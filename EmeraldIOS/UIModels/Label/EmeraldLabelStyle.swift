@@ -9,6 +9,7 @@
 import UIKit
 
 public enum EmeraldLabelStyle: String, Inspectable {
+
     case mainTitle
     case subtitle
     case body
