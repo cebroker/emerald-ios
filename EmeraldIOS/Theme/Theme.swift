@@ -37,6 +37,7 @@ public class EmeraldTheme {
     public static let primaryButtonColor = blueColor
     public static let primaryButtonHighlightedColor = UIColor(hex: 0x2385E9)
     public static let secondaryButtonColor = whiteColor
+    public static let placeholderColor = UIColor.lightGray
     public static let borderColor = UIColor(hex: 0xE6E8EC)
     public static let chevronColor = UIColor(hex: 0xC7C7CC)
     public static let warningColor = yellowColor
@@ -53,7 +54,10 @@ public class EmeraldTheme {
     public static let elevatedViewSecondaryColor = UIColor(hex: 0x000000)
     
     // MARK: Corner Defaults
-    public static let defaultCornerRadius: CGFloat = 5
+    public static let defaultCornerRadius: CGFloat = 2
     public static let defaultButtonCornerRadius: CGFloat = 5
     public static let defaultElevatedViewCornerRadius: CGFloat = 5
+    
+    // MARK: Border Defaults
+    public static let defaultBorderWidth: CGFloat = 1
 }

@@ -28,10 +28,31 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
     var tintColor: UIColor {
         switch self {
         case .formField:
-            return EmeraldTheme.linkColor
+            return EmeraldTheme.primaryColor
         }
     }
-
+    
+    var cornerRadius: CGFloat {
+        switch self {
+        case .formField:
+            return EmeraldTheme.defaultCornerRadius
+        }
+    }
+    
+    var borderColor: CGColor {
+        switch self {
+        case .formField:
+            return EmeraldTheme.borderColor.cgColor
+        }
+    }
+    
+    var borderWidth: CGFloat {
+        switch self {
+        case .formField:
+            return EmeraldTheme.defaultBorderWidth
+        }
+    }
+    
     var IBInspectable: String {
         return rawValue
     }

@@ -61,57 +61,28 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         }
     }
     
-    @IBInspectable var textInsetsTop: CGFloat = 0 {
-        didSet {
-            applyTheme()
-        }
-    }
-    
-    @IBInspectable var textInsetsLeft: CGFloat = 15 {
-        didSet {
-            applyTheme()
-        }
-    }
-    
-    @IBInspectable var textInsetsRight: CGFloat = 15 {
-        didSet {
-            applyTheme()
-        }
-    }
-    
-    @IBInspectable var textInsetsBottom: CGFloat = 0 {
-        didSet {
-            applyTheme()
-        }
-    }
-    
     let placeholderLabel: UILabel = UILabel()
-    var textInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: textInsetsTop,
-                            left: textInsetsLeft,
-                            bottom: textInsetsBottom,
-                            right: textInsetsRight)
-    }
+    var placeholderYAnchorConstraint: NSLayoutConstraint!
+    var placeholderLeadingConstraint: NSLayoutConstraint!
     
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 58.0)
     }
     
     private struct InnerConstants {
-        static let middleFontSize: CGFloat = Constants.Design.FontSize.form
-        static let maximumFontSize: CGFloat = Constants.Design.FontSize.body
-        static let borderWidth: CGFloat = 1
-        static let cornerRadiousValue: CGFloat = 2
-        static let placeHolderLabelSize: CGFloat = Constants.Design.FontSize.body * 1.5
-        static let initialPosition: Int = 0
-        static let heightDivider: CGFloat = 2
+        static let middleFontSize: CGFloat = FontSize.h5.cgFontSize
+        static let maximumFontSize: CGFloat = FontSize.body.cgFontSize
+        static let placeHolderLabelSize: CGFloat = FontSize.body.cgFontSize * 1.5
         static let animationDuration: Double = 0.15
-        static var frameOriginFieldOff = CGPoint(x: 10, y: Constants.Design.FontSize.body * 1.3)
+        static let delay: Double = 0.0
+        static var frameOriginFieldOff = CGPoint(x: 10, y: FontSize.body.cgFontSize * 1.3)
         static let frameOriginFieldOn = CGPoint(x: 10, y: 10)
         static let maximumDoubleLength = 10
+        static let initialDownConstant: CGFloat = 0
+        static let yUpConstant: CGFloat = -15
+        static let leadingUpConstant: CGFloat = -35
+        static let bounds: CGFloat = 10
         struct Padding {
-            static let top: CGFloat = 10
-            static let bottom: CGFloat = 10
             static let left: CGFloat = 10
             static let right: CGFloat = 10
         }
@@ -127,8 +98,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
     override public init(frame: CGRect) {
         super.init(frame: frame)
         self.delegate = self
-        self.addSubview(placeholderLabel)
-        self.setupLayout()
         self.setupPlaceholderLabelConstraints()
     }
     
@@ -143,36 +112,31 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
             font: Constants.Design.font,
             fontSize: InnerConstants.maximumFontSize,
             labelHeight: InnerConstants.placeHolderLabelSize,
-            color: Constants.Design.Color.grayBorder)
+            color: EmeraldTheme.borderColor)
     }
     
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
-        return CGRect(x: textInsets.left,
-                      y: textInsets.top,
-                      width: bounds.width - (textInsets.left + textInsets.right),
-                      height: bounds.height - (textInsets.top + textInsets.bottom))
+        return bounds.insetBy(dx: InnerConstants.bounds,
+                              dy: InnerConstants.bounds)
     }
-    
-    override public func sizeThatFits(_ boundingSize: CGSize) -> CGSize {
-        var size = CGSize.zero
-        size.width = boundingSize.width
-        size.height = min(44, boundingSize.height)
-        return size
-    }
-    
-    override public func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return textRect(forBounds: bounds)
-    }
-    
+
     override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         return textRect(forBounds: bounds)
     }
     
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     open func applyTheme() {
         let style = EmeraldTextFieldStyle(IBInspectable: themeStyle)
         textColor = style.textColor
         font = style.font
         tintColor = style.tintColor
+        layer.borderWidth = style.borderWidth
+        layer.borderColor = style.borderColor
+        layer.cornerRadius = style.cornerRadius
     }
     
     public func textField(
@@ -236,7 +200,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
     public func set(placeholder: String?) {
         self.initialPlaceHolder = placeholder
         self.placeholderLabel.text = placeholder
-        self.placeholderLabel.textColor = UIColor.gray
+        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
     }
     
     public func getPlaceholder() -> String? {
@@ -308,14 +272,14 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
     
     public func show(error: FormFieldErrorType) {
         self.placeholderLabel.text = error.description
-        self.placeholderLabel.textColor = UIColor.red
-        self.layer.borderColor = UIColor.red.cgColor
+        self.placeholderLabel.textColor = EmeraldTheme.redColor
+        self.layer.borderColor = EmeraldTheme.redColor.cgColor
     }
     
     public func clearError() {
         self.placeholderLabel.text = self.initialPlaceHolder
-        self.placeholderLabel.textColor = UIColor.gray
-        self.layer.borderColor = Constants.Design.Color.grayBorder.cgColor
+        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
+        self.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
     
     private func validateContent() -> ValidationResult {
@@ -326,18 +290,8 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         return ValidationResult(isValid: true)
     }
     
-    private func setupLayout() {
-        self.font = UIFont.init(
-            name: Constants.Design.font,
-            size: InnerConstants.maximumFontSize)
-        self.layer.borderWidth = InnerConstants.borderWidth
-        self.layer.borderColor = Constants.Design.Color.grayBorder.cgColor
-        self.layer.cornerRadius = InnerConstants.cornerRadiousValue
-    }
-    
     private func activateField() {
-        let onActiveColor = Constants.Design.Color.lightGreen
-        
+        let onActiveColor = EmeraldTheme.primaryColor
         self.layer.borderColor = onActiveColor.cgColor
         
         self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
@@ -350,11 +304,8 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
     }
     
     private func deactivateField() {
-        let onDeactivateColor = Constants.Design.Color.grayBorder
-        
-        self.layer.borderColor = onDeactivateColor.cgColor
-        
-        self.placeholderLabel.textColor = onDeactivateColor
+        self.layer.borderColor = EmeraldTheme.borderColor.cgColor
+        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
         
         if self.text == nil || self.text == Constants.Values.empty {
             self.movePlaceholderDown()
@@ -362,34 +313,31 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
     }
     
     private func setupPlaceholderLabelConstraints() {
+        self.contentVerticalAlignment = .bottom
+        self.addSubview(placeholderLabel)
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        placeholderLabel
-            .topAnchor
+        placeholderYAnchorConstraint = placeholderLabel
+            .centerYAnchor
+            .constraint(equalTo: self.centerYAnchor)
+
+        placeholderLeadingConstraint = placeholderLabel
+            .leadingAnchor
             .constraint(
-                equalTo: self.topAnchor,
-                constant: InnerConstants.Padding.top)
-            .isActive = true
-        
-        placeholderLabel
-            .leftAnchor
-            .constraint(
-                equalTo: self.leftAnchor,
+                equalTo: self.leadingAnchor,
                 constant: InnerConstants.Padding.left)
-            .isActive = true
-        
+
+        NSLayoutConstraint.activate([
+            placeholderYAnchorConstraint,
+            placeholderLeadingConstraint
+        ])
+
         placeholderLabel
             .rightAnchor
             .constraint(
                 equalTo: self.rightAnchor,
                 constant: InnerConstants.Padding.right)
             .isActive = true
-        
-        placeholderLabel
-            .heightAnchor
-            .constraint(equalToConstant: InnerConstants.maximumFontSize)
-            .isActive = true
-        
     }
     
     private func setupPlaceholderTheme(
@@ -399,12 +347,8 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         color: UIColor) {
         DispatchQueue.main.async {
             self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
-            self.placeholderLabel.textColor = Constants.Design.Color.grayBorder
+            self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
             self.placeholderLabel.font = UIFont.init(name: font, size: fontSize)
-            self.placeholderLabel.frame.origin = CGPoint(
-                x: self.frame.origin.x,
-                y: self.frame.origin.y + labelHeight / 2)
-            self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
         }
     }
     
@@ -414,7 +358,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         DispatchQueue.main.async {
             UIView.animate(
                 withDuration: InnerConstants.animationDuration,
-                delay: InnerConstants.animationDuration,
+                delay: InnerConstants.delay,
                 options: [],
                 animations: {
                     self.placeholderLabel.transform =
@@ -422,6 +366,9 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
                             scaleX: reducerScale,
                             y: reducerScale)
                     self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOn
+                    self.placeholderYAnchorConstraint.constant = InnerConstants.yUpConstant
+                    self.placeholderLeadingConstraint.constant = InnerConstants.leadingUpConstant
+                    
             },
                 completion: { _ in
                     self.placeholder = self.hint
@@ -434,12 +381,14 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
             self.placeholder = nil
             UIView.animate(
                 withDuration: InnerConstants.animationDuration,
-                delay: InnerConstants.animationDuration,
+                delay: InnerConstants.delay,
                 options: [],
                 animations: {
                     self.placeholderLabel.transform =
                         CGAffineTransform.identity
                     self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+                    self.placeholderYAnchorConstraint.constant = 0
+                    self.placeholderLeadingConstraint.constant = InnerConstants.Padding.left
             },
                 completion: { _ in })
         }

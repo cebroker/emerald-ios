@@ -12,41 +12,52 @@ import EmeraldIOS
 class State: Selectable {
     let name: String
     let cities: [String]
-
+    
     init(name: String, cities: [String]) {
         self.name = name
         self.cities = cities
     }
-
+    
     func getSelectableText() -> String {
         return name
     }
 }
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet private weak var formStackView: EmeraldStackView!
     
     //Text fields
     private var organizationName: EmeraldTextFormFieldType?
     private var address: EmeraldTextFormFieldType?
-//    private var city: TextSelectionFormFieldType?
-//    private var state: SelectorFormFieldType?
-
+    //    private var city: TextSelectionFormFieldType?
+    //    private var state: SelectorFormFieldType?
+    
     private var zip: EmeraldTextFormFieldType?
     private var contactName: EmeraldTextFormFieldType?
     private var membershipDuesAmount: EmeraldTextFormFieldType?
-//    private var dueDateForDues: DateFormField?
+    //    private var dueDateForDues: DateFormField?
     private var amountPaid: EmeraldTextFormFieldType?
-//    private var paymentDate: DateFormField?
-
+    //    private var paymentDate: DateFormField?
+    
     private var formButton: EmeraldButton?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.createHideKeyboardGesture()
         self.createFields()
     }
-
+    
+    private func createHideKeyboardGesture() {
+        let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
+        viewTapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(viewTapGesture)
+    }
+    
+    @objc func handleViewTap(recognizer: UIGestureRecognizer) {
+        resignFirstResponder()
+    }
+    
     private func createFields() {
         let mainTitle = formStackView.createLabel()
         mainTitle?.themeStyle = EmeraldLabelStyle.mainTitle.rawValue
@@ -55,11 +66,11 @@ class ViewController: UIViewController {
         let subtitle = formStackView.createLabel()
         subtitle?.themeStyle = EmeraldLabelStyle.subtitle.rawValue
         subtitle?.text = "Subtitle text"
-
+        
         let body = formStackView.createLabel()
         body?.themeStyle = EmeraldLabelStyle.body.rawValue
         body?.text = "Body text"
-
+        
         let tableHeader = formStackView.createLabel()
         tableHeader?.themeStyle = EmeraldLabelStyle.tableHeader.rawValue
         tableHeader?.text = "Table header text"
@@ -71,57 +82,58 @@ class ViewController: UIViewController {
         customTitle?.text = "H1 Custom title"
         
         organizationName = formStackView.createEmeraldTextField(placeholder: "Organization name")
+        organizationName?.set(isRequired: true)
         organizationName?.set(hint: "Condor Labs")
-
-//        address = formStackView.createTextFormField(placeholder: "Address")
-//        address?.set(hint: "Calle NN # NN - NN")
-
-//        city = formStackView.createTextSelectionField(placeholder: "City")
-//        city?.set(hint: "Medellín")
-
-//        state = formStackView.createSelectorFormField(placeholder: "State")
-//        state?.set(data: [
-//            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-//            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
-//        state?.set(notifiable: self)
-//        state?.set(hint: "Antioquia")
-
-//        zip = formStackView.createTextFormField(placeholder: "Zip")
-//        zip?.set(maxLength: 5)
-//        zip?.set(format: .number)
-//        zip?.set(inputType: .numberPad)
-//        zip?.set(hint: "12345")
-//
-//        contactName = formStackView.createTextFormField(placeholder: "Contact name")
-//        contactName?.set(hint: "John Doe")
-//
-//        membershipDuesAmount = formStackView.createTextFormField(placeholder: "Membership dues")
-//        membershipDuesAmount?.set(format: .currency)
-//        membershipDuesAmount?.set(hint: "$ 1234")
-//
-////        dueDateForDues = formStackView.createDateFormField(placeholder: "Due date for dues")
-////        dueDateForDues?.set(hint: "MM/dd/yyyy")
-//
-//        amountPaid = formStackView.createTextFormField(placeholder: "Amount paid")
-//        amountPaid?.set(format: .currency)
-//        amountPaid?.set(hint: "$ 1234")
-//
-////        paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
-////        paymentDate?.set(hint: "MM/dd/yyyy")
-//
-//        for i in 0..<1 {
-//            let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
-//            contactName?.set(hint: "John Doe")
-//            contactName?.set(isRequired: false)
-//        }
-
+        
+        address = formStackView.createEmeraldTextField(placeholder: "Address")
+        address?.set(hint: "Calle NN # NN - NN")
+        
+        //        city = formStackView.createTextSelectionField(placeholder: "City")
+        //        city?.set(hint: "Medellín")
+        
+        //        state = formStackView.createSelectorFormField(placeholder: "State")
+        //        state?.set(data: [
+        //            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+        //            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+        //        state?.set(notifiable: self)
+        //        state?.set(hint: "Antioquia")
+        
+        //        zip = formStackView.createTextFormField(placeholder: "Zip")
+        //        zip?.set(maxLength: 5)
+        //        zip?.set(format: .number)
+        //        zip?.set(inputType: .numberPad)
+        //        zip?.set(hint: "12345")
+        //
+        //        contactName = formStackView.createTextFormField(placeholder: "Contact name")
+        //        contactName?.set(hint: "John Doe")
+        //
+        //        membershipDuesAmount = formStackView.createTextFormField(placeholder: "Membership dues")
+        //        membershipDuesAmount?.set(format: .currency)
+        //        membershipDuesAmount?.set(hint: "$ 1234")
+        //
+        ////        dueDateForDues = formStackView.createDateFormField(placeholder: "Due date for dues")
+        ////        dueDateForDues?.set(hint: "MM/dd/yyyy")
+        //
+        //        amountPaid = formStackView.createTextFormField(placeholder: "Amount paid")
+        //        amountPaid?.set(format: .currency)
+        //        amountPaid?.set(hint: "$ 1234")
+        //
+        ////        paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
+        ////        paymentDate?.set(hint: "MM/dd/yyyy")
+        //
+        //        for i in 0..<1 {
+        //            let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
+        //            contactName?.set(hint: "John Doe")
+        //            contactName?.set(isRequired: false)
+        //        }
+        
         formButton = formStackView.createButton(with: "Submit form")
         formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
-
+        
         formStackView.reloadFields()
     }
-
+    
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
         formStackView.areFieldsValid()
     }

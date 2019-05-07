@@ -24,8 +24,8 @@ public class EmeraldStackView: UIStackView {
     
     public func areFieldsValid() {
         fields
-            .filter { $0 is FormFieldType<String> }
-            .map { $0 as? FormFieldType<String> }
+            .filter { $0 is EmeraldTextFormFieldType }
+            .map { $0 as? EmeraldTextFormFieldType }
             .forEach {
                 guard let validationResult = $0?.isValid() else {
                     return
@@ -88,6 +88,7 @@ extension EmeraldStackView: EmeraldStackViewConfigurable {
     
     private func defaultSetup(textFormField: EmeraldTextField, with placeholder: String) {
         textFormField.set(placeholder: placeholder)
+        textFormField.themeStyle = EmeraldTextFieldStyle.formField.IBInspectable
         self.fields.append(textFormField)
     }
     
