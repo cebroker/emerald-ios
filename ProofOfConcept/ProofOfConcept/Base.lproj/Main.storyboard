@@ -53,7 +53,7 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Some hint "/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Gsk"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Gsk label for this"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="formField"/>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="format">
                                                                 <integer key="value" value="0"/>

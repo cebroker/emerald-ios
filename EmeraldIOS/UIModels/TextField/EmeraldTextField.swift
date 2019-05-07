@@ -80,7 +80,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         static let maximumDoubleLength = 10
         static let initialDownConstant: CGFloat = 0
         static let yUpConstant: CGFloat = -15
-        static let leadingUpConstant: CGFloat = -35
+        static let leadingUpConstant: CGFloat = -31
         static let bounds: CGFloat = 10
         struct Padding {
             static let left: CGFloat = 10
@@ -133,6 +133,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
 
     open func applyTheme() {
         let style = EmeraldTextFieldStyle(IBInspectable: themeStyle)
+        self.autocapitalizationType = .sentences
         textColor = style.textColor
         font = style.font
         tintColor = style.tintColor
