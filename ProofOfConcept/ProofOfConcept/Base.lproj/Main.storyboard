@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,19 +15,46 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProofOfConcept" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv5-H0-FWI">
-                                <rect key="frame" x="20" y="40" width="560" height="540"/>
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="540"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="778"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="EmeraldStackView" customModule="EmeraldIOS">
-                                                <rect key="frame" x="33.5" y="34" width="448" height="647"/>
+                                                <rect key="frame" x="33.5" y="34" width="299" height="647"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-eS-81u" customClass="EmeraldTextField" customModule="EmeraldIOS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="299" height="647"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="6rB-o3-mX3"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Some hint "/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Gsk"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="formField"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="format">
+                                                                <integer key="value" value="0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                <integer key="value" value="0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="id" value="someid"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="647" placeholder="YES" id="MeL-8e-2J1"/>
+                                                    <constraint firstItem="91Z-eS-81u" firstAttribute="leading" secondItem="H8W-5V-jo4" secondAttribute="leading" constant="10" id="VGK-k3-tr7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="91Z-eS-81u" secondAttribute="trailing" constant="10" id="hbP-hA-keM"/>
+                                                    <constraint firstItem="91Z-eS-81u" firstAttribute="centerX" secondItem="H8W-5V-jo4" secondAttribute="centerX" id="jfS-Lr-40f"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -58,6 +89,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="emeraldTextByStory" destination="91Z-eS-81u" id="CJF-G3-LXm"/>
                         <outlet property="formStackView" destination="H8W-5V-jo4" id="4nC-Xx-RlT"/>
                     </connections>
                 </viewController>

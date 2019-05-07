@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var formStackView: EmeraldStackView!
     
+    @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
     //Text fields
     private var organizationName: EmeraldTextFormFieldType?
     private var address: EmeraldTextFormFieldType?
@@ -46,6 +47,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.createHideKeyboardGesture()
         self.createFields()
+//        self.createStoryBoardFields()
     }
     
     private func createHideKeyboardGesture() {
@@ -56,6 +58,16 @@ class ViewController: UIViewController {
     
     @objc func handleViewTap(recognizer: UIGestureRecognizer) {
         resignFirstResponder()
+    }
+    
+    private func createStoryBoardFields() {
+        let button = EmeraldButton()
+        button.setTitle("SUBMIT", for: .normal)
+        button.themeStyle = EmeraldButtonStyle.primary.rawValue
+        button.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
+        formStackView.fields.append(emeraldTextByStory)
+        formStackView.fields.append(button)
+        formStackView.reloadFields()
     }
     
     private func createFields() {
@@ -113,11 +125,12 @@ class ViewController: UIViewController {
         //
         ////        dueDateForDues = formStackView.createDateFormField(placeholder: "Due date for dues")
         ////        dueDateForDues?.set(hint: "MM/dd/yyyy")
-        //
-        //        amountPaid = formStackView.createTextFormField(placeholder: "Amount paid")
-        //        amountPaid?.set(format: .currency)
-        //        amountPaid?.set(hint: "$ 1234")
-        //
+        
+        amountPaid = formStackView.createEmeraldTextField(placeholder: "Amount paid")
+        amountPaid?.set(format: .currency)
+        amountPaid?.set(isRequired: true)
+        amountPaid?.set(hint: "$ 1234")
+        
         ////        paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
         ////        paymentDate?.set(hint: "MM/dd/yyyy")
         //

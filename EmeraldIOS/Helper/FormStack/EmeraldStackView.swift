@@ -10,7 +10,7 @@ import UIKit
 
 public class EmeraldStackView: UIStackView {
     
-    private var fields: [UIView] = []
+    public var fields: [UIView] = []
     
     private var defaultSingleLineFrame: CGRect?
     

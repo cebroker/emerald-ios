@@ -39,7 +39,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
     
     @IBInspectable var placeHolder: String? {
         set {
-            self.set(placeholder: placeHolder)
+            self.set(placeholder: newValue)
         }
         get {
             return self.getPlaceholder()
@@ -48,7 +48,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
     
     @IBInspectable var format: Int {
         set {
-            self.set(format: TextFormat.init(rawValue: format) ?? .none)
+            self.set(format: TextFormat.init(rawValue: newValue) ?? .none)
         }
         get {
             return self.getFormat().hashValue
@@ -97,17 +97,19 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        self.delegate = self
-        self.setupPlaceholderLabelConstraints()
+        prepareForInterfaceBuilder()
     }
     
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         applyTheme()
+        self.delegate = self
+        self.setupPlaceholderLabelConstraints()
     }
     
     override public func didMoveToWindow() {
         super.didMoveToWindow()
+        self.prepareForInterfaceBuilder()
         self.setupPlaceholderTheme(
             font: Constants.Design.font,
             fontSize: InnerConstants.maximumFontSize,
@@ -280,6 +282,10 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         self.placeholderLabel.text = self.initialPlaceHolder
         self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
         self.layer.borderColor = EmeraldTheme.borderColor.cgColor
+    }
+    
+    public func getValue() -> String? {
+        return self.text
     }
     
     private func validateContent() -> ValidationResult {
