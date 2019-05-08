@@ -34,7 +34,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
         case .primary, .primarySmall, .primaryLarge:
             return EmeraldTheme.whiteColor
         case .secondary, .secondarySmall, .secondaryLarge:
-            return EmeraldTheme.textColor
+            return EmeraldTheme.primaryColor
         case .link:
             return EmeraldTheme.linkColor
         }
@@ -70,7 +70,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     var borderColor: UIColor? {
         switch self {
         case .secondary, .secondarySmall, .secondaryLarge:
-            return EmeraldTheme.borderColor
+            return EmeraldTheme.primaryColor
         default:
             return nil
         }

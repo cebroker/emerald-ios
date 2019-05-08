@@ -7,6 +7,5 @@
 //
 
 public protocol FormFieldErrorType {
-
     var description: String? { get }
 }

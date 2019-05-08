@@ -1,5 +1,5 @@
 //
-//  FormStackView.swift
+//  EmeraldStackView.swift
 //  EmeraldIOS
 //
 //  Created by Luis David Goyes Garces on 4/24/19.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class FormStackView: UIStackView {
+public class EmeraldStackView: UIStackView {
     
-    private var fields: [UIView] = []
+    public var fields: [UIView] = []
     
     private var defaultSingleLineFrame: CGRect?
     
@@ -24,8 +24,8 @@ public class FormStackView: UIStackView {
     
     public func areFieldsValid() {
         fields
-            .filter { $0 is FormFieldType<String> }
-            .map { $0 as? FormFieldType<String> }
+            .filter { $0 is EmeraldTextFormFieldType }
+            .map { $0 as? EmeraldTextFormFieldType }
             .forEach {
                 guard let validationResult = $0?.isValid() else {
                     return
@@ -41,7 +41,7 @@ public class FormStackView: UIStackView {
     }
 }
 
-extension FormStackView: FormStackViewConfigurable {
+extension EmeraldStackView: EmeraldStackViewConfigurable {
     
     public func createLabel() -> EmeraldLabel? {
         let field = EmeraldLabel()
@@ -49,32 +49,32 @@ extension FormStackView: FormStackViewConfigurable {
         return field
     }
     
-    public func createDateFormField(placeholder: String) -> DateFormField? {
-        let field = DateFormField()
-        defaultSetup(textFormField: field, with: placeholder)
-        return field
-    }
+//    public func createDateFormField(placeholder: String) -> DateFormField? {
+//        let field = DateFormField()
+//        defaultSetup(textFormField: field, with: placeholder)
+//        return field
+//    }
+//
+//    public func createSelectorFormField(placeholder: String) -> SelectorFormField? {
+//        let field = SelectorFormField()
+//        defaultSetup(textFormField: field, with: placeholder)
+//        return field
+//    }
+//
+//    public func createTextSelectionField(placeholder: String) -> TextSelectionFormField? {
+//        let field = TextSelectionFormField()
+//        defaultSetup(textFormField: field, with: placeholder)
+//        return field
+//    }
+//
+//    public func createTextRegexFormField(placeholder: String) -> TextRegexFormField? {
+//        let field = TextRegexFormField()
+//        defaultSetup(textFormField: field, with: placeholder)
+//        return field
+//    }
     
-    public func createSelectorFormField(placeholder: String) -> SelectorFormField? {
-        let field = SelectorFormField()
-        defaultSetup(textFormField: field, with: placeholder)
-        return field
-    }
-    
-    public func createTextSelectionField(placeholder: String) -> TextSelectionFormField? {
-        let field = TextSelectionFormField()
-        defaultSetup(textFormField: field, with: placeholder)
-        return field
-    }
-    
-    public func createTextRegexFormField(placeholder: String) -> TextRegexFormField? {
-        let field = TextRegexFormField()
-        defaultSetup(textFormField: field, with: placeholder)
-        return field
-    }
-    
-    public func createTextFormField(placeholder: String) -> TextFormField? {
-        let field = TextFormField()
+    public func createEmeraldTextField(placeholder: String) -> EmeraldTextField? {
+        let field = EmeraldTextField()
         defaultSetup(textFormField: field, with: placeholder)
         return field
     }
@@ -86,8 +86,9 @@ extension FormStackView: FormStackViewConfigurable {
         return button
     }
     
-    private func defaultSetup(textFormField: TextFormField, with placeholder: String) {
+    private func defaultSetup(textFormField: EmeraldTextField, with placeholder: String) {
         textFormField.set(placeholder: placeholder)
+        textFormField.themeStyle = EmeraldTextFieldStyle.formField.IBInspectable
         self.fields.append(textFormField)
     }
     
