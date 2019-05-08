@@ -5,6 +5,9 @@
   <li class="icon-list-item icon-list-item--spec">EmeraldLabel</li>
 </ul>
 
+# Example
+<img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/EmeraldLabelExample.png" />
+
 ## Usage
 ### Typical use
 
@@ -34,3 +37,18 @@ For example, to make a label looks as a main title style label:
 ```swift
 mainTitle?.themeStyle = EmeraldLabelStyle.mainTitle.rawValue
 ```
+## Usage from storyboard
+<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/EmeraldLabelFromStoryboard.png" /></p>
+
+You only need to set the `Theme Style` for the emerald button you want. All the `EmeraldLabelStyle` are:
+
+#### Swift
+```swift
+    case mainTitle
+    case subtitle
+    case body
+    case tableHeader
+    case custom
+```
+
+If you want custom `Theme Style` you need to set `Theme Color`, `Theme FontSize` and `Theme FontWeight`
