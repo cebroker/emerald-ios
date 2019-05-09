@@ -39,3 +39,18 @@ For example, to make a button looks as a secondary style button:
 ```swift
 button.themeStyle = EmeraldButtonStyle.secondary.rawValue
 ```
+
+## Usage from storyboard
+<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/EmeraldButtonFromStoryboard.png" /></p>
+
+You only need to set the `Theme Style` for the emerald button you want. All the `EmeraldButtonStyle` are:
+#### Swift
+```swift
+    case primary
+    case primarySmall
+    case primaryLarge
+    case secondary
+    case secondarySmall
+    case secondaryLarge
+    case link
+```
