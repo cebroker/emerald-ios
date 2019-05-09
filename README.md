@@ -18,7 +18,7 @@ Emerald UI for iOS Apps
 
 - Swift 4.0+
 
-### Documentation
+### Components documentation
 <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Theme">Theme palettes & typography</a></li>
  </ul>
@@ -30,6 +30,9 @@ Emerald UI for iOS Apps
   </ul>
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/TextField">TextField</a></li>
+  </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/Signature">Signature</a></li>
   </ul>
 
 ### CocoaPods
