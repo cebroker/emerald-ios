@@ -23,13 +23,13 @@ Emerald UI for iOS Apps
   <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Theme">Theme palettes & typography</a></li>
  </ul>
 <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/UIModels/Button">Buttons</a></li>
+  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/Button">Buttons</a></li>
   </ul>
  <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/UIModels/Label">Label</a></li>
+  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/Label">Label</a></li>
   </ul>
   <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/UIModels/TextField">TextField</a></li>
+  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/TextField">TextField</a></li>
   </ul>
 
 ### CocoaPods
