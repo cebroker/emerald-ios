@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController.swift */; };
+		6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */; };
 		6C0AC80B22831CAD00AF4662 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80A22831CAD00AF4662 /* Line.swift */; };
 		6C0AC80D22831CD900AF4662 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80C22831CD900AF4662 /* SignatureView.swift */; };
 		6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */; };
@@ -23,6 +23,10 @@
 		6CAFFA1A22833AAA00C690B9 /* xIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CAFFA1922833AA900C690B9 /* xIcon.png */; };
 		6CAFFA1C2283462100C690B9 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA1B2283462100C690B9 /* CanvasView.swift */; };
 		6CAFFA1E2283660E00C690B9 /* SignatureContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */; };
+		6CAFFA21228453CF00C690B9 /* EmeraldSignatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CAFFA1F228453CF00C690B9 /* EmeraldSignatureView.xib */; };
+		6CAFFA22228453CF00C690B9 /* EmeraldSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */; };
+		6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */; };
+		6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2A22845B8E00C690B9 /* Media.xcassets */; };
 		9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC422272033400DC5D79 /* Constants.swift */; };
 		9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */; };
 		9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */; };
@@ -90,7 +94,7 @@
 		2886ECAFCEF796385AA7B56B /* Pods-EmeraldIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.release.xcconfig"; sourceTree = "<group>"; };
 		356885229B6EC75600C29D5F /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0FD3F6CB9D3CC5F8B2D470 /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController.swift; sourceTree = "<group>"; };
+		6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController_old.swift; sourceTree = "<group>"; };
 		6C0AC80A22831CAD00AF4662 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6C0AC80C22831CD900AF4662 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextField.swift; sourceTree = "<group>"; };
@@ -106,6 +110,10 @@
 		6CAFFA1922833AA900C690B9 /* xIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xIcon.png; sourceTree = "<group>"; };
 		6CAFFA1B2283462100C690B9 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureContract.swift; sourceTree = "<group>"; };
+		6CAFFA1F228453CF00C690B9 /* EmeraldSignatureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmeraldSignatureView.xib; sourceTree = "<group>"; };
+		6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController.swift; sourceTree = "<group>"; };
+		6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIViewController.swift"; sourceTree = "<group>"; };
+		6CAFFA2A22845B8E00C690B9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7B3FA2C3B3EB6280397581E7 /* Pods-EmeraldIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9B3BCC422272033400DC5D79 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+NSRegularExpression.swift"; sourceTree = "<group>"; };
@@ -198,11 +206,9 @@
 		6C0AC80622831B5A00AF4662 /* Signature */ = {
 			isa = PBXGroup;
 			children = (
+				6CAFFA2622845AC800C690B9 /* SignatureBox */,
+				6CAFFA2522845AC000C690B9 /* SignatureCreator */,
 				6C0AC80922831CA500AF4662 /* Models */,
-				6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController.swift */,
-				6C0AC80C22831CD900AF4662 /* SignatureView.swift */,
-				6CAFFA1B2283462100C690B9 /* CanvasView.swift */,
-				6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */,
 			);
 			path = Signature;
 			sourceTree = "<group>";
@@ -244,6 +250,26 @@
 			path = Label;
 			sourceTree = "<group>";
 		};
+		6CAFFA2522845AC000C690B9 /* SignatureCreator */ = {
+			isa = PBXGroup;
+			children = (
+				6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */,
+				6CAFFA1F228453CF00C690B9 /* EmeraldSignatureView.xib */,
+				6CAFFA1B2283462100C690B9 /* CanvasView.swift */,
+				6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */,
+			);
+			path = SignatureCreator;
+			sourceTree = "<group>";
+		};
+		6CAFFA2622845AC800C690B9 /* SignatureBox */ = {
+			isa = PBXGroup;
+			children = (
+				6C0AC80C22831CD900AF4662 /* SignatureView.swift */,
+				6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */,
+			);
+			path = SignatureBox;
+			sourceTree = "<group>";
+		};
 		9B3BCC402272033400DC5D79 /* EmeraldIOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +279,7 @@
 				9B3BCC732272033400DC5D79 /* Info.plist */,
 				9B3BCC4B2272033400DC5D79 /* Components */,
 				9B3BCC412272033400DC5D79 /* Utils */,
+				6CAFFA2A22845B8E00C690B9 /* Media.xcassets */,
 			);
 			path = EmeraldIOS;
 			sourceTree = "<group>";
@@ -264,6 +291,7 @@
 				9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */,
 				9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */,
 				9B3BCC452272033400DC5D79 /* Extensions+UIStackView.swift */,
+				6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -596,6 +624,7 @@
 			files = (
 				6CAFFA1A22833AAA00C690B9 /* xIcon.png in Resources */,
 				9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */,
+				6CAFFA21228453CF00C690B9 /* EmeraldSignatureView.xib in Resources */,
 				9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */,
 				9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */,
 				9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */,
@@ -603,6 +632,7 @@
 				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
 				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,
 				9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */,
+				6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */,
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				9BF2633F2270E79A004AD6F7 /* dropdownicon.png in Resources */,
 				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
@@ -709,7 +739,7 @@
 				6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */,
 				9B3BCC8E2272033400DC5D79 /* SelectorFormField.swift in Sources */,
 				9B3BCC882272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift in Sources */,
-				6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController.swift in Sources */,
+				6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */,
 				9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */,
 				9B3BCC8B2272033400DC5D79 /* FormField.swift in Sources */,
 				9B3BCC862272033400DC5D79 /* CheckboxFormField.swift in Sources */,
@@ -720,9 +750,11 @@
 				6C807C71227C99B300FC328E /* Theme.swift in Sources */,
 				9B3BCC982272033400DC5D79 /* TextRegexFormFieldError.swift in Sources */,
 				9B3BCC952272033400DC5D79 /* DateFormField.swift in Sources */,
+				6CAFFA22228453CF00C690B9 /* EmeraldSignatureViewController.swift in Sources */,
 				6C807C6D227C8E5000FC328E /* Color.swift in Sources */,
 				9B3BCC9B2272033400DC5D79 /* EmeraldStackView.swift in Sources */,
 				9B3BCC912272033400DC5D79 /* TextSelectionFormField.swift in Sources */,
+				6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */,
 				6C807C78227CCF5700FC328E /* EmeraldLabel.swift in Sources */,
 				6C807C7A227CECDA00FC328E /* EmeraldButtonStyle.swift in Sources */,
 				6C2D3F9C2280C96400FD8ED9 /* EmeraldFormField.swift in Sources */,

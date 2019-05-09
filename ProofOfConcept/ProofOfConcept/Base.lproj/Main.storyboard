@@ -24,6 +24,13 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="778"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aY-nw-PgM">
+                                                <rect key="frame" x="129" y="339" width="136" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="8fD-jX-QUr"/>
+                                                    <constraint firstAttribute="width" constant="50" id="DNU-Pz-tPo"/>
+                                                </constraints>
+                                            </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="EmeraldStackView" customModule="EmeraldIOS">
                                                 <rect key="frame" x="33.5" y="34" width="299" height="647"/>
                                                 <subviews>
@@ -43,7 +50,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-eS-81u" customClass="EmeraldTextField" customModule="EmeraldIOS">
-                                                        <rect key="frame" x="0.0" y="184.5" width="299" height="58"/>
+                                                        <rect key="frame" x="0.0" y="121" width="299" height="58"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="58" id="6rB-o3-mX3"/>
                                                         </constraints>
@@ -64,7 +71,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-jJ-wYo" customClass="EmeraldButton" customModule="EmeraldIOS">
-                                                        <rect key="frame" x="0.0" y="396.5" width="299" height="48"/>
+                                                        <rect key="frame" x="0.0" y="269.5" width="299" height="48"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="LJz-xL-a2b"/>
                                                         </constraints>
@@ -76,9 +83,6 @@
                                                             <action selector="submitFromStory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Chq-sB-AAG"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4aY-nw-PgM">
-                                                        <rect key="frame" x="29.5" y="259" width="240" height="128"/>
-                                                    </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJB-Jb-LCh" customClass="EmeraldButton" customModule="EmeraldIOS">
                                                         <rect key="frame" x="0.0" y="599" width="299" height="48"/>
                                                         <constraints>
@@ -105,6 +109,7 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="H8W-5V-jo4" secondAttribute="bottom" constant="20" id="8XX-Xs-pam"/>
                                             <constraint firstItem="H8W-5V-jo4" firstAttribute="leading" secondItem="mBN-35-axl" secondAttribute="leading" constant="33.5" id="CUK-Yk-23f"/>
+                                            <constraint firstItem="4aY-nw-PgM" firstAttribute="centerX" secondItem="mBN-35-axl" secondAttribute="centerX" id="E3C-yn-20N"/>
                                             <constraint firstItem="H8W-5V-jo4" firstAttribute="top" secondItem="mBN-35-axl" secondAttribute="top" constant="34" id="Kkz-zY-3fV"/>
                                             <constraint firstAttribute="trailing" secondItem="H8W-5V-jo4" secondAttribute="trailing" constant="33.5" id="Xqc-4F-oX4"/>
                                             <constraint firstItem="H8W-5V-jo4" firstAttribute="width" secondItem="mBN-35-axl" secondAttribute="width" multiplier="0.8" id="ZNO-86-9nx"/>
@@ -143,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="136.23188405797103" y="132.58928571428572"/>
         </scene>
     </scenes>
 </document>
