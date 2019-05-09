@@ -27,7 +27,6 @@
 		6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */; };
 		6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2A22845B8E00C690B9 /* Media.xcassets */; };
 		6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */; };
-		6CAFFA30228486BE00C690B9 /* EmeraldSelectorFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2F228486BE00C690B9 /* EmeraldSelectorFieldStyle.swift */; };
 		9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC422272033400DC5D79 /* Constants.swift */; };
 		9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */; };
 		9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */; };
@@ -43,7 +42,7 @@
 		9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5A2272033400DC5D79 /* Selectable.swift */; };
 		9B3BCC8E2272033400DC5D79 /* SelectorFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */; };
 		9B3BCC8F2272033400DC5D79 /* SelectorFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */; };
-		9B3BCC902272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC602272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift */; };
+		9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */; };
 		9B3BCC912272033400DC5D79 /* TextSelectionFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC622272033400DC5D79 /* TextSelectionFormField.swift */; };
 		9B3BCC922272033400DC5D79 /* TextSelectionFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC632272033400DC5D79 /* TextSelectionFormFieldError.swift */; };
 		9B3BCC932272033400DC5D79 /* DateFormFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC652272033400DC5D79 /* DateFormFieldChangeNotifiable.swift */; };
@@ -115,7 +114,6 @@
 		6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIViewController.swift"; sourceTree = "<group>"; };
 		6CAFFA2A22845B8E00C690B9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorField.swift; sourceTree = "<group>"; };
-		6CAFFA2F228486BE00C690B9 /* EmeraldSelectorFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFieldStyle.swift; sourceTree = "<group>"; };
 		7B3FA2C3B3EB6280397581E7 /* Pods-EmeraldIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9B3BCC422272033400DC5D79 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+NSRegularExpression.swift"; sourceTree = "<group>"; };
@@ -132,7 +130,7 @@
 		9B3BCC5A2272033400DC5D79 /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormField.swift; sourceTree = "<group>"; };
 		9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormFieldError.swift; sourceTree = "<group>"; };
-		9B3BCC602272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormFieldChangeNotifiable.swift; sourceTree = "<group>"; };
+		9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFieldChangeNotifiable.swift; sourceTree = "<group>"; };
 		9B3BCC622272033400DC5D79 /* TextSelectionFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormField.swift; sourceTree = "<group>"; };
 		9B3BCC632272033400DC5D79 /* TextSelectionFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormFieldError.swift; sourceTree = "<group>"; };
 		9B3BCC652272033400DC5D79 /* DateFormFieldChangeNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormFieldChangeNotifiable.swift; sourceTree = "<group>"; };
@@ -267,7 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */,
-				6CAFFA2F228486BE00C690B9 /* EmeraldSelectorFieldStyle.swift */,
+				9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */,
 			);
 			path = Selector;
 			sourceTree = "<group>";
@@ -385,7 +383,6 @@
 			children = (
 				9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */,
 				9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */,
-				9B3BCC602272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift */,
 			);
 			path = Selector;
 			sourceTree = "<group>";
@@ -733,7 +730,7 @@
 				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
 				9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */,
 				6C0AC80D22831CD900AF4662 /* SignatureView.swift in Sources */,
-				9B3BCC902272033400DC5D79 /* SelectorFormFieldChangeNotifiable.swift in Sources */,
+				9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */,
 				9B3BCC872272033400DC5D79 /* MultipleSelectionItem.swift in Sources */,
 				9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */,
 				9B3BCC942272033400DC5D79 /* DateFormFieldError.swift in Sources */,
@@ -771,7 +768,6 @@
 				6C807C73227CA31100FC328E /* Font.swift in Sources */,
 				6CAFFA1E2283660E00C690B9 /* SignatureContract.swift in Sources */,
 				9B3BCC9C2272033400DC5D79 /* EmeraldStackViewContract.swift in Sources */,
-				6CAFFA30228486BE00C690B9 /* EmeraldSelectorFieldStyle.swift in Sources */,
 				9B3BCC852272033400DC5D79 /* MultipleSelectionFormField.swift in Sources */,
 				9B3BCC8A2272033400DC5D79 /* FormFieldErrorType.swift in Sources */,
 			);
