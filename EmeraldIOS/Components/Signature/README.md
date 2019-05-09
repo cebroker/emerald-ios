@@ -11,9 +11,6 @@
 # EmeraldSignatureViewController
 This is a component for a full screen signature view controller that can return a UIImage from the signature.
 
-# Example
-<img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/EmeraldSignatureViewController.png" />
-
 ## Usage
 ### Typical use
 
@@ -28,3 +25,5 @@ signatureVC.title = "Navigation title"
 let navigationToBePresented = UINavigationController(rootViewController: signatureVC)
 present(navigationToBePresented, animated: true, completion: nil)
 ```
+# Example
+<img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/EmeraldSignatureViewController.png" width="30%" />
