@@ -14,13 +14,11 @@ open class EmeraldCanvasView: UIView {
     fileprivate var bezierPath = UIBezierPath()
     fileprivate var bezierCounter : Int = 0
     
-    // MARK: - Public Vars
-    
+    open var isSigned: Bool = false
     open var strokeColor = UIColor.black
     open var strokeWidth: CGFloat = 2.0 {
         didSet { bezierPath.lineWidth = strokeWidth }
     }
-    open var isSigned: Bool = false
     
     // MARK: - Initializers
     
@@ -45,11 +43,9 @@ open class EmeraldCanvasView: UIView {
         
     }
     
-    
     // MARK: - Touch Functions
     
     func addLongPressGesture() {
-        //Long press gesture is used to keep clear dots in the canvas
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(_:)))
         longPressGesture.minimumPressDuration = 1.5
         self.addGestureRecognizer(longPressGesture)
@@ -77,7 +73,6 @@ open class EmeraldCanvasView: UIView {
             bezierCounter += 1
             bezierPoints[bezierCounter] = currentPoint
             
-            //Smoothing is done by Bezier Equations where curves are calculated based on four concurrent  points drawn
             if bezierCounter == 4 {
                 bezierPoints[3] = CGPoint(x: (bezierPoints[2].x + bezierPoints[4].x) / 2 , y: (bezierPoints[2].y + bezierPoints[4].y) / 2)
                 bezierPath.move(to: bezierPoints[0])
@@ -103,25 +98,12 @@ open class EmeraldCanvasView: UIView {
     
     //MARK: Utility Methods
     
-    /** Clears the drawn paths in the canvas
-     */
     open func clear() {
         isSigned = false
         bezierPath.removeAllPoints()
         setNeedsDisplay()
     }
     
-    /** scales and repositions the path
-     */
-    open func reposition() {
-        var ratio =  min(self.bounds.width / bezierPath.bounds.width, 1)
-        ratio =  min((self.bounds.height - 64) / bezierPath.bounds.height, ratio)
-        bezierPath.apply(CGAffineTransform(scaleX: ratio, y: ratio))
-        setNeedsDisplay()
-    }
-    
-    /** Returns the drawn path as Image. Adding subview to this view will also get returned in this image.
-     */
     open func getSignatureAsImage() -> UIImage? {
         if isSigned {
             UIGraphicsBeginImageContext(CGSize(width: self.bounds.size.width, height: self.bounds.size.height))
@@ -132,9 +114,6 @@ open class EmeraldCanvasView: UIView {
         }
         return nil
     }
-    
-    /** Returns the rect of signature image drawn in the canvas. This can very very useful in croping out the unwanted empty areas in the signature image returned.
-     */
     
     open func getSignatureBoundsInCanvas() -> CGRect {
         return bezierPath.bounds
