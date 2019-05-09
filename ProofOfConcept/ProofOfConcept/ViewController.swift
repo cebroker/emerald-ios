@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var emeraldLabelByStory: EmeraldLabel!
     @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
+    @IBOutlet weak var buttonForSignature: EmeraldButton!
+    @IBOutlet weak var signatureImageView: UIImageView!
     
     private var organizationName: EmeraldTextFormFieldType?
     
@@ -152,6 +154,13 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func goToSignatureView(_ sender: Any) {
+        let signatureView = EmeraldSignatureViewController()
+        signatureView.delegate = self
+        let navigationView = UINavigationController(rootViewController: signatureView)
+        self.present(navigationView, animated: true, completion: nil)
+    }
+    
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
         formStackView.areFieldsValid()
     }
@@ -175,3 +184,9 @@ class ViewController: UIViewController {
 //        }
 //    }
 //}
+
+extension ViewController: SignatureImageObtenable {
+    func setSignature(with image: UIImage) {
+        signatureImageView.image = image
+    }
+}
