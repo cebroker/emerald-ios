@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     private var address: EmeraldTextFormFieldType?
     //    private var city: TextSelectionFormFieldType?
-    //    private var state: SelectorFormFieldType?
+    private var state: EmeraldSelectorFieldType?
     
     private var zip: EmeraldTextFormFieldType?
     private var contactName: EmeraldTextFormFieldType?
@@ -51,8 +51,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createHideKeyboardGesture()
-//        self.createFields()
-        self.createStoryBoardFields()
+        self.createFields()
+        //        self.createStoryBoardFields()
     }
     
     private func createHideKeyboardGesture() {
@@ -102,12 +102,12 @@ class ViewController: UIViewController {
         //        city = formStackView.createTextSelectionField(placeholder: "City")
         //        city?.set(hint: "Medellín")
         
-        //        state = formStackView.createSelectorFormField(placeholder: "State")
-        //        state?.set(data: [
-        //            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-        //            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
-        //        state?.set(notifiable: self)
-        //        state?.set(hint: "Antioquia")
+        state = formStackView.createEmeraldSelectorFormField(placeholder: "State")
+        state?.set(data: [
+            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+        state?.set(notifiable: self)
+        state?.set(hint: "Antioquia")
         
         //        zip = formStackView.createTextFormField(placeholder: "Zip")
         //        zip?.set(maxLength: 5)

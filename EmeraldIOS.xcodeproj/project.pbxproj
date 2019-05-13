@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */; };
 		6C0AC80D22831CD900AF4662 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80C22831CD900AF4662 /* SignatureView.swift */; };
+		6C2D32802289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D327F2289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift */; };
 		6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */; };
 		6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */; };
 		6C2D3F9C2280C96400FD8ED9 /* EmeraldFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F9B2280C96400FD8ED9 /* EmeraldFormField.swift */; };
@@ -96,6 +97,7 @@
 		5C0FD3F6CB9D3CC5F8B2D470 /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController_old.swift; sourceTree = "<group>"; };
 		6C0AC80C22831CD900AF4662 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
+		6C2D327F2289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFormFieldError.swift; sourceTree = "<group>"; };
 		6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextField.swift; sourceTree = "<group>"; };
 		6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldStyle.swift; sourceTree = "<group>"; };
 		6C2D3F9B2280C96400FD8ED9 /* EmeraldFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldFormField.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */,
 				9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */,
+				6C2D327F2289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift */,
 			);
 			path = Selector;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				9B3BCC8E2272033400DC5D79 /* SelectorFormField.swift in Sources */,
 				9B3BCC882272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift in Sources */,
 				6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */,
+				6C2D32802289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift in Sources */,
 				9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */,
 				9B3BCC8B2272033400DC5D79 /* FormField.swift in Sources */,
 				9B3BCC862272033400DC5D79 /* CheckboxFormField.swift in Sources */,

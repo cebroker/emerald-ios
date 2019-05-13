@@ -289,7 +289,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         return self.text
     }
     
-    private func validateContent() -> ValidationResult {
+    func validateContent() -> ValidationResult {
         guard let text = self.text, !text.isEmpty else {
             return ValidationResult(isValid: false, error: FormFieldError.emptyField)
         }
