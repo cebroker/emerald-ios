@@ -31,11 +31,14 @@ public class EmeraldStackView: UIStackView {
                     return
                 }
                 
-                if !validationResult.isValid,
-                    let error = validationResult.error {
-                    $0?.show(error: error)
-                } else {
-                    $0?.clearError()
+                switch validationResult {
+                    case .success(_):
+                        $0?.clearError()
+                    case .failure(let error):
+                        guard let error = error as? FormFieldErrorType else {
+                            return
+                        }
+                        $0?.show(error: error)
                 }
         }
     }

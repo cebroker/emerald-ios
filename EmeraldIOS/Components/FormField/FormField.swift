@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum FormFieldError: FormFieldErrorType {
+public enum FormFieldError: FormFieldErrorType, Error {
     case emptyField
 }
 

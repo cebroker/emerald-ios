@@ -35,6 +35,13 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
+        prepareForInterfaceBuilder()
+    }
+    
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        applyTheme()
+        self.delegate = self
         self.setupPickerView()
         self.setupToolbar()
         self.addDropdownIcon()
@@ -74,21 +81,29 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         return data.count
     }
     
-    override func validateContent() -> ValidationResult {
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return data[row].getSelectableText()
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.set(selectedRow: data[row])
+    }
+    
+    override func validateContent() -> Result<Bool, Error> {
         guard let text = self.getValue(), !text.isEmpty else {
-            return ValidationResult(isValid: false, error: FormFieldError.emptyField)
+            return .failure(FormFieldError.emptyField)
         }
         
         guard let selectedRow = self.selectedRow, data.contains(where: { $0.getSelectableText() == selectedRow.getSelectableText()
         }) else {
-            return ValidationResult(isValid: false, error: EmeraldSelectorFormFieldError.missingSelectedValue)
+            return .failure(EmeraldSelectorFormFieldError.missingSelectedValue)
         }
         
         guard data.contains(where: { $0.getSelectableText() == self.getValue() }) else {
-            return ValidationResult(isValid: false, error: EmeraldSelectorFormFieldError.uiSelectedValueMismatch)
+            return .failure(EmeraldSelectorFormFieldError.uiSelectedValueMismatch)
         }
         
-        return ValidationResult(isValid: true)
+        return .success(true)
     }
     
     private func setupToolbar() {

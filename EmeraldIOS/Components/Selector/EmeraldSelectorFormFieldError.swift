@@ -6,7 +6,7 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public enum EmeraldSelectorFormFieldError: FormFieldErrorType {
+public enum EmeraldSelectorFormFieldError: FormFieldErrorType, Error {
     case missingSelectedValue
     case uiSelectedValueMismatch
 }
