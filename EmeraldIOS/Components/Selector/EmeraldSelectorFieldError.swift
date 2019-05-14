@@ -1,17 +1,17 @@
 //
-//  EmeraldSelectorFormFieldError.swift
+//  EmeraldSelectorFieldError.swift
 //  EmeraldIOS
 //
 //  Created by Genesis Sanguino on 5/13/19.
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public enum EmeraldSelectorFormFieldError: FormFieldErrorType, Error {
+public enum EmeraldSelectorFieldError: FormFieldErrorType, Error {
     case missingSelectedValue
     case uiSelectedValueMismatch
 }
 
-public extension EmeraldSelectorFormFieldError {
+public extension EmeraldSelectorFieldError {
     var description: String? {
         switch self {
         case .missingSelectedValue:

@@ -33,11 +33,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonForSignature: EmeraldButton!
     @IBOutlet weak var signatureImageView: UIImageView!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
+    @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     
     private var organizationName: EmeraldTextFormFieldType?
     
     private var address: EmeraldTextFormFieldType?
-    //    private var city: TextSelectionFormFieldType?
+    private var city: EmeraldTextDependantField?
     private var state: EmeraldSelectorFieldType?
     
     private var zip: EmeraldTextFormFieldType?
@@ -104,8 +105,9 @@ class ViewController: UIViewController {
         address = formStackView.createEmeraldTextField(placeholder: "Address")
         address?.set(hint: "Calle NN # NN - NN")
         
-        //        city = formStackView.createTextSelectionField(placeholder: "City")
-        //        city?.set(hint: "Medellín")
+        city = formStackView.createEmeraldTextDependantField(placeholder: "City")
+        city?.set(isRequired: true)
+        city?.set(hint: "Medellín")
         
         state = formStackView.createEmeraldSelectorFormField(placeholder: "State")
         state?.set(data: [
@@ -163,7 +165,8 @@ class ViewController: UIViewController {
     private func areFieldsValid() -> Bool {
         let textFieldValidation = emeraldTextByStory.validateAndHandle()
         let selectorValidation = emeraldSelectorByStory.validateAndHandle()
-        return textFieldValidation && selectorValidation
+        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
+        return textFieldValidation && selectorValidation && textDependantValidation
     }
     
     @IBAction func goToSignatureView(_ sender: Any) {
@@ -194,7 +197,13 @@ extension ViewController: SignatureReturnable {
 
 extension ViewController: EmeraldSelectorFieldChangeNotifiable {
     func onSelected(row: Selectable, from selector: EmeraldSelectorField) {
-        guard let stateField = self.state as? EmeraldSelectorField else {
+        //By code
+//        guard let stateField = self.state as? EmeraldSelectorField else {
+//            return
+//        }
+        
+        //By Storyboard
+        guard let stateField = self.emeraldSelectorByStory else {
             return
         }
 
@@ -203,8 +212,8 @@ extension ViewController: EmeraldSelectorFieldChangeNotifiable {
             guard let state = row as? State else {
                 return
             }
-
-            //city?.set(availableOptions: state.cities)
+            emeraldTextDependantFieldByStory.set(availableOptions: state.cities)
+            city?.set(availableOptions: state.cities)
         default:
             break
         }

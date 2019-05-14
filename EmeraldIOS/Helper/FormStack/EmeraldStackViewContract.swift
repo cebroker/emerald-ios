@@ -10,7 +10,7 @@ public protocol EmeraldStackViewConfigurable {
     func createLabel() -> EmeraldLabel?
     func createEmeraldTextField(placeholder: String) -> EmeraldTextField?
 //    func createTextRegexFormField(placeholder: String) -> TextRegexFormField?
-//    func createTextSelectionField(placeholder: String) -> TextSelectionFormField?
+    func createEmeraldTextDependantField(placeholder: String) -> EmeraldTextDependantField?
 //    func createDateFormField(placeholder: String) -> DateFormField?
     func createButton(with title: String) -> EmeraldButton?
     func reloadFields()
