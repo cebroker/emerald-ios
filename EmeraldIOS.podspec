@@ -10,6 +10,6 @@ Pod::Spec.new do |spec|
   spec.platform             = :ios, "11.0"
   spec.source               = { :git => "https://github.com/cebroker/emerald-ios.git", :tag => "#{spec.version}" }
   spec.source_files         = "EmeraldIOS/**/*.{swift}"
-  spec.swift_version        = "4.2"
+  spec.swift_version        = "5.0"
   spec.dependency 'BEMCheckBox'
 end

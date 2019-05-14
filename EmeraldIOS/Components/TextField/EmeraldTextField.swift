@@ -24,7 +24,9 @@ public protocol EmeraldTextFormFieldType {
     func getId() -> String?
     func set(isRequired: Bool)
     func getIsRequired() -> Bool
-    func isValid() -> ValidationResult
+    func isValid() -> Result<Bool, Error>
+    func handleResult(with validationResult: Result<Bool, Error>) -> Bool
+    func validateAndHandle() -> Bool
     func show(error: FormFieldErrorType)
     func clearError()
 }
@@ -265,12 +267,29 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         }
     }
     
-    public func isValid() -> ValidationResult {
+    public func isValid() -> Result<Bool, Error> {
         guard getIsRequired() else {
-            return ValidationResult(isValid: true)
+            return .success(true)
         }
         
         return validateContent()
+    }
+    
+    public func handleResult(with validationResult: Result<Bool, Error>) -> Bool {
+        switch validationResult {
+        case .failure(let error):
+            guard let error = error as? FormFieldErrorType  else {
+                return false
+            }
+            self.show(error: error)
+            return false
+        default:
+            return true
+        }
+    }
+    
+    public func validateAndHandle() -> Bool {
+        return handleResult(with: self.isValid())
     }
     
     public func show(error: FormFieldErrorType) {
@@ -289,12 +308,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         return self.text
     }
     
-    private func validateContent() -> ValidationResult {
+    func validateContent() -> Result<Bool, Error> {
         guard let text = self.text, !text.isEmpty else {
-            return ValidationResult(isValid: false, error: FormFieldError.emptyField)
+            return .failure(FormFieldError.emptyField)
         }
         
-        return ValidationResult(isValid: true)
+        return .success(true)
     }
     
     private func activateField() {

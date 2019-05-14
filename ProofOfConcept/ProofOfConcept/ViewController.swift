@@ -32,12 +32,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
     @IBOutlet weak var buttonForSignature: EmeraldButton!
     @IBOutlet weak var signatureImageView: UIImageView!
+    @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
     
     private var organizationName: EmeraldTextFormFieldType?
     
     private var address: EmeraldTextFormFieldType?
     //    private var city: TextSelectionFormFieldType?
-    //    private var state: SelectorFormFieldType?
+    private var state: EmeraldSelectorFieldType?
     
     private var zip: EmeraldTextFormFieldType?
     private var contactName: EmeraldTextFormFieldType?
@@ -67,6 +68,10 @@ class ViewController: UIViewController {
     
     private func createStoryBoardFields() {
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
+        emeraldSelectorByStory.set(data: [
+            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+        emeraldSelectorByStory.set(notifiable: self)
     }
     
     private func createFields() {
@@ -102,12 +107,13 @@ class ViewController: UIViewController {
         //        city = formStackView.createTextSelectionField(placeholder: "City")
         //        city?.set(hint: "Medellín")
         
-        //        state = formStackView.createSelectorFormField(placeholder: "State")
-        //        state?.set(data: [
-        //            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-        //            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
-        //        state?.set(notifiable: self)
-        //        state?.set(hint: "Antioquia")
+        state = formStackView.createEmeraldSelectorFormField(placeholder: "State")
+        state?.set(data: [
+            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+        state?.set(notifiable: self)
+        state?.set(hint: "Antioquia")
+        state?.set(isRequired: true)
         
         //        zip = formStackView.createTextFormField(placeholder: "Zip")
         //        zip?.set(maxLength: 5)
@@ -147,11 +153,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func submitFromStory(_ sender: Any) {
-        let validationResult = emeraldTextByStory.isValid()
-        if !validationResult.isValid,
-            let error = validationResult.error {
-            emeraldTextByStory.show(error: error)
+        if areFieldsValid() {
+            // all good
         }
+        
+        // show alert or something
+    }
+    
+    private func areFieldsValid() -> Bool {
+        let textFieldValidation = emeraldTextByStory.validateAndHandle()
+        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
+        return textFieldValidation && selectorValidation
     }
     
     @IBAction func goToSignatureView(_ sender: Any) {
@@ -180,21 +192,21 @@ extension ViewController: SignatureReturnable {
     }
 }
 
-//extension ViewController: SelectorFormFieldChangeNotifiable {
-//    func onSelected(row: Selectable, from selector: SelectorFormField) {
-//        guard let stateField = self.state as? SelectorFormField else {
-//            return
-//        }
-//
-//        switch selector {
-//        case stateField:
-//            guard let state = row as? State else {
-//                return
-//            }
-//
-//            city?.set(availableOptions: state.cities)
-//        default:
-//            break
-//        }
-//    }
-//}
+extension ViewController: EmeraldSelectorFieldChangeNotifiable {
+    func onSelected(row: Selectable, from selector: EmeraldSelectorField) {
+        guard let stateField = self.state as? EmeraldSelectorField else {
+            return
+        }
+
+        switch selector {
+        case stateField:
+            guard let state = row as? State else {
+                return
+            }
+
+            //city?.set(availableOptions: state.cities)
+        default:
+            break
+        }
+    }
+}
