@@ -10,6 +10,7 @@
 		6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */; };
 		6C0AC80D22831CD900AF4662 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80C22831CD900AF4662 /* SignatureView.swift */; };
 		6C2D32802289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D327F2289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift */; };
+		6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D3288228AF220009D4B0F /* arrow_down_icon.png */; };
 		6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */; };
 		6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */; };
 		6C2D3F9C2280C96400FD8ED9 /* EmeraldFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F9B2280C96400FD8ED9 /* EmeraldFormField.swift */; };
@@ -41,8 +42,6 @@
 		9B3BCC8A2272033400DC5D79 /* FormFieldErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC582272033400DC5D79 /* FormFieldErrorType.swift */; };
 		9B3BCC8B2272033400DC5D79 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC592272033400DC5D79 /* FormField.swift */; };
 		9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5A2272033400DC5D79 /* Selectable.swift */; };
-		9B3BCC8E2272033400DC5D79 /* SelectorFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */; };
-		9B3BCC8F2272033400DC5D79 /* SelectorFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */; };
 		9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */; };
 		9B3BCC912272033400DC5D79 /* TextSelectionFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC622272033400DC5D79 /* TextSelectionFormField.swift */; };
 		9B3BCC922272033400DC5D79 /* TextSelectionFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC632272033400DC5D79 /* TextSelectionFormFieldError.swift */; };
@@ -76,7 +75,6 @@
 		9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */; };
 		9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */; };
 		9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */; };
-		9BF2633F2270E79A004AD6F7 /* dropdownicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2633E2270E799004AD6F7 /* dropdownicon.png */; };
 		A3AA1CA819746A45C03E0B9E /* Pods_EmeraldIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA5F26E9E2E091AC1EC1ED /* Pods_EmeraldIOSTests.framework */; };
 		BE8EA3A5049F378B1518D032 /* Pods_EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356885229B6EC75600C29D5F /* Pods_EmeraldIOS.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +96,7 @@
 		6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController_old.swift; sourceTree = "<group>"; };
 		6C0AC80C22831CD900AF4662 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		6C2D327F2289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFormFieldError.swift; sourceTree = "<group>"; };
+		6C2D3288228AF220009D4B0F /* arrow_down_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down_icon.png; sourceTree = "<group>"; };
 		6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextField.swift; sourceTree = "<group>"; };
 		6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldStyle.swift; sourceTree = "<group>"; };
 		6C2D3F9B2280C96400FD8ED9 /* EmeraldFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldFormField.swift; sourceTree = "<group>"; };
@@ -130,8 +129,6 @@
 		9B3BCC582272033400DC5D79 /* FormFieldErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFieldErrorType.swift; sourceTree = "<group>"; };
 		9B3BCC592272033400DC5D79 /* FormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		9B3BCC5A2272033400DC5D79 /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
-		9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormField.swift; sourceTree = "<group>"; };
-		9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormFieldError.swift; sourceTree = "<group>"; };
 		9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFieldChangeNotifiable.swift; sourceTree = "<group>"; };
 		9B3BCC622272033400DC5D79 /* TextSelectionFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormField.swift; sourceTree = "<group>"; };
 		9B3BCC632272033400DC5D79 /* TextSelectionFormFieldError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormFieldError.swift; sourceTree = "<group>"; };
@@ -169,7 +166,6 @@
 		9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		9BF2633E2270E799004AD6F7 /* dropdownicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownicon.png; sourceTree = "<group>"; };
 		A2EA5F26E9E2E091AC1EC1ED /* Pods_EmeraldIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3253E19369EC7BE0466C590 /* Pods-EmeraldIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,21 +369,11 @@
 		9B3BCC5B2272033400DC5D79 /* Text */ = {
 			isa = PBXGroup;
 			children = (
-				9B3BCC5D2272033400DC5D79 /* Selector */,
 				9B3BCC612272033400DC5D79 /* TextSelection */,
 				9B3BCC642272033400DC5D79 /* Date */,
 				9B3BCC692272033400DC5D79 /* Regex */,
 			);
 			path = Text;
-			sourceTree = "<group>";
-		};
-		9B3BCC5D2272033400DC5D79 /* Selector */ = {
-			isa = PBXGroup;
-			children = (
-				9B3BCC5E2272033400DC5D79 /* SelectorFormField.swift */,
-				9B3BCC5F2272033400DC5D79 /* SelectorFormFieldError.swift */,
-			);
-			path = Selector;
 			sourceTree = "<group>";
 		};
 		9B3BCC612272033400DC5D79 /* TextSelection */ = {
@@ -504,7 +490,7 @@
 		9BF2633D2270E745004AD6F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				9BF2633E2270E799004AD6F7 /* dropdownicon.png */,
+				6C2D3288228AF220009D4B0F /* arrow_down_icon.png */,
 				6CAFFA1922833AA900C690B9 /* xIcon.png */,
 			);
 			path = Images;
@@ -635,9 +621,9 @@
 				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
 				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,
 				9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */,
+				6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */,
 				6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */,
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
-				9BF2633F2270E79A004AD6F7 /* dropdownicon.png in Resources */,
 				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
 				9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */,
 			);
@@ -741,7 +727,6 @@
 				9B3BCC922272033400DC5D79 /* TextSelectionFormFieldError.swift in Sources */,
 				6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */,
 				6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */,
-				9B3BCC8E2272033400DC5D79 /* SelectorFormField.swift in Sources */,
 				9B3BCC882272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift in Sources */,
 				6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */,
 				6C2D32802289D99B009D4B0F /* EmeraldSelectorFormFieldError.swift in Sources */,
@@ -763,7 +748,6 @@
 				6C807C78227CCF5700FC328E /* EmeraldLabel.swift in Sources */,
 				6C807C7A227CECDA00FC328E /* EmeraldButtonStyle.swift in Sources */,
 				6C2D3F9C2280C96400FD8ED9 /* EmeraldFormField.swift in Sources */,
-				9B3BCC8F2272033400DC5D79 /* SelectorFormFieldError.swift in Sources */,
 				6CAFFA1C2283462100C690B9 /* CanvasView.swift in Sources */,
 				9B3BCC932272033400DC5D79 /* DateFormFieldChangeNotifiable.swift in Sources */,
 				9B3BCC962272033400DC5D79 /* TextFormatter.swift in Sources */,

@@ -19,7 +19,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     
     private struct InnerConstants {
         static let numberOfComponents = 1
-        static let dropdownIconName = #imageLiteral(resourceName: "dropdownicon")
+        static let dropdownIconName = "arrow_down_icon.png"
     }
     
     private weak var notifiable: EmeraldSelectorFieldChangeNotifiable?
@@ -119,14 +119,16 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     }
     
     private func addDropdownIcon() {
-        self.dropdownIcon = InnerConstants.dropdownIconName
+        self.dropdownIcon = UIImage(named: InnerConstants.dropdownIconName,
+                                    in: Bundle(for: ClassBundle.self),
+                                    compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         
         guard let image = self.dropdownIcon else {
             return
         }
         
         let imageView = UIImageView(image: image)
-        
+        imageView.tintColor = EmeraldTheme.primaryColor
         self.addSubview(imageView)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -135,17 +137,17 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
             .rightAnchor
             .constraint(
                 equalTo: self.rightAnchor,
-                constant: -24)
+                constant: -10)
             .isActive = true
         
         imageView
             .heightAnchor
-            .constraint(equalToConstant: 12)
+            .constraint(equalToConstant: 30)
             .isActive = true
         
         imageView
             .widthAnchor
-            .constraint(equalToConstant: 20)
+            .constraint(equalToConstant: 34)
             .isActive = true
         
         imageView
