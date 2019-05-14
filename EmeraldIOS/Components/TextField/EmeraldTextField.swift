@@ -284,6 +284,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
             self.show(error: error)
             return false
         default:
+            self.clearError()
             return true
         }
     }

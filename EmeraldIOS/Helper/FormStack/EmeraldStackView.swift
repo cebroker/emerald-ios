@@ -64,11 +64,11 @@ extension EmeraldStackView: EmeraldStackViewConfigurable {
         return field
     }
 
-//    public func createTextSelectionField(placeholder: String) -> TextSelectionFormField? {
-//        let field = TextSelectionFormField()
-//        defaultSetup(textFormField: field, with: placeholder)
-//        return field
-//    }
+    public func createEmeraldTextDependantField(placeholder: String) -> EmeraldTextDependantField? {
+        let field = EmeraldTextDependantField()
+        defaultSetup(textFormField: field, with: placeholder)
+        return field
+    }
 //
 //    public func createTextRegexFormField(placeholder: String) -> TextRegexFormField? {
 //        let field = TextRegexFormField()

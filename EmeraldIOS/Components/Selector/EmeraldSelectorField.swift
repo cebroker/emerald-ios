@@ -96,11 +96,11 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         
         guard let selectedRow = self.selectedRow, data.contains(where: { $0.getSelectableText() == selectedRow.getSelectableText()
         }) else {
-            return .failure(EmeraldSelectorFormFieldError.missingSelectedValue)
+            return .failure(EmeraldSelectorFieldError.missingSelectedValue)
         }
         
         guard data.contains(where: { $0.getSelectableText() == self.getValue() }) else {
-            return .failure(EmeraldSelectorFormFieldError.uiSelectedValueMismatch)
+            return .failure(EmeraldSelectorFieldError.uiSelectedValueMismatch)
         }
         
         return .success(true)
