@@ -19,6 +19,7 @@ public protocol EmeraldDateFieldType: EmeraldTextFieldType {
     func forbidDatesLaterThanToday()
     func allowDatesLaterThanToday()
     func set(dateFormat: String)
+    func getDate(from string: String) -> Date?
 }
 
 public protocol EmeraldDateFieldTestableType {
@@ -36,11 +37,16 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     private weak var notifiable: EmeraldDateFieldChangeNotifiable?
     private lazy var pickerView: UIDatePicker = UIDatePicker()
     private lazy var toolbar: UIToolbar = UIToolbar()
+    private lazy var editFromPicker = false
+    
+    struct InnerConstants {
+        static let calendarIcon = "calendar_icon"
+    }
     
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         self.configureDateField()
-        self.setupPickerView()
+        self.addCalendarIcon()
         self.setupToolbar()
         self.setupDefaultDateFormat()
     }
@@ -117,8 +123,12 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     }
     
     override func validateContent() -> Result<Bool, Error> {
-        guard let text = self.getValue(), !text.isEmpty, let date = self.selectedDate else {
+        guard let text = self.getValue(), !text.isEmpty else {
             return .failure(FormFieldError.emptyField)
+        }
+        
+        guard let date = self.selectedDate else {
+            return .failure(EmeraldDateFieldError.invalidDateFormat)
         }
         
         if let minimumDate = pickerView.minimumDate {
@@ -131,6 +141,10 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
             guard date <= maximumDate else {
                 return .failure(EmeraldDateFieldError.greaterThanMaximumDate)
             }
+        }
+        
+        guard let _ = getDate(from: text) else {
+            return .failure(EmeraldDateFieldError.invalidDateFormat)
         }
         
         return .success(true)
@@ -153,12 +167,56 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.set(format: .date)
     }
     
-    private func setupPickerView() {
+    private func addCalendarIcon() {
+        let calendarIcon = UIImage(named: InnerConstants.calendarIcon,
+                                   in: Bundle(for: ClassBundle.self),
+                                   compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        guard let image = calendarIcon else {
+            return
+        }
+        
+        let button = UIButton()
+        button.imageEdgeInsets = UIEdgeInsets(top: 0,
+                                              left: -18,
+                                              bottom: 0,
+                                              right: 17)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(image, for: .normal)
+        button.imageView?.tintColor = EmeraldTheme.primaryColor
+        button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
+        self.rightView = button
+        self.rightViewMode = .always
+        button.isUserInteractionEnabled = true
+        button.becomeFirstResponder()
+        
+        guard let rightView = rightView else {
+            return
+        }
+        
+        button
+            .heightAnchor
+            .constraint(equalToConstant: 20)
+            .isActive = true
+        
+        button
+            .widthAnchor
+            .constraint(equalToConstant: 20)
+            .isActive = true
+        
+        button
+            .centerYAnchor
+            .constraint(equalTo: rightView.centerYAnchor)
+            .isActive = true
+    }
+
+    @objc private func openDatePicker() {
+        UIView.animate(withDuration: 0) {
+            self.endEditing(true)
+        }
         self.pickerView.datePickerMode = .date
-        
         pickerView.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
-        
-        //self.inputView = pickerView
+        self.inputView = pickerView
+        self.becomeFirstResponder()
     }
     
     @objc private func datePickerValueChanged() {
@@ -166,13 +224,45 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     }
     
     @objc private func onDoneButtonPressed() {
-        self.set(selectedDate: pickerView.date)
+        self.endEditing(true)
+    }
+    
+    private func validateDateField() {
+        if let validatedText = self.text,
+            validatedText.isEmpty {
+            self.set(selectedDate: pickerView.date)
+        } else if let validatedText = self.text,
+            let dateValue = getDate(from: validatedText) {
+            self.set(selectedDate: dateValue)
+        }
         
         self.resignFirstResponder()
         toolbar.removeFromSuperview()
         pickerView.removeFromSuperview()
-        
         notifiable?.onDoneButtonPressed(from: self)
+    }
+    
+    public override func textFieldDidEndEditing(_ textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
+        if let validatedText = self.text,
+            validatedText.isEmpty && editFromPicker {
+            self.editFromPicker = false
+            self.set(selectedDate: pickerView.date)
+        } else if let validatedText = self.text,
+            let dateValue = getDate(from: validatedText) {
+            self.set(selectedDate: dateValue)
+        }
+        self.inputView = nil
+        self.resignFirstResponder()
+        pickerView.removeFromSuperview()
+        notifiable?.onDoneButtonPressed(from: self)
+    }
+    
+    public func getDate(from string: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.DateFormat.defaultFormat
+        dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
+        return dateFormatter.date(from: string)
     }
     
     private func setupDefaultDateFormat() {

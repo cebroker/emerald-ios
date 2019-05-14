@@ -12,9 +12,3 @@ public protocol EmeraldDateFieldChangeNotifiable: class {
                     from datePicker: EmeraldDateField)
     func onDoneButtonPressed(from datePicker: EmeraldDateField)
 }
-
-public extension EmeraldDateFieldChangeNotifiable {
-    func onDoneButtonPressed(from datePicker: EmeraldDateField) {
-        // Method intentionally left in blank
-    }
-}

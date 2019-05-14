@@ -16,6 +16,7 @@
 		6C2D3291228B0BDA009D4B0F /* EmeraldDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3290228B0BDA009D4B0F /* EmeraldDateField.swift */; };
 		6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3292228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift */; };
 		6C2D3295228B0BFE009D4B0F /* EmeraldDateFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3294228B0BFE009D4B0F /* EmeraldDateFieldError.swift */; };
+		6C2D3297228B5FC8009D4B0F /* calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D3296228B5FC8009D4B0F /* calendar_icon.png */; };
 		6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */; };
 		6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */; };
 		6C2D3F9C2280C96400FD8ED9 /* EmeraldFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F9B2280C96400FD8ED9 /* EmeraldFormField.swift */; };
@@ -102,6 +103,7 @@
 		6C2D3290228B0BDA009D4B0F /* EmeraldDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateField.swift; sourceTree = "<group>"; };
 		6C2D3292228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateFieldChangeNotifiable.swift; sourceTree = "<group>"; };
 		6C2D3294228B0BFE009D4B0F /* EmeraldDateFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateFieldError.swift; sourceTree = "<group>"; };
+		6C2D3296228B5FC8009D4B0F /* calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_icon.png; sourceTree = "<group>"; };
 		6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextField.swift; sourceTree = "<group>"; };
 		6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldStyle.swift; sourceTree = "<group>"; };
 		6C2D3F9B2280C96400FD8ED9 /* EmeraldFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldFormField.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 		9BF2633D2270E745004AD6F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6C2D3296228B5FC8009D4B0F /* calendar_icon.png */,
 				6C2D3288228AF220009D4B0F /* arrow_down_icon.png */,
 				6CAFFA1922833AA900C690B9 /* xIcon.png */,
 			);
@@ -617,6 +620,7 @@
 				9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */,
 				9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */,
 				9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */,
+				6C2D3297228B5FC8009D4B0F /* calendar_icon.png in Resources */,
 				9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */,
 				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
 				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,

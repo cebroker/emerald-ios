@@ -9,6 +9,7 @@
 enum EmeraldDateFieldError: FormFieldErrorType, Error {
     case lowerThanMinimumDate
     case greaterThanMaximumDate
+    case invalidDateFormat
 }
 
 extension EmeraldDateFieldError {
@@ -18,6 +19,8 @@ extension EmeraldDateFieldError {
             return "Picked date is lower than minimum."
         case .greaterThanMaximumDate:
             return "Picked date is greater than maximum."
+        case .invalidDateFormat:
+            return "Invalid date format"
         }
     }
 }
