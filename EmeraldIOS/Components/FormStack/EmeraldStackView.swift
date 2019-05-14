@@ -24,8 +24,8 @@ public class EmeraldStackView: UIStackView {
     
     public func areFieldsValid() {
         fields
-            .filter { $0 is EmeraldTextFormFieldType }
-            .map { $0 as? EmeraldTextFormFieldType }
+            .filter { $0 is EmeraldTextFieldType }
+            .map { $0 as? EmeraldTextFieldType }
             .forEach {
                 guard let validationResult = $0?.isValid() else {
                     return

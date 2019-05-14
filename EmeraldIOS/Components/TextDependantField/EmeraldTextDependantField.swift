@@ -6,7 +6,7 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public protocol EmeraldTextDependantFieldType: EmeraldTextFormFieldType {
+public protocol EmeraldTextDependantFieldType: EmeraldTextFieldType {
     func set(availableOptions: [String])
     func getAvailableOptions() -> [String]
 }

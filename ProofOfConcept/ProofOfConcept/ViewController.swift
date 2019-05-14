@@ -34,18 +34,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var signatureImageView: UIImageView!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
+    @IBOutlet weak var emeraldDateFieldByStory: EmeraldTextDependantField!
     
-    private var organizationName: EmeraldTextFormFieldType?
+    private var organizationName: EmeraldTextFieldType?
     
-    private var address: EmeraldTextFormFieldType?
+    private var address: EmeraldTextFieldType?
     private var city: EmeraldTextDependantField?
     private var state: EmeraldSelectorFieldType?
     
-    private var zip: EmeraldTextFormFieldType?
-    private var contactName: EmeraldTextFormFieldType?
-    private var membershipDuesAmount: EmeraldTextFormFieldType?
+    private var zip: EmeraldTextFieldType?
+    private var contactName: EmeraldTextFieldType?
+    private var membershipDuesAmount: EmeraldTextFieldType?
     //    private var dueDateForDues: DateFormField?
-    private var amountPaid: EmeraldTextFormFieldType?
+    private var amountPaid: EmeraldTextFieldType?
     //    private var paymentDate: DateFormField?
     
     private var formButton: EmeraldButton?
@@ -166,7 +167,8 @@ class ViewController: UIViewController {
         let textFieldValidation = emeraldTextByStory.validateAndHandle()
         let selectorValidation = emeraldSelectorByStory.validateAndHandle()
         let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
-        return textFieldValidation && selectorValidation && textDependantValidation
+        let dateValidation = emeraldDateFieldByStory.validateAndHandle()
+        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation
     }
     
     @IBAction func goToSignatureView(_ sender: Any) {

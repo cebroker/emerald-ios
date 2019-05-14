@@ -13,6 +13,7 @@ public enum TextFormat: Int {
     case currency
     case phone
     case number
+    case date
 }
 
 public enum TextFormatterError: Error {
@@ -35,6 +36,8 @@ public extension TextFormatter {
             return formatCurrency(resource: resource)
         case .phone:
             return formatResource(phoneNumber: resource)
+        case .date:
+            return formatDate(with: resource)
         default:
             return resource
         }
@@ -68,6 +71,38 @@ public extension TextFormatter {
             }
             return result + String(individualNumber)
         }
+    }
+    
+    private func formatDate(with resource: String) -> String {
+        let numbersOnly = getNumbersOnlyForDateFormat(with: resource)
+        
+        return numbersOnly.reduce(Constants.Values.empty) { (result, individualNumber) in
+            if result.count == Constants.TextFormating.dateFirstSeparatorIndex || result.count == Constants.TextFormating.dateSecondSeparatorIndex {
+                return result + Constants.Values.slash + String(individualNumber)
+            }
+            return result + String(individualNumber)
+        }
+    }
+    
+    private func getNumbersOnlyForDateFormat(with resource: String) -> String {
+        var numbersOnly = resource.components(separatedBy: Constants.Values.slash).joined()
+        let numbersOnlyAsInt = Int(numbersOnly) ?? Constants.Values.zero
+        
+        if numbersOnly.count == Constants.TextFormating.dateFirstValidatorIndex && numbersOnlyAsInt > Constants.TextFormating.maxMonthValue  {
+            numbersOnly = String(Constants.TextFormating.maxMonthValue)
+        }
+        
+        if numbersOnly.count == Constants.TextFormating.dateSecondValidatorIndex  {
+            var dateFormated = DateComponents()
+            dateFormated.month = Int(numbersOnly.prefix(2))
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateFormated) ?? Date()
+            let range = calendar.range(of: .day, in: .month, for: date)
+            let numDaysInMonth = range?.count ?? Constants.Values.zero
+            numbersOnly = numbersOnly.prefix(2) + String(numDaysInMonth)
+        }
+        
+        return numbersOnly
     }
 
     private func removeCurrencyFormat(from resource: String) -> String {

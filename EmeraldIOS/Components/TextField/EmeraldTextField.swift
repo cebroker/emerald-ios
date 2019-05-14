@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol EmeraldTextFormFieldType {
+public protocol EmeraldTextFieldType {
     func set(placeholder: String?)
     func getPlaceholder() -> String?
     func set(hint: String?)
@@ -32,7 +32,7 @@ public protocol EmeraldTextFormFieldType {
 }
 
 @IBDesignable
-public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormatter, UITextFieldDelegate {
+public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter, UITextFieldDelegate {
     
     @IBInspectable var id: String?
     @IBInspectable var isRequired: Bool = false
@@ -80,6 +80,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
         static var frameOriginFieldOff = CGPoint(x: 10, y: FontSize.body.cgFontSize * 1.3)
         static let frameOriginFieldOn = CGPoint(x: 10, y: 10)
         static let maximumDoubleLength = 10
+        static let maximumDateLength = 10
         static let initialDownConstant: CGFloat = 0
         static let yUpConstant: CGFloat = -15
         static let leadingUpConstant: CGFloat = -31
@@ -245,6 +246,9 @@ public class EmeraldTextField: UITextField, EmeraldTextFormFieldType, TextFormat
             self.set(maxLength: InnerConstants.maximumDoubleLength)
             self.set(inputType: .decimalPad)
         case .number:
+            self.set(inputType: .numberPad)
+        case .date:
+            self.set(maxLength: InnerConstants.maximumDateLength)
             self.set(inputType: .numberPad)
         default:
             self.set(inputType: .asciiCapable)
