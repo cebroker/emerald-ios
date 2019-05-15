@@ -120,6 +120,7 @@ struct Constants {
         static let dot: Character = "."
         static let space = " "
         static let zero = 0
+        static let one: CGFloat = 1
     }
 
     struct Design {

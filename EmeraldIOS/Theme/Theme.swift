@@ -36,6 +36,9 @@ public class EmeraldTheme {
     public static let linkColor = blueColor
     public static let primaryButtonColor = blueColor
     public static let primaryButtonHighlightedColor = #colorLiteral(red: 0.137254902, green: 0.5215686275, blue: 0.9137254902, alpha: 1)
+    public static let successButtonHighlightedColor = successColor.withAlphaComponent(0.15)
+    public static let warningButtonHighlightedColor = warningColor.withAlphaComponent(0.15)
+    public static let errorButtonHighlightedColor = errorColor.withAlphaComponent(0.15)
     public static let secondaryButtonColor = whiteColor
     public static let placeholderColor = UIColor.lightGray
     public static let borderColor = #colorLiteral(red: 0.9019607843, green: 0.9098039216, blue: 0.9254901961, alpha: 1)

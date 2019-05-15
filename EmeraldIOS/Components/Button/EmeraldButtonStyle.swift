@@ -11,6 +11,9 @@ import UIKit
 public enum EmeraldButtonStyle: String, Inspectable {
     
     case primary
+    case primarySuccess
+    case primaryWarning
+    case primaryError
     case primarySmall
     case primaryLarge
     case secondary
@@ -24,6 +27,12 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.primaryButtonColor
         case .secondary, .secondarySmall, .secondaryLarge:
             return EmeraldTheme.secondaryButtonColor
+        case .primarySuccess:
+            return EmeraldTheme.successColor
+        case .primaryWarning:
+            return EmeraldTheme.warningColor
+        case .primaryError:
+            return EmeraldTheme.errorColor
         default:
             return nil
         }
@@ -31,7 +40,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     
     var titleColor: UIColor? {
         switch self {
-        case .primary, .primarySmall, .primaryLarge:
+        case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
             return EmeraldTheme.whiteColor
         case .secondary, .secondarySmall, .secondaryLarge:
             return EmeraldTheme.primaryColor
@@ -44,6 +53,12 @@ public enum EmeraldButtonStyle: String, Inspectable {
         switch self {
         case .primary, .primarySmall, .primaryLarge:
             return EmeraldTheme.primaryButtonHighlightedColor
+        case .primarySuccess:
+            return EmeraldTheme.successButtonHighlightedColor
+        case .primaryWarning:
+            return EmeraldTheme.warningButtonHighlightedColor
+        case .primaryError:
+            return EmeraldTheme.errorButtonHighlightedColor
         default:
             return backgroundColor
         }
@@ -51,7 +66,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     
     var highlightedTitleColor: UIColor? {
         switch self {
-        case .primary, .primarySmall, .primaryLarge:
+        case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
             return titleColor
         default:
             return nil

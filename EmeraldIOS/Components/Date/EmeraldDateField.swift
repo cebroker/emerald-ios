@@ -258,6 +258,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     }
     
     @objc private func openDatePicker() {
+        self.textFieldDidEndEditing(self)
         self.textFieldDidBeginEditing(self)
         let datePicker = EmeraldDatePickerAlert()
         

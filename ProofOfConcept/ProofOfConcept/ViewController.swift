@@ -176,10 +176,7 @@ class ViewController: UIViewController {
     
     @IBAction func goToSignatureView(_ sender: Any) {
         let signatureVC = EmeraldSignatureViewController(signatureDelegate: self)
-        signatureVC.subtitleText = "I agree to the terms and conditions"
-        signatureVC.title = "Sign up here :v"
-        let navigationToBePresented = UINavigationController(rootViewController: signatureVC)
-        present(navigationToBePresented, animated: true, completion: nil)
+        present(signatureVC, animated: true, completion: nil)
     }
     
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {

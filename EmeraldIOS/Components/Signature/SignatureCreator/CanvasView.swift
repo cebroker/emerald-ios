@@ -21,7 +21,6 @@ open class EmeraldCanvasView: UIView {
     }
     
     // MARK: - Initializers
-    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clear
@@ -44,7 +43,6 @@ open class EmeraldCanvasView: UIView {
     }
     
     // MARK: - Touch Functions
-    
     func addLongPressGesture() {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(_:)))
         longPressGesture.minimumPressDuration = 1.5
