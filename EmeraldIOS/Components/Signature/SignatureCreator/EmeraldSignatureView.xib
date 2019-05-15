@@ -73,7 +73,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="165" height="58"/>
                             <state key="normal" title="Clear signature"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="none"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="plain"/>
                             </userDefinedRuntimeAttributes>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RN-VR-Fl7" customClass="EmeraldButton" customModule="EmeraldIOS" customModuleProvider="target">

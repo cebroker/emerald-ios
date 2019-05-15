@@ -83,7 +83,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         static let maximumDateLength = 10
         static let initialDownConstant: CGFloat = 0
         static let yUpConstant: CGFloat = -15
-        static let leadingUpConstant: CGFloat = -31
+        static let leadingUpConstant: CGFloat = -33
         static let bounds: CGFloat = 10
         struct Padding {
             static let left: CGFloat = 10
@@ -397,8 +397,14 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
                             scaleX: reducerScale,
                             y: reducerScale)
                     self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOn
+                    
+                    self.placeholderYAnchorConstraint.isActive = false
                     self.placeholderYAnchorConstraint.constant = InnerConstants.yUpConstant
+                    self.placeholderYAnchorConstraint.isActive = true
+                    
+                    self.placeholderLeadingConstraint.isActive = false
                     self.placeholderLeadingConstraint.constant = InnerConstants.leadingUpConstant
+                    self.placeholderLeadingConstraint.isActive = true
                     
             },
                 completion: { _ in
@@ -415,11 +421,18 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
                 delay: InnerConstants.delay,
                 options: [],
                 animations: {
+                    
                     self.placeholderLabel.transform =
                         CGAffineTransform.identity
                     self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+                    
+                    self.placeholderYAnchorConstraint.isActive = false
                     self.placeholderYAnchorConstraint.constant = 0
+                    self.placeholderYAnchorConstraint.isActive = true
+                    
+                    self.placeholderLeadingConstraint.isActive = false
                     self.placeholderLeadingConstraint.constant = InnerConstants.Padding.left
+                    self.placeholderLeadingConstraint.isActive = true
             },
                 completion: { _ in })
         }
