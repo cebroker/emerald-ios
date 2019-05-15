@@ -20,19 +20,32 @@ Emerald UI for iOS Apps
 
 ### Components documentation
 <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Theme">Theme palettes & typography</a></li>
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Theme">Theme palettes & typography</a></li>
  </ul>
 <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/Button">Buttons</a></li>
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/Button">Buttons</a></li>
   </ul>
  <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/Label">Label</a></li>
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/Label">Label</a></li>
   </ul>
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/TextField">TextField</a></li>
   </ul>
   <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="https://github.com/cebroker/emerald-ios/tree/develop/EmeraldIOS/Components/Signature">Signature</a></li>
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/Signature">Signature</a></li>
+  </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/Date">Date</a></li>
+  </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/Date/DatePickerAlert">DatePickerAlert</a></li>
+  </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/Selector">Selector</a></li>
+  </ul>
+  </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextDependantField">TextDependantField</a></li>
   </ul>
 
 ### CocoaPods
