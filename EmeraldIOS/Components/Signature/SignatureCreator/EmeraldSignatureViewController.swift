@@ -18,6 +18,7 @@ open class EmeraldSignatureViewController: UIViewController {
             ])
     }
     
+    @IBOutlet private weak var signatureIcon: UIImageView!
     @IBOutlet private weak var doneButton: EmeraldButton!
     @IBOutlet private weak var clearButton: EmeraldButton!
     @IBOutlet private weak var closeButton: UIButton!
@@ -51,6 +52,8 @@ open class EmeraldSignatureViewController: UIViewController {
     
     // MARK: - Setup methods
     private func setupView() {
+        signatureIcon.image = #imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate)
+        signatureIcon.tintColor = EmeraldTheme.grayColor
         closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .normal)
         closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .highlighted)
         closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .selected)
@@ -67,12 +70,37 @@ open class EmeraldSignatureViewController: UIViewController {
         doneButton.addTarget(self, action: #selector(onTouchDoneButton), for: .touchUpInside)
     }
     
+    private func showAlertConfirmation() {
+        let alert = UIAlertController(title: nil,
+                                      message: "Are you sure you want to cancel?",
+                                      preferredStyle: .alert)
+        
+        
+        
+        let okAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { _ -> Void in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "No", style: .cancel) { _ -> Void in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
     // MARK: - Button Actions
     @objc func onTouchCloseButton() {
-        signatureDelegate?.emeraldSignature?(
-            self,
-            didCancel: InnerConstants.didCancelError)
-        dismiss(animated: true, completion: nil)
+        if let _ = signatureView.getSignatureAsImage() {
+            showAlertConfirmation()
+        } else {
+            signatureDelegate?.emeraldSignature?(
+                self,
+                didCancel: InnerConstants.didCancelError)
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     @objc func onTouchDoneButton() {

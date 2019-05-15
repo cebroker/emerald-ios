@@ -58,7 +58,6 @@ open class EmeraldCanvasView: UIView {
     }
     
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if let currentPoint = touchPoint(touches) {
             isSigned = true
             bezierPoints[0] = currentPoint

@@ -9,7 +9,7 @@
 import UIKit
 
 public enum EmeraldButtonStyle: String, Inspectable {
-    
+    case none
     case primary
     case primarySuccess
     case primaryWarning
@@ -33,6 +33,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.warningColor
         case .primaryError:
             return EmeraldTheme.errorColor
+        case .none:
+            return EmeraldTheme.whiteColor
         default:
             return nil
         }
@@ -46,6 +48,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.primaryColor
         case .link:
             return EmeraldTheme.linkColor
+        case .none:
+            return EmeraldTheme.darkTextColor
         }
     }
     
@@ -68,6 +72,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
         switch self {
         case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
             return titleColor
+        case .none:
+            return EmeraldTheme.darkTextColor.withAlphaComponent(0.15)
         default:
             return nil
         }
@@ -75,7 +81,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     
     var borderWidth: CGFloat {
         switch self {
-        case .secondary, .secondarySmall, .secondaryLarge:
+        case .secondary, .secondarySmall, .secondaryLarge, .none:
             return 1
         default:
             return 0
@@ -86,6 +92,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
         switch self {
         case .secondary, .secondarySmall, .secondaryLarge:
             return EmeraldTheme.primaryColor
+        case .none:
+            return EmeraldTheme.borderColor
         default:
             return nil
         }
