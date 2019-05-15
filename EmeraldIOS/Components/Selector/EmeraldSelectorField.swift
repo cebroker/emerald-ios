@@ -6,7 +6,7 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public protocol EmeraldSelectorFieldType: EmeraldTextFormFieldType {
+public protocol EmeraldSelectorFieldType: EmeraldTextFieldType {
     func set(data: [Selectable])
     func clearData()
     func getSelectedRow() -> Selectable?

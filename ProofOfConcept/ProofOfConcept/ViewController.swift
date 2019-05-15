@@ -34,18 +34,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var signatureImageView: UIImageView!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
+    @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
+    @IBOutlet weak var emeraldStartDateFieldByStory: EmeraldDateField!
+    private var organizationName: EmeraldTextFieldType?
     
-    private var organizationName: EmeraldTextFormFieldType?
-    
-    private var address: EmeraldTextFormFieldType?
+    private var address: EmeraldTextFieldType?
     private var city: EmeraldTextDependantField?
     private var state: EmeraldSelectorFieldType?
     
-    private var zip: EmeraldTextFormFieldType?
-    private var contactName: EmeraldTextFormFieldType?
-    private var membershipDuesAmount: EmeraldTextFormFieldType?
+    private var zip: EmeraldTextFieldType?
+    private var contactName: EmeraldTextFieldType?
+    private var membershipDuesAmount: EmeraldTextFieldType?
     //    private var dueDateForDues: DateFormField?
-    private var amountPaid: EmeraldTextFormFieldType?
+    private var amountPaid: EmeraldTextFieldType?
     //    private var paymentDate: DateFormField?
     
     private var formButton: EmeraldButton?
@@ -73,6 +74,8 @@ class ViewController: UIViewController {
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
         emeraldSelectorByStory.set(notifiable: self)
+        emeraldEndDateFieldByStory.set(notifiable: self)
+        emeraldStartDateFieldByStory.set(notifiable: self)
     }
     
     private func createFields() {
@@ -166,7 +169,9 @@ class ViewController: UIViewController {
         let textFieldValidation = emeraldTextByStory.validateAndHandle()
         let selectorValidation = emeraldSelectorByStory.validateAndHandle()
         let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
-        return textFieldValidation && selectorValidation && textDependantValidation
+        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
+        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
+        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation
     }
     
     @IBAction func goToSignatureView(_ sender: Any) {
@@ -214,6 +219,46 @@ extension ViewController: EmeraldSelectorFieldChangeNotifiable {
             }
             emeraldTextDependantFieldByStory.set(availableOptions: state.cities)
             city?.set(availableOptions: state.cities)
+        default:
+            break
+        }
+    }
+}
+
+extension ViewController: EmeraldDateFieldChangeNotifiable {
+    func onSelected(dateString: String, date: Date, from datePicker: EmeraldDateField) {
+        guard let startDate = self.emeraldStartDateFieldByStory else {
+            return
+        }
+        
+        guard let endDate = self.emeraldEndDateFieldByStory else {
+            return
+        }
+        
+        switch datePicker {
+        case startDate:
+            endDate.set(minimumDate: date)
+        default:
+            break
+        }
+    }
+    
+    func onDoneButtonPressed(from datePicker: EmeraldDateField) {
+        guard let startDate = self.emeraldStartDateFieldByStory else {
+            return
+        }
+        
+        guard let endDate = self.emeraldEndDateFieldByStory else {
+            return
+        }
+        
+        switch datePicker {
+        case startDate:
+            guard let value = datePicker.getValue(),
+                let minimunDate = datePicker.getDate(from: value) else {
+                return
+            }
+            endDate.set(minimumDate: minimunDate)
         default:
             break
         }

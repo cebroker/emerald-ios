@@ -43,6 +43,11 @@ struct Constants {
         static let phoneLength = 10
         static let phonePrefixIndex = 3
         static let phoneSuffixIndex = 7
+        static let dateFirstSeparatorIndex = 2
+        static let dateFirstValidatorIndex = 2
+        static let dateSecondValidatorIndex = 4
+        static let dateSecondSeparatorIndex = 5
+        static let maxMonthValue = 12
     }
 
     struct MockedData {
@@ -107,12 +112,14 @@ struct Constants {
     struct Values {
         static let empty = ""
         static let hyphen = "-"
+        static let slash = "/"
         static let stringComma: String = ","
         static let dollar = "$"
         static let dollarWithSpace = "$ "
         static let localIdentifier = "en_US_POSIX"
         static let dot: Character = "."
         static let space = " "
+        static let zero = 0
     }
 
     struct Design {
