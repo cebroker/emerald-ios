@@ -26,8 +26,6 @@ public protocol EmeraldDateFieldTestableType {
     func set(selectedDate: Date)
     func set(day: Int, month: Int, year: Int)
     func set(hour: Int, minute: Int)
-    func setMinimum(day: Int, month: Int, year: Int)
-    func setMaximum(day: Int, month: Int, year: Int)
 }
 
 public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDateFieldTestableType {
@@ -35,9 +33,9 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     private var selectedDate: Date?
     private lazy var dateFormatter: DateFormatter = DateFormatter()
     private weak var notifiable: EmeraldDateFieldChangeNotifiable?
-    private lazy var pickerView: UIDatePicker = UIDatePicker()
     private lazy var toolbar: UIToolbar = UIToolbar()
-    private lazy var editFromPicker = false
+    private var minimumDate: Date?
+    private var maximumDate: Date?
     
     struct InnerConstants {
         static let calendarIcon = "calendar_icon"
@@ -49,6 +47,44 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.addCalendarIcon()
         self.setupToolbar()
         self.setupDefaultDateFormat()
+    }
+    
+    override func validateContent() -> Result<Bool, Error> {
+        guard let text = self.getValue(), !text.isEmpty else {
+            return .failure(FormFieldError.emptyField)
+        }
+        
+        guard let date = self.selectedDate else {
+            return .failure(EmeraldDateFieldError.invalidDateFormat)
+        }
+        
+        if let minimumDate = self.minimumDate {
+            guard date >= minimumDate else {
+                return .failure(EmeraldDateFieldError.lowerThanMinimumDate)
+            }
+        }
+        
+        if let maximumDate = self.maximumDate {
+            guard date <= maximumDate else {
+                return .failure(EmeraldDateFieldError.greaterThanMaximumDate)
+            }
+        }
+        
+        guard let _ = getDate(from: text) else {
+            return .failure(EmeraldDateFieldError.invalidDateFormat)
+        }
+        
+        return .success(true)
+    }
+    
+    public override func textFieldDidEndEditing(_ textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
+        if let validatedText = self.text,
+            let dateValue = getDate(from: validatedText) {
+            self.set(selectedDate: dateValue)
+        }
+        self.resignFirstResponder()
+        notifiable?.onDoneButtonPressed(from: self)
     }
     
     public func set(selectedDate: Date) {
@@ -70,84 +106,51 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         }
     }
     
-    public func setMinimum(day: Int, month: Int, year: Int) {
-        if let date = getDateFrom(day: day, month: month, year: year) {
-            self.pickerView.minimumDate = date
-        }
-    }
-    
-    public func setMaximum(day: Int, month: Int, year: Int) {
-        if let date = getDateFrom(day: day, month: month, year: year) {
-            self.pickerView.maximumDate = date
-        }
-    }
-    
     public func set(notifiable: EmeraldDateFieldChangeNotifiable?) {
         self.notifiable = notifiable
-    }
-    
-    public func set(minimumDate: Date?) {
-        pickerView.minimumDate = minimumDate
-    }
-    
-    public func getMinimumDate() -> Date? {
-        return pickerView.minimumDate
-    }
-    
-    public func set(maximumDate: Date?) {
-        pickerView.maximumDate = maximumDate
-    }
-    
-    public func getMaximumDate() -> Date? {
-        return pickerView.maximumDate
-    }
-    
-    public func forbidDatesPreviousThanToday() {
-        self.pickerView.minimumDate = Date()
-    }
-    
-    public func allowDatesPreviousThanToday() {
-        self.pickerView.minimumDate = nil
-    }
-    
-    public func forbidDatesLaterThanToday() {
-        self.pickerView.maximumDate = Date()
-    }
-    
-    public func allowDatesLaterThanToday() {
-        self.pickerView.maximumDate = nil
     }
     
     public func set(dateFormat: String) {
         self.dateFormatter.dateFormat = dateFormat
     }
     
-    override func validateContent() -> Result<Bool, Error> {
-        guard let text = self.getValue(), !text.isEmpty else {
-            return .failure(FormFieldError.emptyField)
-        }
-        
-        guard let date = self.selectedDate else {
-            return .failure(EmeraldDateFieldError.invalidDateFormat)
-        }
-        
-        if let minimumDate = pickerView.minimumDate {
-            guard date >= minimumDate else {
-                return .failure(EmeraldDateFieldError.lowerThanMinimumDate)
-            }
-        }
-        
-        if let maximumDate = pickerView.maximumDate {
-            guard date <= maximumDate else {
-                return .failure(EmeraldDateFieldError.greaterThanMaximumDate)
-            }
-        }
-        
-        guard let _ = getDate(from: text) else {
-            return .failure(EmeraldDateFieldError.invalidDateFormat)
-        }
-        
-        return .success(true)
+    public func getDate(from string: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.DateFormat.defaultFormat
+        dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
+        return dateFormatter.date(from: string)
+    }
+    
+    public func set(minimumDate: Date?) {
+        self.minimumDate = minimumDate
+    }
+    
+    public func getMinimumDate() -> Date? {
+        return self.minimumDate
+    }
+    
+    public func set(maximumDate: Date?) {
+        self.maximumDate = maximumDate
+    }
+    
+    public func getMaximumDate() -> Date? {
+        return self.maximumDate
+    }
+    
+    public func forbidDatesPreviousThanToday() {
+        self.minimumDate = Date()
+    }
+    
+    public func allowDatesPreviousThanToday() {
+        self.minimumDate = nil
+    }
+    
+    public func forbidDatesLaterThanToday() {
+        self.maximumDate = Date()
+    }
+    
+    public func allowDatesLaterThanToday() {
+        self.maximumDate = nil
     }
     
     private func setupToolbar() {
@@ -208,62 +211,6 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
             .constraint(equalTo: rightView.centerYAnchor)
             .isActive = true
     }
-
-    @objc private func openDatePicker() {
-        UIView.animate(withDuration: 0) {
-            self.endEditing(true)
-        }
-        self.pickerView.datePickerMode = .date
-        pickerView.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
-        self.inputView = pickerView
-        self.becomeFirstResponder()
-    }
-    
-    @objc private func datePickerValueChanged() {
-        self.set(selectedDate: pickerView.date)
-    }
-    
-    @objc private func onDoneButtonPressed() {
-        self.endEditing(true)
-    }
-    
-    private func validateDateField() {
-        if let validatedText = self.text,
-            validatedText.isEmpty {
-            self.set(selectedDate: pickerView.date)
-        } else if let validatedText = self.text,
-            let dateValue = getDate(from: validatedText) {
-            self.set(selectedDate: dateValue)
-        }
-        
-        self.resignFirstResponder()
-        toolbar.removeFromSuperview()
-        pickerView.removeFromSuperview()
-        notifiable?.onDoneButtonPressed(from: self)
-    }
-    
-    public override func textFieldDidEndEditing(_ textField: UITextField) {
-        super.textFieldDidEndEditing(textField)
-        if let validatedText = self.text,
-            validatedText.isEmpty && editFromPicker {
-            self.editFromPicker = false
-            self.set(selectedDate: pickerView.date)
-        } else if let validatedText = self.text,
-            let dateValue = getDate(from: validatedText) {
-            self.set(selectedDate: dateValue)
-        }
-        self.inputView = nil
-        self.resignFirstResponder()
-        pickerView.removeFromSuperview()
-        notifiable?.onDoneButtonPressed(from: self)
-    }
-    
-    public func getDate(from string: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.DateFormat.defaultFormat
-        dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
-        return dateFormatter.date(from: string)
-    }
     
     private func setupDefaultDateFormat() {
         dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
@@ -302,5 +249,35 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         
         return Calendar.current.date(from: dateComponents)
     }
+    
+    @objc private func openDatePicker() {
+        self.textFieldDidBeginEditing(self)
+        let datePicker = EmeraldDatePickerAlert()
+        
+        if let minimumDate = self.minimumDate {
+            datePicker.set(minimumDate: minimumDate)
+        }
+        
+        if let maximumDate = self.maximumDate {
+            datePicker.set(maximumDate: maximumDate)
+        }
+        
+        if let currentDate = self.getDate(from: self.text ?? Constants.Values.empty) {
+            datePicker.set(currentDateValue: currentDate)
+        }
+        
+        datePicker.show(self.placeHolder ?? Constants.Values.empty) { [unowned self] date in
+            guard let date = date else {
+                self.textFieldDidEndEditing(self)
+                return
+            }
+            self.set(selectedDate: date)
+            self.textFieldDidEndEditing(self)
+        }
+    }
+    
+    @objc private func onDoneButtonPressed() {
+        self.endEditing(true)
+        notifiable?.onDoneButtonPressed(from: self)
+    }
 }
-

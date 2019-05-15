@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */; };
 		6C0AC80D22831CD900AF4662 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80C22831CD900AF4662 /* SignatureView.swift */; };
+		6C23516B228C469B00D398F3 /* EmeraldDatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */; };
 		6C2D32802289D99B009D4B0F /* EmeraldSelectorFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D327F2289D99B009D4B0F /* EmeraldSelectorFieldError.swift */; };
 		6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D3288228AF220009D4B0F /* arrow_down_icon.png */; };
 		6C2D328C228B034E009D4B0F /* EmeraldTextDependantField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D328B228B034E009D4B0F /* EmeraldTextDependantField.swift */; };
@@ -96,6 +97,7 @@
 		5C0FD3F6CB9D3CC5F8B2D470 /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController_old.swift; sourceTree = "<group>"; };
 		6C0AC80C22831CD900AF4662 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
+		6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDatePickerAlert.swift; sourceTree = "<group>"; };
 		6C2D327F2289D99B009D4B0F /* EmeraldSelectorFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFieldError.swift; sourceTree = "<group>"; };
 		6C2D3288228AF220009D4B0F /* arrow_down_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down_icon.png; sourceTree = "<group>"; };
 		6C2D328B228B034E009D4B0F /* EmeraldTextDependantField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextDependantField.swift; sourceTree = "<group>"; };
@@ -212,6 +214,14 @@
 			path = Signature;
 			sourceTree = "<group>";
 		};
+		6C23516C228C46A900D398F3 /* DatePickerAlert */ = {
+			isa = PBXGroup;
+			children = (
+				6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */,
+			);
+			path = DatePickerAlert;
+			sourceTree = "<group>";
+		};
 		6C2D328A228AFDA5009D4B0F /* TextDependantField */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +234,7 @@
 		6C2D328F228B0B94009D4B0F /* Date */ = {
 			isa = PBXGroup;
 			children = (
+				6C23516C228C46A900D398F3 /* DatePickerAlert */,
 				6C2D3290228B0BDA009D4B0F /* EmeraldDateField.swift */,
 				6C2D3292228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift */,
 				6C2D3294228B0BFE009D4B0F /* EmeraldDateFieldError.swift */,
@@ -740,6 +751,7 @@
 				9B3BCC862272033400DC5D79 /* CheckboxFormField.swift in Sources */,
 				6C807C6F227C8E7F00FC328E /* Inspectable.swift in Sources */,
 				9B3BCC842272033400DC5D79 /* RadioGroupFormField.swift in Sources */,
+				6C23516B228C469B00D398F3 /* EmeraldDatePickerAlert.swift in Sources */,
 				9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */,
 				9B3BCC9A2272033400DC5D79 /* EmeraldInitializer.swift in Sources */,
 				6C807C71227C99B300FC328E /* Theme.swift in Sources */,
