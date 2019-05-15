@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/Header.PNG" /></p>
+<p align="center"><img src="/Resources/Images/Header.png" /></p>
 
 # TextField
 <ul class="icon-list">
