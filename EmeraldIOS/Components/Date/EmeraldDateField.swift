@@ -49,6 +49,11 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.setupDefaultDateFormat()
     }
     
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+        self.layoutSubviews()
+    }
+    
     override func validateContent() -> Result<Bool, Error> {
         guard let text = self.getValue(), !text.isEmpty else {
             return .failure(FormFieldError.emptyField)
@@ -210,6 +215,8 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
             .centerYAnchor
             .constraint(equalTo: rightView.centerYAnchor)
             .isActive = true
+        
+        self.reloadInputViews()
     }
     
     private func setupDefaultDateFormat() {
