@@ -92,14 +92,17 @@ public extension TextFormatter {
             numbersOnly = String(Constants.TextFormating.maxMonthValue)
         }
         
-        if numbersOnly.count == Constants.TextFormating.dateSecondValidatorIndex  {
+        if numbersOnly.count == Constants.TextFormating.dateSecondValidatorIndex {
             var dateFormated = DateComponents()
+            let daySuffix = Int(numbersOnly.suffix(2)) ?? Constants.Values.zero
             dateFormated.month = Int(numbersOnly.prefix(2))
             let calendar = Calendar.current
             let date = calendar.date(from: dateFormated) ?? Date()
             let range = calendar.range(of: .day, in: .month, for: date)
             let numDaysInMonth = range?.count ?? Constants.Values.zero
-            numbersOnly = numbersOnly.prefix(2) + String(numDaysInMonth)
+            if daySuffix > numDaysInMonth {
+                numbersOnly = numbersOnly.prefix(2) + String(numDaysInMonth)
+            }
         }
         
         return numbersOnly
