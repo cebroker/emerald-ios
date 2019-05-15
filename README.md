@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/emerald.svg" align="middle" width="25%" /></p>
+<p align="center"><img src="/emerald.svg" align="middle" width="25%" /></p>
 
 # Emerald iOS 
 [![Build Status](https://travis-ci.com/cebroker/emerald-ios.svg?branch=develop)](https://travis-ci.com/cebroker/emerald-ios)
