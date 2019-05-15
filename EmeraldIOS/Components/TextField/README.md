@@ -17,11 +17,8 @@ To initialize an EmeraldTextField, you must alloc/init an instance directly. All
 
 #### Swift
 ```swift
-let validationResult = emeraldTextByStory.isValid()
-if !validationResult.isValid,
-   let error = validationResult.error {
-   emeraldTextByStory.show(error: error)
-}
+let validationResult = emeraldTextByStory.validateAndHandle()
+return validationResult
 ```
 ### Typical use
 
