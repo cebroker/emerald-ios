@@ -8,9 +8,19 @@
 
 public protocol SignatureBoxViewType {
     func setSignature(with currentSignature: UIImage)
+    func getSignature() -> UIImage?
+    func set(isRequired: Bool)
+    func getIsRequired() -> Bool
+    func isValid() -> Result<Bool, Error>
+    func handleResult(with validationResult: Result<Bool, Error>) -> Bool
+    func validateAndHandle() -> Bool
+    func show(error: FormFieldErrorType)
+    func clearError()
 }
 
 public class SignatureBoxView: UIView, SignatureBoxViewType {
+    
+    @IBInspectable var isRequired: Bool = false
     
     let tapToSignButton: EmeraldButton = {
         let button = EmeraldButton()
@@ -44,6 +54,16 @@ public class SignatureBoxView: UIView, SignatureBoxViewType {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    let errorLabel: EmeraldLabel = {
+        let label = EmeraldLabel()
+        label.themeStyle = EmeraldLabelStyle.subtitle.rawValue
+        label.text = FormFieldError.emptyField.description
+        label.textColor = EmeraldTheme.redColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
+        return label
+    }()
 
     public var delegate: UIViewController?
     
@@ -71,8 +91,64 @@ public class SignatureBoxView: UIView, SignatureBoxViewType {
         self.signatureImageView.image = currentSignature
     }
     
+    public func getSignature() -> UIImage? {
+        return self.signatureImageView.image
+    }
+    
+    public func set(isRequired: Bool) {
+        self.isRequired = isRequired
+    }
+    
+    public func getIsRequired() -> Bool {
+        return isRequired
+    }
+    
+    public func isValid() -> Result<Bool, Error> {
+        guard getIsRequired() else {
+            return .success(true)
+        }
+        
+        return validateContent()
+    }
+    
+    func validateContent() -> Result<Bool, Error> {
+        guard let _ = getSignature() else {
+            return .failure(FormFieldError.emptyField)
+        }
+        
+        return .success(true)
+    }
+    
+    public func handleResult(with validationResult: Result<Bool, Error>) -> Bool {
+        switch validationResult {
+        case .failure(let error):
+            guard let error = error as? FormFieldErrorType else {
+                return false
+            }
+            self.show(error: error)
+            return false
+        default:
+            self.clearError()
+            return true
+        }
+    }
+    
+    public func validateAndHandle() -> Bool {
+        return handleResult(with: self.isValid())
+    }
+    
+    public func show(error: FormFieldErrorType) {
+        self.errorLabel.text = error.description
+        self.errorLabel.isHidden = false
+    }
+    
+    public func clearError() {
+        self.errorLabel.isHidden = true
+    }
+    
     private func setupInitialView() {
         self.addSubview(tapToSignButton)
+        self.addSubview(errorLabel)
         tapToSignButton
             .centerYAnchor
             .constraint(
@@ -93,10 +169,26 @@ public class SignatureBoxView: UIView, SignatureBoxViewType {
             .constraint(
                 equalToConstant: 49
             ).isActive = true
+        errorLabel
+            .leadingAnchor
+            .constraint(
+                equalTo: tapToSignButton.leadingAnchor
+            ).isActive = true
+        errorLabel
+            .trailingAnchor
+            .constraint(
+                equalTo: tapToSignButton.trailingAnchor
+            ).isActive = true
+        errorLabel
+            .topAnchor
+            .constraint(
+                equalTo: tapToSignButton.bottomAnchor
+            ).isActive = true
     }
     
     private func setupViewWithSignature() {
         tapToSignButton.removeFromSuperview()
+        errorLabel.removeFromSuperview()
         self.addSubview(signatureImageView)
         self.addSubview(changeButton)
         signatureImageView
@@ -151,6 +243,7 @@ extension SignatureBoxView: SignatureReturnable {
     public func emeraldSignature(_: EmeraldSignatureViewController,
                           didSign signatureImage : UIImage,
                           boundingRect: CGRect) {
+        self.clearError()
         signatureImageView.image = signatureImage
     }
 }

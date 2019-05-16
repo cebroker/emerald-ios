@@ -282,7 +282,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     public func handleResult(with validationResult: Result<Bool, Error>) -> Bool {
         switch validationResult {
         case .failure(let error):
-            guard let error = error as? FormFieldErrorType  else {
+            guard let error = error as? FormFieldErrorType else {
                 return false
             }
             self.show(error: error)
