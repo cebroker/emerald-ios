@@ -8,7 +8,8 @@
 
 import UIKit
 
-open class EmeraldCanvasView: UIView {
+@IBDesignable
+public class EmeraldCanvasView: UIView {
     
     fileprivate var bezierPoints = [CGPoint](repeating: CGPoint(), count: 5)
     fileprivate var bezierPath = UIBezierPath()

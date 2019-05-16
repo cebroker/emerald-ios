@@ -7,7 +7,8 @@
 //
 import UIKit
 
-open class EmeraldSignatureViewController: UIViewController {
+@IBDesignable
+public class EmeraldSignatureViewController: UIViewController {
     
     private struct InnerConstants {
         static let didCancelError = NSError(
