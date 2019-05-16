@@ -1,12 +1,12 @@
 //
-//  SignatureBoxView.swift
+//  EmeraldSignatureBoxView.swift
 //  EmeraldIOS
 //
 //  Created by Genesis Sanguino on 5/15/19.
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public protocol SignatureBoxViewType {
+public protocol EmeraldSignatureBoxViewType {
     func setSignature(with currentSignature: UIImage)
     func getSignature() -> UIImage?
     func set(isRequired: Bool)
@@ -18,7 +18,8 @@ public protocol SignatureBoxViewType {
     func clearError()
 }
 
-public class SignatureBoxView: UIView, SignatureBoxViewType {
+@IBDesignable
+public class EmeraldSignatureBoxView: UIView, EmeraldSignatureBoxViewType {
     
     @IBInspectable var isRequired: Bool = false
     
@@ -236,7 +237,7 @@ public class SignatureBoxView: UIView, SignatureBoxViewType {
     }
 }
 
-extension SignatureBoxView: SignatureReturnable {
+extension EmeraldSignatureBoxView: SignatureReturnable {
     public func emeraldSignature(_: EmeraldSignatureViewController,
                           didCancel error : NSError) {}
     

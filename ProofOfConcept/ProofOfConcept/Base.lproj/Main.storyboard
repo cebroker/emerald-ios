@@ -150,7 +150,7 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-WA-g0C" customClass="SignatureBoxView" customModule="EmeraldIOS">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-WA-g0C" customClass="EmeraldSignatureBoxView" customModule="EmeraldIOS">
                                                 <rect key="frame" x="38" y="553" width="299" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="F5f-BV-hOY"/>
