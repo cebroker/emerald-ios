@@ -11,10 +11,6 @@ import UIKit
 @IBDesignable
 public class EmeraldButton: UIButton {
     
-    private struct innerConstants {
-        static let height: CGFloat = 49
-    }
-    
     @IBInspectable public var themeStyle: String = EmeraldButtonStyle.primary.IBInspectable {
         didSet {
             applyTheme()
@@ -72,7 +68,6 @@ public class EmeraldButton: UIButton {
         layer.cornerRadius = cornerRadius
         layer.borderWidth = style.borderWidth
         layer.borderColor = style.borderColor?.cgColor
-        heightAnchor.constraint(equalToConstant: innerConstants.height).isActive = true
         alpha = isEnabled ? 1.00 : 0.65
     }
 }

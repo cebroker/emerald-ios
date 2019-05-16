@@ -9,8 +9,11 @@
 import UIKit
 
 public enum EmeraldButtonStyle: String, Inspectable {
-    
+    case plain
     case primary
+    case primarySuccess
+    case primaryWarning
+    case primaryError
     case primarySmall
     case primaryLarge
     case secondary
@@ -24,6 +27,14 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.primaryButtonColor
         case .secondary, .secondarySmall, .secondaryLarge:
             return EmeraldTheme.secondaryButtonColor
+        case .primarySuccess:
+            return EmeraldTheme.successColor
+        case .primaryWarning:
+            return EmeraldTheme.warningColor
+        case .primaryError:
+            return EmeraldTheme.errorColor
+        case .plain:
+            return EmeraldTheme.whiteColor
         default:
             return nil
         }
@@ -31,12 +42,14 @@ public enum EmeraldButtonStyle: String, Inspectable {
     
     var titleColor: UIColor? {
         switch self {
-        case .primary, .primarySmall, .primaryLarge:
+        case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
             return EmeraldTheme.whiteColor
         case .secondary, .secondarySmall, .secondaryLarge:
             return EmeraldTheme.primaryColor
         case .link:
             return EmeraldTheme.linkColor
+        case .plain:
+            return EmeraldTheme.darkTextColor
         }
     }
     
@@ -44,6 +57,12 @@ public enum EmeraldButtonStyle: String, Inspectable {
         switch self {
         case .primary, .primarySmall, .primaryLarge:
             return EmeraldTheme.primaryButtonHighlightedColor
+        case .primarySuccess:
+            return EmeraldTheme.successButtonHighlightedColor
+        case .primaryWarning:
+            return EmeraldTheme.warningButtonHighlightedColor
+        case .primaryError:
+            return EmeraldTheme.errorButtonHighlightedColor
         default:
             return backgroundColor
         }
@@ -51,8 +70,10 @@ public enum EmeraldButtonStyle: String, Inspectable {
     
     var highlightedTitleColor: UIColor? {
         switch self {
-        case .primary, .primarySmall, .primaryLarge:
+        case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
             return titleColor
+        case .plain:
+            return EmeraldTheme.darkTextColor.withAlphaComponent(0.15)
         default:
             return nil
         }
@@ -60,7 +81,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     
     var borderWidth: CGFloat {
         switch self {
-        case .secondary, .secondarySmall, .secondaryLarge:
+        case .secondary, .secondarySmall, .secondaryLarge, .plain:
             return 1
         default:
             return 0
@@ -71,6 +92,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
         switch self {
         case .secondary, .secondarySmall, .secondaryLarge:
             return EmeraldTheme.primaryColor
+        case .plain:
+            return EmeraldTheme.borderColor
         default:
             return nil
         }

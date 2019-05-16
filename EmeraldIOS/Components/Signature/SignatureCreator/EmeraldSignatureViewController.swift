@@ -18,6 +18,10 @@ open class EmeraldSignatureViewController: UIViewController {
             ])
     }
     
+    @IBOutlet private weak var signatureIcon: UIImageView!
+    @IBOutlet private weak var doneButton: EmeraldButton!
+    @IBOutlet private weak var clearButton: EmeraldButton!
+    @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var subtitleLabel: EmeraldLabel!
     @IBOutlet private weak var viewMargin: UIView!
     @IBOutlet weak var signatureView: EmeraldCanvasView!
@@ -28,7 +32,7 @@ open class EmeraldSignatureViewController: UIViewController {
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationButtons()
+        setupView()
     }
     
     override open func didReceiveMemoryWarning() {
@@ -36,7 +40,6 @@ open class EmeraldSignatureViewController: UIViewController {
     }
     
     // MARK: - Initializers
-    
     public init(signatureDelegate: SignatureReturnable) {
         self.signatureDelegate = signatureDelegate
         let bundle = Bundle(for: EmeraldSignatureViewController.self)
@@ -48,41 +51,56 @@ open class EmeraldSignatureViewController: UIViewController {
     }
     
     // MARK: - Setup methods
-    
-    private func setupNavigationButtons() {
-        let cancelButton = UIBarButtonItem(
-            barButtonSystemItem: .cancel,
-            target: self,
-            action: #selector(onTouchCancelButton))
-        cancelButton.tintColor = tintColor
+    private func setupView() {
+        signatureIcon.image = #imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate)
+        signatureIcon.tintColor = EmeraldTheme.grayColor
+        closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .normal)
+        closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .highlighted)
+        closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .selected)
+        closeButton.tintColor = EmeraldTheme.primaryColor
+        closeButton.addTarget(self,
+                              action: #selector(onTouchCloseButton),
+                              for: .touchUpInside)
         
-        self.navigationItem.leftBarButtonItem = cancelButton
+        signatureView.layer.borderColor = EmeraldTheme.borderColor.cgColor
+        signatureView.layer.borderWidth = Constants.Values.one
+        signatureView.layer.cornerRadius = EmeraldTheme.defaultElevatedViewCornerRadius
         
-        let doneButton = UIBarButtonItem(
-            barButtonSystemItem: .done,
-            target: self,
-            action: #selector(onTouchDoneButton))
-        doneButton.tintColor = tintColor
-        
-        let clearButton = UIBarButtonItem(
-            barButtonSystemItem: .trash,
-            target: self,
-            action: #selector(onTouchClearButton))
-        clearButton.tintColor = tintColor
-        
-        self.navigationItem.rightBarButtonItems = [
-            doneButton,
-            clearButton
-        ]
+        clearButton.addTarget(self, action: #selector(onTouchClearButton), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(onTouchDoneButton), for: .touchUpInside)
     }
     
-    // MARK: - Button Actions
+    private func showAlertConfirmation() {
+        let alert = UIAlertController(title: nil,
+                                      message: "Are you sure you want to cancel?",
+                                      preferredStyle: .alert)
+        
+        
+        
+        let okAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { _ -> Void in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "No", style: .cancel) { _ -> Void in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
-    @objc func onTouchCancelButton() {
-        signatureDelegate?.emeraldSignature?(
-            self,
-            didCancel: InnerConstants.didCancelError)
-        dismiss(animated: true, completion: nil)
+    // MARK: - Button Actions
+    @objc func onTouchCloseButton() {
+        if let _ = signatureView.getSignatureAsImage() {
+            showAlertConfirmation()
+        } else {
+            signatureDelegate?.emeraldSignature?(
+                self,
+                didCancel: InnerConstants.didCancelError)
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     @objc func onTouchDoneButton() {

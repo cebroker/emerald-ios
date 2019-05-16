@@ -20,7 +20,7 @@ public class EmeraldTheme {
     public static let grayColor = #colorLiteral(red: 0.2941176471, green: 0.3254901961, blue: 0.3254901961, alpha: 1)
     public static let darkGrayColor = #colorLiteral(red: 0.1568627451, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
     public static let extraDarkGrayColor = #colorLiteral(red: 0.1137254902, green: 0.1294117647, blue: 0.1294117647, alpha: 1)
-    public static let lightGrayColor = #colorLiteral(red: 0.3764705882, green: 0.4823529412, blue: 0.4823529412, alpha: 1)
+    public static let lightGrayColor = UIColor.lightGray
     public static let extraLightGrayColor = #colorLiteral(red: 0.3764705882, green: 0.4823529412, blue: 0.4823529412, alpha: 1)
     
     // MARK: General Colors
@@ -31,11 +31,14 @@ public class EmeraldTheme {
     public static let lightTintColor = whiteColor.withAlphaComponent(0.15)
     public static let textColor = darkGrayColor
     public static let darkTextColor = extraDarkGrayColor
-    public static let lightTextColor = grayColor
-    public static let extraLightTextColor = lightGrayColor
+    public static let lightTextColor = lightGrayColor
+    public static let extraLightTextColor = extraLightGrayColor
     public static let linkColor = blueColor
     public static let primaryButtonColor = blueColor
     public static let primaryButtonHighlightedColor = #colorLiteral(red: 0.137254902, green: 0.5215686275, blue: 0.9137254902, alpha: 1)
+    public static let successButtonHighlightedColor = successColor.withAlphaComponent(0.15)
+    public static let warningButtonHighlightedColor = warningColor.withAlphaComponent(0.15)
+    public static let errorButtonHighlightedColor = errorColor.withAlphaComponent(0.15)
     public static let secondaryButtonColor = whiteColor
     public static let placeholderColor = UIColor.lightGray
     public static let borderColor = #colorLiteral(red: 0.9019607843, green: 0.9098039216, blue: 0.9254901961, alpha: 1)

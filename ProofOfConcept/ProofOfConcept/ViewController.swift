@@ -27,11 +27,10 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var formStackView: EmeraldStackView!
     
+    @IBOutlet weak var signatureBoxView: SignatureBoxView!
     @IBOutlet weak var emeraldLabelByStory: EmeraldLabel!
     @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
-    @IBOutlet weak var buttonForSignature: EmeraldButton!
-    @IBOutlet weak var signatureImageView: UIImageView!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
@@ -69,6 +68,7 @@ class ViewController: UIViewController {
     }
     
     private func createStoryBoardFields() {
+        signatureBoxView.delegate = self
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
         emeraldSelectorByStory.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
@@ -174,29 +174,8 @@ class ViewController: UIViewController {
         return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation
     }
     
-    @IBAction func goToSignatureView(_ sender: Any) {
-        let signatureVC = EmeraldSignatureViewController(signatureDelegate: self)
-        signatureVC.subtitleText = "I agree to the terms and conditions"
-        signatureVC.title = "Sign up here :v"
-        let navigationToBePresented = UINavigationController(rootViewController: signatureVC)
-        present(navigationToBePresented, animated: true, completion: nil)
-    }
-    
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
         formStackView.areFieldsValid()
-    }
-}
-
-extension ViewController: SignatureReturnable {
-    func emeraldSignature(_: EmeraldSignatureViewController,
-                          didCancel error : NSError) {
-        print("User canceled")
-    }
-    
-    func emeraldSignature(_: EmeraldSignatureViewController,
-                          didSign signatureImage : UIImage,
-                          boundingRect: CGRect) {
-        signatureImageView.image = signatureImage
     }
 }
 

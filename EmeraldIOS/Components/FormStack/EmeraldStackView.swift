@@ -52,12 +52,12 @@ extension EmeraldStackView: EmeraldStackViewConfigurable {
         return field
     }
     
-//    public func createDateFormField(placeholder: String) -> DateFormField? {
-//        let field = DateFormField()
-//        defaultSetup(textFormField: field, with: placeholder)
-//        return field
-//    }
-//
+    public func createDateFormField(placeholder: String) -> EmeraldDateField? {
+        let field = EmeraldDateField()
+        defaultSetup(textFormField: field, with: placeholder)
+        return field
+    }
+
     public func createEmeraldSelectorFormField(placeholder: String) -> EmeraldSelectorField? {
         let field = EmeraldSelectorField()
         defaultSetup(textFormField: field, with: placeholder)

@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */; };
-		6C0AC80D22831CD900AF4662 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AC80C22831CD900AF4662 /* SignatureView.swift */; };
 		6C23516B228C469B00D398F3 /* EmeraldDatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */; };
+		6C23516E228CAEBB00D398F3 /* SignatureBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516D228CAEBB00D398F3 /* SignatureBoxView.swift */; };
 		6C2D32802289D99B009D4B0F /* EmeraldSelectorFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D327F2289D99B009D4B0F /* EmeraldSelectorFieldError.swift */; };
 		6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D3288228AF220009D4B0F /* arrow_down_icon.png */; };
 		6C2D328C228B034E009D4B0F /* EmeraldTextDependantField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D328B228B034E009D4B0F /* EmeraldTextDependantField.swift */; };
@@ -95,9 +94,8 @@
 		2886ECAFCEF796385AA7B56B /* Pods-EmeraldIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.release.xcconfig"; sourceTree = "<group>"; };
 		356885229B6EC75600C29D5F /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0FD3F6CB9D3CC5F8B2D470 /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController_old.swift; sourceTree = "<group>"; };
-		6C0AC80C22831CD900AF4662 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDatePickerAlert.swift; sourceTree = "<group>"; };
+		6C23516D228CAEBB00D398F3 /* SignatureBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureBoxView.swift; sourceTree = "<group>"; };
 		6C2D327F2289D99B009D4B0F /* EmeraldSelectorFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFieldError.swift; sourceTree = "<group>"; };
 		6C2D3288228AF220009D4B0F /* arrow_down_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down_icon.png; sourceTree = "<group>"; };
 		6C2D328B228B034E009D4B0F /* EmeraldTextDependantField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextDependantField.swift; sourceTree = "<group>"; };
@@ -285,8 +283,7 @@
 		6CAFFA2622845AC800C690B9 /* SignatureBox */ = {
 			isa = PBXGroup;
 			children = (
-				6C0AC80C22831CD900AF4662 /* SignatureView.swift */,
-				6C0AC80722831BD600AF4662 /* EmeraldSignatureViewController_old.swift */,
+				6C23516D228CAEBB00D398F3 /* SignatureBoxView.swift */,
 			);
 			path = SignatureBox;
 			sourceTree = "<group>";
@@ -734,7 +731,6 @@
 				6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */,
 				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
 				9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */,
-				6C0AC80D22831CD900AF4662 /* SignatureView.swift in Sources */,
 				9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */,
 				9B3BCC872272033400DC5D79 /* MultipleSelectionItem.swift in Sources */,
 				6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */,
@@ -744,7 +740,6 @@
 				6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */,
 				6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */,
 				9B3BCC882272033400DC5D79 /* MultipleSelectionItemChangeNotifiable.swift in Sources */,
-				6C0AC80822831BD600AF4662 /* EmeraldSignatureViewController_old.swift in Sources */,
 				6C2D32802289D99B009D4B0F /* EmeraldSelectorFieldError.swift in Sources */,
 				9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */,
 				9B3BCC8B2272033400DC5D79 /* FormField.swift in Sources */,
@@ -770,6 +765,7 @@
 				9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */,
 				6C807C73227CA31100FC328E /* Font.swift in Sources */,
 				6CAFFA1E2283660E00C690B9 /* SignatureContract.swift in Sources */,
+				6C23516E228CAEBB00D398F3 /* SignatureBoxView.swift in Sources */,
 				9B3BCC9C2272033400DC5D79 /* EmeraldStackViewContract.swift in Sources */,
 				9B3BCC852272033400DC5D79 /* MultipleSelectionFormField.swift in Sources */,
 				6C2D3295228B0BFE009D4B0F /* EmeraldDateFieldError.swift in Sources */,
