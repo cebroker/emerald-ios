@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var formStackView: EmeraldStackView!
     
-    @IBOutlet weak var signatureBoxView: SignatureBoxView!
+    @IBOutlet weak var signatureBoxView: EmeraldSignatureBoxView!
     @IBOutlet weak var emeraldLabelByStory: EmeraldLabel!
     @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
