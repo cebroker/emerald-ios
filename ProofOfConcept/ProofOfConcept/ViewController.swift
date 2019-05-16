@@ -171,7 +171,8 @@ class ViewController: UIViewController {
         let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
         let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
         let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
-        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation
+        let signatureValidation = signatureBoxView.validateAndHandle()
+        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation
     }
     
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
