@@ -23,7 +23,11 @@ public class EmeraldSignatureView: UIView {
     let signatureIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named: "xIcon",
+                            in: Bundle(for: ClassBundle.self),
+                            compatibleWith: nil)?
+            .withRenderingMode(.alwaysTemplate)
+        imageView.image = image
         imageView.tintColor = EmeraldTheme.grayColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
