@@ -9,6 +9,8 @@
 @IBDesignable
 public class EmeraldSignatureView: UIView {
     
+    private var xIcon: UIImage?
+    
     let signatureView: EmeraldCanvasView = {
         let view = EmeraldCanvasView()
         view.contentMode = .scaleToFill
@@ -23,11 +25,6 @@ public class EmeraldSignatureView: UIView {
     let signatureIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "xIcon",
-                            in: Bundle(for: ClassBundle.self),
-                            compatibleWith: nil)?
-            .withRenderingMode(.alwaysTemplate)
-        imageView.image = image
         imageView.tintColor = EmeraldTheme.grayColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -70,13 +67,6 @@ public class EmeraldSignatureView: UIView {
     
     let closeButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: "xIcon",
-                            in: Bundle(for: ClassBundle.self),
-                            compatibleWith: nil)?
-            .withRenderingMode(.alwaysTemplate)
-        button.setImage(image, for: .normal)
-        button.setImage(image, for: .highlighted)
-        button.setImage(image, for: .selected)
         button.tintColor = EmeraldTheme.primaryColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -214,9 +204,27 @@ public class EmeraldSignatureView: UIView {
             .safeAreaLayoutGuide
             .bottomAnchor
             .constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        setupImages()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    private func setupImages() {
+        self.xIcon = UIImage(named: "xIcon",
+                             in: Bundle(for: ClassBundle.self),
+                             compatibleWith: nil)?
+            .withRenderingMode(.alwaysTemplate)
+        
+        guard let image = xIcon else {
+            return
+        }
+        
+        closeButton.setImage(image, for: .normal)
+        closeButton.setImage(image, for: .highlighted)
+        closeButton.setImage(image, for: .selected)
+        
+        signatureIcon.image = image
     }
 }
