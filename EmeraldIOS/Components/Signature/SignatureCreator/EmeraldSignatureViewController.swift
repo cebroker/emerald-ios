@@ -19,30 +19,12 @@ public class EmeraldSignatureViewController: UIViewController {
             ])
     }
     
-    @IBOutlet private weak var signatureIcon: UIImageView!
-    @IBOutlet private weak var doneButton: EmeraldButton!
-    @IBOutlet private weak var clearButton: EmeraldButton!
-    @IBOutlet private weak var closeButton: UIButton!
-    @IBOutlet private weak var subtitleLabel: EmeraldLabel!
-    @IBOutlet private weak var viewMargin: UIView!
-    @IBOutlet weak var signatureView: EmeraldCanvasView!
-    
+    private lazy var signatureXib = EmeraldSignatureView()
     open weak var signatureDelegate: SignatureReturnable?
-    open var tintColor = EmeraldTheme.primaryColor
-    open var subtitleText = "Sign Here"
     
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        let bundle = Bundle(for: EmeraldSignatureViewController.classForCoder())
-        super.init(nibName: "EmeraldSignatureView", bundle: bundle)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupView()
     }
     
     override open func didReceiveMemoryWarning() {
@@ -51,22 +33,20 @@ public class EmeraldSignatureViewController: UIViewController {
     
     // MARK: - Setup methods
     private func setupView() {
-        signatureIcon.image = #imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate)
-        signatureIcon.tintColor = EmeraldTheme.grayColor
-        closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .normal)
-        closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .highlighted)
-        closeButton.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .selected)
-        closeButton.tintColor = EmeraldTheme.primaryColor
-        closeButton.addTarget(self,
+        self.view.backgroundColor = EmeraldTheme.backgroundColor
+        self.view.addSubview(signatureXib)
+        
+        signatureXib.anchor(top: self.view.safeAreaLayoutGuide.topAnchor,
+                            left: self.view.safeAreaLayoutGuide.leftAnchor,
+                            bottom: self.view.safeAreaLayoutGuide.bottomAnchor,
+                            right: self.view.safeAreaLayoutGuide.rightAnchor)
+        
+        signatureXib.closeButton.addTarget(self,
                               action: #selector(onTouchCloseButton),
                               for: .touchUpInside)
         
-        signatureView.layer.borderColor = EmeraldTheme.borderColor.cgColor
-        signatureView.layer.borderWidth = Constants.Values.one
-        signatureView.layer.cornerRadius = EmeraldTheme.defaultElevatedViewCornerRadius
-        
-        clearButton.addTarget(self, action: #selector(onTouchClearButton), for: .touchUpInside)
-        doneButton.addTarget(self, action: #selector(onTouchDoneButton), for: .touchUpInside)
+        signatureXib.clearButton.addTarget(self, action: #selector(onTouchClearButton), for: .touchUpInside)
+        signatureXib.doneButton.addTarget(self, action: #selector(onTouchDoneButton), for: .touchUpInside)
     }
     
     private func showAlertConfirmation() {
@@ -92,7 +72,7 @@ public class EmeraldSignatureViewController: UIViewController {
     
     // MARK: - Button Actions
     @objc func onTouchCloseButton() {
-        if let _ = signatureView.getSignatureAsImage() {
+        if let _ = signatureXib.signatureView.getSignatureAsImage() {
             showAlertConfirmation()
         } else {
             signatureDelegate?.emeraldSignature?(
@@ -103,11 +83,11 @@ public class EmeraldSignatureViewController: UIViewController {
     }
 
     @objc func onTouchDoneButton() {
-        if let signature = signatureView.getSignatureAsImage() {
+        if let signature = signatureXib.signatureView.getSignatureAsImage() {
             signatureDelegate?.emeraldSignature?(
                 self,
                 didSign: signature,
-                boundingRect: signatureView.getSignatureBoundsInCanvas())
+                boundingRect: signatureXib.signatureView.getSignatureBoundsInCanvas())
             dismiss(animated: true, completion: nil)
         } else {
             showAlert("You did not sign", andTitle: "Please draw your signature")
@@ -115,6 +95,6 @@ public class EmeraldSignatureViewController: UIViewController {
     }
 
     @objc func onTouchClearButton() {
-        signatureView.clear()
+        signatureXib.signatureView.clear()
     }
 }
