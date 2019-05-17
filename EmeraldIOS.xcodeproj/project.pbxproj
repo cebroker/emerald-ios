@@ -220,6 +220,14 @@
 			path = DatePickerAlert;
 			sourceTree = "<group>";
 		};
+		6C2CCDD7228EE3A700181C25 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				6CAFFA1F228453CF00C690B9 /* EmeraldSignatureView.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
 		6C2D328A228AFDA5009D4B0F /* TextDependantField */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */,
-				6CAFFA1F228453CF00C690B9 /* EmeraldSignatureView.xib */,
 				6CAFFA1B2283462100C690B9 /* CanvasView.swift */,
 				6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */,
 			);
@@ -473,6 +480,7 @@
 		9BF263252270B69D004AD6F7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6C2CCDD7228EE3A700181C25 /* Xibs */,
 				9BF2633D2270E745004AD6F7 /* Images */,
 				9BF2633C2270B6C4004AD6F7 /* Fonts */,
 			);
