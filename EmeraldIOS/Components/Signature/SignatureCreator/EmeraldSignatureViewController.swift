@@ -30,7 +30,16 @@ public class EmeraldSignatureViewController: UIViewController {
     open weak var signatureDelegate: SignatureReturnable?
     open var tintColor = EmeraldTheme.primaryColor
     open var subtitleText = "Sign Here"
-
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        let bundle = Bundle(for: EmeraldSignatureViewController.classForCoder())
+        super.init(nibName: "EmeraldSignatureView", bundle: bundle)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -38,17 +47,6 @@ public class EmeraldSignatureViewController: UIViewController {
     
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    // MARK: - Initializers
-    public init(signatureDelegate: SignatureReturnable) {
-        self.signatureDelegate = signatureDelegate
-        let bundle = Bundle(for: EmeraldSignatureViewController.classForCoder())
-        super.init(nibName: "EmeraldSignatureView", bundle: bundle)
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
     // MARK: - Setup methods
