@@ -1,4 +1,5 @@
 Pod::Spec.new do |spec|
+  spec.resources = 'Resources/Images/*.png'
   spec.resource_bundles  = { "Resources" => ["Resources/Fonts/*.ttf", "Resources/Images/*.png"] }
   spec.name                 = "EmeraldIOS"
   spec.version              = "0.1.3"
