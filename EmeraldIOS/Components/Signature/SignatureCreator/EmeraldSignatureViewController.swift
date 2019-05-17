@@ -43,7 +43,7 @@ public class EmeraldSignatureViewController: UIViewController {
     // MARK: - Initializers
     public init(signatureDelegate: SignatureReturnable) {
         self.signatureDelegate = signatureDelegate
-        let bundle = Bundle(for: EmeraldSignatureViewController.self)
+        let bundle = Bundle(for: EmeraldSignatureViewController.classForCoder())
         super.init(nibName: "EmeraldSignatureView", bundle: bundle)
     }
 
