@@ -230,7 +230,8 @@ public class EmeraldSignatureBoxView: UIView, EmeraldSignatureBoxViewType {
     }
     
     @objc func goToSignatureView() {
-        let signatureViewController = EmeraldSignatureViewController(signatureDelegate: self)
+        let signatureViewController = EmeraldSignatureViewController()
+        signatureViewController.signatureDelegate = self
         delegate?.present(signatureViewController,
                          animated: true,
                          completion: nil)
