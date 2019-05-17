@@ -70,9 +70,13 @@ public class EmeraldSignatureView: UIView {
     
     let closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .normal)
-        button.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .highlighted)
-        button.setImage(#imageLiteral(resourceName: "xIcon.png").withRenderingMode(.alwaysTemplate), for: .selected)
+        let image = UIImage(named: "xIcon",
+                            in: Bundle(for: ClassBundle.self),
+                            compatibleWith: nil)?
+            .withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.setImage(image, for: .highlighted)
+        button.setImage(image, for: .selected)
         button.tintColor = EmeraldTheme.primaryColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
