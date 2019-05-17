@@ -212,8 +212,8 @@ public class EmeraldSignatureView: UIView {
     }
     
     private func setupImages() {
-        self.xIcon = UIImage(named: "xIcon.png",
-                             in: Bundle(for: EmeraldSignatureView.self),
+        self.xIcon = UIImage(named: "xIconAsset",
+                             in: Bundle(identifier: "io.condorlabs.EmeraldIOS"),
                              compatibleWith: nil)?
             .withRenderingMode(.alwaysTemplate)
         
