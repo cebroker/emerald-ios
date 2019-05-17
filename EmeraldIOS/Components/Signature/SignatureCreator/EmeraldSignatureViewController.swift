@@ -32,7 +32,8 @@ public class EmeraldSignatureViewController: UIViewController {
     open var subtitleText = "Sign Here"
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: "EmeraldSignatureView", bundle: nibBundleOrNil)
+        let bundle = Bundle(for: EmeraldSignatureViewController.classForCoder())
+        super.init(nibName: "EmeraldSignatureView", bundle: bundle)
     }
     
     required public init?(coder aDecoder: NSCoder) {
