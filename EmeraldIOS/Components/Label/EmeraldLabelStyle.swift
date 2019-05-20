@@ -9,15 +9,18 @@
 import UIKit
 
 public enum EmeraldLabelStyle: String, Inspectable {
-
+    case largeHeader
     case mainTitle
     case subtitle
     case body
     case tableHeader
+    case link
     case custom
     
     var textColor: UIColor? {
         switch self {
+        case .largeHeader:
+            return EmeraldTheme.textColor
         case .mainTitle:
             return EmeraldTheme.textColor
         case .subtitle:
@@ -26,6 +29,8 @@ public enum EmeraldLabelStyle: String, Inspectable {
             return EmeraldTheme.textColor
         case .tableHeader:
             return EmeraldTheme.textColor
+        case .link:
+            return EmeraldTheme.primaryColor
         default:
             return nil
         }
@@ -33,6 +38,8 @@ public enum EmeraldLabelStyle: String, Inspectable {
     
     var font: UIFont? {
         switch self {
+        case .largeHeader:
+            return Font(size: .h1, weight: .semibold).uiFont
         case .mainTitle:
             return Font(size: .h3, weight: .semibold).uiFont
         case .subtitle:
@@ -41,6 +48,8 @@ public enum EmeraldLabelStyle: String, Inspectable {
             return Font(size: .h4, weight: .regular).uiFont
         case .tableHeader:
             return Font(size: .tableHeader, weight: .semibold).uiFont
+        case .link:
+            return Font(size: .h2, weight: .bold).uiFont
         default:
             return nil
         }
