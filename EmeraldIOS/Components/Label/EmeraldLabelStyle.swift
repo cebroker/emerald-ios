@@ -34,13 +34,13 @@ public enum EmeraldLabelStyle: String, Inspectable {
     var font: UIFont? {
         switch self {
         case .mainTitle:
-            return Font(size: .h3, weight: .regular).uiFont
+            return Font(size: .h3, weight: .semibold).uiFont
         case .subtitle:
-            return Font(size: .h4, weight: .regular).uiFont
+            return Font(size: .h4, weight: .semibold).uiFont
         case .body:
             return Font(size: .h4, weight: .regular).uiFont
         case .tableHeader:
-            return Font(size: .tableHeader, weight: .bold).uiFont
+            return Font(size: .tableHeader, weight: .semibold).uiFont
         default:
             return nil
         }
