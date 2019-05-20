@@ -49,7 +49,7 @@ public enum EmeraldLabelStyle: String, Inspectable {
         case .tableHeader:
             return Font(size: .tableHeader, weight: .semibold).uiFont
         case .link:
-            return Font(size: .h2, weight: .bold).uiFont
+            return Font(size: .h3, weight: .bold).uiFont
         default:
             return nil
         }
