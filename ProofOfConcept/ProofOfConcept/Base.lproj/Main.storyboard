@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="778"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="EmeraldStackView" customModule="EmeraldIOS">
-                                                <rect key="frame" x="37.5" y="20" width="299" height="498.5"/>
+                                                <rect key="frame" x="37.5" y="20" width="299" height="425"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV6-cl-gbd" customClass="EmeraldLabel" customModule="EmeraldIOS">
                                                         <rect key="frame" x="0.0" y="0.0" width="299" height="30"/>
@@ -36,10 +36,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="custom"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeColor" value="primary"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeFontSize" value="h1"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeFontWeight" value="bold"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="mainTitle"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-eS-81u" customClass="EmeraldTextField" customModule="EmeraldIOS">
@@ -127,7 +124,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBv-QR-ky7" customClass="EmeraldSelectorField" customModule="EmeraldIOS">
-                                                        <rect key="frame" x="0.0" y="356" width="299" height="73.5"/>
+                                                        <rect key="frame" x="0.0" y="356" width="299" height="0.0"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Antioquia"/>
@@ -136,7 +133,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-jJ-wYo" customClass="EmeraldButton" customModule="EmeraldIOS">
-                                                        <rect key="frame" x="0.0" y="449.5" width="299" height="49"/>
+                                                        <rect key="frame" x="0.0" y="376" width="299" height="49"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="49" id="cvJ-6d-zYc"/>
                                                         </constraints>
@@ -150,8 +147,8 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-WA-g0C" customClass="EmeraldSignatureBoxView" customModule="EmeraldIOS">
-                                                <rect key="frame" x="38" y="553" width="299" height="128"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-WA-g0C" customClass="EmeraldSignatureBoxView" customModule="EmeraldIOS">
+                                                <rect key="frame" x="37.5" y="455" width="299" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="F5f-BV-hOY"/>
                                                 </constraints>

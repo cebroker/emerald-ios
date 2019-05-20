@@ -45,7 +45,7 @@ public enum FontSize: String, Inspectable {
         case .h2:
             return 24
         case .h3:
-            return 16
+            return 18
         case .h4:
             return 14
         case .h5:
