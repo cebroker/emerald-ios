@@ -77,7 +77,14 @@ public extension TextFormatter {
     }
     
     private func formatShortDate(with resource: String) -> String {
-        return ""
+        let numbersOnly = getNumbersOnlyForDateFormat(with: resource)
+        
+        return numbersOnly.reduce(Constants.Values.empty) { (result, individualNumber) in
+            if result.count == Constants.TextFormating.dateFirstSeparatorIndex {
+                return result + Constants.Values.slash + String(individualNumber)
+            }
+            return result + String(individualNumber)
+        }
     }
     
     private func formatDate(with resource: String) -> String {
