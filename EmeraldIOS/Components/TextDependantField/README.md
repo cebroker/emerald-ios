@@ -11,11 +11,11 @@
 
 ## Usage
 
-`EmeraldTextDependantField` is a subclass of EmeraldTextField, but with a `EmeraldTextDependantFieldType` protocol so it can be validated from a `[String]`. All the date fields have their own validation method, for example:
+`EmeraldTextDependantField` is a subclass of EmeraldTextField, but with a `EmeraldTextDependantFieldType` protocol so it can be validated from a `[String]`. All the fields have their own validation method, for example:
 
 #### Swift
 ```swift
-let validationResult = emeraldDateFieldByStory.validateAndHandle()
+let validationResult = emeraldDependantFieldByStory.validateAndHandle()
 return validationResult
 ```
 ### Typical use
