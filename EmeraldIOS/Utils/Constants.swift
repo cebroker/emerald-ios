@@ -33,8 +33,12 @@ struct Constants {
         static let npi = "^[0-9]{10}$"
         static let phone = "^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}$"
         static let zip = "^[0-9]{5}$"
-        static let email = "^[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])*$"
+        static let visa = "^[A-Z0-9a-z]*$"
+        static let email = "^[a-zA-Z0-9!#$%&'*+=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])*$"
         static let any = "(.*?)"
+        static let upperCased = "[A-Z]"
+        static let lowerCased = "[a-z]"
+        static let numbers = "[0-9]"
     }
 
     struct TextFormating {

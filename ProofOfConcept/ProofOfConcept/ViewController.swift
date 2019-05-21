@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
     @IBOutlet weak var emeraldStartDateFieldByStory: EmeraldDateField!
+    @IBOutlet weak var emeraldRegexFieldByStory: EmeraldRegexTextField!
     private var organizationName: EmeraldTextFieldType?
     
     private var address: EmeraldTextFieldType?
@@ -44,9 +45,7 @@ class ViewController: UIViewController {
     private var zip: EmeraldTextFieldType?
     private var contactName: EmeraldTextFieldType?
     private var membershipDuesAmount: EmeraldTextFieldType?
-    //    private var dueDateForDues: DateFormField?
     private var amountPaid: EmeraldTextFieldType?
-    //    private var paymentDate: DateFormField?
     
     private var formButton: EmeraldButton?
     
@@ -73,6 +72,7 @@ class ViewController: UIViewController {
         emeraldSelectorByStory.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+        emeraldRegexFieldByStory.set(inputType: .emailAddress)
         emeraldSelectorByStory.set(notifiable: self)
         emeraldEndDateFieldByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.set(notifiable: self)
@@ -120,30 +120,11 @@ class ViewController: UIViewController {
         state?.set(hint: "Antioquia")
         state?.set(isRequired: true)
         
-        //        zip = formStackView.createTextFormField(placeholder: "Zip")
-        //        zip?.set(maxLength: 5)
-        //        zip?.set(format: .number)
-        //        zip?.set(inputType: .numberPad)
-        //        zip?.set(hint: "12345")
-        //
-        //        contactName = formStackView.createTextFormField(placeholder: "Contact name")
-        //        contactName?.set(hint: "John Doe")
-        //
-        //        membershipDuesAmount = formStackView.createTextFormField(placeholder: "Membership dues")
-        //        membershipDuesAmount?.set(format: .currency)
-        //        membershipDuesAmount?.set(hint: "$ 1234")
-        //
-        ////        dueDateForDues = formStackView.createDateFormField(placeholder: "Due date for dues")
-        ////        dueDateForDues?.set(hint: "MM/dd/yyyy")
-        
         amountPaid = formStackView.createEmeraldTextField(placeholder: "Amount paid")
         amountPaid?.set(format: .currency)
         amountPaid?.set(isRequired: true)
         amountPaid?.set(hint: "$ 1234")
         
-        ////        paymentDate = formStackView.createDateFormField(placeholder: "Payment date")
-        ////        paymentDate?.set(hint: "MM/dd/yyyy")
-        //
         //        for i in 0..<1 {
         //            let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
         //            contactName?.set(hint: "John Doe")
@@ -172,7 +153,8 @@ class ViewController: UIViewController {
         let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
         let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
         let signatureValidation = signatureBoxView.validateAndHandle()
-        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation
+        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
+        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation
     }
     
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
