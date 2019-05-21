@@ -47,6 +47,9 @@ Emerald UI for iOS Apps
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextDependantField">TextDependantField</a></li>
   </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextField/RegexField">RegexTextField</a></li>
+  </ul>
 
 ### CocoaPods
 
