@@ -68,7 +68,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     var placeholderLeadingConstraint: NSLayoutConstraint!
     
     public override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 58.0)
+        return CGSize(width: UIView.noIntrinsicMetric, height: 50.0)
     }
     
     private struct InnerConstants {
@@ -81,7 +81,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         static let frameOriginFieldOn = CGPoint(x: 10, y: 10)
         static let maximumDoubleLength = 10
         static let maximumDateLength = 10
-        static let initialDownConstant: CGFloat = 0
+        static let maximumShortDateLength = 7
         static let yUpConstant: CGFloat = -15
         static let leadingUpConstant: CGFloat = -33
         static let bounds: CGFloat = 10
@@ -247,8 +247,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
             self.set(inputType: .decimalPad)
         case .number:
             self.set(inputType: .numberPad)
-        case .date:
+        case .longDate:
             self.set(maxLength: InnerConstants.maximumDateLength)
+            self.set(inputType: .numberPad)
+        case .shortDate:
+            self.set(maxLength: InnerConstants.maximumShortDateLength)
             self.set(inputType: .numberPad)
         default:
             self.set(inputType: .asciiCapable)

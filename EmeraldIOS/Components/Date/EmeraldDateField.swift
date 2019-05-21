@@ -28,6 +28,7 @@ public protocol EmeraldDateFieldTestableType {
     func set(hour: Int, minute: Int)
 }
 
+@IBDesignable
 public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDateFieldTestableType {
     
     private var selectedDate: Date?
@@ -121,7 +122,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     public func getDate(from string: String) -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.DateFormat.defaultFormat
+        dateFormatter.dateFormat = getFormat() == TextFormat.longDate ? Constants.DateFormat.defaultFormat : Constants.DateFormat.shortFormat
         dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
         return dateFormatter.date(from: string)
     }
@@ -172,7 +173,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     }
     
     private func configureDateField() {
-        self.set(format: .date)
+        self.set(format: self.getFormat())
     }
     
     private func addCalendarIcon() {
@@ -222,7 +223,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     private func setupDefaultDateFormat() {
         dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
         dateFormatter.timeZone = TimeZone(abbreviation: Constants.DateFormat.defaultTimeZone)
-        dateFormatter.dateFormat = Constants.DateFormat.defaultFormat
+        dateFormatter.dateFormat = getFormat() == TextFormat.longDate ? Constants.DateFormat.defaultFormat : Constants.DateFormat.shortFormat
     }
     
     private func getDateFrom(
@@ -260,7 +261,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     @objc private func openDatePicker() {
         self.textFieldDidEndEditing(self)
         self.textFieldDidBeginEditing(self)
-        let datePicker = EmeraldDatePickerAlert()
+        let datePicker: EmeraldDatePickerAlertType = getFormat() == TextFormat.longDate ? EmeraldDatePickerAlert() : EmeraldShortDatePickerAlert()
         
         if let minimumDate = self.minimumDate {
             datePicker.set(minimumDate: minimumDate)
@@ -274,7 +275,10 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
             datePicker.set(currentDateValue: currentDate)
         }
         
-        datePicker.show(self.placeHolder ?? Constants.Values.empty) { [unowned self] date in
+        datePicker.show(title: self.placeHolder ?? Constants.Values.empty,
+                        doneButtonTitle: "Done",
+                        cancelButtonTitle: "Cancel",
+                        datePickerMode: .date) { [unowned self] date in
             guard let date = date else {
                 self.textFieldDidEndEditing(self)
                 return

@@ -36,12 +36,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
     @IBOutlet weak var emeraldStartDateFieldByStory: EmeraldDateField!
     @IBOutlet weak var emeraldRegexFieldByStory: EmeraldRegexTextField!
-    private var organizationName: EmeraldTextFieldType?
+    @IBOutlet weak var emeraldTextViewByStory: EmeraldTextViewField!
     
+    private var organizationName: EmeraldTextFieldType?
     private var address: EmeraldTextFieldType?
     private var city: EmeraldTextDependantField?
     private var state: EmeraldSelectorFieldType?
-    
     private var zip: EmeraldTextFieldType?
     private var contactName: EmeraldTextFieldType?
     private var membershipDuesAmount: EmeraldTextFieldType?

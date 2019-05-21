@@ -13,7 +13,8 @@ public enum TextFormat: Int {
     case currency
     case phone
     case number
-    case date
+    case shortDate
+    case longDate
 }
 
 public enum TextFormatterError: Error {
@@ -36,7 +37,9 @@ public extension TextFormatter {
             return formatCurrency(resource: resource)
         case .phone:
             return formatResource(phoneNumber: resource)
-        case .date:
+        case .shortDate:
+            return formatShortDate(with: resource)
+        case .longDate:
             return formatDate(with: resource)
         default:
             return resource
@@ -71,6 +74,10 @@ public extension TextFormatter {
             }
             return result + String(individualNumber)
         }
+    }
+    
+    private func formatShortDate(with resource: String) -> String {
+        return ""
     }
     
     private func formatDate(with resource: String) -> String {

@@ -1,12 +1,12 @@
 //
-//  EmeraldTextFieldStyle.swift
+//  EmeraldTextViewFieldStyle.swift
 //  EmeraldIOS
 //
-//  Created by Genesis Sanguino on 5/6/19.
+//  Created by Genesis Sanguino on 5/21/19.
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public enum EmeraldTextFieldStyle: String, Inspectable {
+public enum EmeraldTextViewFieldStyle: String, Inspectable {
     case formField
     
     var textColor: UIColor? {
@@ -59,3 +59,4 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
         self.init(stringValue: IBInspectable)
     }
 }
+

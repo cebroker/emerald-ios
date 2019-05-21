@@ -12,6 +12,11 @@ public protocol EmeraldDatePickerAlertType {
     func set(minimumDate: Date)
     func set(maximumDate: Date)
     func set(currentDateValue: Date)
+    func show(title: String,
+              doneButtonTitle: String,
+              cancelButtonTitle: String,
+              datePickerMode: UIDatePicker.Mode,
+              callback: @escaping (Date?) -> Void)
 }
 
 public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
@@ -20,10 +25,10 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
     
     // MARK: - Constants
     struct InnerConstants {
-        static let kDefaultButtonHeight: CGFloat = 50
-        static let kDefaultButtonSpacerHeight: CGFloat = 1
-        static let kCornerRadius: CGFloat = 7
-        static let kDoneButtonTag: Int = 1
+        static let defaultButtonHeight: CGFloat = 50
+        static let defaultButtonSpacerHeight: CGFloat = 1
+        static let cornerRadius: CGFloat = 7
+        static let doneButtonTag: Int = 1
     }
     
     // MARK: - Views
@@ -87,7 +92,7 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
         let screenSize = UIScreen.main.bounds.size
         let dialogSize = CGSize(
             width: 300,
-            height: 230 + InnerConstants.kDefaultButtonHeight + InnerConstants.kDefaultButtonSpacerHeight)
+            height: 230 + InnerConstants.defaultButtonHeight + InnerConstants.defaultButtonSpacerHeight)
         
         self.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
         
@@ -102,7 +107,7 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
                            UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1).cgColor,
                            UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).cgColor]
         
-        let cornerRadius = InnerConstants.kCornerRadius
+        let cornerRadius = InnerConstants.cornerRadius
         gradient.cornerRadius = cornerRadius
         container.layer.insertSublayer(gradient, at: 0)
         
@@ -117,11 +122,11 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
                                                   cornerRadius: container.layer.cornerRadius).cgPath
         
         // There is a line above the button
-        let yPosition = container.bounds.size.height - InnerConstants.kDefaultButtonHeight - InnerConstants.kDefaultButtonSpacerHeight
+        let yPosition = container.bounds.size.height - InnerConstants.defaultButtonHeight - InnerConstants.defaultButtonSpacerHeight
         let lineView = UIView(frame: CGRect(x: 0,
                                             y: yPosition,
                                             width: container.bounds.size.width,
-                                            height: InnerConstants.kDefaultButtonSpacerHeight))
+                                            height: InnerConstants.defaultButtonSpacerHeight))
         lineView.backgroundColor = UIColor(red: 198/255, green: 198/255, blue: 198/255, alpha: 1)
         container.addSubview(lineView)
         
@@ -151,24 +156,24 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
         
         var leftButtonFrame = CGRect(
             x: 0,
-            y: container.bounds.size.height - InnerConstants.kDefaultButtonHeight,
+            y: container.bounds.size.height - InnerConstants.defaultButtonHeight,
             width: buttonWidth,
-            height: InnerConstants.kDefaultButtonHeight
+            height: InnerConstants.defaultButtonHeight
         )
         var rightButtonFrame = CGRect(
             x: buttonWidth,
-            y: container.bounds.size.height - InnerConstants.kDefaultButtonHeight,
+            y: container.bounds.size.height - InnerConstants.defaultButtonHeight,
             width: buttonWidth,
-            height: InnerConstants.kDefaultButtonHeight
+            height: InnerConstants.defaultButtonHeight
         )
         if showCancelButton == false {
             buttonWidth = container.bounds.size.width
             leftButtonFrame = CGRect()
             rightButtonFrame = CGRect(
                 x: 0,
-                y: container.bounds.size.height - InnerConstants.kDefaultButtonHeight,
+                y: container.bounds.size.height - InnerConstants.defaultButtonHeight,
                 width: buttonWidth,
-                height: InnerConstants.kDefaultButtonHeight
+                height: InnerConstants.defaultButtonHeight
             )
         }
         let interfaceLayoutDirection = UIApplication.shared.userInterfaceLayoutDirection
@@ -180,23 +185,23 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
             self.cancelButton.setTitleColor(EmeraldTheme.primaryColor, for: .normal)
             self.cancelButton.setTitleColor(EmeraldTheme.primaryColor, for: .highlighted)
             self.cancelButton.titleLabel!.font = Font(size: FontSize.body, weight: FontWeight.regular).uiFont
-            self.cancelButton.layer.cornerRadius = InnerConstants.kCornerRadius
+            self.cancelButton.layer.cornerRadius = InnerConstants.cornerRadius
             self.cancelButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             container.addSubview(self.cancelButton)
         }
         self.doneButton = UIButton(type: .custom) as UIButton
         self.doneButton.frame = isLeftToRightDirection ? rightButtonFrame : leftButtonFrame
-        self.doneButton.tag = InnerConstants.kDoneButtonTag
+        self.doneButton.tag = InnerConstants.doneButtonTag
         self.doneButton.setTitleColor(EmeraldTheme.primaryColor, for: .normal)
         self.doneButton.setTitleColor(EmeraldTheme.primaryColor, for: .highlighted)
         self.doneButton.titleLabel!.font = Font(size: FontSize.body, weight: FontWeight.regular).uiFont
-        self.doneButton.layer.cornerRadius = InnerConstants.kCornerRadius
+        self.doneButton.layer.cornerRadius = InnerConstants.cornerRadius
         self.doneButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         container.addSubview(self.doneButton)
     }
     
     @objc func buttonTapped(sender: UIButton!) {
-        if sender.tag == InnerConstants.kDoneButtonTag {
+        if sender.tag == InnerConstants.doneButtonTag {
             self.callback?(self.datePicker.date)
         } else {
             self.callback?(nil)
@@ -204,10 +209,10 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
         close()
     }
     
-    open func show(_ title: String,
-                   doneButtonTitle: String = "Done",
-                   cancelButtonTitle: String = "Cancel",
-                   datePickerMode: UIDatePicker.Mode = .date,
+    open func show(title: String,
+                   doneButtonTitle: String,
+                   cancelButtonTitle: String,
+                   datePickerMode: UIDatePicker.Mode,
                    callback: @escaping DatePickerCallback) {
         self.titleLabel.text = title
         self.doneButton.setTitle(doneButtonTitle, for: .normal)
@@ -266,4 +271,3 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
         }
     }
 }
-

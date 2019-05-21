@@ -98,9 +98,15 @@ struct Constants {
     }
 
     struct DateFormat {
+        static let backend = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        static let shortFormat = "MM/yyyy"
         static let defaultFormat = "MM/dd/yyyy"
+        static let hyphenDateFormat = "MM-dd-yyyy"
+        static let yyyyMMdd = "yyyy-MM-dd"
         static let defaultLocale = "en_US_POSIX"
         static let defaultTimeZone = "GMT+0:00"
+        static let monthLocalizedDateFormat = "MMMM"
+        static let yeardLocalizedDateFormat = "y"
     }
 
     struct Dimens {
