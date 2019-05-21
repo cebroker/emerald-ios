@@ -69,12 +69,12 @@ extension EmeraldStackView: EmeraldStackViewConfigurable {
         defaultSetup(textFormField: field, with: placeholder)
         return field
     }
-//
-//    public func createTextRegexFormField(placeholder: String) -> TextRegexFormField? {
-//        let field = TextRegexFormField()
-//        defaultSetup(textFormField: field, with: placeholder)
-//        return field
-//    }
+
+    public func createEmeraldRegexFormField(placeholder: String) -> EmeraldRegexTextField? {
+        let field = EmeraldRegexTextField()
+        defaultSetup(textFormField: field, with: placeholder)
+        return field
+    }
     
     public func createEmeraldTextField(placeholder: String) -> EmeraldTextField? {
         let field = EmeraldTextField()
