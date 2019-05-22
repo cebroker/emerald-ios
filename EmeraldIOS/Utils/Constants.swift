@@ -26,6 +26,10 @@ struct Constants {
         public func getSelectableText() -> String {
             return name
         }
+        
+        public func getSelectableId() -> Int {
+            return id
+        }
     }
 
     struct Regex {
@@ -162,5 +166,9 @@ class EducationType: Selectable {
 
     func getSelectableText() -> String {
         return self.type
+    }
+    
+    func getSelectableId() -> Int {
+        return 0
     }
 }

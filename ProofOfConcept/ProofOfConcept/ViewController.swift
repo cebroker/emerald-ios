@@ -21,6 +21,10 @@ class State: Selectable {
     func getSelectableText() -> String {
         return name
     }
+    
+    func getSelectableId() -> Int {
+        return 0
+    }
 }
 
 class ViewController: UIViewController {
@@ -76,11 +80,11 @@ class ViewController: UIViewController {
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
-        emeraldMultipleSelectorByStory.set(data: [State(name: "Uno", cities: [String]()),
-                                                  State(name: "Dos", cities: [String]()),
-                                                  State(name: "Tres", cities: [String]()),
-                                                  State(name: "Cuatro", cities: [String]()),
-                                                  State(name: "Cinco", cities: [String]())])
+        emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
+                                                  MultipleSelectionGroupItem(title: "Dos"),
+                                                  MultipleSelectionGroupItem(title: "Tres"),
+                                                  MultipleSelectionGroupItem(title: "Cuatro"),
+                                                  MultipleSelectionGroupItem(title: "Cinco")])
         emeraldRegexFieldByStory.set(inputType: .emailAddress)
         emeraldSelectorByStory.set(notifiable: self)
         emeraldEndDateFieldByStory.set(notifiable: self)
@@ -172,7 +176,7 @@ class ViewController: UIViewController {
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
         formStackView.areFieldsValid()
         let selectedChildren = emeraldMultipleSelectorByStory.getData().map {
-            State(name: $0.getTitle(), cities: [])
+            MultipleSelectionGroupItem(title: $0.getTitle())
         }
         print(selectedChildren)
     }
