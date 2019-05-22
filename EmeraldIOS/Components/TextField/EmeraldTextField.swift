@@ -64,8 +64,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     }
     
     let placeholderLabel: UILabel = UILabel()
-    var placeholderYAnchorConstraint: NSLayoutConstraint!
-    var placeholderLeadingConstraint: NSLayoutConstraint!
     
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 50.0)
@@ -74,20 +72,21 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     private struct InnerConstants {
         static let middleFontSize: CGFloat = FontSize.h5.cgFontSize
         static let maximumFontSize: CGFloat = FontSize.body.cgFontSize
-        static let placeHolderLabelSize: CGFloat = FontSize.body.cgFontSize * 1.5
+        static let placeHolderLabelSize: CGFloat = FontSize.h3.cgFontSize * 1.3
         static let animationDuration: Double = 0.15
         static let delay: Double = 0.0
-        static var frameOriginFieldOff = CGPoint(x: 10, y: FontSize.body.cgFontSize * 1.3)
-        static let frameOriginFieldOn = CGPoint(x: 10, y: 10)
+        static var frameOriginFieldOff = CGPoint(x: 10, y: FontSize.h5.cgFontSize * 1.3)
+        static let frameOriginFieldOn = CGPoint(x: 10, y: 7)
         static let maximumDoubleLength = 10
         static let maximumDateLength = 10
         static let maximumShortDateLength = 7
         static let yUpConstant: CGFloat = -15
-        static let leadingUpConstant: CGFloat = -33
+        static let leadingUpConstant: CGFloat = -43
         static let bounds: CGFloat = 10
         struct Padding {
             static let left: CGFloat = 10
             static let right: CGFloat = 10
+            static let top: CGFloat = 10
         }
     }
     
@@ -107,17 +106,18 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         super.prepareForInterfaceBuilder()
         applyTheme()
         self.delegate = self
+        self.setupPlaceholderTheme(
+            font: Constants.Design.font,
+            fontSize: InnerConstants.maximumFontSize,
+            labelHeight: InnerConstants.placeHolderLabelSize,
+            color: EmeraldTheme.borderColor)
+        self.addSubview(placeholderLabel)
         self.setupPlaceholderLabelConstraints()
     }
     
     override public func didMoveToWindow() {
         super.didMoveToWindow()
         self.prepareForInterfaceBuilder()
-        self.setupPlaceholderTheme(
-            font: Constants.Design.font,
-            fontSize: InnerConstants.maximumFontSize,
-            labelHeight: InnerConstants.placeHolderLabelSize,
-            color: EmeraldTheme.borderColor)
     }
     
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -348,24 +348,19 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     private func setupPlaceholderLabelConstraints() {
         self.contentVerticalAlignment = .bottom
-        self.addSubview(placeholderLabel)
-        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        placeholderYAnchorConstraint = placeholderLabel
+        placeholderLabel
             .centerYAnchor
-            .constraint(equalTo: self.centerYAnchor)
-
-        placeholderLeadingConstraint = placeholderLabel
-            .leadingAnchor
             .constraint(
-                equalTo: self.leadingAnchor,
+                equalTo: self.centerYAnchor)
+            .isActive = true
+        
+        placeholderLabel
+            .leftAnchor
+            .constraint(
+                equalTo: self.leftAnchor,
                 constant: InnerConstants.Padding.left)
-
-        NSLayoutConstraint.activate([
-            placeholderYAnchorConstraint,
-            placeholderLeadingConstraint
-        ])
-
+            .isActive = true
+        
         placeholderLabel
             .rightAnchor
             .constraint(
@@ -379,65 +374,43 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         fontSize: CGFloat,
         labelHeight: CGFloat,
         color: UIColor) {
-        DispatchQueue.main.async {
-            self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
-            self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
-            self.placeholderLabel.font = UIFont.init(name: font, size: fontSize)
-        }
+        self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
+        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
+        self.placeholderLabel.font = UIFont.init(name: font, size: fontSize)
+        self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+        self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
     }
     
     private func movePlaceholderUp() {
         let reducerScale: CGFloat = InnerConstants.middleFontSize / InnerConstants.maximumFontSize
-        
-        DispatchQueue.main.async {
-            UIView.animate(
-                withDuration: InnerConstants.animationDuration,
-                delay: InnerConstants.delay,
-                options: [],
-                animations: {
-                    self.placeholderLabel.transform =
-                        CGAffineTransform(
-                            scaleX: reducerScale,
-                            y: reducerScale)
-                    self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOn
-                    
-                    self.placeholderYAnchorConstraint.isActive = false
-                    self.placeholderYAnchorConstraint.constant = InnerConstants.yUpConstant
-                    self.placeholderYAnchorConstraint.isActive = true
-                    
-                    self.placeholderLeadingConstraint.isActive = false
-                    self.placeholderLeadingConstraint.constant = InnerConstants.leadingUpConstant
-                    self.placeholderLeadingConstraint.isActive = true
-                    
-            },
-                completion: { _ in
-                    self.placeholder = self.hint
-            })
-        }
+        UIView.animate(
+            withDuration: InnerConstants.animationDuration,
+            delay: InnerConstants.delay,
+            options: [],
+            animations: {
+                self.placeholderLabel.transform = CGAffineTransform(
+                    scaleX: reducerScale,
+                    y: reducerScale)
+                self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOn
+                self.layoutIfNeeded()
+        },
+            completion: { _ in
+                self.placeholder = self.hint
+        })
     }
     
     private func movePlaceholderDown() {
-        DispatchQueue.main.async {
-            self.placeholder = nil
-            UIView.animate(
-                withDuration: InnerConstants.animationDuration,
-                delay: InnerConstants.delay,
-                options: [],
-                animations: {
-                    
-                    self.placeholderLabel.transform =
-                        CGAffineTransform.identity
-                    self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
-                    
-                    self.placeholderYAnchorConstraint.isActive = false
-                    self.placeholderYAnchorConstraint.constant = 0
-                    self.placeholderYAnchorConstraint.isActive = true
-                    
-                    self.placeholderLeadingConstraint.isActive = false
-                    self.placeholderLeadingConstraint.constant = InnerConstants.Padding.left
-                    self.placeholderLeadingConstraint.isActive = true
-            },
-                completion: { _ in })
-        }
+        self.placeholder = nil
+        UIView.animate(
+            withDuration: InnerConstants.animationDuration,
+            delay: InnerConstants.delay,
+            options: [],
+            animations: {
+                
+                self.placeholderLabel.transform =
+                    CGAffineTransform.identity
+                self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+        },
+            completion: { _ in })
     }
 }
