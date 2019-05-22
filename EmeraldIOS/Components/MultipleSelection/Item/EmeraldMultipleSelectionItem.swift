@@ -28,7 +28,7 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
         struct Button {
             static let frameButtonHeighRatio: CGFloat = 1.0 / 5.0
             static let frameButtonOriginRatio: CGFloat = 1.0 / 5.0
-            static let animationDuration: CGFloat = 0.2
+            static let animationDuration: CGFloat = 0.13
         }
         struct Label {
             static let origin: CGFloat = 0
@@ -49,8 +49,8 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
             }
         }
         struct Border {
-            static let cornerRadius = 6.0
-            static let borderWidth = 1.5
+            static let cornerRadius = EmeraldTheme.defaultCornerRadius
+            static let borderWidth = EmeraldTheme.defaultBorderWidth
             static let zeroWidth = 0.0
             static let borderColor = EmeraldTheme.primaryColor.cgColor
         }
@@ -186,7 +186,7 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
         self.button?.offAnimationType = .fade
         self.button?.onCheckColor = .white
         self.button?.onTintColor = EmeraldTheme.primaryColor
-        self.button?.onFillColor = InnerConstants.Colors.blue
+        self.button?.onFillColor = EmeraldTheme.primaryColor
         
         self.button?.setContentHuggingPriority(UILayoutPriority(2), for: NSLayoutConstraint.Axis.horizontal)
         

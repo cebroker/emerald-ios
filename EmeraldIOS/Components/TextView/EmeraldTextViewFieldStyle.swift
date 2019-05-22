@@ -19,7 +19,7 @@ public enum EmeraldTextViewFieldStyle: String, Inspectable {
     var font: UIFont? {
         switch self {
         case .formField:
-            return Font(size: .h4, weight: .regular).uiFont
+            return Font(size: .h4, weight: .semibold).uiFont
         }
     }
     

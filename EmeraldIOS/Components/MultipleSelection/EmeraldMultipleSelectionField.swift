@@ -58,7 +58,7 @@ public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectio
     
     private var individualItemFrame: CGRect?
     var notifiable: SingleItemChangeNotifiable?
-    private var errorLabel: UILabel?
+    private var errorLabel: EmeraldLabel?
     private var childrenHaveBorder: Bool = false
     
     public override init(frame: CGRect) {
@@ -196,14 +196,15 @@ public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectio
             return
         }
         
-        self.errorLabel = UILabel()
+        self.errorLabel = EmeraldLabel()
         
         guard let errorLabel = self.errorLabel else {
             return
         }
         
+        errorLabel.themeStyle = EmeraldLabelStyle.subtitle.rawValue
         errorLabel.text = error.description
-        errorLabel.textColor = UIColor.red
+        errorLabel.textColor = EmeraldTheme.redColor
         self.addArrangedSubview(errorLabel)
     }
     

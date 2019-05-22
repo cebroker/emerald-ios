@@ -106,11 +106,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         super.prepareForInterfaceBuilder()
         applyTheme()
         self.delegate = self
-        self.setupPlaceholderTheme(
-            font: Constants.Design.font,
-            fontSize: InnerConstants.maximumFontSize,
-            labelHeight: InnerConstants.placeHolderLabelSize,
-            color: EmeraldTheme.borderColor)
         self.addSubview(placeholderLabel)
         self.setupPlaceholderLabelConstraints()
     }
@@ -143,6 +138,10 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         layer.borderWidth = style.borderWidth
         layer.borderColor = style.borderColor
         layer.cornerRadius = style.cornerRadius
+        
+        self.setupPlaceholderTheme(
+            labelHeight: InnerConstants.placeHolderLabelSize,
+            color: EmeraldTheme.borderColor)
     }
     
     public func textField(
@@ -370,13 +369,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     }
     
     private func setupPlaceholderTheme(
-        font: String,
-        fontSize: CGFloat,
         labelHeight: CGFloat,
         color: UIColor) {
+        let style = EmeraldTextFieldStyle(IBInspectable: themeStyle)
         self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
         self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
-        self.placeholderLabel.font = UIFont.init(name: font, size: fontSize)
+        self.placeholderLabel.font = style.font
         self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
         self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
     }

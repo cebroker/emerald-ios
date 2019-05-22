@@ -46,20 +46,13 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
         }
     }
     
-    let placeholderLabel: UILabel = UILabel()
-    var placeholderYAnchorConstraint: NSLayoutConstraint!
-    var placeholderLeadingConstraint: NSLayoutConstraint!
-    
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 50.0)
     }
     
     private struct InnerConstants {
-        static let middleFontSize: CGFloat = FontSize.h5.cgFontSize
-        static let maximumFontSize: CGFloat = FontSize.body.cgFontSize
-        static let placeHolderLabelSize: CGFloat = FontSize.body.cgFontSize * 1.5
-        static let boundsX: CGFloat = 10
-        static let boundsY: CGFloat = 15
+        static let boundsX: CGFloat = 5
+        static let boundsY: CGFloat = 10
     }
     
     private var initialPlaceHolder: String?
@@ -83,23 +76,16 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
             right: InnerConstants.boundsX)
         applyTheme()
         self.delegate = self
-        self.setupPlaceholderLabelConstraints()
     }
     
     override public func didMoveToWindow() {
         super.didMoveToWindow()
         self.prepareForInterfaceBuilder()
-        self.setupPlaceholderTheme(
-            font: Constants.Design.font,
-            fontSize: InnerConstants.maximumFontSize,
-            labelHeight: InnerConstants.placeHolderLabelSize,
-            color: EmeraldTheme.borderColor)
     }
     
     open func applyTheme() {
         let style = EmeraldTextViewFieldStyle(IBInspectable: themeStyle)
         self.autocapitalizationType = .sentences
-        textColor = style.textColor
         font = style.font
         tintColor = style.tintColor
         layer.borderWidth = style.borderWidth
@@ -125,8 +111,8 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
     
     public func set(placeholder: String?) {
         self.initialPlaceHolder = placeholder
-        self.placeholderLabel.text = placeholder
-        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
+        self.text = placeholder
+        self.textColor = EmeraldTheme.placeholderColor
     }
     
     public func getPlaceholder() -> String? {
@@ -190,14 +176,10 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
     }
     
     public func show(error: FormFieldErrorType) {
-        self.placeholderLabel.text = error.description
-        self.placeholderLabel.textColor = EmeraldTheme.redColor
         self.layer.borderColor = EmeraldTheme.redColor.cgColor
     }
     
     public func clearError() {
-        self.placeholderLabel.text = self.initialPlaceHolder
-        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
         self.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
     
@@ -206,7 +188,9 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
     }
     
     func validateContent() -> Result<Bool, Error> {
-        guard let text = self.text, !text.isEmpty else {
+        guard let text = self.text,
+            !text.isEmpty,
+            text != getPlaceholder() else {
             return .failure(FormFieldError.emptyField)
         }
         
@@ -221,47 +205,23 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
     private func deactivateField() {
         self.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
-    
-    private func setupPlaceholderLabelConstraints() {
-        let headerView = UIView()
-        headerView.backgroundColor = .red
-        headerView.addSubview(placeholderLabel)
-        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        placeholderLabel.anchor(top: headerView.topAnchor,
-                                left: headerView.leftAnchor,
-                                bottom: headerView.bottomAnchor,
-                                right: headerView.rightAnchor)
-        
-        self.addSubview(headerView)
-        headerView.anchor(top: self.topAnchor,
-                          left: self.leftAnchor,
-                          bottom: nil,
-                          right: self.rightAnchor)
-        
-        headerView
-            .heightAnchor
-            .constraint(equalToConstant: 20).isActive = true
-    }
-    
-    private func setupPlaceholderTheme(
-        font: String,
-        fontSize: CGFloat,
-        labelHeight: CGFloat,
-        color: UIColor) {
-        DispatchQueue.main.async {
-            self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
-            self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
-            self.placeholderLabel.font = UIFont.init(name: font, size: fontSize)
-        }
-    }
 }
 
 extension EmeraldTextViewField: UITextViewDelegate {
     public func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == self.getPlaceholder() {
+            textView.text = nil
+        }
+        
+        textView.textColor = EmeraldTheme.textColor
         activateField()
     }
     
     public func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == nil || textView.text.isEmpty {
+            textView.text = self.getPlaceholder()
+            textView.textColor = EmeraldTheme.placeholderColor
+        }
         deactivateField()
     }
 }
