@@ -36,7 +36,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
     @IBOutlet weak var emeraldStartDateFieldByStory: EmeraldDateField!
     @IBOutlet weak var emeraldRegexFieldByStory: EmeraldRegexTextField!
-    @IBOutlet weak var emeraldTextViewByStory: EmeraldTextViewField!
+    @IBOutlet weak var emeraldMultipleSelectorByStory: EmeraldRadioGroupFormField!
+    @IBOutlet weak var emeraldTextView: UITextView!
     
     private var organizationName: EmeraldTextFieldType?
     private var address: EmeraldTextFieldType?
@@ -67,15 +68,28 @@ class ViewController: UIViewController {
     }
     
     private func createStoryBoardFields() {
+        signatureBoxView.isUserInteractionEnabled = true
         signatureBoxView.delegate = self
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
         emeraldSelectorByStory.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+        emeraldMultipleSelectorByStory.enable(innerBorder: true)
+        emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
+        emeraldMultipleSelectorByStory.set(data: [State(name: "Uno", cities: [String]()),
+                                                  State(name: "Dos", cities: [String]()),
+                                                  State(name: "Tres", cities: [String]()),
+                                                  State(name: "Cuatro", cities: [String]()),
+                                                  State(name: "Cinco", cities: [String]())])
         emeraldRegexFieldByStory.set(inputType: .emailAddress)
         emeraldSelectorByStory.set(notifiable: self)
         emeraldEndDateFieldByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.set(notifiable: self)
+        emeraldTextView.delegate = self
+        emeraldTextView.layer.cornerRadius = EmeraldTheme.defaultCornerRadius
+        emeraldTextView.layer.borderColor = EmeraldTheme.primaryColor.cgColor
+        emeraldTextView.layer.borderWidth = EmeraldTheme.defaultBorderWidth
+        emeraldTextView.textColor = EmeraldTheme.placeholderColor
     }
     
     private func createFields() {
@@ -154,11 +168,16 @@ class ViewController: UIViewController {
         let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
         let signatureValidation = signatureBoxView.validateAndHandle()
         let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
-        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation
+        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
+        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation
     }
     
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
         formStackView.areFieldsValid()
+        let selectedChildren = emeraldMultipleSelectorByStory.getData().map {
+            State(name: $0.getTitle(), cities: [])
+        }
+        print(selectedChildren)
     }
 }
 
@@ -223,6 +242,23 @@ extension ViewController: EmeraldDateFieldChangeNotifiable {
             endDate.set(minimumDate: minimunDate)
         default:
             break
+        }
+    }
+}
+
+extension ViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Placeholder" {
+            textView.text = nil
+        }
+        
+        textView.textColor = EmeraldTheme.textColor
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == nil || textView.text.isEmpty {
+            textView.text = "Placeholder"
+            textView.textColor = EmeraldTheme.placeholderColor
         }
     }
 }

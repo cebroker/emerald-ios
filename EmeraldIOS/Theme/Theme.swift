@@ -63,4 +63,6 @@ public class EmeraldTheme {
     
     // MARK: Border Defaults
     public static let defaultBorderWidth: CGFloat = 1
+    public static let simpleBorderWidth: CGFloat = 0
+    public static let selectableBorderWidth: CGFloat = 2
 }
