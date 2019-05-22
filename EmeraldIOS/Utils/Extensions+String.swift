@@ -8,7 +8,7 @@
 
 public extension String {
     
-    func toDate(dateFormat format: String) -> Date {
+    func toDateFormat(with format: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
@@ -21,11 +21,7 @@ public extension String {
         return Date()
     }
     
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).uppercased() + self.lowercased().dropFirst()
-    }
-    
-    func toAutomatedDate() -> Date {
+    func toDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"

@@ -7,7 +7,7 @@
 //
 
 public extension Date {
-    func toString(with format: String) -> String {
+    func toStringFormatted(with format: String) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: Constants.Values.localIdentifier)
         formatter.timeZone = TimeZone(abbreviation: Constants.DateFormat.defaultTimeZone)

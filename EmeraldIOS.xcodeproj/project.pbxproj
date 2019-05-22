@@ -43,7 +43,6 @@
 		6CD5842A22948324001DE8D2 /* EmeraldShortDatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842922948324001DE8D2 /* EmeraldShortDatePickerAlert.swift */; };
 		6CD5842C229496CB001DE8D2 /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842B229496CB001DE8D2 /* Extensions+String.swift */; };
 		6CD5842E22949783001DE8D2 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842D22949783001DE8D2 /* Extensions+Date.swift */; };
-		6CD584302294A45D001DE8D2 /* EmeraldRadioGroupField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842F2294A45D001DE8D2 /* EmeraldRadioGroupField.swift */; };
 		6CD584322294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584312294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift */; };
 		6CD584342294A542001DE8D2 /* EmeraldMultipleSelectionItemContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584332294A542001DE8D2 /* EmeraldMultipleSelectionItemContract.swift */; };
 		6CD584362294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584352294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift */; };
@@ -137,7 +136,6 @@
 		6CD5842922948324001DE8D2 /* EmeraldShortDatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldShortDatePickerAlert.swift; sourceTree = "<group>"; };
 		6CD5842B229496CB001DE8D2 /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
 		6CD5842D22949783001DE8D2 /* Extensions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Date.swift"; sourceTree = "<group>"; };
-		6CD5842F2294A45D001DE8D2 /* EmeraldRadioGroupField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRadioGroupField.swift; sourceTree = "<group>"; };
 		6CD584312294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionItem.swift; sourceTree = "<group>"; };
 		6CD584332294A542001DE8D2 /* EmeraldMultipleSelectionItemContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionItemContract.swift; sourceTree = "<group>"; };
 		6CD584352294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionField.swift; sourceTree = "<group>"; };
@@ -413,7 +411,6 @@
 			isa = PBXGroup;
 			children = (
 				9B3BCC4E2272033400DC5D79 /* EmeraldRadioGroupFormField.swift */,
-				6CD5842F2294A45D001DE8D2 /* EmeraldRadioGroupField.swift */,
 			);
 			path = RadioGroup;
 			sourceTree = "<group>";
@@ -767,7 +764,6 @@
 				6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */,
 				9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */,
 				6C2D328E228B0378009D4B0F /* EmeraldTextDependantFieldError.swift in Sources */,
-				6CD584302294A45D001DE8D2 /* EmeraldRadioGroupField.swift in Sources */,
 				6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */,
 				6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */,
 				6CD584322294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift in Sources */,

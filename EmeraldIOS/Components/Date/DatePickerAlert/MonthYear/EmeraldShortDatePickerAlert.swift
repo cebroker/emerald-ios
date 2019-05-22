@@ -102,7 +102,7 @@ public class EmeraldShortDatePickerAlert: UIView, EmeraldDatePickerAlertType {
                              inComponent: Component.year.rawValue,
                              animated: animated)
         
-        let currenDate = "\(month+1)/\(year+1)".toAutomatedDate().toString(with: Constants.DateFormat.shortFormat)
+        let currenDate = "\(month+1)/\(year+1)".toDate().toStringFormatted(with: Constants.DateFormat.shortFormat)
         
         self.selectedDate = SelectedValue(
             value: currenDate,
@@ -110,7 +110,7 @@ public class EmeraldShortDatePickerAlert: UIView, EmeraldDatePickerAlertType {
     }
     
     private func getDate(_ date: SelectedValue?) -> Date? {
-        return date?.value.toAutomatedDate()
+        return date?.value.toDate()
     }
     
     private func setupView() {
@@ -330,8 +330,8 @@ extension EmeraldShortDatePickerAlert: UIPickerViewDelegate {
         let monthselected = String(monthRange.lowerBound + pickerView.selectedRow(inComponent: Component.month.rawValue))
         
         let dateSelected = "\(monthselected)/\(yeardSelected)"
-            .toAutomatedDate()
-            .toString(with: Constants.DateFormat.shortFormat)
+            .toDate()
+            .toStringFormatted(with: Constants.DateFormat.shortFormat)
         
         selectedDate = SelectedValue(value: dateSelected,
                                      id: row)
