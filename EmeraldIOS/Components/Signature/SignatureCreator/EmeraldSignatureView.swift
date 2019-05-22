@@ -204,6 +204,11 @@ public class EmeraldSignatureView: UIView {
             .safeAreaLayoutGuide
             .bottomAnchor
             .constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        buttonsStack.anchor(top: <#T##NSLayoutYAxisAnchor?#>,
+                            left: <#T##NSLayoutXAxisAnchor?#>,
+                            bottom: <#T##NSLayoutYAxisAnchor?#>,
+                            right: <#T##NSLayoutXAxisAnchor?#>)
         setupImages()
     }
     

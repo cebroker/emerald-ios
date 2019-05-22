@@ -51,6 +51,7 @@ public class EmeraldTheme {
     public static let mainNavigationTintColor = whiteColor
     public static let mainNavigationBarTintColor = #colorLiteral(red: 0.05490196078, green: 0.2705882353, blue: 0.4862745098, alpha: 1)
     public static let skeletonBackgroundColor = #colorLiteral(red: 0.7450980392, green: 0.7764705882, blue: 0.7764705882, alpha: 1)
+    public static let pagerBackgroundColor = #colorLiteral(red: 0.9019607843, green: 0.937254902, blue: 0.9529411765, alpha: 1)
     public static let progressCompletedColor = greenColor
     public static let progressNotCompletedColor = warningColor
     public static let elevatedViewPrimaryColor = #colorLiteral(red: 0.7921568627, green: 0.7921568627, blue: 0.8549019608, alpha: 1)
