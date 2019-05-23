@@ -387,6 +387,9 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         } else {
             self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
             self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
+        }
+        
+        if initialPlaceHolder == nil {
             self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
             self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
         }
