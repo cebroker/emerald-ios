@@ -386,12 +386,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
             self.placeholderLabel.textColor = EmeraldTheme.errorColor
         } else {
             self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
+            self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
+            self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+            self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
         }
         
-        self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
         self.placeholderLabel.font = style.font
-        self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
-        self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
     }
     
     private func movePlaceholderUp() {
