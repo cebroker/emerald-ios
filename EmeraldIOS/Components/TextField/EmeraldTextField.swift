@@ -139,12 +139,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         tintColor = style.tintColor
         layer.borderWidth = style.borderWidth
         layer.cornerRadius = style.cornerRadius
-        
-        if isErrored {
-            layer.borderColor = EmeraldTheme.errorColor.cgColor
-        } else {
-            layer.borderColor = style.borderColor
-        }
+        layer.borderColor = style.borderColor
         
         self.setupPlaceholderTheme(
             labelHeight: InnerConstants.placeHolderLabelSize,
