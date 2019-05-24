@@ -356,25 +356,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     private func setupPlaceholderLabelConstraints() {
         self.contentVerticalAlignment = .bottom
-        placeholderLabel
-            .centerYAnchor
-            .constraint(
-                equalTo: self.centerYAnchor)
-            .isActive = true
-        
-        placeholderLabel
-            .leftAnchor
-            .constraint(
-                equalTo: self.leftAnchor,
-                constant: InnerConstants.Padding.left)
-            .isActive = true
-        
-        placeholderLabel
-            .rightAnchor
-            .constraint(
-                equalTo: self.rightAnchor,
-                constant: InnerConstants.Padding.right)
-            .isActive = true
     }
     
     private func setupPlaceholderTheme(
