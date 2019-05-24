@@ -111,6 +111,9 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
+        if isErrored {
+            let _ = self.validateAndHandle()
+        }
         applyTheme()
         self.delegate = self
         self.addSubview(placeholderLabel)
@@ -139,7 +142,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         tintColor = style.tintColor
         layer.borderWidth = style.borderWidth
         layer.cornerRadius = style.cornerRadius
-        layer.borderColor = style.borderColor
+        
+        if isErrored {
+            layer.borderColor = EmeraldTheme.errorColor.cgColor
+        } else {
+            layer.borderColor = style.borderColor
+        }
         
         self.setupPlaceholderTheme(
             labelHeight: InnerConstants.placeHolderLabelSize,
