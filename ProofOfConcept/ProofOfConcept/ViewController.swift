@@ -58,7 +58,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.createHideKeyboardGesture()
 //        self.createFields()
-        self.createStoryBoardFields()
+//        self.createStoryBoardFields()
+        let bar = EmeraldSegmentedBar(titles: ["TASKS", "MY POSITIONS"])
+        bar.titlesAppearence = {
+            return SegmentedTitleAppearance.default()
+        }
+        bar.appearance = {
+            return EmeraldSegmentedBarAppearance(backgroundColor: EmeraldTheme.secondaryColor,
+                                                 selectionBarColor: EmeraldTheme.greenColor)
+        }
+        view.addSubview(bar)
+        bar.translatesAutoresizingMaskIntoConstraints = false
+        bar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        bar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        bar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        bar.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
     }
     
     private func createHideKeyboardGesture() {
@@ -90,9 +104,11 @@ class ViewController: UIViewController {
         emeraldEndDateFieldByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.set(notifiable: self)
         emeraldTextView.set(placeholder: "Description")
+        
     }
     
     private func createFields() {
+        
         let mainTitle = formStackView.createLabel()
         mainTitle?.themeStyle = EmeraldLabelStyle.mainTitle.rawValue
         mainTitle?.text = "Main title"
