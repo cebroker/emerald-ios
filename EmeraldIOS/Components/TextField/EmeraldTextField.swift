@@ -90,11 +90,13 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         }
     }
     
+    private var isErrored: Bool = false
     private var initialPlaceHolder: String?
     private var innerFormat: TextFormat = .none
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        prepareForInterfaceBuilder()
     }
     
     override public init(frame: CGRect) {
@@ -102,7 +104,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         prepareForInterfaceBuilder()
     }
     
-    override public func prepareForInterfaceBuilder() {
+    override public func didMoveToWindow() {
+        super.didMoveToWindow()
+        prepareForInterfaceBuilder()
+    }
+    
+    public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         applyTheme()
         self.delegate = self
@@ -110,16 +117,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         self.setupPlaceholderLabelConstraints()
     }
     
-    override public func didMoveToWindow() {
-        super.didMoveToWindow()
-        self.prepareForInterfaceBuilder()
-    }
-    
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: InnerConstants.bounds,
                               dy: InnerConstants.bounds)
     }
-
+    
     override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         return textRect(forBounds: bounds)
     }
@@ -128,7 +130,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         textField.resignFirstResponder()
         return true
     }
-
+    
     open func applyTheme() {
         let style = EmeraldTextFieldStyle(IBInspectable: themeStyle)
         self.autocapitalizationType = .sentences
@@ -136,8 +138,13 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         font = style.font
         tintColor = style.tintColor
         layer.borderWidth = style.borderWidth
-        layer.borderColor = style.borderColor
         layer.cornerRadius = style.cornerRadius
+        
+        if isErrored {
+            layer.borderColor = EmeraldTheme.errorColor.cgColor
+        } else {
+            layer.borderColor = style.borderColor
+        }
         
         self.setupPlaceholderTheme(
             labelHeight: InnerConstants.placeHolderLabelSize,
@@ -189,7 +196,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     public func set(inputType: UIKeyboardType) {
         self.keyboardType = inputType
     }
-
+    
     public func getInputType() -> UIKeyboardType? {
         return self.keyboardType
     }
@@ -300,12 +307,14 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     }
     
     public func show(error: FormFieldErrorType) {
+        self.isErrored = true
         self.placeholderLabel.text = error.description
         self.placeholderLabel.textColor = EmeraldTheme.redColor
         self.layer.borderColor = EmeraldTheme.redColor.cgColor
     }
     
     public func clearError() {
+        self.isErrored = false
         self.placeholderLabel.text = self.initialPlaceHolder
         self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
         self.layer.borderColor = EmeraldTheme.borderColor.cgColor
@@ -372,11 +381,20 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         labelHeight: CGFloat,
         color: UIColor) {
         let style = EmeraldTextFieldStyle(IBInspectable: themeStyle)
-        self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
-        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
+        
+        if isErrored {
+            self.placeholderLabel.textColor = EmeraldTheme.errorColor
+        } else {
+            self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
+            self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
+        }
+        
+        if initialPlaceHolder == nil {
+            self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+            self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
+        }
+        
         self.placeholderLabel.font = style.font
-        self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
-        self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
     }
     
     private func movePlaceholderUp() {
