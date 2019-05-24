@@ -38,3 +38,16 @@ Also can be created inside our custom EmeraldStackView as:
 
 ## Usage from storyboard
 <p align="center"><img src="/Resources/Images/EmeraldDateFieldFromStoryBoard.png" /></p>
+
+You can also set a `Format` with a Int value from this enum cases:
+#### Swift
+```swift
+ enum TextFormat: Int {
+    case none = 0
+    case currency
+    case phone
+    case number
+    case shortDate
+    case longDate
+}
+```
