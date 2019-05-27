@@ -11,7 +11,7 @@ public protocol Selectable: class {
 }
 
 public class MultipleSelectionGroupItem: Selectable {
-    public let title: String
+    public var title: String
     
     public init(title: String) {
         self.title = title
