@@ -19,11 +19,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bQ-Gw-1eB" customClass="EmeraldSegmentedBar" customModule="EmeraldIOS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="S6C-OK-ron"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="segments">
+                                        <string key="value">GROUP 1
+GROUP 2</string>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">
+                                <rect key="frame" x="0.0" y="165" width="414" height="609"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="EmeraldStackView" customModule="EmeraldIOS">
-                                        <rect key="frame" x="20.5" y="30" width="373" height="15264"/>
+                                        <rect key="frame" x="20.5" y="30" width="373" height="965362.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV6-cl-gbd" customClass="EmeraldLabel" customModule="EmeraldIOS">
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
@@ -144,7 +157,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBv-QR-ky7" customClass="EmeraldSelectorField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="432.5" width="373" height="14634"/>
+                                                <rect key="frame" x="0.0" y="432.5" width="373" height="964732.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56.5" id="cmG-wF-iqZ"/>
@@ -156,14 +169,14 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0ZC-ej-HLY" customClass="EmeraldCheckboxFormField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="15086.5" width="373" height="88.5"/>
+                                                <rect key="frame" x="0.0" y="965185" width="373" height="88.5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="bordered"/>
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-JT-Fff" customClass="EmeraldTextViewField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="15195" width="373" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="965293.5" width="373" height="0.0"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="ixD-xF-gQQ"/>
@@ -176,7 +189,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-jJ-wYo" customClass="EmeraldButton" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="15215" width="373" height="49"/>
+                                                <rect key="frame" x="0.0" y="965313.5" width="373" height="49"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="cvJ-6d-zYc"/>
                                                 </constraints>
@@ -191,7 +204,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-WA-g0C" customClass="EmeraldSignatureBoxView" customModule="EmeraldIOS">
-                                        <rect key="frame" x="20.5" y="15344" width="373" height="100"/>
+                                        <rect key="frame" x="20.5" y="965442.5" width="373" height="100"/>
                                         <color key="backgroundColor" name="whiteColor"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="YES"/>
@@ -217,10 +230,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mBN-35-axl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8Tj-yy-8XS"/>
+                            <constraint firstItem="5bQ-Gw-1eB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="28d-A8-AVU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5bQ-Gw-1eB" secondAttribute="trailing" id="BzZ-PB-pQL"/>
+                            <constraint firstItem="5bQ-Gw-1eB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DBA-5n-bMW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mBN-35-axl" secondAttribute="trailing" id="SEL-4c-fUp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mBN-35-axl" secondAttribute="bottom" id="TzH-J8-eFd"/>
                             <constraint firstItem="mBN-35-axl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gCX-u3-xmh"/>
+                            <constraint firstItem="mBN-35-axl" firstAttribute="top" secondItem="5bQ-Gw-1eB" secondAttribute="bottom" id="hiC-dy-v6E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

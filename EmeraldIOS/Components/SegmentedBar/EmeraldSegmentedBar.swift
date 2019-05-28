@@ -8,14 +8,38 @@
 
 import UIKit
 
-protocol EmeraldSegmentedBarActionable: class {
-    func segmentedBar(_ bar: EmeraldSegmentedBar, didTappedItemAt index: Int, with title: String)
+public protocol EmeraldSegmentedBarActionable: class {
+    func segmentedBar(_ bar: EmeraldSegmentedBar, didTapItemAt index: Int, with title: String)
 }
 
 @IBDesignable
 public class EmeraldSegmentedBar: UIView {
     
-    lazy var collectionView: UICollectionView = {
+    @IBInspectable public var segments: String = "" {
+        didSet {
+            titles = segments.split(separator: "\n").map { String($0) }
+        }
+    }
+    
+    @IBInspectable public var isSelectionBarHidden: Bool = false {
+        didSet {
+            horizontalBarView.isHidden = isSelectionBarHidden
+        }
+    }
+    
+    @IBInspectable public var themeStyle: String = EmeralSegmentedBarStyle.primary.IBInspectable {
+        didSet {
+            applyTheme()
+        }
+    }
+    
+    public var selectedItemIndex: Int {
+        return _selectedItemIndex
+    }
+    
+    public weak var delegate: EmeraldSegmentedBarActionable?
+    
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -29,41 +53,9 @@ public class EmeraldSegmentedBar: UIView {
         return view
     }()
     
-    let cellId = "cellId"
-    
-    public var titles: [String]!
-    
-    public var isSelectionBarHidden = false {
-        didSet {
-            horizontalBarView.isHidden = isSelectionBarHidden
-        }
-    }
-    
-    public var selectedItemIndex: Int {
-        return _selectedItemIndex
-    }
-    
-    public var titlesAppearence: (() -> SegmentedTitleAppearance)? = nil {
-        didSet {
-            guard let app = titlesAppearence else { return }
-            EmeraldSegmentedBarItemCell.defaultTheme = app()
-        }
-    }
-    
-    public var appearance: (() -> EmeraldSegmentedBarAppearance)? {
-        didSet {
-            guard let app = appearance else {
-                return
-            }
-            _theme = app()
-            collectionView.backgroundColor = _theme.backgroundColor
-            horizontalBarView.backgroundColor = _theme.selectionBarColor
-        }
-    }
-    
-    private var _theme: EmeraldSegmentedBarAppearance!
+    private let cellTitleId = "cellTitleId"
+    private var titles: [String] = [""]
     private var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
-    weak var delegate: EmeraldSegmentedBarActionable?
     private var _selectedItemIndex = 0
     
     private var desiredHorizontalBarLeftPosition: CGFloat {
@@ -71,25 +63,47 @@ public class EmeraldSegmentedBar: UIView {
     }
     
     public init(titles: [String]) {
-        if titles.count < 1 {
+        if titles.isEmpty {
             fatalError("There must be at least one element")
         }
         self.titles = titles
-        _theme = EmeraldSegmentedBarAppearance(backgroundColor: .green,
-                                               selectionBarColor: .brown)
         super.init(frame: .zero)
         initialize()
+    }
+    
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        initialize()
+        applyTheme()
+    }
+    
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        applyTheme()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    internal override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     private func initialize() {
         setupCollectionView()
         setupSelectionBar()
+        applyTheme()
+        if titles.isEmpty { return }
         let selectedIndexPath = IndexPath(row: 0, section: 0)
         collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .left)
     }
     
-    internal override init(frame: CGRect) {
-        super.init(frame: frame)
+    open func applyTheme() {
+        let style = EmeralSegmentedBarStyle(IBInspectable: themeStyle)
+        collectionView.backgroundColor = style.backgroundColor
+        horizontalBarView.backgroundColor = style.selectionBarColor
+        EmeraldSegmentedBarItemCell.defaultTheme = style.titlesStyle
     }
     
     private func setupSelectionBar() {
@@ -99,7 +113,7 @@ public class EmeraldSegmentedBar: UIView {
     
     private func setupCollectionView() {
         addSubview(collectionView)
-        collectionView.register(EmeraldSegmentedBarItemCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(EmeraldSegmentedBarItemCell.self, forCellWithReuseIdentifier: cellTitleId)
         collectionConstraints()
     }
     
@@ -127,15 +141,11 @@ public class EmeraldSegmentedBar: UIView {
             self.layoutIfNeeded()
         }, completion: nil)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
 
 extension EmeraldSegmentedBar: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? EmeraldSegmentedBarItemCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellTitleId, for: indexPath) as? EmeraldSegmentedBarItemCell else {
             fatalError()
         }
         cell.setTitle(titles[indexPath.row])
@@ -158,6 +168,6 @@ extension EmeraldSegmentedBar: UICollectionViewDataSource, UICollectionViewDeleg
 extension EmeraldSegmentedBar: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.moveSelectionBar(to: indexPath.row)
-        self.delegate?.segmentedBar(self, didTappedItemAt: indexPath.row, with: titles[indexPath.row])
+        self.delegate?.segmentedBar(self, didTapItemAt: indexPath.row, with: titles[indexPath.row])
     }
 }

@@ -8,17 +8,39 @@
 
 import UIKit
 
-public struct SegmentedTitleAppearance {
-    let fontWhenHighlighted: UIFont
-    let fontWhenSelected: UIFont
-    let colorWhenHighlighted: UIColor
-    let colorWhenSelected: UIColor
+public enum SegmentedTitleStyle: String, Inspectable {
+    case primary
     
-    public static func `default`() -> SegmentedTitleAppearance {
-        return SegmentedTitleAppearance(fontWhenHighlighted: Font(size: .h4, weight: .regular).uiFont,
-                                        fontWhenSelected: Font(size: .h4, weight: .regular).uiFont,
-                                        colorWhenHighlighted: EmeraldTheme.extraLightTextColor,
-                                        colorWhenSelected: EmeraldTheme.whiteColor)
+    var fontWhenHighlighted: UIFont {
+        switch self {
+        case .primary:
+            return Font(size: .h4, weight: .regular).uiFont
+        }
+    }
+    var fontWhenSelected: UIFont {
+        switch self {
+        case .primary:
+            return Font(size: .h4, weight: .regular).uiFont
+        }
+    }
+    var colorWhenHighlighted: UIColor {
+        switch self {
+        case .primary:
+            return EmeraldTheme.extraLightTextColor
+        }
+    }
+    var colorWhenSelected: UIColor {
+        switch self {
+        case .primary:
+            return EmeraldTheme.whiteColor
+        }
+    }
+    
+    var IBInspectable: String {
+        return rawValue
+    }
+    
+    init(IBInspectable: String) {
+        self.init(stringValue: IBInspectable)
     }
 }
-

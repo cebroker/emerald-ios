@@ -58,21 +58,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.createHideKeyboardGesture()
 //        self.createFields()
-//        self.createStoryBoardFields()
-        let bar = EmeraldSegmentedBar(titles: ["TASKS", "MY POSITIONS"])
-        bar.titlesAppearence = {
-            return SegmentedTitleAppearance.default()
-        }
-        bar.appearance = {
-            return EmeraldSegmentedBarAppearance(backgroundColor: EmeraldTheme.secondaryColor,
-                                                 selectionBarColor: EmeraldTheme.greenColor)
-        }
-        view.addSubview(bar)
-        bar.translatesAutoresizingMaskIntoConstraints = false
-        bar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        bar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        bar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        bar.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        self.createStoryBoardFields()
     }
     
     private func createHideKeyboardGesture() {

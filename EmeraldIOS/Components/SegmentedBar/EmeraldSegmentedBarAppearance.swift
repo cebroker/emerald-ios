@@ -8,12 +8,35 @@
 
 import UIKit
 
-public struct EmeraldSegmentedBarAppearance {
-    var backgroundColor: UIColor
-    var selectionBarColor: UIColor
+public enum EmeralSegmentedBarStyle: String, Inspectable {
+    case primary
     
-    public init(backgroundColor: UIColor, selectionBarColor: UIColor) {
-        self.backgroundColor = backgroundColor
-        self.selectionBarColor = selectionBarColor
+    var backgroundColor: UIColor {
+        switch self {
+        case .primary:
+            return EmeraldTheme.secondaryColor
+        }
+    }
+    
+    var selectionBarColor: UIColor {
+        switch self {
+        case .primary:
+            return EmeraldTheme.greenColor
+        }
+    }
+    
+    var titlesStyle: SegmentedTitleStyle {
+        switch self {
+        case .primary:
+            return .primary
+        }
+    }
+    
+    var IBInspectable: String {
+        return rawValue
+    }
+    
+    init(IBInspectable: String) {
+        self.init(stringValue: IBInspectable)
     }
 }

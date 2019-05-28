@@ -10,7 +10,7 @@ import UIKit
 
 class EmeraldSegmentedBarItemCell: EmeraldSegmentedBarBaseCell {
     
-    static var defaultTheme = SegmentedTitleAppearance.default()
+    static var defaultTheme = SegmentedTitleStyle.primary
     
     override var isHighlighted: Bool {
         didSet {
