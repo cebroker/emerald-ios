@@ -65,7 +65,7 @@ public enum FontSize: String, Inspectable {
         case .label:
             return UIFont.labelFontSize
         case .tableHeader:
-            return 14
+            return 17
         }
     }
     

@@ -28,7 +28,7 @@ public enum EmeraldLabelStyle: String, Inspectable {
         case .body:
             return EmeraldTheme.textColor
         case .tableHeader:
-            return EmeraldTheme.textColor
+            return EmeraldTheme.darkTextColor
         case .link:
             return EmeraldTheme.primaryColor
         default:
