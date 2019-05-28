@@ -49,7 +49,7 @@ segmentedBar?.themeStyle = EmeralSegmentedBarStyle.primary.rawValue
 ## Usage from storyboard
 <p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/SegmentedBarFromStoryboard.png" /></p>
 
-To set the segmented titles, just add the titles separating by break lines  in `Segments` property as at the screenshot above.
+To set the segmented titles, just add the titles separating by break lines  in `Segments` property as appears at the screenshot above.
 
 To set a theme style, you only need to set the `Theme Style` for the style you want. All the `EmeralSegmentedBarStyle` are:
 
