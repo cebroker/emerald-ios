@@ -358,13 +358,6 @@
 			path = DayMonthYear;
 			sourceTree = "<group>";
 		};
-		86AC4DDB2295FE0600728FBA /* SegmentedPager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SegmentedPager;
-			sourceTree = "<group>";
-		};
 		86AC4DE022974E1C00728FBA /* SegmentedBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				86AC4DE022974E1C00728FBA /* SegmentedBar */,
-				86AC4DDB2295FE0600728FBA /* SegmentedPager */,
 				6CD5842122945A51001DE8D2 /* TextView */,
 				9B3BCC702272033400DC5D79 /* FormStack */,
 				6C2D328F228B0B94009D4B0F /* Date */,
