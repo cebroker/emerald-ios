@@ -6,12 +6,12 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public protocol Selectable: class {
+public protocol Selectable {
     func getSelectableText() -> String
 }
 
-public class MultipleSelectionGroupItem: Selectable {
-    public let title: String
+public struct MultipleSelectionGroupItem: Selectable {
+    public var title: String
     
     public init(title: String) {
         self.title = title

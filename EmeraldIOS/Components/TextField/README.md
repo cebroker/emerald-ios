@@ -57,5 +57,7 @@ You can also set a `Format` with a Int value from this enum cases:
     case currency
     case phone
     case number
+    case shortDate
+    case longDate
 }
 ```

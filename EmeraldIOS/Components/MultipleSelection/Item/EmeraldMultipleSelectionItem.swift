@@ -11,6 +11,7 @@ public protocol EmeraldMultipleSelectionItemType: class {
     func set(status: Bool)
     func getStatus() -> Bool
     func getTitle() -> String
+    func setTitle(with newValue: String)
     func set(notifiable: SingleItemChangeNotifiable)
     func setPadding(top: CGFloat,
                     left: CGFloat,
@@ -93,6 +94,10 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
     
     public func getTitle() -> String {
         return self.label?.text ?? InnerConstants.Label.emptyTitle
+    }
+    
+    public func setTitle(with newValue: String) {
+        self.label?.text = newValue
     }
     
     public func setSquareShape(_ status: Bool) {

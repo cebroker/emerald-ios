@@ -111,6 +111,9 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
+        if isErrored {
+            let _ = self.validateAndHandle()
+        }
         applyTheme()
         self.delegate = self
         self.addSubview(placeholderLabel)
@@ -356,25 +359,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     private func setupPlaceholderLabelConstraints() {
         self.contentVerticalAlignment = .bottom
-        placeholderLabel
-            .centerYAnchor
-            .constraint(
-                equalTo: self.centerYAnchor)
-            .isActive = true
-        
-        placeholderLabel
-            .leftAnchor
-            .constraint(
-                equalTo: self.leftAnchor,
-                constant: InnerConstants.Padding.left)
-            .isActive = true
-        
-        placeholderLabel
-            .rightAnchor
-            .constraint(
-                equalTo: self.rightAnchor,
-                constant: InnerConstants.Padding.right)
-            .isActive = true
     }
     
     private func setupPlaceholderTheme(

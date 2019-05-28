@@ -10,6 +10,7 @@ import BEMCheckBox
 public protocol EmeraldMultipleSelectionFieldType {
     func set(data: [Selectable])
     func getData() -> [EmeraldMultipleSelectionItemType]
+    func updateTitle(from index: Int, with newTitle: String)
     func set(spacing: CGFloat)
     func set(notifiable: SingleItemChangeNotifiable)
     func set(id: String?)
@@ -113,6 +114,13 @@ public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectio
             }
         }
         return finalItemsSelected
+    }
+    
+    public func updateTitle(from index: Int, with newTitle: String) {
+        guard let childrens = self.getChildren() else {
+            return
+        }
+        childrens[index].setTitle(with: newTitle)
     }
     
     public func set(id: String?) {
