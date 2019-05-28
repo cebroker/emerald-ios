@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
-                                                  MultipleSelectionGroupItem(title: "Dos"),
+                                                  MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
                                                   MultipleSelectionGroupItem(title: "Tres"),
                                                   MultipleSelectionGroupItem(title: "Cuatro"),
                                                   MultipleSelectionGroupItem(title: "Cinco")])

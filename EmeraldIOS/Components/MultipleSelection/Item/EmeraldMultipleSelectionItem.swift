@@ -39,7 +39,7 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
             static let blue: UIColor = EmeraldTheme.primaryColor
         }
         struct StackView {
-            static let spacing = 20
+            static let spacing = 12
             struct Padding {
                 static let top = allSides
                 static let left = allSides
@@ -58,6 +58,7 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
     }
     
     private var button: BEMCheckBox?
+    private var buttonContainer: UIView?
     
     private var label: UILabel?
     
@@ -182,8 +183,8 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
             CGRect(
                 x: 0,
                 y: 0,
-                width: frame.height * InnerConstants.Button.frameButtonHeighRatio,
-                height: 0))
+                width: 22,
+                height: 20))
         
         self.button?.animationDuration = InnerConstants.Button.animationDuration
         self.button?.delegate = self
@@ -195,8 +196,16 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
         
         self.button?.setContentHuggingPriority(UILayoutPriority(2), for: NSLayoutConstraint.Axis.horizontal)
         
-        if let button = self.button {
-            self.stackView?.addArrangedSubview(button)
+        guard let button = button else {
+            return
+        }
+        
+        self.buttonContainer = UIView()
+        if let buttonContainer = self.buttonContainer {
+            buttonContainer.widthAnchor.constraint(equalToConstant: 23).isActive = true
+            buttonContainer.addSubview(button)
+//            button.topAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: -5).isActive = true
+            self.stackView?.addArrangedSubview(buttonContainer)
         }
     }
     
@@ -209,6 +218,7 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
                 height: 0))
         
         self.label?.text = text
+        self.label?.numberOfLines = 0
         
         self.label?.setContentHuggingPriority(UILayoutPriority(1), for: NSLayoutConstraint.Axis.horizontal)
         
