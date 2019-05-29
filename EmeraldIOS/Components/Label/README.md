@@ -44,10 +44,12 @@ You only need to set the `Theme Style` for the emerald button you want. All the 
 
 #### Swift
 ```swift
+    case largeHeader
     case mainTitle
     case subtitle
     case body
     case tableHeader
+    case link
     case custom
 ```
 
