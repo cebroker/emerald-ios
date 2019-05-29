@@ -245,7 +245,7 @@ extension ViewController: EmeraldDateFieldChangeNotifiable {
 
 extension ViewController: SingleItemChangeNotifiable {
     func onItemClicked(associatedSelectable: Selectable, from item: EmeraldMultipleSelectionItemType) {
-        guard let id = item.getId() else {
+        guard let id = associatedSelectable.getSelectableId?() else {
             return
         }
         
