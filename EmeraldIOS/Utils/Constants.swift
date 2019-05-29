@@ -11,8 +11,8 @@ import UIKit
 struct Constants {
 
     public class AddressState: Selectable {
-        let name: String
-        let id: Int
+        var name: String
+        var id: Int
         let cities: [String]
         public init(
             name: String,
@@ -27,8 +27,16 @@ struct Constants {
             return name
         }
         
-        public func getSelectableId() -> Int {
-            return id
+        public func getSelectableId() -> String {
+            return String(id)
+        }
+        
+        public func setSelectableText(with value: String) {
+            self.name = value
+        }
+        
+        public func setSelectableId(with value: String) {
+            self.id = Int(value) ?? 0
         }
     }
 
@@ -168,7 +176,7 @@ class EducationType: Selectable {
         return self.type
     }
     
-    func getSelectableId() -> Int {
-        return 0
+    func getSelectableId() -> String {
+        return ""
     }
 }

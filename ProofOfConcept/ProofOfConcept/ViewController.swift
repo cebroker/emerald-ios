@@ -21,10 +21,6 @@ class State: Selectable {
     func getSelectableText() -> String {
         return name
     }
-    
-    func getSelectableId() -> Int {
-        return 0
-    }
 }
 
 class ViewController: UIViewController {
@@ -241,6 +237,22 @@ extension ViewController: EmeraldDateFieldChangeNotifiable {
                 return
             }
             endDate.set(minimumDate: minimunDate)
+        default:
+            break
+        }
+    }
+}
+
+extension ViewController: SingleItemChangeNotifiable {
+    func onItemClicked(associatedSelectable: Selectable, from item: EmeraldMultipleSelectionItemType) {
+        guard let id = item.getId() else {
+            return
+        }
+        
+        switch id {
+        case "MI_ID_1":
+            // do something with
+            break
         default:
             break
         }

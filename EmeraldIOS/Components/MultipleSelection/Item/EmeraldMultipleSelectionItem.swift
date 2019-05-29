@@ -21,6 +21,8 @@ public protocol EmeraldMultipleSelectionItemType: class {
     func setStyle(with currentTheme: EmeraldMultipleSelectionFieldStyle)
     func getAssociatedSelectable() -> Selectable?
     func equals(_ referenceAbstraction: EmeraldMultipleSelectionItemType) -> Bool
+    func setId(with id: String)
+    func getId() -> String?
 }
 
 public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemType {
@@ -59,7 +61,7 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
     
     private var button: BEMCheckBox?
     private var buttonContainer: UIView?
-    
+    private var id: String?
     private var label: UILabel?
     
     private weak var notifiable: SingleItemChangeNotifiable?
@@ -87,6 +89,14 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
     
     public func getStatus() -> Bool {
         return self.button?.on ?? false
+    }
+    
+    public func setId(with id: String) {
+        self.id = id
+    }
+    
+    public func getId() -> String? {
+        return self.id
     }
     
     public func set(notifiable: SingleItemChangeNotifiable) {
@@ -204,7 +214,6 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
         if let buttonContainer = self.buttonContainer {
             buttonContainer.widthAnchor.constraint(equalToConstant: 23).isActive = true
             buttonContainer.addSubview(button)
-//            button.topAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: -5).isActive = true
             self.stackView?.addArrangedSubview(buttonContainer)
         }
     }
