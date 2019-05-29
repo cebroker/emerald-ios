@@ -32,17 +32,18 @@ settings in the EmeraldUI specifications.
 | -------------------- | ------------------ |
 | h1 | 30 |
 | h2 | 24 |
-| h3 | 16 |
-| h4 | 14 |
-| h5 | 12 |
-| h6 | 9 |
+| h3 | 18 |
+| h4 | 16 |
+| h5 | 14 |
+| h6 | 12 |
+| h7 | 9 |
 | navigationTitleText | 17 |
-| body | body1Font | 16 |
-| button | captionFont | 18 |
+| body | 14 |
+| button | 18 |
 | smallButton | 12 |
 | largeButton | 20 | 
 | label | UIFont.labelFontSize |
-| tableHeader | | 14 |
+| tableHeader | 14 |
 <!--{: .data-table }-->
 
 | EmeraldiOS Font | FontWeight | 
