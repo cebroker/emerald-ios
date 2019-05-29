@@ -48,7 +48,7 @@ public enum EmeraldLabelStyle: String, Inspectable {
         case .subtitle:
             return Font(size: .h5, weight: .semibold).uiFont
         case .body:
-            return Font(size: .h5, weight: .regular).uiFont
+            return Font(size: .body, weight: .regular).uiFont
         case .bodyBold:
             return Font(size: .h5, weight: .semibold).uiFont
         case .tableHeader:
