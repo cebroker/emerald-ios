@@ -48,6 +48,7 @@ You only need to set the `Theme Style` for the emerald button you want. All the 
     case mainTitle
     case subtitle
     case body
+    case bodyBold
     case tableHeader
     case link
     case custom
