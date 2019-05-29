@@ -22,6 +22,7 @@ public enum FontSize: String, Inspectable {
     case h4
     case h5
     case h6
+    case h7
     case navigationTitleText
     case body
     case button
@@ -47,10 +48,12 @@ public enum FontSize: String, Inspectable {
         case .h3:
             return 18
         case .h4:
-            return 14
+            return 16
         case .h5:
-            return 12
+            return 14
         case .h6:
+            return 12
+        case .h7:
             return 9
         case .body:
             return 16
@@ -65,7 +68,7 @@ public enum FontSize: String, Inspectable {
         case .label:
             return UIFont.labelFontSize
         case .tableHeader:
-            return 17
+            return 14
         }
     }
     
