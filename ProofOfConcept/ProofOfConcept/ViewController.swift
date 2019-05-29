@@ -86,9 +86,11 @@ class ViewController: UIViewController {
         emeraldEndDateFieldByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.set(notifiable: self)
         emeraldTextView.set(placeholder: "Description")
+        
     }
     
     private func createFields() {
+        
         let mainTitle = formStackView.createLabel()
         mainTitle?.themeStyle = EmeraldLabelStyle.mainTitle.rawValue
         mainTitle?.text = "Main title"

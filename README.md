@@ -53,6 +53,10 @@ Emerald UI for iOS Apps
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/MultipleSelection">MultipleSelectionItems</a></li>
   </ul>
+  </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/SegmentedBar">SegmentedBar</a></li>
+  </ul>
 
 ### CocoaPods
 
