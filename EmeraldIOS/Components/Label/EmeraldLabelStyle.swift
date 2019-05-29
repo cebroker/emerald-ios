@@ -13,6 +13,7 @@ public enum EmeraldLabelStyle: String, Inspectable {
     case mainTitle
     case subtitle
     case body
+    case bodyBold
     case tableHeader
     case link
     case custom
@@ -26,6 +27,8 @@ public enum EmeraldLabelStyle: String, Inspectable {
         case .subtitle:
             return EmeraldTheme.lightTextColor
         case .body:
+            return EmeraldTheme.textColor
+        case .bodyBold:
             return EmeraldTheme.textColor
         case .tableHeader:
             return EmeraldTheme.darkTextColor
@@ -46,6 +49,8 @@ public enum EmeraldLabelStyle: String, Inspectable {
             return Font(size: .h5, weight: .semibold).uiFont
         case .body:
             return Font(size: .h5, weight: .regular).uiFont
+        case .bodyBold:
+            return Font(size: .h5, weight: .semibold).uiFont
         case .tableHeader:
             return Font(size: .tableHeader, weight: .semibold).uiFont
         case .link:
