@@ -197,17 +197,18 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
         return .success(true)
     }
     
-    private func activateField() {
+    func activateField() {
         let onActiveColor = EmeraldTheme.primaryColor
         self.layer.borderColor = onActiveColor.cgColor
     }
     
-    private func deactivateField() {
+    func deactivateField() {
         self.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
 }
 
 extension EmeraldTextViewField: UITextViewDelegate {
+    
     public func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == self.getPlaceholder() {
             textView.text = nil
@@ -223,5 +224,11 @@ extension EmeraldTextViewField: UITextViewDelegate {
             textView.textColor = EmeraldTheme.placeholderColor
         }
         deactivateField()
+    }
+    
+    public func textViewDidChange(_ textView: UITextView) {
+        if !textView.text.isEmpty {
+            clearError()
+        }
     }
 }

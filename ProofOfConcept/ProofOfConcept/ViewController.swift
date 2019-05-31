@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var emeraldMultipleSelectorByStory: EmeraldCheckboxFormField!
     @IBOutlet weak var emeraldTextView: EmeraldTextViewField!
     
+    @IBOutlet weak var textViewStack: EmeraldTextView!
+    
     private var organizationName: EmeraldTextFieldType?
     private var address: EmeraldTextFieldType?
     private var city: EmeraldTextDependantField?
@@ -86,7 +88,9 @@ class ViewController: UIViewController {
         emeraldEndDateFieldByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.set(notifiable: self)
         emeraldTextView.set(placeholder: "Description")
-        
+        textViewStack.setPlaceholder(with: "Description")
+        textViewStack.setTitle(with: "My textview title")
+        textViewStack.setIsRequired(with: true)
     }
     
     private func createFields() {
@@ -159,16 +163,17 @@ class ViewController: UIViewController {
     }
     
     private func areFieldsValid() -> Bool {
-        let textFieldValidation = emeraldTextByStory.validateAndHandle()
-        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
-        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
-        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
-        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
-        let signatureValidation = signatureBoxView.validateAndHandle()
-        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
-        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
-        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
-        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation
+//        let textFieldValidation = emeraldTextByStory.validateAndHandle()
+//        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
+//        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
+//        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
+//        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
+//        let signatureValidation = signatureBoxView.validateAndHandle()
+//        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
+//        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
+//        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
+//        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation
+        return textViewStack.validateAndHandle()
     }
     
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
