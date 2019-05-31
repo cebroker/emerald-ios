@@ -20,18 +20,18 @@ public protocol EmeraldTextViewType {
 @IBDesignable
 public class EmeraldTextView: UIStackView {
     
-    let titleLabel: EmeraldLabel = {
+    public let titleLabel: EmeraldLabel = {
         let label = EmeraldLabel()
         label.themeStyle = EmeraldLabelStyle.subtitle.IBInspectable
         return label
     }()
     
-    let textViewField: EmeraldTextViewField = {
+    public let textViewField: EmeraldTextViewField = {
         let field = EmeraldTextViewField()
         return field
     }()
     
-    let errorLabel: EmeraldLabel = {
+    public let errorLabel: EmeraldLabel = {
         let label = EmeraldLabel()
         label.themeStyle = EmeraldLabelStyle.custom.IBInspectable
         label.themeFontSize = FontSize.h5.rawValue
