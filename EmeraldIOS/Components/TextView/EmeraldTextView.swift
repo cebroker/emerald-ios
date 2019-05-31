@@ -41,6 +41,7 @@ public class EmeraldTextView: UIStackView {
         return label
     }()
     
+    private var isErrored: Bool = false
     @IBInspectable var id: String?
     @IBInspectable var isRequired: Bool {
         set {
@@ -98,6 +99,10 @@ public class EmeraldTextView: UIStackView {
         titleLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         textViewField.heightAnchor.constraint(equalToConstant: 100).isActive = true
         errorLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        if isErrored {
+            let _ = self.validateAndHandle()
+        }
     }
     
     override public func didMoveToWindow() {
@@ -112,12 +117,14 @@ public class EmeraldTextView: UIStackView {
 
 extension EmeraldTextView: EmeraldTextViewType {
     public func showError(with error: FormFieldErrorType) {
+        self.isErrored = true
         textViewField.show(error: error)
         errorLabel.isHidden = false
         errorLabel.text = error.description
     }
     
     public func clearError() {
+        self.isErrored = false
         errorLabel.isHidden = true
         textViewField.clearError()
     }
