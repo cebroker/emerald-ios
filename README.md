@@ -45,7 +45,7 @@ Emerald UI for iOS Apps
   </ul>
   </ul>
   <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextDependantField">TextDependantField</a></li>
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextDependant">TextDependantField</a></li>
   </ul>
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextField/RegexField">RegexTextField</a></li>
@@ -56,6 +56,9 @@ Emerald UI for iOS Apps
   </ul>
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/SegmentedBar">SegmentedBar</a></li>
+  </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextView">TextView</a></li>
   </ul>
 
 ### CocoaPods
