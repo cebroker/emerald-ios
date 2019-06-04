@@ -21,10 +21,6 @@ class State: Selectable {
     func getSelectableText() -> String {
         return name
     }
-    
-    func getSelectableId() -> Int {
-        return 0
-    }
 }
 
 class ViewController: UIViewController {
@@ -42,6 +38,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var emeraldRegexFieldByStory: EmeraldRegexTextField!
     @IBOutlet weak var emeraldMultipleSelectorByStory: EmeraldCheckboxFormField!
     @IBOutlet weak var emeraldTextView: EmeraldTextViewField!
+    
+    @IBOutlet weak var textViewStack: EmeraldTextView!
     
     private var organizationName: EmeraldTextFieldType?
     private var address: EmeraldTextFieldType?
@@ -81,7 +79,7 @@ class ViewController: UIViewController {
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
-                                                  MultipleSelectionGroupItem(title: "Dos"),
+                                                  MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
                                                   MultipleSelectionGroupItem(title: "Tres"),
                                                   MultipleSelectionGroupItem(title: "Cuatro"),
                                                   MultipleSelectionGroupItem(title: "Cinco")])
@@ -90,7 +88,9 @@ class ViewController: UIViewController {
         emeraldEndDateFieldByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.set(notifiable: self)
         emeraldTextView.set(placeholder: "Description")
-        
+        textViewStack.setPlaceholder(with: "Description")
+        textViewStack.setTitle(with: "My textview title")
+        textViewStack.setIsRequired(with: true)
     }
     
     private func createFields() {
@@ -163,16 +163,17 @@ class ViewController: UIViewController {
     }
     
     private func areFieldsValid() -> Bool {
-        let textFieldValidation = emeraldTextByStory.validateAndHandle()
-        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
-        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
-        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
-        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
-        let signatureValidation = signatureBoxView.validateAndHandle()
-        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
-        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
-        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
-        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation
+//        let textFieldValidation = emeraldTextByStory.validateAndHandle()
+//        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
+//        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
+//        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
+//        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
+//        let signatureValidation = signatureBoxView.validateAndHandle()
+//        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
+//        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
+//        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
+//        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation
+        return textViewStack.validateAndHandle()
     }
     
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
@@ -243,6 +244,22 @@ extension ViewController: EmeraldDateFieldChangeNotifiable {
                 return
             }
             endDate.set(minimumDate: minimunDate)
+        default:
+            break
+        }
+    }
+}
+
+extension ViewController: SingleItemChangeNotifiable {
+    func onItemClicked(associatedSelectable: Selectable, from item: EmeraldMultipleSelectionItemType) {
+        guard let id = associatedSelectable.getSelectableId?() else {
+            return
+        }
+        
+        switch id {
+        case "MI_ID_1":
+            // do something with
+            break
         default:
             break
         }

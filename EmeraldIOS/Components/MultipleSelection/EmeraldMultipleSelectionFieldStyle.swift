@@ -20,7 +20,7 @@ public enum EmeraldMultipleSelectionFieldStyle: String, Inspectable {
     var font: UIFont? {
         switch self {
         case .simple, .bordered:
-            return Font(size: .h4, weight: .semibold).uiFont
+            return Font(size: .h5, weight: .semibold).uiFont
         }
     }
     

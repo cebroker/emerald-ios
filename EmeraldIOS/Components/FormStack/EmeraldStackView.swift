@@ -16,7 +16,7 @@ public class EmeraldStackView: UIStackView {
     
     public required init(coder: NSCoder) {
         super.init(coder: coder)
-        self.spacing = 30
+        self.spacing = 20
         self.axis = .vertical
         self.distribution = .equalSpacing
         self.alignment = .fill
