@@ -33,6 +33,10 @@ public class EmeraldSegmentedBar: UIView {
         }
     }
     
+    public func setTitles(_ titles: [String]) {
+        self.titles = titles
+    }
+    
     public var selectedItemIndex: Int {
         return _selectedItemIndex
     }
@@ -106,6 +110,15 @@ public class EmeraldSegmentedBar: UIView {
         EmeraldSegmentedBarItemCell.defaultTheme = style.titlesStyle
     }
     
+    public func moveSelectionBar(to itemIndex: Int) {
+        self.collectionView.selectItem(at: IndexPath(row: itemIndex, section: 0), animated: true, scrollPosition: .left)
+        self._selectedItemIndex = itemIndex
+        self.horizontalBarLeftAnchorConstraint?.constant = desiredHorizontalBarLeftPosition
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     private func setupSelectionBar() {
         addSubview(horizontalBarView)
         selectionBarConstraints()
@@ -132,14 +145,6 @@ public class EmeraldSegmentedBar: UIView {
         horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/CGFloat(titles.count)).isActive = true
         horizontalBarView.heightAnchor.constraint(equalToConstant: 4).isActive = true
-    }
-    
-    func moveSelectionBar(to itemIndex: Int) {
-        self._selectedItemIndex = itemIndex
-        self.horizontalBarLeftAnchorConstraint?.constant = desiredHorizontalBarLeftPosition
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.layoutIfNeeded()
-        }, completion: nil)
     }
 }
 
