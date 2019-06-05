@@ -29,6 +29,7 @@ public protocol EmeraldTextFieldType {
     func validateAndHandle() -> Bool
     func show(error: FormFieldErrorType)
     func clearError()
+    func setText(with value: String)
 }
 
 @IBDesignable
@@ -325,6 +326,13 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     public func getValue() -> String? {
         return self.text
+    }
+    
+    public func setText(with value: String) {
+        if !value.isEmpty {
+            self.activateField()
+            self.text = value
+        }
     }
     
     func validateContent() -> Result<Bool, Error> {
