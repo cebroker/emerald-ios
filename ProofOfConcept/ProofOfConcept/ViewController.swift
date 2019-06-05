@@ -70,6 +70,7 @@ class ViewController: UIViewController {
     }
     
     private func createStoryBoardFields() {
+        emeraldTextByStory.setText(with: "")
         signatureBoxView.isUserInteractionEnabled = true
         signatureBoxView.delegate = self
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
