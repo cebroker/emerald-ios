@@ -10,24 +10,27 @@ import UIKit
 
 public enum EmeralSegmentedBarStyle: String, Inspectable {
     case primary
+    case navigation
     
     var backgroundColor: UIColor {
         switch self {
         case .primary:
             return EmeraldTheme.secondaryColor
+        case .navigation:
+            return EmeraldTheme.mainNavigationBarTintColor
         }
     }
     
     var selectionBarColor: UIColor {
         switch self {
-        case .primary:
+        case .primary, .navigation:
             return EmeraldTheme.greenColor
         }
     }
     
     var titlesStyle: SegmentedTitleStyle {
         switch self {
-        case .primary:
+        case .primary, .navigation:
             return .primary
         }
     }
