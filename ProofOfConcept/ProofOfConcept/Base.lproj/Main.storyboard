@@ -30,6 +30,7 @@
                                         <string key="value">GROUP 1
 GROUP 2</string>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="themeStyle" value="navigation"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">

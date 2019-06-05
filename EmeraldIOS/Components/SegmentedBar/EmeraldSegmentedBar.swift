@@ -33,6 +33,10 @@ public class EmeraldSegmentedBar: UIView {
         }
     }
     
+    public func setTheme(_ theme: EmeralSegmentedBarStyle) {
+        themeStyle = theme.IBInspectable
+    }
+    
     public func setTitles(_ titles: [String]) {
         self.titles = titles
     }
