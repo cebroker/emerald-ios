@@ -9,6 +9,10 @@
 # Example
 <img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/SegmentedBar.png" />
 
+# Navigation Theme
+
+<img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/SegmentedBar_navigation.png" />
+
 ## Usage
 
 `EmeraldSegmentedBar` is a custom segmented bar where you can add titles with  badge numbers.
@@ -56,6 +60,7 @@ To set a theme style, you only need to set the `Theme Style` for the style you w
 #### Swift
 ```swift
     case primary
+    case navigation
 ```
 
 If you want custom `Theme Style` you need to set `Theme Color`, `Theme FontSize` and `Theme FontWeight`
