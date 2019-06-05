@@ -69,7 +69,8 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     
     public func set(selectedRow: Selectable) {
         self.selectedRow = selectedRow
-        self.text = selectedRow.getSelectableText()
+        self.setText(with: selectedRow.getSelectableText())
+        pickerView.selectRow(self.data.firstIndex(where: { $0.getSelectableText() == selectedRow.getSelectableText() }) ?? 0, inComponent: 0, animated: true)
         notifiable?.onSelected(row: selectedRow, from: self)
     }
     
