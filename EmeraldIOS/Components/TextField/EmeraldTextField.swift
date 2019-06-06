@@ -160,6 +160,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String) -> Bool {
         
+        let beginning: UITextPosition = textField.beginningOfDocument
+        let cursorLocation: UITextPosition? = textField.position(
+            from: beginning,
+            offset: range.location + string.count)
+
         guard let oldText = textField.text, let textRange = Range(range, in: oldText) else {
             return true
         }
@@ -182,6 +187,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
             textField.text = try apply(
                 format: self.innerFormat,
                 to: textWithoutFormat)
+            
+            if let cursorLocation = cursorLocation {
+                textField.selectedTextRange = textField.textRange(
+                    from: cursorLocation,
+                    to: cursorLocation)
+            }
             
             return false
         } catch {
