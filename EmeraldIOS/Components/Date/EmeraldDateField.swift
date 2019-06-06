@@ -97,7 +97,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         super.setText(with: value)
         if !value.isEmpty,
             let dateValue = getDate(from: value) {
-            self.set(selectedDate: dateValue)
+            self.selectedDate = dateValue
         }
     }
     
