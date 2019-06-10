@@ -62,7 +62,7 @@ public enum FontSize: String, Inspectable {
         case .button:
             return 18
         case .smallButton:
-            return 12
+            return 14
         case .largeButton:
             return 20
         case .label:
