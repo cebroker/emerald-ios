@@ -40,7 +40,7 @@ settings in the EmeraldUI specifications.
 | navigationTitleText | 17 |
 | body | 14 |
 | button | 18 |
-| smallButton | 12 |
+| smallButton | 14 |
 | largeButton | 20 | 
 | label | UIFont.labelFontSize |
 | tableHeader | 14 |
