@@ -17,7 +17,7 @@ extension EmeraldRegexTextFieldError {
         case .missingRegex:
             return "Missing regex."
         case .notMatchingRegex:
-            return "Regex does not match."
+            return "Invalid format."
         }
     }
 }

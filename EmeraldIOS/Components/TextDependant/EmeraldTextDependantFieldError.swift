@@ -17,7 +17,7 @@ public extension EmeraldTextDependantFieldError {
         case .missingAvailableOptions:
             return "No available options to validate with."
         case .optionNotFound:
-            return "Text was not found among available options."
+            return "Invalid value."
         }
     }
 }
