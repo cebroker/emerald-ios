@@ -87,8 +87,8 @@ class ViewController: UIViewController {
                                                   MultipleSelectionGroupItem(title: "Cinco")])
         emeraldRegexFieldByStory.set(inputType: .emailAddress)
         emeraldSelectorByStory.set(notifiable: self)
-        emeraldEndDateFieldByStory.set(notifiable: self)
-        emeraldStartDateFieldByStory.set(notifiable: self)
+        emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
+        emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
         emeraldTextView.set(placeholder: "Description")
         textViewStack.setPlaceholder(with: "Description")
         textViewStack.setTitle(with: "My textview title")
@@ -165,17 +165,17 @@ class ViewController: UIViewController {
     }
     
     private func areFieldsValid() -> Bool {
-//        let textFieldValidation = emeraldTextByStory.validateAndHandle()
-//        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
-//        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
-//        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
-//        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
-//        let signatureValidation = signatureBoxView.validateAndHandle()
-//        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
-//        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
-//        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
-//        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation
-        return textViewStack.validateAndHandle()
+        let textFieldValidation = emeraldTextByStory.validateAndHandle()
+        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
+        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
+        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
+        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
+        let signatureValidation = signatureBoxView.validateAndHandle()
+        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
+        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
+        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
+        let textViewValidation = textViewStack.validateAndHandle()
+        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation && textViewValidation
     }
     
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
@@ -206,46 +206,6 @@ extension ViewController: EmeraldSelectorFieldChangeNotifiable {
             }
             emeraldTextDependantFieldByStory.set(availableOptions: state.cities)
             city?.set(availableOptions: state.cities)
-        default:
-            break
-        }
-    }
-}
-
-extension ViewController: EmeraldDateFieldChangeNotifiable {
-    func onSelected(dateString: String, date: Date, from datePicker: EmeraldDateField) {
-        guard let startDate = self.emeraldStartDateFieldByStory else {
-            return
-        }
-        
-        guard let endDate = self.emeraldEndDateFieldByStory else {
-            return
-        }
-        
-        switch datePicker {
-        case startDate:
-            endDate.set(minimumDate: date)
-        default:
-            break
-        }
-    }
-    
-    func onDoneButtonPressed(from datePicker: EmeraldDateField) {
-        guard let startDate = self.emeraldStartDateFieldByStory else {
-            return
-        }
-        
-        guard let endDate = self.emeraldEndDateFieldByStory else {
-            return
-        }
-        
-        switch datePicker {
-        case startDate:
-            guard let value = datePicker.getValue(),
-                let minimunDate = datePicker.getDate(from: value) else {
-                return
-            }
-            endDate.set(minimumDate: minimunDate)
         default:
             break
         }

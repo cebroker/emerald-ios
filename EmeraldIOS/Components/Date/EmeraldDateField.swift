@@ -20,6 +20,7 @@ public protocol EmeraldDateFieldType: EmeraldTextFieldType {
     func allowDatesLaterThanToday()
     func set(dateFormat: String)
     func getDate(from string: String) -> Date?
+    func setDependantField(with dateField: EmeraldDateFieldType)
 }
 
 public protocol EmeraldDateFieldTestableType {
@@ -34,6 +35,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     private var selectedDate: Date?
     private lazy var dateFormatter: DateFormatter = DateFormatter()
     private weak var notifiable: EmeraldDateFieldChangeNotifiable?
+    internal var dependantField: EmeraldDateFieldType?
     private lazy var toolbar: UIToolbar = UIToolbar()
     private var minimumDate: Date?
     private var maximumDate: Date?
@@ -167,13 +169,17 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.maximumDate = nil
     }
     
+    public func setDependantField(with dateField: EmeraldDateFieldType) {
+        self.dependantField = dateField
+    }
+    
     private func setupToolbar() {
         self.toolbar.barStyle = UIBarStyle.default
         self.toolbar.isTranslucent = true
         self.toolbar.sizeToFit()
         
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDoneButtonPressed))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDoneButtonPressedFromView))
         
         self.toolbar.setItems([flexibleSpace, doneButton], animated: false)
         self.toolbar.isUserInteractionEnabled = true
@@ -296,8 +302,32 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         }
     }
     
-    @objc private func onDoneButtonPressed() {
+    @objc private func onDoneButtonPressedFromView() {
         self.endEditing(true)
         notifiable?.onDoneButtonPressed(from: self)
+    }
+}
+
+extension EmeraldDateField: EmeraldDateFieldChangeNotifiable {
+    public func onSelected(dateString: String,
+                    date: Date,
+                    from datePicker: EmeraldDateField) {
+        guard let dependantField = self.dependantField else {
+            return
+        }
+        
+        dependantField.set(minimumDate: date)
+    }
+    
+    public func onDoneButtonPressed(from datePicker: EmeraldDateField) {
+        guard let dependantField = self.dependantField else {
+            return
+        }
+        
+        guard let value = datePicker.getValue(),
+            let minimunDate = datePicker.getDate(from: value) else {
+                return
+        }
+        dependantField.set(minimumDate: minimunDate)
     }
 }
