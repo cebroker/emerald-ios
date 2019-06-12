@@ -143,6 +143,7 @@ struct Constants {
         static let space = " "
         static let zero = 0
         static let one: CGFloat = 1
+        static let zeroDecimals = ".00"
     }
 
     struct Design {

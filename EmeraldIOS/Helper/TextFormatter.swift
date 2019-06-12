@@ -33,8 +33,6 @@ public protocol TextFormatter {
 public extension TextFormatter {
     func apply(format: TextFormat, to resource: String) throws -> String {
         switch format {
-        case .currency:
-            return formatCurrency(resource: resource)
         case .phone:
             return formatResource(phoneNumber: resource)
         case .shortDate:
@@ -48,8 +46,6 @@ public extension TextFormatter {
 
     func remove(format: TextFormat, to resource: String) throws -> String {
         switch format {
-        case .currency:
-            return removeCurrencyFormat(from: resource)
         case .phone:
             return resource.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         default:
@@ -57,12 +53,18 @@ public extension TextFormatter {
         }
     }
 
-    private func formatCurrency(resource: String) -> String {
-        if resource == Constants.Values.empty {
-            return resource
+    func formatCurrency(resource: String) -> String {
+        let formatter = NumberFormatter()
+        formatter.currencyCode = "USD"
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 2
+        let simpleFormat = Constants.Values.dollarWithSpace + resource
+        
+        guard let double = Double(resource) else {
+            return simpleFormat
         }
-
-        return Constants.Values.dollarWithSpace + resource
+        
+        return formatter.string(from: NSNumber(value: double)) ?? simpleFormat
     }
 
     private func formatResource(phoneNumber: String) -> String {
@@ -122,12 +124,20 @@ public extension TextFormatter {
         return numbersOnly
     }
 
-    private func removeCurrencyFormat(from resource: String) -> String {
+    func removeCurrencyFormat(from resource: String) -> String {
         if resource == Constants.Values.dollar {
             return Constants.Values.empty
         }
 
-        var rawNumber = resource
+        let firstCleaner = resource.replacingOccurrences(
+            of: Constants.Values.stringComma,
+            with: Constants.Values.empty)
+        
+        let secondCleaner = firstCleaner.replacingOccurrences(
+            of: Constants.Values.zeroDecimals,
+            with: Constants.Values.empty)
+        
+        var rawNumber = secondCleaner
             .replacingOccurrences(
                 of: Constants.Values.dollar,
                 with: Constants.Values.empty)

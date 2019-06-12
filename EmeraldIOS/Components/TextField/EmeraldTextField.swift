@@ -365,6 +365,10 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         if self.text == nil || self.text == Constants.Values.empty {
             self.movePlaceholderUp()
         }
+        
+        if let text = self.text, self.innerFormat == TextFormat.currency {
+            self.text = removeCurrencyFormat(from: text)
+        }
     }
     
     private func deactivateField() {
@@ -373,6 +377,10 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         
         if self.text == nil || self.text == Constants.Values.empty {
             self.movePlaceholderDown()
+        }
+        
+        if let text = self.text, self.innerFormat == TextFormat.currency {
+            self.text = formatCurrency(resource: text)
         }
     }
     
