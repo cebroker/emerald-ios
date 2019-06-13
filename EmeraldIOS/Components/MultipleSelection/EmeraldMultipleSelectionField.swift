@@ -19,12 +19,11 @@ public protocol EmeraldMultipleSelectionFieldType {
     func getIsRequired() -> Bool
     func isValid() -> Result<Bool, Error>
     func handleResult(with validationResult: Result<Bool, Error>) -> Bool
-    func validateAndHandle() -> Bool
     func show(error: FormFieldErrorType)
     func clearError()
 }
 
-public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectionFieldType, SingleItemChangeNotifiable {
+public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectionFieldType, SingleItemChangeNotifiable, EmeraldValidableType {
     
     private struct InnerConstants {
         struct StackView {

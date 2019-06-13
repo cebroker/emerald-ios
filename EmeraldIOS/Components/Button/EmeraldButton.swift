@@ -9,8 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class EmeraldButton: UIButton {
-    
+public class EmeraldButton: UIButton, EmeraldValidableType {
     @IBInspectable public var themeStyle: String = EmeraldButtonStyle.primary.IBInspectable {
         didSet {
             applyTheme()

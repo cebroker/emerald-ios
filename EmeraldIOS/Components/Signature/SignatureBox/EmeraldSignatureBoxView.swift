@@ -13,13 +13,12 @@ public protocol EmeraldSignatureBoxViewType {
     func getIsRequired() -> Bool
     func isValid() -> Result<Bool, Error>
     func handleResult(with validationResult: Result<Bool, Error>) -> Bool
-    func validateAndHandle() -> Bool
     func show(error: FormFieldErrorType)
     func clearError()
 }
 
 @IBDesignable
-public class EmeraldSignatureBoxView: UIView, EmeraldSignatureBoxViewType {
+public class EmeraldSignatureBoxView: UIView, EmeraldSignatureBoxViewType, EmeraldValidableType {
     
     @IBInspectable var isRequired: Bool = false
     

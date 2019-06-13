@@ -51,6 +51,7 @@
 		6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */; };
 		6CD5843A2294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */; };
 		6CE75DAA22A15BC00035A731 /* EmeraldTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */; };
+		77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1851422B2BE250002CE09 /* EmeraldValidable.swift */; };
 		8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */; };
 		8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */; };
 		8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */; };
@@ -146,6 +147,7 @@
 		6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldStyle.swift; sourceTree = "<group>"; };
 		6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldError.swift; sourceTree = "<group>"; };
 		6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextView.swift; sourceTree = "<group>"; };
+		77E1851422B2BE250002CE09 /* EmeraldValidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldValidable.swift; sourceTree = "<group>"; };
 		8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarBaseCell.swift; sourceTree = "<group>"; };
 		8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarItemCell.swift; sourceTree = "<group>"; };
 		8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTitleAppearance.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				6CD584352294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift */,
 				6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */,
 				6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */,
+				77E1851422B2BE250002CE09 /* EmeraldValidable.swift */,
 			);
 			path = MultipleSelection;
 			sourceTree = "<group>";
@@ -747,9 +750,16 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -800,6 +810,7 @@
 				9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */,
 				9B3BCC862272033400DC5D79 /* EmeraldCheckboxFormField.swift in Sources */,
 				6C807C6F227C8E7F00FC328E /* Inspectable.swift in Sources */,
+				77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */,
 				9B3BCC842272033400DC5D79 /* EmeraldRadioGroupFormField.swift in Sources */,
 				6C23516B228C469B00D398F3 /* EmeraldDatePickerAlert.swift in Sources */,
 				9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */,
