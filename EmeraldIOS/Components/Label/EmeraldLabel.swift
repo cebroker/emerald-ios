@@ -7,7 +7,7 @@
 //
 
 @IBDesignable
-public class EmeraldLabel: UILabel {
+public class EmeraldLabel: UILabel, EmeraldValidableType {
     
     @IBInspectable public var themeStyle: String = EmeraldLabelStyle.custom.IBInspectable {
         didSet {
