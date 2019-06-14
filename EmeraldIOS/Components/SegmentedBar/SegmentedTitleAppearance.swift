@@ -26,7 +26,7 @@ public enum SegmentedTitleStyle: String, Inspectable {
     var colorWhenHighlighted: UIColor {
         switch self {
         case .primary:
-            return EmeraldTheme.extraLightTextColor
+            return EmeraldTheme.whiteColor.withAlphaComponent(0.59)
         }
     }
     var colorWhenSelected: UIColor {
