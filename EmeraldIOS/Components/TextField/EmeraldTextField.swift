@@ -378,7 +378,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
             self.movePlaceholderDown()
         }
         
-        if let text = self.text, self.innerFormat == TextFormat.currency {
+        if let text = self.text, self.innerFormat == TextFormat.currency && !text.isEmpty {
             self.text = formatCurrency(resource: text)
         }
     }
