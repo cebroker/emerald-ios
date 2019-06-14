@@ -14,11 +14,10 @@ public protocol EmeraldTextViewType {
     func showError(with error: FormFieldErrorType)
     func clearError()
     func isValid() -> Result<Bool, Error>
-    func validateAndHandle() -> Bool
 }
 
 @IBDesignable
-public class EmeraldTextView: UIStackView {
+public class EmeraldTextView: UIStackView, EmeraldValidableType {
     
     public let titleLabel: EmeraldLabel = {
         let label = EmeraldLabel()

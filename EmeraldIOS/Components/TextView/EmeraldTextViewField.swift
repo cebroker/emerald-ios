@@ -20,13 +20,12 @@ public protocol EmeraldTextViewFieldType {
     func getIsRequired() -> Bool
     func isValid() -> Result<Bool, Error>
     func handleResult(with validationResult: Result<Bool, Error>) -> Bool
-    func validateAndHandle() -> Bool
     func show(error: FormFieldErrorType)
     func clearError()
 }
 
 @IBDesignable
-public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFormatter {
+public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFormatter, EmeraldValidableType {
     @IBInspectable var id: String?
     @IBInspectable var isRequired: Bool = false
     @IBInspectable var maxLength: Int = 0

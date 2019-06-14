@@ -12,21 +12,21 @@ import EmeraldIOS
 class State: Selectable {
     let name: String
     let cities: [String]
-    
+
     init(name: String, cities: [String]) {
         self.name = name
         self.cities = cities
     }
-    
+
     func getSelectableText() -> String {
         return name
     }
 }
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController, EmeraldValidableType {
+
     @IBOutlet private weak var formStackView: EmeraldStackView!
-    
+
     @IBOutlet weak var signatureBoxView: EmeraldSignatureBoxView!
     @IBOutlet weak var emeraldLabelByStory: EmeraldLabel!
     @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
@@ -38,9 +38,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var emeraldRegexFieldByStory: EmeraldRegexTextField!
     @IBOutlet weak var emeraldMultipleSelectorByStory: EmeraldCheckboxFormField!
     @IBOutlet weak var emeraldTextView: EmeraldTextViewField!
-    
+
     @IBOutlet weak var textViewStack: EmeraldTextView!
-    
+
+    private var emeraldFields: [EmeraldValidableType] {
+        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
+    }
+
     private var organizationName: EmeraldTextFieldType?
     private var address: EmeraldTextFieldType?
     private var city: EmeraldTextDependantField?
@@ -49,26 +53,26 @@ class ViewController: UIViewController {
     private var contactName: EmeraldTextFieldType?
     private var membershipDuesAmount: EmeraldTextFieldType?
     private var amountPaid: EmeraldTextFieldType?
-    
+
     private var formButton: EmeraldButton?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createHideKeyboardGesture()
 //        self.createFields()
         self.createStoryBoardFields()
     }
-    
+
     private func createHideKeyboardGesture() {
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
         viewTapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(viewTapGesture)
     }
-    
+
     @objc func handleViewTap(recognizer: UIGestureRecognizer) {
         resignFirstResponder()
     }
-    
+
     private func createStoryBoardFields() {
         emeraldTextByStory.setText(with: "")
         signatureBoxView.isUserInteractionEnabled = true
@@ -81,10 +85,10 @@ class ViewController: UIViewController {
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
-                                                  MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
-                                                  MultipleSelectionGroupItem(title: "Tres"),
-                                                  MultipleSelectionGroupItem(title: "Cuatro"),
-                                                  MultipleSelectionGroupItem(title: "Cinco")])
+            MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
+            MultipleSelectionGroupItem(title: "Tres"),
+            MultipleSelectionGroupItem(title: "Cuatro"),
+            MultipleSelectionGroupItem(title: "Cinco")])
         emeraldRegexFieldByStory.set(inputType: .emailAddress)
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
@@ -94,42 +98,42 @@ class ViewController: UIViewController {
         textViewStack.setTitle(with: "My textview title")
         textViewStack.setIsRequired(with: true)
     }
-    
+
     private func createFields() {
-        
+
         let mainTitle = formStackView.createLabel()
         mainTitle?.themeStyle = EmeraldLabelStyle.mainTitle.rawValue
         mainTitle?.text = "Main title"
-        
+
         let subtitle = formStackView.createLabel()
         subtitle?.themeStyle = EmeraldLabelStyle.subtitle.rawValue
         subtitle?.text = "Subtitle text"
-        
+
         let body = formStackView.createLabel()
         body?.themeStyle = EmeraldLabelStyle.body.rawValue
         body?.text = "Body text"
-        
+
         let tableHeader = formStackView.createLabel()
         tableHeader?.themeStyle = EmeraldLabelStyle.tableHeader.rawValue
         tableHeader?.text = "Table header text"
-        
+
         let customTitle = formStackView.createLabel()
         customTitle?.themeColor = Color.primary.rawValue
         customTitle?.themeFontSize = FontSize.h1.rawValue
         customTitle?.themeFontWeight = FontWeight.bold.rawValue
         customTitle?.text = "H1 Custom title"
-        
+
         organizationName = formStackView.createEmeraldTextField(placeholder: "Organization name")
         organizationName?.set(isRequired: true)
         organizationName?.set(hint: "Condor Labs")
-        
+
         address = formStackView.createEmeraldTextField(placeholder: "Address")
         address?.set(hint: "Calle NN # NN - NN")
-        
+
         city = formStackView.createEmeraldTextDependantField(placeholder: "City")
         city?.set(isRequired: true)
         city?.set(hint: "Medellín")
-        
+
         state = formStackView.createEmeraldSelectorFormField(placeholder: "State")
         state?.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
@@ -137,47 +141,48 @@ class ViewController: UIViewController {
         state?.set(notifiable: self)
         state?.set(hint: "Antioquia")
         state?.set(isRequired: true)
-        
+
         amountPaid = formStackView.createEmeraldTextField(placeholder: "Amount paid")
         amountPaid?.set(format: .currency)
         amountPaid?.set(isRequired: true)
         amountPaid?.set(hint: "$ 1234")
-        
+
         //        for i in 0..<1 {
         //            let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
         //            contactName?.set(hint: "John Doe")
         //            contactName?.set(isRequired: false)
         //        }
-        
+
         formButton = formStackView.createButton(with: "Submit form")
         formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
-        
+
         formStackView.reloadFields()
     }
-    
+
     @IBAction func submitFromStory(_ sender: Any) {
         if areFieldsValid() {
             // all good
         }
-        
+
         // show alert or something
     }
-    
+
     private func areFieldsValid() -> Bool {
-        let textFieldValidation = emeraldTextByStory.validateAndHandle()
-        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
-        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
-        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
-        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
-        let signatureValidation = signatureBoxView.validateAndHandle()
-        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
-        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
-        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
-        let textViewValidation = textViewStack.validateAndHandle()
-        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation && textViewValidation
+//        let textFieldValidation = emeraldTextByStory.validateAndHandle()
+//        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
+//        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
+//        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
+//        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
+//        let signatureValidation = signatureBoxView.validateAndHandle()
+//        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
+//        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
+//        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
+//        let textViewValidation = textViewStack.validateAndHandle()
+//        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation && textViewValidation
+        return validateEmeraldFields(with: self.emeraldFields)
     }
-    
+
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
         formStackView.areFieldsValid()
         let selectedChildren = emeraldMultipleSelectorByStory.getData().map {
@@ -193,7 +198,7 @@ extension ViewController: EmeraldSelectorFieldChangeNotifiable {
 //        guard let stateField = self.state as? EmeraldSelectorField else {
 //            return
 //        }
-        
+
         //By Storyboard
         guard let stateField = self.emeraldSelectorByStory else {
             return
@@ -217,7 +222,7 @@ extension ViewController: SingleItemChangeNotifiable {
         guard let id = associatedSelectable.getSelectableId?() else {
             return
         }
-        
+
         switch id {
         case "MI_ID_1":
             // do something with
