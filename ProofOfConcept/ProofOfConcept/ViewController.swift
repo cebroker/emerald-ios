@@ -27,6 +27,9 @@ class ViewController: UIViewController, EmeraldValidableType {
 
     @IBOutlet private weak var formStackView: EmeraldStackView!
 
+    @IBOutlet weak var emeraldAvatarXs: EmeraldAvatar!
+    @IBOutlet weak var emeraldAvatarMd: EmeraldAvatar!
+    @IBOutlet weak var emeraldAvatarLg: EmeraldAvatar!
     @IBOutlet weak var signatureBoxView: EmeraldSignatureBoxView!
     @IBOutlet weak var emeraldLabelByStory: EmeraldLabel!
     @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
@@ -97,6 +100,9 @@ class ViewController: UIViewController, EmeraldValidableType {
         textViewStack.setPlaceholder(with: "Description")
         textViewStack.setTitle(with: "My textview title")
         textViewStack.setIsRequired(with: true)
+        emeraldAvatarLg.setTitle(with: "Sergio", lastName: "Giraldo")
+        emeraldAvatarMd.setTitle(with: "Gensesis", lastName: "Sanguino")
+        emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
     }
 
     private func createFields() {

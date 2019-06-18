@@ -22,6 +22,7 @@ public class EmeraldTextView: UIStackView, EmeraldValidableType {
     public let titleLabel: EmeraldLabel = {
         let label = EmeraldLabel()
         label.themeStyle = EmeraldLabelStyle.subtitle.IBInspectable
+        label.numberOfLines = 0
         return label
     }()
     

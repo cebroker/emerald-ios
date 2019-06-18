@@ -45,7 +45,6 @@ public class EmeraldLabel: UILabel, EmeraldValidableType {
         return Font(size: fontSize, weight: fontWeight)
     }
     
-    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         applyTheme()
