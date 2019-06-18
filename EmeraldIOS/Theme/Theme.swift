@@ -57,6 +57,19 @@ public class EmeraldTheme {
     public static let elevatedViewPrimaryColor = #colorLiteral(red: 0.7921568627, green: 0.7921568627, blue: 0.8549019608, alpha: 1)
     public static let elevatedViewSecondaryColor = blackColor
     
+    // MARK: - Avatar Colors
+    public struct Avatar {
+        public static let aquamarineColor = #colorLiteral(red: 0, green: 0.6784313725, blue: 0.6235294118, alpha: 1)
+        public static let reddishBrownColor = #colorLiteral(red: 0.6078431373, green: 0.1921568627, blue: 0.2392156863, alpha: 1)
+        public static let cyanColor = #colorLiteral(red: 0.231372549, green: 0.9254901961, blue: 0.9725490196, alpha: 1)
+        public static let chelseaCucumberColor = #colorLiteral(red: 0.5529411765, green: 0.768627451, blue: 0.3254901961, alpha: 1)
+        public static let hillaryColor = #colorLiteral(red: 0.6862745098, green: 0.662745098, blue: 0.5529411765, alpha: 1)
+        public static let bullShotColor = #colorLiteral(red: 0.4901960784, green: 0.3058823529, blue: 0.1294117647, alpha: 1)
+        public static let purpleColor = #colorLiteral(red: 0.568627451, green: 0, blue: 0.6784313725, alpha: 1)
+        public static let lavenderColor = #colorLiteral(red: 0.7058823529, green: 0.5215686275, blue: 0.8588235294, alpha: 1)
+        public static let downyColor = #colorLiteral(red: 0.4431372549, green: 0.8352941176, blue: 0.7490196078, alpha: 1)
+    }
+    
     // MARK: Corner Defaults
     public static let defaultCornerRadius: CGFloat = 2
     public static let defaultButtonCornerRadius: CGFloat = 5
