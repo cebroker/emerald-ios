@@ -12,6 +12,7 @@ public protocol FormFieldErrorType {
 
 public enum FormFieldError: FormFieldErrorType, Error {
     case emptyField
+    case custom(String)
 }
 
 public extension FormFieldError {
@@ -19,6 +20,9 @@ public extension FormFieldError {
         switch self {
         case .emptyField:
             return "This field can not be empty."
+        case .custom (let customTest):
+            return customTest
         }
+        
     }
 }
