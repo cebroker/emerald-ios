@@ -60,6 +60,10 @@ Emerald UI for iOS Apps
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextView">TextView</a></li>
   </ul>
+    </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/Avatar">Avatar</a></li>
+  </ul>
 
 ### CocoaPods
 
