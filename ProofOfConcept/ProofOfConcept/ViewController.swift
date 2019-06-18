@@ -98,7 +98,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
         emeraldTextView.set(placeholder: "Description")
         textViewStack.setPlaceholder(with: "Description")
-        textViewStack.setTitle(with: "My textview title")
+        textViewStack.setTitle(with: "My textview title with an a large extension to probe if the multiples line split work.")
         textViewStack.setIsRequired(with: true)
         emeraldAvatarLg.setTitle(with: "Sergio", lastName: "Giraldo")
         emeraldAvatarMd.setTitle(with: "Gensesis", lastName: "Sanguino")
