@@ -43,17 +43,3 @@ public enum EmeraldAvatarStyle: String, Inspectable {
         self.init(stringValue: IBInspectable)
     }
 }
-
-public enum EmeraldAvatarColors: String, CaseIterable {
-    case white
-    case black
-
-    var uiColor: UIColor {
-        switch self {
-        case .white:
-            return EmeraldTheme.whiteColor
-        case .black:
-            return EmeraldTheme.blackColor
-        }
-    }
-}

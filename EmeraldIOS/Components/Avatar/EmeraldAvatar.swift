@@ -7,7 +7,7 @@
 //
 
 public protocol EmeraldAvatarFieldType {
-    func set(title: String?)
+    func setTitle(with name: String?, lastName: String?)
     func set(size: EmeraldAvatarStyle)
 }
 
@@ -73,8 +73,10 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
         titleLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1).isActive = true
     }
 
-    public func set(title: String?) {
-        self.titleLabel.text = title
+    public func setTitle(with firstName: String?, lastName: String?) {
+        let name = firstName?.first ?? "J"
+        let lastname = lastName?.first ?? "D"
+        self.titleLabel.text = "\(name)\(lastname)"
     }
 
     public func set(size: EmeraldAvatarStyle) {

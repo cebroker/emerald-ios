@@ -282,6 +282,9 @@ GROUP 2</string>
                     </view>
                     <navigationItem key="navigationItem" title="Emerald Components" id="8M8-Do-9z6"/>
                     <connections>
+                        <outlet property="emeraldAvatarLg" destination="BpB-Bd-URn" id="2dH-S2-eTF"/>
+                        <outlet property="emeraldAvatarMd" destination="mfr-Ro-5VJ" id="nEg-Nk-top"/>
+                        <outlet property="emeraldAvatarXs" destination="ALH-Xj-7r1" id="NgJ-cX-6Bh"/>
                         <outlet property="emeraldButtonByStory" destination="mKU-jJ-wYo" id="geC-qS-F3W"/>
                         <outlet property="emeraldEndDateFieldByStory" destination="uDI-NN-qaw" id="8le-vm-7Dn"/>
                         <outlet property="emeraldLabelByStory" destination="DV6-cl-gbd" id="xpu-1B-NAf"/>
