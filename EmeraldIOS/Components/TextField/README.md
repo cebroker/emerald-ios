@@ -35,6 +35,12 @@ Also can be created inside our custom EmeraldStackView as:
  formTextField?.set(isRequired: true)
  formTextField?.set(hint: "Condor Labs")
 ```
+Show custom error
+
+```swift
+  let formTextField = formStackView.createEmeraldTextField(placeholder: "Some text")
+  formTextField?.show(error: FormFieldError.custom("Your error"))
+```
 
 ### Customizing theme
 
