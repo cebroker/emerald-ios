@@ -19,7 +19,8 @@
 self.showToast(message: "Not good. Not good at all. Let's get this fixed.", status: .failure, duration: .lenghtShort)
 ```
 
-####Params
+#### Params
+
 **message:** The text to show inside the view.
 **status:**  There are 2 status supported, success and failure each one show different configurations like background color and icon.
 **duration:** It defines the time in screen could be lenghtShort or lenghtLong
