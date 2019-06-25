@@ -22,6 +22,7 @@ public class EmeraldTextView: UIStackView, EmeraldValidableType {
     public let titleLabel: EmeraldLabel = {
         let label = EmeraldLabel()
         label.themeStyle = EmeraldLabelStyle.subtitle.IBInspectable
+        label.numberOfLines = 0
         return label
     }()
     
@@ -95,7 +96,6 @@ public class EmeraldTextView: UIStackView, EmeraldValidableType {
         self.addArrangedSubview(errorLabel)
         textViewField.delegate = self
         
-        titleLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         textViewField.heightAnchor.constraint(equalToConstant: 100).isActive = true
         errorLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         

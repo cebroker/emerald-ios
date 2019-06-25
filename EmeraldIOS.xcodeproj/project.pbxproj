@@ -51,6 +51,8 @@
 		6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */; };
 		6CD5843A2294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */; };
 		6CE75DAA22A15BC00035A731 /* EmeraldTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */; };
+		778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */; };
+		778BEF6822B92C2300AF8601 /* EmeralAvatarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */; };
 		75BBFA4E22BA6FC10039319B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBFA4D22BA6FC10039319B /* Toast.swift */; };
 		75BBFA5022BC1FB70039319B /* failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA4F22BC1FB70039319B /* failure.png */; };
 		75BBFA5222BC22180039319B /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA5122BC22180039319B /* success.png */; };
@@ -151,6 +153,8 @@
 		6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldStyle.swift; sourceTree = "<group>"; };
 		6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldError.swift; sourceTree = "<group>"; };
 		6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextView.swift; sourceTree = "<group>"; };
+		778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldAvatar.swift; sourceTree = "<group>"; };
+		778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeralAvatarStyle.swift; sourceTree = "<group>"; };
 		75BBFA4D22BA6FC10039319B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		75BBFA4F22BC1FB70039319B /* failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failure.png; sourceTree = "<group>"; };
 		75BBFA5122BC22180039319B /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
@@ -371,6 +375,15 @@
 			path = DayMonthYear;
 			sourceTree = "<group>";
 		};
+		778BEF6422B92BD400AF8601 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */,
+				778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
 		86AC4DE022974E1C00728FBA /* SegmentedBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +428,7 @@
 		9B3BCC4B2272033400DC5D79 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				778BEF6422B92BD400AF8601 /* Avatar */,
 				86AC4DE022974E1C00728FBA /* SegmentedBar */,
 				6CD5842122945A51001DE8D2 /* TextView */,
 				9B3BCC702272033400DC5D79 /* FormStack */,
@@ -764,16 +778,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -816,6 +823,7 @@
 				8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */,
 				6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */,
 				6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */,
+				778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */,
 				9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */,
 				6C2D328E228B0378009D4B0F /* EmeraldTextDependantFieldError.swift in Sources */,
 				6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */,
@@ -840,6 +848,7 @@
 				75BBFA4E22BA6FC10039319B /* Toast.swift in Sources */,
 				8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */,
 				6C2D3291228B0BDA009D4B0F /* EmeraldDateField.swift in Sources */,
+				778BEF6822B92C2300AF8601 /* EmeralAvatarStyle.swift in Sources */,
 				6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */,
 				6C807C78227CCF5700FC328E /* EmeraldLabel.swift in Sources */,
 				8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */,

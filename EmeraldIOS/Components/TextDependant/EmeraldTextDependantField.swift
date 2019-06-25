@@ -24,7 +24,7 @@ public class EmeraldTextDependantField: EmeraldTextField, EmeraldTextDependantFi
     }
     
     override func validateContent() -> Result<Bool, Error> {
-        guard let text = self.getValue(), !text.isEmpty else {
+        guard let text = self.getValue()?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else {
             return .failure(FormFieldError.emptyField)
         }
         
