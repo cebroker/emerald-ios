@@ -184,7 +184,7 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
     
     public func getValue() -> String? {
         if self.text.isEmpty {
-            return nil
+            return ""
         }
         return self.text
     }

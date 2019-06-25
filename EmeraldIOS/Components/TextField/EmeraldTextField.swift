@@ -336,7 +336,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     public func getValue() -> String? {
         if self.text?.isEmpty ?? true {
-            return nil
+            return ""
         }
         return self.text
     }
