@@ -9,7 +9,7 @@
 import UIKit
 
 public class EmeraldTheme {
-    
+
     // MARK: Base Colors
     public static let whiteColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     public static let blackColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -22,6 +22,8 @@ public class EmeraldTheme {
     public static let extraDarkGrayColor = #colorLiteral(red: 0.1137254902, green: 0.1294117647, blue: 0.1294117647, alpha: 1)
     public static let lightGrayColor = UIColor.lightGray
     public static let extraLightGrayColor = #colorLiteral(red: 0.3764705882, green: 0.4823529412, blue: 0.4823529412, alpha: 1)
+    public static let toastSuccess = #colorLiteral(red: 0.8862745098, green: 0.9450980392, blue: 0.8784313725, alpha: 1)
+    public static let toastFailure = #colorLiteral(red: 1, green: 0.9181403518, blue: 0.932766974, alpha: 1)
     
     // MARK: General Colors
     public static let primaryColor = blueColor
@@ -46,7 +48,8 @@ public class EmeraldTheme {
     public static let warningColor = yellowColor
     public static let successColor = greenColor
     public static let errorColor = redColor
-    
+
+
     // MARK: App Colors
     public static let mainNavigationTintColor = whiteColor
     public static let mainNavigationBarTintColor = #colorLiteral(red: 0.05490196078, green: 0.2705882353, blue: 0.4862745098, alpha: 1)
@@ -56,12 +59,12 @@ public class EmeraldTheme {
     public static let progressNotCompletedColor = warningColor
     public static let elevatedViewPrimaryColor = #colorLiteral(red: 0.7921568627, green: 0.7921568627, blue: 0.8549019608, alpha: 1)
     public static let elevatedViewSecondaryColor = blackColor
-    
+
     // MARK: Corner Defaults
     public static let defaultCornerRadius: CGFloat = 2
     public static let defaultButtonCornerRadius: CGFloat = 5
     public static let defaultElevatedViewCornerRadius: CGFloat = 5
-    
+
     // MARK: Border Defaults
     public static let defaultBorderWidth: CGFloat = 1
     public static let simpleBorderWidth: CGFloat = 0

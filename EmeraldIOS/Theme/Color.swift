@@ -20,6 +20,8 @@ public enum Color: String, Inspectable {
     case extraDarkGray
     case lightGray
     case extraLightGray
+    case toastSuccess
+    case toastFailure
     
     case primary
     case secondary
@@ -55,6 +57,10 @@ public enum Color: String, Inspectable {
     
     var uiColor: UIColor {
         switch self {
+        case .toastSuccess:
+            return EmeraldTheme.toastSuccess
+        case .toastFailure:
+            return EmeraldTheme.toastFailure
         case .white:
             return EmeraldTheme.whiteColor
         case .black:

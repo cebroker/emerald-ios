@@ -51,6 +51,10 @@
 		6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */; };
 		6CD5843A2294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */; };
 		6CE75DAA22A15BC00035A731 /* EmeraldTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */; };
+		75BBFA4E22BA6FC10039319B /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBFA4D22BA6FC10039319B /* Toast.swift */; };
+		75BBFA5022BC1FB70039319B /* failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA4F22BC1FB70039319B /* failure.png */; };
+		75BBFA5222BC22180039319B /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA5122BC22180039319B /* success.png */; };
+		75BBFA5422C287270039319B /* SnackbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBFA5322C287270039319B /* SnackbarTests.swift */; };
 		77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1851422B2BE250002CE09 /* EmeraldValidable.swift */; };
 		8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */; };
 		8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */; };
@@ -147,6 +151,10 @@
 		6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldStyle.swift; sourceTree = "<group>"; };
 		6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldError.swift; sourceTree = "<group>"; };
 		6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextView.swift; sourceTree = "<group>"; };
+		75BBFA4D22BA6FC10039319B /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		75BBFA4F22BC1FB70039319B /* failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failure.png; sourceTree = "<group>"; };
+		75BBFA5122BC22180039319B /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
+		75BBFA5322C287270039319B /* SnackbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarTests.swift; sourceTree = "<group>"; };
 		77E1851422B2BE250002CE09 /* EmeraldValidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldValidable.swift; sourceTree = "<group>"; };
 		8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarBaseCell.swift; sourceTree = "<group>"; };
 		8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarItemCell.swift; sourceTree = "<group>"; };
@@ -392,6 +400,7 @@
 		9B3BCC412272033400DC5D79 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				75BBFA4D22BA6FC10039319B /* Toast.swift */,
 				9B3BCC422272033400DC5D79 /* Constants.swift */,
 				9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */,
 				9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */,
@@ -500,6 +509,7 @@
 				9B3BCC7B2272033400DC5D79 /* DateFormFieldTests.swift */,
 				9B3BCC7C2272033400DC5D79 /* CondorUIComponentsTests.swift */,
 				9B3BCC7D2272033400DC5D79 /* Info.plist */,
+				75BBFA5322C287270039319B /* SnackbarTests.swift */,
 			);
 			path = EmeraldIOSTests;
 			sourceTree = "<group>";
@@ -555,6 +565,8 @@
 		9BF2633D2270E745004AD6F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				75BBFA5122BC22180039319B /* success.png */,
+				75BBFA4F22BC1FB70039319B /* failure.png */,
 				6C2D3296228B5FC8009D4B0F /* calendar_icon.png */,
 				6C2D3288228AF220009D4B0F /* arrow_down_icon.png */,
 				6CAFFA1922833AA900C690B9 /* xIcon.png */,
@@ -682,7 +694,9 @@
 				9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */,
 				9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */,
 				9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */,
+				75BBFA5222BC22180039319B /* success.png in Resources */,
 				6C2D3297228B5FC8009D4B0F /* calendar_icon.png in Resources */,
+				75BBFA5022BC1FB70039319B /* failure.png in Resources */,
 				9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */,
 				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
 				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,
@@ -778,6 +792,7 @@
 				9BE114112272087E007D1493 /* TextSelectionFormFieldTests.swift in Sources */,
 				9BE1141522720892007D1493 /* CheckboxFormFieldTests.swift in Sources */,
 				9BE1141722720897007D1493 /* CondorUIComponentsTests.swift in Sources */,
+				75BBFA5422C287270039319B /* SnackbarTests.swift in Sources */,
 				9BE114132272088D007D1493 /* PhoneTextFieldTests.swift in Sources */,
 				9BE1141622720894007D1493 /* DateFormFieldTests.swift in Sources */,
 				9BE114102272087A007D1493 /* SimpleSetup.swift in Sources */,
@@ -822,6 +837,7 @@
 				6C807C6D227C8E5000FC328E /* Color.swift in Sources */,
 				6CD584362294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift in Sources */,
 				9B3BCC9B2272033400DC5D79 /* EmeraldStackView.swift in Sources */,
+				75BBFA4E22BA6FC10039319B /* Toast.swift in Sources */,
 				8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */,
 				6C2D3291228B0BDA009D4B0F /* EmeraldDateField.swift in Sources */,
 				6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */,
