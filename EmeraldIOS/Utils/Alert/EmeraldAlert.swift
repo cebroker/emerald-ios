@@ -18,7 +18,7 @@ public enum ToastStatus: StatusType {
     case failure
 }
 
-public enum EmeraldAlertDuration: Double {
+public enum EmeraldAlertDuration: TimeInterval {
     case short = 3.0
     case long = 4.5
 }
@@ -59,8 +59,8 @@ public extension ToastStatus {
 extension UIViewController {
 
     struct InnerConstants {
-        static let verticalConstraintInitial = -40.0
-        static let verticalConstraintFinal = 700.0
+        static let verticalConstraintInitial = CGFloat(-40.0)
+        static let verticalConstraintFinal = CGFloat(700.0)
     }
 
     private func hideKeyboard() {
@@ -124,7 +124,7 @@ extension UIViewController {
     }
 
     private func hideMessageWith(constraint: NSLayoutConstraint, delay: Double, view: UIView) {
-        constraint.constant = CGFloat(InnerConstants.verticalConstraintFinal)
+        constraint.constant = InnerConstants.verticalConstraintFinal
         UIView.animate(withDuration: 0.8, delay: delay, options: [.curveEaseInOut, .preferredFramesPerSecond60], animations: {
                 self.view.layoutIfNeeded()
                 view.alpha = 0.0
@@ -134,7 +134,7 @@ extension UIViewController {
     }
 
     private func showMessageWith(constraint: NSLayoutConstraint, delay: Double, view: UIView) {
-        constraint.constant = CGFloat(InnerConstants.verticalConstraintInitial)
+        constraint.constant = InnerConstants.verticalConstraintInitial
         UIView.animate(withDuration: 0.7, delay: 0.0, options: [.curveEaseInOut, .preferredFramesPerSecond60], animations: {
                 self.view.layoutIfNeeded()
             }, completion: { (_) in
