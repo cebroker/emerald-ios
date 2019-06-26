@@ -191,7 +191,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
-        self.showToast(message: "Not good. Not good at all. Let's get this fixed.", status: .failure, duration: .lenghtShort)
+        self.showToast(message: "Not good. Not good at all. Let's get this fixed.", status: .failure, duration: .short)
         formStackView.areFieldsValid()
         let selectedChildren = emeraldMultipleSelectorByStory.getData().map {
             MultipleSelectionGroupItem(title: $0.getTitle())

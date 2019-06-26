@@ -18,9 +18,9 @@ public enum ToastStatus: StatusType {
     case failure
 }
 
-public enum Duration: Double {
-    case lenghtShort = 3.0
-    case lenghtLong = 4.5
+public enum EmeraldAlertDuration: Double {
+    case short = 3.0
+    case long = 4.5
 }
 
 public extension ToastStatus {
@@ -58,20 +58,24 @@ public extension ToastStatus {
 
 extension UIViewController {
 
+    struct InnerConstants {
+        static let verticalConstraintInitial = -40.0
+        static let verticalConstraintFinal = 700.0
+    }
 
     private func hideKeyboard() {
         view.endEditing(true)
     }
-    
+
     /**
      It shows a snackbar in bottom screen
      
      - Parameter message: The text to show inside the view.
      - Parameter status: there are 2 status supported, *success* and *failure* each one show different configurations like background color and icon .
-     - Parameter duration: it defines the time in screen could be *lenghtShort* or  *lenghtLong*
+     - Parameter duration: it defines the time in screen could be *short* or  *long*
      
      */
-    public func showToast(message: String, status: ToastStatus, duration: Duration) {
+    public func showToast(message: String, status: ToastStatus, duration: EmeraldAlertDuration) {
         hideKeyboard()
         let uiview = UIView()
         self.view.addSubview(uiview)
@@ -120,7 +124,7 @@ extension UIViewController {
     }
 
     private func hideMessageWith(constraint: NSLayoutConstraint, delay: Double, view: UIView) {
-        constraint.constant = 700
+        constraint.constant = CGFloat(InnerConstants.verticalConstraintFinal)
         UIView.animate(withDuration: 0.8, delay: delay, options: [.curveEaseInOut, .preferredFramesPerSecond60], animations: {
                 self.view.layoutIfNeeded()
                 view.alpha = 0.0
@@ -130,7 +134,7 @@ extension UIViewController {
     }
 
     private func showMessageWith(constraint: NSLayoutConstraint, delay: Double, view: UIView) {
-        constraint.constant = -40
+        constraint.constant = CGFloat(InnerConstants.verticalConstraintInitial)
         UIView.animate(withDuration: 0.7, delay: 0.0, options: [.curveEaseInOut, .preferredFramesPerSecond60], animations: {
                 self.view.layoutIfNeeded()
             }, completion: { (_) in
