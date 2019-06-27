@@ -5,7 +5,7 @@
 //  Created by Genesis Sanguino on 5/21/19.
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
-public enum EmeraldRegexFormatType: String, Inspectable {
+public enum EmeraldRegexFormatType {
     case email
     case zip
     case phone
@@ -14,9 +14,40 @@ public enum EmeraldRegexFormatType: String, Inspectable {
     case upperCased
     case lowerCased
     case numbers
-    case custom
-    case any = "(.*?)"
-    
+    case custom(String)
+    case any
+
+    var rawValue: String {
+        return regex!
+    }
+
+    init(rawValue: String) {
+        switch rawValue {
+        case "email":
+            self = EmeraldRegexFormatType.email
+        case "zip":
+            self = EmeraldRegexFormatType.zip
+        case "phone":
+            self = EmeraldRegexFormatType.phone
+        case "npi":
+            self = EmeraldRegexFormatType.npi
+        case "ssn":
+            self = EmeraldRegexFormatType.ssn
+        case "upperCased":
+            self = EmeraldRegexFormatType.upperCased
+        case "lowerCased":
+            self = EmeraldRegexFormatType.lowerCased
+        case "numbers":
+            self = EmeraldRegexFormatType.numbers
+        case "custom(String)":
+            var cleanRawValue = rawValue.replacingOccurrences(of: "custom(", with: "")
+            cleanRawValue.removeLast()
+            self = EmeraldRegexFormatType.custom(cleanRawValue)
+        default:
+            self = .any
+        }
+    }
+
     var regex: String? {
         switch self {
         case .email:
@@ -37,16 +68,8 @@ public enum EmeraldRegexFormatType: String, Inspectable {
             return Constants.Regex.numbers
         case .any:
             return Constants.Regex.any
-        default:
-            return nil
+        case .custom(let regex):
+            return regex
         }
-    }
-    
-    var IBInspectable: String {
-        return rawValue
-    }
-    
-    init(IBInspectable: String) {
-        self.init(stringValue: IBInspectable)
     }
 }

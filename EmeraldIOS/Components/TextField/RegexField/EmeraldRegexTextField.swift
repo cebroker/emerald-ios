@@ -19,10 +19,10 @@ public class EmeraldRegexTextField: EmeraldTextField, EmeraldRegexTextFieldType 
     @IBInspectable
     public var regex: String {
         set {
-            self.set(regex: EmeraldRegexFormatType(IBInspectable: newValue))
+            self.set(regex: EmeraldRegexFormatType(rawValue: newValue))
         }
         get {
-            return self.getRegex().rawValue
+            return self.getRegex().regex!
         }
     }
     
