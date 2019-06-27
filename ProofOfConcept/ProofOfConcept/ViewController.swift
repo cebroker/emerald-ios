@@ -93,7 +93,7 @@ class ViewController: UIViewController, EmeraldValidableType {
             MultipleSelectionGroupItem(title: "Tres"),
             MultipleSelectionGroupItem(title: "Cuatro"),
             MultipleSelectionGroupItem(title: "Cinco")])
-        emeraldRegexFieldByStory.set(inputType: .emailAddress)
+        emeraldRegexFieldByStory.set(regex: .custom("^([A-Z0-9]{1}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5})$"))
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
         emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
