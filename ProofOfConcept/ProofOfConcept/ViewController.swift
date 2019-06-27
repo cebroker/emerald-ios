@@ -77,6 +77,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     private func createStoryBoardFields() {
+
         emeraldTextByStory.setText(with: "")
         signatureBoxView.isUserInteractionEnabled = true
         signatureBoxView.delegate = self
@@ -190,10 +191,12 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
+        self.showToast(message: "Not good. Not good at all. Let's get this fixed.", status: .failure, duration: .short)
         formStackView.areFieldsValid()
         let selectedChildren = emeraldMultipleSelectorByStory.getData().map {
             MultipleSelectionGroupItem(title: $0.getTitle())
         }
+
         print(selectedChildren)
     }
 }
