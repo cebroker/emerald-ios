@@ -8,9 +8,12 @@
 
 import UIKit
 
-public protocol CustomEmeraldTextFieldDelegate: class {
+@objc public protocol CustomEmeraldTextFieldDelegate {
+    @objc optional
     func didEndEditing(textField: UITextField)
+    @objc optional
     func didBeginEditing(textField: UITextField)
+    @objc optional
     func valueDidChange(textField: UITextField, text: String?)
 }
 

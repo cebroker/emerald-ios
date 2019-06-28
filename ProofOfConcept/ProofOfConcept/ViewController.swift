@@ -245,12 +245,12 @@ extension ViewController: SingleItemChangeNotifiable {
 }
 
 extension ViewController: CustomEmeraldTextFieldDelegate {
-    func didEndEditing(textField: UITextField) {
+    func valueDidChange(textField: UITextField, text: String?) {
     }
     
     func didBeginEditing(textField: UITextField) {
     }
     
-    func valueDidChange(textField: UITextField, text: String?) {
+    func didEndEditing(textField: UITextField) {
     }
 }
