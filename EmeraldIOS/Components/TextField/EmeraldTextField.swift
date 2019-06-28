@@ -8,6 +8,11 @@
 
 import UIKit
 
+public protocol CustomEmeraldTextFieldDelegate {
+    func didEndEditing(textField: UITextField)
+    func didBeginEditing(textField: UITextField)
+}
+
 public protocol EmeraldTextFieldType {
     func set(placeholder: String?)
     func getPlaceholder() -> String?
@@ -29,6 +34,7 @@ public protocol EmeraldTextFieldType {
     func show(error: FormFieldErrorType)
     func clearError()
     func setText(with value: String)
+    func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate)
 }
 
 @IBDesignable
@@ -101,6 +107,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     private var isErrored: Bool = false
     private var initialPlaceHolder: String?
     private var innerFormat: TextFormat = .none
+    private var customTextFieldDelegate: CustomEmeraldTextFieldDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -209,10 +216,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         activateField()
+        self.customTextFieldDelegate?.didBeginEditing(textField: textField)
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
         deactivateField()
+        self.customTextFieldDelegate?.didEndEditing(textField: textField)
     }
     
     public func set(inputType: UIKeyboardType) {
@@ -354,6 +363,10 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
             self.activateField()
             self.text = value
         }
+    }
+    
+    public func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate) {
+        self.customTextFieldDelegate = delegate
     }
     
     func validateContent() -> Result<Bool, Error> {

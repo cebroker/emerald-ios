@@ -78,6 +78,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 
     private func createStoryBoardFields() {
 
+        emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setStatus(.loading)
         signatureBoxView.isUserInteractionEnabled = true
@@ -240,5 +241,13 @@ extension ViewController: SingleItemChangeNotifiable {
         default:
             break
         }
+    }
+}
+
+extension ViewController: CustomEmeraldTextFieldDelegate {
+    func didEndEditing(textField: UITextField) {
+    }
+    
+    func didBeginEditing(textField: UITextField) {
     }
 }
