@@ -17,12 +17,6 @@ import UIKit
     func valueDidChange(textField: UITextField, text: String?)
 }
 
-extension CustomEmeraldTextFieldDelegate {
-    func didEndEditing(textField: UITextField) {}
-    func didBeginEditing(textField: UITextField) {}
-    func valueDidChange(textField: UITextField, text: String?) {}
-}
-
 public protocol EmeraldTextFieldType {
     func set(placeholder: String?)
     func getPlaceholder() -> String?
@@ -202,7 +196,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         }
         
         let updatedText = oldText.replacingCharacters(in: textRange, with: string)
-        customTextFieldDelegate?.valueDidChange(textField: self, text: updatedText)
+        customTextFieldDelegate?.valueDidChange?(textField: self, text: updatedText)
         
         do {
             let textWithoutFormat = try remove(
@@ -227,12 +221,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         activateField()
-        self.customTextFieldDelegate?.didBeginEditing(textField: textField)
+        self.customTextFieldDelegate?.didBeginEditing?(textField: textField)
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
         deactivateField()
-        self.customTextFieldDelegate?.didEndEditing(textField: textField)
+        self.customTextFieldDelegate?.didEndEditing?(textField: textField)
     }
     
     public func set(inputType: UIKeyboardType) {
