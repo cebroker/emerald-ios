@@ -79,6 +79,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     private func createStoryBoardFields() {
 
         emeraldTextByStory.setText(with: "")
+        emeraldTextByStory.setStatus(.loading)
         signatureBoxView.isUserInteractionEnabled = true
         signatureBoxView.delegate = self
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)

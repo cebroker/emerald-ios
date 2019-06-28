@@ -34,6 +34,13 @@ public protocol EmeraldTextFieldType {
 @IBDesignable
 public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter, UITextFieldDelegate, EmeraldValidableType {
     
+    public enum EmeraldTextFieldState {
+        case valid
+        case normal
+        case error
+        case loading
+    }
+    
     @IBInspectable var id: String?
     @IBInspectable var isRequired: Bool = false
     @IBInspectable var maxLength: Int = 0
@@ -64,6 +71,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     }
     
     let placeholderLabel: UILabel = UILabel()
+    internal var fieldState: EmeraldTextFieldState = .normal
     
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 50.0)
