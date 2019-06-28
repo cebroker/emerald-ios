@@ -80,7 +80,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
-        emeraldTextByStory.setStatus(.loading)
+        emeraldTextByStory.setStatus(.valid)
         signatureBoxView.isUserInteractionEnabled = true
         signatureBoxView.delegate = self
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
@@ -245,9 +245,12 @@ extension ViewController: SingleItemChangeNotifiable {
 }
 
 extension ViewController: CustomEmeraldTextFieldDelegate {
-    func didEndEditing(textField: UITextField) {
+    func valueDidChange(textField: UITextField, text: String?) {
     }
     
     func didBeginEditing(textField: UITextField) {
+    }
+    
+    func didEndEditing(textField: UITextField) {
     }
 }

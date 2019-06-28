@@ -8,9 +8,19 @@
 
 import UIKit
 
-public protocol CustomEmeraldTextFieldDelegate {
+@objc public protocol CustomEmeraldTextFieldDelegate {
+    @objc optional
     func didEndEditing(textField: UITextField)
+    @objc optional
     func didBeginEditing(textField: UITextField)
+    @objc optional
+    func valueDidChange(textField: UITextField, text: String?)
+}
+
+extension CustomEmeraldTextFieldDelegate {
+    func didEndEditing(textField: UITextField) {}
+    func didBeginEditing(textField: UITextField) {}
+    func valueDidChange(textField: UITextField, text: String?) {}
 }
 
 public protocol EmeraldTextFieldType {
@@ -134,7 +144,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         self.addSubview(placeholderLabel)
         self.setupPlaceholderLabelConstraints()
     }
-    
+
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: InnerConstants.bounds,
                               dy: InnerConstants.bounds)
@@ -192,6 +202,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         }
         
         let updatedText = oldText.replacingCharacters(in: textRange, with: string)
+        customTextFieldDelegate?.valueDidChange(textField: self, text: updatedText)
         
         do {
             let textWithoutFormat = try remove(
