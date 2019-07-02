@@ -145,7 +145,6 @@ struct Constants {
         static let one: CGFloat = 1
         static let zeroDecimals = ".00"
         static let select = "Select"
-        static let emptySelectable : Selectable = EmptySelectable()
     }
 
     struct Design {
@@ -164,12 +163,6 @@ struct Constants {
             static let grayBorder = UIColor(hex: 0xC0C0C0)
             static let lightGreen = UIColor(hex: 0x33DB95)
             static let blueAccent = UIColor(hex: 0x42A5F5)
-        }
-    }
-    
-    private class EmptySelectable : Selectable {
-        func getSelectableText() -> String {
-            return Values.select
         }
     }
 }
