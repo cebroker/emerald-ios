@@ -88,6 +88,7 @@ class ViewController: UIViewController, EmeraldValidableType {
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
         emeraldSelectorByStory.set(selectedRow: State(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
+        emeraldSelectorByStory.set(emptyOptionText: "Select a state")
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
@@ -178,17 +179,6 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     private func areFieldsValid() -> Bool {
-//        let textFieldValidation = emeraldTextByStory.validateAndHandle()
-//        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
-//        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
-//        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
-//        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
-//        let signatureValidation = signatureBoxView.validateAndHandle()
-//        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
-//        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
-//        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
-//        let textViewValidation = textViewStack.validateAndHandle()
-//        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation && textViewValidation
         return validateEmeraldFields(with: self.emeraldFields)
     }
 
