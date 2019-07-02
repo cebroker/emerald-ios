@@ -37,7 +37,7 @@ public protocol EmeraldTextFieldType {
     func handleResult(with validationResult: Result<Bool, Error>) -> Bool
     func show(error: FormFieldErrorType)
     func clearError()
-    func setText(with value: String)
+    func setText(with value: String?)
     func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate)
 }
 
@@ -363,11 +363,13 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         return self.text
     }
     
-    public func setText(with value: String) {
-        if !value.isEmpty {
+    public func setText(with value: String?) {
+        if let value = value, !value.isEmpty {
             self.activateField()
-            self.text = value
+        } else {
+            self.deactivateField()
         }
+        self.text = value
     }
     
     public func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate) {

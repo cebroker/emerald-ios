@@ -204,7 +204,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 }
 
 extension ViewController: EmeraldSelectorFieldChangeNotifiable {
-    func onSelected(row: Selectable, from selector: EmeraldSelectorField) {
+    func onSelected(row: Selectable?, from selector: EmeraldSelectorField) {
         //By code
 //        guard let stateField = self.state as? EmeraldSelectorField else {
 //            return
