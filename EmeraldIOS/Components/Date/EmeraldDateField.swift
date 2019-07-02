@@ -95,9 +95,9 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         notifiable?.onDoneButtonPressed(from: self)
     }
     
-    public override func setText(with value: String) {
+    public override func setText(with value: String?) {
         super.setText(with: value)
-        if !value.isEmpty,
+        if let value = value, !value.isEmpty,
             let dateValue = getDate(from: value) {
             self.selectedDate = dateValue
         }

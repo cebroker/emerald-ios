@@ -52,7 +52,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     }
     
     public func set(data: [Selectable]) {
-        self.data = data
+        self.data = [Constants.Values.emptySelectable] + data
         self.selectedRow = data.first
         self.reloadInputViews()
     }
@@ -68,8 +68,12 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     }
     
     public func set(selectedRow: Selectable) {
-        self.selectedRow = selectedRow
-        self.setText(with: selectedRow.getSelectableText())
+        if selectedRow === Constants.Values.emptySelectable {
+            self.selectedRow = nil
+        } else {
+            self.selectedRow = selectedRow
+        }
+        self.setText(with: self.selectedRow?.getSelectableText())
         pickerView.selectRow(self.data.firstIndex(where: { $0.getSelectableText() == selectedRow.getSelectableText() }) ?? 0, inComponent: 0, animated: true)
         notifiable?.onSelected(row: selectedRow, from: self)
     }

@@ -7,7 +7,7 @@
 //
 
 public protocol EmeraldSelectorFieldChangeNotifiable: class {
-    func onSelected(row: Selectable, from selector: EmeraldSelectorField)
+    func onSelected(row: Selectable?, from selector: EmeraldSelectorField)
     func onDoneButtonPressed(from selector: EmeraldSelectorField)
 }
 
