@@ -12,6 +12,7 @@ public protocol EmeraldSelectorFieldType: EmeraldTextFieldType {
     func getSelectedRow() -> Selectable?
     func set(selectedRow: Selectable)
     func set(notifiable: EmeraldSelectorFieldChangeNotifiable?)
+    func set(emptyOptionText: String)
 }
 
 @IBDesignable
@@ -22,12 +23,25 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         static let dropdownIconName = "arrow_down_icon.png"
     }
     
+    private class EmptySelectable : Selectable {
+        private var text: String = Constants.Values.select
+        
+        func getSelectableText() -> String {
+            return text
+        }
+        
+        func set(text: String) {
+            self.text = text
+        }
+    }
+    
     private weak var notifiable: EmeraldSelectorFieldChangeNotifiable?
     private lazy var pickerView: UIPickerView = UIPickerView()
     private lazy var toolbar: UIToolbar = UIToolbar()
     private lazy var data: [Selectable] = []
     private var selectedRow: Selectable?
     private var dropdownIcon: UIImage?
+    private var emptySelectable = EmptySelectable()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -52,7 +66,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     }
     
     public func set(data: [Selectable]) {
-        self.data = data
+        self.data = [emptySelectable] + data
         self.selectedRow = data.first
         self.reloadInputViews()
     }
@@ -63,13 +77,21 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         self.reloadInputViews()
     }
     
+    public func set(emptyOptionText: String) {
+        self.emptySelectable.set(text: emptyOptionText)
+    }
+    
     public func getSelectedRow() -> Selectable? {
         return selectedRow
     }
     
     public func set(selectedRow: Selectable) {
-        self.selectedRow = selectedRow
-        self.setText(with: selectedRow.getSelectableText())
+        if selectedRow === emptySelectable {
+            self.selectedRow = nil
+        } else {
+            self.selectedRow = selectedRow
+        }
+        self.setText(with: self.selectedRow?.getSelectableText())
         pickerView.selectRow(self.data.firstIndex(where: { $0.getSelectableText() == selectedRow.getSelectableText() }) ?? 0, inComponent: 0, animated: true)
         notifiable?.onSelected(row: selectedRow, from: self)
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -62,6 +62,8 @@
 		8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */; };
 		8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9CA22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift */; };
 		86AC4DE222974E2E00728FBA /* EmeraldSegmentedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC4DE122974E2E00728FBA /* EmeraldSegmentedBar.swift */; };
+		86C599C122C6811000B1DD4D /* icon_complete.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C599BF22C6811000B1DD4D /* icon_complete.png */; };
+		86C599C222C6811000B1DD4D /* icon_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C599C022C6811000B1DD4D /* icon_error.png */; };
 		86FB68E222C58EF0009C184D /* EmeraldTextField+ViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FB68E122C58EF0009C184D /* EmeraldTextField+ViewStatus.swift */; };
 		9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC422272033400DC5D79 /* Constants.swift */; };
 		9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */; };
@@ -164,6 +166,8 @@
 		8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTitleAppearance.swift; sourceTree = "<group>"; };
 		8676D9CA22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarAppearance.swift; sourceTree = "<group>"; };
 		86AC4DE122974E2E00728FBA /* EmeraldSegmentedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBar.swift; sourceTree = "<group>"; };
+		86C599BF22C6811000B1DD4D /* icon_complete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_complete.png; sourceTree = "<group>"; };
+		86C599C022C6811000B1DD4D /* icon_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_error.png; sourceTree = "<group>"; };
 		86FB68E122C58EF0009C184D /* EmeraldTextField+ViewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmeraldTextField+ViewStatus.swift"; sourceTree = "<group>"; };
 		9727B372443E6F4388E7415A /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B3BCC422272033400DC5D79 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -592,6 +596,8 @@
 				6C2D3296228B5FC8009D4B0F /* calendar_icon.png */,
 				6C2D3288228AF220009D4B0F /* arrow_down_icon.png */,
 				6CAFFA1922833AA900C690B9 /* xIcon.png */,
+				86C599BF22C6811000B1DD4D /* icon_complete.png */,
+				86C599C022C6811000B1DD4D /* icon_error.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -629,7 +635,7 @@
 				9BC82E212242777F007BC5BD /* Sources */,
 				9BC82E222242777F007BC5BD /* Frameworks */,
 				9BC82E232242777F007BC5BD /* Resources */,
-				81F70949A10DD1470EFB023A /* [CP] Embed Pods Frameworks */,
+				30653BE06C888137D50AD14F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -712,6 +718,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CAFFA1A22833AAA00C690B9 /* xIcon.png in Resources */,
+				86C599C222C6811000B1DD4D /* icon_error.png in Resources */,
 				9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */,
 				9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */,
 				9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */,
@@ -728,12 +735,35 @@
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
 				9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */,
+				86C599C122C6811000B1DD4D /* icon_complete.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		30653BE06C888137D50AD14F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		40563332C66ACA5CE6212CC2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -776,23 +806,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		81F70949A10DD1470EFB023A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

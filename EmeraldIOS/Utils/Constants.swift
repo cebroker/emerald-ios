@@ -144,6 +144,7 @@ struct Constants {
         static let zero = 0
         static let one: CGFloat = 1
         static let zeroDecimals = ".00"
+        static let select = "Select"
     }
 
     struct Design {

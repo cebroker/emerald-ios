@@ -80,7 +80,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
-        emeraldTextByStory.setStatus(.loading)
+        emeraldTextByStory.setStatus(.valid)
         signatureBoxView.isUserInteractionEnabled = true
         signatureBoxView.delegate = self
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
@@ -88,6 +88,7 @@ class ViewController: UIViewController, EmeraldValidableType {
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
         emeraldSelectorByStory.set(selectedRow: State(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
+        emeraldSelectorByStory.set(emptyOptionText: "Select a state")
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
@@ -178,17 +179,6 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     private func areFieldsValid() -> Bool {
-//        let textFieldValidation = emeraldTextByStory.validateAndHandle()
-//        let selectorValidation = emeraldSelectorByStory.validateAndHandle()
-//        let textDependantValidation = emeraldTextDependantFieldByStory.validateAndHandle()
-//        let dateValidation = emeraldStartDateFieldByStory.validateAndHandle()
-//        let endDateValidation = emeraldEndDateFieldByStory.validateAndHandle()
-//        let signatureValidation = signatureBoxView.validateAndHandle()
-//        let emailValidation = emeraldRegexFieldByStory.validateAndHandle()
-//        let multipleSelectionValidation = emeraldMultipleSelectorByStory.validateAndHandle()
-//        let emeraldTextViewValidation = emeraldTextView.validateAndHandle()
-//        let textViewValidation = textViewStack.validateAndHandle()
-//        return textFieldValidation && selectorValidation && textDependantValidation && dateValidation && endDateValidation && signatureValidation && emailValidation && multipleSelectionValidation && emeraldTextViewValidation && textViewValidation
         return validateEmeraldFields(with: self.emeraldFields)
     }
 
@@ -204,7 +194,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 }
 
 extension ViewController: EmeraldSelectorFieldChangeNotifiable {
-    func onSelected(row: Selectable, from selector: EmeraldSelectorField) {
+    func onSelected(row: Selectable?, from selector: EmeraldSelectorField) {
         //By code
 //        guard let stateField = self.state as? EmeraldSelectorField else {
 //            return
@@ -245,9 +235,12 @@ extension ViewController: SingleItemChangeNotifiable {
 }
 
 extension ViewController: CustomEmeraldTextFieldDelegate {
-    func didEndEditing(textField: UITextField) {
+    func valueDidChange(textField: UITextField, text: String?) {
     }
     
     func didBeginEditing(textField: UITextField) {
+    }
+    
+    func didEndEditing(textField: UITextField) {
     }
 }

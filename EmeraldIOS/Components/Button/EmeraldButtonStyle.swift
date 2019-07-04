@@ -20,6 +20,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     case secondarySmall
     case secondaryLarge
     case link
+    case plainPrimary
     
     var backgroundColor: UIColor? {
         switch self {
@@ -33,7 +34,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.warningColor
         case .primaryError:
             return EmeraldTheme.errorColor
-        case .plain:
+        case .plain, .plainPrimary:
             return EmeraldTheme.whiteColor
         default:
             return nil
@@ -44,7 +45,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
         switch self {
         case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
             return EmeraldTheme.whiteColor
-        case .secondary, .secondarySmall, .secondaryLarge:
+        case .secondary, .secondarySmall, .secondaryLarge, .plainPrimary:
             return EmeraldTheme.primaryColor
         case .link:
             return EmeraldTheme.linkColor
@@ -63,6 +64,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.warningButtonHighlightedColor
         case .primaryError:
             return EmeraldTheme.errorButtonHighlightedColor
+        case .plainPrimary:
+            return nil
         default:
             return backgroundColor
         }
@@ -70,7 +73,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     
     var highlightedTitleColor: UIColor? {
         switch self {
-        case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
+        case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError, .plainPrimary:
             return titleColor
         case .plain:
             return EmeraldTheme.darkTextColor.withAlphaComponent(0.15)
@@ -107,14 +110,13 @@ public enum EmeraldButtonStyle: String, Inspectable {
         case .primaryLarge, .secondaryLarge:
             return Font(size: .largeButton,
                         weight: .bold).uiFont
-        case .link:
-            return Font(size: .button,
+        case .link, .plainPrimary:
+            return Font(size: .smallButton,
                         weight: .semibold).uiFont
         default:
             return Font(size: .button,
                         weight: .bold).uiFont
         }
-        
     }
     
     var IBInspectable: String {

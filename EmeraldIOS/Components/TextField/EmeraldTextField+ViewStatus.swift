@@ -17,6 +17,7 @@ extension EmeraldTextField {
         case .loading:
             addActivityIndicator()
         case .error:
+            addErrorIcon()
             break
         }
     }
@@ -28,11 +29,19 @@ extension EmeraldTextField {
 
 extension EmeraldTextField {
     private func addCheckMark() {
+        addIconImage(with: "icon_complete.png")
+    }
+    
+    private func addErrorIcon() {
+        addIconImage(with: "icon_error.png")
+    }
+    
+    private func addIconImage(with name: String) {
         let rightButtonView = UIImageView(frame: CGRect(x: 0.0,
                                                         y: 0.0,
                                                         width: ((self.frame.height) * 0.48),
                                                         height: ((self.frame.height) * 0.35)))
-        rightButtonView.image = UIImage(named: "success.png",
+        rightButtonView.image = UIImage(named: name,
                                         in: Bundle(for: ClassBundle.self),
                                         compatibleWith: nil)
         rightButtonView.contentMode = .scaleAspectFit

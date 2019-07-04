@@ -8,9 +8,13 @@
 
 import UIKit
 
-public protocol CustomEmeraldTextFieldDelegate {
+@objc public protocol CustomEmeraldTextFieldDelegate {
+    @objc optional
     func didEndEditing(textField: UITextField)
+    @objc optional
     func didBeginEditing(textField: UITextField)
+    @objc optional
+    func valueDidChange(textField: UITextField, text: String?)
 }
 
 public protocol EmeraldTextFieldType {
@@ -33,7 +37,7 @@ public protocol EmeraldTextFieldType {
     func handleResult(with validationResult: Result<Bool, Error>) -> Bool
     func show(error: FormFieldErrorType)
     func clearError()
-    func setText(with value: String)
+    func setText(with value: String?)
     func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate)
 }
 
@@ -134,7 +138,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         self.addSubview(placeholderLabel)
         self.setupPlaceholderLabelConstraints()
     }
-    
+
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: InnerConstants.bounds,
                               dy: InnerConstants.bounds)
@@ -192,6 +196,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         }
         
         let updatedText = oldText.replacingCharacters(in: textRange, with: string)
+        customTextFieldDelegate?.valueDidChange?(textField: self, text: updatedText)
         
         do {
             let textWithoutFormat = try remove(
@@ -216,12 +221,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         activateField()
-        self.customTextFieldDelegate?.didBeginEditing(textField: textField)
+        self.customTextFieldDelegate?.didBeginEditing?(textField: textField)
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
         deactivateField()
-        self.customTextFieldDelegate?.didEndEditing(textField: textField)
+        self.customTextFieldDelegate?.didEndEditing?(textField: textField)
     }
     
     public func set(inputType: UIKeyboardType) {
@@ -358,11 +363,13 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         return self.text
     }
     
-    public func setText(with value: String) {
-        if !value.isEmpty {
+    public func setText(with value: String?) {
+        if let value = value, !value.isEmpty {
             self.activateField()
-            self.text = value
+        } else {
+            self.deactivateField()
         }
+        self.text = value
     }
     
     public func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate) {
