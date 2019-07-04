@@ -20,7 +20,7 @@ public class EmeraldTheme {
     public static let grayColor = #colorLiteral(red: 0.2941176471, green: 0.3254901961, blue: 0.3254901961, alpha: 1)
     public static let darkGrayColor = #colorLiteral(red: 0.1568627451, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
     public static let extraDarkGrayColor = #colorLiteral(red: 0.1137254902, green: 0.1294117647, blue: 0.1294117647, alpha: 1)
-    public static let lightGrayColor = UIColor.lightGray
+    public static let lightGrayColor = #colorLiteral(red: 0.2941176471, green: 0.3254901961, blue: 0.3254901961, alpha: 1)
     public static let extraLightGrayColor = #colorLiteral(red: 0.3764705882, green: 0.4823529412, blue: 0.4823529412, alpha: 1)
     public static let toastSuccess = #colorLiteral(red: 0.8862745098, green: 0.9450980392, blue: 0.8784313725, alpha: 1)
     public static let toastFailure = #colorLiteral(red: 1, green: 0.9181403518, blue: 0.932766974, alpha: 1)
