@@ -75,7 +75,6 @@ extension UIViewController {
                 break
             }
         }
-
     }
     /**
      It shows a snackbar in bottom screen
