@@ -61,12 +61,21 @@ extension UIViewController {
     struct InnerConstants {
         static let verticalConstraintInitial = CGFloat(-40.0)
         static let verticalConstraintFinal = CGFloat(700.0)
+        static let defaultTag = 100000
     }
 
     private func hideKeyboard() {
         view.endEditing(true)
     }
 
+    private func removeToast() {
+        for view in self.view.subviews {
+            if view.tag == InnerConstants.defaultTag {
+                view.removeFromSuperview()
+                break
+            }
+        }
+    }
     /**
      It shows a snackbar in bottom screen
      
@@ -75,9 +84,13 @@ extension UIViewController {
      - Parameter duration: it defines the time in screen could be *short* or  *long*
      
      */
+
     public func showToast(message: String, status: ToastStatus, duration: EmeraldAlertDuration) {
+
         hideKeyboard()
+        removeToast()
         let uiview = UIView()
+        uiview.tag = InnerConstants.defaultTag
         self.view.addSubview(uiview)
         uiview.layer.borderWidth = EmeraldTheme.defaultBorderWidth
         uiview.layer.borderColor = status.borderColor?.cgColor
@@ -92,7 +105,6 @@ extension UIViewController {
 
         let stack = UIStackView()
         uiview.addSubview(stack)
-
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 8.0
         stack.distribution = .fill
