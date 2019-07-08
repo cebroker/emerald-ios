@@ -152,7 +152,7 @@ extension EmeraldTextView: EmeraldTextViewType {
     }
     
     public func setTitle(with value: String) {
-        self.titleValue = value
+        self.titleLabel.text = value
     }
     
     public func setMaxLength(with value: Int) {

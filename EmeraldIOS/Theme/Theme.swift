@@ -16,7 +16,7 @@ public class EmeraldTheme {
     public static let redColor = #colorLiteral(red: 0.8705882353, green: 0.2078431373, blue: 0.0431372549, alpha: 1)
     public static let greenColor = #colorLiteral(red: 0, green: 0.662745098, blue: 0.3137254902, alpha: 1)
     public static let blueColor = #colorLiteral(red: 0, green: 0.4509803922, blue: 0.9137254902, alpha: 1)
-    public static let yellowColor = #colorLiteral(red: 1, green: 0.6666666667, blue: 0, alpha: 1)
+    public static let yellowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8470588235)
     public static let grayColor = #colorLiteral(red: 0.2941176471, green: 0.3254901961, blue: 0.3254901961, alpha: 1)
     public static let darkGrayColor = #colorLiteral(red: 0.1568627451, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
     public static let extraDarkGrayColor = #colorLiteral(red: 0.1137254902, green: 0.1294117647, blue: 0.1294117647, alpha: 1)
