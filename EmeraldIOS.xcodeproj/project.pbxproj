@@ -81,13 +81,6 @@
 		9B3BCC9C2272033400DC5D79 /* EmeraldStackViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC722272033400DC5D79 /* EmeraldStackViewContract.swift */; };
 		9BC82E2A2242777F007BC5BD /* EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */; };
 		9BE114102272087A007D1493 /* SimpleSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC752272033400DC5D79 /* SimpleSetup.swift */; };
-		9BE114112272087E007D1493 /* TextSelectionFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC762272033400DC5D79 /* TextSelectionFormFieldTests.swift */; };
-		9BE1141222720880007D1493 /* RadioGroupFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC772272033400DC5D79 /* RadioGroupFormFieldTests.swift */; };
-		9BE114132272088D007D1493 /* PhoneTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC782272033400DC5D79 /* PhoneTextFieldTests.swift */; };
-		9BE1141422720890007D1493 /* SelectorFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC792272033400DC5D79 /* SelectorFormFieldTests.swift */; };
-		9BE1141522720892007D1493 /* CheckboxFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC7A2272033400DC5D79 /* CheckboxFormFieldTests.swift */; };
-		9BE1141622720894007D1493 /* DateFormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC7B2272033400DC5D79 /* DateFormFieldTests.swift */; };
-		9BE1141722720897007D1493 /* CondorUIComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC7C2272033400DC5D79 /* CondorUIComponentsTests.swift */; };
 		9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */; };
 		9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */; };
 		9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263282270B6A7004AD6F7 /* LICENSE.txt */; };
@@ -186,13 +179,6 @@
 		9B3BCC722272033400DC5D79 /* EmeraldStackViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldStackViewContract.swift; sourceTree = "<group>"; };
 		9B3BCC732272033400DC5D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B3BCC752272033400DC5D79 /* SimpleSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSetup.swift; sourceTree = "<group>"; };
-		9B3BCC762272033400DC5D79 /* TextSelectionFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionFormFieldTests.swift; sourceTree = "<group>"; };
-		9B3BCC772272033400DC5D79 /* RadioGroupFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupFormFieldTests.swift; sourceTree = "<group>"; };
-		9B3BCC782272033400DC5D79 /* PhoneTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneTextFieldTests.swift; sourceTree = "<group>"; };
-		9B3BCC792272033400DC5D79 /* SelectorFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorFormFieldTests.swift; sourceTree = "<group>"; };
-		9B3BCC7A2272033400DC5D79 /* CheckboxFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxFormFieldTests.swift; sourceTree = "<group>"; };
-		9B3BCC7B2272033400DC5D79 /* DateFormFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormFieldTests.swift; sourceTree = "<group>"; };
-		9B3BCC7C2272033400DC5D79 /* CondorUIComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CondorUIComponentsTests.swift; sourceTree = "<group>"; };
 		9B3BCC7D2272033400DC5D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BA491A422288FEE00837D07 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC82E252242777F007BC5BD /* EmeraldIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmeraldIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -528,13 +514,6 @@
 			isa = PBXGroup;
 			children = (
 				9B3BCC752272033400DC5D79 /* SimpleSetup.swift */,
-				9B3BCC762272033400DC5D79 /* TextSelectionFormFieldTests.swift */,
-				9B3BCC772272033400DC5D79 /* RadioGroupFormFieldTests.swift */,
-				9B3BCC782272033400DC5D79 /* PhoneTextFieldTests.swift */,
-				9B3BCC792272033400DC5D79 /* SelectorFormFieldTests.swift */,
-				9B3BCC7A2272033400DC5D79 /* CheckboxFormFieldTests.swift */,
-				9B3BCC7B2272033400DC5D79 /* DateFormFieldTests.swift */,
-				9B3BCC7C2272033400DC5D79 /* CondorUIComponentsTests.swift */,
 				9B3BCC7D2272033400DC5D79 /* Info.plist */,
 			);
 			path = EmeraldIOSTests;
@@ -815,13 +794,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BE1141222720880007D1493 /* RadioGroupFormFieldTests.swift in Sources */,
-				9BE1141422720890007D1493 /* SelectorFormFieldTests.swift in Sources */,
-				9BE114112272087E007D1493 /* TextSelectionFormFieldTests.swift in Sources */,
-				9BE1141522720892007D1493 /* CheckboxFormFieldTests.swift in Sources */,
-				9BE1141722720897007D1493 /* CondorUIComponentsTests.swift in Sources */,
-				9BE114132272088D007D1493 /* PhoneTextFieldTests.swift in Sources */,
-				9BE1141622720894007D1493 /* DateFormFieldTests.swift in Sources */,
 				9BE114102272087A007D1493 /* SimpleSetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
