@@ -1,0 +1,34 @@
+codecov:
+  token: abb81841-17c8-4be4-a825-2e47dcbe2766
+  max_report_age: off
+  ci:
+    - http://207.254.73.185:8080
+  notify:
+    require_ci_to_pass: no
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+  ignore:
+    - EvercheckWallet/PactTests/*
+    - EvercheckWallet/UITests/*
+    - EvercheckWallet/UnitTests/*
+    - EvercheckWallet/pact/*
+    - EvercheckWallet/Pods/*
+    - EvercheckWallet/*.lock
+    - EvercheckWallet/fastlane/*
+    - EvercheckWallet/xcov_output/*
+    - EvercheckWallet/*.plist
+    - EvercheckWallet/*.ipa
+    - EvercheckWallet/*.app.dSYM.zip
+  status:
+    patch:
+      default:
+        if_no_uploads: error
+    changes: true
+    project:
+      default:
+        target: auto
+        if_no_uploads: error
+comment: false

@@ -64,6 +64,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.createHideKeyboardGesture()
 //        self.createFields()
         self.createStoryBoardFields()
+        print("hola hola")
     }
 
     private func createHideKeyboardGesture() {
