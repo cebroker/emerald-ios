@@ -51,6 +51,9 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         case loading
     }
     
+    @objc
+    @IBOutlet open weak var nextResponderField: UIResponder?
+    
     @IBInspectable var id: String?
     @IBInspectable var isRequired: Bool = false
     @IBInspectable var maxLength: Int = 0
@@ -82,6 +85,22 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     
     let placeholderLabel: UILabel = UILabel()
     internal var fieldState: EmeraldTextFieldState = .normal
+    
+ 
+    private func setUp() {
+        addTarget(self, action: #selector(actionKeyboardButtonTapped(sender:)), for: .editingDidEnd)
+    }
+
+    @objc private func actionKeyboardButtonTapped(sender: UITextField) {
+        switch nextResponderField {
+        case let button as UIButton where button.isEnabled:
+            button.sendActions(for: .touchUpInside)
+        case .some(let responder):
+            responder.becomeFirstResponder()
+        default:
+            resignFirstResponder()
+        }
+    }
     
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 50.0)
@@ -116,11 +135,13 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         prepareForInterfaceBuilder()
+        setUp()
     }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
         prepareForInterfaceBuilder()
+        setUp()
     }
     
     override public func didMoveToWindow() {
