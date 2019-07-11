@@ -77,7 +77,6 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     private func createStoryBoardFields() {
-
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setStatus(.valid)
