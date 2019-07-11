@@ -6,9 +6,9 @@
 </ul>
 
 ## Examples
-<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/alert_failure.PNG" /></p>
+<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/alert_failure.png" /></p>
 
-<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/alert_success.PNG" /></p>
+<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/alert_success.png" /></p>
 
 ## Usage
 ### Typical use

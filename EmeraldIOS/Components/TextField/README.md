@@ -41,13 +41,23 @@ Show custom error
   let formTextField = formStackView.createEmeraldTextField(placeholder: "Some text")
   formTextField?.show(error: FormFieldError.custom("Your error"))
 ```
+if you want to set a responder to focus the next textfield, you can do it in this way
+by Code
+```swift
+let formTextFieldName = formStackView.createEmeraldTextField(placeholder: "Name")
+let formT
+extFieldLastname = formStackView.createEmeraldTextField(placeholder: "Lastname")
+formTextFieldName.nextResponderField = formTextFieldLastname
+```
+by Storyboard there is an outlet to reference the view with name nextResponderField
+<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/EmeraldTextFieldFromStoryboard.png" /></p>
 
 ### Customizing theme
 
 The theme of a textfield will always be the primary styled EmeraldUI field.
 
 ## Usage from storyboard
-<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/EmeraldTextFieldFromStoryboard.png" /></p>
+<p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/NextResponder.png" /></p>
 
 You only need to set the `Theme Style` for the emerald textfield you want. All the `EmeraldTextFieldStyle` are:
 #### Swift
