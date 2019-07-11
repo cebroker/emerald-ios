@@ -54,7 +54,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     @objc
     @IBOutlet open weak var nextResponderField: UIResponder? {
         didSet {
-            self.returnKeyType = .next
+            if nextResponderField != nil {
+                self.returnKeyType = .next
+            } else {
+                self.returnKeyType = .default
+            }
         }
     }
 
@@ -97,7 +101,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     @objc private func actionKeyboardButtonTapped(sender: UITextField) {
         switch nextResponderField {
         case .some(let responder):
-            
             responder.becomeFirstResponder()
         default:
             resignFirstResponder()
