@@ -35,6 +35,8 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
+    
+    @IBOutlet weak var emptyableSelector: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
     @IBOutlet weak var emeraldStartDateFieldByStory: EmeraldDateField!
@@ -88,6 +90,10 @@ class ViewController: UIViewController, EmeraldValidableType {
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
         emeraldSelectorByStory.set(selectedRow: State(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
         emeraldSelectorByStory.set(emptyOptionText: "Select a state")
+        emptyableSelector.set(data:  [
+            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+        
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
@@ -209,6 +215,10 @@ extension ViewController: EmeraldSelectorFieldChangeNotifiable {
             guard let state = row as? State else {
                 return
             }
+            emptyableSelector.clearData()
+            emptyableSelector.set(data:  [
+                State(name: "Antioquia2", cities: ["Medellin", "Envigado"]),
+                State(name: "Cundinamarca2", cities: ["Chia", "Bogota"])])
             emeraldTextDependantFieldByStory.set(availableOptions: state.cities)
             city?.set(availableOptions: state.cities)
         default:

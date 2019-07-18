@@ -73,6 +73,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     
     public func clearData() {
         self.selectedRow = nil
+        self.set(selectedRow: emptySelectable)
         self.data = []
         self.reloadInputViews()
     }
