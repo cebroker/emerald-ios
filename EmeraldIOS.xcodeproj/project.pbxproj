@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,6 +56,9 @@
 		75BBFA5222BC22180039319B /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA5122BC22180039319B /* success.png */; };
 		778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */; };
 		778BEF6822B92C2300AF8601 /* EmeralAvatarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */; };
+		77BF6E1522DF7C1500E4C448 /* EmeraldChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF6E1422DF7C1500E4C448 /* EmeraldChipView.swift */; };
+		77BF6E1722DF7C1E00E4C448 /* EmeraldChipStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF6E1622DF7C1E00E4C448 /* EmeraldChipStyle.swift */; };
+		77BF6E1B22E0BC1E00E4C448 /* Constants+Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF6E1A22E0BC1E00E4C448 /* Constants+Icons.swift */; };
 		77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1851422B2BE250002CE09 /* EmeraldValidable.swift */; };
 		8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */; };
 		8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */; };
@@ -153,6 +156,9 @@
 		75BBFA5122BC22180039319B /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
 		778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldAvatar.swift; sourceTree = "<group>"; };
 		778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeralAvatarStyle.swift; sourceTree = "<group>"; };
+		77BF6E1422DF7C1500E4C448 /* EmeraldChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChipView.swift; sourceTree = "<group>"; };
+		77BF6E1622DF7C1E00E4C448 /* EmeraldChipStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChipStyle.swift; sourceTree = "<group>"; };
+		77BF6E1A22E0BC1E00E4C448 /* Constants+Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Icons.swift"; sourceTree = "<group>"; };
 		77E1851422B2BE250002CE09 /* EmeraldValidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldValidable.swift; sourceTree = "<group>"; };
 		8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarBaseCell.swift; sourceTree = "<group>"; };
 		8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarItemCell.swift; sourceTree = "<group>"; };
@@ -383,6 +389,15 @@
 			path = Avatar;
 			sourceTree = "<group>";
 		};
+		77BF6E1322DF7B5500E4C448 /* Chip */ = {
+			isa = PBXGroup;
+			children = (
+				77BF6E1422DF7C1500E4C448 /* EmeraldChipView.swift */,
+				77BF6E1622DF7C1E00E4C448 /* EmeraldChipStyle.swift */,
+			);
+			path = Chip;
+			sourceTree = "<group>";
+		};
 		86AC4DE022974E1C00728FBA /* SegmentedBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +429,7 @@
 			children = (
 				7585BF5622C2CFC200CC086B /* Alert */,
 				9B3BCC422272033400DC5D79 /* Constants.swift */,
+				77BF6E1A22E0BC1E00E4C448 /* Constants+Icons.swift */,
 				9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */,
 				9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */,
 				9B3BCC452272033400DC5D79 /* Extensions+UIStackView.swift */,
@@ -427,6 +443,7 @@
 		9B3BCC4B2272033400DC5D79 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				77BF6E1322DF7B5500E4C448 /* Chip */,
 				778BEF6422B92BD400AF8601 /* Avatar */,
 				86AC4DE022974E1C00728FBA /* SegmentedBar */,
 				6CD5842122945A51001DE8D2 /* TextView */,
@@ -727,16 +744,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -808,6 +820,7 @@
 				6CE75DAA22A15BC00035A731 /* EmeraldTextView.swift in Sources */,
 				6CD5841C229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift in Sources */,
 				6CD5842522945A7F001DE8D2 /* EmeraldTextViewFieldStyle.swift in Sources */,
+				77BF6E1522DF7C1500E4C448 /* EmeraldChipView.swift in Sources */,
 				6C2D328C228B034E009D4B0F /* EmeraldTextDependantField.swift in Sources */,
 				6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */,
 				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
@@ -821,6 +834,7 @@
 				6C2D328E228B0378009D4B0F /* EmeraldTextDependantFieldError.swift in Sources */,
 				6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */,
 				6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */,
+				77BF6E1B22E0BC1E00E4C448 /* Constants+Icons.swift in Sources */,
 				6CD584322294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift in Sources */,
 				6C2D32802289D99B009D4B0F /* EmeraldSelectorFieldError.swift in Sources */,
 				9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */,
@@ -844,6 +858,7 @@
 				778BEF6822B92C2300AF8601 /* EmeralAvatarStyle.swift in Sources */,
 				6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */,
 				6C807C78227CCF5700FC328E /* EmeraldLabel.swift in Sources */,
+				77BF6E1722DF7C1E00E4C448 /* EmeraldChipStyle.swift in Sources */,
 				8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */,
 				6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */,
 				6C807C7A227CECDA00FC328E /* EmeraldButtonStyle.swift in Sources */,

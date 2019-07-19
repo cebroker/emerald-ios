@@ -10,6 +10,7 @@ import BEMCheckBox
 public protocol EmeraldMultipleSelectionFieldType {
     func set(data: [Selectable])
     func getData() -> [EmeraldMultipleSelectionItemType]
+    func getChildren() -> [EmeraldMultipleSelectionItemType]?
     func updateTitle(from index: Int, with newTitle: String)
     func set(spacing: CGFloat)
     func set(notifiable: SingleItemChangeNotifiable)
