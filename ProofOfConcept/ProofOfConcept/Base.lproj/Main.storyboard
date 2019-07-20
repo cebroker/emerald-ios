@@ -37,7 +37,7 @@ GROUP 2</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="luc-tT-pwp">
                                 <rect key="frame" x="20.5" y="55" width="373" height="80"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-Bd-URn" customClass="EmeraldAvatar" customModule="EmeraldIOS">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-Bd-URn" customClass="EmeraldAvatar" customModule="EmeraldIOS">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
@@ -46,8 +46,8 @@ GROUP 2</string>
                                             <userDefinedRuntimeAttribute type="string" keyPath="size" value="lg"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-Ro-5VJ" customClass="EmeraldAvatar" customModule="EmeraldIOS">
-                                        <rect key="frame" x="176.5" y="10" width="60" height="60"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-Ro-5VJ" customClass="EmeraldAvatar" customModule="EmeraldIOS">
+                                        <rect key="frame" x="171.5" y="10" width="60" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="themeColor" value="red"/>
@@ -55,8 +55,8 @@ GROUP 2</string>
                                             <userDefinedRuntimeAttribute type="string" keyPath="size" value="md"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-Xj-7r1" customClass="EmeraldAvatar" customModule="EmeraldIOS">
-                                        <rect key="frame" x="333" y="20" width="40" height="40"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-Xj-7r1" customClass="EmeraldAvatar" customModule="EmeraldIOS">
+                                        <rect key="frame" x="323" y="15" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="themeColor" value="red"/>
@@ -79,7 +79,7 @@ GROUP 2</string>
                                                     <constraint firstAttribute="height" constant="50" id="5gd-jK-KhG"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="simpleDefault"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="simpleSuccess"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV6-cl-gbd" customClass="EmeraldLabel" customModule="EmeraldIOS">

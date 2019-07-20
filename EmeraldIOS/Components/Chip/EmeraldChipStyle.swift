@@ -15,6 +15,15 @@ public enum EmeraldChipStyle: String, Inspectable {
     case simpleDefault
     case dissmisible
     case avatar
+    
+    var cornerRadious: CGFloat! {
+        switch self {
+        case .dissmisible, .avatar, .simpleDefault:
+            return Constants.Dimens.chipsCornerRadious
+        default:
+            return CGFloat(integerLiteral: 0)
+        }
+    }
 
     var backgroundColor: UIColor! {
         switch self {
@@ -29,12 +38,10 @@ public enum EmeraldChipStyle: String, Inspectable {
         }
     }
 
-    var buttonIcon: UIImage! {
+    var buttonIcon: UIImage? {
         switch self {
-        case .simpleSuccess:
-            return getButtonIcon(named: Constants.Icons.success)
-        case .simpleWarning:
-            return getButtonIcon(named: Constants.Icons.failure)
+        case .simpleSuccess, .simpleDefault, .simpleWarning, .simpleError:
+            return nil
         default:
             return getButtonIcon(named: Constants.Icons.error)
         }
