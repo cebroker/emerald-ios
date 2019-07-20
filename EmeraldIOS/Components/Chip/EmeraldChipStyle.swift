@@ -14,11 +14,10 @@ public enum EmeraldChipStyle: String, Inspectable {
     case simpleError
     case simpleDefault
     case dissmisible
-    case avatar
     
     var cornerRadious: CGFloat! {
         switch self {
-        case .dissmisible, .avatar, .simpleDefault:
+        case .dissmisible, .simpleDefault:
             return Constants.Dimens.chipsCornerRadious
         default:
             return CGFloat(integerLiteral: 0)
@@ -33,7 +32,7 @@ public enum EmeraldChipStyle: String, Inspectable {
             return EmeraldTheme.warningColor
         case .simpleError:
             return EmeraldTheme.errorColor
-        case .dissmisible, .avatar, .simpleDefault:
+        case .dissmisible, .simpleDefault:
             return EmeraldTheme.pagerBackgroundColor
         }
     }
@@ -55,7 +54,7 @@ public enum EmeraldChipStyle: String, Inspectable {
             return EmeraldTheme.warningColor
         case .simpleError:
             return EmeraldTheme.errorColor
-        case .dissmisible, .avatar, .simpleDefault:
+        case .dissmisible, .simpleDefault:
             return EmeraldTheme.darkGrayColor
         }
     }

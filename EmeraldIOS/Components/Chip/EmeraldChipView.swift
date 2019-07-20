@@ -12,7 +12,6 @@ protocol EmeraldChipDelegate {
 
 protocol EmeraldChipViewType {
     func setText(_ text: String)
-    func setAvatar(_ avatar: EmeraldAvatar)
     func setID(_ id: String)
 }
 
@@ -66,10 +65,6 @@ public class EmeraldChipView: UIView {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-
-    private lazy var avatarImage: EmeraldAvatar = {
-        return EmeraldAvatar()
     }()
 
     private lazy var dismissContainer: UIView = {
@@ -189,7 +184,6 @@ public class EmeraldChipView: UIView {
     }
 
     @objc private func dismissButonTapped(_ sender: UIButton) {
-        print("Dismiss")
         self.delegate?.didTapButton()
     }
 
@@ -198,10 +192,6 @@ public class EmeraldChipView: UIView {
 extension EmeraldChipView: EmeraldChipViewType {
     public func setText(_ text: String) {
         self.text = text
-    }
-
-    public func setAvatar(_ avatar: EmeraldAvatar) {
-        self.avatarImage = avatar
     }
 
     public func setID(_ id: String) {

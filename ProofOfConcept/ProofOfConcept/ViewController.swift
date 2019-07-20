@@ -80,6 +80,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     private func createStoryBoardFields() {
         self.chips.setText("Hola")
         self.chips.setID("1")
+        
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setStatus(.valid)
