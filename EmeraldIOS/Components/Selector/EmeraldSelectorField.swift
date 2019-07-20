@@ -67,7 +67,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     
     public func set(data: [Selectable]) {
         self.data = [emptySelectable] + data
-        self.selectedRow = data.first
+        self.selectedRow = self.data.first
         self.reloadInputViews()
     }
     
