@@ -186,7 +186,7 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
         if self.text.isEmpty {
             return ""
         }
-        return self.text
+        return self.text.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     func validateContent() -> Result<Bool, Error> {
