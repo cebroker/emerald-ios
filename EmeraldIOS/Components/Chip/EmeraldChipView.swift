@@ -18,9 +18,9 @@ protocol EmeraldChipViewType {
 public class EmeraldChipView: UIView {
 
     private struct InnerConstant {
-        static let viewHeight: CGFloat = CGFloat(integerLiteral: 50)
         static let margin: CGFloat = CGFloat(integerLiteral: 10)
         static let dismissPadding: CGFloat = CGFloat(integerLiteral: 7)
+        static let containerHeight: CGFloat = CGFloat(integerLiteral: 30)
     }
 
     @IBInspectable public var type: String = EmeraldChipStyle.simpleDefault.rawValue {
@@ -103,19 +103,22 @@ public class EmeraldChipView: UIView {
     }
 
     private func setupComponent() {
+        let style = EmeraldChipStyle(IBInspectable: self.type)
         self.translatesAutoresizingMaskIntoConstraints = false
 
         self.addSubview(self.containerView)
         self.containerView.addSubview(self.containerStack)
         self.containerStack.addArrangedSubview(self.textLabel)
-        self.containerStack.addArrangedSubview(self.dismissContainer)
-        self.dismissContainer.addSubview(self.dismissButton)
+        if style == .dissmisible {
+            self.containerStack.addArrangedSubview(self.dismissContainer)
+            self.dismissContainer.addSubview(self.dismissButton)
+        }
     }
 
     private func setupConstraint() {
-
+        let style = EmeraldChipStyle(IBInspectable: self.type)
         self.containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.containerView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.containerView.heightAnchor.constraint(equalToConstant: InnerConstant.containerHeight).isActive = true
         self.containerView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
 
         self.containerStack.anchor(
@@ -126,7 +129,7 @@ public class EmeraldChipView: UIView {
             paddingTop: 0,
             paddingLeft: InnerConstant.margin,
             paddingBottom: 0,
-            paddingRight: 0,
+            paddingRight: (style == .dissmisible) ? 0 : InnerConstant.margin,
             width: 0,
             height: 0)
 
@@ -136,7 +139,12 @@ public class EmeraldChipView: UIView {
             bottom: self.containerStack.bottomAnchor,
             right: nil)
 
+        if EmeraldChipStyle(IBInspectable: self.type) == .dissmisible {
+            setupDismissButtonConstraint()
+        }
+    }
 
+    private func setupDismissButtonConstraint() {
         self.dismissContainer.anchor(
             top: self.containerStack.topAnchor,
             left: nil,
@@ -175,12 +183,13 @@ public class EmeraldChipView: UIView {
     }
 
     private func updateView() {
+        let style = EmeraldChipStyle(IBInspectable: self.type)
         guard let labelWidth = self.textLabel.text?.width(with: self.textLabel.font) else {
             return
         }
 
-        let fixedWidth = labelWidth + (InnerConstant.margin * 3) + InnerConstant.viewHeight
-        self.containerView.widthAnchor.constraint(equalToConstant: fixedWidth).isActive = true
+        let fixedWidth = labelWidth + style.width
+        self.containerStack.widthAnchor.constraint(equalToConstant: fixedWidth).isActive = true
     }
 
     @objc private func dismissButonTapped(_ sender: UIButton) {

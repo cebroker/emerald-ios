@@ -131,7 +131,8 @@ struct Constants {
         }
         
         static let origin = 0
-        static let chipsCornerRadious = CGFloat(integerLiteral: 15)
+        static let chipsCornerRadiousSimple = CGFloat(integerLiteral: 2)
+        static let chipsCornerRadiousDissmissable = CGFloat(integerLiteral: 15)
     }
 
     struct Values {

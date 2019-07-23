@@ -17,10 +17,10 @@ public enum EmeraldChipStyle: String, Inspectable {
     
     var cornerRadious: CGFloat! {
         switch self {
-        case .dissmisible, .simpleDefault:
-            return Constants.Dimens.chipsCornerRadious
+        case .dissmisible:
+            return Constants.Dimens.chipsCornerRadiousDissmissable
         default:
-            return CGFloat(integerLiteral: 0)
+            return Constants.Dimens.chipsCornerRadiousSimple
         }
     }
 
@@ -74,6 +74,15 @@ public enum EmeraldChipStyle: String, Inspectable {
             return Font(size: .body, weight: .regular).uiFont
         default:
             return Font(size: .h5, weight: .semibold).uiFont
+        }
+    }
+    
+    var width: CGFloat! {
+        switch self {
+        case .dissmisible:
+            return 50 // Dissmisible button width = 50
+        default:
+            return 20 // Padding = 10 ( Left and Right)
         }
     }
 
