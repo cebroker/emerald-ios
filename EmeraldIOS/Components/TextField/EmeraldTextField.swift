@@ -386,7 +386,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         if self.text?.isEmpty ?? true {
             return ""
         }
-        return self.text
+        return self.text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     public func setText(with value: String?) {
