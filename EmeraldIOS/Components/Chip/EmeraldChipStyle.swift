@@ -42,7 +42,7 @@ public enum EmeraldChipStyle: String, Inspectable {
         case .simpleSuccess, .simpleDefault, .simpleWarning, .simpleError:
             return nil
         default:
-            return getButtonIcon(named: Constants.Icons.error)
+            return getButtonIcon(named: Constants.Icons.dismiss)
         }
     }
     
@@ -74,15 +74,6 @@ public enum EmeraldChipStyle: String, Inspectable {
             return Font(size: .body, weight: .regular).uiFont
         default:
             return Font(size: .h5, weight: .semibold).uiFont
-        }
-    }
-    
-    var width: CGFloat! {
-        switch self {
-        case .dissmisible:
-            return 50 // Dissmisible button width = 50
-        default:
-            return 20 // Padding = 10 ( Left and Right)
         }
     }
 

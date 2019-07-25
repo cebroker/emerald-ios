@@ -15,5 +15,6 @@ extension Constants {
         static let xIcon = "xIcon"
         static let complete = "icon_complete"
         static let error = "icon_error"
+        static let dismiss = "icon_dismiss"
     }
 }
