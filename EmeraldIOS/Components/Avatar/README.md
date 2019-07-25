@@ -37,6 +37,7 @@ You only need add a UIView and configure it with the `EmeraldAvatar`, after you 
 #### REMEMBER
 1. You always need set title by code: ie, call this method: `avatar.setTitle(with: "Gensesis", lastName: "Sanguino")`
 2. The color are loaded ramdom, you can't customize it. 
+3. Size is `md` by default. 
 
 
 
