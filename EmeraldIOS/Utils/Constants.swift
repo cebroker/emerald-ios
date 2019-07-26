@@ -26,15 +26,15 @@ struct Constants {
         public func getSelectableText() -> String {
             return name
         }
-        
+
         public func getSelectableId() -> String {
             return String(id)
         }
-        
+
         public func setSelectableText(with value: String) {
             self.name = value
         }
-        
+
         public func setSelectableId(with value: String) {
             self.id = Int(value) ?? 0
         }
@@ -125,10 +125,14 @@ struct Constants {
         struct SingleRadioButton {
             static let height = 58
         }
+        
         struct RadioButtonCircle {
             static let side = 20
         }
+        
         static let origin = 0
+        static let chipsCornerRadiousSimple = CGFloat(integerLiteral: 2)
+        static let chipsCornerRadiousDissmissable = CGFloat(integerLiteral: 15)
     }
 
     struct Values {
@@ -177,7 +181,7 @@ class EducationType: Selectable {
     func getSelectableText() -> String {
         return self.type
     }
-    
+
     func getSelectableId() -> String {
         return ""
     }

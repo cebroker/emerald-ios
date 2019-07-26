@@ -27,6 +27,11 @@ class ViewController: UIViewController, EmeraldValidableType {
 
     @IBOutlet private weak var formStackView: EmeraldStackView!
 
+    @IBOutlet weak var chipCollectionView: EmeraldChipsCollectionView!
+    @IBOutlet weak var chipsDefault: EmeraldChipView!
+    @IBOutlet weak var chipWarning: EmeraldChipView!
+    @IBOutlet weak var chipSuccess: EmeraldChipView!
+    @IBOutlet weak var chipDismissable: EmeraldChipView!
     @IBOutlet weak var emeraldAvatarXs: EmeraldAvatar!
     @IBOutlet weak var emeraldAvatarMd: EmeraldAvatar!
     @IBOutlet weak var emeraldAvatarLg: EmeraldAvatar!
@@ -79,6 +84,20 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     private func createStoryBoardFields() {
+        self.chipsDefault.setText("Hola ")
+        self.chipWarning.setText("Hola ")
+        self.chipSuccess.setText("Hola ")
+        self.chipDismissable.setText("Hola ")
+        let vm = ChipViewModel(text: "12345abcd-111", type: .dismissable)
+        let vm1 = ChipViewModel(text: "12344", type: .dismissable)
+        let vm2 = ChipViewModel(text: "12345abcd", type: .dismissable)
+        self.chipCollectionView.addNewChip(with: vm)
+        self.chipCollectionView.addNewChip(with: vm1)
+        self.chipCollectionView.addNewChip(with: vm1)
+        self.chipCollectionView.addNewChip(with: vm)
+        self.chipCollectionView.addNewChip(with: vm2)
+
+
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setStatus(.valid)
@@ -161,12 +180,6 @@ class ViewController: UIViewController, EmeraldValidableType {
         amountPaid?.set(format: .currency)
         amountPaid?.set(isRequired: true)
         amountPaid?.set(hint: "$ 1234")
-
-        //        for i in 0..<1 {
-        //            let contactName = formStackView.createTextFormField(placeholder: "Contact name \(i)")
-        //            contactName?.set(hint: "John Doe")
-        //            contactName?.set(isRequired: false)
-        //        }
 
         formButton = formStackView.createButton(with: "Submit form")
         formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue

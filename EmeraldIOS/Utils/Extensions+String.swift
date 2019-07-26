@@ -7,7 +7,7 @@
 //
 
 public extension String {
-    
+
     func toDateFormat(with format: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.amSymbol = "AM"
@@ -20,7 +20,7 @@ public extension String {
         }
         return Date()
     }
-    
+
     func toDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.amSymbol = "AM"
@@ -44,7 +44,7 @@ public extension String {
                         return date
                     } else {
                         dateFormatter.dateFormat = Constants.DateFormat.shortFormat
-                        if let date = dateFormatter.date(from: self){
+                        if let date = dateFormatter.date(from: self) {
                             return date
                         }
                     }
