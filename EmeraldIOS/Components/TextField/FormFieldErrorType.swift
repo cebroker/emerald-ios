@@ -19,7 +19,7 @@ public extension FormFieldError {
     var description: String? {
         switch self {
         case .emptyField:
-            return "This field can not be empty."
+            return "This field cannot be empty."
         case .custom (let customTest):
             return customTest
         }
