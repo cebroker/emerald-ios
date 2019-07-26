@@ -39,6 +39,7 @@ public protocol EmeraldTextFieldType {
     func clearError()
     func setText(with value: String?)
     func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate)
+    func clearText()
 }
 
 @IBDesignable
@@ -253,6 +254,10 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     public func textFieldDidEndEditing(_ textField: UITextField) {
         deactivateField()
         self.customTextFieldDelegate?.didEndEditing?(textField: textField)
+    }
+
+    public func clearText() {
+        setText(with: nil)
     }
 
     public func set(inputType: UIKeyboardType) {
