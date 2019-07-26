@@ -105,7 +105,7 @@ GROUP 2</string>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="SvW-sm-HBu"/>
+                                                    <constraint firstAttribute="height" constant="30" id="SvW-sm-HBu"/>
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5EI-gk-g9M" customClass="EmeraldChipsCollectionView" customModule="EmeraldIOS">

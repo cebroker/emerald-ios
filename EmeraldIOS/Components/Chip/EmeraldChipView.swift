@@ -99,7 +99,7 @@ public class EmeraldChipView: UIView {
 
         self.addSubview(self.containerView)
         self.containerView.addSubview(self.textLabel)
-        if style == .dissmisible {
+        if style == .dismissable {
             self.containerView.addSubview(self.dismissContainer)
             self.dismissContainer.addSubview(self.dismissButton)
         }
@@ -120,7 +120,7 @@ public class EmeraldChipView: UIView {
             width: 0,
             height: 0)
 
-        if EmeraldChipStyle(IBInspectable: self.type) == .dissmisible {
+        if EmeraldChipStyle(IBInspectable: self.type) == .dismissable {
             setupDismissButtonConstraint()
         } else {
             self.textLabel.numberOfLines = 1

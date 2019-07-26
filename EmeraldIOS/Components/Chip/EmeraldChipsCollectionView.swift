@@ -28,31 +28,38 @@ public class EmeraldChipsCollectionView: UICollectionView, EmeraldChipCollection
         static let reuseIdentifier = "Cell"
     }
 
-    private var chips: [ChipViewModel] = [] {
-        didSet { self.updateView() }
+    private var chips: [ChipViewModel] = []
+    
+    public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
+        self.setupView()
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.setupView()
+    }
+
+    public func addNewChip(with viewModel: ChipViewModel) {
+        chips.append(viewModel)
+    }
+    
     private func updateView() {
         DispatchQueue.main.async {
             self.reloadData()
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    private func setupView() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+
         let layout = LeftAlignedCollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         self.collectionViewLayout = layout
-        
+
         self.delegate = self
         self.dataSource = self
         self.register(EmeraldChipCollectionViewCell.self, forCellWithReuseIdentifier: InnerConstant.reuseIdentifier)
-    }
-
-    public func addNewChip(with viewModel: ChipViewModel) {
-        chips.append(viewModel)
     }
 }
 
@@ -73,11 +80,12 @@ extension EmeraldChipsCollectionView: UICollectionViewDelegate, UICollectionView
 
 extension EmeraldChipsCollectionView: ChipCellDismissable {
     func chipDismissTapped(_ cell: EmeraldChipCollectionViewCell) {
-        guard let index = self.indexPath(for: cell)?.row else {
+        guard let indexPath = self.indexPath(for: cell) else {
             return
         }
 
-        self.chips.remove(at: index)
+        self.chips.remove(at: indexPath.row)
+        self.deleteItems(at: [indexPath])
     }
 }
 
