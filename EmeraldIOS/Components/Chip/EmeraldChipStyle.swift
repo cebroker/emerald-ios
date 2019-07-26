@@ -9,10 +9,10 @@
 import UIKit
 
 public enum EmeraldChipStyle: String, Inspectable {
-    case simpleSuccess
-    case simpleWarning
-    case simpleError
-    case simpleDefault
+    case success
+    case warning
+    case error
+    case simple
     case dismissable
     
     var cornerRadious: CGFloat! {
@@ -26,20 +26,20 @@ public enum EmeraldChipStyle: String, Inspectable {
 
     var backgroundColor: UIColor! {
         switch self {
-        case .simpleSuccess:
+        case .success:
             return EmeraldTheme.successColor
-        case .simpleWarning:
+        case .warning:
             return EmeraldTheme.warningColor
-        case .simpleError:
+        case .error:
             return EmeraldTheme.errorColor
-        case .dismissable, .simpleDefault:
+        case .dismissable, .simple:
             return EmeraldTheme.pagerBackgroundColor
         }
     }
 
     var buttonIcon: UIImage? {
         switch self {
-        case .simpleSuccess, .simpleDefault, .simpleWarning, .simpleError:
+        case .success, .simple, .warning, .error:
             return nil
         default:
             return getButtonIcon(named: Constants.Icons.dismiss)
@@ -48,20 +48,20 @@ public enum EmeraldChipStyle: String, Inspectable {
     
     var iconColor: UIColor! {
         switch self {
-        case .simpleSuccess:
+        case .success:
             return EmeraldTheme.successColor
-        case .simpleWarning:
+        case .warning:
             return EmeraldTheme.warningColor
-        case .simpleError:
+        case .error:
             return EmeraldTheme.errorColor
-        case .dismissable, .simpleDefault:
+        case .dismissable, .simple:
             return EmeraldTheme.darkGrayColor
         }
     }
 
     var textColor: UIColor! {
         switch self {
-        case .simpleSuccess, .simpleWarning, .simpleError:
+        case .success, .warning, .error:
             return EmeraldTheme.whiteColor
         default:
             return EmeraldTheme.blackColor
@@ -70,7 +70,7 @@ public enum EmeraldChipStyle: String, Inspectable {
 
     var font: UIFont! {
         switch self {
-        case .simpleError, .simpleWarning, .simpleSuccess:
+        case .error, .warning, .success:
             return Font(size: .body, weight: .regular).uiFont
         default:
             return Font(size: .h5, weight: .semibold).uiFont

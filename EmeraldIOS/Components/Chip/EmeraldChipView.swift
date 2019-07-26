@@ -23,7 +23,7 @@ public class EmeraldChipView: UIView {
         static let containerWidth: CGFloat = CGFloat(integerLiteral: 30)
     }
 
-    @IBInspectable public var type: String = EmeraldChipStyle.simpleDefault.rawValue {
+    @IBInspectable public var type: String = EmeraldChipStyle.simple.rawValue {
         didSet { applyTheme() }
     }
 
