@@ -31,8 +31,8 @@ class EmeraldChipCollectionViewCell: UICollectionViewCell, EmeraldChipCollection
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         self.chip.setText("")
-        self.setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
