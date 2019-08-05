@@ -29,7 +29,12 @@ class EmeraldChipCollectionViewCell: UICollectionViewCell, EmeraldChipCollection
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setupView()
     }
-
+    
+    override func prepareForReuse() {
+        self.chip.setText("")
+        self.setupView()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("You cann't create a EmeraldChipCell by storyboard.")
     }
