@@ -42,6 +42,7 @@ public class EmeraldChipsCollectionView: UICollectionView, EmeraldChipCollection
 
     public func addNewChip(with viewModel: ChipViewModel) {
         chips.append(viewModel)
+        self.updateView()
     }
     
     private func updateView() {
