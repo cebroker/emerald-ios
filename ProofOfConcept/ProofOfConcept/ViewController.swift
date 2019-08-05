@@ -90,13 +90,10 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.chipDismissable.setText("Hola ")
         let vm = ChipViewModel(text: "12345abcd-111", type: .dismissable)
         let vm1 = ChipViewModel(text: "12344", type: .dismissable)
-        let vm2 = ChipViewModel(text: "12345abcd", type: .dismissable)
         self.chipCollectionView.addNewChip(with: vm)
         self.chipCollectionView.addNewChip(with: vm1)
         self.chipCollectionView.addNewChip(with: vm1)
         self.chipCollectionView.addNewChip(with: vm)
-        self.chipCollectionView.addNewChip(with: vm2)
-
 
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
@@ -196,6 +193,11 @@ class ViewController: UIViewController, EmeraldValidableType {
         // show alert or something
     }
 
+    @IBAction func addLanguage(_ sender: Any) {
+        let vm2 = ChipViewModel(text: "12345abcd", type: .dismissable)
+        self.chipCollectionView.addNewChip(with: vm2)
+    }
+    
     private func areFieldsValid() -> Bool {
         return validateEmeraldFields(with: self.emeraldFields)
     }
