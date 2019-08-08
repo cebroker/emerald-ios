@@ -10,6 +10,8 @@ import UIKit
 
 public protocol EmeraldChipCollectionViewType {
     func addNewChip(with viewModel: ChipViewModel)
+    func getValues() -> [String]
+    func isEmpty() -> Bool
 }
 
 public struct ChipViewModel {
@@ -22,14 +24,14 @@ public struct ChipViewModel {
     }
 }
 
-public class EmeraldChipsCollectionView: UICollectionView, EmeraldChipCollectionViewType {
+public class EmeraldChipsCollectionView: UICollectionView {
 
     struct InnerConstant {
         static let reuseIdentifier = "Cell"
     }
 
     private var chips: [ChipViewModel] = []
-    
+
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.setupView()
@@ -40,11 +42,6 @@ public class EmeraldChipsCollectionView: UICollectionView, EmeraldChipCollection
         self.setupView()
     }
 
-    public func addNewChip(with viewModel: ChipViewModel) {
-        chips.append(viewModel)
-        self.updateView()
-    }
-    
     private func updateView() {
         DispatchQueue.main.async {
             self.reloadData()
@@ -61,6 +58,21 @@ public class EmeraldChipsCollectionView: UICollectionView, EmeraldChipCollection
         self.delegate = self
         self.dataSource = self
         self.register(EmeraldChipCollectionViewCell.self, forCellWithReuseIdentifier: InnerConstant.reuseIdentifier)
+    }
+}
+
+extension EmeraldChipsCollectionView: EmeraldChipCollectionViewType {
+    public func getValues() -> [String] {
+        return self.chips.map({ $0.text })
+    }
+
+    public func isEmpty() -> Bool {
+        return self.chips.isEmpty
+    }
+
+    public func addNewChip(with viewModel: ChipViewModel) {
+        chips.append(viewModel)
+        self.updateView()
     }
 }
 
