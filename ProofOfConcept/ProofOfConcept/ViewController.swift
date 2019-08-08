@@ -40,7 +40,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldTextByStory: EmeraldTextField!
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
-    
+
     @IBOutlet weak var emptyableSelector: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
@@ -88,12 +88,6 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.chipWarning.setText("Hola ")
         self.chipSuccess.setText("Hola ")
         self.chipDismissable.setText("Hola ")
-        let vm = ChipViewModel(text: "12345abcd-111", type: .dismissable)
-        let vm1 = ChipViewModel(text: "12344", type: .dismissable)
-        self.chipCollectionView.addNewChip(with: vm)
-        self.chipCollectionView.addNewChip(with: vm1)
-        self.chipCollectionView.addNewChip(with: vm1)
-        self.chipCollectionView.addNewChip(with: vm)
 
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
@@ -106,10 +100,10 @@ class ViewController: UIViewController, EmeraldValidableType {
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
         emeraldSelectorByStory.set(selectedRow: State(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
         emeraldSelectorByStory.set(emptyOptionText: "Select a state")
-        emptyableSelector.set(data:  [
+        emptyableSelector.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
-        
+
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
@@ -194,10 +188,11 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     @IBAction func addLanguage(_ sender: Any) {
-        let vm2 = ChipViewModel(text: "12345abcd", type: .dismissable)
+        let text = ["1", "abc", "Sergio Giraldo", "Medellin"]
+        let vm2 = ChipViewModel(text: text.randomElement()!, type: .dismissable)
         self.chipCollectionView.addNewChip(with: vm2)
     }
-    
+
     private func areFieldsValid() -> Bool {
         return validateEmeraldFields(with: self.emeraldFields)
     }
@@ -232,7 +227,7 @@ extension ViewController: EmeraldSelectorFieldChangeNotifiable {
                 return
             }
             emptyableSelector.clearData()
-            emptyableSelector.set(data:  [
+            emptyableSelector.set(data: [
                 State(name: "Antioquia2", cities: ["Medellin", "Envigado"]),
                 State(name: "Cundinamarca2", cities: ["Chia", "Bogota"])])
             emeraldTextDependantFieldByStory.set(availableOptions: state.cities)
@@ -262,10 +257,10 @@ extension ViewController: SingleItemChangeNotifiable {
 extension ViewController: CustomEmeraldTextFieldDelegate {
     func valueDidChange(textField: UITextField, text: String?) {
     }
-    
+
     func didBeginEditing(textField: UITextField) {
     }
-    
+
     func didEndEditing(textField: UITextField) {
     }
 }

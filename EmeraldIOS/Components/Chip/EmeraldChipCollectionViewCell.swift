@@ -35,6 +35,11 @@ class EmeraldChipCollectionViewCell: UICollectionViewCell, EmeraldChipCollection
         self.chip.setText("")
     }
     
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        self.setupView()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("You cann't create a EmeraldChipCell by storyboard.")
     }
