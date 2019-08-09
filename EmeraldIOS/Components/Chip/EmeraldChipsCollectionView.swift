@@ -104,6 +104,7 @@ extension EmeraldChipsCollectionView: ChipCellDismissable {
 
         self.chips.remove(at: indexPath.row)
         self.deleteItems(at: [indexPath])
+        self.chipDelegate?.dissmisableChipDidTaped()
     }
 }
 
