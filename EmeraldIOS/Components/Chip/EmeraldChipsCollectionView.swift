@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol EmeraldChipDelegate: AnyObject {
+public protocol EmeraldChipDelegate: AnyObject {
     func dissmisableChipDidTaped()
 }
 
