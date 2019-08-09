@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EmeraldChipDelegate: AnyObject {
+    func dissmisableChipDidTaped()
+}
+
 public protocol EmeraldChipCollectionViewType {
     func addNewChip(with viewModel: ChipViewModel)
     func getValues() -> [String]
@@ -30,6 +34,7 @@ public class EmeraldChipsCollectionView: UICollectionView {
         static let reuseIdentifier = "Cell"
     }
 
+    weak var chipDelegate: EmeraldChipDelegate?
     private var chips: [ChipViewModel] = []
 
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
