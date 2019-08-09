@@ -16,6 +16,7 @@ public protocol EmeraldChipCollectionViewType {
     func addNewChip(with viewModel: ChipViewModel)
     func getValues() -> [String]
     func isEmpty() -> Bool
+    func setDelegate(_ delegate: EmeraldChipDelegate)
 }
 
 public struct ChipViewModel {
@@ -78,6 +79,10 @@ extension EmeraldChipsCollectionView: EmeraldChipCollectionViewType {
     public func addNewChip(with viewModel: ChipViewModel) {
         chips.append(viewModel)
         self.updateView()
+    }
+    
+    public func setDelegate(_ delegate: EmeraldChipDelegate) {
+        self.chipDelegate = delegate
     }
 }
 
