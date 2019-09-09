@@ -77,3 +77,11 @@ You can also set a `Format` with a Int value from this enum cases:
     case longDate
 }
 ```
+
+## Show/Hide Password right view
+
+You can also add a "SHOW/HIDE" right view for a password field like so:
+```swift
+  let emeraldField = EmeraldTextField()
+  emeraldField.setPasswordRightView()
+```
