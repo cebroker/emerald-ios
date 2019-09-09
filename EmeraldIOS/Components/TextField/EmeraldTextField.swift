@@ -93,6 +93,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     }
 
     let placeholderLabel: UILabel = UILabel()
+    internal var rightButton: EmeraldButton? = nil
     internal var fieldState: EmeraldTextFieldState = .normal
 
     private func setUp() {
