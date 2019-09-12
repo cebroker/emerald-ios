@@ -148,7 +148,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
                                     in: Bundle(for: ClassBundle.self),
                                     compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         
-        guard let image = self.dropdownIcon else {
+        guard let image = self.dropdownIcon, self.subviews.count <= 2 else {
             return
         }
         
