@@ -79,5 +79,5 @@ External/GHUnit/*
 *.perspective
 
 # xcode 4
-*.xcodeproj/xcuserdata
-*.xcworkspace/xcuserdata
+#*.xcodeproj/xcuserdata
+#*.xcworkspace/xcuserdata
