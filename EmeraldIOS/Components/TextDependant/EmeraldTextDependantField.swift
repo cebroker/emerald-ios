@@ -8,12 +8,14 @@
 
 public protocol EmeraldTextDependantFieldType: EmeraldTextFieldType {
     func set(availableOptions: [String])
+    func set(shouldValidateWithOptions: Bool)
     func getAvailableOptions() -> [String]
 }
 
 public class EmeraldTextDependantField: EmeraldTextField, EmeraldTextDependantFieldType {
     
     private lazy var availableOptions: [String] = []
+    private var shouldValidateWithOptions: Bool = false
     
     public func set(availableOptions: [String]) {
         self.availableOptions = availableOptions
@@ -21,6 +23,10 @@ public class EmeraldTextDependantField: EmeraldTextField, EmeraldTextDependantFi
     
     public func getAvailableOptions() -> [String] {
         return availableOptions
+    }
+    
+    public func set(shouldValidateWithOptions: Bool) {
+        self.shouldValidateWithOptions = shouldValidateWithOptions
     }
     
     override func validateContent() -> Result<Bool, Error> {
@@ -32,10 +38,12 @@ public class EmeraldTextDependantField: EmeraldTextField, EmeraldTextDependantFi
             return .failure(EmeraldTextDependantFieldError.missingAvailableOptions)
         }
         
-        guard let _ = self.availableOptions.first(where: { option -> Bool in
-            option.uppercased() == text.uppercased()
-        }) else {
-            return .failure(EmeraldTextDependantFieldError.optionNotFound)
+        if shouldValidateWithOptions {
+            guard let _ = self.availableOptions.first(where: { option -> Bool in
+                option.uppercased() == text.uppercased()
+            }) else {
+                return .failure(EmeraldTextDependantFieldError.optionNotFound)
+            }
         }
         
         return .success(true)
