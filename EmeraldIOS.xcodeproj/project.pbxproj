@@ -17,6 +17,9 @@
 		49B6D78423328BCF00FE78A1 /* EmeraldChartDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */; };
 		49B6D78623328D2F00FE78A1 /* EmeraldChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */; };
 		49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC6EDE232BF51F003BFEBD /* EmeraldChartDataEntry.swift */; };
+		49F4C0E7233964CA0064AB09 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C0E6233964CA0064AB09 /* SideBar.swift */; };
+		49F4C0E923396C240064AB09 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C0E823396C240064AB09 /* LabelView.swift */; };
+		49F4C0EB23396C690064AB09 /* LabelViewAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C0EA23396C690064AB09 /* LabelViewAttributes.swift */; };
 		573756A55055802EF8847413 /* Pods_EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E99BADE354278DF2B5E98AA /* Pods_EmeraldIOS.framework */; };
 		6C23516B228C469B00D398F3 /* EmeraldDatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */; };
 		6C23516E228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516D228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift */; };
@@ -131,6 +134,9 @@
 		49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartDelegates.swift; sourceTree = "<group>"; };
 		49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartView.swift; sourceTree = "<group>"; };
 		49EC6EDE232BF51F003BFEBD /* EmeraldChartDataEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartDataEntry.swift; sourceTree = "<group>"; };
+		49F4C0E6233964CA0064AB09 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
+		49F4C0E823396C240064AB09 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		49F4C0EA23396C690064AB09 /* LabelViewAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewAttributes.swift; sourceTree = "<group>"; };
 		6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDatePickerAlert.swift; sourceTree = "<group>"; };
 		6C23516D228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureBoxView.swift; sourceTree = "<group>"; };
 		6C2AFCE32326B40600EBDE1C /* EmeraldTextField+ShowHide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmeraldTextField+ShowHide.swift"; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				490E3C7D23351DFD000FA6C9 /* EmeraldBarChartCell.swift */,
+				49F4C0E6233964CA0064AB09 /* SideBar.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -276,6 +283,7 @@
 			children = (
 				495AE91A23340F7A00896469 /* SupplementaryViews */,
 				495AE91623340C8600896469 /* VerticalDividerLayoutAttributes.swift */,
+				49F4C0EA23396C690064AB09 /* LabelViewAttributes.swift */,
 				490E3C7F2335738E000FA6C9 /* EmeraldChartViewLayout.swift */,
 			);
 			path = Layouts;
@@ -285,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				495AE91B23340FB200896469 /* VerticalDividerView.swift */,
+				49F4C0E823396C240064AB09 /* LabelView.swift */,
 			);
 			path = SupplementaryViews;
 			sourceTree = "<group>";
@@ -921,6 +930,7 @@
 				9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */,
 				9B3BCC9A2272033400DC5D79 /* EmeraldInitializer.swift in Sources */,
 				6C807C71227C99B300FC328E /* Theme.swift in Sources */,
+				49F4C0E923396C240064AB09 /* LabelView.swift in Sources */,
 				8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */,
 				49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */,
 				6CAFFA22228453CF00C690B9 /* EmeraldSignatureViewController.swift in Sources */,
@@ -929,6 +939,7 @@
 				6C807C6D227C8E5000FC328E /* Color.swift in Sources */,
 				6CD584362294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift in Sources */,
 				9B3BCC9B2272033400DC5D79 /* EmeraldStackView.swift in Sources */,
+				49F4C0EB23396C690064AB09 /* LabelViewAttributes.swift in Sources */,
 				49B6D78423328BCF00FE78A1 /* EmeraldChartDelegates.swift in Sources */,
 				75BBFA4E22BA6FC10039319B /* EmeraldAlert.swift in Sources */,
 				49B6D78623328D2F00FE78A1 /* EmeraldChartView.swift in Sources */,
@@ -958,6 +969,7 @@
 				490E3C7E23351DFD000FA6C9 /* EmeraldBarChartCell.swift in Sources */,
 				6C23516E228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift in Sources */,
 				9B3BCC9C2272033400DC5D79 /* EmeraldStackViewContract.swift in Sources */,
+				49F4C0E7233964CA0064AB09 /* SideBar.swift in Sources */,
 				6CD5842C229496CB001DE8D2 /* Extensions+String.swift in Sources */,
 				6C2CCDD9228EECCB00181C25 /* EmeraldSignatureView.swift in Sources */,
 				6C2D3295228B0BFE009D4B0F /* EmeraldDateFieldError.swift in Sources */,

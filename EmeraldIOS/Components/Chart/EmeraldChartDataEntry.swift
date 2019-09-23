@@ -8,12 +8,24 @@
 
 import Foundation
 
-public protocol EmeraldChartDataEntry {
-    var color: UIColor { get set }
-    var value: Float { get set }
-    var title: String { get set }
-    var subtitle: String? { get set }
-    var hasAction: Bool { get set }
+public struct EmeraldChartDataEntry {
+    var color: UIColor
+    var value: Float
+    var title: String
+    var subtitle: String?
+    var hasAction: Bool
+    
+    public init(color: UIColor,
+                value: Float,
+                title: String,
+                subtitle: String? = nil,
+                hasAction: Bool = false) {
+        self.color = color
+        self.value = value
+        self.title = title
+        self.subtitle = subtitle
+        self.hasAction = hasAction
+    }
 }
 
 struct EmeraldChartCellData {

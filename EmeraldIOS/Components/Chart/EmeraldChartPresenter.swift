@@ -49,8 +49,8 @@ class EmeraldChartPresenter: RangeFinder, EmeraldChartPresenterType {
         return cellData
     }
     
-    func getCellWidth(data: [EmeraldChartDataEntry]) -> CGFloat{
-        return (chartView.frame.width / CGFloat(data.count)) - 20
+    func getCellWidth() -> CGFloat{
+        return (chartView.frame.width / CGFloat(dataEntries.count))
     }
     
     func setData(data: [EmeraldChartDataEntry]) {
@@ -64,12 +64,22 @@ class EmeraldChartPresenter: RangeFinder, EmeraldChartPresenterType {
     func bind(view: EmeraldChart) {
         self.chartView = view
     }
+    
+    func getDataRange() -> (min: CGFloat, max: CGFloat) {
+        return yDataRange(barData: dataEntries, numberOfSteps: chartView.steps)
+    }
+    
+    func getDataEntries() -> [EmeraldChartDataEntry] {
+        return dataEntries
+    }
 }
 
 protocol EmeraldChartPresenterType {
     func bind(view: EmeraldChart)
     func getDataEntriesCount() -> Int
     func getCellDataFor(indexPath: IndexPath) -> EmeraldChartCellData
-    func getCellWidth(data: [EmeraldChartDataEntry]) -> CGFloat
+    func getCellWidth() -> CGFloat
     func setData(data: [EmeraldChartDataEntry])
+    func getDataRange() -> (min: CGFloat, max: CGFloat)
+    func getDataEntries() -> [EmeraldChartDataEntry]
 }

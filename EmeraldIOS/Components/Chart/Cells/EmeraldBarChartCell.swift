@@ -45,6 +45,7 @@ class EmeraldBarChartCell: UICollectionViewCell {
     private func setupCellData() {
         setLabelsText()
         setDataBar()
+        setupUIComponents()
     }
     
     private func setLabelsText(){
