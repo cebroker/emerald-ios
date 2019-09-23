@@ -67,10 +67,29 @@ public class EmeraldChart: UIView, EmeraldChartViewType {
         collectionViewLayout.prepare()
         return collectionViewLayout
     }
+    
+    private func verticalLabelViewSetup(labelView: UICollectionReusableView, indexPath: IndexPath) {
+        let range = presenter.getDataRange()
+        let amountPerStep = range.max / CGFloat(steps)
 
+        if let labelView = labelView as? LabelView {
+            let labelText = "\(Int((range.max - (amountPerStep * CGFloat(indexPath.item)))))"
+            labelView.label.text = labelText
+        }
+    }
+
+    private func verticalDividerSetup(verticalDivider: UICollectionReusableView, indexPath: IndexPath) {
+        if let verticalDivider = verticalDivider as? VerticalDividerView {
+            verticalDivider.line.strokeColor = UIColor.lightGray.cgColor
+        }
+    }
     public func updatedata(data: [EmeraldChartDataEntry]) {
         presenter.setData(data: data)
         configLayout()
+    }
+    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -97,9 +116,11 @@ public class EmeraldChart: UIView, EmeraldChartViewType {
             return sideBar
         case Constants.ReusableId.verticalDivider:
             let verticalDivider = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.ReusableId.verticalDivider, for: indexPath)
+            verticalDividerSetup(verticalDivider: verticalDivider, indexPath: indexPath)
             return verticalDivider
         case Constants.ReusableId.verticalLabel:
             let verticalLabel = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.ReusableId.verticalLabel, for: indexPath)
+            verticalLabelViewSetup(labelView: verticalLabel, indexPath: indexPath)
             return verticalLabel
         default:
             return UICollectionReusableView()
