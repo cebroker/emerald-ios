@@ -76,7 +76,7 @@ GROUP 2</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s19-ib-1gd">
                                                         <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umb-ay-auM" customClass="LoadingIndicator" customModule="EmeraldIOS">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umb-ay-auM" customClass="EmeraldLoadingIndicator" customModule="EmeraldIOS">
                                                                 <rect key="frame" x="171.5" y="0.0" width="30" height="30"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>

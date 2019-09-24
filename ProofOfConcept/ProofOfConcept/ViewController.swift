@@ -50,7 +50,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldTextView: EmeraldTextViewField!
 
     @IBOutlet weak var textViewStack: EmeraldTextView!
-    @IBOutlet weak var loadingIndicator: LoadingIndicator!
+    @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
     
     private var emeraldFields: [EmeraldValidableType] {
         return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]

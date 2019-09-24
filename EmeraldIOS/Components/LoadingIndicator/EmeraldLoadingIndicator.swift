@@ -1,5 +1,5 @@
 //
-//  LoadingIndicator.swift
+//  EmeraldLoadingIndicator.swift
 //  EmeraldIOS
 //
 //  Created by Felipe Correa on 9/24/19.
@@ -9,7 +9,7 @@
 import Foundation
 
 @IBDesignable
-public class LoadingIndicator: UIView {
+public class EmeraldLoadingIndicator: UIView {
     
     private var minStrokeLength: CGFloat = 0.05
     private var maxStrokeLength: CGFloat = 0.7
