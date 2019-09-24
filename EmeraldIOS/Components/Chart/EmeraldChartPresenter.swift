@@ -8,78 +8,118 @@
 
 import Foundation
 
-class EmeraldChartPresenter: RangeFinder, EmeraldChartPresenterType {
-    
+class EmeraldChartPresenter: EmeraldChartPresenterType {
     
     private var barWidth: CGFloat = 0
     private let cellSpacing: CGFloat = 20
     private let bottomSpacing: CGFloat = 40
     private var chartView: EmeraldChart!
-    private var dataEntries: [EmeraldChartDataEntry] = []
+    private var simpleDataEntries: [EmeraldChartSimpleDataEntry]?
+    private var multipleValueDataEntries: [EmeraldChartMultipleValueDataEntry]?
+    private var multipleValueColors = [EmeraldTheme.Chart.correctData, EmeraldTheme.Chart.warningData, EmeraldTheme.Chart.criticalData]
     
     init() {
     }
     
-    private func computeBarWidth () -> CGFloat{
-        let expectedEntriesSpace = CGFloat((dataEntries.count - 1) * Int(cellSpacing))
-        let contentFrame = chartView.frame
-        let expectedBarWidth: CGFloat = (contentFrame.width - expectedEntriesSpace - cellSpacing)/CGFloat(dataEntries.count)
-        return expectedBarWidth
-    }
-    
-     private func computeBarHeight(dataEntry: EmeraldChartDataEntry) -> CGFloat {
-        let range = yDataRange(barData: dataEntries, numberOfSteps: chartView.steps)
-        let contentFrame = chartView.frame
-        let barHeight = (contentFrame.height * (CGFloat(dataEntry.value)/range.max)) - bottomSpacing
-        return barHeight
-    }
-    
-   
-    
-    func getCellDataFor(indexPath: IndexPath) -> EmeraldChartCellData{
-        let dataEntry = dataEntries[indexPath.row]
-        let barWidth = computeBarWidth()
-        let barHeight = computeBarHeight(dataEntry: dataEntry)
-        let cellData = EmeraldChartCellData(color: dataEntry.color,
-                                            barHeight: barHeight,
-                                            barWidth: barWidth,
-                                            title: dataEntry.title,
-                                            subtitle: dataEntry.subtitle,
-                                            hasAction: dataEntry.hasAction)
-        return cellData
-    }
-    
-    func getCellWidth() -> CGFloat{
-        return (chartView.frame.width / CGFloat(dataEntries.count))
-    }
-    
-    func setData(data: [EmeraldChartDataEntry]) {
-        dataEntries = data
+    func setSimpleData(data: [EmeraldChartSimpleDataEntry]) {
+        simpleDataEntries = data
     }
     
     func getDataEntriesCount() -> Int {
-        return self.dataEntries.count
+        if let dataEntries = simpleDataEntries {
+            return dataEntries.count
+        } else if let dataEntries = multipleValueDataEntries {
+            return dataEntries.count
+        }
+        return 0
     }
     
     func bind(view: EmeraldChart) {
         self.chartView = view
     }
     
-    func getDataRange() -> (min: CGFloat, max: CGFloat) {
-        return yDataRange(barData: dataEntries, numberOfSteps: chartView.steps)
+    func getDataHorizontalEntries() -> [String] {
+        var labels = [String]()
+        if let dataEntries = simpleDataEntries {
+            for entry in dataEntries {
+                labels.append(entry.title)
+            }
+        } else if let dataEntries = multipleValueDataEntries {
+            for entry in dataEntries {
+                labels.append(entry.title)
+            }
+        }
+        return labels
     }
     
-    func getDataEntries() -> [EmeraldChartDataEntry] {
-        return dataEntries
+    func getSimpleDataVerticalEntries() -> [Float] {
+        var values = [Float]()
+        if let dataEntries = simpleDataEntries {
+            for entry in dataEntries {
+                values.append(entry.value)
+            }
+        }
+        return values
+    }
+
+    func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry] {
+        if let dataEntries = simpleDataEntries {
+            return dataEntries
+        }
+        return [EmeraldChartSimpleDataEntry]()
+    }
+    
+    func getValueForSimpleDataEntry(index: Int) -> Float {
+        if let dataEntries = simpleDataEntries{
+            return dataEntries[index].value
+        }
+        return 0
+    }
+    
+    func getSimpleDataSetColors() -> [UIColor] {
+        var colors = [UIColor]()
+        if let dataEntries = simpleDataEntries {
+            for entry in dataEntries {
+                colors.append(entry.color)
+            }
+        }
+        return colors
+    }
+    
+    func getValueForMultipleValueDataEntry(index: Int) -> [Double] {
+        if let dataEntries = multipleValueDataEntries {
+            let values = dataEntries[index].value.compactMap{value in Double(value)}
+            return values
+        }
+        return [Double]()
+    }
+    
+    func getMultipleValueDataSetColors() -> [UIColor] {
+        return multipleValueColors
+    }
+    
+    func setMultipleValueDataSetcolors(colors: [UIColor]) {
+        self.multipleValueColors = colors
+    }
+    
+    func setMultipleValueData(data: [EmeraldChartMultipleValueDataEntry]) {
+        self.multipleValueDataEntries = data
     }
 }
 
 protocol EmeraldChartPresenterType {
     func bind(view: EmeraldChart)
     func getDataEntriesCount() -> Int
-    func getCellDataFor(indexPath: IndexPath) -> EmeraldChartCellData
-    func getCellWidth() -> CGFloat
-    func setData(data: [EmeraldChartDataEntry])
-    func getDataRange() -> (min: CGFloat, max: CGFloat)
-    func getDataEntries() -> [EmeraldChartDataEntry]
+    func getDataHorizontalEntries() -> [String]
+    
+    func setSimpleData(data: [EmeraldChartSimpleDataEntry])
+    func getSimpleDataVerticalEntries() -> [Float]
+    func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry]
+    func getValueForSimpleDataEntry(index: Int) -> Float
+    func getSimpleDataSetColors() -> [UIColor]
+    
+    func getValueForMultipleValueDataEntry(index: Int) -> [Double]
+    func setMultipleValueDataSetcolors(colors: [UIColor])
+    func getMultipleValueDataSetColors() -> [UIColor]
+    func setMultipleValueData(data: [EmeraldChartMultipleValueDataEntry])
 }

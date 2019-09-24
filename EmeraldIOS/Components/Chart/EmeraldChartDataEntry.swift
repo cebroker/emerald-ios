@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Charts
 
-public struct EmeraldChartDataEntry {
-    var color: UIColor
+public struct EmeraldChartSimpleDataEntry {
+    var color: UIColor 
     var value: Float
     var title: String
     var subtitle: String?
@@ -28,26 +29,12 @@ public struct EmeraldChartDataEntry {
     }
 }
 
-struct EmeraldChartCellData {
-    let color: UIColor
-    let barHeight: CGFloat
-    let barWidth: CGFloat
-    let title: String
-    let subtitle: String?
-    let hasAction: Bool
+public struct EmeraldChartMultipleValueDataEntry {
+    var value: [Float]
+    var title: String
     
-    init(color: UIColor,
-         barHeight: CGFloat,
-         barWidth: CGFloat,
-         title: String,
-         subtitle: String? = nil,
-         hasAction: Bool = false) {
-        
-        self.color = color
-        self.barHeight = barHeight
-        self.barWidth = barWidth
+    public init (value: [Float], title: String) {
+        self.value = value
         self.title = title
-        self.subtitle = subtitle
-        self.hasAction = hasAction
     }
 }

@@ -7,125 +7,84 @@
 //
 
 import UIKit
+import Charts
 
-public class EmeraldChart: UIView, EmeraldChartViewType {
-    private var animated = false
+public class EmeraldChart: UIView {
     private var presenter: EmeraldChartPresenterType!
-    var steps: Int
-    private var sideBar = SideBarReusableView()
-    private var collectionView: UICollectionView!
+    private var barChartView: BarChartView!
     
-    public init(data: [EmeraldChartDataEntry], steps: Int = 5) {
-        self.steps = steps
+    
+    public init(simpleData: [EmeraldChartSimpleDataEntry]) {
         super.init(frame: .zero)
         self.presenter = EmeraldChartPresenter()
         self.presenter.bind(view: self)
-        self.presenter.setData(data: data)
-        setupView()
-        self.autoresizesSubviews = true
-        
+        self.presenter.setSimpleData(data: simpleData)
+        setUpView()
+        setupSimpleChartData()
+    }
+    
+    public init (multipleValueData: [EmeraldChartMultipleValueDataEntry], valueColors: [UIColor]? = nil) {
+        super.init(frame: .zero)
+        self.presenter = EmeraldChartPresenter()
+        self.presenter.bind(view: self)
+        if let colors = valueColors{
+            self.presenter.setMultipleValueDataSetcolors(colors: colors)
+        }
+        setUpView()
+        presenter.setMultipleValueData(data: multipleValueData)
+        setupMultipleValuesChartData()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupView() {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: configLayout())
-        self.addSubview(collectionView)
-        collectionView.anchor(top: self.topAnchor,
-                              left: self.leftAnchor,
-                              bottom: self.bottomAnchor,
-                              right: self.rightAnchor)
-        registerCells()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = .blue
-        collectionView.reloadData()
-    }
-
-    public func updateView() {
-        configLayout()
+    private func setUpView() {
+        barChartView = BarChartView(frame: .zero)
+        self.addSubview(barChartView)
+        barChartView.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor)
+        configBarChartView()
     }
     
-    private func registerCells() {
-        collectionView.register(VerticalDividerView.classForCoder(), forSupplementaryViewOfKind: Constants.ReusableId.verticalDivider, withReuseIdentifier: Constants.ReusableId.verticalDivider)
-        collectionView.register(LabelView.classForCoder(), forSupplementaryViewOfKind: Constants.ReusableId.verticalLabel, withReuseIdentifier: Constants.ReusableId.verticalLabel)
-        collectionView.register(EmeraldBarChartCell.self, forCellWithReuseIdentifier: Constants.ReusableId.barChartcell)
-        collectionView.collectionViewLayout.register(SideBarReusableView.classForCoder(), forDecorationViewOfKind: Constants.ReusableId.sideBar)
+    private func configBarChartView() {
+        barChartView.maxVisibleCount = presenter.getDataEntriesCount()
+        barChartView.animate(yAxisDuration: 1)
+        barChartView.xAxis.gridColor = .clear
+        barChartView.leftAxis.gridColor = .clear
+        barChartView.xAxis.labelPosition = .bottom
+        barChartView.rightAxis.enabled = false
+        barChartView.rightAxis.gridColor = .clear
+        barChartView.leftAxis.labelCount = 5
+        barChartView.leftAxis.labelPosition = .outsideChart
+        barChartView.drawBarShadowEnabled = false
+        barChartView.drawGridBackgroundEnabled = false
+        barChartView.doubleTapToZoomEnabled = false
+        barChartView.legend.enabled = false
     }
     
-    @discardableResult
-    private func configLayout() -> EmeraldChartViewLayout {
-        let collectionViewLayout = EmeraldChartViewLayout()
-        collectionViewLayout.chartContentWidth = self.frame.width
-        collectionViewLayout.steps = steps
-        collectionViewLayout.range = presenter.getDataRange()
-        collectionViewLayout.dataEntries = presenter.getDataEntries()
-        collectionViewLayout.cellSize = CGSize(width: presenter.getCellWidth(), height: self.frame.width)
-        collectionViewLayout.verticalSideBarView = sideBar
-        collectionViewLayout.prepare()
-        return collectionViewLayout
-    }
     
-    private func verticalLabelViewSetup(labelView: UICollectionReusableView, indexPath: IndexPath) {
-        let range = presenter.getDataRange()
-        let amountPerStep = range.max / CGFloat(steps)
-
-        if let labelView = labelView as? LabelView {
-            let labelText = "\(Int((range.max - (amountPerStep * CGFloat(indexPath.item)))))"
-            labelView.label.text = labelText
+    private func setupSimpleChartData() {
+        var chartDataSet = [BarChartDataEntry]()
+        for dataIndex in 0..<presenter.getDataEntriesCount() {
+            chartDataSet.append(BarChartDataEntry(x: Double(dataIndex), y: Double(presenter.getValueForSimpleDataEntry(index: dataIndex))))
         }
-    }
-
-    private func verticalDividerSetup(verticalDivider: UICollectionReusableView, indexPath: IndexPath) {
-        if let verticalDivider = verticalDivider as? VerticalDividerView {
-            verticalDivider.line.strokeColor = UIColor.lightGray.cgColor
-        }
-    }
-    public func updatedata(data: [EmeraldChartDataEntry]) {
-        presenter.setData(data: data)
-        configLayout()
+        let barChartDataSet = BarChartDataSet(entries: chartDataSet, label: "")
+        barChartDataSet.colors = presenter.getSimpleDataSetColors()
+        barChartView.data = BarChartData(dataSet: barChartDataSet)
+        barChartView.xAxis.valueFormatter  = IndexAxisValueFormatter(values: presenter.getDataHorizontalEntries())
+        barChartView.data?.setDrawValues(false)
     }
     
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.getDataEntriesCount()
-    }
-
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.ReusableId.barChartcell, for: indexPath) as? EmeraldBarChartCell else {
-            return UICollectionViewCell()
+    private func setupMultipleValuesChartData() {
+        var chartDataSet = [BarChartDataEntry]()
+        for dataIndex in 0..<presenter.getDataEntriesCount() {
+            chartDataSet.append(BarChartDataEntry(x: Double(dataIndex), yValues: presenter.getValueForMultipleValueDataEntry(index: dataIndex)))
         }
-        cell.data = presenter.getCellDataFor(indexPath: indexPath)
-
-        return cell
-    }
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print(presenter.getCellWidth())
-        return CGSize(width: presenter.getCellWidth(), height: self.frame.height)
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case Constants.ReusableId.sideBar:
-            let sideBar = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.ReusableId.sideBar, for: indexPath)
-            return sideBar
-        case Constants.ReusableId.verticalDivider:
-            let verticalDivider = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.ReusableId.verticalDivider, for: indexPath)
-            verticalDividerSetup(verticalDivider: verticalDivider, indexPath: indexPath)
-            return verticalDivider
-        case Constants.ReusableId.verticalLabel:
-            let verticalLabel = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.ReusableId.verticalLabel, for: indexPath)
-            verticalLabelViewSetup(labelView: verticalLabel, indexPath: indexPath)
-            return verticalLabel
-        default:
-            return UICollectionReusableView()
-        }
+        let barChartDataset = BarChartDataSet(entries: chartDataSet, label: "")
+        barChartDataset.colors = presenter.getMultipleValueDataSetColors()
+        barChartView.data = BarChartData(dataSet: barChartDataset)
+        barChartView.xAxis.valueFormatter  = IndexAxisValueFormatter(values: presenter.getDataHorizontalEntries())
+        barChartView.data?.setDrawValues(false)
+        barChartView.barData?.barWidth = 0.4
     }
 }
-
-protocol EmeraldChartViewType: UICollectionViewDelegate, UICollectionViewDataSource {}

@@ -73,6 +73,12 @@ public class EmeraldTheme {
         public static let downyColor = #colorLiteral(red: 0.4431372549, green: 0.8352941176, blue: 0.7490196078, alpha: 1)
     }
     
+    public struct Chart {
+        public static let criticalData = UIColor(red: 221/255, green: 53/255, blue: 10/255, alpha: 1)
+        public static let warningData = UIColor(red: 255/255, green: 170/255, blue: 0/255, alpha: 1)
+        public static let correctData = UIColor(red: 9/255, green: 169/255, blue: 80/255, alpha: 1)
+    }
+    
     // MARK: Corner Defaults
     public static let defaultCornerRadius: CGFloat = 2
     public static let defaultButtonCornerRadius: CGFloat = 5
