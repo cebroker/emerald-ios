@@ -13,4 +13,5 @@ Pod::Spec.new do |spec|
   spec.source_files         = "EmeraldIOS/**/*.{swift}"
   spec.swift_version        = "5.0"
   spec.dependency 'BEMCheckBox'
+  spec.dependency 'Charts'
 end
