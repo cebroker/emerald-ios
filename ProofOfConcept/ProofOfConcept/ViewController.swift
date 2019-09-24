@@ -50,7 +50,8 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldTextView: EmeraldTextViewField!
 
     @IBOutlet weak var textViewStack: EmeraldTextView!
-
+    @IBOutlet weak var loadingIndicator: LoadingIndicator!
+    
     private var emeraldFields: [EmeraldValidableType] {
         return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
     }
@@ -71,6 +72,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.createHideKeyboardGesture()
 //        self.createFields()
         self.createStoryBoardFields()
+        loadingIndicator.startAnimating()
     }
 
     private func createHideKeyboardGesture() {
