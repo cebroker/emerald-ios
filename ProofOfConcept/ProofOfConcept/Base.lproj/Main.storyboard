@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NSi-CS-Fn9">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NSi-CS-Fn9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -37,7 +35,7 @@ GROUP 2</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="luc-tT-pwp">
                                 <rect key="frame" x="20.5" y="55" width="373" height="80"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-Bd-URn" customClass="EmeraldAvatar" customModule="EmeraldIOS">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-Bd-URn" customClass="EmeraldAvatar" customModule="EmeraldIOS">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
@@ -46,8 +44,8 @@ GROUP 2</string>
                                             <userDefinedRuntimeAttribute type="string" keyPath="size" value="lg"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-Ro-5VJ" customClass="EmeraldAvatar" customModule="EmeraldIOS">
-                                        <rect key="frame" x="176.5" y="10" width="60" height="60"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-Ro-5VJ" customClass="EmeraldAvatar" customModule="EmeraldIOS">
+                                        <rect key="frame" x="171.5" y="10" width="60" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="themeColor" value="red"/>
@@ -55,8 +53,8 @@ GROUP 2</string>
                                             <userDefinedRuntimeAttribute type="string" keyPath="size" value="md"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-Xj-7r1" customClass="EmeraldAvatar" customModule="EmeraldIOS">
-                                        <rect key="frame" x="333" y="20" width="40" height="40"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-Xj-7r1" customClass="EmeraldAvatar" customModule="EmeraldIOS">
+                                        <rect key="frame" x="323" y="15" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="themeColor" value="red"/>
@@ -70,10 +68,34 @@ GROUP 2</string>
                                 <rect key="frame" x="0.0" y="150" width="414" height="624"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="EmeraldStackView" customModule="EmeraldIOS">
-                                        <rect key="frame" x="20.5" y="30" width="373" height="1458.5"/>
+                                        <rect key="frame" x="20.5" y="30" width="373" height="1493.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="K0o-bK-2dS">
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5c-3A-gDU">
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s19-ib-1gd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umb-ay-auM" customClass="EmeraldLoadingIndicator" customModule="EmeraldIOS">
+                                                                <rect key="frame" x="171.5" y="0.0" width="30" height="30"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="30" id="7me-3c-WaX"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="jj0-3f-Ny0"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="umb-ay-auM" secondAttribute="bottom" id="RvP-H5-Zp9"/>
+                                                            <constraint firstItem="umb-ay-auM" firstAttribute="top" secondItem="s19-ib-1gd" secondAttribute="top" id="YFR-fN-Zjl"/>
+                                                            <constraint firstItem="umb-ay-auM" firstAttribute="centerX" secondItem="s19-ib-1gd" secondAttribute="centerX" id="v8j-06-4gF"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="K0o-bK-2dS">
+                                                <rect key="frame" x="0.0" y="35" width="373" height="30"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wt2-Wa-Kyn" customClass="EmeraldChipView" customModule="EmeraldIOS">
                                                         <rect key="frame" x="0.0" y="0.0" width="89.5" height="30"/>
@@ -109,7 +131,7 @@ GROUP 2</string>
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5EI-gk-g9M" customClass="EmeraldChipsCollectionView" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="35" width="373" height="100"/>
+                                                <rect key="frame" x="0.0" y="70" width="373" height="100"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="3ay-9F-dCD"/>
@@ -123,14 +145,14 @@ GROUP 2</string>
                                                 <cells/>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpM-Dl-RQY">
-                                                <rect key="frame" x="0.0" y="140" width="373" height="30"/>
+                                                <rect key="frame" x="0.0" y="175" width="373" height="30"/>
                                                 <state key="normal" title="Add language"/>
                                                 <connections>
                                                     <action selector="addLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GC8-Yh-h03"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV6-cl-gbd" customClass="EmeraldLabel" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="175" width="373" height="30"/>
+                                                <rect key="frame" x="0.0" y="210" width="373" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="8Ps-dd-xeu"/>
                                                 </constraints>
@@ -142,11 +164,10 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-eS-81u" customClass="EmeraldTextField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="210" width="373" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="245" width="373" height="56.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56.5" id="rn2-2x-iqv"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -166,11 +187,10 @@ GROUP 2</string>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FEb-MD-dBK" customClass="EmeraldTextDependantField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="271.5" width="373" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="306.5" width="373" height="56.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56.5" id="KQo-Oi-5rJ"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -187,11 +207,10 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5C-Xp-yJy" customClass="EmeraldDateField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="333" width="373" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="368" width="373" height="56.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56.5" id="Hd8-zx-sEj"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -208,11 +227,10 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uDI-NN-qaw" customClass="EmeraldDateField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="394.5" width="373" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="429.5" width="373" height="56.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56.5" id="ncv-et-dNT"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
@@ -229,11 +247,10 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qbk-ri-QTF" customClass="EmeraldRegexTextField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="456" width="373" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="491" width="373" height="56.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56.5" id="9WP-UL-WYx"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <userDefinedRuntimeAttributes>
@@ -251,7 +268,7 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmy-8w-Aph" customClass="EmeraldSelectorField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="517.5" width="373" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="552.5" width="373" height="56.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56.5" id="h77-TL-iNe"/>
@@ -263,7 +280,7 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBv-QR-ky7" customClass="EmeraldSelectorField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="579" width="373" height="56.5"/>
+                                                <rect key="frame" x="0.0" y="614" width="373" height="56.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Antioquia"/>
@@ -272,7 +289,7 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0ZC-ej-HLY" customClass="EmeraldCheckboxFormField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="640.5" width="373" height="500"/>
+                                                <rect key="frame" x="0.0" y="675.5" width="373" height="500"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="f1b-Vd-iBv"/>
                                                 </constraints>
@@ -282,7 +299,7 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-JT-Fff" customClass="EmeraldTextViewField" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="1145.5" width="373" height="100"/>
+                                                <rect key="frame" x="0.0" y="1180.5" width="373" height="100"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="f0c-cG-v4k"/>
@@ -295,13 +312,13 @@ GROUP 2</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-P3-3Aq" customClass="EmeraldTextView" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="1250.5" width="373" height="100"/>
+                                                <rect key="frame" x="0.0" y="1285.5" width="373" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="Giy-Ga-YQ6"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-jJ-wYo" customClass="EmeraldButton" customModule="EmeraldIOS">
-                                                <rect key="frame" x="0.0" y="1355.5" width="373" height="49"/>
+                                                <rect key="frame" x="0.0" y="1390.5" width="373" height="49"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="cvJ-6d-zYc"/>
                                                 </constraints>
@@ -314,7 +331,7 @@ GROUP 2</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TT2-HF-ghe" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="1409.5" width="373" height="49"/>
+                                                <rect key="frame" x="0.0" y="1444.5" width="373" height="49"/>
                                                 <state key="normal" title="Button"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -329,7 +346,7 @@ GROUP 2</string>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-WA-g0C" customClass="EmeraldSignatureBoxView" customModule="EmeraldIOS">
-                                        <rect key="frame" x="20.5" y="1538.5" width="373" height="100"/>
+                                        <rect key="frame" x="20.5" y="1573.5" width="373" height="100"/>
                                         <color key="backgroundColor" name="whiteColor"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="YES"/>
@@ -393,6 +410,7 @@ GROUP 2</string>
                         <outlet property="emeraldTextView" destination="MFI-JT-Fff" id="bPd-jK-BEX"/>
                         <outlet property="emptyableSelector" destination="cmy-8w-Aph" id="jDI-5a-dJ4"/>
                         <outlet property="formStackView" destination="H8W-5V-jo4" id="4nC-Xx-RlT"/>
+                        <outlet property="loadingIndicator" destination="umb-ay-auM" id="FNv-39-dr1"/>
                         <outlet property="signatureBoxView" destination="Ikf-WA-g0C" id="iGa-Kt-Hgo"/>
                         <outlet property="textViewStack" destination="rMW-P3-3Aq" id="ZjE-Re-S45"/>
                     </connections>
