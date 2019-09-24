@@ -31,6 +31,9 @@ public class EmeraldLoadingIndicator: UIView {
         }
     }
     
+    @IBInspectable
+    public var hidesWhenStopped: Bool = false
+    
     public func setColors(_ colors: [UIColor]) {
         indicatorColor = colors.map { $0.cgColor }
     }
@@ -80,6 +83,7 @@ public class EmeraldLoadingIndicator: UIView {
             startStrokeAnimation()
             startRotatingAnimation()
         }
+        isHidden = false
     }
     
     open func stopAnimating() {
@@ -87,6 +91,7 @@ public class EmeraldLoadingIndicator: UIView {
         layer.removeAllAnimations()
         circleShapeLayer.transform = CATransform3DIdentity
         layer.transform = CATransform3DIdentity
+        isHidden = hidesWhenStopped
     }
     
     private func startColorAnimation() {
