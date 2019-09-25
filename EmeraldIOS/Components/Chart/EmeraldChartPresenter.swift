@@ -105,6 +105,17 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
     func setMultipleValueData(data: [EmeraldChartMultipleValueDataEntry]) {
         self.multipleValueDataEntries = data
     }
+    
+    func getSimpleDataSubtitleColor() -> [String: UIColor] {
+        var colorsDict = [String: UIColor]()
+        if let entries = simpleDataEntries {
+            for i in stride(from: 0, to: entries.count, by: 1) {
+                colorsDict[entries[i].title] = entries[i].color
+            }
+        }
+        
+        return colorsDict
+    }
 }
 
 protocol EmeraldChartPresenterType {
@@ -117,6 +128,7 @@ protocol EmeraldChartPresenterType {
     func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry]
     func getValueForSimpleDataEntry(index: Int) -> Float
     func getSimpleDataSetColors() -> [UIColor]
+    func getSimpleDataSubtitleColor() -> [String: UIColor]
     
     func getValueForMultipleValueDataEntry(index: Int) -> [Double]
     func setMultipleValueDataSetcolors(colors: [UIColor])

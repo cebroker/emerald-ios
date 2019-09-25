@@ -13,7 +13,6 @@ public class EmeraldChart: UIView {
     private var presenter: EmeraldChartPresenterType!
     private var barChartView: BarChartView!
     
-    
     public init(simpleData: [EmeraldChartSimpleDataEntry]) {
         super.init(frame: .zero)
         self.presenter = EmeraldChartPresenter()
@@ -52,8 +51,14 @@ public class EmeraldChart: UIView {
         barChartView.xAxis.gridColor = .clear
         barChartView.leftAxis.gridColor = .clear
         barChartView.xAxis.labelPosition = .bottom
+        barChartView.xAxis.labelHeight = 100
+        barChartView.extraBottomOffset = 40
         barChartView.rightAxis.enabled = false
         barChartView.rightAxis.gridColor = .clear
+        barChartView.xAxis.labelCount = 3
+        let xAxisRenderer = EmeraldChartXAxisRenderer(viewPortHandler: barChartView.viewPortHandler, xAxis: barChartView.xAxis, transformer: barChartView.getTransformer(forAxis: .left))
+        xAxisRenderer.colorsDictionary = presenter.getSimpleDataSubtitleColor()
+        barChartView.xAxisRenderer = xAxisRenderer
         barChartView.leftAxis.labelCount = 5
         barChartView.leftAxis.labelPosition = .outsideChart
         barChartView.drawBarShadowEnabled = false
@@ -73,6 +78,7 @@ public class EmeraldChart: UIView {
         barChartView.data = BarChartData(dataSet: barChartDataSet)
         barChartView.xAxis.valueFormatter  = IndexAxisValueFormatter(values: presenter.getDataHorizontalEntries())
         barChartView.data?.setDrawValues(false)
+        
     }
     
     private func setupMultipleValuesChartData() {
@@ -85,6 +91,5 @@ public class EmeraldChart: UIView {
         barChartView.data = BarChartData(dataSet: barChartDataset)
         barChartView.xAxis.valueFormatter  = IndexAxisValueFormatter(values: presenter.getDataHorizontalEntries())
         barChartView.data?.setDrawValues(false)
-        barChartView.barData?.barWidth = 0.4
     }
 }
