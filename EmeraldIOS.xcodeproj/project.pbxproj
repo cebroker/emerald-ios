@@ -72,6 +72,7 @@
 		77CA14B222E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B122E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift */; };
 		77CA14B422E902A50081EFE2 /* EmeraldChipsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B322E902A50081EFE2 /* EmeraldChipsCollectionView.swift */; };
 		77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1851422B2BE250002CE09 /* EmeraldValidable.swift */; };
+		860047CF233AB7B2003198AF /* EmeraldLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */; };
 		8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */; };
 		8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */; };
 		8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */; };
@@ -189,6 +190,7 @@
 		77CA14B322E902A50081EFE2 /* EmeraldChipsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldChipsCollectionView.swift; sourceTree = "<group>"; };
 		77E1851422B2BE250002CE09 /* EmeraldValidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldValidable.swift; sourceTree = "<group>"; };
 		7CFED98E3BEC23A1ACF99D81 /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldLoadingIndicator.swift; sourceTree = "<group>"; };
 		8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarBaseCell.swift; sourceTree = "<group>"; };
 		8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarItemCell.swift; sourceTree = "<group>"; };
 		8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTitleAppearance.swift; sourceTree = "<group>"; };
@@ -457,6 +459,14 @@
 			path = Chip;
 			sourceTree = "<group>";
 		};
+		860047CB233AA692003198AF /* LoadingIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */,
+			);
+			path = LoadingIndicator;
+			sourceTree = "<group>";
+		};
 		86AC4DE022974E1C00728FBA /* SegmentedBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,20 +514,21 @@
 			isa = PBXGroup;
 			children = (
 				49EC6EDD232BF2EC003BFEBD /* Chart */,
-				77BF6E1322DF7B5500E4C448 /* Chip */,
 				778BEF6422B92BD400AF8601 /* Avatar */,
-				86AC4DE022974E1C00728FBA /* SegmentedBar */,
-				6CD5842122945A51001DE8D2 /* TextView */,
-				9B3BCC702272033400DC5D79 /* FormStack */,
-				6C2D328F228B0B94009D4B0F /* Date */,
-				6C2D328A228AFDA5009D4B0F /* TextDependant */,
-				6C807C74227CCEED00FC328E /* Label */,
 				9B3BCC552272033400DC5D79 /* Button */,
-				6C2D3F962280C84F00FD8ED9 /* TextField */,
+				77BF6E1322DF7B5500E4C448 /* Chip */,
+				6C2D328F228B0B94009D4B0F /* Date */,
+				9B3BCC702272033400DC5D79 /* FormStack */,
+				6C807C74227CCEED00FC328E /* Label */,
+				860047CB233AA692003198AF /* LoadingIndicator */,
+				9B3BCC4C2272033400DC5D79 /* MultipleSelection */,
+				86AC4DE022974E1C00728FBA /* SegmentedBar */,
+				9B3BCC5A2272033400DC5D79 /* Selectable.swift */,
 				6CAFFA2C22847D8F00C690B9 /* Selector */,
 				6C0AC80622831B5A00AF4662 /* Signature */,
-				9B3BCC4C2272033400DC5D79 /* MultipleSelection */,
-				9B3BCC5A2272033400DC5D79 /* Selectable.swift */,
+				6C2D328A228AFDA5009D4B0F /* TextDependant */,
+				6C2D3F962280C84F00FD8ED9 /* TextField */,
+				6CD5842122945A51001DE8D2 /* TextView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -889,6 +900,7 @@
 				6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */,
 				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
 				9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */,
+				860047CF233AB7B2003198AF /* EmeraldLoadingIndicator.swift in Sources */,
 				9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */,
 				8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */,
 				6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */,
@@ -1151,6 +1163,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.51;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1181,6 +1194,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.51;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
