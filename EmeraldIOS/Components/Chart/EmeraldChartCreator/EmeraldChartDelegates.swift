@@ -8,3 +8,6 @@
 
 import Foundation
 
+protocol EmeraldChartViewDelegate {
+    func didSelectItemAt(index: Int)
+}

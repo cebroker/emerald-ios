@@ -16,7 +16,7 @@ class BarChartViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupSimpleBarChartView()
-//        setupMultipleValuesBarChartView()
+        setupMultipleValuesBarChartView()
     }
     
     private func setupSimpleBarChartView() {
@@ -24,35 +24,26 @@ class BarChartViewController: UIViewController {
         dataEntries.append(EmeraldChartSimpleDataEntry(color: EmeraldTheme.blueColor , value: 20, title: "First Data", subtitle: nil, hasAction: false))
         dataEntries.append(EmeraldChartSimpleDataEntry(color: EmeraldTheme.Chart.warningData, value: 30, title: "Second Data", subtitle: nil, hasAction: false))
         dataEntries.append(EmeraldChartSimpleDataEntry(color: EmeraldTheme.Chart.criticalData, value: 10, title: "Third Data", subtitle: nil, hasAction: false))
+        dataEntries.append(EmeraldChartSimpleDataEntry(color: EmeraldTheme.secondaryColor, value: 50, title: "Fourth Data", subtitle: nil, hasAction: false))
+        dataEntries.append(EmeraldChartSimpleDataEntry(color: EmeraldTheme.Avatar.aquamarineColor, value: 100, title: "Fifth Data", subtitle: nil, hasAction: false))
         self.view.backgroundColor = UIColor.white
-        emeraldSimpleBarChart = EmeraldChart(simpleData: dataEntries)
+        let chartOptions = EmeraldChartOptions(cornerRadius: 5, showSubtitle: true)
+        emeraldSimpleBarChart = EmeraldChart(simpleData: dataEntries, withOptions: chartOptions)
         self.view.addSubview(emeraldSimpleBarChart)
         emeraldSimpleBarChart.anchor(top: self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: self.view.rightAnchor, height: (self.view.frame.height/2))
     }
     
     private func setupMultipleValuesBarChartView() {
         let dataEntries =
-            [EmeraldChartMultipleValueDataEntry(value: [1,2,3], title: "June"),
-             EmeraldChartMultipleValueDataEntry(value: [0,5,0], title: "July"),
-             EmeraldChartMultipleValueDataEntry(value: [0,2,3], title: "August"),
-             EmeraldChartMultipleValueDataEntry(value: [10,2,0], title: "September"),
-             EmeraldChartMultipleValueDataEntry(value: [4,2,2], title: "November"),
-             EmeraldChartMultipleValueDataEntry(value: [1,2,22], title: "October"),
-             EmeraldChartMultipleValueDataEntry(value: [1,2,3], title: "June"),
-             EmeraldChartMultipleValueDataEntry(value: [0,5,0], title: "July"),
-             EmeraldChartMultipleValueDataEntry(value: [0,2,3], title: "August"),
-             EmeraldChartMultipleValueDataEntry(value: [10,2,0], title: "September"),
-             EmeraldChartMultipleValueDataEntry(value: [4,2,2], title: "November"),
-             EmeraldChartMultipleValueDataEntry(value: [1,2,22], title: "October"),
-             EmeraldChartMultipleValueDataEntry(value: [1,2,3], title: "June"),
-             EmeraldChartMultipleValueDataEntry(value: [0,5,0], title: "July"),
-             EmeraldChartMultipleValueDataEntry(value: [0,2,3], title: "August"),
-             EmeraldChartMultipleValueDataEntry(value: [10,2,0], title: "September"),
-             EmeraldChartMultipleValueDataEntry(value: [4,2,2], title: "November"),
-             EmeraldChartMultipleValueDataEntry(value: [1,2,22], title: "October")]
+            [EmeraldChartMultipleValueDataEntry(value: [1,2,3], title: "Jun"),
+             EmeraldChartMultipleValueDataEntry(value: [0,5,0], title: "Jul"),
+             EmeraldChartMultipleValueDataEntry(value: [0,2,3], title: "Aug"),
+             EmeraldChartMultipleValueDataEntry(value: [10,2,0], title: "Sep"),
+             EmeraldChartMultipleValueDataEntry(value: [4,2,2], title: "Nov"),
+             EmeraldChartMultipleValueDataEntry(value: [1,2,22], title: "Oct")]
         emeraldMultipleValueBarChart = EmeraldChart(multipleValueData: dataEntries)
         self.view.addSubview(emeraldMultipleValueBarChart)
-        emeraldMultipleValueBarChart.anchor(top: self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: self.view.rightAnchor, height: (self.view.frame.height/2) - 50)
+        emeraldMultipleValueBarChart.anchor(top: emeraldSimpleBarChart.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor)
         
     }
 }

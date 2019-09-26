@@ -10,9 +10,6 @@ import Foundation
 
 class EmeraldChartPresenter: EmeraldChartPresenterType {
     
-    private var barWidth: CGFloat = 0
-    private let cellSpacing: CGFloat = 20
-    private let bottomSpacing: CGFloat = 40
     private var chartView: EmeraldChart!
     private var simpleDataEntries: [EmeraldChartSimpleDataEntry]?
     private var multipleValueDataEntries: [EmeraldChartMultipleValueDataEntry]?
@@ -116,6 +113,16 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
         
         return colorsDict
     }
+    
+    func getSimpleDataSubtitles() -> [String] {
+        var subtitles = [String]()
+        if let entries = simpleDataEntries {
+            for entry in entries {
+                subtitles.append(String(entry.value))
+            }
+        }
+        return subtitles
+    }
 }
 
 protocol EmeraldChartPresenterType {
@@ -129,6 +136,7 @@ protocol EmeraldChartPresenterType {
     func getValueForSimpleDataEntry(index: Int) -> Float
     func getSimpleDataSetColors() -> [UIColor]
     func getSimpleDataSubtitleColor() -> [String: UIColor]
+    func getSimpleDataSubtitles() -> [String]
     
     func getValueForMultipleValueDataEntry(index: Int) -> [Double]
     func setMultipleValueDataSetcolors(colors: [UIColor])

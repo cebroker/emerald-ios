@@ -13,6 +13,9 @@
 		49B6D78423328BCF00FE78A1 /* EmeraldChartDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */; };
 		49B6D78623328D2F00FE78A1 /* EmeraldChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */; };
 		49C7B3CB233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C7B3CA233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift */; };
+		49D7DA5E233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7DA5D233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift */; };
+		49D7DA65233D1720000453BD /* EmeraldChartOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7DA64233D1720000453BD /* EmeraldChartOptions.swift */; };
+		49D7DA67233D22B3000453BD /* Extensions+UIColorDarkener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7DA66233D22B3000453BD /* Extensions+UIColorDarkener.swift */; };
 		49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC6EDE232BF51F003BFEBD /* EmeraldChartDataEntry.swift */; };
 		6C23516B228C469B00D398F3 /* EmeraldDatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */; };
 		6C23516E228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516D228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift */; };
@@ -124,6 +127,9 @@
 		49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartDelegates.swift; sourceTree = "<group>"; };
 		49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartView.swift; sourceTree = "<group>"; };
 		49C7B3CA233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartXAxISRenderer.swift; sourceTree = "<group>"; };
+		49D7DA5D233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldCustomBarChartRenderer.swift; sourceTree = "<group>"; };
+		49D7DA64233D1720000453BD /* EmeraldChartOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartOptions.swift; sourceTree = "<group>"; };
+		49D7DA66233D22B3000453BD /* Extensions+UIColorDarkener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColorDarkener.swift"; sourceTree = "<group>"; };
 		49EC6EDE232BF51F003BFEBD /* EmeraldChartDataEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartDataEntry.swift; sourceTree = "<group>"; };
 		5276EF653B6DD8B0BF4C98C4 /* Pods_EmeraldIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67494B68C1CB68E575FEB16C /* Pods-EmeraldIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,14 +263,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		49EC6EDD232BF2EC003BFEBD /* Chart */ = {
+		49D7DA62233D09F8000453BD /* CustomRenderers */ = {
+			isa = PBXGroup;
+			children = (
+				49D7DA5D233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift */,
+				49C7B3CA233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift */,
+			);
+			path = CustomRenderers;
+			sourceTree = "<group>";
+		};
+		49D7DA63233D144D000453BD /* EmeraldChartCreator */ = {
 			isa = PBXGroup;
 			children = (
 				49EC6EDE232BF51F003BFEBD /* EmeraldChartDataEntry.swift */,
 				49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */,
 				490E3C7A2335148B000FA6C9 /* EmeraldChartPresenter.swift */,
 				49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */,
-				49C7B3CA233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift */,
+				49D7DA64233D1720000453BD /* EmeraldChartOptions.swift */,
+			);
+			path = EmeraldChartCreator;
+			sourceTree = "<group>";
+		};
+		49EC6EDD232BF2EC003BFEBD /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				49D7DA63233D144D000453BD /* EmeraldChartCreator */,
+				49D7DA62233D09F8000453BD /* CustomRenderers */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -471,6 +495,7 @@
 				6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */,
 				6CD5842B229496CB001DE8D2 /* Extensions+String.swift */,
 				6CD5842D22949783001DE8D2 /* Extensions+Date.swift */,
+				49D7DA66233D22B3000453BD /* Extensions+UIColorDarkener.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -859,6 +884,7 @@
 				6CD5841C229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift in Sources */,
 				6CD5842522945A7F001DE8D2 /* EmeraldTextViewFieldStyle.swift in Sources */,
 				77BF6E1522DF7C1500E4C448 /* EmeraldChipView.swift in Sources */,
+				49D7DA5E233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift in Sources */,
 				6C2D328C228B034E009D4B0F /* EmeraldTextDependantField.swift in Sources */,
 				6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */,
 				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
@@ -887,6 +913,7 @@
 				6C807C71227C99B300FC328E /* Theme.swift in Sources */,
 				8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */,
 				49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */,
+				49D7DA65233D1720000453BD /* EmeraldChartOptions.swift in Sources */,
 				6CAFFA22228453CF00C690B9 /* EmeraldSignatureViewController.swift in Sources */,
 				77CA14B422E902A50081EFE2 /* EmeraldChipsCollectionView.swift in Sources */,
 				6CD5842E22949783001DE8D2 /* Extensions+Date.swift in Sources */,
@@ -905,6 +932,7 @@
 				8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */,
 				6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */,
 				6C807C7A227CECDA00FC328E /* EmeraldButtonStyle.swift in Sources */,
+				49D7DA67233D22B3000453BD /* Extensions+UIColorDarkener.swift in Sources */,
 				6CD5841E22943343001DE8D2 /* EmeraldRegexFormatType.swift in Sources */,
 				6C2AFCE42326B40600EBDE1C /* EmeraldTextField+ShowHide.swift in Sources */,
 				77CA14B222E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift in Sources */,
