@@ -15,34 +15,30 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
         var rects = [CGRect]()
     }
     
-    private var _buffers = [Buffer]()
-    private var _barShadowRectBuffer: CGRect = CGRect()
+    private var buffers = [Buffer]()
+    private var barShadowRectBuffer: CGRect = CGRect()
     
     override func initBuffers() {
         if let barData = dataProvider?.barData {
-            // Matche buffers count to dataset count
-            if _buffers.count != barData.dataSetCount {
-                while _buffers.count < barData.dataSetCount
-                {
-                    _buffers.append(Buffer())
+            if buffers.count != barData.dataSetCount {
+                while buffers.count < barData.dataSetCount {
+                    buffers.append(Buffer())
                 }
-                while _buffers.count > barData.dataSetCount
-                {
-                    _buffers.removeLast()
+                while buffers.count > barData.dataSetCount {
+                    buffers.removeLast()
                 }
             }
             
             for i in stride(from: 0, to: barData.dataSetCount, by: 1)  {
                 let set = barData.dataSets[i] as! IBarChartDataSet
                 let size = set.entryCount * (set.isStacked ? set.stackSize : 1)
-                if _buffers[i].rects.count != size
-                {
-                    _buffers[i].rects = [CGRect](repeating: CGRect(), count: size)
+                if buffers[i].rects.count != size {
+                    buffers[i].rects = [CGRect](repeating: CGRect(), count: size)
                 }
             }
         }
         else {
-            _buffers.removeAll()
+            buffers.removeAll()
         }
     }
     
@@ -54,7 +50,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
         
         let barWidthHalf = barData.barWidth / 2.0
     
-        let buffer = _buffers[index]
+        let buffer = buffers[index]
         var bufferIndex = 0
         let containsStacks = dataSet.isStacked
         
@@ -88,17 +84,13 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 if let offsetView = dataProvider as? BarChartView {
                     let offsetAxis = offsetView.getAxis(dataSet.axisDependency)
                     if y >= 0 {
-                        // situation 1
-                        if offsetAxis.axisMaximum < y
-                        {
+                        if offsetAxis.axisMaximum < y {
                             topOffset = CGFloat(y - offsetAxis.axisMaximum)
                         }
-                        if offsetAxis.axisMinimum > 0
-                        {
+                        if offsetAxis.axisMinimum > 0 {
                             bottomOffset = CGFloat(offsetAxis.axisMinimum)
                         }
                     } else {
-                        //situation 2
                         if offsetAxis.axisMaximum < 0 {
                             topOffset = CGFloat(offsetAxis.axisMaximum * -1)
                         }
@@ -108,18 +100,12 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                     }
                     
                     if isInverted {
-                        // situation 3 and 4
-                        // exchange topOffset/bottomOffset based on 1 and 2
-                        // see diagram above
                         (topOffset, bottomOffset) = (bottomOffset, topOffset)
                     }
                 }
-                //apply offset
                 top = isInverted ? top + topOffset : top - topOffset
                 bottom = isInverted ? bottom - bottomOffset : bottom + bottomOffset
-
-                // multiply the height of the rect with the phase
-                // explicitly add 0 + topOffset to indicate this is changed after adding accessibility support (#3650, #3520)
+                
                 if top > 0 + topOffset {
                     top *= CGFloat(phaseY)
                 } else {
@@ -137,12 +123,10 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 var negY = -e.negativeSum
                 var yStart = 0.0
                 
-                // fill the stack
                 for k in 0 ..< vals!.count {
                     let value = vals![k]
                     
                     if value == 0.0 && (posY == 0.0 || negY == 0.0) {
-                        // Take care of the situation of a 0.0 value, which overlaps a non-zero bar
                         y = value
                         yStart = y
                     } else if value >= 0.0 {
@@ -164,7 +148,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                         ? (y >= yStart ? CGFloat(y) : CGFloat(yStart))
                         : (y <= yStart ? CGFloat(y) : CGFloat(yStart))
                     
-                    // multiply the height of the rect with the phase
                     top *= CGFloat(phaseY)
                     bottom *= CGFloat(phaseY)
                     
@@ -181,7 +164,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
     }
     
     override func drawValues(context: CGContext) {
-        // if values are drawn
         if isDrawingValuesAllowed(dataProvider: dataProvider) {
             guard
                 let dataProvider = dataProvider,
@@ -214,7 +196,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                     negOffset = -negOffset - valueTextHeight
                 }
                 
-                let buffer = _buffers[dataSetIndex]
+                let buffer = buffers[dataSetIndex]
                 
                 guard let formatter = dataSet.valueFormatter else { continue }
                 
@@ -224,7 +206,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 
                 let iconsOffset = dataSet.iconsOffset
         
-                // if only single values are drawn (sum)
                 if !dataSet.isStacked {
                     for j in 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX)) {
                         guard let e = dataSet.entryForIndex(j) as? BarChartDataEntry else { continue }
@@ -279,7 +260,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                         }
                     }
                 } else {
-                    // if we have stacks
                     
                     var bufferIndex = 0
                     
@@ -335,7 +315,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                     size: icon.size)
                             }
                         } else {
-                            // draw stack values
                             
                             let vals = vals!
                             var transformed = [CGPoint]()
@@ -348,7 +327,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                 var y: Double
                                 
                                 if value == 0.0 && (posY == 0.0 || negY == 0.0) {
-                                    // Take care of the situation of a 0.0 value, which overlaps a non-zero bar
                                     y = value
                                 } else if value >= 0.0 {
                                     posY += value
@@ -419,11 +397,10 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
 
                 prepareBuffer(dataSet: dataSet, index: index)
-                trans.rectValuesToPixel(&_buffers[index].rects)
+                trans.rectValuesToPixel(&buffers[index].rects)
                 
                 context.saveGState()
                 
-                // draw the bar shadow before the values
                 if dataProvider.isDrawBarShadowEnabled {
                     guard let barData = dataProvider.barData else { return }
                     
@@ -438,30 +415,29 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                         
                         x = e.x
                         
-                        _barShadowRectBuffer.origin.x = CGFloat(x - barWidthHalf)
-                        _barShadowRectBuffer.size.width = CGFloat(barWidth)
+                        barShadowRectBuffer.origin.x = CGFloat(x - barWidthHalf)
+                        barShadowRectBuffer.size.width = CGFloat(barWidth)
                         
-                        trans.rectValueToPixel(&_barShadowRectBuffer)
+                        trans.rectValueToPixel(&barShadowRectBuffer)
                         
-                        if !viewPortHandler.isInBoundsLeft(_barShadowRectBuffer.origin.x + _barShadowRectBuffer.size.width) {
+                        if !viewPortHandler.isInBoundsLeft(barShadowRectBuffer.origin.x + barShadowRectBuffer.size.width) {
                             continue
                         }
                         
-                        if !viewPortHandler.isInBoundsRight(_barShadowRectBuffer.origin.x) {
+                        if !viewPortHandler.isInBoundsRight(barShadowRectBuffer.origin.x) {
                             break
                         }
                         
-                        _barShadowRectBuffer.origin.y = viewPortHandler.contentTop
-                        _barShadowRectBuffer.size.height = viewPortHandler.contentHeight
+                        barShadowRectBuffer.origin.y = viewPortHandler.contentTop
+                        barShadowRectBuffer.size.height = viewPortHandler.contentHeight
                         
                         context.setFillColor(dataSet.barShadowColor.cgColor)
-                        context.fill(_barShadowRectBuffer)
+                        context.fill(barShadowRectBuffer)
                     }
                 }
 
-                let buffer = _buffers[index]
+                let buffer = buffers[index]
                 
-                // draw the bar shadow before the values
                 if dataProvider.isDrawBarShadowEnabled {
                     for j in stride(from: 0, to: buffer.rects.count, by: 1)  {
                         let barRect = buffer.rects[j]
@@ -500,7 +476,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                     }
                     
                     if !isSingleColor {
-                        // Set the color for the currently drawn value. If the index is out of bounds, reuse colors.
                         context.setFillColor(dataSet.color(atIndex: j).cgColor)
                     }
                     context.addPath(roundedPath)
