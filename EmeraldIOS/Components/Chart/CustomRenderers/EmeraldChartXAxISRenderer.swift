@@ -36,11 +36,11 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
                         constrainedToSize: constrainedToSize,
                         anchor: anchor,
                         angleRadians: angleRadians)
+        
         let labelSize = (formattedLabel as NSString).boundingRect(with: constrainedToSize,
                                                                   options: .usesLineFragmentOrigin,
                                                                   attributes: attributes,
                                                                   context: nil)
-        
         var subtitle = ""
         
         var entry: EmeraldChartSimpleDataEntry? = nil
@@ -50,8 +50,8 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
         
         var subtitlesAttributes = attributes
         if let foundEntry = entry {
-            if let subtitleFont = subtitlesFont {
-                subtitlesAttributes[NSAttributedString.Key.font] =  subtitleFont
+            if let subsFont = subtitlesFont {
+                subtitlesAttributes[NSAttributedString.Key.font] =  subsFont
             }
             subtitlesAttributes[NSAttributedString.Key.foregroundColor] = foundEntry.color
             subtitle = String(Int(foundEntry.value))
@@ -59,18 +59,21 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
        
         
         if !subtitle.isEmpty{
-            super.drawLabel(context: context,
-                            formattedLabel: subtitle,
-                            x: x + 5,
-                            y: y + 20,
-                            attributes: subtitlesAttributes,
-                            constrainedToSize: constrainedToSize,
-                            anchor: anchor,
-                            angleRadians: angleRadians)
+            ChartUtils.drawText(context: context,
+                                text: subtitle,
+                                point: CGPoint(x: x + 5, y: y + 20),
+                                attributes: subtitlesAttributes,
+                                anchor: anchor,
+                                angleRadians: angleRadians)
+
         }
         
         if let labelIcon = icon {
-            ChartUtils.drawImage(context: context, image: labelIcon, x: x + labelSize.width/1.5, y: y + 6, size: CGSize(width: 10, height: 14))
+            ChartUtils.drawImage(context: context,
+                                 image: labelIcon,
+                                 x: x + labelSize.width/1.5,
+                                 y: y + 6,
+                                 size: CGSize(width: 10, height: 14))
         }
         
     }
