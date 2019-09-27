@@ -61,12 +61,12 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
 
         
         for i in stride(from: 0, to: min(Int(ceil(Double(dataSet.entryCount) * animator.phaseX)), dataSet.entryCount), by: 1) {
-            guard let e = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
+            guard let entry = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
             
-            let vals = e.yValues
+            let vals = entry.yValues
 
-            x = e.x
-            y = e.y
+            x = entry.x
+            y = entry.y
 
             if !containsStacks || vals == nil {
                 let left = CGFloat(x - barWidthHalf)
@@ -119,12 +119,10 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 bufferIndex += 1
             } else {
                 var posY = 0.0
-                var negY = -e.negativeSum
+                var negY = -entry.negativeSum
                 var yStart = 0.0
                 
-                for k in 0 ..< vals!.count {
-                    let value = vals![k]
-                    
+                for value in vals! {
                     if value == 0.0 && (posY == 0.0 || negY == 0.0) {
                         y = value
                         yStart = y
@@ -137,7 +135,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                         yStart = negY + abs(value)
                         negY += abs(value)
                     }
-                    
                     let left = CGFloat(x - barWidthHalf)
                     let right = CGFloat(x + barWidthHalf)
                     var top = isInverted
@@ -207,7 +204,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
         
                 if !dataSet.isStacked {
                     for j in 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX)) {
-                        guard let e = dataSet.entryForIndex(j) as? BarChartDataEntry else { continue }
+                        guard let entry = dataSet.entryForIndex(j) as? BarChartDataEntry else { continue }
                         
                         let rect = buffer.rects[j]
                         
@@ -222,14 +219,14 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                             continue
                         }
                         
-                        let val = e.y
+                        let val = entry.y
                         
                         if dataSet.isDrawValuesEnabled {
                             drawValue(
                                 context: context,
                                 value: formatter.stringForValue(
                                     val,
-                                    entry: e,
+                                    entry: entry,
                                     dataSetIndex: dataSetIndex,
                                     viewPortHandler: viewPortHandler),
                                 xPos: x,
@@ -241,7 +238,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                 color: dataSet.valueTextColorAt(j))
                         }
                         
-                        if let icon = e.icon, dataSet.isDrawIconsEnabled {
+                        if let icon = entry.icon, dataSet.isDrawIconsEnabled {
                             var px = x
                             var py = val >= 0.0
                                 ? (rect.origin.y + posOffset)
@@ -263,9 +260,9 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                     var bufferIndex = 0
                     
                     for index in 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX)) {
-                        guard let e = dataSet.entryForIndex(index) as? BarChartDataEntry else { continue }
+                        guard let entry = dataSet.entryForIndex(index) as? BarChartDataEntry else { continue }
                         
-                        let vals = e.yValues
+                        let vals = entry.yValues
                         
                         let rect = buffer.rects[bufferIndex]
                         
@@ -286,22 +283,22 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                 drawValue(
                                     context: context,
                                     value: formatter.stringForValue(
-                                        e.y,
-                                        entry: e,
+                                        entry.y,
+                                        entry: entry,
                                         dataSetIndex: dataSetIndex,
                                         viewPortHandler: viewPortHandler),
                                     xPos: x,
                                     yPos: rect.origin.y +
-                                        (e.y >= 0 ? posOffset : negOffset),
+                                        (entry.y >= 0 ? posOffset : negOffset),
                                     font: valueFont,
                                     align: .center,
                                     color: dataSet.valueTextColorAt(index))
                             }
                             
-                            if let icon = e.icon, dataSet.isDrawIconsEnabled {
+                            if let icon = entry.icon, dataSet.isDrawIconsEnabled {
                                 var px = x
                                 var py = rect.origin.y +
-                                    (e.y >= 0 ? posOffset : negOffset)
+                                    (entry.y >= 0 ? posOffset : negOffset)
                                 
                                 px += iconsOffset.x
                                 py += iconsOffset.y
@@ -319,7 +316,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                             var transformed = [CGPoint]()
                             
                             var posY = 0.0
-                            var negY = -e.negativeSum
+                            var negY = -entry.negativeSum
                             
                             for k in 0 ..< vals.count {
                                 let value = vals[k]
@@ -358,7 +355,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                         context: context,
                                         value: formatter.stringForValue(
                                             vals[k],
-                                            entry: e,
+                                            entry: entry,
                                             dataSetIndex: dataSetIndex,
                                             viewPortHandler: viewPortHandler),
                                         xPos: x,
@@ -368,7 +365,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                         color: dataSet.valueTextColorAt(index))
                                 }
                                 
-                                if let icon = e.icon, dataSet.isDrawIconsEnabled {
+                                if let icon = entry.icon, dataSet.isDrawIconsEnabled {
                                     ChartUtils.drawImage(
                                         context: context,
                                         image: icon,
@@ -410,9 +407,9 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                     for i in stride(from: 0,
                                     to: min(Int(ceil(Double(dataSet.entryCount) * animator.phaseX)),
                                             dataSet.entryCount), by: 1) {
-                        guard let e = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
+                        guard let entry = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
                         
-                        x = e.x
+                        x = entry.x
                         
                         barShadowRectBuffer.origin.x = CGFloat(x - barWidthHalf)
                         barShadowRectBuffer.size.width = CGFloat(barWidth)
@@ -438,7 +435,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 let buffer = buffers[index]
                 
                 if dataProvider.isDrawBarShadowEnabled {
-                    for j in stride(from: 0, to: buffer.rects.count, by: 1)  {
+                    for j in 0..<buffer.rects.count {
                         let barRect = buffer.rects[j]
                         
                         if (!viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width)) {
@@ -460,7 +457,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                     context.setFillColor(dataSet.color(atIndex: 0).cgColor)
                 }
 
-                for j in stride(from: 0, to: buffer.rects.count, by: 1) {
+        for j in 0..<buffer.rects.count {
                     let barRect = buffer.rects[j]
                     let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
 
