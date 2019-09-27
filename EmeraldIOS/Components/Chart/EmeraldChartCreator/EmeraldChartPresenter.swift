@@ -13,11 +13,8 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
     private var chartView: EmeraldChart!
     private var simpleDataEntries: [EmeraldChartSimpleDataEntry]?
     private var multipleValueDataEntries: [EmeraldChartMultipleValueDataEntry]?
-    private var multipleValueColors = [EmeraldTheme.Chart.correctData, EmeraldTheme.Chart.warningData, EmeraldTheme.Chart.criticalData]
-    
-    init() {
-    }
-    
+    private var multipleValueColors = [UIColor]()
+
     func setSimpleData(data: [EmeraldChartSimpleDataEntry]) {
         simpleDataEntries = data
     }
@@ -84,11 +81,11 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
     }
     
     func getValueForMultipleValueDataEntry(index: Int) -> [Double] {
+        var values = [Double]()
         if let dataEntries = multipleValueDataEntries {
-            let values = dataEntries[index].value.compactMap{value in Double(value)}
-            return values
+            values = dataEntries[index].value.compactMap{value in Double(value)}
         }
-        return [Double]()
+        return values
     }
     
     func getMultipleValueDataSetColors() -> [UIColor] {

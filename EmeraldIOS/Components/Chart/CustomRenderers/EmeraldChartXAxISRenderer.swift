@@ -10,20 +10,36 @@ import Foundation
 import Charts
 
 class EmeraldChartXAxisRenderer: XAxisRenderer {
-    internal var icon: UIImage
+    internal var icon: UIImage?
     internal var colorsDictionary: [String: UIColor]!
     internal var dataEntries: [EmeraldChartSimpleDataEntry]?
     internal var subtitlesFont: UIFont?
     
-    init(viewPortHandler: ViewPortHandler, xAxis: XAxis?, transformer: Transformer?, icon: UIImage) {
+    init(viewPortHandler: ViewPortHandler, xAxis: XAxis?, transformer: Transformer?, icon: UIImage?) {
         self.icon = icon
         super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: transformer)
     }
     
-    override func drawLabel(context: CGContext, formattedLabel: String, x: CGFloat, y: CGFloat, attributes: [NSAttributedString.Key : Any], constrainedToSize: CGSize, anchor: CGPoint, angleRadians: CGFloat) {
+    override func drawLabel(context: CGContext,
+                            formattedLabel: String,
+                            x: CGFloat, y: CGFloat,
+                            attributes: [NSAttributedString.Key : Any],
+                            constrainedToSize: CGSize,
+                            anchor: CGPoint,
+                            angleRadians: CGFloat) {
         
-        super.drawLabel(context: context, formattedLabel: formattedLabel, x: x, y: y, attributes: attributes, constrainedToSize: constrainedToSize, anchor: anchor, angleRadians: angleRadians)
-        let labelSize = (formattedLabel as NSString).boundingRect(with: constrainedToSize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        super.drawLabel(context: context,
+                        formattedLabel: formattedLabel,
+                        x: x,
+                        y: y,
+                        attributes: attributes,
+                        constrainedToSize: constrainedToSize,
+                        anchor: anchor,
+                        angleRadians: angleRadians)
+        let labelSize = (formattedLabel as NSString).boundingRect(with: constrainedToSize,
+                                                                  options: .usesLineFragmentOrigin,
+                                                                  attributes: attributes,
+                                                                  context: nil)
         
         var subtitle = ""
         
@@ -42,12 +58,19 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
         }
        
         
-        if subtitle != "" {
-            super.drawLabel(context: context, formattedLabel: subtitle, x: x + 5, y: y + 20, attributes: subtitlesAttributes, constrainedToSize: constrainedToSize, anchor: anchor, angleRadians: angleRadians)
+        if !subtitle.isEmpty{
+            super.drawLabel(context: context,
+                            formattedLabel: subtitle,
+                            x: x + 5,
+                            y: y + 20,
+                            attributes: subtitlesAttributes,
+                            constrainedToSize: constrainedToSize,
+                            anchor: anchor,
+                            angleRadians: angleRadians)
         }
         
-        if icon != UIImage() {
-            ChartUtils.drawImage(context: context, image: icon, x: x + labelSize.width/1.5, y: y + 6, size: CGSize(width: 10, height: 14))
+        if let labelIcon = icon {
+            ChartUtils.drawImage(context: context, image: labelIcon, x: x + labelSize.width/1.5, y: y + 6, size: CGSize(width: 10, height: 14))
         }
         
     }

@@ -13,7 +13,7 @@ public class EmeraldChart: UIView {
     private var presenter: EmeraldChartPresenterType!
     private var barChartView: BarChartView!
     internal var delegate: EmeraldChartViewDelegate?
-    private var chartOptions: EmeraldChartOptions
+    private let chartOptions: EmeraldChartOptions
     var barChartRenderer: EmeraldCustomBarChartRenderer!
     
     public init(simpleData: [EmeraldChartSimpleDataEntry],
@@ -33,6 +33,7 @@ public class EmeraldChart: UIView {
         super.init(frame: .zero)
         self.presenter = EmeraldChartPresenter()
         self.presenter.bind(view: self)
+        presenter.setMultipleValueDataSetcolors(colors: chartOptions.multipleValueDataColors)
         setUpView()
         presenter.setMultipleValueData(data: multipleValueData)
         setupMultipleValuesChartData()

@@ -96,7 +96,12 @@ public struct Font {
     let size: FontSize
     let weight: FontWeight
     
-    var uiFont: UIFont {
+    public init(size: FontSize, weight: FontWeight) {
+        self.size = size
+        self.weight = weight
+    }
+    
+    public var uiFont: UIFont {
         var customFont: UIFont? {
             switch weight {
             case .light:
