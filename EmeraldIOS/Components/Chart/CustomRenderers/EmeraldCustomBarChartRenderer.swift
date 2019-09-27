@@ -29,15 +29,14 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 }
             }
             
-            for i in stride(from: 0, to: barData.dataSetCount, by: 1)  {
-                let set = barData.dataSets[i] as! IBarChartDataSet
-                let size = set.entryCount * (set.isStacked ? set.stackSize : 1)
-                if buffers[i].rects.count != size {
-                    buffers[i].rects = [CGRect](repeating: CGRect(), count: size)
+            let dataSets = barData.dataSets.compactMap({$0 as? IBarChartDataSet})
+            for set in dataSets.enumerated(){
+                let size = set.element.entryCount * (set.element.isStacked ? set.element.stackSize : 1)
+                if buffers[set.offset].rects.count != size {
+                    buffers[set.offset].rects = [CGRect](repeating: CGRect(), count: size)
                 }
             }
-        }
-        else {
+        }  else {
             buffers.removeAll()
         }
     }

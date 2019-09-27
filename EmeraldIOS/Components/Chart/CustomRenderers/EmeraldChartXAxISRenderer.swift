@@ -71,10 +71,15 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
         if let labelIcon = icon {
             ChartUtils.drawImage(context: context,
                                  image: labelIcon,
-                                 x: x + labelSize.width/1.5,
+                                 x: x + offsetByLabelWidth(labelWidth: labelSize.width),
                                  y: y + 6,
                                  size: CGSize(width: 10, height: 14))
         }
         
     }
+    
+    private func offsetByLabelWidth(labelWidth: CGFloat) -> CGFloat{
+        return labelWidth/1.5
+    }
+    
 }
