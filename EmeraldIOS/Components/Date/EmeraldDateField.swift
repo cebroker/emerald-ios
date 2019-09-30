@@ -190,47 +190,30 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.set(format: self.getFormat())
     }
     
-    private func addCalendarIcon() {
+       private func addCalendarIcon() {
         let calendarIcon = UIImage(named: InnerConstants.calendarIcon,
-                                   in: Bundle(for: ClassBundle.self),
-                                   compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            in: Bundle(for: ClassBundle.self),
+            compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         guard let image = calendarIcon else {
             return
         }
-        
-        let button = UIButton()
+
+        let rect = CGRect(x: 0, y: 0, width: 40, height: 20)
+        let containerView: UIView = UIView(frame: rect)
+        let button = UIButton(frame: containerView.frame)
         button.imageEdgeInsets = UIEdgeInsets(top: 0,
-                                              left: -18,
-                                              bottom: 0,
-                                              right: 17)
-        button.translatesAutoresizingMaskIntoConstraints = false
+            left: 10,
+            bottom: 0,
+            right: 10)
         button.setImage(image, for: .normal)
         button.imageView?.tintColor = EmeraldTheme.primaryColor
         button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
-        self.rightView = button
+        containerView.addSubview(button)
+        self.rightView = containerView
         self.rightViewMode = .always
         button.isUserInteractionEnabled = true
         button.becomeFirstResponder()
-        
-        guard let rightView = rightView else {
-            return
-        }
-        
-        button
-            .heightAnchor
-            .constraint(equalToConstant: 20)
-            .isActive = true
-        
-        button
-            .widthAnchor
-            .constraint(equalToConstant: 20)
-            .isActive = true
-        
-        button
-            .centerYAnchor
-            .constraint(equalTo: rightView.centerYAnchor)
-            .isActive = true
-        
+
         self.reloadInputViews()
     }
     
