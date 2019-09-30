@@ -81,7 +81,7 @@ public class EmeraldChartDataEntry: EmeraldChartDataType{
     func getSimpleDataSubtitleColor() -> [String: UIColor] {
         var colorsDict = [String: UIColor]()
         if let entries = simpleDataEntries {
-            for i in stride(from: 0, to: entries.count, by: 1) {
+            for i in 0..<entries.count {
                 colorsDict[entries[i].title] = entries[i].color
             }
         }

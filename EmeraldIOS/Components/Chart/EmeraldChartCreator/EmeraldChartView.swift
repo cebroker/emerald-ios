@@ -15,6 +15,8 @@ public class EmeraldChart: UIView {
     internal var delegate: EmeraldChartViewDelegate?
     private let chartOptions: EmeraldChartOptions
     var barChartRenderer: EmeraldCustomBarChartRenderer!
+    private let chartLabelHeight: CGFloat = 100
+    private let chartExtraBottomOffset: CGFloat = 40
     
     public init(simpleData: EmeraldChartDataEntry,
                 withOptions chartOptions: EmeraldChartOptions = EmeraldChartOptions()) {
@@ -66,8 +68,10 @@ public class EmeraldChart: UIView {
         barChartView.animate(yAxisDuration: 1)
         barChartView.xAxis.gridColor = .clear
         barChartView.xAxis.labelPosition = .bottom
-        barChartView.xAxis.labelHeight = 100
-        barChartView.extraBottomOffset = 40
+        if chartOptions.showSubtitle {
+            barChartView.xAxis.labelHeight = chartLabelHeight
+            barChartView.extraBottomOffset = chartExtraBottomOffset
+        }
         barChartView.rightAxis.enabled = false
         barChartView.rightAxis.gridColor = .clear
         barChartView.renderer = barChartRenderer
