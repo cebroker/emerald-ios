@@ -46,7 +46,8 @@ class BarChartViewController: UIViewController {
                                                        hasAction: false))
         self.view.backgroundColor = UIColor.white
         let chartOptions = EmeraldChartOptions(cornerRadius: 5, showSubtitle: true)
-        emeraldSimpleBarChart = EmeraldChart(simpleData: dataEntries, withOptions: chartOptions)
+        let simpleData = EmeraldChartDataEntry(with: dataEntries)
+        emeraldSimpleBarChart = EmeraldChart(simpleData: simpleData, withOptions: chartOptions)
         self.view.addSubview(emeraldSimpleBarChart)
         emeraldSimpleBarChart.anchor(top: self.view.topAnchor,
                                      left: self.view.leftAnchor,
@@ -63,7 +64,8 @@ class BarChartViewController: UIViewController {
              EmeraldChartMultipleValueDataEntry(value: [10,2,0], title: "Sep"),
              EmeraldChartMultipleValueDataEntry(value: [4,2,2], title: "Nov"),
              EmeraldChartMultipleValueDataEntry(value: [1,2,22], title: "Oct")]
-        emeraldMultipleValueBarChart = EmeraldChart(multipleValueData: dataEntries)
+        let multipleValueData = EmeraldChartDataEntry(with: dataEntries)
+        emeraldMultipleValueBarChart = EmeraldChart(multipleValueData: multipleValueData)
         self.view.addSubview(emeraldMultipleValueBarChart)
         emeraldMultipleValueBarChart.anchor(top: emeraldSimpleBarChart.bottomAnchor,
                                             left: self.view.leftAnchor,

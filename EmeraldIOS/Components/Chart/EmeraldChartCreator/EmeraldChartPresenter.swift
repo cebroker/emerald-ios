@@ -9,23 +9,18 @@
 import Foundation
 
 class EmeraldChartPresenter: EmeraldChartPresenterType {
-    
+
     private var chartView: EmeraldChart!
-    private var simpleDataEntries: [EmeraldChartSimpleDataEntry]?
-    private var multipleValueDataEntries: [EmeraldChartMultipleValueDataEntry]?
+    private var dataEntries: EmeraldChartDataEntry!
     private var multipleValueColors = [UIColor]()
 
-    func setSimpleData(data: [EmeraldChartSimpleDataEntry]) {
-        simpleDataEntries = data
+    func setDataEntries(data: EmeraldChartDataEntry) {
+        dataEntries = data
     }
     
     func getDataEntriesCount() -> Int {
-        if let dataEntries = simpleDataEntries {
-            return dataEntries.count
-        } else if let dataEntries = multipleValueDataEntries {
-            return dataEntries.count
-        }
-        return 0
+        print(dataEntries.getDataEntriesCount())
+        return dataEntries.getDataEntriesCount()
     }
     
     func bind(view: EmeraldChart) {
@@ -33,59 +28,27 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
     }
     
     func getDataHorizontalEntries() -> [String] {
-        var labels = [String]()
-        if let dataEntries = simpleDataEntries {
-            for entry in dataEntries {
-                labels.append(entry.title)
-            }
-        } else if let dataEntries = multipleValueDataEntries {
-            for entry in dataEntries {
-                labels.append(entry.title)
-            }
-        }
-        return labels
+        return dataEntries.getHorizontalDataEntries()
     }
     
     func getSimpleDataVerticalEntries() -> [Float] {
-        var values = [Float]()
-        if let dataEntries = simpleDataEntries {
-            for entry in dataEntries {
-                values.append(entry.value)
-            }
-        }
-        return values
+        return dataEntries.getSimpleDataVerticalEntries()
     }
 
     func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry] {
-        if let dataEntries = simpleDataEntries {
-            return dataEntries
-        }
-        return [EmeraldChartSimpleDataEntry]()
+        return dataEntries.getSimpleDataEntries()
     }
     
     func getValueForSimpleDataEntry(index: Int) -> Float {
-        if let dataEntries = simpleDataEntries{
-            return dataEntries[index].value
-        }
-        return 0
+        return dataEntries.getValueForSimpleDataEntry(index: index)
     }
     
     func getSimpleDataSetColors() -> [UIColor] {
-        var colors = [UIColor]()
-        if let dataEntries = simpleDataEntries {
-            for entry in dataEntries {
-                colors.append(entry.color)
-            }
-        }
-        return colors
+        return dataEntries.getSimpleDataSetColors()
     }
     
     func getValueForMultipleValueDataEntry(index: Int) -> [Double] {
-        var values = [Double]()
-        if let dataEntries = multipleValueDataEntries {
-            values = dataEntries[index].value.compactMap{value in Double(value)}
-        }
-        return values
+        return dataEntries.getValueForMultipleValueDataEntry(index: index)
     }
     
     func getMultipleValueDataSetColors() -> [UIColor] {
@@ -96,29 +59,12 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
         self.multipleValueColors = colors
     }
     
-    func setMultipleValueData(data: [EmeraldChartMultipleValueDataEntry]) {
-        self.multipleValueDataEntries = data
-    }
-    
     func getSimpleDataSubtitleColor() -> [String: UIColor] {
-        var colorsDict = [String: UIColor]()
-        if let entries = simpleDataEntries {
-            for i in stride(from: 0, to: entries.count, by: 1) {
-                colorsDict[entries[i].title] = entries[i].color
-            }
-        }
-        
-        return colorsDict
+        return dataEntries.getSimpleDataSubtitleColor()
     }
     
     func getSimpleDataSubtitles() -> [String] {
-        var subtitles = [String]()
-        if let entries = simpleDataEntries {
-            for entry in entries {
-                subtitles.append(String(entry.value))
-            }
-        }
-        return subtitles
+        return dataEntries.getSimpleDataSubtitles()
     }
 }
 
@@ -126,8 +72,8 @@ protocol EmeraldChartPresenterType {
     func bind(view: EmeraldChart)
     func getDataEntriesCount() -> Int
     func getDataHorizontalEntries() -> [String]
+    func setDataEntries(data: EmeraldChartDataEntry)
     
-    func setSimpleData(data: [EmeraldChartSimpleDataEntry])
     func getSimpleDataVerticalEntries() -> [Float]
     func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry]
     func getValueForSimpleDataEntry(index: Int) -> Float
@@ -138,5 +84,4 @@ protocol EmeraldChartPresenterType {
     func getValueForMultipleValueDataEntry(index: Int) -> [Double]
     func setMultipleValueDataSetcolors(colors: [UIColor])
     func getMultipleValueDataSetColors() -> [UIColor]
-    func setMultipleValueData(data: [EmeraldChartMultipleValueDataEntry])
 }
