@@ -19,7 +19,6 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
     }
     
     func getDataEntriesCount() -> Int {
-        print(dataEntries.getDataEntriesCount())
         return dataEntries.getDataEntriesCount()
     }
     
