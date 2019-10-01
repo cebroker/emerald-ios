@@ -22,7 +22,7 @@ class BarChartViewController: UIViewController {
     private func setupSimpleBarChartView() {
         var dataEntries = [EmeraldChartSimpleDataEntry]()
         dataEntries.append(EmeraldChartSimpleDataEntry(color: EmeraldTheme.yellowColor,
-                                                       value: 20, title: "First Data",
+                                                       value: 2, title: "First Data",
                                                        subtitle: nil,
                                                        hasAction: false))
         dataEntries.append(EmeraldChartSimpleDataEntry(color: EmeraldTheme.greenColor,
@@ -40,7 +40,7 @@ class BarChartViewController: UIViewController {
                                                        subtitle: nil,
                                                        hasAction: false))
         dataEntries.append(EmeraldChartSimpleDataEntry(color: EmeraldTheme.Avatar.aquamarineColor,
-                                                       value: 100,
+                                                       value: 1200,
                                                        title: "Fifth Data",
                                                        subtitle: nil,
                                                        hasAction: false))

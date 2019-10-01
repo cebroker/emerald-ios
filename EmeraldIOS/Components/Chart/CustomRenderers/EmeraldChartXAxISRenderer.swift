@@ -72,7 +72,7 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
             ChartUtils.drawImage(context: context,
                                  image: labelIcon,
                                  x: x + offsetByLabelWidth(labelWidth: labelSize.width),
-                                 y: y + 6,
+                                 y: y + (labelSize.height/2),
                                  size: CGSize(width: 10, height: 14))
         }
         
