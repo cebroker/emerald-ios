@@ -195,6 +195,10 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.chipCollectionView.addNewChip(with: vm2)
     }
 
+    @IBAction func showBarChart(_ sender: Any) {
+        let barChartVC = BarChartViewController()
+        self.navigationController?.pushViewController(barChartVC, animated: true)
+    }
     private func areFieldsValid() -> Bool {
         return validateEmeraldFields(with: self.emeraldFields)
     }

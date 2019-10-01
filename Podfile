@@ -6,6 +6,7 @@ target 'EmeraldIOS' do
   project 'EmeraldIOS'
   inherit! :search_paths
   pod 'BEMCheckBox'
+  pod 'Charts'
 end
 
 target 'EmeraldIOSTests' do

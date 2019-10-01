@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProofOfConcept" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="4912"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bQ-Gw-1eB" customClass="EmeraldSegmentedBar" customModule="EmeraldIOS">
@@ -65,7 +65,7 @@ GROUP 2</string>
                                 </subviews>
                             </stackView>
                             <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-35-axl">
-                                <rect key="frame" x="0.0" y="150" width="414" height="624"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="4728"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-5V-jo4" customClass="EmeraldStackView" customModule="EmeraldIOS">
                                         <rect key="frame" x="20.5" y="30" width="373" height="1493.5"/>
@@ -330,19 +330,16 @@ GROUP 2</string>
                                                     <action selector="submitFromStory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Chq-sB-AAG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TT2-HF-ghe" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="1444.5" width="373" height="49"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nI-mz-9Cb">
+                                                <rect key="frame" x="0.0" y="4698" width="373" height="30"/>
                                                 <state key="normal" title="Button"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="16"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="showBarChart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eZI-DD-qM9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="fBv-QR-ky7" firstAttribute="height" secondItem="Qbk-ri-QTF" secondAttribute="height" id="9NU-67-i7P"/>
-                                            <constraint firstItem="TT2-HF-ghe" firstAttribute="height" secondItem="mKU-jJ-wYo" secondAttribute="height" id="fGF-AP-QD5"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-WA-g0C" customClass="EmeraldSignatureBoxView" customModule="EmeraldIOS">
@@ -389,6 +386,7 @@ GROUP 2</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Emerald Components" id="8M8-Do-9z6"/>
+                    <size key="freeformSize" width="414" height="5000"/>
                     <connections>
                         <outlet property="chipCollectionView" destination="5EI-gk-g9M" id="Rek-lw-CT7"/>
                         <outlet property="chipDismissable" destination="Iy0-om-knB" id="sN2-r0-NpZ"/>
