@@ -45,64 +45,73 @@ public class EmeraldChartDataEntry: EmeraldChartDataType{
     }
     
     func getSimpleDataVerticalEntries() -> [Float] {
+        guard let dataEntries = simpleDataEntries else {
+            fatalError("Expected simple data and found nil")
+        }
         var values = [Float]()
-        if let dataEntries = simpleDataEntries {
-            for entry in dataEntries {
-                values.append(entry.value)
-            }
+        for entry in dataEntries {
+            values.append(entry.value)
         }
         return values
     }
     
     func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry] {
-        if let dataEntries = simpleDataEntries {
-            return dataEntries
+        guard let dataEntries = simpleDataEntries else {
+            fatalError("Expected simple data and found nil")
         }
-        return [EmeraldChartSimpleDataEntry]()
+        return dataEntries
     }
     
     func getValueForSimpleDataEntry(index: Int) -> Float {
-        if let dataEntries = simpleDataEntries{
-            return dataEntries[index].value
+        guard let dataEntries = simpleDataEntries else {
+            fatalError("Expected simple data and found nil")
         }
-        return 0
+        return dataEntries[index].value
     }
     
     func getSimpleDataSetColors() -> [UIColor] {
+        guard let dataEntries = simpleDataEntries else {
+            fatalError("Expected simple data and found nil")
+        }
         var colors = [UIColor]()
-        if let dataEntries = simpleDataEntries {
-            for entry in dataEntries {
-                colors.append(entry.color)
-            }
+        for entry in dataEntries {
+            colors.append(entry.color)
         }
         return colors
     }
     
     func getSimpleDataSubtitleColor() -> [String: UIColor] {
         var colorsDict = [String: UIColor]()
-        if let entries = simpleDataEntries {
-            for i in 0..<entries.count {
-                colorsDict[entries[i].title] = entries[i].color
-            }
+        guard let entries = simpleDataEntries else {
+            fatalError("Expected simple data and found nil")
+        }
+        
+        for i in 0..<entries.count {
+            colorsDict[entries[i].title] = entries[i].color
         }
         return colorsDict
     }
     
     func getSimpleDataSubtitles() -> [String] {
         var subtitles = [String]()
-        if let entries = simpleDataEntries {
-            for entry in entries {
-                subtitles.append(String(entry.value))
-            }
+        guard let entries = simpleDataEntries else {
+            fatalError("Expected simple data and found nil")
         }
+        
+        for entry in entries {
+            subtitles.append(String(entry.value))
+        }
+        
         return subtitles
     }
     
     func getValueForMultipleValueDataEntry(index: Int) -> [Double] {
         var values = [Double]()
-        if let dataEntries = multipleValueDataEntries {
-            values = dataEntries[index].value.compactMap{value in Double(value)}
+
+        guard let dataEntries = multipleValueDataEntries else {
+            fatalError("Expected multiple value data and found nil")
         }
+        values = dataEntries[index].value.compactMap{value in Double(value)}
         return values
     }
 }
