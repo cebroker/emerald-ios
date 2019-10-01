@@ -1,0 +1,1242 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B82EEADC3C7C66F2F8F1EE3 /* Pods_EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31EA49D9E335505D5096220 /* Pods_EmeraldIOS.framework */; };
+		4120BD101854AB1169653A7F /* Pods_EmeraldIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5276EF653B6DD8B0BF4C98C4 /* Pods_EmeraldIOSTests.framework */; };
+		490E3C7B2335148B000FA6C9 /* EmeraldChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490E3C7A2335148B000FA6C9 /* EmeraldChartPresenter.swift */; };
+		49B6D78423328BCF00FE78A1 /* EmeraldChartDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */; };
+		49B6D78623328D2F00FE78A1 /* EmeraldChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */; };
+		49C7B3CB233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C7B3CA233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift */; };
+		49D7DA5E233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7DA5D233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift */; };
+		49D7DA65233D1720000453BD /* EmeraldChartOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7DA64233D1720000453BD /* EmeraldChartOptions.swift */; };
+		49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC6EDE232BF51F003BFEBD /* EmeraldChartDataEntry.swift */; };
+		6C23516B228C469B00D398F3 /* EmeraldDatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */; };
+		6C23516E228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23516D228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift */; };
+		6C2AFCE42326B40600EBDE1C /* EmeraldTextField+ShowHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2AFCE32326B40600EBDE1C /* EmeraldTextField+ShowHide.swift */; };
+		6C2CCDD9228EECCB00181C25 /* EmeraldSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CCDD8228EECCB00181C25 /* EmeraldSignatureView.swift */; };
+		6C2D32802289D99B009D4B0F /* EmeraldSelectorFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D327F2289D99B009D4B0F /* EmeraldSelectorFieldError.swift */; };
+		6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D3288228AF220009D4B0F /* arrow_down_icon.png */; };
+		6C2D328C228B034E009D4B0F /* EmeraldTextDependantField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D328B228B034E009D4B0F /* EmeraldTextDependantField.swift */; };
+		6C2D328E228B0378009D4B0F /* EmeraldTextDependantFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D328D228B0378009D4B0F /* EmeraldTextDependantFieldError.swift */; };
+		6C2D3291228B0BDA009D4B0F /* EmeraldDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3290228B0BDA009D4B0F /* EmeraldDateField.swift */; };
+		6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3292228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift */; };
+		6C2D3295228B0BFE009D4B0F /* EmeraldDateFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3294228B0BFE009D4B0F /* EmeraldDateFieldError.swift */; };
+		6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */; };
+		6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */; };
+		6C807C6D227C8E5000FC328E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C807C6C227C8E5000FC328E /* Color.swift */; };
+		6C807C6F227C8E7F00FC328E /* Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C807C6E227C8E7F00FC328E /* Inspectable.swift */; };
+		6C807C71227C99B300FC328E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C807C70227C99B300FC328E /* Theme.swift */; };
+		6C807C73227CA31100FC328E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C807C72227CA31100FC328E /* Font.swift */; };
+		6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C807C75227CCF3300FC328E /* EmeraldLabelStyle.swift */; };
+		6C807C78227CCF5700FC328E /* EmeraldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C807C77227CCF5700FC328E /* EmeraldLabel.swift */; };
+		6C807C7A227CECDA00FC328E /* EmeraldButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C807C79227CECDA00FC328E /* EmeraldButtonStyle.swift */; };
+		6CAFFA1A22833AAA00C690B9 /* xIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CAFFA1922833AA900C690B9 /* xIcon.png */; };
+		6CAFFA1C2283462100C690B9 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA1B2283462100C690B9 /* CanvasView.swift */; };
+		6CAFFA1E2283660E00C690B9 /* SignatureContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */; };
+		6CAFFA22228453CF00C690B9 /* EmeraldSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */; };
+		6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */; };
+		6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2A22845B8E00C690B9 /* Media.xcassets */; };
+		6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */; };
+		6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584192294318B001DE8D2 /* EmeraldRegexTextField.swift */; };
+		6CD5841C229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5841B229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift */; };
+		6CD5841E22943343001DE8D2 /* EmeraldRegexFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5841D22943343001DE8D2 /* EmeraldRegexFormatType.swift */; };
+		6CD5842022945090001DE8D2 /* FormFieldErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5841F22945090001DE8D2 /* FormFieldErrorType.swift */; };
+		6CD5842322945A63001DE8D2 /* EmeraldTextViewField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842222945A63001DE8D2 /* EmeraldTextViewField.swift */; };
+		6CD5842522945A7F001DE8D2 /* EmeraldTextViewFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842422945A7F001DE8D2 /* EmeraldTextViewFieldStyle.swift */; };
+		6CD5842A22948324001DE8D2 /* EmeraldShortDatePickerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842922948324001DE8D2 /* EmeraldShortDatePickerAlert.swift */; };
+		6CD5842C229496CB001DE8D2 /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842B229496CB001DE8D2 /* Extensions+String.swift */; };
+		6CD5842E22949783001DE8D2 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5842D22949783001DE8D2 /* Extensions+Date.swift */; };
+		6CD584322294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584312294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift */; };
+		6CD584342294A542001DE8D2 /* EmeraldMultipleSelectionItemContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584332294A542001DE8D2 /* EmeraldMultipleSelectionItemContract.swift */; };
+		6CD584362294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584352294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift */; };
+		6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */; };
+		6CD5843A2294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */; };
+		6CE75DAA22A15BC00035A731 /* EmeraldTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */; };
+		75BBFA4E22BA6FC10039319B /* EmeraldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBFA4D22BA6FC10039319B /* EmeraldAlert.swift */; };
+		75BBFA5022BC1FB70039319B /* failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA4F22BC1FB70039319B /* failure.png */; };
+		75BBFA5222BC22180039319B /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA5122BC22180039319B /* success.png */; };
+		7708A28222EA5BB900851FCE /* icon_dismiss.png in Resources */ = {isa = PBXBuildFile; fileRef = 7708A28122EA5BB900851FCE /* icon_dismiss.png */; };
+		778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */; };
+		778BEF6822B92C2300AF8601 /* EmeralAvatarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */; };
+		77BF6E1522DF7C1500E4C448 /* EmeraldChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF6E1422DF7C1500E4C448 /* EmeraldChipView.swift */; };
+		77BF6E1722DF7C1E00E4C448 /* EmeraldChipStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF6E1622DF7C1E00E4C448 /* EmeraldChipStyle.swift */; };
+		77BF6E1B22E0BC1E00E4C448 /* Constants+Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF6E1A22E0BC1E00E4C448 /* Constants+Icons.swift */; };
+		77CA14B222E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B122E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift */; };
+		77CA14B422E902A50081EFE2 /* EmeraldChipsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B322E902A50081EFE2 /* EmeraldChipsCollectionView.swift */; };
+		77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1851422B2BE250002CE09 /* EmeraldValidable.swift */; };
+		860047CF233AB7B2003198AF /* EmeraldLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */; };
+		8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */; };
+		8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */; };
+		8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */; };
+		8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9CA22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift */; };
+		86AC4DE222974E2E00728FBA /* EmeraldSegmentedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC4DE122974E2E00728FBA /* EmeraldSegmentedBar.swift */; };
+		86C599C122C6811000B1DD4D /* icon_complete.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C599BF22C6811000B1DD4D /* icon_complete.png */; };
+		86C599C222C6811000B1DD4D /* icon_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C599C022C6811000B1DD4D /* icon_error.png */; };
+		86FB68E222C58EF0009C184D /* EmeraldTextField+ViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FB68E122C58EF0009C184D /* EmeraldTextField+ViewStatus.swift */; };
+		9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC422272033400DC5D79 /* Constants.swift */; };
+		9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */; };
+		9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */; };
+		9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC452272033400DC5D79 /* Extensions+UIStackView.swift */; };
+		9B3BCC842272033400DC5D79 /* EmeraldRadioGroupFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC4E2272033400DC5D79 /* EmeraldRadioGroupFormField.swift */; };
+		9B3BCC862272033400DC5D79 /* EmeraldCheckboxFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC512272033400DC5D79 /* EmeraldCheckboxFormField.swift */; };
+		9B3BCC892272033400DC5D79 /* EmeraldButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC562272033400DC5D79 /* EmeraldButton.swift */; };
+		9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC5A2272033400DC5D79 /* Selectable.swift */; };
+		9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */; };
+		9B3BCC962272033400DC5D79 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC682272033400DC5D79 /* TextFormatter.swift */; };
+		9B3BCC992272033400DC5D79 /* EmeraldIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B3BCC9A2272033400DC5D79 /* EmeraldInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC6F2272033400DC5D79 /* EmeraldInitializer.swift */; };
+		9B3BCC9B2272033400DC5D79 /* EmeraldStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC712272033400DC5D79 /* EmeraldStackView.swift */; };
+		9B3BCC9C2272033400DC5D79 /* EmeraldStackViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC722272033400DC5D79 /* EmeraldStackViewContract.swift */; };
+		9BC82E2A2242777F007BC5BD /* EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */; };
+		9BE114102272087A007D1493 /* SimpleSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3BCC752272033400DC5D79 /* SimpleSetup.swift */; };
+		9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */; };
+		9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */; };
+		9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263282270B6A7004AD6F7 /* LICENSE.txt */; };
+		9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263292270B6A7004AD6F7 /* OpenSans-LightItalic.ttf */; };
+		9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632A2270B6A7004AD6F7 /* OpenSans-ExtraBold.ttf */; };
+		9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632B2270B6A7004AD6F7 /* OpenSans-Regular.ttf */; };
+		9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632C2270B6A7004AD6F7 /* OpenSans-BoldItalic.ttf */; };
+		9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632D2270B6A7004AD6F7 /* OpenSans-Light.ttf */; };
+		9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */; };
+		9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */; };
+		9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */; };
+		D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D139718E2343E59B0061BA5C /* calendar_icon.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BC82E2B2242777F007BC5BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BE5A53D2228813A004A59B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BE5A5452228813A004A59B9;
+			remoteInfo = CondorUIComponents;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0FB84B03F34B5CD8EF3D740D /* Pods-EmeraldIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		390532ABA2291A5C048D6F5A /* Pods-EmeraldIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		490E3C7A2335148B000FA6C9 /* EmeraldChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartPresenter.swift; sourceTree = "<group>"; };
+		4935643B233A777500344040 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartDelegates.swift; sourceTree = "<group>"; };
+		49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartView.swift; sourceTree = "<group>"; };
+		49C7B3CA233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartXAxISRenderer.swift; sourceTree = "<group>"; };
+		49D7DA5D233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldCustomBarChartRenderer.swift; sourceTree = "<group>"; };
+		49D7DA64233D1720000453BD /* EmeraldChartOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartOptions.swift; sourceTree = "<group>"; };
+		49EC6EDE232BF51F003BFEBD /* EmeraldChartDataEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartDataEntry.swift; sourceTree = "<group>"; };
+		5276EF653B6DD8B0BF4C98C4 /* Pods_EmeraldIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67494B68C1CB68E575FEB16C /* Pods-EmeraldIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.release.xcconfig"; sourceTree = "<group>"; };
+		6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDatePickerAlert.swift; sourceTree = "<group>"; };
+		6C23516D228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureBoxView.swift; sourceTree = "<group>"; };
+		6C2AFCE32326B40600EBDE1C /* EmeraldTextField+ShowHide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmeraldTextField+ShowHide.swift"; sourceTree = "<group>"; };
+		6C2CCDD8228EECCB00181C25 /* EmeraldSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureView.swift; sourceTree = "<group>"; };
+		6C2D327F2289D99B009D4B0F /* EmeraldSelectorFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFieldError.swift; sourceTree = "<group>"; };
+		6C2D3288228AF220009D4B0F /* arrow_down_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down_icon.png; sourceTree = "<group>"; };
+		6C2D328B228B034E009D4B0F /* EmeraldTextDependantField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextDependantField.swift; sourceTree = "<group>"; };
+		6C2D328D228B0378009D4B0F /* EmeraldTextDependantFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextDependantFieldError.swift; sourceTree = "<group>"; };
+		6C2D3290228B0BDA009D4B0F /* EmeraldDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateField.swift; sourceTree = "<group>"; };
+		6C2D3292228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateFieldChangeNotifiable.swift; sourceTree = "<group>"; };
+		6C2D3294228B0BFE009D4B0F /* EmeraldDateFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateFieldError.swift; sourceTree = "<group>"; };
+		6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextField.swift; sourceTree = "<group>"; };
+		6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldStyle.swift; sourceTree = "<group>"; };
+		6C807C6C227C8E5000FC328E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		6C807C6E227C8E7F00FC328E /* Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspectable.swift; sourceTree = "<group>"; };
+		6C807C70227C99B300FC328E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6C807C72227CA31100FC328E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		6C807C75227CCF3300FC328E /* EmeraldLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldLabelStyle.swift; sourceTree = "<group>"; };
+		6C807C77227CCF5700FC328E /* EmeraldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldLabel.swift; sourceTree = "<group>"; };
+		6C807C79227CECDA00FC328E /* EmeraldButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldButtonStyle.swift; sourceTree = "<group>"; };
+		6CAFFA1922833AA900C690B9 /* xIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xIcon.png; sourceTree = "<group>"; };
+		6CAFFA1B2283462100C690B9 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureContract.swift; sourceTree = "<group>"; };
+		6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController.swift; sourceTree = "<group>"; };
+		6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIViewController.swift"; sourceTree = "<group>"; };
+		6CAFFA2A22845B8E00C690B9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorField.swift; sourceTree = "<group>"; };
+		6CD584192294318B001DE8D2 /* EmeraldRegexTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexTextField.swift; sourceTree = "<group>"; };
+		6CD5841B229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexTextFieldError.swift; sourceTree = "<group>"; };
+		6CD5841D22943343001DE8D2 /* EmeraldRegexFormatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexFormatType.swift; sourceTree = "<group>"; };
+		6CD5841F22945090001DE8D2 /* FormFieldErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldErrorType.swift; sourceTree = "<group>"; };
+		6CD5842222945A63001DE8D2 /* EmeraldTextViewField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextViewField.swift; sourceTree = "<group>"; };
+		6CD5842422945A7F001DE8D2 /* EmeraldTextViewFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextViewFieldStyle.swift; sourceTree = "<group>"; };
+		6CD5842922948324001DE8D2 /* EmeraldShortDatePickerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldShortDatePickerAlert.swift; sourceTree = "<group>"; };
+		6CD5842B229496CB001DE8D2 /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
+		6CD5842D22949783001DE8D2 /* Extensions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Date.swift"; sourceTree = "<group>"; };
+		6CD584312294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionItem.swift; sourceTree = "<group>"; };
+		6CD584332294A542001DE8D2 /* EmeraldMultipleSelectionItemContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionItemContract.swift; sourceTree = "<group>"; };
+		6CD584352294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionField.swift; sourceTree = "<group>"; };
+		6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldStyle.swift; sourceTree = "<group>"; };
+		6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldError.swift; sourceTree = "<group>"; };
+		6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextView.swift; sourceTree = "<group>"; };
+		75BBFA4D22BA6FC10039319B /* EmeraldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldAlert.swift; sourceTree = "<group>"; };
+		75BBFA4F22BC1FB70039319B /* failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failure.png; sourceTree = "<group>"; };
+		75BBFA5122BC22180039319B /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
+		7708A28122EA5BB900851FCE /* icon_dismiss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_dismiss.png; sourceTree = "<group>"; };
+		778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldAvatar.swift; sourceTree = "<group>"; };
+		778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeralAvatarStyle.swift; sourceTree = "<group>"; };
+		77BF6E1422DF7C1500E4C448 /* EmeraldChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChipView.swift; sourceTree = "<group>"; };
+		77BF6E1622DF7C1E00E4C448 /* EmeraldChipStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChipStyle.swift; sourceTree = "<group>"; };
+		77BF6E1A22E0BC1E00E4C448 /* Constants+Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Icons.swift"; sourceTree = "<group>"; };
+		77CA14B122E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChipCollectionViewCell.swift; sourceTree = "<group>"; };
+		77CA14B322E902A50081EFE2 /* EmeraldChipsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldChipsCollectionView.swift; sourceTree = "<group>"; };
+		77E1851422B2BE250002CE09 /* EmeraldValidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldValidable.swift; sourceTree = "<group>"; };
+		7CFED98E3BEC23A1ACF99D81 /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldLoadingIndicator.swift; sourceTree = "<group>"; };
+		8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarBaseCell.swift; sourceTree = "<group>"; };
+		8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarItemCell.swift; sourceTree = "<group>"; };
+		8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTitleAppearance.swift; sourceTree = "<group>"; };
+		8676D9CA22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarAppearance.swift; sourceTree = "<group>"; };
+		86AC4DE122974E2E00728FBA /* EmeraldSegmentedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBar.swift; sourceTree = "<group>"; };
+		86C599BF22C6811000B1DD4D /* icon_complete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_complete.png; sourceTree = "<group>"; };
+		86C599C022C6811000B1DD4D /* icon_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_error.png; sourceTree = "<group>"; };
+		86FB68E122C58EF0009C184D /* EmeraldTextField+ViewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmeraldTextField+ViewStatus.swift"; sourceTree = "<group>"; };
+		9B3BCC422272033400DC5D79 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+NSRegularExpression.swift"; sourceTree = "<group>"; };
+		9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		9B3BCC452272033400DC5D79 /* Extensions+UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIStackView.swift"; sourceTree = "<group>"; };
+		9B3BCC4E2272033400DC5D79 /* EmeraldRadioGroupFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldRadioGroupFormField.swift; sourceTree = "<group>"; };
+		9B3BCC512272033400DC5D79 /* EmeraldCheckboxFormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldCheckboxFormField.swift; sourceTree = "<group>"; };
+		9B3BCC562272033400DC5D79 /* EmeraldButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldButton.swift; sourceTree = "<group>"; };
+		9B3BCC5A2272033400DC5D79 /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorFieldChangeNotifiable.swift; sourceTree = "<group>"; };
+		9B3BCC682272033400DC5D79 /* TextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
+		9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmeraldIOS.h; sourceTree = "<group>"; };
+		9B3BCC6F2272033400DC5D79 /* EmeraldInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldInitializer.swift; sourceTree = "<group>"; };
+		9B3BCC712272033400DC5D79 /* EmeraldStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldStackView.swift; sourceTree = "<group>"; };
+		9B3BCC722272033400DC5D79 /* EmeraldStackViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldStackViewContract.swift; sourceTree = "<group>"; };
+		9B3BCC732272033400DC5D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B3BCC752272033400DC5D79 /* SimpleSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSetup.swift; sourceTree = "<group>"; };
+		9B3BCC7D2272033400DC5D79 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BA491A422288FEE00837D07 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC82E252242777F007BC5BD /* EmeraldIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmeraldIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		9BF263282270B6A7004AD6F7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		9BF263292270B6A7004AD6F7 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		9BF2632A2270B6A7004AD6F7 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		9BF2632B2270B6A7004AD6F7 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		9BF2632C2270B6A7004AD6F7 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9BF2632D2270B6A7004AD6F7 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+		F31EA49D9E335505D5096220 /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		9E99BADE354278DF2B5E98AA /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC9C7D132CDC595CE928824D /* Pods_EmeraldIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D139718E2343E59B0061BA5C /* calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_icon.png; sourceTree = "<group>"; };
+		E4D7243892FFB71F69F6791F /* Pods-EmeraldIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EDBFC79596F529EA50AB3BD3 /* Pods-EmeraldIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.debug.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BC82E222242777F007BC5BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BC82E2A2242777F007BC5BD /* EmeraldIOS.framework in Frameworks */,
+				4120BD101854AB1169653A7F /* Pods_EmeraldIOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BE5A5432228813A004A59B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B82EEADC3C7C66F2F8F1EE3 /* Pods_EmeraldIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		020D608AD19213BC5CEBF10D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4935643B233A777500344040 /* Charts.framework */,
+				9BA491A422288FEE00837D07 /* BEMCheckBox.framework */,
+				F31EA49D9E335505D5096220 /* Pods_EmeraldIOS.framework */,
+				5276EF653B6DD8B0BF4C98C4 /* Pods_EmeraldIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49D7DA62233D09F8000453BD /* CustomRenderers */ = {
+			isa = PBXGroup;
+			children = (
+				49D7DA5D233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift */,
+				49C7B3CA233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift */,
+			);
+			path = CustomRenderers;
+			sourceTree = "<group>";
+		};
+		49D7DA63233D144D000453BD /* EmeraldChartCreator */ = {
+			isa = PBXGroup;
+			children = (
+				49EC6EDE232BF51F003BFEBD /* EmeraldChartDataEntry.swift */,
+				49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */,
+				490E3C7A2335148B000FA6C9 /* EmeraldChartPresenter.swift */,
+				49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */,
+				49D7DA64233D1720000453BD /* EmeraldChartOptions.swift */,
+			);
+			path = EmeraldChartCreator;
+			sourceTree = "<group>";
+		};
+		49EC6EDD232BF2EC003BFEBD /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				49D7DA63233D144D000453BD /* EmeraldChartCreator */,
+				49D7DA62233D09F8000453BD /* CustomRenderers */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		6C0AC80622831B5A00AF4662 /* Signature */ = {
+			isa = PBXGroup;
+			children = (
+				6CAFFA2622845AC800C690B9 /* SignatureBox */,
+				6CAFFA2522845AC000C690B9 /* SignatureCreator */,
+			);
+			path = Signature;
+			sourceTree = "<group>";
+		};
+		6C23516C228C46A900D398F3 /* DatePickerAlert */ = {
+			isa = PBXGroup;
+			children = (
+				6CD58427229482FC001DE8D2 /* MonthYear */,
+				6CD5842822948306001DE8D2 /* DayMonthYear */,
+			);
+			path = DatePickerAlert;
+			sourceTree = "<group>";
+		};
+		6C2D328A228AFDA5009D4B0F /* TextDependant */ = {
+			isa = PBXGroup;
+			children = (
+				6C2D328B228B034E009D4B0F /* EmeraldTextDependantField.swift */,
+				6C2D328D228B0378009D4B0F /* EmeraldTextDependantFieldError.swift */,
+			);
+			path = TextDependant;
+			sourceTree = "<group>";
+		};
+		6C2D328F228B0B94009D4B0F /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				6C23516C228C46A900D398F3 /* DatePickerAlert */,
+				6C2D3290228B0BDA009D4B0F /* EmeraldDateField.swift */,
+				6C2D3292228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift */,
+				6C2D3294228B0BFE009D4B0F /* EmeraldDateFieldError.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		6C2D3F962280C84F00FD8ED9 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				6CD5841822943174001DE8D2 /* RegexField */,
+				6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */,
+				86FB68E122C58EF0009C184D /* EmeraldTextField+ViewStatus.swift */,
+				6C2AFCE32326B40600EBDE1C /* EmeraldTextField+ShowHide.swift */,
+				6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */,
+				6CD5841F22945090001DE8D2 /* FormFieldErrorType.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		6C807C6B227C8E4300FC328E /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				6C807C6C227C8E5000FC328E /* Color.swift */,
+				6C807C6E227C8E7F00FC328E /* Inspectable.swift */,
+				6C807C70227C99B300FC328E /* Theme.swift */,
+				6C807C72227CA31100FC328E /* Font.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		6C807C74227CCEED00FC328E /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				6C807C77227CCF5700FC328E /* EmeraldLabel.swift */,
+				6C807C75227CCF3300FC328E /* EmeraldLabelStyle.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		6CAFFA2522845AC000C690B9 /* SignatureCreator */ = {
+			isa = PBXGroup;
+			children = (
+				6C2CCDD8228EECCB00181C25 /* EmeraldSignatureView.swift */,
+				6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */,
+				6CAFFA1B2283462100C690B9 /* CanvasView.swift */,
+				6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */,
+			);
+			path = SignatureCreator;
+			sourceTree = "<group>";
+		};
+		6CAFFA2622845AC800C690B9 /* SignatureBox */ = {
+			isa = PBXGroup;
+			children = (
+				6C23516D228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift */,
+			);
+			path = SignatureBox;
+			sourceTree = "<group>";
+		};
+		6CAFFA2C22847D8F00C690B9 /* Selector */ = {
+			isa = PBXGroup;
+			children = (
+				6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */,
+				9B3BCC602272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift */,
+				6C2D327F2289D99B009D4B0F /* EmeraldSelectorFieldError.swift */,
+			);
+			path = Selector;
+			sourceTree = "<group>";
+		};
+		6CD5841822943174001DE8D2 /* RegexField */ = {
+			isa = PBXGroup;
+			children = (
+				6CD584192294318B001DE8D2 /* EmeraldRegexTextField.swift */,
+				6CD5841B229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift */,
+				6CD5841D22943343001DE8D2 /* EmeraldRegexFormatType.swift */,
+			);
+			path = RegexField;
+			sourceTree = "<group>";
+		};
+		6CD5842122945A51001DE8D2 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				6CD5842222945A63001DE8D2 /* EmeraldTextViewField.swift */,
+				6CD5842422945A7F001DE8D2 /* EmeraldTextViewFieldStyle.swift */,
+				6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		6CD58427229482FC001DE8D2 /* MonthYear */ = {
+			isa = PBXGroup;
+			children = (
+				6CD5842922948324001DE8D2 /* EmeraldShortDatePickerAlert.swift */,
+			);
+			path = MonthYear;
+			sourceTree = "<group>";
+		};
+		6CD5842822948306001DE8D2 /* DayMonthYear */ = {
+			isa = PBXGroup;
+			children = (
+				6C23516A228C469B00D398F3 /* EmeraldDatePickerAlert.swift */,
+			);
+			path = DayMonthYear;
+			sourceTree = "<group>";
+		};
+		7585BF5622C2CFC200CC086B /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				75BBFA4D22BA6FC10039319B /* EmeraldAlert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		778BEF6422B92BD400AF8601 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */,
+				778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
+		77BF6E1322DF7B5500E4C448 /* Chip */ = {
+			isa = PBXGroup;
+			children = (
+				77CA14B322E902A50081EFE2 /* EmeraldChipsCollectionView.swift */,
+				77BF6E1422DF7C1500E4C448 /* EmeraldChipView.swift */,
+				77BF6E1622DF7C1E00E4C448 /* EmeraldChipStyle.swift */,
+				77CA14B122E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift */,
+			);
+			path = Chip;
+			sourceTree = "<group>";
+		};
+		860047CB233AA692003198AF /* LoadingIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */,
+			);
+			path = LoadingIndicator;
+			sourceTree = "<group>";
+		};
+		86AC4DE022974E1C00728FBA /* SegmentedBar */ = {
+			isa = PBXGroup;
+			children = (
+				86AC4DE122974E2E00728FBA /* EmeraldSegmentedBar.swift */,
+				8676D9CA22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift */,
+				8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */,
+				8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */,
+				8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */,
+			);
+			path = SegmentedBar;
+			sourceTree = "<group>";
+		};
+		9B3BCC402272033400DC5D79 /* EmeraldIOS */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */,
+				6C807C6B227C8E4300FC328E /* Theme */,
+				9B3BCC6E2272033400DC5D79 /* Helper */,
+				9B3BCC732272033400DC5D79 /* Info.plist */,
+				9B3BCC4B2272033400DC5D79 /* Components */,
+				9B3BCC412272033400DC5D79 /* Utils */,
+				6CAFFA2A22845B8E00C690B9 /* Media.xcassets */,
+			);
+			path = EmeraldIOS;
+			sourceTree = "<group>";
+		};
+		9B3BCC412272033400DC5D79 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7585BF5622C2CFC200CC086B /* Alert */,
+				9B3BCC422272033400DC5D79 /* Constants.swift */,
+				77BF6E1A22E0BC1E00E4C448 /* Constants+Icons.swift */,
+				9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */,
+				9B3BCC442272033400DC5D79 /* Extensions+UIView.swift */,
+				9B3BCC452272033400DC5D79 /* Extensions+UIStackView.swift */,
+				6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */,
+				6CD5842B229496CB001DE8D2 /* Extensions+String.swift */,
+				6CD5842D22949783001DE8D2 /* Extensions+Date.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B3BCC4B2272033400DC5D79 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				49EC6EDD232BF2EC003BFEBD /* Chart */,
+				778BEF6422B92BD400AF8601 /* Avatar */,
+				9B3BCC552272033400DC5D79 /* Button */,
+				77BF6E1322DF7B5500E4C448 /* Chip */,
+				6C2D328F228B0B94009D4B0F /* Date */,
+				9B3BCC702272033400DC5D79 /* FormStack */,
+				6C807C74227CCEED00FC328E /* Label */,
+				860047CB233AA692003198AF /* LoadingIndicator */,
+				9B3BCC4C2272033400DC5D79 /* MultipleSelection */,
+				86AC4DE022974E1C00728FBA /* SegmentedBar */,
+				9B3BCC5A2272033400DC5D79 /* Selectable.swift */,
+				6CAFFA2C22847D8F00C690B9 /* Selector */,
+				6C0AC80622831B5A00AF4662 /* Signature */,
+				6C2D328A228AFDA5009D4B0F /* TextDependant */,
+				6C2D3F962280C84F00FD8ED9 /* TextField */,
+				6CD5842122945A51001DE8D2 /* TextView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9B3BCC4C2272033400DC5D79 /* MultipleSelection */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC4D2272033400DC5D79 /* RadioGroup */,
+				9B3BCC502272033400DC5D79 /* Checkbox */,
+				9B3BCC522272033400DC5D79 /* Item */,
+				6CD584352294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift */,
+				6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */,
+				6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */,
+				77E1851422B2BE250002CE09 /* EmeraldValidable.swift */,
+			);
+			path = MultipleSelection;
+			sourceTree = "<group>";
+		};
+		9B3BCC4D2272033400DC5D79 /* RadioGroup */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC4E2272033400DC5D79 /* EmeraldRadioGroupFormField.swift */,
+			);
+			path = RadioGroup;
+			sourceTree = "<group>";
+		};
+		9B3BCC502272033400DC5D79 /* Checkbox */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC512272033400DC5D79 /* EmeraldCheckboxFormField.swift */,
+			);
+			path = Checkbox;
+			sourceTree = "<group>";
+		};
+		9B3BCC522272033400DC5D79 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				6CD584312294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift */,
+				6CD584332294A542001DE8D2 /* EmeraldMultipleSelectionItemContract.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		9B3BCC552272033400DC5D79 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC562272033400DC5D79 /* EmeraldButton.swift */,
+				6C807C79227CECDA00FC328E /* EmeraldButtonStyle.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		9B3BCC6E2272033400DC5D79 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC6F2272033400DC5D79 /* EmeraldInitializer.swift */,
+				9B3BCC682272033400DC5D79 /* TextFormatter.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9B3BCC702272033400DC5D79 /* FormStack */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC712272033400DC5D79 /* EmeraldStackView.swift */,
+				9B3BCC722272033400DC5D79 /* EmeraldStackViewContract.swift */,
+			);
+			path = FormStack;
+			sourceTree = "<group>";
+		};
+		9B3BCC742272033400DC5D79 /* EmeraldIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC752272033400DC5D79 /* SimpleSetup.swift */,
+				9B3BCC7D2272033400DC5D79 /* Info.plist */,
+			);
+			path = EmeraldIOSTests;
+			sourceTree = "<group>";
+		};
+		9BE5A53C2228813A004A59B9 = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC402272033400DC5D79 /* EmeraldIOS */,
+				9B3BCC742272033400DC5D79 /* EmeraldIOSTests */,
+				020D608AD19213BC5CEBF10D /* Frameworks */,
+				A6AE4D6358A62159C26DC1BE /* Pods */,
+				9BE5A5472228813A004A59B9 /* Products */,
+				9BF263252270B69D004AD6F7 /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+		9BE5A5472228813A004A59B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */,
+				9BC82E252242777F007BC5BD /* EmeraldIOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BF263252270B69D004AD6F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9BF2633D2270E745004AD6F7 /* Images */,
+				9BF2633C2270B6C4004AD6F7 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9BF2633C2270B6C4004AD6F7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9BF263282270B6A7004AD6F7 /* LICENSE.txt */,
+				9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */,
+				9BF2632C2270B6A7004AD6F7 /* OpenSans-BoldItalic.ttf */,
+				9BF2632A2270B6A7004AD6F7 /* OpenSans-ExtraBold.ttf */,
+				9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */,
+				9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */,
+				9BF2632D2270B6A7004AD6F7 /* OpenSans-Light.ttf */,
+				9BF263292270B6A7004AD6F7 /* OpenSans-LightItalic.ttf */,
+				9BF2632B2270B6A7004AD6F7 /* OpenSans-Regular.ttf */,
+				9BF263262270B6A7004AD6F7 /* OpenSans-SemiBold.ttf */,
+				9BF263272270B6A7004AD6F7 /* OpenSans-SemiBoldItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BF2633D2270E745004AD6F7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				75BBFA5122BC22180039319B /* success.png */,
+				75BBFA4F22BC1FB70039319B /* failure.png */,
+				6C2D3288228AF220009D4B0F /* arrow_down_icon.png */,
+				D139718E2343E59B0061BA5C /* calendar_icon.png */,
+				6CAFFA1922833AA900C690B9 /* xIcon.png */,
+				86C599BF22C6811000B1DD4D /* icon_complete.png */,
+				86C599C022C6811000B1DD4D /* icon_error.png */,
+				7708A28122EA5BB900851FCE /* icon_dismiss.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		A6AE4D6358A62159C26DC1BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				390532ABA2291A5C048D6F5A /* Pods-EmeraldIOS.debug.xcconfig */,
+				67494B68C1CB68E575FEB16C /* Pods-EmeraldIOS.release.xcconfig */,
+				0FB84B03F34B5CD8EF3D740D /* Pods-EmeraldIOSTests.debug.xcconfig */,
+				7CFED98E3BEC23A1ACF99D81 /* Pods-EmeraldIOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9BE5A5412228813A004A59B9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B3BCC992272033400DC5D79 /* EmeraldIOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9BC82E242242777F007BC5BD /* EmeraldIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BC82E2D2242777F007BC5BD /* Build configuration list for PBXNativeTarget "EmeraldIOSTests" */;
+			buildPhases = (
+				CE443A556BC904EF31720A59 /* [CP] Check Pods Manifest.lock */,
+				9BC82E212242777F007BC5BD /* Sources */,
+				9BC82E222242777F007BC5BD /* Frameworks */,
+				9BC82E232242777F007BC5BD /* Resources */,
+				016DF1D8EEDFC24E992F618C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BC82E2C2242777F007BC5BD /* PBXTargetDependency */,
+			);
+			name = EmeraldIOSTests;
+			productName = CondorUIComponentsTests;
+			productReference = 9BC82E252242777F007BC5BD /* EmeraldIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9BE5A5452228813A004A59B9 /* EmeraldIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BE5A55A2228813B004A59B9 /* Build configuration list for PBXNativeTarget "EmeraldIOS" */;
+			buildPhases = (
+				86C742B0DA5109747E22395B /* [CP] Check Pods Manifest.lock */,
+				9BE5A5412228813A004A59B9 /* Headers */,
+				9BE5A5422228813A004A59B9 /* Sources */,
+				9BE5A5432228813A004A59B9 /* Frameworks */,
+				9BE5A5442228813A004A59B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EmeraldIOS;
+			productName = CondorUIComponents;
+			productReference = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BE5A53D2228813A004A59B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Condor Labs";
+				TargetAttributes = {
+					9BC82E242242777F007BC5BD = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					9BE5A5452228813A004A59B9 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+				};
+			};
+			buildConfigurationList = 9BE5A5402228813A004A59B9 /* Build configuration list for PBXProject "EmeraldIOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9BE5A53C2228813A004A59B9;
+			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BE5A5452228813A004A59B9 /* EmeraldIOS */,
+				9BC82E242242777F007BC5BD /* EmeraldIOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BC82E232242777F007BC5BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BE5A5442228813A004A59B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CAFFA1A22833AAA00C690B9 /* xIcon.png in Resources */,
+				86C599C222C6811000B1DD4D /* icon_error.png in Resources */,
+				9BF263332270B6A8004AD6F7 /* LICENSE.txt in Resources */,
+				9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */,
+				9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */,
+				9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */,
+				75BBFA5222BC22180039319B /* success.png in Resources */,
+				75BBFA5022BC1FB70039319B /* failure.png in Resources */,
+				9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */,
+				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
+				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,
+				9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */,
+				6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */,
+				6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */,
+				D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */,
+				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
+				9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */,
+				86C599C122C6811000B1DD4D /* icon_complete.png in Resources */,
+				7708A28222EA5BB900851FCE /* icon_dismiss.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		016DF1D8EEDFC24E992F618C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86C742B0DA5109747E22395B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmeraldIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE443A556BC904EF31720A59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmeraldIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BC82E212242777F007BC5BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BE114102272087A007D1493 /* SimpleSetup.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BE5A5422228813A004A59B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86AC4DE222974E2E00728FBA /* EmeraldSegmentedBar.swift in Sources */,
+				86FB68E222C58EF0009C184D /* EmeraldTextField+ViewStatus.swift in Sources */,
+				6CD584342294A542001DE8D2 /* EmeraldMultipleSelectionItemContract.swift in Sources */,
+				6CE75DAA22A15BC00035A731 /* EmeraldTextView.swift in Sources */,
+				6CD5841C229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift in Sources */,
+				6CD5842522945A7F001DE8D2 /* EmeraldTextViewFieldStyle.swift in Sources */,
+				77BF6E1522DF7C1500E4C448 /* EmeraldChipView.swift in Sources */,
+				49D7DA5E233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift in Sources */,
+				6C2D328C228B034E009D4B0F /* EmeraldTextDependantField.swift in Sources */,
+				6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */,
+				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
+				9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */,
+				860047CF233AB7B2003198AF /* EmeraldLoadingIndicator.swift in Sources */,
+				9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */,
+				8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */,
+				6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */,
+				6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */,
+				778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */,
+				9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */,
+				6C2D328E228B0378009D4B0F /* EmeraldTextDependantFieldError.swift in Sources */,
+				6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */,
+				6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */,
+				77BF6E1B22E0BC1E00E4C448 /* Constants+Icons.swift in Sources */,
+				6CD584322294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift in Sources */,
+				6C2D32802289D99B009D4B0F /* EmeraldSelectorFieldError.swift in Sources */,
+				490E3C7B2335148B000FA6C9 /* EmeraldChartPresenter.swift in Sources */,
+				9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */,
+				9B3BCC862272033400DC5D79 /* EmeraldCheckboxFormField.swift in Sources */,
+				6C807C6F227C8E7F00FC328E /* Inspectable.swift in Sources */,
+				77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */,
+				9B3BCC842272033400DC5D79 /* EmeraldRadioGroupFormField.swift in Sources */,
+				6C23516B228C469B00D398F3 /* EmeraldDatePickerAlert.swift in Sources */,
+				9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */,
+				9B3BCC9A2272033400DC5D79 /* EmeraldInitializer.swift in Sources */,
+				6C807C71227C99B300FC328E /* Theme.swift in Sources */,
+				8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */,
+				49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */,
+				49D7DA65233D1720000453BD /* EmeraldChartOptions.swift in Sources */,
+				6CAFFA22228453CF00C690B9 /* EmeraldSignatureViewController.swift in Sources */,
+				77CA14B422E902A50081EFE2 /* EmeraldChipsCollectionView.swift in Sources */,
+				6CD5842E22949783001DE8D2 /* Extensions+Date.swift in Sources */,
+				6C807C6D227C8E5000FC328E /* Color.swift in Sources */,
+				6CD584362294A76B001DE8D2 /* EmeraldMultipleSelectionField.swift in Sources */,
+				9B3BCC9B2272033400DC5D79 /* EmeraldStackView.swift in Sources */,
+				49B6D78423328BCF00FE78A1 /* EmeraldChartDelegates.swift in Sources */,
+				75BBFA4E22BA6FC10039319B /* EmeraldAlert.swift in Sources */,
+				49B6D78623328D2F00FE78A1 /* EmeraldChartView.swift in Sources */,
+				8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */,
+				6C2D3291228B0BDA009D4B0F /* EmeraldDateField.swift in Sources */,
+				778BEF6822B92C2300AF8601 /* EmeralAvatarStyle.swift in Sources */,
+				6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */,
+				6C807C78227CCF5700FC328E /* EmeraldLabel.swift in Sources */,
+				77BF6E1722DF7C1E00E4C448 /* EmeraldChipStyle.swift in Sources */,
+				8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */,
+				6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */,
+				6C807C7A227CECDA00FC328E /* EmeraldButtonStyle.swift in Sources */,
+				6CD5841E22943343001DE8D2 /* EmeraldRegexFormatType.swift in Sources */,
+				6C2AFCE42326B40600EBDE1C /* EmeraldTextField+ShowHide.swift in Sources */,
+				77CA14B222E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift in Sources */,
+				6CAFFA1C2283462100C690B9 /* CanvasView.swift in Sources */,
+				6CD5842A22948324001DE8D2 /* EmeraldShortDatePickerAlert.swift in Sources */,
+				49C7B3CB233BC9C0009BD82B /* EmeraldChartXAxISRenderer.swift in Sources */,
+				9B3BCC962272033400DC5D79 /* TextFormatter.swift in Sources */,
+				9B3BCC892272033400DC5D79 /* EmeraldButton.swift in Sources */,
+				6CD5842322945A63001DE8D2 /* EmeraldTextViewField.swift in Sources */,
+				6CD5842022945090001DE8D2 /* FormFieldErrorType.swift in Sources */,
+				9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */,
+				6C807C73227CA31100FC328E /* Font.swift in Sources */,
+				6CAFFA1E2283660E00C690B9 /* SignatureContract.swift in Sources */,
+				6C23516E228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift in Sources */,
+				9B3BCC9C2272033400DC5D79 /* EmeraldStackViewContract.swift in Sources */,
+				6CD5842C229496CB001DE8D2 /* Extensions+String.swift in Sources */,
+				6C2CCDD9228EECCB00181C25 /* EmeraldSignatureView.swift in Sources */,
+				6C2D3295228B0BFE009D4B0F /* EmeraldDateFieldError.swift in Sources */,
+				6CD5843A2294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BC82E2C2242777F007BC5BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BE5A5452228813A004A59B9 /* EmeraldIOS */;
+			targetProxy = 9BC82E2B2242777F007BC5BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9BC82E2E2242777F007BC5BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FB84B03F34B5CD8EF3D740D /* Pods-EmeraldIOSTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRFNDLT6FX;
+				INFOPLIST_FILE = EmeraldIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BC82E2F2242777F007BC5BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CFED98E3BEC23A1ACF99D81 /* Pods-EmeraldIOSTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRFNDLT6FX;
+				INFOPLIST_FILE = EmeraldIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9BE5A5582228813B004A59B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9BE5A5592228813B004A59B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9BE5A55B2228813B004A59B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 390532ABA2291A5C048D6F5A /* Pods-EmeraldIOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XRFNDLT6FX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EmeraldIOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2.52;
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BE5A55C2228813B004A59B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67494B68C1CB68E575FEB16C /* Pods-EmeraldIOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XRFNDLT6FX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EmeraldIOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2.52;
+				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BC82E2D2242777F007BC5BD /* Build configuration list for PBXNativeTarget "EmeraldIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC82E2E2242777F007BC5BD /* Debug */,
+				9BC82E2F2242777F007BC5BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BE5A5402228813A004A59B9 /* Build configuration list for PBXProject "EmeraldIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BE5A5582228813B004A59B9 /* Debug */,
+				9BE5A5592228813B004A59B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BE5A55A2228813B004A59B9 /* Build configuration list for PBXNativeTarget "EmeraldIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BE5A55B2228813B004A59B9 /* Debug */,
+				9BE5A55C2228813B004A59B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BE5A53D2228813A004A59B9 /* Project object */;
+}
