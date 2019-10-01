@@ -68,6 +68,7 @@ public class EmeraldChart: UIView {
         barChartView.animate(yAxisDuration: 1)
         barChartView.xAxis.gridColor = .clear
         barChartView.xAxis.labelPosition = .bottom
+        barChartView.leftAxis.axisMinimum = 0
         if chartOptions.showSubtitle {
             barChartView.xAxis.labelHeight = chartLabelHeight
             barChartView.extraBottomOffset = chartExtraBottomOffset
