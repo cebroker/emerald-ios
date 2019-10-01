@@ -27,7 +27,6 @@
 		6C2D3291228B0BDA009D4B0F /* EmeraldDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3290228B0BDA009D4B0F /* EmeraldDateField.swift */; };
 		6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3292228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift */; };
 		6C2D3295228B0BFE009D4B0F /* EmeraldDateFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3294228B0BFE009D4B0F /* EmeraldDateFieldError.swift */; };
-		6C2D3297228B5FC8009D4B0F /* calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2D3296228B5FC8009D4B0F /* calendar_icon.png */; };
 		6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */; };
 		6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */; };
 		6C807C6D227C8E5000FC328E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C807C6C227C8E5000FC328E /* Color.swift */; };
@@ -107,6 +106,7 @@
 		9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */; };
 		9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */; };
 		9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */; };
+		D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D139718E2343E59B0061BA5C /* calendar_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,7 +143,6 @@
 		6C2D3290228B0BDA009D4B0F /* EmeraldDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateField.swift; sourceTree = "<group>"; };
 		6C2D3292228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateFieldChangeNotifiable.swift; sourceTree = "<group>"; };
 		6C2D3294228B0BFE009D4B0F /* EmeraldDateFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateFieldError.swift; sourceTree = "<group>"; };
-		6C2D3296228B5FC8009D4B0F /* calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_icon.png; sourceTree = "<group>"; };
 		6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextField.swift; sourceTree = "<group>"; };
 		6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldStyle.swift; sourceTree = "<group>"; };
 		6C807C6C227C8E5000FC328E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -228,7 +227,11 @@
 		9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		F31EA49D9E335505D5096220 /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E99BADE354278DF2B5E98AA /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC9C7D132CDC595CE928824D /* Pods_EmeraldIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D139718E2343E59B0061BA5C /* calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_icon.png; sourceTree = "<group>"; };
+		E4D7243892FFB71F69F6791F /* Pods-EmeraldIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EDBFC79596F529EA50AB3BD3 /* Pods-EmeraldIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -658,8 +661,8 @@
 			children = (
 				75BBFA5122BC22180039319B /* success.png */,
 				75BBFA4F22BC1FB70039319B /* failure.png */,
-				6C2D3296228B5FC8009D4B0F /* calendar_icon.png */,
 				6C2D3288228AF220009D4B0F /* arrow_down_icon.png */,
+				D139718E2343E59B0061BA5C /* calendar_icon.png */,
 				6CAFFA1922833AA900C690B9 /* xIcon.png */,
 				86C599BF22C6811000B1DD4D /* icon_complete.png */,
 				86C599C022C6811000B1DD4D /* icon_error.png */,
@@ -790,7 +793,6 @@
 				9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */,
 				9BF263322270B6A8004AD6F7 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				75BBFA5222BC22180039319B /* success.png in Resources */,
-				6C2D3297228B5FC8009D4B0F /* calendar_icon.png in Resources */,
 				75BBFA5022BC1FB70039319B /* failure.png in Resources */,
 				9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */,
 				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
@@ -798,6 +800,7 @@
 				9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */,
 				6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */,
 				6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */,
+				D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */,
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
 				9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */,
