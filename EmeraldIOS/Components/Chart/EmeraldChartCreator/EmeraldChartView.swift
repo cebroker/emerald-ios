@@ -41,6 +41,14 @@ public class EmeraldChart: UIView {
         setupMultipleValuesChartData()
     }
     
+    public init(withOptions chartOptions: EmeraldChartOptions = EmeraldChartOptions()) {
+        self.chartOptions = chartOptions
+        super.init(frame: .zero)
+        self.presenter = EmeraldChartPresenter()
+        self.presenter.bind(view: self)
+        setUpView()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -50,6 +58,17 @@ public class EmeraldChart: UIView {
         self.addSubview(barChartView)
         barChartView.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor)
         configBarChartView()
+    }
+    
+    public func updateWithMultipleValueData(_ data: EmeraldChartDataEntry){
+        self.presenter.setDataEntries(data: data)
+        presenter.setMultipleValueDataSetcolors(colors: chartOptions.multipleValueDataColors)
+        setupMultipleValuesChartData()
+    }
+    
+    public func updateWithSimpleData(_ data: EmeraldChartDataEntry) {
+        self.presenter.setDataEntries(data: data)
+        setupSimpleChartData()
     }
     
     private func setChartOptions() {
@@ -64,7 +83,6 @@ public class EmeraldChart: UIView {
     private func configBarChartView() {
         setChartOptions()
         barChartView.delegate = self
-        barChartView.maxVisibleCount = presenter.getDataEntriesCount()
         barChartView.animate(yAxisDuration: 1)
         barChartView.xAxis.gridColor = .clear
         barChartView.xAxis.labelPosition = .bottom
@@ -86,10 +104,14 @@ public class EmeraldChart: UIView {
     
     private func setupSimpleChartData() {
         var chartDataSet = [BarChartDataEntry]()
+        barChartView.maxVisibleCount = presenter.getDataEntriesCount()
         for dataIndex in 0..<presenter.getDataEntriesCount() {
             chartDataSet.append(BarChartDataEntry(x: Double(dataIndex), y: Double(presenter.getValueForSimpleDataEntry(index: dataIndex))))
         }
-        let xAxisRenderer = EmeraldChartXAxisRenderer(viewPortHandler: barChartView.viewPortHandler, xAxis: barChartView.xAxis, transformer: barChartView.getTransformer(forAxis: .left), icon: chartOptions.accessoryViewImage)
+        let xAxisRenderer = EmeraldChartXAxisRenderer(viewPortHandler: barChartView.viewPortHandler,
+                                                      xAxis: barChartView.xAxis,
+                                                      transformer: barChartView.getTransformer(forAxis: .left),
+                                                      icon: chartOptions.accessoryViewImage)
         xAxisRenderer.colorsDictionary = presenter.getSimpleDataSubtitleColor()
         barChartView.xAxisRenderer = xAxisRenderer
          if chartOptions.showSubtitle {
@@ -107,14 +129,20 @@ public class EmeraldChart: UIView {
     
     private func setupMultipleValuesChartData() {
         var chartDataSet = [BarChartDataEntry]()
+        barChartView.maxVisibleCount = presenter.getDataEntriesCount()
         for dataIndex in 0..<presenter.getDataEntriesCount() {
             chartDataSet.append(BarChartDataEntry(x: Double(dataIndex), yValues: presenter.getValueForMultipleValueDataEntry(index: dataIndex)))
         }
         let barChartDataSet = BarChartDataSet(entries: chartDataSet, label: "")
         barChartDataSet.colors = presenter.getMultipleValueDataSetColors()
         barChartView.data = BarChartData(dataSet: barChartDataSet)
+        barChartView.xAxisRenderer = XAxisRenderer(viewPortHandler: barChartView.viewPortHandler,
+                                                   xAxis: barChartView.xAxis,
+                                                   transformer: barChartView.getTransformer(forAxis: .left))
         barChartView.xAxis.valueFormatter  = IndexAxisValueFormatter(values: presenter.getDataHorizontalEntries())
         barChartView.data?.setDrawValues(false)
+        barChartView.data?.notifyDataChanged()
+        barChartView.notifyDataSetChanged()
     }
 }
 
