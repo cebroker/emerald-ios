@@ -40,6 +40,7 @@ public protocol EmeraldTextFieldType {
     func setText(with value: String?)
     func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate)
     func clearText()
+    func isEnable(_ enable: Bool)
 }
 
 @IBDesignable
@@ -307,6 +308,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         if maxLength > 0 {
             self.maxLength = maxLength
         }
+    }
+    
+    public func isEnable(_ enable: Bool) {
+        self.alpha = enable == true ? 1 : 0.5
+        self.isEnabled = enable
     }
 
     public func getMaxLength() -> Int {

@@ -51,6 +51,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 
     @IBOutlet weak var textViewStack: EmeraldTextView!
     @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
+    @IBOutlet weak var disabletextField: EmeraldTextField!
     
     private var emeraldFields: [EmeraldValidableType] {
         return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
@@ -124,6 +125,8 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldAvatarLg.setTitle(with: "Sergio", lastName: "Giraldo")
         emeraldAvatarMd.setTitle(with: "Gensesis", lastName: "Sanguino")
         emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
+        disabletextField.setText(with: "Pepe man")
+        disabletextField.isEnable(true)
     }
 
     private func createFields() {
