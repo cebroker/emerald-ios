@@ -15,9 +15,11 @@ public struct EmeraldChartOptions {
     public var titleFontColor: UIColor
     public var accessoryViewImage: UIImage?
     public var barWidthPercentage: Double
+    public var barReachesTop: Bool
     public var showSubtitle: Bool
     public var showGrid: Bool
     public var showLeftAxis: Bool
+    public var drawLeftAxisLine: Bool
     public var steps: Int
     public var multipleValueDataColors: [UIColor]
     
@@ -27,9 +29,11 @@ public struct EmeraldChartOptions {
                  titleFontColor: UIColor = EmeraldTheme.grayColor,
                  accessoryViewImage: UIImage? = nil,
                  barWidthPercentage: Double = 0.85,
+                 barReachesTop: Bool = false,
                  showSubtitle: Bool = false,
                  showGrid: Bool = false,
                  showLeftAxis: Bool = true,
+                 drawLeftAxisLine: Bool = false,
                  steps: Int = 5,
                  multipleValueDataColors: [UIColor] = [EmeraldTheme.greenColor,
                                                        EmeraldTheme.yellowColor,
@@ -41,9 +45,11 @@ public struct EmeraldChartOptions {
         self.showSubtitle = showSubtitle
         self.showGrid = showGrid
         self.showLeftAxis = showLeftAxis
+        self.drawLeftAxisLine = drawLeftAxisLine
         self.steps = steps
         self.multipleValueDataColors = multipleValueDataColors
         self.titleFontColor = titleFontColor
         self.barWidthPercentage = barWidthPercentage
+        self.barReachesTop = barReachesTop
     }
 }

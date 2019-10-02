@@ -65,6 +65,10 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
     func getSimpleDataSubtitles() -> [String] {
         return dataEntries.getSimpleDataSubtitles()
     }
+    
+    func getYValueOffset(maxYValue: Double, steps: Int) -> Double {
+        return maxYValue + (maxYValue/Double(steps))
+    }
 }
 
 protocol EmeraldChartPresenterType {
@@ -83,4 +87,6 @@ protocol EmeraldChartPresenterType {
     func getValueForMultipleValueDataEntry(index: Int) -> [Double]
     func setMultipleValueDataSetcolors(colors: [UIColor])
     func getMultipleValueDataSetColors() -> [UIColor]
+    
+    func getYValueOffset(maxYValue: Double, steps: Int) -> Double
 }
