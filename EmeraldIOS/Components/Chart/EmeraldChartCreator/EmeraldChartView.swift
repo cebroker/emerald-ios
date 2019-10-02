@@ -87,6 +87,8 @@ public class EmeraldChart: UIView {
         barChartView.xAxis.gridColor = .clear
         barChartView.xAxis.labelPosition = .bottom
         barChartView.leftAxis.axisMinimum = 0
+        barChartView.leftAxis.spaceTop = 0
+        barChartView.xAxis.labelTextColor = chartOptions.titleFontColor
         if chartOptions.showSubtitle {
             barChartView.xAxis.labelHeight = chartLabelHeight
             barChartView.extraBottomOffset = chartExtraBottomOffset
@@ -120,10 +122,15 @@ public class EmeraldChart: UIView {
          }
         let barChartDataSet = BarChartDataSet(entries: chartDataSet, label: "")
         barChartDataSet.colors = presenter.getSimpleDataSetColors()
+        barChartDataSet.highlightEnabled = false
         barChartView.data = BarChartData(dataSet: barChartDataSet)
+        barChartView.barData?.barWidth = chartOptions.barWidthPercentage
         barChartView.xAxis.valueFormatter  = IndexAxisValueFormatter(values: presenter.getDataHorizontalEntries())
         barChartView.xAxis.granularity = 1
         barChartView.data?.setDrawValues(false)
+        barChartView.data?.notifyDataChanged()
+        barChartView.setNeedsDisplay()
+        barChartView.notifyDataSetChanged()
         
     }
     
@@ -135,13 +142,16 @@ public class EmeraldChart: UIView {
         }
         let barChartDataSet = BarChartDataSet(entries: chartDataSet, label: "")
         barChartDataSet.colors = presenter.getMultipleValueDataSetColors()
+        barChartDataSet.highlightEnabled = false
         barChartView.data = BarChartData(dataSet: barChartDataSet)
         barChartView.xAxisRenderer = XAxisRenderer(viewPortHandler: barChartView.viewPortHandler,
                                                    xAxis: barChartView.xAxis,
                                                    transformer: barChartView.getTransformer(forAxis: .left))
         barChartView.xAxis.valueFormatter  = IndexAxisValueFormatter(values: presenter.getDataHorizontalEntries())
+        barChartView.barData?.barWidth = chartOptions.barWidthPercentage
         barChartView.data?.setDrawValues(false)
         barChartView.data?.notifyDataChanged()
+        barChartView.setNeedsDisplay()
         barChartView.notifyDataSetChanged()
     }
 }

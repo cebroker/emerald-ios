@@ -12,7 +12,9 @@ public struct EmeraldChartOptions {
     public var cornerRadius: CGFloat
     public var titleFont: UIFont
     public var subtitleFont: UIFont
+    public var titleFontColor: UIColor
     public var accessoryViewImage: UIImage?
+    public var barWidthPercentage: Double
     public var showSubtitle: Bool
     public var showGrid: Bool
     public var showLeftAxis: Bool
@@ -22,7 +24,9 @@ public struct EmeraldChartOptions {
     public init (cornerRadius: CGFloat = 0,
                  titleFont: UIFont = Font(size: .body, weight: .regular).uiFont,
                  subtitleFont: UIFont = Font(size: .h4, weight: .bold).uiFont,
+                 titleFontColor: UIColor = EmeraldTheme.grayColor,
                  accessoryViewImage: UIImage? = nil,
+                 barWidthPercentage: Double = 0.85,
                  showSubtitle: Bool = false,
                  showGrid: Bool = false,
                  showLeftAxis: Bool = true,
@@ -39,5 +43,7 @@ public struct EmeraldChartOptions {
         self.showLeftAxis = showLeftAxis
         self.steps = steps
         self.multipleValueDataColors = multipleValueDataColors
+        self.titleFontColor = titleFontColor
+        self.barWidthPercentage = barWidthPercentage
     }
 }
