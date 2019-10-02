@@ -45,7 +45,10 @@ class BarChartViewController: UIViewController {
                                                        subtitle: nil,
                                                        hasAction: false))
         self.view.backgroundColor = UIColor.white
-        let chartOptions = EmeraldChartOptions(cornerRadius: 5, showSubtitle: true)
+        let chartOptions = EmeraldChartOptions(cornerRadius: 5,
+                                               barWidthPercentage: 0.3,
+                                               showSubtitle: true,
+                                               showGrid: true)
         let simpleData = EmeraldChartDataEntry(with: dataEntries)
         emeraldSimpleBarChart = EmeraldChart(withOptions: chartOptions)
         self.view.addSubview(emeraldSimpleBarChart)
