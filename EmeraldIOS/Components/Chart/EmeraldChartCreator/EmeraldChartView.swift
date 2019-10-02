@@ -73,6 +73,7 @@ public class EmeraldChart: UIView {
     
     private func setChartOptions() {
         barChartView.leftAxis.enabled = chartOptions.showLeftAxis
+        barChartView.leftAxis.drawAxisLineEnabled = chartOptions.drawLeftAxisLine
         if !chartOptions.showGrid { barChartView.leftAxis.gridColor = .clear }
         barChartView.leftAxis.labelCount = chartOptions.steps
         barChartView.xAxis.labelFont = chartOptions.titleFont
@@ -87,7 +88,9 @@ public class EmeraldChart: UIView {
         barChartView.xAxis.gridColor = .clear
         barChartView.xAxis.labelPosition = .bottom
         barChartView.leftAxis.axisMinimum = 0
-        barChartView.leftAxis.spaceTop = 0
+        if chartOptions.barReachesTop {
+            barChartView.leftAxis.spaceTop = 0
+        }
         barChartView.xAxis.labelTextColor = chartOptions.titleFontColor
         if chartOptions.showSubtitle {
             barChartView.xAxis.labelHeight = chartLabelHeight
@@ -126,6 +129,9 @@ public class EmeraldChart: UIView {
         barChartView.data = BarChartData(dataSet: barChartDataSet)
         barChartView.barData?.barWidth = chartOptions.barWidthPercentage
         barChartView.xAxis.valueFormatter  = IndexAxisValueFormatter(values: presenter.getDataHorizontalEntries())
+        if !chartOptions.barReachesTop {
+        barChartView.leftAxis.axisMaximum = self.presenter.getYValueOffset(maxYValue: barChartView.data!.yMax, steps: chartOptions.steps)
+        }
         barChartView.xAxis.granularity = 1
         barChartView.data?.setDrawValues(false)
         barChartView.data?.notifyDataChanged()
@@ -144,6 +150,12 @@ public class EmeraldChart: UIView {
         barChartDataSet.colors = presenter.getMultipleValueDataSetColors()
         barChartDataSet.highlightEnabled = false
         barChartView.data = BarChartData(dataSet: barChartDataSet)
+        if !chartOptions.barReachesTop {
+            barChartView.leftAxis.axisMaximum =
+                self.presenter.getYValueOffset(
+                    maxYValue: barChartView.data!.yMax,
+                    steps: chartOptions.steps)
+        }
         barChartView.xAxisRenderer = XAxisRenderer(viewPortHandler: barChartView.viewPortHandler,
                                                    xAxis: barChartView.xAxis,
                                                    transformer: barChartView.getTransformer(forAxis: .left))

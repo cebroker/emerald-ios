@@ -47,6 +47,7 @@ class BarChartViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         let chartOptions = EmeraldChartOptions(cornerRadius: 5,
                                                barWidthPercentage: 0.3,
+                                               barReachesTop: true,
                                                showSubtitle: true,
                                                showGrid: true)
         let simpleData = EmeraldChartDataEntry(with: dataEntries)
