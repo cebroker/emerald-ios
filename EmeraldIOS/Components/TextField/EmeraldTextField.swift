@@ -115,7 +115,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     }
 
     private struct InnerConstants {
-        static let middleFontSize: CGFloat = FontSize.h5.cgFontSize
+        static let middleFontSize: CGFloat = FontSize.h6.cgFontSize
         static let maximumFontSize: CGFloat = FontSize.body.cgFontSize
         static let placeHolderLabelSize: CGFloat = FontSize.h3.cgFontSize * 1.3
         static let animationDuration: Double = 0.15
