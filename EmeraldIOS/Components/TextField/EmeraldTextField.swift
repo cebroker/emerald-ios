@@ -490,7 +490,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
                 self.layoutIfNeeded()
             },
             completion: { _ in
-                self.placeholder = self.hint?.lowercased()
+                self.placeholder = self.hint
             })
     }
 

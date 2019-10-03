@@ -50,6 +50,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.addCalendarIcon()
         self.setupToolbar()
         self.setupDefaultDateFormat()
+        self.hint = self.hint?.lowercased()
     }
     
     public override func didMoveToWindow() {
