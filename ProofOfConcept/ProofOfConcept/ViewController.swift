@@ -111,9 +111,10 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
             MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
-            MultipleSelectionGroupItem(title: "Tres"),
+            MultipleSelectionGroupItem(id: "TresId", title: "tres"),
             MultipleSelectionGroupItem(title: "Cuatro"),
             MultipleSelectionGroupItem(title: "Cinco")])
+        emeraldMultipleSelectorByStory.set(notifiable: self)
         emeraldRegexFieldByStory.set(regex: .custom("^([A-Z0-9]{1}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5})$"))
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
@@ -125,8 +126,6 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldAvatarLg.setTitle(with: "Sergio", lastName: "Giraldo")
         emeraldAvatarMd.setTitle(with: "Gensesis", lastName: "Sanguino")
         emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
-        disabletextField.setText(with: "Pepe man")
-        disabletextField.isEnable(true)
     }
 
     private func createFields() {
@@ -257,6 +256,10 @@ extension ViewController: SingleItemChangeNotifiable {
         case "MI_ID_1":
             // do something with
             break
+        case "TresId":
+            let textTextField = "test comon"
+            self.disabletextField.setText(with: textTextField)
+            self.disabletextField.isEnable(false)
         default:
             break
         }
