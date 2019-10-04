@@ -309,10 +309,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
             self.maxLength = maxLength
         }
     }
-    
+
     public func isEnable(_ enable: Bool) {
         self.alpha = enable == true ? 1 : 0.5
         self.isEnabled = enable
+        self.deactivateField()
     }
 
     public func getMaxLength() -> Int {
