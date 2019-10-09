@@ -57,8 +57,8 @@ extension EmeraldTextField {
     func addRightView(with childView: UIView, x: CGFloat = 0.0) {
         let containerView: UIView = UIView(frame: CGRect(x: x,
                                                          y: 0.0,
-                                                         width: self.frame.height,
-                                                         height: self.frame.height))
+                                                         width: childView.frame.width,
+                                                         height: placeholderLabel.frame.height))
         containerView.addSubview(childView)
         childView.center = containerView.center
         self.rightView = containerView

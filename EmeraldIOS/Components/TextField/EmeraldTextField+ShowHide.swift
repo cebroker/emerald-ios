@@ -10,8 +10,8 @@ extension EmeraldTextField {
     public func setPasswordRightView() {
         self.rightButton = EmeraldButton(frame: CGRect(x: 0.0,
                                                        y: 0.0,
-                                                       width: 100,
-                                                       height: self.frame.height))
+                                                       width: 50,
+                                                       height: placeholderLabel.frame.height))
         self.rightButton?.themeStyle = EmeraldButtonStyle.link.rawValue
         self.rightButton?.setTitle("SHOW",
                              for: .normal)
