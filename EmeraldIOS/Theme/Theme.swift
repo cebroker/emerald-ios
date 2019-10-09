@@ -48,6 +48,7 @@ public class EmeraldTheme {
     public static let warningColor = yellowColor
     public static let successColor = greenColor
     public static let errorColor = redColor
+    public static let warningBannerBackgorunColor = #colorLiteral(red: 1, green: 0.9411764706, blue: 0.8235294118, alpha: 1)
 
 
     // MARK: App Colors
