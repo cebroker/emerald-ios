@@ -119,6 +119,9 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
         emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
+        emeraldStartDateFieldByStory.errorMessages.minimumDate = "This is a custom error"
+        emeraldStartDateFieldByStory.set(format: .shortDate)
+        emeraldStartDateFieldByStory.set(minimumDate: Date())
         emeraldTextView.set(placeholder: "Description")
         textViewStack.setPlaceholder(with: "Description")
         textViewStack.setTitle(with: "My textview title with an a large extension to probe if the multiples line split work.")
