@@ -32,6 +32,13 @@ public protocol EmeraldDateFieldTestableType {
 @IBDesignable
 public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDateFieldTestableType {
     
+    public class ErrorMessages {
+        public var minimumDate = "Picked date is lower than minimum."
+        public var maximumDate = "Picked date is greater than maximum."
+        public var invalidFormat = "Invalid date format"
+    }
+    
+    public let errorMessages = ErrorMessages()
     private var selectedDate: Date?
     private lazy var dateFormatter: DateFormatter = DateFormatter()
     private weak var notifiable: EmeraldDateFieldChangeNotifiable?
@@ -64,23 +71,23 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         }
         
         guard let date = self.selectedDate else {
-            return .failure(EmeraldDateFieldError.invalidDateFormat)
+            return .failure(EmeraldDateFieldError.invalidDateFormat(message: errorMessages.invalidFormat))
         }
         
         if let minimumDate = self.minimumDate {
             guard date >= minimumDate else {
-                return .failure(EmeraldDateFieldError.lowerThanMinimumDate)
+                return .failure(EmeraldDateFieldError.lowerThanMinimumDate(message: errorMessages.minimumDate))
             }
         }
         
         if let maximumDate = self.maximumDate {
             guard date <= maximumDate else {
-                return .failure(EmeraldDateFieldError.greaterThanMaximumDate)
+                return .failure(EmeraldDateFieldError.greaterThanMaximumDate(message: errorMessages.maximumDate))
             }
         }
         
         guard let _ = getDate(from: text) else {
-            return .failure(EmeraldDateFieldError.invalidDateFormat)
+            return .failure(EmeraldDateFieldError.invalidDateFormat(message: errorMessages.invalidFormat))
         }
         
         return .success(true)
