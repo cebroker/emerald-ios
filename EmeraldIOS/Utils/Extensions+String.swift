@@ -53,4 +53,22 @@ public extension String {
             return Date()
         }
     }
+    
+    func validate(with minimumDate: Date) -> Bool {
+        let year = self.components(separatedBy: "/").last
+        guard let date = year?.set(with: "yyyy") else {
+            return false
+        }
+        let result = Calendar.init(identifier: .gregorian).compare(date, to: minimumDate, toGranularity: .year)
+        return !Bool(truncating: NSNumber(value: result.rawValue))
+    }
+
+    private func set(with format: String) -> Date {
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = format
+        guard let date = dateFormat.date(from: self) else {
+            return Date()
+        }
+        return date
+    }
 }

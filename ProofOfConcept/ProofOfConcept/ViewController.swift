@@ -52,7 +52,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var textViewStack: EmeraldTextView!
     @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
     @IBOutlet weak var disabletextField: EmeraldTextField!
-    
+
     private var emeraldFields: [EmeraldValidableType] {
         return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
     }
@@ -75,6 +75,11 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.createStoryBoardFields()
         loadingIndicator.startAnimating()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setupStartDate()
+    }
 
     private func createHideKeyboardGesture() {
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
@@ -91,7 +96,6 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.chipWarning.setText("Hola ")
         self.chipSuccess.setText("Hola ")
         self.chipDismissable.setText("Hola ")
-
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setPasswordRightView()
@@ -118,7 +122,8 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldRegexFieldByStory.set(regex: .custom("^([A-Z0-9]{1}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5})$"))
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
-        emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
+        //emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
+
         emeraldTextView.set(placeholder: "Description")
         textViewStack.setPlaceholder(with: "Description")
         textViewStack.setTitle(with: "My textview title with an a large extension to probe if the multiples line split work.")
@@ -179,7 +184,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         formButton = formStackView.createButton(with: "Submit form")
         formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
-
+  
         formStackView.reloadFields()
     }
 
@@ -214,6 +219,16 @@ class ViewController: UIViewController, EmeraldValidableType {
         }
 
         print(selectedChildren)
+    }
+
+    private func setupStartDate() {
+        let currentMinimumDate = Date()
+            .toStringFormatted(with: "MM/yyyy").toAutomatedDate()
+
+        emeraldStartDateFieldByStory.set(placeholder: "Renewal date")
+        emeraldStartDateFieldByStory.set(hint: "MM/yyyy")
+        emeraldStartDateFieldByStory.set(minimumDate: currentMinimumDate)
+        emeraldStartDateFieldByStory.set(format: .shortDate)
     }
 }
 
@@ -274,5 +289,22 @@ extension ViewController: CustomEmeraldTextFieldDelegate {
     }
 
     func didEndEditing(textField: UITextField) {
+    }
+}
+
+
+extension String {
+    func toAutomatedDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        // dateFormatter.dateFormat = CoreConstants.DateFormats.backend
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "MM/yyyy"
+        if let date = dateFormatter.date(from: self) {
+            return date
+        }
+        return Date()
     }
 }
