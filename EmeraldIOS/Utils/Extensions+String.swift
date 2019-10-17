@@ -53,13 +53,4 @@ public extension String {
             return Date()
         }
     }
-    
-    private func set(with format: String) -> Date {
-        let dateFormat = DateFormatter()
-        dateFormat.dateFormat = format
-        guard let date = dateFormat.date(from: self) else {
-            return Date()
-        }
-        return date
-    }
 }

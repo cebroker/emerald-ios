@@ -39,7 +39,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     private lazy var toolbar: UIToolbar = UIToolbar()
     private var minimumDate: Date?
     private var maximumDate: Date?
-    private var validateFormat = FormatValidator()
+    private var formatValidator = FormatValidator()
     
     struct InnerConstants {
         static let calendarIcon = "calendar_icon"
@@ -140,7 +140,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     }
     
     public func set(minimumDate: Date?) {
-        validateFormat.setDistanceDate(date: minimumDate!)
+        formatValidator.setDistanceDate(date: minimumDate!)
         self.minimumDate = minimumDate
     }
     
@@ -150,7 +150,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     public func set(maximumDate: Date?) {
         self.maximumDate = maximumDate
-        validateFormat.setDistanceDate(date: maximumDate!)
+        formatValidator.setDistanceDate(date: maximumDate!)
     }
     
     public func getMaximumDate() -> Date? {
@@ -192,7 +192,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     private func configureDateField() {
         self.set(format: self.getFormat())
-        validateFormat.set(textFormat: getFormat())
+        formatValidator.set(textFormat: getFormat())
     }
     
     private func addCalendarIcon() {
@@ -270,7 +270,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         if let maximumDate = self.maximumDate {
             datePicker.set(maximumDate: maximumDate)
         }
-        let text = validateFormat.fillYear(date: self.text)
+        let text = formatValidator.fillYear(date: self.text)
         if let currentDate = self.getDate(from: text) {
             datePicker.set(currentDateValue: currentDate)
         }
@@ -294,7 +294,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.text = validateFormat.fillYear(date: textField.text)
+        textField.text = formatValidator.fillYear(date: textField.text)
     }
 }
 

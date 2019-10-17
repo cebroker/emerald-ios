@@ -8,11 +8,19 @@
 
 import Foundation
 
+enum ComponentslongDate: Int {
+    case month
+    case day
+    case year
+}
+
 public class FormatValidator {
 
+    typealias constants = Constants.Values
     private let maxYearCharacter = 4
     private var date: Date?
     private var textFormat: TextFormat?
+    private var day: String?
     private var year: String?
     private var month: String?
     private var dateString: String? {
@@ -32,19 +40,36 @@ public class FormatValidator {
     }
 
     private func setProperties(date: String?) {
-        let components = date?.components(separatedBy: "/")
-        self.month = components?.first
-        self.year = components?.last
+        let components = date?.components(separatedBy: constants.slash)
+        switch textFormat {
+        case .shortDate:
+            self.month = components?.first
+            self.year = components?.last
+        case .longDate:
+            for (index, component) in components!.enumerated() {
+                let componentsDate = ComponentslongDate(rawValue: index)
+                switch componentsDate {
+                case .month:
+                    self.month = component
+                case .day:
+                    self.day = component
+                case .year:
+                    self.year = component
+                case .none: break
+                }
+            }
+        default: break
+        }
     }
 
     public func fillYear(date: String?) -> String {
         self.dateString = date
         guard let dateString = date else {
-            return ""
+            return constants.empty
         }
 
         switch textFormat {
-        case .shortDate:
+        case .shortDate, .longDate:
             return self.buildYear(dateString: dateString)
         default:
             return dateString
@@ -53,7 +78,7 @@ public class FormatValidator {
 
     private func buildYear(dateString: String) -> String {
         guard let year = self.year else {
-            return ""
+            return constants.empty
         }
 
         var yearMutable = String()
@@ -64,19 +89,29 @@ public class FormatValidator {
         }
 
         yearMutable.append(self.complemented())
-        return concatenation(month: self.month, year: yearMutable)
+        return concatenation(year: yearMutable)
     }
 
-    private func concatenation(month: String?, year: String) -> String {
-        guard let month = month else {
-            return ""
+    private func concatenation(year: String) -> String {
+        var date = String()
+
+        if let month = self.month {
+            date.append(month)
+            date.append(constants.slash)
         }
-        return month + "/" + year
+
+        if let day = self.day {
+            date.append(day)
+            date.append(constants.slash)
+        }
+
+        date.append(year)
+        return date
     }
 
     private func complemented() -> String {
         guard let year = self.year else {
-            return ""
+            return constants.empty
         }
 
         return year
