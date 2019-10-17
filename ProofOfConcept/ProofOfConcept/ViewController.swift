@@ -76,11 +76,6 @@ class ViewController: UIViewController, EmeraldValidableType {
         loadingIndicator.startAnimating()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.setupStartDate()
-    }
-
     private func createHideKeyboardGesture() {
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
         viewTapGesture.cancelsTouchesInView = false
@@ -220,16 +215,6 @@ class ViewController: UIViewController, EmeraldValidableType {
 
         print(selectedChildren)
     }
-
-    private func setupStartDate() {
-        let currentMinimumDate = Date()
-            .toStringFormatted(with: "MM/yyyy").toAutomatedDate()
-
-        emeraldStartDateFieldByStory.set(placeholder: "Renewal date")
-        emeraldStartDateFieldByStory.set(hint: "MM/yyyy")
-        emeraldStartDateFieldByStory.set(minimumDate: currentMinimumDate)
-        emeraldStartDateFieldByStory.set(format: .shortDate)
-    }
 }
 
 extension ViewController: EmeraldSelectorFieldChangeNotifiable {
@@ -289,22 +274,5 @@ extension ViewController: CustomEmeraldTextFieldDelegate {
     }
 
     func didEndEditing(textField: UITextField) {
-    }
-}
-
-
-extension String {
-    func toAutomatedDate() -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.amSymbol = "AM"
-        dateFormatter.pmSymbol = "PM"
-        // dateFormatter.dateFormat = CoreConstants.DateFormats.backend
-        dateFormatter.locale = Locale.current
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateFormat = "MM/yyyy"
-        if let date = dateFormatter.date(from: self) {
-            return date
-        }
-        return Date()
     }
 }

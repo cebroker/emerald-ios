@@ -40,11 +40,11 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     private var minimumDate: Date?
     private var maximumDate: Date?
     private var validateFormat = FormatValidator()
-
+    
     struct InnerConstants {
         static let calendarIcon = "calendar_icon"
     }
-
+    
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         self.configureDateField()
@@ -53,40 +53,40 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.setupDefaultDateFormat()
         self.hint = self.hint?.lowercased()
     }
-
+    
     public override func didMoveToWindow() {
         super.didMoveToWindow()
         self.layoutSubviews()
     }
-
+    
     override func validateContent() -> Result<Bool, Error> {
         guard let text = self.getValue(), !text.isEmpty else {
             return .failure(FormFieldError.emptyField)
         }
-
+        
         guard let date = self.selectedDate else {
             return .failure(EmeraldDateFieldError.invalidDateFormat)
         }
-
+        
         if let minimumDate = self.minimumDate {
             guard date >= minimumDate else {
                 return .failure(EmeraldDateFieldError.lowerThanMinimumDate)
             }
         }
-
+        
         if let maximumDate = self.maximumDate {
             guard date <= maximumDate else {
                 return .failure(EmeraldDateFieldError.greaterThanMaximumDate)
             }
         }
-
+        
         guard let _ = getDate(from: text) else {
             return .failure(EmeraldDateFieldError.invalidDateFormat)
         }
-
+        
         return .success(true)
     }
-
+    
     public override func textFieldDidEndEditing(_ textField: UITextField) {
         super.textFieldDidEndEditing(textField)
         if let validatedText = self.text,
@@ -96,7 +96,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.resignFirstResponder()
         notifiable?.onDoneButtonPressed(from: self)
     }
-
+    
     public override func setText(with value: String?) {
         super.setText(with: value)
         if let value = value, !value.isEmpty,
@@ -104,112 +104,112 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
             self.selectedDate = dateValue
         }
     }
-
+    
     public func set(selectedDate: Date) {
         self.selectedDate = selectedDate
         let formattedDate = dateFormatter.string(from: selectedDate)
         self.text = formattedDate
         notifiable?.onSelected(dateString: formattedDate, date: selectedDate, from: self)
     }
-
+    
     public func set(day: Int, month: Int, year: Int) {
         if let date = getDateFrom(day: day, month: month, year: year) {
             self.set(selectedDate: date)
         }
     }
-
+    
     public func set(hour: Int, minute: Int) {
         if let date = getDateFrom(hour: hour, minute: minute) {
             self.set(selectedDate: date)
         }
     }
-
+    
     public func set(notifiable: EmeraldDateFieldChangeNotifiable?) {
         self.notifiable = notifiable
     }
-
+    
     public func set(dateFormat: String) {
         self.dateFormatter.dateFormat = dateFormat
     }
-
+    
     public func getDate(from string: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = getFormat() == TextFormat.longDate ? Constants.DateFormat.defaultFormat : Constants.DateFormat.shortFormat
         dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
         return dateFormatter.date(from: string)
     }
-
+    
     public func set(minimumDate: Date?) {
         validateFormat.setDistanceDate(date: minimumDate!)
         self.minimumDate = minimumDate
     }
-
+    
     public func getMinimumDate() -> Date? {
         return self.minimumDate
     }
-
+    
     public func set(maximumDate: Date?) {
         self.maximumDate = maximumDate
         validateFormat.setDistanceDate(date: maximumDate!)
     }
-
+    
     public func getMaximumDate() -> Date? {
         return self.maximumDate
     }
-
+    
     public func forbidDatesPreviousThanToday() {
         self.minimumDate = Date()
     }
-
+    
     public func allowDatesPreviousThanToday() {
         self.minimumDate = nil
     }
-
+    
     public func forbidDatesLaterThanToday() {
         self.maximumDate = Date()
     }
-
+    
     public func allowDatesLaterThanToday() {
         self.maximumDate = nil
     }
-
+    
     public func setDependantField(with dateField: EmeraldDateFieldType) {
         self.dependantField = dateField
     }
-
+    
     private func setupToolbar() {
         self.toolbar.barStyle = UIBarStyle.default
         self.toolbar.isTranslucent = true
         self.toolbar.sizeToFit()
-
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDoneButtonPressedFromView))
-
+        
         self.toolbar.setItems([flexibleSpace, doneButton], animated: false)
         self.toolbar.isUserInteractionEnabled = true
         self.inputAccessoryView = toolbar
     }
-
+    
     private func configureDateField() {
         self.set(format: self.getFormat())
         validateFormat.set(textFormat: getFormat())
     }
-
+    
     private func addCalendarIcon() {
         let calendarIcon = UIImage(named: InnerConstants.calendarIcon,
-            in: Bundle(for: ClassBundle.self),
-            compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+                                   in: Bundle(for: ClassBundle.self),
+                                   compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         guard let image = calendarIcon else {
             return
         }
-
+        
         let rect = CGRect(x: 0, y: 0, width: 40, height: 20)
         let containerView: UIView = UIView(frame: rect)
         let button = UIButton(frame: containerView.frame)
         button.imageEdgeInsets = UIEdgeInsets(top: 0,
-            left: 10,
-            bottom: 0,
-            right: 10)
+                                              left: 10,
+                                              bottom: 0,
+                                              right: 10)
         button.setImage(image, for: .normal)
         button.imageView?.tintColor = EmeraldTheme.primaryColor
         button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
@@ -218,7 +218,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.rightViewMode = .always
         button.isUserInteractionEnabled = true
         button.becomeFirstResponder()
-
+        
         self.reloadInputViews()
     }
     
@@ -279,21 +279,45 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
                         doneButtonTitle: "Done",
                         cancelButtonTitle: "Cancel",
                         datePickerMode: .date) { [unowned self] date in
-            guard let date = date else {
-                self.textFieldDidEndEditing(self)
-                return
-            }
-            self.set(selectedDate: date)
-            self.textFieldDidEndEditing(self)
+                            guard let date = date else {
+                                self.textFieldDidEndEditing(self)
+                                return
+                            }
+                            self.set(selectedDate: date)
+                            self.textFieldDidEndEditing(self)
         }
     }
-
+    
     @objc private func onDoneButtonPressedFromView() {
         self.endEditing(true)
         notifiable?.onDoneButtonPressed(from: self)
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.text = validateFormat.fillYear(date: textField.text)
+    }
+}
+
+extension EmeraldDateField: EmeraldDateFieldChangeNotifiable {
+    public func onSelected(dateString: String,
+                           date: Date,
+                           from datePicker: EmeraldDateField) {
+        guard let dependantField = self.dependantField else {
+            return
+        }
+        
+        dependantField.set(minimumDate: date)
+    }
+    
+    public func onDoneButtonPressed(from datePicker: EmeraldDateField) {
+        guard let dependantField = self.dependantField else {
+            return
+        }
+        
+        guard let value = datePicker.getValue(),
+            let minimunDate = datePicker.getDate(from: value) else {
+                return
+        }
+        dependantField.set(minimumDate: minimunDate)
     }
 }
