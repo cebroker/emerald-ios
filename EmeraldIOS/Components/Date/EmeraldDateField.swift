@@ -147,7 +147,6 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     }
     
     public func set(minimumDate: Date?) {
-        formatValidator.setDistanceDate(date: maximumDate ?? Date())
         self.minimumDate = minimumDate
     }
     
@@ -157,7 +156,6 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     public func set(maximumDate: Date?) {
         self.maximumDate = maximumDate
-        formatValidator.setDistanceDate(date: maximumDate ?? Date())
     }
     
     public func getMaximumDate() -> Date? {

@@ -31,10 +31,6 @@ public class FormatValidator {
 
     public init() { }
 
-    func setDistanceDate(date: Date) {
-        self.date = date
-    }
-
     func set(textFormat: TextFormat) {
         self.textFormat = textFormat
     }
