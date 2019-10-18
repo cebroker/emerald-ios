@@ -118,7 +118,6 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
         emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
-        emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
         emeraldStartDateFieldByStory.errorMessages.minimumDate = "This is a custom error"
         emeraldStartDateFieldByStory.set(format: .shortDate)
         emeraldStartDateFieldByStory.set(minimumDate: Date())
