@@ -7,20 +7,18 @@
 //
 
 enum EmeraldDateFieldError: FormFieldErrorType, Error {
-    case lowerThanMinimumDate
-    case greaterThanMaximumDate
-    case invalidDateFormat
+    case lowerThanMinimumDate(message: String)
+    case greaterThanMaximumDate(message: String)
+    case invalidDateFormat(message: String)
 }
 
 extension EmeraldDateFieldError {
     public var description: String? {
         switch self {
-        case .lowerThanMinimumDate:
-            return "Picked date is lower than minimum."
-        case .greaterThanMaximumDate:
-            return "Picked date is greater than maximum."
-        case .invalidDateFormat:
-            return "Invalid date format"
+        case .lowerThanMinimumDate(let message),
+             .greaterThanMaximumDate(let message),
+             .invalidDateFormat(let message):
+            return message
         }
     }
 }
