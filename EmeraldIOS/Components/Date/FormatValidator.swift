@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ComponentslongDate: Int {
+enum ComponentsLongDate: Int {
     case month
     case day
     case year
@@ -43,7 +43,7 @@ public class FormatValidator {
             self.year = components?.last
         case .longDate:
             for (index, component) in components!.enumerated() {
-                let componentsDate = ComponentslongDate(rawValue: index)
+                let componentsDate = ComponentsLongDate(rawValue: index)
                 switch componentsDate {
                 case .month:
                     self.month = component
