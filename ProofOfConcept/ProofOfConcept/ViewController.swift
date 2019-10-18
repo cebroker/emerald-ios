@@ -117,7 +117,11 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldRegexFieldByStory.set(regex: .custom("^([A-Z0-9]{1}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5})$"))
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
-        //emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
+        emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
+        emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
+        emeraldStartDateFieldByStory.errorMessages.minimumDate = "This is a custom error"
+        emeraldStartDateFieldByStory.set(format: .shortDate)
+        emeraldStartDateFieldByStory.set(minimumDate: Date())
 
         emeraldTextView.set(placeholder: "Description")
         textViewStack.setPlaceholder(with: "Description")
