@@ -52,7 +52,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var textViewStack: EmeraldTextView!
     @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
     @IBOutlet weak var disabletextField: EmeraldTextField!
-    
+
     private var emeraldFields: [EmeraldValidableType] {
         return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
     }
@@ -75,7 +75,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.createStoryBoardFields()
         loadingIndicator.startAnimating()
     }
-
+    
     private func createHideKeyboardGesture() {
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
         viewTapGesture.cancelsTouchesInView = false
@@ -91,7 +91,6 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.chipWarning.setText("Hola ")
         self.chipSuccess.setText("Hola ")
         self.chipDismissable.setText("Hola ")
-
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setPasswordRightView()
@@ -122,6 +121,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldStartDateFieldByStory.errorMessages.minimumDate = "This is a custom error"
         emeraldStartDateFieldByStory.set(format: .shortDate)
         emeraldStartDateFieldByStory.set(minimumDate: Date())
+
         emeraldTextView.set(placeholder: "Description")
         textViewStack.setPlaceholder(with: "Description")
         textViewStack.setTitle(with: "My textview title with an a large extension to probe if the multiples line split work.")
@@ -182,7 +182,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         formButton = formStackView.createButton(with: "Submit form")
         formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
-
+  
         formStackView.reloadFields()
     }
 

@@ -14,4 +14,10 @@ public extension Date {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
+
+    func getYear() -> String {
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: self)
+        return String(year)
+    }
 }
