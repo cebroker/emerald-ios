@@ -14,6 +14,10 @@ public enum ChartType {
     case multipleBarColor
 }
 
+public protocol EmeraldChartViewType {
+    func setData(_ data: EmeraldChartDataEntry)
+}
+
 public class EmeraldChart: UIView {
 
     private let presenter: EmeraldChartPresenterType = EmeraldChartPresenter()
@@ -28,8 +32,8 @@ public class EmeraldChart: UIView {
 
     public init(
         type: ChartType = .simpleBarColor,
-        data: EmeraldChartDataEntry,
-        and options: EmeraldChartOptions = EmeraldChartOptions()) {
+        data: EmeraldChartDataEntry = EmeraldChartDataEntry(with: [EmeraldChartSimpleDataEntry]()),
+        options: EmeraldChartOptions = EmeraldChartOptions()) {
         super.init(frame: .zero)
         self.presenter.bind(view: self)
         self.chartType = type
@@ -177,6 +181,13 @@ public class EmeraldChart: UIView {
         self.barChartView.data?.notifyDataChanged()
         self.barChartView.setNeedsDisplay()
         self.barChartView.notifyDataSetChanged()
+    }
+}
+
+extension EmeraldChart: EmeraldChartViewType {
+    public func setData(_ data: EmeraldChartDataEntry) {
+        self.presenter.setDataEntries(data: data)
+        self.initialSetup()
     }
 }
 
