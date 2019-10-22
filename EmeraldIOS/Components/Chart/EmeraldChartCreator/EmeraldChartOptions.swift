@@ -9,6 +9,7 @@
 import Foundation
 
 public struct EmeraldChartOptions {
+    
     public var cornerRadius: CGFloat
     public var titleFont: UIFont
     public var subtitleFont: UIFont
@@ -26,12 +27,12 @@ public struct EmeraldChartOptions {
     public init (cornerRadius: CGFloat = 0,
                  titleFont: UIFont = Font(size: .body, weight: .regular).uiFont,
                  subtitleFont: UIFont = Font(size: .h4, weight: .bold).uiFont,
-                 titleFontColor: UIColor = EmeraldTheme.grayColor,
+                 titleFontColor: UIColor = EmeraldTheme.extraLightGrayColor,
                  accessoryViewImage: UIImage? = nil,
                  barWidthPercentage: Double = 0.85,
                  barReachesTop: Bool = false,
                  showSubtitle: Bool = false,
-                 showGrid: Bool = false,
+                 showGrid: Bool = true,
                  showLeftAxis: Bool = true,
                  drawLeftAxisLine: Bool = false,
                  steps: Int = 5,
