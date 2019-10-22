@@ -64,7 +64,8 @@ class BarChartViewController: UIViewController {
             showSubtitle: true)
 
         let simpleData = EmeraldChartDataEntry(with: dataEntries)
-        self.emeraldSimpleBarChart = EmeraldChart(data: simpleData, and: chartOptions)
+        self.emeraldSimpleBarChart = EmeraldChart(options: chartOptions)
+        self.emeraldSimpleBarChart.setData(simpleData)
         self.view.backgroundColor = UIColor.white
         self.view.addSubview(emeraldSimpleBarChart)
 
