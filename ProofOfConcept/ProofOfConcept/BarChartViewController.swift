@@ -25,7 +25,8 @@ class BarChartViewController: UIViewController {
 
         dataEntries.append(EmeraldChartSimpleDataEntry(
             color: EmeraldTheme.yellowColor,
-            value: 2, title: "First Data",
+            value: 2,
+            title: "First Data",
             subtitle: nil,
             hasAction: false))
 
@@ -95,4 +96,3 @@ class BarChartViewController: UIViewController {
             right: self.view.rightAnchor)
     }
 }
-

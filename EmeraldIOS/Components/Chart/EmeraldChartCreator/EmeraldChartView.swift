@@ -160,7 +160,7 @@ public class EmeraldChart: UIView {
     private func commonSetupChartData(_ data: [BarChartDataEntry], colors: [UIColor]) {
         let barChartDataSet = BarChartDataSet(entries: data, label: "")
         barChartDataSet.colors = colors
-        barChartDataSet.highlightEnabled = false
+        barChartDataSet.highlightColor = .clear
 
         self.barChartView.data = BarChartData(dataSet: barChartDataSet)
 
