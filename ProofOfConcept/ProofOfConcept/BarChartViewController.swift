@@ -11,7 +11,7 @@ import EmeraldIOS
 
 class BarChartViewController: UIViewController {
 
-    var emeraldSimpleBarChart: EmeraldChart!
+    var emeraldSimpleBarChart: EmeraldChartViewType!
     var emeraldMultipleValueBarChart: EmeraldChart!
 
     override func viewDidLoad() {
@@ -67,9 +67,9 @@ class BarChartViewController: UIViewController {
         self.emeraldSimpleBarChart = EmeraldChart(options: chartOptions)
         self.emeraldSimpleBarChart.setData(simpleData)
         self.view.backgroundColor = UIColor.white
-        self.view.addSubview(emeraldSimpleBarChart)
+        self.view.addSubview(emeraldSimpleBarChart as! UIView)
 
-        self.emeraldSimpleBarChart.anchor(
+        (self.emeraldSimpleBarChart as! UIView).anchor(
             top: self.view.topAnchor,
             left: self.view.leftAnchor,
             bottom: nil,
@@ -91,7 +91,7 @@ class BarChartViewController: UIViewController {
         self.view.addSubview(emeraldMultipleValueBarChart)
 
         self.emeraldMultipleValueBarChart.anchor(
-            top: emeraldSimpleBarChart.bottomAnchor,
+            top: (emeraldSimpleBarChart as! UIView).bottomAnchor,
             left: self.view.leftAnchor,
             bottom: self.view.bottomAnchor,
             right: self.view.rightAnchor)

@@ -16,6 +16,8 @@ public enum ChartType {
 
 public protocol EmeraldChartViewType {
     func setData(_ data: EmeraldChartDataEntry)
+    func setHidden(_ hidden: Bool)
+    func getChartView() -> UIView
 }
 
 public class EmeraldChart: UIView {
@@ -188,6 +190,14 @@ extension EmeraldChart: EmeraldChartViewType {
     public func setData(_ data: EmeraldChartDataEntry) {
         self.presenter.setDataEntries(data: data)
         self.initialSetup()
+    }
+
+    public func setHidden(_ hidden: Bool) {
+        self.isHidden = hidden
+    }
+
+    public func getChartView() -> UIView {
+        return self
     }
 }
 
