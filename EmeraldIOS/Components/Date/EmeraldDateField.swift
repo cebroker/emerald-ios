@@ -96,7 +96,8 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     public override func textFieldDidEndEditing(_ textField: UITextField) {
         super.textFieldDidEndEditing(textField)
-        if let validatedText = self.text,
+        let validatedText = formatValidator.fillYear(date: self.text)
+        if !validatedText.isEmpty,
             let dateValue = getDate(from: validatedText) {
             self.set(selectedDate: dateValue)
         }
@@ -288,6 +289,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
                                 self.textFieldDidEndEditing(self)
                                 return
                             }
+                            self.textFieldDidBeginEditing(self)
                             self.set(selectedDate: date)
                             self.textFieldDidEndEditing(self)
         }
@@ -296,10 +298,6 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     @objc private func onDoneButtonPressedFromView() {
         self.endEditing(true)
         notifiable?.onDoneButtonPressed(from: self)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.text = formatValidator.fillYear(date: textField.text)
     }
 }
 
