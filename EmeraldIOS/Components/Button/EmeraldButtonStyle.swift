@@ -110,9 +110,12 @@ public enum EmeraldButtonStyle: String, Inspectable {
         case .primaryLarge, .secondaryLarge:
             return Font(size: .largeButton,
                         weight: .bold).uiFont
-        case .link, .plainPrimary:
+        case .plainPrimary:
             return Font(size: .smallButton,
                         weight: .semibold).uiFont
+        case .link:
+            return Font(size: .linkButton,
+                weight: .semibold).uiFont
         default:
             return Font(size: .button,
                         weight: .bold).uiFont

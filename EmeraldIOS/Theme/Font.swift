@@ -26,6 +26,7 @@ public enum FontSize: String, Inspectable {
     case navigationTitleText
     case body
     case button
+    case linkButton
     case smallButton
     case largeButton
     case label
@@ -61,6 +62,8 @@ public enum FontSize: String, Inspectable {
             return 17
         case .button:
             return 18
+        case linkButton:
+            return 16
         case .smallButton:
             return 14
         case .largeButton:
