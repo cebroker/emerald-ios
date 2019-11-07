@@ -50,6 +50,8 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldTextView: EmeraldTextViewField!
 
     @IBOutlet weak var textViewStack: EmeraldTextView!
+    @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
+    @IBOutlet weak var disabletextField: EmeraldTextField!
 
     private var emeraldFields: [EmeraldValidableType] {
         return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
@@ -71,8 +73,9 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.createHideKeyboardGesture()
 //        self.createFields()
         self.createStoryBoardFields()
+        loadingIndicator.startAnimating()
     }
-
+    
     private func createHideKeyboardGesture() {
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
         viewTapGesture.cancelsTouchesInView = false
@@ -88,7 +91,6 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.chipWarning.setText("Hola ")
         self.chipSuccess.setText("Hola ")
         self.chipDismissable.setText("Hola ")
-
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setPasswordRightView()
@@ -108,13 +110,18 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
         emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
             MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
-            MultipleSelectionGroupItem(title: "Tres"),
+            MultipleSelectionGroupItem(id: "TresId", title: "tres"),
             MultipleSelectionGroupItem(title: "Cuatro"),
             MultipleSelectionGroupItem(title: "Cinco")])
+        emeraldMultipleSelectorByStory.set(notifiable: self)
         emeraldRegexFieldByStory.set(regex: .custom("^([A-Z0-9]{1}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5})$"))
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)
         emeraldStartDateFieldByStory.set(notifiable: emeraldStartDateFieldByStory)
+        emeraldStartDateFieldByStory.errorMessages.minimumDate = "This is a custom error"
+        emeraldStartDateFieldByStory.set(format: .shortDate)
+        emeraldStartDateFieldByStory.set(minimumDate: Date())
+
         emeraldTextView.set(placeholder: "Description")
         textViewStack.setPlaceholder(with: "Description")
         textViewStack.setTitle(with: "My textview title with an a large extension to probe if the multiples line split work.")
@@ -175,7 +182,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         formButton = formStackView.createButton(with: "Submit form")
         formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
-
+  
         formStackView.reloadFields()
     }
 
@@ -193,6 +200,10 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.chipCollectionView.addNewChip(with: vm2)
     }
 
+    @IBAction func showBarChart(_ sender: Any) {
+        let barChartVC = BarChartViewController()
+        self.navigationController?.pushViewController(barChartVC, animated: true)
+    }
     private func areFieldsValid() -> Bool {
         return validateEmeraldFields(with: self.emeraldFields)
     }
@@ -248,6 +259,10 @@ extension ViewController: SingleItemChangeNotifiable {
         case "MI_ID_1":
             // do something with
             break
+        case "TresId":
+            let textTextField = "test comon"
+            self.disabletextField.setText(with: textTextField)
+            self.disabletextField.isEnable(false)
         default:
             break
         }

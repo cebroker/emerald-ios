@@ -169,6 +169,13 @@ struct Constants {
             static let blueAccent = UIColor(hex: 0x42A5F5)
         }
     }
+    
+    struct ReusableId {
+        static let verticalDivider = "verticalDivider"
+        static let barChartcell = "barChartCell"
+        static let verticalLabel = "verticalLabel"
+        static let sideBar = "sideBar"
+    }
 }
 
 class EducationType: Selectable {

@@ -24,6 +24,7 @@ public class EmeraldTheme {
     public static let extraLightGrayColor = #colorLiteral(red: 0.3764705882, green: 0.4823529412, blue: 0.4823529412, alpha: 1)
     public static let toastSuccess = #colorLiteral(red: 0.8862745098, green: 0.9450980392, blue: 0.8784313725, alpha: 1)
     public static let toastFailure = #colorLiteral(red: 1, green: 0.9181403518, blue: 0.932766974, alpha: 1)
+    public static let axisChart = #colorLiteral(red: 0.9019607843, green: 0.9176470588, blue: 0.9333333333, alpha: 1)
     
     // MARK: General Colors
     public static let primaryColor = blueColor

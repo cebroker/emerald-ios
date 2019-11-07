@@ -24,7 +24,7 @@ public enum EmeralSegmentedBarStyle: String, Inspectable {
     var selectionBarColor: UIColor {
         switch self {
         case .primary, .navigation:
-            return EmeraldTheme.greenColor
+            return EmeraldTheme.blueColor
         }
     }
     

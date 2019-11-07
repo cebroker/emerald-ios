@@ -40,6 +40,7 @@ public protocol EmeraldTextFieldType {
     func setText(with value: String?)
     func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate)
     func clearText()
+    func isEnable(_ enable: Bool)
 }
 
 @IBDesignable
@@ -114,7 +115,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     }
 
     private struct InnerConstants {
-        static let middleFontSize: CGFloat = FontSize.h5.cgFontSize
+        static let middleFontSize: CGFloat = FontSize.h6.cgFontSize
         static let maximumFontSize: CGFloat = FontSize.body.cgFontSize
         static let placeHolderLabelSize: CGFloat = FontSize.h3.cgFontSize * 1.3
         static let animationDuration: Double = 0.15
@@ -307,6 +308,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         if maxLength > 0 {
             self.maxLength = maxLength
         }
+    }
+
+    public func isEnable(_ enable: Bool) {
+        self.alpha = enable == true ? 1 : 0.5
+        self.isEnabled = enable
+        self.deactivateField()
     }
 
     public func getMaxLength() -> Int {

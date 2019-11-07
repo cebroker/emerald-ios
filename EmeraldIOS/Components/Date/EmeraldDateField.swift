@@ -32,6 +32,13 @@ public protocol EmeraldDateFieldTestableType {
 @IBDesignable
 public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDateFieldTestableType {
     
+    public class ErrorMessages {
+        public var minimumDate = "Picked date is lower than minimum."
+        public var maximumDate = "Picked date is greater than maximum."
+        public var invalidFormat = "Invalid date format"
+    }
+    
+    public let errorMessages = ErrorMessages()
     private var selectedDate: Date?
     private lazy var dateFormatter: DateFormatter = DateFormatter()
     private weak var notifiable: EmeraldDateFieldChangeNotifiable?
@@ -39,6 +46,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     private lazy var toolbar: UIToolbar = UIToolbar()
     private var minimumDate: Date?
     private var maximumDate: Date?
+    private var formatValidator = FormatValidator()
     
     struct InnerConstants {
         static let calendarIcon = "calendar_icon"
@@ -50,6 +58,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         self.addCalendarIcon()
         self.setupToolbar()
         self.setupDefaultDateFormat()
+        self.hint = self.hint?.lowercased()
     }
     
     public override func didMoveToWindow() {
@@ -63,23 +72,23 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         }
         
         guard let date = self.selectedDate else {
-            return .failure(EmeraldDateFieldError.invalidDateFormat)
+            return .failure(EmeraldDateFieldError.invalidDateFormat(message: errorMessages.invalidFormat))
         }
         
         if let minimumDate = self.minimumDate {
             guard date >= minimumDate else {
-                return .failure(EmeraldDateFieldError.lowerThanMinimumDate)
+                return .failure(EmeraldDateFieldError.lowerThanMinimumDate(message: errorMessages.minimumDate))
             }
         }
         
         if let maximumDate = self.maximumDate {
             guard date <= maximumDate else {
-                return .failure(EmeraldDateFieldError.greaterThanMaximumDate)
+                return .failure(EmeraldDateFieldError.greaterThanMaximumDate(message: errorMessages.maximumDate))
             }
         }
         
         guard let _ = getDate(from: text) else {
-            return .failure(EmeraldDateFieldError.invalidDateFormat)
+            return .failure(EmeraldDateFieldError.invalidDateFormat(message: errorMessages.invalidFormat))
         }
         
         return .success(true)
@@ -87,7 +96,8 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     public override func textFieldDidEndEditing(_ textField: UITextField) {
         super.textFieldDidEndEditing(textField)
-        if let validatedText = self.text,
+        let validatedText = formatValidator.fillYear(date: self.text)
+        if !validatedText.isEmpty,
             let dateValue = getDate(from: validatedText) {
             self.set(selectedDate: dateValue)
         }
@@ -188,6 +198,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     private func configureDateField() {
         self.set(format: self.getFormat())
+        formatValidator.set(textFormat: getFormat())
     }
     
     private func addCalendarIcon() {
@@ -198,38 +209,21 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
             return
         }
         
-        let button = UIButton()
+        let rect = CGRect(x: 0, y: 0, width: 40, height: 20)
+        let containerView: UIView = UIView(frame: rect)
+        let button = UIButton(frame: containerView.frame)
         button.imageEdgeInsets = UIEdgeInsets(top: 0,
-                                              left: -18,
+                                              left: 10,
                                               bottom: 0,
-                                              right: 17)
-        button.translatesAutoresizingMaskIntoConstraints = false
+                                              right: 10)
         button.setImage(image, for: .normal)
         button.imageView?.tintColor = EmeraldTheme.primaryColor
         button.addTarget(self, action: #selector(openDatePicker), for: .touchUpInside)
-        self.rightView = button
+        containerView.addSubview(button)
+        self.rightView = containerView
         self.rightViewMode = .always
         button.isUserInteractionEnabled = true
         button.becomeFirstResponder()
-        
-        guard let rightView = rightView else {
-            return
-        }
-        
-        button
-            .heightAnchor
-            .constraint(equalToConstant: 20)
-            .isActive = true
-        
-        button
-            .widthAnchor
-            .constraint(equalToConstant: 20)
-            .isActive = true
-        
-        button
-            .centerYAnchor
-            .constraint(equalTo: rightView.centerYAnchor)
-            .isActive = true
         
         self.reloadInputViews()
     }
@@ -273,8 +267,6 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     }
     
     @objc private func openDatePicker() {
-        self.textFieldDidEndEditing(self)
-        self.textFieldDidBeginEditing(self)
         let datePicker: EmeraldDatePickerAlertType = getFormat() == TextFormat.longDate ? EmeraldDatePickerAlert() : EmeraldShortDatePickerAlert()
         
         if let minimumDate = self.minimumDate {
@@ -284,8 +276,8 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
         if let maximumDate = self.maximumDate {
             datePicker.set(maximumDate: maximumDate)
         }
-        
-        if let currentDate = self.getDate(from: self.text ?? Constants.Values.empty) {
+        let text = formatValidator.fillYear(date: self.text)
+        if let currentDate = self.getDate(from: text) {
             datePicker.set(currentDateValue: currentDate)
         }
         
@@ -293,12 +285,13 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
                         doneButtonTitle: "Done",
                         cancelButtonTitle: "Cancel",
                         datePickerMode: .date) { [unowned self] date in
-            guard let date = date else {
-                self.textFieldDidEndEditing(self)
-                return
-            }
-            self.set(selectedDate: date)
-            self.textFieldDidEndEditing(self)
+                            guard let date = date else {
+                                self.textFieldDidEndEditing(self)
+                                return
+                            }
+                            self.textFieldDidBeginEditing(self)
+                            self.set(selectedDate: date)
+                            self.textFieldDidEndEditing(self)
         }
     }
     
@@ -310,8 +303,8 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
 
 extension EmeraldDateField: EmeraldDateFieldChangeNotifiable {
     public func onSelected(dateString: String,
-                    date: Date,
-                    from datePicker: EmeraldDateField) {
+                           date: Date,
+                           from datePicker: EmeraldDateField) {
         guard let dependantField = self.dependantField else {
             return
         }
