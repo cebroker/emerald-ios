@@ -10,14 +10,16 @@ import Foundation
 import Charts
 
 class EmeraldCustomBarChartRenderer: BarChartRenderer {
-    internal var cornerRadius: CGFloat = 0
+
     private class Buffer {
         var rects = [CGRect]()
     }
-    
+
+    internal var cornerRadius: CGFloat = 0
+    internal var isSimpleChart: Bool = false
     private var buffers = [Buffer]()
     private var barShadowRectBuffer: CGRect = CGRect()
-    
+
     override func initBuffers() {
         if let barData = dataProvider?.barData {
             if buffers.count != barData.dataSetCount {
@@ -28,41 +30,41 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                     buffers.removeLast()
                 }
             }
-            
-            let dataSets = barData.dataSets.compactMap({$0 as? IBarChartDataSet})
-            for set in dataSets.enumerated(){
+
+            let dataSets = barData.dataSets.compactMap({ $0 as? IBarChartDataSet })
+            for set in dataSets.enumerated() {
                 let size = set.element.entryCount * (set.element.isStacked ? set.element.stackSize : 1)
                 if buffers[set.offset].rects.count != size {
                     buffers[set.offset].rects = [CGRect](repeating: CGRect(), count: size)
                 }
             }
-        }  else {
+        } else {
             buffers.removeAll()
         }
     }
-    
+
     private func prepareBuffer(dataSet: IBarChartDataSet, index: Int) {
         guard
             let dataProvider = dataProvider,
             let barData = dataProvider.barData
             else { return }
-        
+
         let barWidthHalf = barData.barWidth / 2.0
-    
+
         let buffer = buffers[index]
         var bufferIndex = 0
         let containsStacks = dataSet.isStacked
-        
+
         let isInverted = dataProvider.isInverted(axis: dataSet.axisDependency)
         let phaseY = animator.phaseY
         var barRect = CGRect()
         var x: Double
         var y: Double
 
-        
+
         for i in stride(from: 0, to: min(Int(ceil(Double(dataSet.entryCount) * animator.phaseX)), dataSet.entryCount), by: 1) {
             guard let entry = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
-            
+
             let vals = entry.yValues
 
             x = entry.x
@@ -97,14 +99,14 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                             bottomOffset = CGFloat(offsetAxis.axisMinimum - y)
                         }
                     }
-                    
+
                     if isInverted {
                         (topOffset, bottomOffset) = (bottomOffset, topOffset)
                     }
                 }
                 top = isInverted ? top + topOffset : top - topOffset
-                bottom = isInverted ? bottom - bottomOffset : bottom + bottomOffset
-                
+                bottom = isInverted ? bottom - bottomOffset: bottom + bottomOffset
+
                 if top > 0 + topOffset {
                     top *= CGFloat(phaseY)
                 } else {
@@ -121,7 +123,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 var posY = 0.0
                 var negY = -entry.negativeSum
                 var yStart = 0.0
-                
+
                 for value in vals! {
                     if value == 0.0 && (posY == 0.0 || negY == 0.0) {
                         y = value
@@ -143,22 +145,22 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                     var bottom = isInverted
                         ? (y >= yStart ? CGFloat(y) : CGFloat(yStart))
                         : (y <= yStart ? CGFloat(y) : CGFloat(yStart))
-                    
+
                     top *= CGFloat(phaseY)
                     bottom *= CGFloat(phaseY)
-                    
+
                     barRect.origin.x = left
                     barRect.size.width = right - left
                     barRect.origin.y = top
                     barRect.size.height = bottom - top
-                    
+
                     buffer.rects[bufferIndex] = barRect
                     bufferIndex += 1
                 }
             }
         }
     }
-    
+
     override func drawValues(context: CGContext) {
         if isDrawingValuesAllowed(dataProvider: dataProvider) {
             guard
@@ -172,55 +174,55 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
             var posOffset: CGFloat
             var negOffset: CGFloat
             let drawValueAboveBar = dataProvider.isDrawValueAboveBarEnabled
-            
+
             for dataSetIndex in 0 ..< barData.dataSetCount {
                 guard let
-                    dataSet = dataSets[dataSetIndex] as? IBarChartDataSet,
+                dataSet = dataSets[dataSetIndex] as? IBarChartDataSet,
                     shouldDrawValues(forDataSet: dataSet)
                     else { continue }
-                
+
                 let isInverted = dataProvider.isInverted(axis: dataSet.axisDependency)
-                
+
                 // calculate the correct offset depending on the draw position of the value
                 let valueFont = dataSet.valueFont
                 let valueTextHeight = valueFont.lineHeight
                 posOffset = (drawValueAboveBar ? -(valueTextHeight + valueOffsetPlus) : valueOffsetPlus)
                 negOffset = (drawValueAboveBar ? valueOffsetPlus : -(valueTextHeight + valueOffsetPlus))
-                
+
                 if isInverted {
                     posOffset = -posOffset - valueTextHeight
                     negOffset = -negOffset - valueTextHeight
                 }
-                
+
                 let buffer = buffers[dataSetIndex]
-                
+
                 guard let formatter = dataSet.valueFormatter else { continue }
-                
+
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
-                
+
                 let phaseY = animator.phaseY
-                
+
                 let iconsOffset = dataSet.iconsOffset
-        
+
                 if !dataSet.isStacked {
                     for j in 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX)) {
                         guard let entry = dataSet.entryForIndex(j) as? BarChartDataEntry else { continue }
-                        
+
                         let rect = buffer.rects[j]
-                        
+
                         let x = rect.origin.x + rect.size.width / 2.0
-                        
+
                         if !viewPortHandler.isInBoundsRight(x) {
                             break
                         }
-                        
+
                         if !viewPortHandler.isInBoundsY(rect.origin.y)
                             || !viewPortHandler.isInBoundsLeft(x) {
                             continue
                         }
-                        
+
                         let val = entry.y
-                        
+
                         if dataSet.isDrawValuesEnabled {
                             drawValue(
                                 context: context,
@@ -237,16 +239,16 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                 align: .center,
                                 color: dataSet.valueTextColorAt(j))
                         }
-                        
+
                         if let icon = entry.icon, dataSet.isDrawIconsEnabled {
                             var px = x
                             var py = val >= 0.0
                                 ? (rect.origin.y + posOffset)
                                 : (rect.origin.y + rect.size.height + negOffset)
-                            
+
                             px += iconsOffset.x
                             py += iconsOffset.y
-                            
+
                             ChartUtils.drawImage(
                                 context: context,
                                 image: icon,
@@ -256,29 +258,29 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                         }
                     }
                 } else {
-                    
+
                     var bufferIndex = 0
-                    
+
                     for index in 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX)) {
                         guard let entry = dataSet.entryForIndex(index) as? BarChartDataEntry else { continue }
-                        
+
                         let vals = entry.yValues
-                        
+
                         let rect = buffer.rects[bufferIndex]
-                        
+
                         let x = rect.origin.x + rect.size.width / 2.0
-                        
+
                         // we still draw stacked bars, but there is one non-stacked in between
                         if vals == nil {
                             if !viewPortHandler.isInBoundsRight(x) {
                                 break
                             }
-                            
+
                             if !viewPortHandler.isInBoundsY(rect.origin.y)
                                 || !viewPortHandler.isInBoundsLeft(x) {
                                 continue
                             }
-                            
+
                             if dataSet.isDrawValuesEnabled {
                                 drawValue(
                                     context: context,
@@ -294,15 +296,15 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                     align: .center,
                                     color: dataSet.valueTextColorAt(index))
                             }
-                            
+
                             if let icon = entry.icon, dataSet.isDrawIconsEnabled {
                                 var px = x
                                 var py = rect.origin.y +
                                     (entry.y >= 0 ? posOffset : negOffset)
-                                
+
                                 px += iconsOffset.x
                                 py += iconsOffset.y
-                                
+
                                 ChartUtils.drawImage(
                                     context: context,
                                     image: icon,
@@ -311,17 +313,17 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                     size: icon.size)
                             }
                         } else {
-                            
+
                             let vals = vals!
                             var transformed = [CGPoint]()
-                            
+
                             var posY = 0.0
                             var negY = -entry.negativeSum
-                            
+
                             for k in 0 ..< vals.count {
                                 let value = vals[k]
                                 var y: Double
-                                
+
                                 if value == 0.0 && (posY == 0.0 || negY == 0.0) {
                                     y = value
                                 } else if value >= 0.0 {
@@ -331,26 +333,26 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                     y = negY
                                     negY -= value
                                 }
-                                
+
                                 transformed.append(CGPoint(x: 0.0, y: CGFloat(y * phaseY)))
                             }
-                            
+
                             trans.pointValuesToPixel(&transformed)
-                            
+
                             for k in 0 ..< transformed.count {
                                 let val = vals[k]
                                 let drawBelow = (val == 0.0 && negY == 0.0 && posY > 0.0) || val < 0.0
                                 let y = transformed[k].y + (drawBelow ? negOffset : posOffset)
-                                
+
                                 if !viewPortHandler.isInBoundsRight(x) {
                                     break
                                 }
-                                
+
                                 if !viewPortHandler.isInBoundsY(y) || !viewPortHandler.isInBoundsLeft(x) {
                                     continue
                                 }
-                                
-                                if dataSet.isDrawValuesEnabled  {
+
+                                if dataSet.isDrawValuesEnabled {
                                     drawValue(
                                         context: context,
                                         value: formatter.stringForValue(
@@ -364,7 +366,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                         align: .center,
                                         color: dataSet.valueTextColorAt(index))
                                 }
-                                
+
                                 if let icon = entry.icon, dataSet.isDrawIconsEnabled {
                                     ChartUtils.drawImage(
                                         context: context,
@@ -375,110 +377,63 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                                 }
                             }
                         }
-                        
+
                         bufferIndex = vals == nil ? (bufferIndex + 1) : (bufferIndex + vals!.count)
                     }
                 }
             }
         }
     }
-    
+
     func shouldDrawValues(forDataSet set: IChartDataSet) -> Bool {
         return set.isVisible && (set.isDrawValuesEnabled || set.isDrawIconsEnabled)
     }
-    
+
     override func drawDataSet(context: CGContext, dataSet: IBarChartDataSet, index: Int) {
         guard let dataProvider = dataProvider else { return }
 
-                let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
+        let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
+        self.prepareBuffer(dataSet: dataSet, index: index)
 
-                prepareBuffer(dataSet: dataSet, index: index)
-                trans.rectValuesToPixel(&buffers[index].rects)
-                
-                context.saveGState()
-                
-                if dataProvider.isDrawBarShadowEnabled {
-                    guard let barData = dataProvider.barData else { return }
-                    
-                    let barWidth = barData.barWidth
-                    let barWidthHalf = barWidth / 2.0
-                    var x: Double = 0.0
-                    
-                    for i in stride(from: 0,
-                                    to: min(Int(ceil(Double(dataSet.entryCount) * animator.phaseX)),
-                                            dataSet.entryCount), by: 1) {
-                        guard let entry = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
-                        
-                        x = entry.x
-                        
-                        barShadowRectBuffer.origin.x = CGFloat(x - barWidthHalf)
-                        barShadowRectBuffer.size.width = CGFloat(barWidth)
-                        
-                        trans.rectValueToPixel(&barShadowRectBuffer)
-                        
-                        if !viewPortHandler.isInBoundsLeft(barShadowRectBuffer.origin.x + barShadowRectBuffer.size.width) {
-                            continue
-                        }
-                        
-                        if !viewPortHandler.isInBoundsRight(barShadowRectBuffer.origin.x) {
-                            break
-                        }
-                        
-                        barShadowRectBuffer.origin.y = viewPortHandler.contentTop
-                        barShadowRectBuffer.size.height = viewPortHandler.contentHeight
-                        
-                        context.setFillColor(dataSet.barShadowColor.cgColor)
-                        context.fill(barShadowRectBuffer)
-                    }
-                }
+        trans.rectValuesToPixel(&buffers[index].rects)
+        context.saveGState()
 
-                let buffer = buffers[index]
-                
-                if dataProvider.isDrawBarShadowEnabled {
-                    for j in 0..<buffer.rects.count {
-                        let barRect = buffer.rects[j]
-                        
-                        if (!viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width)) {
-                            continue
-                        }
-                        
-                        if (!viewPortHandler.isInBoundsRight(barRect.origin.x)) {
-                            break
-                        }
-                        
-                        context.setFillColor(dataSet.barShadowColor.cgColor)
-                        context.fill(barRect)
-                    }
-                }
-                
-                let isSingleColor = dataSet.colors.count == 1
-                
-                if isSingleColor {
-                    context.setFillColor(dataSet.color(atIndex: 0).cgColor)
-                }
+        let buffer = buffers[index]
+        let isSingleColor = dataSet.colors.count == 1
+
+        if isSingleColor {
+            context.setFillColor(dataSet.color(atIndex: 0).cgColor)
+        }
 
         for j in 0..<buffer.rects.count {
-                    let barRect = buffer.rects[j]
-                    let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+            let barRect = buffer.rects[j]
+            let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
 
-                    let roundedPath = bezierPath.cgPath
+            if (!viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width)) {
+                continue
+            }
 
-                    if (!viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width)) {
-                        continue
-                    }
-                    
-                    if (!viewPortHandler.isInBoundsRight(barRect.origin.x)) {
-                        break
-                    }
-                    
-                    if !isSingleColor {
-                        context.setFillColor(dataSet.color(atIndex: j).cgColor)
-                    }
-                    context.addPath(roundedPath)
-                    
-                    context.fillPath()
-                }
-                
-                context.restoreGState()
+            if (!viewPortHandler.isInBoundsRight(barRect.origin.x)) {
+                break
+            }
+
+            if !isSingleColor {
+                context.setFillColor(dataSet.color(atIndex: j).cgColor)
+            }
+            
+            if isSimpleChart {
+                let color = dataSet.color(atIndex: j)
+                color.setStroke()
+
+                bezierPath.lineWidth = 2
+                bezierPath.stroke()
+                context.setFillColor(color.withAlphaComponent(0.7).cgColor)
+            }
+
+            context.addPath(bezierPath.cgPath)
+            context.fillPath()
+        }
+
+        context.restoreGState()
     }
 }
