@@ -20,6 +20,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     case secondarySmall
     case secondaryLarge
     case link
+    case linkButton
     case plainPrimary
     
     var backgroundColor: UIColor? {
@@ -47,7 +48,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.whiteColor
         case .secondary, .secondarySmall, .secondaryLarge, .plainPrimary:
             return EmeraldTheme.primaryColor
-        case .link:
+        case .link, .linkButton:
             return EmeraldTheme.linkColor
         case .plain:
             return EmeraldTheme.darkTextColor
@@ -113,6 +114,9 @@ public enum EmeraldButtonStyle: String, Inspectable {
         case .link, .plainPrimary:
             return Font(size: .smallButton,
                         weight: .semibold).uiFont
+        case .linkButton:
+            return Font(size: .linkButton,
+                weight: .semibold).uiFont
         default:
             return Font(size: .button,
                         weight: .bold).uiFont
