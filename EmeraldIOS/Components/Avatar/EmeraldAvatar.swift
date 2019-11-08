@@ -9,6 +9,7 @@
 public protocol EmeraldAvatarFieldType {
     func setTitle(with name: String?, lastName: String?)
     func set(size: EmeraldAvatarStyle)
+    func setBackgroundColor(_ color: UIColor)
 }
 
 @IBDesignable
@@ -81,5 +82,13 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
 
     public func set(size: EmeraldAvatarStyle) {
         self.size = size.rawValue
+    }
+    
+    public func setBackgroundColor(_ color: UIColor) {
+        self.backgroundColor = color
+    }
+    
+    public func setTextColor(_ color: UIColor) {
+        self.titleLabel.textColor = color
     }
 }

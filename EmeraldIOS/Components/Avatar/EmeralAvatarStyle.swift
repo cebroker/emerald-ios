@@ -9,12 +9,15 @@
 import UIKit
 
 public enum EmeraldAvatarStyle: String, Inspectable {
+    case xxs
     case xs
     case md
     case lg
 
     var font: UIFont {
         switch self {
+        case .xxs:
+            return UIFont.systemFont(ofSize: FontSize.h7.cgFontSize, weight: .regular)
         case .xs:
             return UIFont.systemFont(ofSize: FontSize.h5.cgFontSize, weight: .regular)
         case .md:
@@ -26,6 +29,8 @@ public enum EmeraldAvatarStyle: String, Inspectable {
 
     var size: CGFloat {
         switch self {
+        case .xxs:
+            return CGFloat(integerLiteral: 20)
         case .xs:
             return CGFloat(integerLiteral: 40)
         case .md:
