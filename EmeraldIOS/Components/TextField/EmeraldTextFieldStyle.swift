@@ -8,17 +8,22 @@
 
 public enum EmeraldTextFieldStyle: String, Inspectable {
     case formField
+    case custom
     
     var textColor: UIColor? {
         switch self {
         case .formField:
             return EmeraldTheme.textColor
+        default:
+            return nil
         }
     }
     
     var font: UIFont? {
         switch self {
         case .formField:
+            return Font(size: .h5, weight: .semibold).uiFont
+        default:
             return Font(size: .h5, weight: .semibold).uiFont
         }
     }
@@ -27,6 +32,8 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
         switch self {
         case .formField:
             return EmeraldTheme.primaryColor
+        default:
+            return .clear
         }
     }
     
@@ -34,6 +41,8 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
         switch self {
         case .formField:
             return EmeraldTheme.defaultCornerRadius
+        default:
+            return EmeraldTheme.withoutCornerRadius
         }
     }
     
@@ -41,6 +50,8 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
         switch self {
         case .formField:
             return EmeraldTheme.borderColor.cgColor
+        default:
+            return UIColor.clear.cgColor
         }
     }
     
@@ -48,6 +59,8 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
         switch self {
         case .formField:
             return EmeraldTheme.defaultBorderWidth
+        default:
+            return EmeraldTheme.simpleBorderWidth
         }
     }
     

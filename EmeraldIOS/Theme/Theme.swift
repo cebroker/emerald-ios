@@ -27,6 +27,7 @@ public class EmeraldTheme {
     public static let axisChart = #colorLiteral(red: 0.9019607843, green: 0.9176470588, blue: 0.9333333333, alpha: 1)
     
     // MARK: General Colors
+
     public static let primaryColor = blueColor
     public static let secondaryColor = #colorLiteral(red: 0.0431372549, green: 0.1647058824, blue: 0.3607843137, alpha: 1)
     public static let backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9568627451, blue: 0.9725490196, alpha: 1)
@@ -78,6 +79,7 @@ public class EmeraldTheme {
     public static let defaultCornerRadius: CGFloat = 2
     public static let defaultButtonCornerRadius: CGFloat = 5
     public static let defaultElevatedViewCornerRadius: CGFloat = 5
+    public static let withoutCornerRadius : CGFloat = 0
 
     // MARK: Border Defaults
     public static let defaultBorderWidth: CGFloat = 1
