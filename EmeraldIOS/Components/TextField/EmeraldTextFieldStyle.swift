@@ -9,7 +9,7 @@
 public enum EmeraldTextFieldStyle: String, Inspectable {
     case formField
     case custom
-    
+
     var textColor: UIColor? {
         switch self {
         case .formField:
@@ -18,25 +18,23 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
             return nil
         }
     }
-    
+
     var font: UIFont? {
         switch self {
-        case .formField:
-            return Font(size: .h5, weight: .semibold).uiFont
-        default:
+        case .formField, .custom:
             return Font(size: .h5, weight: .semibold).uiFont
         }
     }
-    
+
     var tintColor: UIColor {
         switch self {
         case .formField:
             return EmeraldTheme.primaryColor
         default:
-            return .clear
+            return EmeraldTheme.blackColor
         }
     }
-    
+
     var cornerRadius: CGFloat {
         switch self {
         case .formField:
@@ -45,7 +43,7 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
             return EmeraldTheme.withoutCornerRadius
         }
     }
-    
+
     var borderColor: CGColor {
         switch self {
         case .formField:
@@ -54,7 +52,7 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
             return UIColor.clear.cgColor
         }
     }
-    
+
     var borderWidth: CGFloat {
         switch self {
         case .formField:
@@ -63,11 +61,11 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
             return EmeraldTheme.simpleBorderWidth
         }
     }
-    
+
     var IBInspectable: String {
         return rawValue
     }
-    
+
     init(IBInspectable: String) {
         self.init(stringValue: IBInspectable)
     }
