@@ -7,9 +7,10 @@
 //
 
 public protocol EmeraldAvatarFieldType {
-    func setTitle(with name: String?, lastName: String?)
     func set(size: EmeraldAvatarStyle)
-    func setBackgroundColor(_ color: UIColor)
+    func setTitle(with name: String?, lastName: String?)
+    func setBackgroundColor(_ avatarColor: EmeraldAvatarColor)
+    func setTextColor(_ avatarColor: EmeraldAvatarColor)
 }
 
 @IBDesignable
@@ -24,9 +25,7 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
         return label
     }()
 
-    private var backgroundColors: [UIColor] = [
-        colors.aquamarineColor, colors.reddishBrownColor, colors.cyanColor, colors.chelseaCucumberColor, colors.hillaryColor, colors.bullShotColor, colors.purpleColor, colors.lavenderColor, colors.downyColor]
-
+    private var avatarColors: [UIColor] = EmeraldAvatarColor.allCases.map({ $0.color })
     private var titleColor: [UIColor] = [EmeraldTheme.whiteColor, EmeraldTheme.blackColor]
 
     @IBInspectable public var size: String = EmeraldAvatarStyle.md.IBInspectable {
@@ -56,7 +55,7 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
 
     open func applyTheme() {
         let style = EmeraldAvatarStyle(IBInspectable: size)
-        self.backgroundColor = backgroundColors[Int.random(in: 0 ..< backgroundColors.count)]
+        self.backgroundColor = avatarColors[Int.random(in: 0 ..< avatarColors.count)]
         self.titleLabel.font = style.font
         self.widthAnchor.constraint(equalToConstant: style.size).isActive = true
         self.heightAnchor.constraint(equalToConstant: style.size).isActive = true
@@ -84,11 +83,11 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
         self.size = size.rawValue
     }
     
-    public func setBackgroundColor(_ color: UIColor) {
-        self.backgroundColor = color
+    public func setBackgroundColor(_ avatarColor: EmeraldAvatarColor) {
+        self.backgroundColor = avatarColor.color
     }
     
-    public func setTextColor(_ color: UIColor) {
-        self.titleLabel.textColor = color
+    public func setTextColor(_ avatarColor: EmeraldAvatarColor) {
+        self.titleLabel.textColor = avatarColor.color
     }
 }
