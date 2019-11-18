@@ -48,3 +48,40 @@ public enum EmeraldAvatarStyle: String, Inspectable {
         self.init(stringValue: IBInspectable)
     }
 }
+
+public enum EmeraldAvatarColor: String, CaseIterable {
+    typealias colors = EmeraldTheme.Avatar
+
+    case aquamarineColor
+    case reddishBrownColor
+    case cyanColor
+    case chelseaCucumberColor
+    case hillaryColor
+    case bullShotColor
+    case purpleColor
+    case lavenderColor
+    case downyColor
+
+    var color: UIColor {
+        switch self {
+        case .aquamarineColor:
+            return colors.aquamarineColor
+        case .reddishBrownColor:
+            return colors.reddishBrownColor
+        case .cyanColor:
+            return colors.cyanColor
+        case .chelseaCucumberColor:
+            return colors.chelseaCucumberColor
+        case .hillaryColor:
+            return colors.hillaryColor
+        case .bullShotColor:
+            return colors.bullShotColor
+        case .purpleColor:
+            return colors.purpleColor
+        case .lavenderColor:
+            return colors.lavenderColor
+        case .downyColor:
+            return colors.downyColor
+        }
+    }
+}
