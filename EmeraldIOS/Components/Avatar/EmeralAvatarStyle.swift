@@ -49,7 +49,21 @@ public enum EmeraldAvatarStyle: String, Inspectable {
     }
 }
 
-public enum EmeraldAvatarColor: String, CaseIterable {
+public enum AvatarTextColor: String, CaseIterable {
+    case white
+    case black
+
+    var color: UIColor {
+        switch self {
+        case .white:
+            return EmeraldTheme.whiteColor
+        case .black:
+            return EmeraldTheme.blackColor
+        }
+    }
+}
+
+public enum AvatarBackgroundColor: String, CaseIterable {
     typealias colors = EmeraldTheme.Avatar
 
     case aquamarineColor
