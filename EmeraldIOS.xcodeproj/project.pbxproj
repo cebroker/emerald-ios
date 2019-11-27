@@ -108,6 +108,7 @@
 		D12E88302356635F00178214 /* FormatValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E882F2356635F00178214 /* FormatValidator.swift */; };
 		D12E8832235665AA00178214 /* EmeraldDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E8831235665AA00178214 /* EmeraldDateField.swift */; };
 		D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D139718E2343E59B0061BA5C /* calendar_icon.png */; };
+		D1D039E2238DB57800F560CF /* EmeraldTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D039E1238DB57800F560CF /* EmeraldTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +232,7 @@
 		D12E882F2356635F00178214 /* FormatValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatValidator.swift; sourceTree = "<group>"; };
 		D12E8831235665AA00178214 /* EmeraldDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateField.swift; sourceTree = "<group>"; };
 		D139718E2343E59B0061BA5C /* calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_icon.png; sourceTree = "<group>"; };
+		D1D039E1238DB57800F560CF /* EmeraldTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,6 +515,7 @@
 		9B3BCC4B2272033400DC5D79 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D1D039E0238DB54B00F560CF /* TextfieldView */,
 				49EC6EDD232BF2EC003BFEBD /* Chart */,
 				778BEF6422B92BD400AF8601 /* Avatar */,
 				9B3BCC552272033400DC5D79 /* Button */,
@@ -680,6 +683,14 @@
 				7CFED98E3BEC23A1ACF99D81 /* Pods-EmeraldIOSTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D1D039E0238DB54B00F560CF /* TextfieldView */ = {
+			isa = PBXGroup;
+			children = (
+				D1D039E1238DB57800F560CF /* EmeraldTextFieldView.swift */,
+			);
+			path = TextfieldView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -907,6 +918,7 @@
 				6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */,
 				6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */,
 				778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */,
+				D1D039E2238DB57800F560CF /* EmeraldTextFieldView.swift in Sources */,
 				9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */,
 				6C2D328E228B0378009D4B0F /* EmeraldTextDependantFieldError.swift in Sources */,
 				6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */,
@@ -1163,7 +1175,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.8;
+				MARKETING_VERSION = 1.3.91;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1194,7 +1206,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.8;
+				MARKETING_VERSION = 1.3.91;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
