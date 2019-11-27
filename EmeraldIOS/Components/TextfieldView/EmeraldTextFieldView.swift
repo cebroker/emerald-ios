@@ -24,8 +24,7 @@ public class EmeraldTextFieldView: UIView {
 
     private lazy var errorLabel: EmeraldLabel = {
         var label = EmeraldLabel(frame: .zero)
-        label.textColor = UIColor.red
-        label.text = "Some Error"
+        label.textColor = EmeraldTheme.redColor
         label.font = UIFont.italicSystemFont(ofSize: 10)
         return label
     }()
@@ -68,24 +67,43 @@ public class EmeraldTextFieldView: UIView {
         self.textField.set(placeholder: text)
     }
 
-    public func appearError() {
-        setHiddenError(value: false)
-    }
-
-    public func disapperarError() {
-        setHiddenError(value: true)
-    }
-
     private func setHiddenError(value: Bool) {
-        UIView.animate(withDuration: 0.2) {
-            self.errorLabel.isHidden = value
-            self.stackView.layoutIfNeeded()
+        self.errorLabel.isHidden = value
+        self.stackView.layoutIfNeeded()
+    }
+
+    private func handleResult(with validationResult: Result<Bool, Error>) {
+        switch validationResult {
+        case .failure(let error):
+            if let error = error as? FormFieldErrorType {
+                print(error.description!)
+                self.errorLabel.text = error.description
+            }
+            self.showErrorBorder()
+        default:
+            self.clearErrorBorder()
         }
+    }
+
+    private func showErrorBorder() {
+        setHiddenError(value: false)
+        self.textField.layer.borderColor = EmeraldTheme.redColor.cgColor
+    }
+
+    private func clearErrorBorder() {
+        setHiddenError(value: true)
+        self.textField.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
 }
 
 extension EmeraldTextFieldView: CustomEmeraldTextFieldDelegate {
-    public func valueDidChange(textField: UITextField, text: String?) {
-        print(text)
+    public func didBeginEditing(textField: UITextField) {
+        let validateContent = self.textField.validateContent()
+        self.handleResult(with: validateContent)
+    }
+
+    public func didEndEditing(textField: UITextField) {
+        let validateContent = self.textField.validateContent()
+        self.handleResult(with: validateContent)
     }
 }
