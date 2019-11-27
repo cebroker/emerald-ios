@@ -6,7 +6,7 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-public class EmeraldTextFieldView: UIView {
+public class EmeraldTextFieldView: UIView, EmeraldValidableType {
 
     private lazy var stackView: UIStackView = {
         var stackView = UIStackView(frame: .zero)
@@ -24,8 +24,8 @@ public class EmeraldTextFieldView: UIView {
 
     private lazy var errorLabel: EmeraldLabel = {
         var label = EmeraldLabel(frame: .zero)
+        label.themeFontSize = FontSize.h6.IBInspectable
         label.textColor = EmeraldTheme.redColor
-        label.font = UIFont.italicSystemFont(ofSize: 10)
         return label
     }()
 
@@ -72,16 +72,30 @@ public class EmeraldTextFieldView: UIView {
         self.stackView.layoutIfNeeded()
     }
 
-    private func handleResult(with validationResult: Result<Bool, Error>) {
+    public func validateAndHandle() -> Bool {
+        return self.handleResult(with: self.validateContent())
+    }
+
+    private func validateContent() -> Result<Bool, Error> {
+        guard let text = self.textField.text, !text.isEmpty else {
+            return .failure(FormFieldError.emptyField)
+        }
+
+        return .success(true)
+    }
+
+    public func handleResult(with validationResult: Result<Bool, Error>) -> Bool {
         switch validationResult {
         case .failure(let error):
-            if let error = error as? FormFieldErrorType {
-                print(error.description!)
-                self.errorLabel.text = error.description
+            guard let error = error as? FormFieldErrorType else {
+                return false
             }
+            self.errorLabel.text = error.description
             self.showErrorBorder()
+            return false
         default:
             self.clearErrorBorder()
+            return true
         }
     }
 
@@ -97,13 +111,17 @@ public class EmeraldTextFieldView: UIView {
 }
 
 extension EmeraldTextFieldView: CustomEmeraldTextFieldDelegate {
-    public func didBeginEditing(textField: UITextField) {
-        let validateContent = self.textField.validateContent()
-        self.handleResult(with: validateContent)
-    }
-
     public func didEndEditing(textField: UITextField) {
-        let validateContent = self.textField.validateContent()
-        self.handleResult(with: validateContent)
+        switch self.validateContent() {
+        case .failure(let error):
+            guard let error = error as? FormFieldErrorType else {
+                return
+            }
+            self.errorLabel.text = error.description
+            self.showErrorBorder()
+        default:
+            self.clearErrorBorder()
+            return
+        }
     }
 }
