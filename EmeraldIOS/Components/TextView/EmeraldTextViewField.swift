@@ -83,6 +83,7 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
     }
     
     open func applyTheme() {
+        self.backgroundColor = EmeraldTheme.whiteColor
         let style = EmeraldTextViewFieldStyle(IBInspectable: themeStyle)
         self.autocapitalizationType = .sentences
         font = style.font

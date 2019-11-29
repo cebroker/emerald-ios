@@ -118,6 +118,7 @@ extension UIViewController {
         image.image = status.image
         image.heightAnchor.constraint(equalToConstant: 18.0).isActive = true
         image.widthAnchor.constraint(equalToConstant: 18.0).isActive = true
+        image.tintColor = status.borderColor
 
         let toastLabel = EmeraldLabel()
         toastLabel.themeFontSize = FontSize.h6.rawValue
