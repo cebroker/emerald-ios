@@ -45,7 +45,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     var titleColor: UIColor? {
         switch self {
         case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
-            return EmeraldTheme.whiteColor
+            return .white
         case .secondary, .secondarySmall, .secondaryLarge, .plainPrimary:
             return EmeraldTheme.primaryColor
         case .link, .linkButton:

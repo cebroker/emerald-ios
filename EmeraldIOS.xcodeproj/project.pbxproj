@@ -40,6 +40,7 @@
 		6CAFFA22228453CF00C690B9 /* EmeraldSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */; };
 		6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */; };
 		6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */; };
+		6CB4999523918087002F6DBE /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB4999423918087002F6DBE /* Media.xcassets */; };
 		6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584192294318B001DE8D2 /* EmeraldRegexTextField.swift */; };
 		6CD5841C229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5841B229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift */; };
 		6CD5841E22943343001DE8D2 /* EmeraldRegexFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5841D22943343001DE8D2 /* EmeraldRegexFormatType.swift */; };
@@ -159,6 +160,7 @@
 		6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController.swift; sourceTree = "<group>"; };
 		6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIViewController.swift"; sourceTree = "<group>"; };
 		6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorField.swift; sourceTree = "<group>"; };
+		6CB4999423918087002F6DBE /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		6CD584192294318B001DE8D2 /* EmeraldRegexTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexTextField.swift; sourceTree = "<group>"; };
 		6CD5841B229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexTextFieldError.swift; sourceTree = "<group>"; };
 		6CD5841D22943343001DE8D2 /* EmeraldRegexFormatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexFormatType.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 		9B3BCC402272033400DC5D79 /* EmeraldIOS */ = {
 			isa = PBXGroup;
 			children = (
+				6CB4999423918087002F6DBE /* Media.xcassets */,
 				9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */,
 				6C807C6B227C8E4300FC328E /* Theme */,
 				9B3BCC6E2272033400DC5D79 /* Helper */,
@@ -802,6 +805,7 @@
 				6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */,
 				D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */,
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				6CB4999523918087002F6DBE /* Media.xcassets in Resources */,
 				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
 				9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */,
 				86C599C122C6811000B1DD4D /* icon_complete.png in Resources */,
