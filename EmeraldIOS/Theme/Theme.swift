@@ -46,7 +46,7 @@ public class EmeraldTheme {
     public static let secondaryButtonColor = whiteColor
     public static let placeholderColor = UIColor.lightGray
     public static let borderColor = UIColor(named: "borderColor", in: bundle, compatibleWith: nil)!
-    public static let chevronColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.8, alpha: 1)
+    public static let chevronColor = UIColor(named: "chevronColor", in: bundle, compatibleWith: nil)!
     public static let warningColor = yellowColor
     public static let successColor = greenColor
     public static let errorColor = redColor
