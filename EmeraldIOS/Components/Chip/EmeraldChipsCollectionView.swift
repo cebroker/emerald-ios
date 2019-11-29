@@ -55,6 +55,7 @@ public class EmeraldChipsCollectionView: UICollectionView {
     }
 
     private func setupView() {
+        self.backgroundColor = EmeraldTheme.whiteColor
         self.translatesAutoresizingMaskIntoConstraints = false
 
         let layout = LeftAlignedCollectionViewFlowLayout()

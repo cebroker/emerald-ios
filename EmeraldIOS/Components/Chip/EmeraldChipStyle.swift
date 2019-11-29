@@ -62,9 +62,9 @@ public enum EmeraldChipStyle: String, Inspectable {
     var textColor: UIColor! {
         switch self {
         case .success, .warning, .error:
-            return EmeraldTheme.whiteColor
+            return .white
         default:
-            return EmeraldTheme.blackColor
+            return .black
         }
     }
 

@@ -70,6 +70,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = EmeraldTheme.backgroundColor
         self.createHideKeyboardGesture()
 //        self.createFields()
         self.createStoryBoardFields()

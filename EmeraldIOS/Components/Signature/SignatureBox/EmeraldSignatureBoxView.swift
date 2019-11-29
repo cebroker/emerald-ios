@@ -78,7 +78,7 @@ public class EmeraldSignatureBoxView: UIView, EmeraldSignatureBoxViewType, Emera
     
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        self.backgroundColor = EmeraldTheme.whiteColor
+        self.backgroundColor = .clear
         signatureImageView.image == nil ? self.setupInitialView() : self.setupViewWithSignature()
     }
     
