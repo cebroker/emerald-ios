@@ -26,39 +26,41 @@ class BarChartViewController: UIViewController {
         dataEntries.append(EmeraldChartSimpleDataEntry(
             color: EmeraldTheme.yellowColor,
             value: 2,
-            title: "First Data",
+            title: "JAN",
             subtitle: nil,
             hasAction: false))
 
         dataEntries.append(EmeraldChartSimpleDataEntry(
             color: EmeraldTheme.greenColor,
             value: 30,
-            title: "Second Data",
+            title: "FEB",
             subtitle: nil,
             hasAction: false))
 
         dataEntries.append(EmeraldChartSimpleDataEntry(
             color: EmeraldTheme.redColor,
-            value: 10, title: "Third Data",
+            value: 10, title: "MAR",
             subtitle: nil,
             hasAction: false))
 
         dataEntries.append(EmeraldChartSimpleDataEntry(
             color: EmeraldTheme.secondaryColor,
             value: 50,
-            title: "Fourth Data",
+            title: "APR",
             subtitle: nil,
             hasAction: false))
 
         dataEntries.append(EmeraldChartSimpleDataEntry(
             color: EmeraldTheme.Avatar.aquamarineColor,
             value: 1200,
-            title: "Fifth Data",
+            title: "MAY",
             subtitle: nil,
             hasAction: false))
 
+        let image = UIImage(named: "failure", in: Bundle(for: EmeraldChipView.self), compatibleWith: nil)
         let chartOptions = EmeraldChartOptions(
             cornerRadius: 5,
+            accessoryViewImage: image,
             barWidthPercentage: 0.3,
             barReachesTop: true,
             showSubtitle: true)

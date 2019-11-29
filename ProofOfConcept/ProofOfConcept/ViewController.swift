@@ -130,6 +130,9 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldAvatarLg.setTitle(with: "Sergio", lastName: "Giraldo")
         emeraldAvatarMd.setTitle(with: "Gensesis", lastName: "Sanguino")
         emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
+        emeraldAvatarLg.setBackgroundColor(emeraldAvatarXs.getBackgroundColor())
+        emeraldAvatarLg.setTextColor(emeraldAvatarXs.getTextColor())
+        
     }
 
     private func createFields() {

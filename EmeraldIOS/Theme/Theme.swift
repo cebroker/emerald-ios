@@ -28,6 +28,7 @@ public class EmeraldTheme {
     public static let axisChart = UIColor(named: "axisChartColor", in: bundle, compatibleWith: nil)!
     
     // MARK: General Colors
+
     public static let primaryColor = blueColor
     public static let secondaryColor = UIColor(named: "secondaryColor", in: bundle, compatibleWith: nil)!
     public static let backgroundColor = UIColor(named: "backgroundColor", in: bundle, compatibleWith: nil)!
@@ -79,6 +80,7 @@ public class EmeraldTheme {
     public static let defaultCornerRadius: CGFloat = 2
     public static let defaultButtonCornerRadius: CGFloat = 5
     public static let defaultElevatedViewCornerRadius: CGFloat = 5
+    public static let withoutCornerRadius : CGFloat = 0
 
     // MARK: Border Defaults
     public static let defaultBorderWidth: CGFloat = 1

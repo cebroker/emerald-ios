@@ -9,12 +9,15 @@
 import UIKit
 
 public enum EmeraldAvatarStyle: String, Inspectable {
+    case xxs
     case xs
     case md
     case lg
 
     var font: UIFont {
         switch self {
+        case .xxs:
+            return UIFont.systemFont(ofSize: FontSize.h7.cgFontSize, weight: .regular)
         case .xs:
             return UIFont.systemFont(ofSize: FontSize.h5.cgFontSize, weight: .regular)
         case .md:
@@ -26,6 +29,8 @@ public enum EmeraldAvatarStyle: String, Inspectable {
 
     var size: CGFloat {
         switch self {
+        case .xxs:
+            return CGFloat(integerLiteral: 20)
         case .xs:
             return CGFloat(integerLiteral: 40)
         case .md:
@@ -41,5 +46,56 @@ public enum EmeraldAvatarStyle: String, Inspectable {
 
     init(IBInspectable: String) {
         self.init(stringValue: IBInspectable)
+    }
+}
+
+public enum AvatarTextColor: String, CaseIterable {
+    case white
+    case black
+
+    var color: UIColor {
+        switch self {
+        case .white:
+            return EmeraldTheme.whiteColor
+        case .black:
+            return EmeraldTheme.blackColor
+        }
+    }
+}
+
+public enum AvatarBackgroundColor: String, CaseIterable {
+    typealias colors = EmeraldTheme.Avatar
+
+    case aquamarineColor
+    case reddishBrownColor
+    case cyanColor
+    case chelseaCucumberColor
+    case hillaryColor
+    case bullShotColor
+    case purpleColor
+    case lavenderColor
+    case downyColor
+
+    var color: UIColor {
+        switch self {
+        case .aquamarineColor:
+            return colors.aquamarineColor
+        case .reddishBrownColor:
+            return colors.reddishBrownColor
+        case .cyanColor:
+            return colors.cyanColor
+        case .chelseaCucumberColor:
+            return colors.chelseaCucumberColor
+        case .hillaryColor:
+            return colors.hillaryColor
+        case .bullShotColor:
+            return colors.bullShotColor
+        case .purpleColor:
+            return colors.purpleColor
+        case .lavenderColor:
+            return colors.lavenderColor
+        case .downyColor:
+            return colors.downyColor
+        }
     }
 }

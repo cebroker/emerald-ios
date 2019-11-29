@@ -82,7 +82,6 @@ public class EmeraldChart: UIView {
             self.barChartView.extraBottomOffset = chartExtraBottomOffset
         }
 
-        self.barChartView.drawBarShadowEnabled = false
         self.barChartView.drawGridBackgroundEnabled = false
         self.barChartView.doubleTapToZoomEnabled = false
         self.barChartView.legend.enabled = false
@@ -137,7 +136,8 @@ public class EmeraldChart: UIView {
 
         xAxisRenderer.colorsDictionary = self.presenter.getSimpleDataSubtitleColor()
         self.barChartView.xAxisRenderer = xAxisRenderer
-
+        self.barChartRenderer.isSimpleChart = true
+        
         if self.chartOptions.showSubtitle {
             xAxisRenderer.subtitlesFont = chartOptions.subtitleFont
             xAxisRenderer.dataEntries = presenter.getSimpleDataEntries()

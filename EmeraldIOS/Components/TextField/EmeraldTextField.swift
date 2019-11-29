@@ -228,25 +228,28 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         let updatedText = oldText.replacingCharacters(in: textRange, with: string)
         customTextFieldDelegate?.valueDidChange?(textField: self, text: updatedText)
 
-        do {
-            let textWithoutFormat = try remove(
-                format: self.innerFormat,
-                to: updatedText)
 
-            textField.text = try apply(
-                format: self.innerFormat,
-                to: textWithoutFormat)
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let textWithoutFormat = try self.remove(format: self.innerFormat, to: updatedText)
+                let newText = try self.apply(format: self.innerFormat, to: textWithoutFormat)
 
-            if let cursorLocation = cursorLocation {
-                textField.selectedTextRange = textField.textRange(
-                    from: cursorLocation,
-                    to: cursorLocation)
+                DispatchQueue.main.async {
+                    textField.text = newText
+
+                    if let cursorLocation = cursorLocation {
+                        textField.selectedTextRange = textField.textRange(
+                            from: cursorLocation,
+                            to: cursorLocation)
+                    }
+                }
+
+            } catch (let error) {
+                print(error)
             }
-
-            return false
-        } catch {
-            return false
         }
+
+        return false
     }
 
     public func textFieldDidBeginEditing(_ textField: UITextField) {

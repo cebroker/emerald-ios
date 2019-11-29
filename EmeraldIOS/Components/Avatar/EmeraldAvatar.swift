@@ -7,8 +7,12 @@
 //
 
 public protocol EmeraldAvatarFieldType {
-    func setTitle(with name: String?, lastName: String?)
     func set(size: EmeraldAvatarStyle)
+    func setTitle(with name: String?, lastName: String?)
+    func setBackgroundColor(_ avatarColor: AvatarBackgroundColor)
+    func setTextColor(_ avatarColor: AvatarTextColor)
+    func getBackgroundColor() -> AvatarBackgroundColor
+    func getTextColor() -> AvatarTextColor
 }
 
 @IBDesignable
@@ -23,10 +27,20 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
         return label
     }()
 
-    private var backgroundColors: [UIColor] = [
-        colors.aquamarineColor, colors.reddishBrownColor, colors.cyanColor, colors.chelseaCucumberColor, colors.hillaryColor, colors.bullShotColor, colors.purpleColor, colors.lavenderColor, colors.downyColor]
+    private var avatarColors: [AvatarBackgroundColor] = AvatarBackgroundColor.allCases
+    private var titleColor: [AvatarTextColor] = AvatarTextColor.allCases
 
-    private var titleColor: [UIColor] = [EmeraldTheme.whiteColor, EmeraldTheme.blackColor]
+    private var avatarBackgroundColor: AvatarBackgroundColor! {
+        willSet {
+            self.backgroundColor = newValue.color
+        }
+    }
+
+    private var avatarTitleColor: AvatarTextColor! {
+        willSet {
+            self.titleLabel.textColor = newValue.color
+        }
+    }
 
     @IBInspectable public var size: String = EmeraldAvatarStyle.md.IBInspectable {
         didSet {
@@ -55,7 +69,7 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
 
     open func applyTheme() {
         let style = EmeraldAvatarStyle(IBInspectable: size)
-        self.backgroundColor = backgroundColors[Int.random(in: 0 ..< backgroundColors.count)]
+        self.avatarBackgroundColor = avatarColors[Int.random(in: 0 ..< avatarColors.count)]
         self.titleLabel.font = style.font
         self.widthAnchor.constraint(equalToConstant: style.size).isActive = true
         self.heightAnchor.constraint(equalToConstant: style.size).isActive = true
@@ -65,7 +79,7 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
 
     private func setupLabel() {
         addSubview(titleLabel)
-        titleLabel.textColor = titleColor[Int.random(in: 0 ..< titleColor.count)]
+        self.avatarTitleColor = titleColor[Int.random(in: 0 ..< titleColor.count)]
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -81,5 +95,21 @@ public class EmeraldAvatar: UIView, EmeraldAvatarFieldType {
 
     public func set(size: EmeraldAvatarStyle) {
         self.size = size.rawValue
+    }
+
+    public func setBackgroundColor(_ avatarColor: AvatarBackgroundColor) {
+        self.avatarBackgroundColor = avatarColor
+    }
+
+    public func setTextColor(_ avatarColor: AvatarTextColor) {
+        self.avatarTitleColor = avatarColor
+    }
+
+    public func getBackgroundColor() -> AvatarBackgroundColor {
+        return self.avatarBackgroundColor
+    }
+
+    public func getTextColor() -> AvatarTextColor {
+        return self.avatarTitleColor
     }
 }
