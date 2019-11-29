@@ -11,7 +11,7 @@ import UIKit
 public class EmeraldTheme {
 
     // MARK: Base Colors
-    private static let bundle = Bundle(for: EmeraldTheme.self)
+    private static let bundle = Bundle(for: ClassBundle.self)
     public static let whiteColor = UIColor(named: "whiteColor", in: bundle, compatibleWith: nil)!
     public static let blackColor = UIColor(named: "blackColor", in: bundle, compatibleWith: nil)!
     public static let redColor = UIColor(named: "redColor", in: bundle, compatibleWith: nil)!
