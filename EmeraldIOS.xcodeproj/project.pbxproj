@@ -39,7 +39,6 @@
 		6CAFFA1E2283660E00C690B9 /* SignatureContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */; };
 		6CAFFA22228453CF00C690B9 /* EmeraldSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */; };
 		6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */; };
-		6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2A22845B8E00C690B9 /* Media.xcassets */; };
 		6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */; };
 		6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584192294318B001DE8D2 /* EmeraldRegexTextField.swift */; };
 		6CD5841C229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5841B229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift */; };
@@ -56,6 +55,7 @@
 		6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */; };
 		6CD5843A2294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */; };
 		6CE75DAA22A15BC00035A731 /* EmeraldTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */; };
+		6CF664F0239175DC0069172A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CF664EF239175DC0069172A /* Media.xcassets */; };
 		719D7CFD83A8BB44230E5DEF /* Pods_EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05755C20E9176BA5ABD1A47B /* Pods_EmeraldIOS.framework */; };
 		75BBFA4E22BA6FC10039319B /* EmeraldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBFA4D22BA6FC10039319B /* EmeraldAlert.swift */; };
 		75BBFA5022BC1FB70039319B /* failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA4F22BC1FB70039319B /* failure.png */; };
@@ -158,7 +158,6 @@
 		6CAFFA1D2283660E00C690B9 /* SignatureContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureContract.swift; sourceTree = "<group>"; };
 		6CAFFA20228453CF00C690B9 /* EmeraldSignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmeraldSignatureViewController.swift; sourceTree = "<group>"; };
 		6CAFFA232284547600C690B9 /* Extensions+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIViewController.swift"; sourceTree = "<group>"; };
-		6CAFFA2A22845B8E00C690B9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		6CAFFA2D22847E4200C690B9 /* EmeraldSelectorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSelectorField.swift; sourceTree = "<group>"; };
 		6CD584192294318B001DE8D2 /* EmeraldRegexTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexTextField.swift; sourceTree = "<group>"; };
 		6CD5841B229431A6001DE8D2 /* EmeraldRegexTextFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexTextFieldError.swift; sourceTree = "<group>"; };
@@ -175,6 +174,7 @@
 		6CD584372294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldStyle.swift; sourceTree = "<group>"; };
 		6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldMultipleSelectionFieldError.swift; sourceTree = "<group>"; };
 		6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextView.swift; sourceTree = "<group>"; };
+		6CF664EF239175DC0069172A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		75BBFA4D22BA6FC10039319B /* EmeraldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldAlert.swift; sourceTree = "<group>"; };
 		75BBFA4F22BC1FB70039319B /* failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failure.png; sourceTree = "<group>"; };
 		75BBFA5122BC22180039319B /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
@@ -489,7 +489,6 @@
 				9B3BCC732272033400DC5D79 /* Info.plist */,
 				9B3BCC4B2272033400DC5D79 /* Components */,
 				9B3BCC412272033400DC5D79 /* Utils */,
-				6CAFFA2A22845B8E00C690B9 /* Media.xcassets */,
 			);
 			path = EmeraldIOS;
 			sourceTree = "<group>";
@@ -632,6 +631,7 @@
 		9BF263252270B69D004AD6F7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6CF664EF239175DC0069172A /* Media.xcassets */,
 				9BF2633D2270E745004AD6F7 /* Images */,
 				9BF2633C2270B6C4004AD6F7 /* Fonts */,
 			);
@@ -796,10 +796,10 @@
 				75BBFA5022BC1FB70039319B /* failure.png in Resources */,
 				9BF263312270B6A8004AD6F7 /* OpenSans-SemiBold.ttf in Resources */,
 				9BF263362270B6A8004AD6F7 /* OpenSans-Regular.ttf in Resources */,
+				6CF664F0239175DC0069172A /* Media.xcassets in Resources */,
 				9BF263342270B6A8004AD6F7 /* OpenSans-LightItalic.ttf in Resources */,
 				9BF263382270B6A8004AD6F7 /* OpenSans-Light.ttf in Resources */,
 				6C2D3289228AF220009D4B0F /* arrow_down_icon.png in Resources */,
-				6CAFFA2B22845B8E00C690B9 /* Media.xcassets in Resources */,
 				D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */,
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
