@@ -113,6 +113,12 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 50.0)
     }
+    
+    var originCenter: CGPoint {
+        get {
+            return CGPoint(x: 10, y: intrinsicContentSize.height / 2  - InnerConstants.placeHolderLabelSize / 2)
+        }
+    }
 
     private struct InnerConstants {
         static let middleFontSize: CGFloat = FontSize.h6.cgFontSize
@@ -473,11 +479,13 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         }
 
         if initialPlaceHolder == nil {
-            self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
-            self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
+            self.placeholderLabel.frame = CGRect(x: originCenter.x,
+                                                 y: originCenter.y,
+                                                 width: self.frame.width,
+                                                 height: labelHeight)
         }
-
         self.placeholderLabel.font = style.font
+        self.placeholderLabel.layoutIfNeeded()
     }
 
     private func movePlaceholderUp() {
@@ -508,7 +516,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
 
                 self.placeholderLabel.transform =
                     CGAffineTransform.identity
-                self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+                self.placeholderLabel.frame.origin = self.originCenter
             },
             completion: { _ in })
     }
