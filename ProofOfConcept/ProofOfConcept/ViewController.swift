@@ -41,6 +41,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
 
+    @IBOutlet weak var emeraldInputView: EmeraldInputView!
     @IBOutlet weak var emptyableSelector: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
@@ -131,7 +132,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
         emeraldAvatarLg.setBackgroundColor(emeraldAvatarXs.getBackgroundColor())
         emeraldAvatarLg.setTextColor(emeraldAvatarXs.getTextColor())
-        
+        emeraldInputView.setPlaceholder(placeholder: "example placeholder")
     }
 
     private func createFields() {

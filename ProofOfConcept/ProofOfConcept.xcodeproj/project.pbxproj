@@ -15,7 +15,6 @@
 		9BC82E50224278FB007BC5BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E4E224278FB007BC5BD /* LaunchScreen.storyboard */; };
 		9BE1140F22720874007D1493 /* ProofOfConceptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E5A224278FB007BC5BD /* ProofOfConceptUITests.swift */; };
 		BC804448D9D233C4E39BC142 /* Pods_ProofOfConcept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2428DF48A5982A37DF7B8651 /* Pods_ProofOfConcept.framework */; };
-		D1D039E6238DC14700F560CF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D039E5238DC14700F560CF /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +42,6 @@
 		9BC82E56224278FB007BC5BD /* ProofOfConceptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProofOfConceptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC82E5A224278FB007BC5BD /* ProofOfConceptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfConceptUITests.swift; sourceTree = "<group>"; };
 		9BC82E5C224278FB007BC5BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1D039E5238DC14700F560CF /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +111,6 @@
 				9BC82E4E224278FB007BC5BD /* LaunchScreen.storyboard */,
 				9BC82E51224278FB007BC5BD /* Info.plist */,
 				492773CB233912A6007DB941 /* BarChartViewController.swift */,
-				D1D039E5238DC14700F560CF /* TestViewController.swift */,
 			);
 			path = ProofOfConcept;
 			sourceTree = "<group>";
@@ -274,7 +271,6 @@
 			files = (
 				9BC82E48224278FA007BC5BD /* ViewController.swift in Sources */,
 				9BC82E46224278FA007BC5BD /* AppDelegate.swift in Sources */,
-				D1D039E6238DC14700F560CF /* TestViewController.swift in Sources */,
 				492773CC233912A6007DB941 /* BarChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
