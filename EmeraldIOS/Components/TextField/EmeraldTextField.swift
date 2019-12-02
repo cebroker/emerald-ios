@@ -482,7 +482,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
                                                  height: labelHeight)
         }
         self.placeholderLabel.font = style.font
-        self.placeholderLabel.layoutIfNeeded()
     }
 
     private func movePlaceholderUp() {
