@@ -476,9 +476,9 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         }
 
         if initialPlaceHolder == nil {
-            let point = InnerConstants.frameOriginFieldOff
-            self.placeholderLabel.frame = CGRect(x: point.x,
-                y: point.y,
+            let centerPoint = InnerConstants.frameOriginFieldOff
+            self.placeholderLabel.frame = CGRect(x: centerPoint.x,
+                y: centerPoint.y,
                 width: self.frame.width,
                 height: labelHeight)
         }
