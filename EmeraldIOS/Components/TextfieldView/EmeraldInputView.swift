@@ -34,7 +34,7 @@ public class EmeraldInputView: UIView, EmeraldValidableType {
     }
 
     private func loadViewFromNib() -> UIView {
-        let bundle = Bundle(for: type(of: self))
+        let bundle = Bundle(for: type(of: EmeraldInputView.self) as! AnyClass)
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as! UIView
     }
