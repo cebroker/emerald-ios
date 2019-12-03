@@ -23,12 +23,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="356" height="56"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PAS-yA-IIz" customClass="EmeraldTextField" customModule="EmeraldIOS">
-                            <rect key="frame" x="0.0" y="0.0" width="356" height="39.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="356" height="42"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="example error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5f-5p-ylv" customClass="EmeraldLabel" customModule="EmeraldIOS">
-                            <rect key="frame" x="0.0" y="41.5" width="356" height="14.5"/>
+                            <rect key="frame" x="0.0" y="44" width="356" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

@@ -57,7 +57,6 @@
 		6CD5843A2294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD584392294AD80001DE8D2 /* EmeraldMultipleSelectionFieldError.swift */; };
 		6CE75DAA22A15BC00035A731 /* EmeraldTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */; };
 		6CF664F0239175DC0069172A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CF664EF239175DC0069172A /* Media.xcassets */; };
-		719D7CFD83A8BB44230E5DEF /* Pods_EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05755C20E9176BA5ABD1A47B /* Pods_EmeraldIOS.framework */; };
 		75BBFA4E22BA6FC10039319B /* EmeraldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBFA4D22BA6FC10039319B /* EmeraldAlert.swift */; };
 		75BBFA5022BC1FB70039319B /* failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA4F22BC1FB70039319B /* failure.png */; };
 		75BBFA5222BC22180039319B /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 75BBFA5122BC22180039319B /* success.png */; };
@@ -640,6 +639,7 @@
 		9BF263252270B69D004AD6F7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D131BA742396C65800A8E376 /* xibs */,
 				6CF664EF239175DC0069172A /* Media.xcassets */,
 				9BF2633D2270E745004AD6F7 /* Images */,
 				9BF2633C2270B6C4004AD6F7 /* Fonts */,
@@ -691,11 +691,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D131BA742396C65800A8E376 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				D151E2512391547000158A5D /* EmeraldInputView.xib */,
+			);
+			path = xibs;
+			sourceTree = "<group>";
+		};
 		D1D039E0238DB54B00F560CF /* TextfieldView */ = {
 			isa = PBXGroup;
 			children = (
 				D151E24F2391546500158A5D /* EmeraldInputView.swift */,
-				D151E2512391547000158A5D /* EmeraldInputView.xib */,
 			);
 			path = TextfieldView;
 			sourceTree = "<group>";
