@@ -144,12 +144,11 @@ public class EmeraldShortDatePickerAlert: UIView, EmeraldDatePickerAlertType {
                                              y: (screenSize.height - dialogSize.height) / 2,
                                              width: dialogSize.width,
                                              height: dialogSize.height))
+        container.backgroundColor = EmeraldTheme.whiteColor
         
         let gradient: CAGradientLayer = CAGradientLayer(layer: self.layer)
         gradient.frame = container.bounds
-        gradient.colors = [UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).cgColor,
-                           UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1).cgColor,
-                           UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).cgColor]
+        gradient.colors = [EmeraldTheme.whiteColor.cgColor]
         
         let cornerRadius = InnerConstants.cornerRadius
         gradient.cornerRadius = cornerRadius
@@ -283,7 +282,7 @@ public class EmeraldShortDatePickerAlert: UIView, EmeraldDatePickerAlertType {
             delay: 0,
             options: .curveEaseInOut,
             animations: {
-                self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+                self.backgroundColor = EmeraldTheme.whiteColor.withAlphaComponent(0.4)
                 self.dialogView!.layer.opacity = 1
                 self.dialogView!.layer.transform = CATransform3DMakeScale(1, 1, 1)
         })

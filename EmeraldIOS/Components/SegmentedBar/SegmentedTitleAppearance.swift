@@ -26,13 +26,13 @@ public enum SegmentedTitleStyle: String, Inspectable {
     var colorWhenHighlighted: UIColor {
         switch self {
         case .primary:
-            return EmeraldTheme.whiteColor.withAlphaComponent(0.59)
+            return UIColor.white.withAlphaComponent(0.59)
         }
     }
     var colorWhenSelected: UIColor {
         switch self {
         case .primary:
-            return EmeraldTheme.whiteColor
+            return .white
         }
     }
     

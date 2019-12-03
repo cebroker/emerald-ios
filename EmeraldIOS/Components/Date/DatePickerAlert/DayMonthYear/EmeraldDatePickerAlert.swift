@@ -100,12 +100,11 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
                                              y: (screenSize.height - dialogSize.height) / 2,
                                              width: dialogSize.width,
                                              height: dialogSize.height))
+        container.backgroundColor = EmeraldTheme.whiteColor
         
         let gradient: CAGradientLayer = CAGradientLayer(layer: self.layer)
         gradient.frame = container.bounds
-        gradient.colors = [UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).cgColor,
-                           UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1).cgColor,
-                           UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).cgColor]
+        gradient.colors = [EmeraldTheme.whiteColor.cgColor]
         
         let cornerRadius = InnerConstants.cornerRadius
         gradient.cornerRadius = cornerRadius
