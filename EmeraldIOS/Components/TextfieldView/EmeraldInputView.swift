@@ -34,14 +34,17 @@ public class EmeraldInputView: UIView, EmeraldValidableType {
     }
 
     private func loadViewFromNib() -> UIView {
-        let bundle = Bundle(for: type(of: EmeraldInputView.self) as! AnyClass)
+        let bundle = Bundle(for: EmeraldInputView.self)
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        return nib.instantiate(withOwner: self, options: nil).first as! UIView
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else{
+            return UIView()
+        }
+        return view
     }
-    
+
     public override func layoutIfNeeded() {
         super.layoutIfNeeded()
-         errorLabel.textColor = EmeraldTheme.errorColor
+        errorLabel.textColor = EmeraldTheme.errorColor
     }
 
     private func setupLabel() {
@@ -52,7 +55,7 @@ public class EmeraldInputView: UIView, EmeraldValidableType {
     public func setPlaceholder(placeholder text: String) {
         self.textField.set(placeholder: text)
     }
-    
+
     public func setDelegate(_ delegate: CustomEmeraldTextFieldDelegate) {
         self.textField.setCustomDelegate(with: delegate)
     }
@@ -93,7 +96,7 @@ public class EmeraldInputView: UIView, EmeraldValidableType {
         setHiddenError(value: true)
         self.textField.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
-    
+
     private func setHiddenError(value: Bool) {
         UIView.animate(withDuration: 0.1) {
             self.errorLabel.isHidden = value
