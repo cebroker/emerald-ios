@@ -112,7 +112,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
 
     private var originCenter: CGPoint {
         get {
-            return CGPoint(x: 10, y: self.frame.height / 2  - InnerConstants.placeHolderLabelSize / 2)
+            return CGPoint(x: 10, y: self.frame.height / 2 - InnerConstants.placeHolderLabelSize / 2)
         }
     }
 
@@ -477,9 +477,9 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         if initialPlaceHolder == nil {
             let point = InnerConstants.frameOriginFieldOff
             self.placeholderLabel.frame = CGRect(x: point.x,
-                                                 y: point.y,
-                                                 width: self.frame.width,
-                                                 height: labelHeight)
+                y: point.y,
+                width: self.frame.width,
+                height: labelHeight)
         }
         self.placeholderLabel.font = style.font
     }
