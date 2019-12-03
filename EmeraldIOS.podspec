@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.resources = ['Resources/Images/*.png', 'EmeraldIOS/**/*.{xcassets}', 'EmeraldIOS.bundle']
-  spec.resource_bundles  = { "Resources" => ["Resources/Fonts/*.ttf", "Resources/Images/*.png", "Resources/Images/*.pdf","EmeraldIOS/**/*.{xcassets}", "EmeraldIOS.bundle", Components/TextfieldView/*.xib] }
+  spec.resource_bundles  = { "Resources" => ["Resources/Fonts/*.ttf", "Resources/Images/*.png", "Resources/Images/*.pdf","EmeraldIOS/**/*.{xcassets}", "EmeraldIOS.bundle", "Components/TextfieldView/*.xib"] }
   spec.name                 = "EmeraldIOS"
   spec.version              = "1.4"
   spec.summary              = "Custom widgets management"
