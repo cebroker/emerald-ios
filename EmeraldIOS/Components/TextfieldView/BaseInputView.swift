@@ -50,20 +50,26 @@ public class BaseInputView <T: EmeraldTextField>: UIView, BaseDelegate {
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 
-    func setupViews() {
+    internal func setupViews() {
+        self.setupErrorLabel()
         self.emeraldComponentView.addSubview(textField)
         self.setConstraints()
     }
 
-    func setConstraints() {
+    private func setConstraints() {
         textField.anchor(
             top: textField.superview?.topAnchor,
             left: textField.superview?.leftAnchor,
             bottom: textField.superview?.bottomAnchor,
             right: textField.superview?.rightAnchor)
-        print(self.textField.frame)
     }
-    
+
+    private func setupErrorLabel() {
+        errorLabel.themeFontSize = FontSize.h6.IBInspectable
+        errorLabel.textColor = EmeraldTheme.errorColor
+        errorLabel.isHidden = true
+    }
+
     public func setDelegate(_ delegate: CustomEmeraldTextFieldDelegate) {
         self.textField.setCustomDelegate(with: delegate)
     }
@@ -121,6 +127,16 @@ public class BaseInputView <T: EmeraldTextField>: UIView, BaseDelegate {
 
 public class RegexTextFieldView: BaseInputView<EmeraldRegexTextField> {
 
+    @IBInspectable
+    public var regex: String {
+        set {
+            self.set(regex: EmeraldRegexFormatType(rawValue: newValue))
+        }
+        get {
+            return self.getRegex().regex!
+        }
+    }
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.delegate = self as ContracEmeraldRegexTextFieldType
@@ -129,16 +145,24 @@ public class RegexTextFieldView: BaseInputView<EmeraldRegexTextField> {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     override func setupViews() {
         super.setupViews()
         self.set(placeholder: "example placeholder")
         self.setDelegate(self)
     }
+
+    public func set(regex: EmeraldRegexFormatType) {
+        self.textField.set(regex: regex)
+    }
+
+    public func getRegex() -> EmeraldRegexFormatType {
+        return self.textField.getRegex()
+    }
 }
 
 extension RegexTextFieldView: CustomEmeraldTextFieldDelegate {
-    public func valueDidChange(textField: UITextField, text: String?) {
+    public func didEndEditing(textField: UITextField) {
         self.handleResult(with: self.textField.validateContent())
     }
 }

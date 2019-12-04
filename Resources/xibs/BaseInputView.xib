@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,15 +18,15 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" misplaced="YES" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" ambiguous="YES" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="403" height="79"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5XT-k6-MHE">
-                    <rect key="frame" x="0.0" y="0.0" width="403" height="79"/>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5XT-k6-MHE">
+                    <rect key="frame" x="0.0" y="0.0" width="403" height="35"/>
                     <subviews>
                         <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OzR-8f-CxJ">
-                            <rect key="frame" x="0.0" y="0.0" width="403" height="56"/>
+                            <rect key="frame" x="0.0" y="0.0" width="403" height="27"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="56" id="sQw-dY-Iq5"/>
@@ -33,9 +34,9 @@
                             <viewLayoutGuide key="safeArea" id="wDN-XQ-Hal"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZz-Et-CsN" customClass="EmeraldLabel" customModule="EmeraldIOS" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="58" width="403" height="20.5"/>
+                            <rect key="frame" x="0.0" y="35" width="403" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" name="redColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -54,4 +55,9 @@
             <point key="canvasLocation" x="-193.47826086956522" y="-265.51339285714283"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="redColor">
+            <color red="0.87058823529411766" green="0.20784313725490197" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
