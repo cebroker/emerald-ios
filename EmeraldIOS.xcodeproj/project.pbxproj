@@ -108,6 +108,8 @@
 		9E63E4632F4E8A5BA1E9FED2 /* Pods_EmeraldIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CC564EA8F145303E19F32E /* Pods_EmeraldIOSTests.framework */; };
 		D12E88302356635F00178214 /* FormatValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E882F2356635F00178214 /* FormatValidator.swift */; };
 		D12E8832235665AA00178214 /* EmeraldDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E8831235665AA00178214 /* EmeraldDateField.swift */; };
+		D131BA762397015500A8E376 /* BaseInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D131BA752397015500A8E376 /* BaseInputView.swift */; };
+		D131BA78239717A100A8E376 /* BaseInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D131BA77239717A100A8E376 /* BaseInputView.xib */; };
 		D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D139718E2343E59B0061BA5C /* calendar_icon.png */; };
 		D151E2502391546500158A5D /* EmeraldInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D151E24F2391546500158A5D /* EmeraldInputView.swift */; };
 		D151E2522391547000158A5D /* EmeraldInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D151E2512391547000158A5D /* EmeraldInputView.xib */; };
@@ -231,6 +233,8 @@
 		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		D12E882F2356635F00178214 /* FormatValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatValidator.swift; sourceTree = "<group>"; };
 		D12E8831235665AA00178214 /* EmeraldDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateField.swift; sourceTree = "<group>"; };
+		D131BA752397015500A8E376 /* BaseInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputView.swift; sourceTree = "<group>"; };
+		D131BA77239717A100A8E376 /* BaseInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseInputView.xib; sourceTree = "<group>"; };
 		D139718E2343E59B0061BA5C /* calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_icon.png; sourceTree = "<group>"; };
 		D151E24F2391546500158A5D /* EmeraldInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldInputView.swift; sourceTree = "<group>"; };
 		D151E2512391547000158A5D /* EmeraldInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmeraldInputView.xib; sourceTree = "<group>"; };
@@ -703,6 +707,8 @@
 			isa = PBXGroup;
 			children = (
 				D151E24F2391546500158A5D /* EmeraldInputView.swift */,
+				D131BA752397015500A8E376 /* BaseInputView.swift */,
+				D131BA77239717A100A8E376 /* BaseInputView.xib */,
 			);
 			path = TextfieldView;
 			sourceTree = "<group>";
@@ -830,6 +836,7 @@
 				9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				6CB4999523918087002F6DBE /* Media.xcassets in Resources */,
 				9BF263372270B6A8004AD6F7 /* OpenSans-BoldItalic.ttf in Resources */,
+				D131BA78239717A100A8E376 /* BaseInputView.xib in Resources */,
 				9BF263352270B6A8004AD6F7 /* OpenSans-ExtraBold.ttf in Resources */,
 				86C599C122C6811000B1DD4D /* icon_complete.png in Resources */,
 				7708A28222EA5BB900851FCE /* icon_dismiss.png in Resources */,
@@ -953,6 +960,7 @@
 				9B3BCC7F2272033400DC5D79 /* Extensions+NSRegularExpression.swift in Sources */,
 				9B3BCC9A2272033400DC5D79 /* EmeraldInitializer.swift in Sources */,
 				6C807C71227C99B300FC328E /* Theme.swift in Sources */,
+				D131BA762397015500A8E376 /* BaseInputView.swift in Sources */,
 				8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */,
 				49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */,
 				49D7DA65233D1720000453BD /* EmeraldChartOptions.swift in Sources */,

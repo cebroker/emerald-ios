@@ -133,7 +133,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
         emeraldAvatarLg.setBackgroundColor(emeraldAvatarXs.getBackgroundColor())
         emeraldAvatarLg.setTextColor(emeraldAvatarXs.getTextColor())
-        emeraldInputView.setPlaceholder(placeholder: "example placeholder")
+        //emeraldInputView.setPlaceholder(placeholder: "example placeholder")
     }
 
     private func createFields() {

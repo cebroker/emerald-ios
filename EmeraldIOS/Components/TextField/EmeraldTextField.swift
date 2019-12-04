@@ -164,10 +164,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         if isErrored {
             let _ = self.validateAndHandle()
         }
-        applyTheme()
+
         self.backgroundColor = EmeraldTheme.whiteColor
         self.delegate = self
         self.addSubview(placeholderLabel)
+        applyTheme()
         self.setupPlaceholderLabelConstraints()
     }
 
