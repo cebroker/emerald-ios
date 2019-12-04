@@ -8,16 +8,16 @@
 
 import Foundation
 
+public class RegexTextFieldView: BaseInputView {
 
-public class RegexTextFieldView: BaseInputView<EmeraldRegexTextField> {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    var emeraldRegexTextField = EmeraldRegexTextField()
+    override var textField: EmeraldTextField {
+        get {
+            return emeraldRegexTextField
+        }
+        set{
+            emeraldRegexTextField = newValue as! EmeraldRegexTextField
+        }
     }
 
     override func setupViews() {
@@ -31,11 +31,11 @@ public class RegexTextFieldView: BaseInputView<EmeraldRegexTextField> {
     }
     
     public func set(regex: EmeraldRegexFormatType) {
-        self.textField.set(regex: regex)
+        self.emeraldRegexTextField.set(regex: regex)
       }
 
     public func getRegex() -> EmeraldRegexFormatType {
-        return self.textField.getRegex()
+        return self.emeraldRegexTextField.getRegex()
     }
 }
 

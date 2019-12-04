@@ -8,18 +8,13 @@
 
 import UIKit
 
-public class BaseInputView <T: EmeraldTextField>: UIView {
+public class BaseInputView: UIView {
 
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var emeraldComponentView: UIView!    
+    @IBOutlet weak var emeraldComponentView: UIView!
     @IBOutlet weak var errorLabel: EmeraldLabel!
-    
-    lazy var textField: T = {
-        var componentView = T()
-        componentView.frame = self.emeraldComponentView.frame
-        componentView.translatesAutoresizingMaskIntoConstraints = false
-        return componentView
-    }()
+
+    var textField: EmeraldTextField = EmeraldTextField()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,6 +45,7 @@ public class BaseInputView <T: EmeraldTextField>: UIView {
 
     func setupViews() {
         self.setupErrorLabel()
+        self.setupTextField()
         self.emeraldComponentView.addSubview(textField)
         self.setConstraints()
     }
@@ -60,6 +56,11 @@ public class BaseInputView <T: EmeraldTextField>: UIView {
             left: textField.superview?.leftAnchor,
             bottom: textField.superview?.bottomAnchor,
             right: textField.superview?.rightAnchor)
+    }
+
+    private func setupTextField() {
+        textField.frame = self.emeraldComponentView.frame
+        textField.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func setupErrorLabel() {
