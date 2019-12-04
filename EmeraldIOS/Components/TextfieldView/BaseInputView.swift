@@ -6,22 +6,20 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-public class BaseInputView <T: EmeraldTextField>: UIView, BaseDelegate {
+public class BaseInputView <T: EmeraldTextField>: UIView {
 
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var emeraldComponentView: UIView!
+    @IBOutlet weak var emeraldComponentView: UIView!    
     @IBOutlet weak var errorLabel: EmeraldLabel!
-
+    
     lazy var textField: T = {
         var componentView = T()
         componentView.frame = self.emeraldComponentView.frame
         componentView.translatesAutoresizingMaskIntoConstraints = false
         return componentView
     }()
-
-    weak var delegate: BaseEmeraldTextFieldType?
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +48,7 @@ public class BaseInputView <T: EmeraldTextField>: UIView, BaseDelegate {
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 
-    internal func setupViews() {
+    func setupViews() {
         self.setupErrorLabel()
         self.emeraldComponentView.addSubview(textField)
         self.setConstraints()
@@ -122,64 +120,4 @@ public class BaseInputView <T: EmeraldTextField>: UIView, BaseDelegate {
             self.stackView.layoutIfNeeded()
         }
     }
-
-}
-
-public class RegexTextFieldView: BaseInputView<EmeraldRegexTextField> {
-
-    @IBInspectable
-    public var regex: String {
-        set {
-            self.set(regex: EmeraldRegexFormatType(rawValue: newValue))
-        }
-        get {
-            return self.getRegex().regex!
-        }
-    }
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.delegate = self as ContracEmeraldRegexTextFieldType
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-    override func setupViews() {
-        super.setupViews()
-        self.set(placeholder: "example placeholder")
-        self.setDelegate(self)
-    }
-
-    public func set(regex: EmeraldRegexFormatType) {
-        self.textField.set(regex: regex)
-    }
-
-    public func getRegex() -> EmeraldRegexFormatType {
-        return self.textField.getRegex()
-    }
-}
-
-extension RegexTextFieldView: CustomEmeraldTextFieldDelegate {
-    public func didEndEditing(textField: UITextField) {
-        self.handleResult(with: self.textField.validateContent())
-    }
-}
-
-extension RegexTextFieldView: ContracEmeraldRegexTextFieldType {
-
-}
-
-protocol BaseDelegate: class {
-    var delegate: BaseEmeraldTextFieldType? { get set }
-}
-
-protocol BaseEmeraldTextFieldType: class {
-
-}
-
-
-protocol ContracEmeraldRegexTextFieldType: BaseEmeraldTextFieldType {
-
 }
