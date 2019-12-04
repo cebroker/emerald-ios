@@ -408,11 +408,9 @@ GROUP 2</string>
                         <outlet property="emeraldAvatarXs" destination="ALH-Xj-7r1" id="NgJ-cX-6Bh"/>
                         <outlet property="emeraldButtonByStory" destination="mKU-jJ-wYo" id="geC-qS-F3W"/>
                         <outlet property="emeraldEndDateFieldByStory" destination="uDI-NN-qaw" id="8le-vm-7Dn"/>
-                        <outlet property="emeraldInputView" destination="p5z-Jg-SbH" id="Efc-gl-6XP"/>
                         <outlet property="emeraldLabelByStory" destination="DV6-cl-gbd" id="xpu-1B-NAf"/>
                         <outlet property="emeraldMultipleSelectorByStory" destination="0ZC-ej-HLY" id="QbK-A6-MVk"/>
                         <outlet property="emeraldRegexFieldByStory" destination="Qbk-ri-QTF" id="U9a-2B-5GI"/>
-                        <outlet property="emeraldRexgexTextFieldView" destination="p5z-Jg-SbH" id="Mc7-Fm-2gn"/>
                         <outlet property="emeraldSelectorByStory" destination="fBv-QR-ky7" id="wm4-Em-I7N"/>
                         <outlet property="emeraldStartDateFieldByStory" destination="k5C-Xp-yJy" id="pmk-oC-d0x"/>
                         <outlet property="emeraldTextByStory" destination="91Z-eS-81u" id="CJF-G3-LXm"/>

@@ -6,19 +6,10 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
 
 public class RegexTextFieldView: BaseInputView<EmeraldRegexTextField> {
-
-    @IBInspectable
-    public var regex: String {
-        set {
-            self.set(regex: EmeraldRegexFormatType(rawValue: newValue))
-        }
-        get {
-            return self.getRegex().regex!
-        }
-    }
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +24,10 @@ public class RegexTextFieldView: BaseInputView<EmeraldRegexTextField> {
         super.setupViews()
         self.set(placeholder: "example placeholder")
         self.setDelegate(self)
+    }
+    
+    public func set(regex: String) {
+        self.set(regex: EmeraldRegexFormatType(rawValue: regex))
     }
     
     public func set(regex: EmeraldRegexFormatType) {
