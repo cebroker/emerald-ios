@@ -60,10 +60,6 @@ public class EmeraldDateFieldView: BaseInputView {
         self.emeraldDateField.set(minimumDate: minimumDate)
     }
 
-    public func set(format: TextFormat) {
-        self.emeraldDateField.set(format: format)
-    }
-
     public func getMinimumDate() -> Date? {
         self.emeraldDateField.getMaximumDate()
     }
