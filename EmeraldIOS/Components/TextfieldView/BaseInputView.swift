@@ -33,7 +33,7 @@ public class BaseInputView: UIView {
 
     private func loadViewFromNib() {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "BaseInputView", bundle: bundle)
+        let nib = UINib(nibName: String(describing: BaseInputView.self), bundle: bundle)
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
             return
         }

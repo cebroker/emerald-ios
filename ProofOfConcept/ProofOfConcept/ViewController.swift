@@ -42,8 +42,8 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
 
 //    @IBOutlet weak var emeraldRexgexTextFieldView: RegexTextFieldView!
-    
-    @IBOutlet weak var regexView: RegexTextFieldView!
+
+    @IBOutlet weak var regexView: EmeraldTextFieldView!
     @IBOutlet weak var emptyableSelector: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
@@ -79,7 +79,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         self.createStoryBoardFields()
         loadingIndicator.startAnimating()
     }
-    
+
     private func createHideKeyboardGesture() {
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
         viewTapGesture.cancelsTouchesInView = false
@@ -135,7 +135,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
         emeraldAvatarLg.setBackgroundColor(emeraldAvatarXs.getBackgroundColor())
         emeraldAvatarLg.setTextColor(emeraldAvatarXs.getTextColor())
-        regexView.set(placeholder: "example from vc")
+        regexView.set(placeholder: "Date picker")
     }
 
     private func createFields() {
@@ -189,7 +189,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         formButton = formStackView.createButton(with: "Submit form")
         formButton?.themeStyle = EmeraldButtonStyle.primary.rawValue
         formButton?.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
-  
+
         formStackView.reloadFields()
     }
 

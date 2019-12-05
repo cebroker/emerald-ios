@@ -22,7 +22,6 @@ public class RegexTextFieldView: BaseInputView {
 
     override func setupViews() {
         super.setupViews()
-        self.set(placeholder: "example placeholder")
         self.setDelegate(self)
     }
     
