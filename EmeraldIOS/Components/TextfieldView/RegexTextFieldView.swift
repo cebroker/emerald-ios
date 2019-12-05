@@ -19,11 +19,6 @@ public class RegexTextFieldView: BaseInputView {
             emeraldRegexTextField = newValue as! EmeraldRegexTextField
         }
     }
-
-    override func setupViews() {
-        super.setupViews()
-        self.setDelegate(self)
-    }
     
     public func set(regex: String) {
         self.set(regex: EmeraldRegexFormatType(rawValue: regex))
@@ -35,11 +30,5 @@ public class RegexTextFieldView: BaseInputView {
 
     public func getRegex() -> EmeraldRegexFormatType {
         return self.emeraldRegexTextField.getRegex()
-    }
-}
-
-extension RegexTextFieldView: CustomEmeraldTextFieldDelegate {
-    public func didEndEditing(textField: UITextField) {
-        self.handleResult(with: self.textField.validateContent())
     }
 }
