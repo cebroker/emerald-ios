@@ -702,6 +702,7 @@
 		D131BA742396C65800A8E376 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
+				D131BA77239717A100A8E376 /* BaseInputView.xib */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -709,7 +710,6 @@
 		D1D039E0238DB54B00F560CF /* TextfieldView */ = {
 			isa = PBXGroup;
 			children = (
-				D131BA77239717A100A8E376 /* BaseInputView.xib */,
 				D131BA752397015500A8E376 /* BaseInputView.swift */,
 				D19AB19823981BD4007DB93D /* RegexTextFieldView.swift */,
 				D119A136239844DB00C1BB17 /* EmeraldSelectorFieldView.swift */,
