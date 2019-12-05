@@ -94,6 +94,10 @@ public class EmeraldTextFieldView: BaseInputView {
     public func isEnable(_ enable: Bool) {
         self.textField.isEnable(enable)
     }
+    
+    public func setStatus(_ status: EmeraldTextField.EmeraldTextFieldState) {
+        self.textField.setStatus(status)
+    }
 }
 
 extension EmeraldTextFieldView: CustomEmeraldTextFieldDelegate {
