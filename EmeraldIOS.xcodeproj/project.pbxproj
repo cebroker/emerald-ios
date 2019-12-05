@@ -711,10 +711,10 @@
 			isa = PBXGroup;
 			children = (
 				D131BA752397015500A8E376 /* BaseInputView.swift */,
+				D119A13A2398540600C1BB17 /* EmeraldTextFieldView.swift */,
 				D19AB19823981BD4007DB93D /* RegexTextFieldView.swift */,
 				D119A136239844DB00C1BB17 /* EmeraldSelectorFieldView.swift */,
 				D119A138239849FF00C1BB17 /* EmeraldDateFieldView.swift */,
-				D119A13A2398540600C1BB17 /* EmeraldTextFieldView.swift */,
 			);
 			path = TextfieldView;
 			sourceTree = "<group>";
