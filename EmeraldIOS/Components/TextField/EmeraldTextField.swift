@@ -390,15 +390,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
 
     public func show(error: FormFieldErrorType) {
         self.isErrored = true
-        self.placeholderLabel.text = error.description
-        self.placeholderLabel.textColor = EmeraldTheme.redColor
         self.layer.borderColor = EmeraldTheme.redColor.cgColor
     }
 
     public func clearError() {
         self.isErrored = false
-        self.placeholderLabel.text = self.initialPlaceHolder
-        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
         self.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
 
@@ -468,13 +464,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         labelHeight: CGFloat,
         color: UIColor) {
         let style = EmeraldTextFieldStyle(IBInspectable: themeStyle)
-
-        if isErrored {
-            self.placeholderLabel.textColor = EmeraldTheme.errorColor
-        } else {
-            self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
-            self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
-        }
 
         if initialPlaceHolder == nil {
             let centerPoint = InnerConstants.frameOriginFieldOff
