@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class BaseInputView: UIView {
+public class BaseInputView: UIView, EmeraldInputViewValidableType {
 
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var emeraldComponentView: UIView!
