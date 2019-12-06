@@ -18,7 +18,6 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
     internal var cornerRadius: CGFloat = 0
     internal var isSimpleChart: Bool = false
     private var buffers = [Buffer]()
-    private var barShadowRectBuffer: CGRect = CGRect()
 
     override func initBuffers() {
         if let barData = dataProvider?.barData {
@@ -44,23 +43,21 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
     }
 
     private func prepareBuffer(dataSet: IBarChartDataSet, index: Int) {
-        guard
-            let dataProvider = dataProvider,
-            let barData = dataProvider.barData
-            else { return }
-
-        let barWidthHalf = barData.barWidth / 2.0
-
-        let buffer = buffers[index]
-        var bufferIndex = 0
-        let containsStacks = dataSet.isStacked
+        guard let dataProvider = dataProvider,
+            let barData = dataProvider.barData else {
+                return
+        }
 
         let isInverted = dataProvider.isInverted(axis: dataSet.axisDependency)
+        let containsStacks = dataSet.isStacked
+        let barWidthHalf = barData.barWidth / 2.0
+        let buffer = buffers[index]
         let phaseY = animator.phaseY
+
+        var bufferIndex = 0
         var barRect = CGRect()
         var x: Double
         var y: Double
-
 
         for i in stride(from: 0, to: min(Int(ceil(Double(dataSet.entryCount) * animator.phaseX)), dataSet.entryCount), by: 1) {
             guard let entry = dataSet.entryForIndex(i) as? BarChartDataEntry else { continue }
@@ -163,25 +160,21 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
 
     override func drawValues(context: CGContext) {
         if isDrawingValuesAllowed(dataProvider: dataProvider) {
-            guard
-                let dataProvider = dataProvider,
-                let barData = dataProvider.barData
-                else { return }
+            guard let dataProvider = dataProvider,
+                let barData = dataProvider.barData else {
+                    return
+            }
 
             let dataSets = barData.dataSets
-
             let valueOffsetPlus: CGFloat = 4.5
+            let drawValueAboveBar = dataProvider.isDrawValueAboveBarEnabled
             var posOffset: CGFloat
             var negOffset: CGFloat
-            let drawValueAboveBar = dataProvider.isDrawValueAboveBarEnabled
 
             for dataSetIndex in 0 ..< barData.dataSetCount {
-                guard let
-                dataSet = dataSets[dataSetIndex] as? IBarChartDataSet,
+                guard let dataSet = dataSets[dataSetIndex] as? IBarChartDataSet,
                     shouldDrawValues(forDataSet: dataSet)
                     else { continue }
-
-                let isInverted = dataProvider.isInverted(axis: dataSet.axisDependency)
 
                 // calculate the correct offset depending on the draw position of the value
                 let valueFont = dataSet.valueFont
@@ -189,13 +182,8 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 posOffset = (drawValueAboveBar ? -(valueTextHeight + valueOffsetPlus) : valueOffsetPlus)
                 negOffset = (drawValueAboveBar ? valueOffsetPlus : -(valueTextHeight + valueOffsetPlus))
 
-                if isInverted {
-                    posOffset = -posOffset - valueTextHeight
-                    negOffset = -negOffset - valueTextHeight
-                }
-
                 let buffer = buffers[dataSetIndex]
-
+                
                 guard let formatter = dataSet.valueFormatter else { continue }
 
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
@@ -203,7 +191,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 let phaseY = animator.phaseY
 
                 let iconsOffset = dataSet.iconsOffset
-
+                
                 if !dataSet.isStacked {
                     for j in 0 ..< Int(ceil(Double(dataSet.entryCount) * animator.phaseX)) {
                         guard let entry = dataSet.entryForIndex(j) as? BarChartDataEntry else { continue }
@@ -420,7 +408,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
             if !isSingleColor {
                 context.setFillColor(dataSet.color(atIndex: j).cgColor)
             }
-            
+
             if isSimpleChart {
                 let color = dataSet.color(atIndex: j)
                 color.setStroke()
