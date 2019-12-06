@@ -185,9 +185,11 @@ public class BaseInputView: UIView {
                 return false
             }
             self.errorLabel.text = error.description
+            self.textField.show(error: error)
             self.showErrorBorder()
             return false
         default:
+            self.textField.clearError()
             self.clearErrorBorder()
             return true
         }
@@ -195,12 +197,10 @@ public class BaseInputView: UIView {
 
     private func showErrorBorder() {
         setHiddenError(value: false)
-        self.textField.layer.borderColor = EmeraldTheme.redColor.cgColor
     }
 
     private func clearErrorBorder() {
         setHiddenError(value: true)
-        self.textField.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
 
     private func setHiddenError(value: Bool) {
