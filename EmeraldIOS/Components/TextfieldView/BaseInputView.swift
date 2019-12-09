@@ -167,7 +167,15 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
     }
 
     public func validateAndHandle() -> Bool {
-        return self.handleResult(with: self.validateContent())
+        return self.handleResult(with: self.isRequired())
+    }
+    
+    private func isRequired() -> Result<Bool, Error> {
+        guard getIsRequired() else {
+            return .success(true)
+        }
+
+        return validateContent()
     }
 
     private func validateContent() -> Result<Bool, Error> {
