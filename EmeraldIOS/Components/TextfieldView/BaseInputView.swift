@@ -178,7 +178,7 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
         return validateContent()
     }
 
-    private func validateContent() -> Result<Bool, Error> {
+    public func validateContent() -> Result<Bool, Error> {
         guard let text = self.textField.text, !text.isEmpty else {
             return .failure(FormFieldError.emptyField)
         }

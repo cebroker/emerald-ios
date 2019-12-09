@@ -31,4 +31,8 @@ public class RegexTextFieldView: BaseInputView {
     public func getRegex() -> EmeraldRegexFormatType {
         return self.emeraldRegexTextField.getRegex()
     }
+    
+    public override func validateContent() -> Result<Bool, Error> {
+        return self.emeraldRegexTextField.validateContent()
+    }
 }
