@@ -22,7 +22,7 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
     
     public var text: String? {
         set {
-            self.setText(with: newValue)
+            self.textField.text = newValue
         }
         get {
             return self.textField.text
