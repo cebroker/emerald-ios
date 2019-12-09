@@ -29,10 +29,6 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
     func getDataHorizontalEntries() -> [String] {
         return dataEntries.getHorizontalDataEntries()
     }
-    
-    func getSimpleDataVerticalEntries() -> [Float] {
-        return dataEntries.getSimpleDataVerticalEntries()
-    }
 
     func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry] {
         return dataEntries.getSimpleDataEntries()
@@ -62,10 +58,6 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
         return dataEntries.getSimpleDataSubtitleColor()
     }
     
-    func getSimpleDataSubtitles() -> [String] {
-        return dataEntries.getSimpleDataSubtitles()
-    }
-    
     func getYValueOffset(maxYValue: Double, steps: Int) -> Double {
         return maxYValue + (maxYValue/Double(steps))
     }
@@ -73,20 +65,15 @@ class EmeraldChartPresenter: EmeraldChartPresenterType {
 
 protocol EmeraldChartPresenterType {
     func bind(view: EmeraldChart)
-    func getDataEntriesCount() -> Int
-    func getDataHorizontalEntries() -> [String]
     func setDataEntries(data: EmeraldChartDataEntry)
-    
-    func getSimpleDataVerticalEntries() -> [Float]
-    func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry]
-    func getValueForSimpleDataEntry(index: Int) -> Float
-    func getSimpleDataSetColors() -> [UIColor]
-    func getSimpleDataSubtitleColor() -> [String: UIColor]
-    func getSimpleDataSubtitles() -> [String]
-    
-    func getValueForMultipleValueDataEntry(index: Int) -> [Double]
     func setMultipleValueDataSetcolors(colors: [UIColor])
+    func getDataEntriesCount() -> Int
+    func getValueForSimpleDataEntry(index: Int) -> Float
+    func getSimpleDataSubtitleColor() -> [String: UIColor]
+    func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry]
+    func getSimpleDataSetColors() -> [UIColor]
+    func getValueForMultipleValueDataEntry(index: Int) -> [Double]
+    func getDataHorizontalEntries() -> [String]
     func getMultipleValueDataSetColors() -> [UIColor]
-    
     func getYValueOffset(maxYValue: Double, steps: Int) -> Double
 }
