@@ -19,6 +19,10 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
     public var status: EmeraldTextField.EmeraldTextFieldState {
         return self.textField.status
     }
+    
+    public var text: String? {
+        return self.textField.text
+    }
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
