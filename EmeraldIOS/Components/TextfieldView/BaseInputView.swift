@@ -21,7 +21,12 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
     }
     
     public var text: String? {
-        return self.textField.text
+        set {
+            self.setText(with: newValue)
+        }
+        get {
+            return self.textField.text
+        }
     }
 
     public override init(frame: CGRect) {
