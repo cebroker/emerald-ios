@@ -108,6 +108,10 @@ public class EmeraldTextFieldView: BaseInputView {
         self.textField.isEnable(enable)
     }
 
+    public func getValue() -> String? {
+        return self.textField.getValue()
+    }
+
     public func setStatus(_ status: EmeraldTextField.EmeraldTextFieldState) {
         self.textField.setStatus(status)
     }
