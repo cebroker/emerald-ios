@@ -10,8 +10,8 @@ import Foundation
 
 public class EmeraldDateFieldView: BaseInputView {
 
-    var emeraldDateField: EmeraldDateField = EmeraldDateField()
-    override var textField: EmeraldTextField {
+    public var emeraldDateField: EmeraldDateField = EmeraldDateField()
+    override public var textField: EmeraldTextField {
         get {
             return emeraldDateField
         }

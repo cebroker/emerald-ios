@@ -14,7 +14,7 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
     @IBOutlet weak var emeraldComponentView: UIView!
     @IBOutlet weak var errorLabel: EmeraldLabel!
 
-    var textField: EmeraldTextField = EmeraldTextField()
+    public var textField: EmeraldTextField = EmeraldTextField()
 
     public var status: EmeraldTextField.EmeraldTextFieldState {
         return self.textField.status

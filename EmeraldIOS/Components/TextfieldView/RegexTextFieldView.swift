@@ -10,8 +10,8 @@ import Foundation
 
 public class RegexTextFieldView: BaseInputView {
 
-    var emeraldRegexTextField = EmeraldRegexTextField()
-    override var textField: EmeraldTextField {
+    public var emeraldRegexTextField = EmeraldRegexTextField()
+    override public var textField: EmeraldTextField {
         get {
             return emeraldRegexTextField
         }

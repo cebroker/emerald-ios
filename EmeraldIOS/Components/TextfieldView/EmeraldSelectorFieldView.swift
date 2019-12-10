@@ -9,8 +9,8 @@
 import Foundation
 
 public class EmeraldSelectorFieldView: BaseInputView {
-    var emeraldSelectorField = EmeraldSelectorField()
-    override var textField: EmeraldTextField {
+    public var emeraldSelectorField = EmeraldSelectorField()
+    override public var textField: EmeraldTextField {
         get {
             return emeraldSelectorField
         }

@@ -12,12 +12,5 @@ public class EmeraldTextFieldView: BaseInputView {
 
     override func setupViews() {
         super.setupViews()
-        self.setDelegate(self)
-    }
-}
-
-extension EmeraldTextFieldView: CustomEmeraldTextFieldDelegate {
-    public func didEndEditing(textField: UITextField) {
-        self.handleResult(with: self.textField.validateContent())
     }
 }
