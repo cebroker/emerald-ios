@@ -16,18 +16,6 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
 
     public var textField: EmeraldTextField = EmeraldTextField()
 
-    public var textFieldID: String? {
-        didSet {
-            self.textField.accessibilityIdentifier = ConstantIdentifier.textField
-        }
-    }
-
-    public var errorLabelID: String? {
-        didSet {
-            self.errorLabel.accessibilityIdentifier = ConstantIdentifier.errorLabel
-        }
-    }
-
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.nibSetup()
@@ -60,6 +48,7 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
         self.setupTextField()
         self.emeraldComponentView.addSubview(textField)
         self.setConstraints()
+        self.setAccessibilityIDs()
     }
 
     private func setConstraints() {
@@ -79,6 +68,11 @@ public class BaseInputView: UIView, EmeraldInputViewValidableType {
         errorLabel.themeFontSize = FontSize.h6.IBInspectable
         errorLabel.textColor = EmeraldTheme.errorColor
         errorLabel.isHidden = true
+    }
+
+    public func setAccessibilityIDs() {
+        self.textField.accessibilityIdentifier = ConstantIdentifier.textField
+        self.errorLabel.accessibilityIdentifier = ConstantIdentifier.errorLabel
     }
 
     public func getIsRequired() -> Bool {
