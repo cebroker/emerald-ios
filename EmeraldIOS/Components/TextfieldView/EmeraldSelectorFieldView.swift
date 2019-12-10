@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class EmeraldSelectorFieldView: BaseInputView {
+public class EmeraldSelectorFieldView: EmeraldTextFieldView {
     public var emeraldSelectorField = EmeraldSelectorField()
     override public var textField: EmeraldTextField {
         get {
@@ -19,11 +19,6 @@ public class EmeraldSelectorFieldView: BaseInputView {
         }
     }
     
-    override func setupViews() {
-         super.setupViews()
-         self.setDelegate(self)
-     }
-
     public func set(notifiable: EmeraldSelectorFieldChangeNotifiable?) {
         self.emeraldSelectorField.set(notifiable: notifiable)
     }
@@ -46,11 +41,5 @@ public class EmeraldSelectorFieldView: BaseInputView {
 
     public func set(selectedRow: Selectable) {
         self.emeraldSelectorField.set(selectedRow: selectedRow)
-    }
-}
-
-extension EmeraldSelectorFieldView: CustomEmeraldTextFieldDelegate {
-    public func didEndEditing(textField: UITextField) {
-        self.handleResult(with: self.textField.validateContent())
     }
 }

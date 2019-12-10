@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class EmeraldDateFieldView: BaseInputView {
+public class EmeraldDateFieldView: EmeraldTextFieldView {
 
     public var emeraldDateField: EmeraldDateField = EmeraldDateField()
     override public var textField: EmeraldTextField {
@@ -25,11 +25,6 @@ public class EmeraldDateFieldView: BaseInputView {
             return self.emeraldDateField.errorMessages
         }
         set { }
-    }
-
-    override func setupViews() {
-        super.setupViews()
-        self.setDelegate(self)
     }
 
     public func set(selectedDate: Date) {
@@ -88,11 +83,5 @@ public class EmeraldDateFieldView: BaseInputView {
 
     public func setDependantField(with dateField: EmeraldDateFieldType) {
         self.emeraldDateField.setDependantField(with: dateField)
-    }
-}
-
-extension EmeraldDateFieldView: CustomEmeraldTextFieldDelegate {
-    public func didEndEditing(textField: UITextField) {
-        self.handleResult(with: self.textField.validateContent())
     }
 }
