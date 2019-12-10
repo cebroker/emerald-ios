@@ -8,7 +8,16 @@
 
 import Foundation
 
-struct ConstantIdentifier {
-    static let textField = "emeraldTextField"
-    static let errorLabel = "errorEmeraldLabel"
+public struct ConstantIdentifier {
+    static let textField = Identifier.textfield.getValue()
+    static let errorLabel = Identifier.errorLabel.getValue()
+}
+
+public enum Identifier: String {
+    case textfield
+    case errorLabel
+
+    func getValue() -> String {
+        return self.rawValue
+    }
 }
