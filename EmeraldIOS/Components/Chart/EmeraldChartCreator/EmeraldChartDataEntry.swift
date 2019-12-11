@@ -44,17 +44,6 @@ public class EmeraldChartDataEntry: EmeraldChartDataType{
         return labels
     }
     
-    func getSimpleDataVerticalEntries() -> [Float] {
-        guard let dataEntries = simpleDataEntries else {
-            fatalError("Expected simple data and found nil")
-        }
-        var values = [Float]()
-        for entry in dataEntries {
-            values.append(entry.value)
-        }
-        return values
-    }
-    
     func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry] {
         guard let dataEntries = simpleDataEntries else {
             fatalError("Expected simple data and found nil")
@@ -92,19 +81,6 @@ public class EmeraldChartDataEntry: EmeraldChartDataType{
         return colorsDict
     }
     
-    func getSimpleDataSubtitles() -> [String] {
-        var subtitles = [String]()
-        guard let entries = simpleDataEntries else {
-            fatalError("Expected simple data and found nil")
-        }
-        
-        for entry in entries {
-            subtitles.append(String(entry.value))
-        }
-        
-        return subtitles
-    }
-    
     func getValueForMultipleValueDataEntry(index: Int) -> [Double] {
         var values = [Double]()
 
@@ -119,14 +95,10 @@ public class EmeraldChartDataEntry: EmeraldChartDataType{
 protocol EmeraldChartDataType {
     func getDataEntriesCount() -> Int
     func getHorizontalDataEntries() -> [String]
-    
-    func getSimpleDataVerticalEntries() -> [Float]
     func getSimpleDataEntries() -> [EmeraldChartSimpleDataEntry]
     func getValueForSimpleDataEntry(index: Int) -> Float
     func getSimpleDataSetColors() -> [UIColor]
     func getSimpleDataSubtitleColor() -> [String: UIColor]
-    func getSimpleDataSubtitles() -> [String]
-    
     func getValueForMultipleValueDataEntry(index: Int) -> [Double]
 }
 
