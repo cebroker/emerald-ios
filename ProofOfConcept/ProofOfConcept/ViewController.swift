@@ -41,8 +41,6 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
 
-//    @IBOutlet weak var emeraldRexgexTextFieldView: RegexTextFieldView!
-
     @IBOutlet weak var regexView: EmeraldTextFieldView!
     @IBOutlet weak var emptyableSelector: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
