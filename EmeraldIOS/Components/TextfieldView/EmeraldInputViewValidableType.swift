@@ -15,4 +15,8 @@ extension EmeraldInputViewValidableType {
     public func validateEmeraldFields(with fields: [EmeraldInputViewValidableType]) -> Bool {
         return fields.map({ $0.validateAndHandle() }).filter({ $0 == false }).isEmpty
     }
+    
+    public func validateAndHandle() -> Bool {
+        return true
+    }
 }
