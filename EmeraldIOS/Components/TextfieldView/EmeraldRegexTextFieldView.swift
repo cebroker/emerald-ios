@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class RegexTextFieldView: EmeraldTextFieldView {
+public class EmeraldRegexTextFieldView: EmeraldTextFieldView {
 
     public var emeraldRegexTextField = EmeraldRegexTextField()
     override public var textField: EmeraldTextField {
