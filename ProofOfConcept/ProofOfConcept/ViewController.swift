@@ -55,7 +55,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var disabletextField: EmeraldTextField!
 
     private var emeraldFields: [EmeraldValidableType] {
-        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldTextView]
+        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
     }
 
     private var organizationName: EmeraldTextFieldType?

@@ -24,7 +24,7 @@ public protocol EmeraldMultipleSelectionFieldType {
     func clearError()
 }
 
-public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectionFieldType, SingleItemChangeNotifiable, EmeraldInputViewValidableType {
+public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectionFieldType, SingleItemChangeNotifiable, EmeraldValidableType {
     
     private struct InnerConstants {
         struct StackView {
