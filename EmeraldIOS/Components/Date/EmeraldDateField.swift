@@ -21,7 +21,6 @@ public protocol EmeraldDateFieldType: EmeraldTextFieldType {
     func set(dateFormat: String)
     func getDate(from string: String) -> Date?
     func setDependantField(with dateField: EmeraldDateFieldType)
-    func openPicker()
 }
 
 public protocol EmeraldDateFieldTestableType {
@@ -182,10 +181,6 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     public func setDependantField(with dateField: EmeraldDateFieldType) {
         self.dependantField = dateField
-    }
-    
-    public func openPicker() {
-        self.openDatePicker()
     }
     
     private func setupToolbar() {

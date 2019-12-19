@@ -84,8 +84,4 @@ public class EmeraldDateFieldView: EmeraldTextFieldView {
     public func setDependantField(with dateField: EmeraldDateFieldType) {
         self.emeraldDateField.setDependantField(with: dateField)
     }
-    
-    public func openPickerDate() {
-        self.emeraldDateField.openPicker()
-    }
 }
