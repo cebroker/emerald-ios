@@ -34,7 +34,7 @@ public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDa
     
     public class ErrorMessages {
         public var minimumDate = "This must be a future date."
-        public var maximumDate = "Picked date is greater than maximum."
+        public var maximumDate = "This must be a past date."
         public var invalidFormat = "Invalid date format"
     }
     
