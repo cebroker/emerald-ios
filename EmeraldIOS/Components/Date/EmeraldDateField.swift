@@ -33,7 +33,7 @@ public protocol EmeraldDateFieldTestableType {
 public class EmeraldDateField: EmeraldTextField, EmeraldDateFieldType, EmeraldDateFieldTestableType {
     
     public class ErrorMessages {
-        public var minimumDate = "Picked date is lower than minimum."
+        public var minimumDate = "This must be a future date."
         public var maximumDate = "Picked date is greater than maximum."
         public var invalidFormat = "Invalid date format"
     }
