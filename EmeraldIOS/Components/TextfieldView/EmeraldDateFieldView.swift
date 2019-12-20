@@ -21,10 +21,7 @@ public class EmeraldDateFieldView: EmeraldTextFieldView {
     }
 
     public var errorMessages: EmeraldDateField.ErrorMessages {
-        get {
-            return self.emeraldDateField.errorMessages
-        }
-        set { }
+        return self.emeraldDateField.errorMessages
     }
 
     public func set(selectedDate: Date) {
@@ -56,11 +53,11 @@ public class EmeraldDateFieldView: EmeraldTextFieldView {
     }
 
     public func getMinimumDate() -> Date? {
-        self.emeraldDateField.getMaximumDate()
+        self.emeraldDateField.getMinimumDate()
     }
 
     public func set(maximumDate: Date?) {
-        self.emeraldDateField.set(minimumDate: maximumDate)
+        self.emeraldDateField.set(maximumDate: maximumDate)
     }
 
     public func getMaximumDate() -> Date? {
