@@ -24,9 +24,23 @@ avatar.setTitle(with: "Gensesis", lastName: "Sanguino")
 ```swift
 enum EmeraldAvatarStyle
     case xs
+    case xxs
     case md
     case lg
 ```
+
+## Colors:
+This have colors by default but you can set it as well with the follow methods:
+
+#### Background: 
+```public func setBackgroundColor(_ avatarColor: AvatarBackgroundColor)``` 
+
+#### Text: 
+```public func setTextColor(_ avatarColor: AvatarTextColor)```
+
+#### Example: 
+- ``` avatar.setBackgroundColor(.cyanColor)```
+- ``` avatar.setTextColor(.alwaysWhite)```
 
 ## Usage from storyboard
 <p align="center"><img src="https://github.com/cebroker/emerald-ios/blob/develop/Resources/Images/AvatarSizeFromStoryBoard.png" /></p>
