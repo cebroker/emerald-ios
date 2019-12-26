@@ -163,7 +163,7 @@ public class EmeraldChipView: UIView {
 }
 
 extension EmeraldChipView: EmeraldChipViewType {
-    func setType(_ type: EmeraldChipStyle) {
+    public func setType(_ type: EmeraldChipStyle) {
         self.type = type.rawValue
     }
 
