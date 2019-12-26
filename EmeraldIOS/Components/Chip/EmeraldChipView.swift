@@ -79,7 +79,7 @@ public class EmeraldChipView: UIView {
         super.init(frame: frame)
     }
 
-    convenience init(text: String, type: EmeraldChipStyle) {
+    public convenience init(text: String, type: EmeraldChipStyle) {
         self.init(frame: .zero)
         self.text = text
         self.type = type.rawValue
