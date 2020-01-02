@@ -54,7 +54,7 @@ public enum EmeraldChipStyle: String, Inspectable {
             return EmeraldTheme.warningColor
         case .error:
             return EmeraldTheme.errorColor
-        case .dismissable, .simple:
+        default:
             return EmeraldTheme.darkGrayColor
         }
     }
@@ -64,7 +64,7 @@ public enum EmeraldChipStyle: String, Inspectable {
         case .success, .warning, .error:
             return .white
         default:
-            return .black
+            return EmeraldTheme.chipDefaultColor
         }
     }
 
