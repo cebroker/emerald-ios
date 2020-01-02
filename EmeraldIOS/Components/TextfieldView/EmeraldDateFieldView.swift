@@ -81,11 +81,4 @@ public class EmeraldDateFieldView: EmeraldTextFieldView {
     public func setDependantField(with dateField: EmeraldDateFieldType) {
         self.emeraldDateField.setDependantField(with: dateField)
     }
-    
-    public func getDateFormatter() -> DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = getFormat() == TextFormat.longDate ? Constants.DateFormat.defaultFormat : Constants.DateFormat.shortFormat
-        dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
-        return dateFormatter
-    }
 }
