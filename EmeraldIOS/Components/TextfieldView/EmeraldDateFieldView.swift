@@ -81,4 +81,34 @@ public class EmeraldDateFieldView: EmeraldTextFieldView {
     public func setDependantField(with dateField: EmeraldDateFieldType) {
         self.emeraldDateField.setDependantField(with: dateField)
     }
+    
+    public func checkDate(_ date: String) -> String {
+        return validation(date)
+    }
+
+    private func validation(_ date: String) -> String {
+        let format = getDateFormatter()
+        guard let dateFromString = format.date(from: date) else {
+            return date
+        }
+        return self.compare(date: dateFromString, format: format)
+    }
+
+    private func getDateFormatter() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = getFormat() == TextFormat.longDate ? Constants.DateFormat.defaultFormat : Constants.DateFormat.shortFormat
+        dateFormatter.locale = Locale(identifier: Constants.DateFormat.defaultLocale)
+        return dateFormatter
+    }
+
+    private func compare(date: Date, format: DateFormatter) -> String {
+        switch Date().compare(date) {
+        case .orderedAscending:
+            return format.string(from: date)
+        case .orderedDescending:
+            return format.string(from: Date())
+        case .orderedSame:
+            return format.string(from: date)
+        }
+    }
 }
