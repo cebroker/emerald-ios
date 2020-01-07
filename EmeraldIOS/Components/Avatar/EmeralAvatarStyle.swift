@@ -52,6 +52,7 @@ public enum EmeraldAvatarStyle: String, Inspectable {
 public enum AvatarTextColor: String, CaseIterable {
     case white
     case black
+    case alwaysWhite
 
     var color: UIColor {
         switch self {
@@ -59,6 +60,8 @@ public enum AvatarTextColor: String, CaseIterable {
             return EmeraldTheme.whiteColor
         case .black:
             return EmeraldTheme.blackColor
+        case .alwaysWhite:
+            return .white
         }
     }
 }

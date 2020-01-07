@@ -231,6 +231,7 @@ public class EmeraldSignatureBoxView: UIView, EmeraldSignatureBoxViewType, Emera
     @objc func goToSignatureView() {
         let signatureViewController = EmeraldSignatureViewController()
         signatureViewController.signatureDelegate = self
+        signatureViewController.modalPresentationStyle = .fullScreen
         delegate?.present(signatureViewController,
                          animated: true,
                          completion: nil)

@@ -2,7 +2,7 @@ language: swift
 cache:
    - cocoapods
 before_install:
-   - gem install cocoapods
+   - gem install cocoapods --pre --no-document --quiet
    - pod install --repo-update
 branches:
    only:

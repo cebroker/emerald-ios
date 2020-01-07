@@ -14,13 +14,13 @@ public enum SegmentedTitleStyle: String, Inspectable {
     var fontWhenHighlighted: UIFont {
         switch self {
         case .primary:
-            return Font(size: .h4, weight: .regular).uiFont
+            return Font(size: .h5, weight: .semibold).uiFont
         }
     }
     var fontWhenSelected: UIFont {
         switch self {
         case .primary:
-            return Font(size: .h4, weight: .regular).uiFont
+            return Font(size: .h5, weight: .semibold).uiFont
         }
     }
     var colorWhenHighlighted: UIColor {
@@ -33,6 +33,12 @@ public enum SegmentedTitleStyle: String, Inspectable {
         switch self {
         case .primary:
             return .white
+        }
+    }
+    var titleSpacing: CGFloat {
+        switch self {
+        case .primary:
+            return 0.6
         }
     }
     

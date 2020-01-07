@@ -79,7 +79,7 @@ public class EmeraldChipView: UIView {
         super.init(frame: frame)
     }
 
-    convenience init(text: String, type: EmeraldChipStyle) {
+    public convenience init(text: String, type: EmeraldChipStyle) {
         self.init(frame: .zero)
         self.text = text
         self.type = type.rawValue
@@ -163,7 +163,7 @@ public class EmeraldChipView: UIView {
 }
 
 extension EmeraldChipView: EmeraldChipViewType {
-    func setType(_ type: EmeraldChipStyle) {
+    public func setType(_ type: EmeraldChipStyle) {
         self.type = type.rawValue
     }
 
