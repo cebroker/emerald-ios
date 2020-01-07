@@ -20,4 +20,15 @@ public extension Date {
         let year = calendar.component(.year, from: self)
         return String(year)
     }
+    
+    private func compare(date: Date, format: DateFormatter) -> String {
+        switch Date().compare(date) {
+        case .orderedAscending:
+            return format.string(from: date)
+        case .orderedDescending:
+            return format.string(from: Date())
+        case .orderedSame:
+            return format.string(from: date)
+        }
+    }
 }
