@@ -20,7 +20,6 @@ public class EmeraldTextDependantFieldView: EmeraldTextFieldView {
         }
     }
 
-
     public func set(availableOptions: [String]) {
         self.emeraldTextDependantField.set(availableOptions: availableOptions)
     }
