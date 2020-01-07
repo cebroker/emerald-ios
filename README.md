@@ -67,6 +67,9 @@ Emerald UI for iOS Apps
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Utils/Alert">Alert</a></li>
   </ul>
+   <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Utils/Alert">TextFieldView</a></li>
+  </ul>
 
 ### CocoaPods
 
