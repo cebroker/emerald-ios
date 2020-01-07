@@ -110,8 +110,10 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         }
     }
 
-    public override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 50.0)
+    private var originCenter: CGPoint {
+        get {
+            return CGPoint(x: 10, y: self.frame.height / 2 - InnerConstants.placeHolderLabelSize / 2)
+        }
     }
 
     private struct InnerConstants {
@@ -162,10 +164,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         if isErrored {
             let _ = self.validateAndHandle()
         }
-        applyTheme()
+
         self.backgroundColor = EmeraldTheme.whiteColor
         self.delegate = self
         self.addSubview(placeholderLabel)
+        applyTheme()
         self.setupPlaceholderLabelConstraints()
     }
 
@@ -387,15 +390,11 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
 
     public func show(error: FormFieldErrorType) {
         self.isErrored = true
-        self.placeholderLabel.text = error.description
-        self.placeholderLabel.textColor = EmeraldTheme.redColor
         self.layer.borderColor = EmeraldTheme.redColor.cgColor
     }
 
     public func clearError() {
         self.isErrored = false
-        self.placeholderLabel.text = self.initialPlaceHolder
-        self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
         self.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
 
@@ -466,18 +465,13 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         color: UIColor) {
         let style = EmeraldTextFieldStyle(IBInspectable: themeStyle)
 
-        if isErrored {
-            self.placeholderLabel.textColor = EmeraldTheme.errorColor
-        } else {
-            self.placeholderLabel.textColor = EmeraldTheme.placeholderColor
-            self.placeholderLabel.text = self.initialPlaceHolder ?? Constants.Values.empty
-        }
-
         if initialPlaceHolder == nil {
-            self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
-            self.placeholderLabel.frame.size = CGSize(width: self.frame.width, height: labelHeight)
+            let centerPoint = InnerConstants.frameOriginFieldOff
+            self.placeholderLabel.frame = CGRect(x: centerPoint.x,
+                y: centerPoint.y,
+                width: self.frame.width,
+                height: labelHeight)
         }
-
         self.placeholderLabel.font = style.font
     }
 
@@ -509,7 +503,7 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
 
                 self.placeholderLabel.transform =
                     CGAffineTransform.identity
-                self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOff
+                self.placeholderLabel.frame.origin = self.originCenter
             },
             completion: { _ in })
     }
