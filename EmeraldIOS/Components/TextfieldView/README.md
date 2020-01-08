@@ -15,6 +15,7 @@ Emerald TextField View inherits from BaseInputView, where it shares common anima
 #### Swift
 ```swift
 let datePicker = EmeraldTextFieldView()
+
 //This is how you set a placeholder
 public func set(placeholder: String) {
     self.textField.prepareForInterfaceBuilder()
