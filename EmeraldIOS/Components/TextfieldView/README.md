@@ -33,6 +33,8 @@ emeraldTextFieldView.text
 
 ## Examples
 
+<img src="/Resources/Images/EmeraldDateFieldView.png" />
+
 ## Usage
 
 EmeraldDateFieldView is a subclass of EmeraldTextFieldView, this emerald component has the same public methods as the EmeraldDateField.
@@ -57,5 +59,13 @@ if let currentDate = self.getDate(from: "04/24/1992") {
    emeraldDateFieldView.set(currentDateValue: currentDate)
 }
 ```
+
+## 
+
+# EmeraldRegexTextFieldView
+
+## Examples
+
+
 
 ## 
