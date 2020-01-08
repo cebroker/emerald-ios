@@ -14,26 +14,48 @@ Emerald TextField View inherits from BaseInputView, where it shares common anima
 
 #### Swift
 ```swift
-let datePicker = EmeraldTextFieldView()
+let emeraldTextFieldView = EmeraldTextFieldView()
 
 //This is how you set a placeholder
-public func set(placeholder: String) {
-    self.textField.prepareForInterfaceBuilder()
-    textField.set(placeholder: placeholder)
- }
+ emeraldTextFieldView.set(placeholder: placeholder)
 
 //This is how you set a hint
- public func set(hint: String?) {
-      self.textField.set(hint: hint)
-  }
+ emeraldTextFieldView.set(hint: hint)
+  
 
 //This is how you can get the text form textfield.
-  public var text: String? {
-        set {
-            self.textField.text = newValue
-        }
-        get {
-            return self.textField.text
-        }
-    }
+emeraldTextFieldView.text
 ```
+
+
+
+# EmeraldDateFieldView
+
+## Examples
+
+## Usage
+
+EmeraldDateFieldView is a subclass of EmeraldTextFieldView, this emerald component has the same public methods as the EmeraldDateField.
+
+ For example:
+
+#### Swift
+```swift
+let emeraldDateFieldView = EmeraldDateFieldView()
+//This is how you set a minimum date value for the picker
+if let minimumDate = self.minimumDate {
+    emeraldDateFieldView.set(minimumDate: minimumDate)
+}
+
+//This is how you set a maximum date value for the picker
+if let maximumDate = self.maximumDate {
+   emeraldDateFieldView.set(maximumDate: maximumDate)
+}
+
+//This is how you can open the picker with a previously selected date
+if let currentDate = self.getDate(from: "04/24/1992") {
+   emeraldDateFieldView.set(currentDateValue: currentDate)
+}
+```
+
+## 
