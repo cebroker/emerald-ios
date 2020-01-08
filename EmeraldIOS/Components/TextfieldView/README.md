@@ -4,7 +4,7 @@
 
 # EmeraldTextFieldView
 ## Examples
-<img src="/Resources/Images/EmeraldDatePickerAlert.png" />
+<img src="/Resources/Images/textfieldview.png" />
 
 ## Usage
 
