@@ -8,9 +8,9 @@
 
 ## Usage
 
-EmeraldTextFieldView is a subclass of UIView, that contains a EmeraldTextField and a EmeraldLabel, it´s change the way for show error with a bottom animation, EmeraldTextFieldView has public methods for accesibility to all actions of the EmeraldTextField.
+EmeraldTextFieldView is a subclass of UIView, that contains an EmeraldTextField and an EmeraldLabel. Now, the textField has an animation which displays the error below the field. EmeraldTextFieldView has the same public methods as the EmeraldTextField.
 
-Emerald TextField View inherit from Base InputView where has common methods about textfield and error label animation. For example:
+Emerald TextField View inherits from BaseInputView, where it shares common animation methods for the textfield and error label. For example:
 
 #### Swift
 ```swift
@@ -26,7 +26,7 @@ public func set(placeholder: String) {
       self.textField.set(hint: hint)
   }
 
-//This is how you can get text form textfield.
+//This is how you can get the text form textfield.
   public var text: String? {
         set {
             self.textField.text = newValue
