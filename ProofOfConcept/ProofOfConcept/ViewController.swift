@@ -41,7 +41,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
 
-    @IBOutlet weak var regexView: EmeraldRegexTextFieldView!
+    @IBOutlet weak var regexView: EmeraldSelectorFieldView!
     @IBOutlet weak var emptyableSelector: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
@@ -133,9 +133,8 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
         emeraldAvatarLg.setBackgroundColor(emeraldAvatarXs.getBackgroundColor())
         emeraldAvatarLg.setTextColor(emeraldAvatarXs.getTextColor())
-        regexView.set(placeholder: "example emerald regex text field")
+        regexView.set(placeholder: "example emerald selector field view")
         regexView.setDelegate(self)
-        regexView.set(regex: .custom("^[0-9]{0,5}$"))
         regexView.set(isRequired: true)
     }
 

@@ -267,7 +267,7 @@ GROUP 2</string>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="regex" value="email"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-Jg-SbH" customClass="EmeraldRegexTextFieldView" customModule="EmeraldIOS">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-Jg-SbH" customClass="EmeraldSelectorFieldView" customModule="EmeraldIOS">
                                                 <rect key="frame" x="0.0" y="2303.5" width="373" height="56"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
@@ -419,7 +419,7 @@ GROUP 2</string>
                         <outlet property="emptyableSelector" destination="cmy-8w-Aph" id="jDI-5a-dJ4"/>
                         <outlet property="formStackView" destination="H8W-5V-jo4" id="4nC-Xx-RlT"/>
                         <outlet property="loadingIndicator" destination="umb-ay-auM" id="FNv-39-dr1"/>
-                        <outlet property="regexView" destination="p5z-Jg-SbH" id="0qo-9J-V5a"/>
+                        <outlet property="regexView" destination="p5z-Jg-SbH" id="4x4-Bw-l10"/>
                         <outlet property="signatureBoxView" destination="Ikf-WA-g0C" id="iGa-Kt-Hgo"/>
                         <outlet property="textViewStack" destination="rMW-P3-3Aq" id="ZjE-Re-S45"/>
                     </connections>
