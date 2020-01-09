@@ -101,3 +101,25 @@ emeraldSelectorFieldView.set(data: [
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
 emeraldSelectorFieldView.set(notifiable: self)
 ```
+
+# EmeraldTextDependantFieldView
+
+## Examples
+
+## Usage
+
+EmeraldTextDependantFieldView is a subclass of EmeraldTextFieldView, this emerald component has the same public methods as the EmeraldTextDependantField.
+
+### Typical use
+
+#### Swift
+
+```swift
+let emeraldTextDependantFieldView = EmeraldTextDependantFieldView()
+ emeraldTextDependantFieldView.set(placeholder: "City")
+ emeraldTextDependantFieldView.set(isRequired: true)
+ emeraldTextDependantFieldView.set(hint: "Medellin")
+ emeraldTextDependantFieldView.set(availableOptions: [String]())
+```
+
+# 
