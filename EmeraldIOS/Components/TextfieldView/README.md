@@ -67,4 +67,13 @@ if let currentDate = self.getDate(from: "04/24/1992") {
 
 <img src="/Resources/Images/emeraldregextextfieldview.png" />
 
-## 
+## Usage
+
+EmeraldRegexTextFieldView is a subclass of EmeraldTextFieldView, this emerald component has the same public methods as the EmeraldRegexTextField.
+
+#### Swift
+```swift
+let emeraldRegexTextFieldView = EmeraldRegexTextFieldView()
+//This is how you set a regex
+emeraldRegexTextFieldView.set(regex: .custom("^[0-9]{0,5}$"))
+```
