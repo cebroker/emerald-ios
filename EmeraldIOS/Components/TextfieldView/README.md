@@ -1,7 +1,6 @@
 <p align="center"><img src="/Resources/Images/Header.png" /></p>
 
 
-
 # EmeraldTextFieldView
 ## Examples
 <img src="/Resources/Images/textfieldview.png" />
@@ -66,6 +65,6 @@ if let currentDate = self.getDate(from: "04/24/1992") {
 
 ## Examples
 
-
+<img src="/Resources/Images/emeraldregextextfieldview.png" />
 
 ## 
