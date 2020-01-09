@@ -104,8 +104,6 @@ emeraldSelectorFieldView.set(notifiable: self)
 
 # EmeraldTextDependantFieldView
 
-## Examples
-
 ## Usage
 
 EmeraldTextDependantFieldView is a subclass of EmeraldTextFieldView, this emerald component has the same public methods as the EmeraldTextDependantField.
