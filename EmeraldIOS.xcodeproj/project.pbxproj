@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19C914A023E36D2E00DDBE31 /* TextFormatterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9149F23E36D2E00DDBE31 /* TextFormatterType.swift */; };
+		19C914A223E36D9500DDBE31 /* TextInputFormatterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C914A123E36D9500DDBE31 /* TextInputFormatterType.swift */; };
+		19C914A523E377D700DDBE31 /* EmeraldTextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C914A423E377D700DDBE31 /* EmeraldTextFormatter.swift */; };
+		19C914A723E3807400DDBE31 /* PositionCorrector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C914A623E3807400DDBE31 /* PositionCorrector.swift */; };
+		19C914A923E3834300DDBE31 /* EmeraldTextInputFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C914A823E3834300DDBE31 /* EmeraldTextInputFormatter.swift */; };
 		34298FF1C1A7AF96ED8DB63F /* Pods_EmeraldIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C5189AD81ECC0C279C56A8 /* Pods_EmeraldIOSTests.framework */; };
 		490E3C7B2335148B000FA6C9 /* EmeraldChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490E3C7A2335148B000FA6C9 /* EmeraldChartPresenter.swift */; };
 		49B6D78423328BCF00FE78A1 /* EmeraldChartDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */; };
@@ -131,6 +136,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19C9149F23E36D2E00DDBE31 /* TextFormatterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatterType.swift; sourceTree = "<group>"; };
+		19C914A123E36D9500DDBE31 /* TextInputFormatterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputFormatterType.swift; sourceTree = "<group>"; };
+		19C914A423E377D700DDBE31 /* EmeraldTextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFormatter.swift; sourceTree = "<group>"; };
+		19C914A623E3807400DDBE31 /* PositionCorrector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCorrector.swift; sourceTree = "<group>"; };
+		19C914A823E3834300DDBE31 /* EmeraldTextInputFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextInputFormatter.swift; sourceTree = "<group>"; };
 		490E3C7A2335148B000FA6C9 /* EmeraldChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartPresenter.swift; sourceTree = "<group>"; };
 		4935643B233A777500344040 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartDelegates.swift; sourceTree = "<group>"; };
@@ -283,6 +293,34 @@
 				C1C5189AD81ECC0C279C56A8 /* Pods_EmeraldIOSTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		19C9149D23E36C2700DDBE31 /* TextFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				19C914A323E376F600DDBE31 /* EmeraldTextFormatter */,
+				19C9149E23E36D0F00DDBE31 /* TextFormatterProtocols */,
+			);
+			path = TextFormatter;
+			sourceTree = "<group>";
+		};
+		19C9149E23E36D0F00DDBE31 /* TextFormatterProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				19C9149F23E36D2E00DDBE31 /* TextFormatterType.swift */,
+				19C914A123E36D9500DDBE31 /* TextInputFormatterType.swift */,
+			);
+			path = TextFormatterProtocols;
+			sourceTree = "<group>";
+		};
+		19C914A323E376F600DDBE31 /* EmeraldTextFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				19C914A423E377D700DDBE31 /* EmeraldTextFormatter.swift */,
+				19C914A623E3807400DDBE31 /* PositionCorrector.swift */,
+				19C914A823E3834300DDBE31 /* EmeraldTextInputFormatter.swift */,
+			);
+			path = EmeraldTextFormatter;
 			sourceTree = "<group>";
 		};
 		49D7DA62233D09F8000453BD /* CustomRenderers */ = {
@@ -533,6 +571,7 @@
 		9B3BCC4B2272033400DC5D79 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				19C9149D23E36C2700DDBE31 /* TextFormatter */,
 				D1D039E0238DB54B00F560CF /* TextfieldView */,
 				49EC6EDD232BF2EC003BFEBD /* Chart */,
 				778BEF6422B92BD400AF8601 /* Avatar */,
@@ -965,6 +1004,7 @@
 				6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */,
 				778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */,
 				9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */,
+				19C914A023E36D2E00DDBE31 /* TextFormatterType.swift in Sources */,
 				6C2D328E228B0378009D4B0F /* EmeraldTextDependantFieldError.swift in Sources */,
 				6C2D3F9A2280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift in Sources */,
 				6C2D3F982280C89000FD8ED9 /* EmeraldTextField.swift in Sources */,
@@ -1008,6 +1048,7 @@
 				D1570581239FEAD100486D64 /* ConstantIdentifier.swift in Sources */,
 				6C807C7A227CECDA00FC328E /* EmeraldButtonStyle.swift in Sources */,
 				6CD5841E22943343001DE8D2 /* EmeraldRegexFormatType.swift in Sources */,
+				19C914A923E3834300DDBE31 /* EmeraldTextInputFormatter.swift in Sources */,
 				D119A139239849FF00C1BB17 /* EmeraldDateFieldView.swift in Sources */,
 				6C2AFCE42326B40600EBDE1C /* EmeraldTextField+ShowHide.swift in Sources */,
 				D19AB19923981BD4007DB93D /* EmeraldRegexTextFieldView.swift in Sources */,
@@ -1022,7 +1063,10 @@
 				9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */,
 				6C807C73227CA31100FC328E /* Font.swift in Sources */,
 				6CAFFA1E2283660E00C690B9 /* SignatureContract.swift in Sources */,
+				19C914A523E377D700DDBE31 /* EmeraldTextFormatter.swift in Sources */,
 				6C23516E228CAEBB00D398F3 /* EmeraldSignatureBoxView.swift in Sources */,
+				19C914A223E36D9500DDBE31 /* TextInputFormatterType.swift in Sources */,
+				19C914A723E3807400DDBE31 /* PositionCorrector.swift in Sources */,
 				9B3BCC9C2272033400DC5D79 /* EmeraldStackViewContract.swift in Sources */,
 				6CD5842C229496CB001DE8D2 /* Extensions+String.swift in Sources */,
 				6C2CCDD9228EECCB00181C25 /* EmeraldSignatureView.swift in Sources */,
