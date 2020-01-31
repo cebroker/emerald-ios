@@ -58,7 +58,10 @@ struct Constants {
         static let phone = "PHONE_FORMAT"
         static let phoneLength = 10
         static let phonePrefixIndex = 3
+        static let alternatePhonePrefixIndex = 4
         static let phoneSuffixIndex = 7
+        static let alternatePhoneSuffixIndex = 9
+        static let alternatePhoneMaxLength = 13
         static let dateFirstSeparatorIndex = 2
         static let dateFirstValidatorIndex = 2
         static let dateSecondValidatorIndex = 4
@@ -149,6 +152,8 @@ struct Constants {
         static let one: CGFloat = 1
         static let zeroDecimals = ".00"
         static let select = "Select"
+        static let openingParenthesis = "("
+        static let closingParenthesis = ")"
     }
 
     struct Design {
