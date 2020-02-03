@@ -67,6 +67,9 @@ struct Constants {
         static let dateSecondValidatorIndex = 4
         static let dateSecondSeparatorIndex = 5
         static let maxMonthValue = 12
+        static let ssnPrefixIndex = 3
+        static let ssnSuffixIndex = 6
+        static let ssnMaxLength = 11
     }
 
     struct MockedData {

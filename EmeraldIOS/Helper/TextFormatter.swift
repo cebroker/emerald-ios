@@ -16,6 +16,7 @@ public enum TextFormat: Int {
     case shortDate
     case longDate
     case alternatePhone
+    case ssn
 }
 
 public enum TextFormatterError: Error {
@@ -42,6 +43,8 @@ public extension TextFormatter {
             return formatDate(with: resource)
         case .alternatePhone:
             return formatAlternatePhone(phoneNumber: resource)
+        case .ssn:
+            return formatSSN(ssnNumber: resource)
         default:
             return resource
         }
@@ -77,6 +80,20 @@ public extension TextFormatter {
             if result.count == Constants.TextFormating.phonePrefixIndex || result.count == Constants.TextFormating.phoneSuffixIndex {
                 return result + Constants.Values.hyphen + String(individualNumber)
             }
+            return result + String(individualNumber)
+        }
+    }
+    
+    private func formatSSN(ssnNumber: String) -> String {
+        let numbersOnly = ssnNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        
+        return numbersOnly.reduce(Constants.Values.empty) { (result, individualNumber) in
+            if result.count == Constants.TextFormating.ssnPrefixIndex || result.count == Constants.TextFormating.ssnSuffixIndex {
+                return result + Constants.Values.hyphen + String(individualNumber)
+            } else if result.count >= Constants.TextFormating.ssnMaxLength {
+                return result
+            }
+            
             return result + String(individualNumber)
         }
     }
