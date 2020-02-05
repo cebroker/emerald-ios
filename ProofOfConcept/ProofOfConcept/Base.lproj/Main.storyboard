@@ -346,6 +346,9 @@ GROUP 2</string>
                                                     <action selector="showBarChart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eZI-DD-qM9"/>
                                                 </connections>
                                             </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OqS-cJ-AgJ" customClass="EmeraldCheckboxFormField" customModule="EmeraldIOS">
+                                                <rect key="frame" x="131.5" y="2264" width="110" height="200"/>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="fBv-QR-ky7" firstAttribute="height" secondItem="Qbk-ri-QTF" secondAttribute="height" id="9NU-67-i7P"/>
@@ -402,6 +405,7 @@ GROUP 2</string>
                         <outlet property="chipSuccess" destination="Wt2-Wa-Kyn" id="ztL-KJ-Jpa"/>
                         <outlet property="chipWarning" destination="1Cd-tC-1ye" id="Kj8-Db-hI3"/>
                         <outlet property="chipsDefault" destination="pR5-KF-4Fq" id="PiY-fT-2dy"/>
+                        <outlet property="disableEmeralCheckboxField" destination="OqS-cJ-AgJ" id="ES6-h1-gKv"/>
                         <outlet property="disabletextField" destination="dzn-pk-IR1" id="6xg-ps-QzM"/>
                         <outlet property="emeraldAvatarLg" destination="BpB-Bd-URn" id="2dH-S2-eTF"/>
                         <outlet property="emeraldAvatarMd" destination="mfr-Ro-5VJ" id="nEg-Nk-top"/>
