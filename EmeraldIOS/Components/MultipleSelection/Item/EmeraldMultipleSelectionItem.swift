@@ -19,6 +19,7 @@ public protocol EmeraldMultipleSelectionItemType: class {
                     rigth: CGFloat)
     func setSquareShape(_ status: Bool)
     func setStyle(with currentTheme: EmeraldMultipleSelectionFieldStyle)
+    func isEnable(_ enable: Bool)
     func getAssociatedSelectable() -> Selectable?
     func equals(_ referenceAbstraction: EmeraldMultipleSelectionItemType) -> Bool
     func setId(with id: String)
@@ -136,6 +137,21 @@ public class EmeraldMultipleSelectionItem: UIView, EmeraldMultipleSelectionItemT
             paddingRight: rigth,
             width: 0,
             height: 0)
+    }
+    
+    public func isEnable(_ enable: Bool) {
+        self.alpha = enable ? 1 : 0.5
+        enable ? self.activateField() : self.deactivateField()
+    }
+    
+    private func activateField() {
+        self.isUserInteractionEnabled = true
+        self.layer.borderColor = InnerConstants.Border.borderColor
+    }
+    
+    private func deactivateField() {
+        self.isUserInteractionEnabled = false
+        self.layer.borderColor = EmeraldTheme.borderColor.cgColor
     }
     
     private func postInit(hasBorder: Bool, associatedSelectable: Selectable) {
