@@ -27,6 +27,8 @@ public class EmeraldTheme {
     public static let toastFailure = UIColor(named: "toastFailure", in: bundle, compatibleWith: nil)!
     public static let axisChart = UIColor(named: "axisChartColor", in: bundle, compatibleWith: nil)!
     public static let chartBaseLineColor = UIColor(named: "chartBaseLineColor", in: bundle, compatibleWith: nil)!
+    public static let headerImageBorderColor = UIColor(named: "headerImageBorderColor", in: bundle, compatibleWith: nil)!
+    public static let headerImageColor = UIColor(named: "headerImageColor", in: bundle, compatibleWith: nil)!
     
     // MARK: General Colors
 

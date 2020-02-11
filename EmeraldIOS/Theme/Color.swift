@@ -22,7 +22,7 @@ public enum Color: String, Inspectable {
     case extraLightGray
     case toastSuccess
     case toastFailure
-    
+
     case primary
     case secondary
     case background
@@ -38,7 +38,7 @@ public enum Color: String, Inspectable {
     case warning
     case success
     case error
-    
+
     case mainNavigationTint
     case mainNavigationBarTint
     case skeletonBackground
@@ -47,14 +47,17 @@ public enum Color: String, Inspectable {
     case elevatedViewPrimary
     case elevatedViewSecondary
     
+    case headerImageBorderColor
+    case headerImageColor
+
     var IBInspectable: String {
         return rawValue
     }
-    
+
     init(IBInspectable: String) {
         self.init(stringValue: IBInspectable)
     }
-    
+
     var uiColor: UIColor {
         switch self {
         case .toastSuccess:
@@ -127,18 +130,22 @@ public enum Color: String, Inspectable {
             return EmeraldTheme.elevatedViewPrimaryColor
         case .elevatedViewSecondary:
             return EmeraldTheme.elevatedViewSecondaryColor
-            
+        case .headerImageBorderColor:
+            return EmeraldTheme.headerImageBorderColor
+        case .headerImageColor:
+            return EmeraldTheme.headerImageColor
+
         }
     }
-    
+
     static func uiColor(_ IBInspectable: InspectableType) -> UIColor {
         return Color(IBInspectable: IBInspectable).uiColor
     }
-    
+
     var cgColor: CGColor {
         return uiColor.cgColor
     }
-    
+
     static func cgColor(_ IBInspectable: InspectableType) -> CGColor {
         return Color(IBInspectable: IBInspectable).cgColor
     }
