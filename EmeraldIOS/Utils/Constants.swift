@@ -41,7 +41,7 @@ struct Constants {
     }
 
     struct Regex {
-        static let ssn = "^[0-9]{9}$"
+        static let ssn = "^[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{4}$"
         static let npi = "^[0-9]{10}$"
         static let phone = "^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}$"
         static let alternatePhone = "^[(]{1}[0-9]{3}[)]{1}\\s{1}[0-9]{3}[-]{1}[0-9]{4}$"
