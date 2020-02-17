@@ -49,6 +49,7 @@ public enum Color: String, Inspectable {
     
     case headerImageBorderColor
     case headerImageColor
+    case headerSubtitleColor
 
     var IBInspectable: String {
         return rawValue
@@ -134,6 +135,8 @@ public enum Color: String, Inspectable {
             return EmeraldTheme.headerImageBorderColor
         case .headerImageColor:
             return EmeraldTheme.headerImageColor
+        case .headerSubtitleColor:
+            return EmeraldTheme.headerSubtitleColor
 
         }
     }

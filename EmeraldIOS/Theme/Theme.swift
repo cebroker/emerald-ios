@@ -29,6 +29,7 @@ public class EmeraldTheme {
     public static let chartBaseLineColor = UIColor(named: "chartBaseLineColor", in: bundle, compatibleWith: nil)!
     public static let headerImageBorderColor = UIColor(named: "headerImageBorderColor", in: bundle, compatibleWith: nil)!
     public static let headerImageColor = UIColor(named: "headerImageColor", in: bundle, compatibleWith: nil)!
+    public static let headerSubtitleColor = UIColor(named: "headerSubtitleColor", in: bundle, compatibleWith: nil)!
     
     // MARK: General Colors
 
