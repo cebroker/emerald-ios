@@ -109,7 +109,6 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
             resignFirstResponder()
         }
     }
-
     private var originCenter: CGPoint {
         get {
             return CGPoint(x: 10, y: self.frame.height / 2 - InnerConstants.placeHolderLabelSize / 2)
@@ -164,7 +163,8 @@ public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter,
         if isErrored {
             let _ = self.validateAndHandle()
         }
-
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.heightAnchor.constraint(equalToConstant: 58.0).isActive = true
         self.backgroundColor = EmeraldTheme.whiteColor
         self.delegate = self
         self.addSubview(placeholderLabel)

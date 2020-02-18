@@ -41,16 +41,17 @@ struct Constants {
     }
 
     struct Regex {
-        static let ssn = "^[0-9]{9}$"
+        static let ssn = "^[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{4}$"
         static let npi = "^[0-9]{10}$"
         static let phone = "^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}$"
+        static let alternatePhone = "^[(]{1}[0-9]{3}[)]{1}\\s{1}[0-9]{3}[-]{1}[0-9]{4}$"
         static let zip = "^[0-9]{5}$"
         static let visa = "^[A-Z0-9a-z]*$"
         static let email = "^[a-zA-Z0-9!#$%&'*+=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])*$"
         static let any = "(.*?)"
         static let upperCased = "[A-Z]"
         static let lowerCased = "[a-z]"
-        static let numbers = "[0-9]"
+        static let numbers = "^[0-9]*$"
     }
 
     struct TextFormating {
@@ -58,12 +59,18 @@ struct Constants {
         static let phone = "PHONE_FORMAT"
         static let phoneLength = 10
         static let phonePrefixIndex = 3
+        static let alternatePhonePrefixIndex = 4
         static let phoneSuffixIndex = 7
+        static let alternatePhoneSuffixIndex = 9
+        static let alternatePhoneMaxLength = 13
         static let dateFirstSeparatorIndex = 2
         static let dateFirstValidatorIndex = 2
         static let dateSecondValidatorIndex = 4
         static let dateSecondSeparatorIndex = 5
         static let maxMonthValue = 12
+        static let ssnPrefixIndex = 3
+        static let ssnSuffixIndex = 6
+        static let ssnMaxLength = 11
     }
 
     struct MockedData {
@@ -149,6 +156,8 @@ struct Constants {
         static let one: CGFloat = 1
         static let zeroDecimals = ".00"
         static let select = "Select"
+        static let openingParenthesis = "("
+        static let closingParenthesis = ")"
     }
 
     struct Design {

@@ -15,6 +15,8 @@ public enum TextFormat: Int {
     case number
     case shortDate
     case longDate
+    case alternatePhone
+    case ssn
 }
 
 public enum TextFormatterError: Error {
@@ -39,6 +41,10 @@ public extension TextFormatter {
             return formatShortDate(with: resource)
         case .longDate:
             return formatDate(with: resource)
+        case .alternatePhone:
+            return formatAlternatePhone(phoneNumber: resource)
+        case .ssn:
+            return formatSSN(ssnNumber: resource)
         default:
             return resource
         }
@@ -46,7 +52,7 @@ public extension TextFormatter {
 
     func remove(format: TextFormat, to resource: String) throws -> String {
         switch format {
-        case .phone:
+        case .phone, .alternatePhone:
             return resource.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         default:
             return resource
@@ -75,6 +81,39 @@ public extension TextFormatter {
                 return result + Constants.Values.hyphen + String(individualNumber)
             }
             return result + String(individualNumber)
+        }
+    }
+    
+    private func formatSSN(ssnNumber: String) -> String {
+        let numbersOnly = ssnNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        
+        return numbersOnly.reduce(Constants.Values.empty) { (result, individualNumber) in
+            if result.count == Constants.TextFormating.ssnPrefixIndex || result.count == Constants.TextFormating.ssnSuffixIndex {
+                return result + Constants.Values.hyphen + String(individualNumber)
+            } else if result.count >= Constants.TextFormating.ssnMaxLength {
+                return result
+            }
+            
+            return result + String(individualNumber)
+        }
+    }
+    
+    private func formatAlternatePhone(phoneNumber: String) -> String {
+        let numbersOnly = phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        
+        return numbersOnly.reduce(Constants.Values.empty) { (result, individualNumber) in
+            switch result.count {
+            case let x where x == Constants.Values.zero:
+                return result + Constants.Values.openingParenthesis + String(individualNumber)
+            case let x where x == Constants.TextFormating.alternatePhonePrefixIndex:
+                return result + Constants.Values.closingParenthesis + " \(individualNumber)"
+            case let x where x == Constants.TextFormating.alternatePhoneSuffixIndex:
+                return result + Constants.Values.hyphen + String(individualNumber)
+            case let x where x > Constants.TextFormating.alternatePhoneMaxLength:
+                return result
+            default:
+                return result + String(individualNumber)
+            }
         }
     }
     

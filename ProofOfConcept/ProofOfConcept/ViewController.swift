@@ -53,6 +53,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var textViewStack: EmeraldTextView!
     @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
     @IBOutlet weak var disabletextField: EmeraldTextField!
+    @IBOutlet weak var disableEmeralCheckboxField: EmeraldCheckboxFormField!
 
     private var emeraldFields: [EmeraldValidableType] {
         return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
@@ -116,6 +117,18 @@ class ViewController: UIViewController, EmeraldValidableType {
             MultipleSelectionGroupItem(title: "Cuatro"),
             MultipleSelectionGroupItem(title: "Cinco")])
         emeraldMultipleSelectorByStory.set(notifiable: self)
+        emeraldMultipleSelectorByStory.getChildren()?.forEach({ (item) in
+            item.isEnable(false)
+        })
+
+        disableEmeralCheckboxField.enable(innerBorder: true)
+        disableEmeralCheckboxField.prepareForInterfaceBuilder()
+        disableEmeralCheckboxField.set(data: [MultipleSelectionGroupItem(title: "Uno disable"), MultipleSelectionGroupItem(title: "dos disable")])
+
+        disableEmeralCheckboxField.getChildren()?.forEach({ (item) in
+            item.isEnable(false)
+        })
+
         emeraldRegexFieldByStory.set(regex: .custom("^([A-Z0-9]{1}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5})$"))
         emeraldSelectorByStory.set(notifiable: self)
         emeraldStartDateFieldByStory.setDependantField(with: emeraldEndDateFieldByStory)

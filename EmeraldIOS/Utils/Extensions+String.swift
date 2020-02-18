@@ -20,6 +20,11 @@ public extension String {
         }
         return Date()
     }
+    
+    func characterAt(_ index: Int) -> Character? {
+      guard index < count else { return nil }
+      return self[self.index(self.startIndex, offsetBy: index)]
+    }
 
     func toDate() -> Date {
         let dateFormatter = DateFormatter()

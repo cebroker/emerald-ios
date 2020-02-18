@@ -9,6 +9,7 @@ public enum EmeraldRegexFormatType {
     case email
     case zip
     case phone
+    case alternatePhone
     case npi
     case ssn
     case upperCased
@@ -29,6 +30,8 @@ public enum EmeraldRegexFormatType {
             self = EmeraldRegexFormatType.zip
         case "phone":
             self = EmeraldRegexFormatType.phone
+        case "alternatePhone":
+            self = .alternatePhone
         case "npi":
             self = EmeraldRegexFormatType.npi
         case "ssn":
@@ -56,6 +59,8 @@ public enum EmeraldRegexFormatType {
             return Constants.Regex.zip
         case .phone:
             return Constants.Regex.phone
+        case .alternatePhone:
+            return Constants.Regex.alternatePhone
         case .npi:
             return Constants.Regex.npi
         case .ssn:
