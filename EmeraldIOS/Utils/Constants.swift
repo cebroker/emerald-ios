@@ -51,7 +51,7 @@ struct Constants {
         static let any = "(.*?)"
         static let upperCased = "[A-Z]"
         static let lowerCased = "[a-z]"
-        static let numbers = "[0-9]"
+        static let numbers = "^[0-9]*$"
     }
 
     struct TextFormating {
