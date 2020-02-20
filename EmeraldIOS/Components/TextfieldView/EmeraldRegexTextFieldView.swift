@@ -22,7 +22,7 @@ public class EmeraldRegexTextFieldView: EmeraldTextFieldView {
     
     public func set(regex: String) {
         self.set(regex: EmeraldRegexFormatType(rawValue: regex))
-    }
+    }    
     
     public func set(regex: EmeraldRegexFormatType) {
         self.emeraldRegexTextField.set(regex: regex)

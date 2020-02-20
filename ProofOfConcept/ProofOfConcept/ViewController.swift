@@ -41,7 +41,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var emeraldButtonByStory: EmeraldButton!
     @IBOutlet weak var emeraldSelectorByStory: EmeraldSelectorField!
 
-    @IBOutlet weak var regexView: EmeraldTextFieldView!
+    @IBOutlet weak var regexView: EmeraldSelectorFieldView!
     @IBOutlet weak var emptyableSelector: EmeraldSelectorField!
     @IBOutlet weak var emeraldTextDependantFieldByStory: EmeraldTextDependantField!
     @IBOutlet weak var emeraldEndDateFieldByStory: EmeraldDateField!
@@ -146,7 +146,9 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldAvatarXs.setTitle(with: "Jorge", lastName: "Menco")
         emeraldAvatarLg.setBackgroundColor(emeraldAvatarXs.getBackgroundColor())
         emeraldAvatarLg.setTextColor(emeraldAvatarXs.getTextColor())
-        regexView.set(placeholder: "Date picker")
+        regexView.set(placeholder: "example emerald selector field view")
+        regexView.setDelegate(self)
+        regexView.set(isRequired: true)
     }
 
     private func createFields() {
@@ -295,5 +297,6 @@ extension ViewController: CustomEmeraldTextFieldDelegate {
     }
 
     func didEndEditing(textField: UITextField) {
+        let _ = regexView.validateAndHandle()
     }
 }
