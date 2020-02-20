@@ -54,11 +54,12 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
     @IBOutlet weak var disabletextField: EmeraldTextField!
     @IBOutlet weak var disableEmeralCheckboxField: EmeraldCheckboxFormField!
+    
 
     private var emeraldFields: [EmeraldValidableType] {
         return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
     }
-
+    
     private var organizationName: EmeraldTextFieldType?
     private var address: EmeraldTextFieldType?
     private var city: EmeraldTextDependantField?
@@ -222,6 +223,14 @@ class ViewController: UIViewController, EmeraldValidableType {
         let barChartVC = BarChartViewController()
         self.navigationController?.pushViewController(barChartVC, animated: true)
     }
+    
+    @IBAction func popupAction(_ sender: Any) {
+        let barChartVC = BarChartViewController()
+        let popup = EmeraldPopupViewController(contentController: barChartVC, popupWidth: 320, popupHeight: 400)
+        popup.shadowEnabled = false
+        self.present(popup, animated: true, completion: nil)
+    }
+    
     private func areFieldsValid() -> Bool {
         return validateEmeraldFields(with: self.emeraldFields)
     }

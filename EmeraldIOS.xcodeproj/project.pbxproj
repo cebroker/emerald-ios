@@ -75,6 +75,7 @@
 		8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */; };
 		8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */; };
 		8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9CA22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift */; };
+		869BBDF523FEEF06009FE3DD /* EmeraldPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869BBDF423FEEF06009FE3DD /* EmeraldPopupViewController.swift */; };
 		86AC4DE222974E2E00728FBA /* EmeraldSegmentedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC4DE122974E2E00728FBA /* EmeraldSegmentedBar.swift */; };
 		86C599C122C6811000B1DD4D /* icon_complete.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C599BF22C6811000B1DD4D /* icon_complete.png */; };
 		86C599C222C6811000B1DD4D /* icon_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C599C022C6811000B1DD4D /* icon_error.png */; };
@@ -200,6 +201,7 @@
 		8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarItemCell.swift; sourceTree = "<group>"; };
 		8676D9C822976875005AF8F4 /* SegmentedTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTitleAppearance.swift; sourceTree = "<group>"; };
 		8676D9CA22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBarAppearance.swift; sourceTree = "<group>"; };
+		869BBDF423FEEF06009FE3DD /* EmeraldPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldPopupViewController.swift; sourceTree = "<group>"; };
 		86AC4DE122974E2E00728FBA /* EmeraldSegmentedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSegmentedBar.swift; sourceTree = "<group>"; };
 		86C599BF22C6811000B1DD4D /* icon_complete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_complete.png; sourceTree = "<group>"; };
 		86C599C022C6811000B1DD4D /* icon_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_error.png; sourceTree = "<group>"; };
@@ -488,6 +490,14 @@
 			path = LoadingIndicator;
 			sourceTree = "<group>";
 		};
+		869BBDF323FEEEE5009FE3DD /* PopViewController */ = {
+			isa = PBXGroup;
+			children = (
+				869BBDF423FEEF06009FE3DD /* EmeraldPopupViewController.swift */,
+			);
+			path = PopViewController;
+			sourceTree = "<group>";
+		};
 		86AC4DE022974E1C00728FBA /* SegmentedBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +553,7 @@
 				6C807C74227CCEED00FC328E /* Label */,
 				860047CB233AA692003198AF /* LoadingIndicator */,
 				9B3BCC4C2272033400DC5D79 /* MultipleSelection */,
+				869BBDF323FEEEE5009FE3DD /* PopViewController */,
 				86AC4DE022974E1C00728FBA /* SegmentedBar */,
 				9B3BCC5A2272033400DC5D79 /* Selectable.swift */,
 				6CAFFA2C22847D8F00C690B9 /* Selector */,
@@ -1006,6 +1017,7 @@
 				8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */,
 				6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */,
 				D1570581239FEAD100486D64 /* ConstantIdentifier.swift in Sources */,
+				869BBDF523FEEF06009FE3DD /* EmeraldPopupViewController.swift in Sources */,
 				6C807C7A227CECDA00FC328E /* EmeraldButtonStyle.swift in Sources */,
 				6CD5841E22943343001DE8D2 /* EmeraldRegexFormatType.swift in Sources */,
 				D119A139239849FF00C1BB17 /* EmeraldDateFieldView.swift in Sources */,
@@ -1227,7 +1239,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.81;
+				MARKETING_VERSION = 1.4.9;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1258,7 +1270,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.81;
+				MARKETING_VERSION = 1.4.9;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
