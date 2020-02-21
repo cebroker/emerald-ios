@@ -15,6 +15,7 @@ public enum EmeraldRegexFormatType {
     case upperCased
     case lowerCased
     case numbers
+    case currency
     case custom(String)
     case any
 
@@ -42,6 +43,8 @@ public enum EmeraldRegexFormatType {
             self = EmeraldRegexFormatType.lowerCased
         case "numbers":
             self = EmeraldRegexFormatType.numbers
+        case "currency":
+            self = EmeraldRegexFormatType.currency
         case "custom(String)":
             var cleanRawValue = rawValue.replacingOccurrences(of: "custom(", with: "")
             cleanRawValue.removeLast()
@@ -71,6 +74,8 @@ public enum EmeraldRegexFormatType {
             return Constants.Regex.lowerCased
         case .numbers:
             return Constants.Regex.numbers
+        case .currency:
+            return Constants.Regex.currency
         case .any:
             return Constants.Regex.any
         case .custom(let regex):
