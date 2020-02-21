@@ -55,8 +55,9 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var disabletextField: EmeraldTextField!
     @IBOutlet weak var disableEmeralCheckboxField: EmeraldCheckboxFormField!
 
+    @IBOutlet weak var currencyTextField: EmeraldRegexTextField!
     private var emeraldFields: [EmeraldValidableType] {
-        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
+        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView, currencyTextField]
     }
 
     private var organizationName: EmeraldTextFieldType?
@@ -90,10 +91,10 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     private func createStoryBoardFields() {
-        self.chipsDefault.setText("Hola ")
-        self.chipWarning.setText("Hola ")
-        self.chipSuccess.setText("Hola ")
-        self.chipDismissable.setText("Hola ")
+        chipsDefault.setText("Hola ")
+        chipWarning.setText("Hola ")
+        chipSuccess.setText("Hola ")
+        chipDismissable.setText("Hola ")
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setPasswordRightView()
@@ -149,6 +150,10 @@ class ViewController: UIViewController, EmeraldValidableType {
         regexView.set(placeholder: "example emerald selector field view")
         regexView.setDelegate(self)
         regexView.set(isRequired: true)
+        
+        currencyTextField.set(placeholder: "Currency")
+        currencyTextField.set(isRequired: true)
+        currencyTextField.set(regex: .currency)
     }
 
     private func createFields() {
