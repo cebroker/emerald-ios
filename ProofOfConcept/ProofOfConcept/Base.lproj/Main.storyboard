@@ -284,6 +284,18 @@ GROUP 2</string>
                                                 <rect key="frame" x="0.0" y="2193.5" width="373" height="56"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-yB-paV" customClass="EmeraldRegexTextField" customModule="EmeraldIOS">
+                                                <rect key="frame" x="0.0" y="2213" width="373" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="regex" value="currency"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="format">
+                                                        <integer key="value" value="-1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmy-8w-Aph" customClass="EmeraldSelectorField" customModule="EmeraldIOS">
                                                 <rect key="frame" x="0.0" y="2400" width="373" height="56.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -418,6 +430,7 @@ GROUP 2</string>
                         <outlet property="chipSuccess" destination="Wt2-Wa-Kyn" id="ztL-KJ-Jpa"/>
                         <outlet property="chipWarning" destination="1Cd-tC-1ye" id="Kj8-Db-hI3"/>
                         <outlet property="chipsDefault" destination="pR5-KF-4Fq" id="PiY-fT-2dy"/>
+                        <outlet property="currencyTextField" destination="2NF-yB-paV" id="QzF-7B-Lle"/>
                         <outlet property="disableEmeralCheckboxField" destination="OqS-cJ-AgJ" id="ES6-h1-gKv"/>
                         <outlet property="disabletextField" destination="dzn-pk-IR1" id="6xg-ps-QzM"/>
                         <outlet property="emeraldAvatarLg" destination="BpB-Bd-URn" id="2dH-S2-eTF"/>
