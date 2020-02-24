@@ -70,6 +70,9 @@ Emerald UI for iOS Apps
    <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/TextfieldView">TextFieldView</a></li>
   </ul>
+  <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/PopViewController">Pop Alert View Controller</a></li>
+  </ul>
 
 ### CocoaPods
 

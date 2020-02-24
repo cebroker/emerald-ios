@@ -54,11 +54,13 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
     @IBOutlet weak var disabletextField: EmeraldTextField!
     @IBOutlet weak var disableEmeralCheckboxField: EmeraldCheckboxFormField!
+    
 
+    @IBOutlet weak var currencyTextField: EmeraldRegexTextField!
     private var emeraldFields: [EmeraldValidableType] {
-        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView]
+        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView, currencyTextField]
     }
-
+    
     private var organizationName: EmeraldTextFieldType?
     private var address: EmeraldTextFieldType?
     private var city: EmeraldTextDependantField?
@@ -90,10 +92,10 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     private func createStoryBoardFields() {
-        self.chipsDefault.setText("Hola ")
-        self.chipWarning.setText("Hola ")
-        self.chipSuccess.setText("Hola ")
-        self.chipDismissable.setText("Hola ")
+        chipsDefault.setText("Hola ")
+        chipWarning.setText("Hola ")
+        chipSuccess.setText("Hola ")
+        chipDismissable.setText("Hola ")
         emeraldTextByStory.setCustomDelegate(with: self)
         emeraldTextByStory.setText(with: "")
         emeraldTextByStory.setPasswordRightView()
@@ -149,6 +151,10 @@ class ViewController: UIViewController, EmeraldValidableType {
         regexView.set(placeholder: "example emerald selector field view")
         regexView.setDelegate(self)
         regexView.set(isRequired: true)
+        
+        currencyTextField.set(placeholder: "Currency")
+        currencyTextField.set(isRequired: true)
+        currencyTextField.set(regex: .currency)
     }
 
     private func createFields() {
@@ -224,6 +230,14 @@ class ViewController: UIViewController, EmeraldValidableType {
         let barChartVC = BarChartViewController()
         self.navigationController?.pushViewController(barChartVC, animated: true)
     }
+    
+    @IBAction func popupAction(_ sender: Any) {
+        let barChartVC = BarChartViewController()
+        let popup = EmeraldPopupViewController(contentController: barChartVC, popupWidth: 320, popupHeight: 400)
+        popup.shadowEnabled = false
+        self.present(popup, animated: true, completion: nil)
+    }
+    
     private func areFieldsValid() -> Bool {
         return validateEmeraldFields(with: self.emeraldFields)
     }
