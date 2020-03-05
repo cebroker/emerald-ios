@@ -103,7 +103,7 @@ public class EmeraldShortDatePickerAlert: UIView, EmeraldDatePickerAlertType {
             animated: animated)
 
         let currenDate = "\(month + 1)/\(year + 1)".toDate().toStringFormatted(with: Constants.DateFormat.shortFormat)
-
+     
         self.selectedDate = SelectedValue(
             value: currenDate,
             id: Constants.Values.zero)
@@ -320,14 +320,21 @@ public class EmeraldShortDatePickerAlert: UIView, EmeraldDatePickerAlertType {
         if let minimunDate = minimumDate {
             if calendar.compare(minimunDate, to: dateSelected.toDate(), toGranularity: .month) == .orderedDescending {
                 setDate(Date(), animated: true)
+                setupDefaultDate()
             }
         }
-        
+
         if let maximiumDate = maximumDate {
             if calendar.compare(maximiumDate, to: dateSelected.toDate(), toGranularity: .month) == .orderedAscending {
                 setDate(Date(), animated: true)
+                setupDefaultDate()
             }
         }
+    }
+
+    private func setupDefaultDate() {
+        let currenDate = Date().toStringFormatted(with: Constants.DateFormat.shortFormat)
+        selectedDate = SelectedValue(value: currenDate, id: Constants.Values.zero)
     }
 }
 
@@ -345,9 +352,9 @@ extension EmeraldShortDatePickerAlert: UIPickerViewDelegate {
         let dateSelected = "\(monthselected)/\(yeardSelected)"
             .toDate()
             .toStringFormatted(with: Constants.DateFormat.shortFormat)
-        checkDateSelected(dateSelected: dateSelected)
-        selectedDate = SelectedValue(value: dateSelected, id: row)
 
+        selectedDate = SelectedValue(value: dateSelected, id: row)
+        checkDateSelected(dateSelected: dateSelected)
     }
 }
 
