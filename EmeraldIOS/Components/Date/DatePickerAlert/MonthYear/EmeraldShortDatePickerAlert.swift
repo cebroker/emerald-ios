@@ -317,9 +317,16 @@ public class EmeraldShortDatePickerAlert: UIView, EmeraldDatePickerAlertType {
     }
 
     private func checkDateSelected(dateSelected: String) {
-        let compare = calendar.compare(Date(), to: dateSelected.toDate(), toGranularity: .month)
-        if compare == .orderedDescending {
-            setDate(Date(), animated: true)
+        if let minimunDate = minimumDate {
+            if calendar.compare(minimunDate, to: dateSelected.toDate(), toGranularity: .month) == .orderedDescending {
+                setDate(Date(), animated: true)
+            }
+        }
+        
+        if let maximiumDate = maximumDate {
+            if calendar.compare(maximiumDate, to: dateSelected.toDate(), toGranularity: .month) == .orderedAscending {
+                setDate(Date(), animated: true)
+            }
         }
     }
 }
