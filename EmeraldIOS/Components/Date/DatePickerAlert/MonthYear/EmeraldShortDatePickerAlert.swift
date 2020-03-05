@@ -334,7 +334,7 @@ public class EmeraldShortDatePickerAlert: UIView, EmeraldDatePickerAlertType {
 
     private func setupDefaultDate() {
         let currenDate = Date().toStringFormatted(with: Constants.DateFormat.shortFormat)
-        self.selectedDate = SelectedValue(value: currenDate, id: Constants.Values.zero)
+        selectedDate = SelectedValue(value: currenDate, id: Constants.Values.zero)
     }
 }
 
