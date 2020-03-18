@@ -52,7 +52,7 @@ struct Constants {
         static let upperCased = "[A-Z]"
         static let lowerCased = "[a-z]"
         static let numbers = "^[0-9]*$"
-        static let currency = "^\\$([1-9]\\d{0,2}(,\\d{3})*|([1-9]\\d*))(\\.\\d{2})?$"
+        static let currency = "^\\$([0-9]\\d{0,2}(,\\d{3})*|([1-9]\\d*))(\\.\\d{2})?$"
     }
 
     struct TextFormating {
