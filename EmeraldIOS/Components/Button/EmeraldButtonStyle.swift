@@ -23,6 +23,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
     case linkButton
     case plainPrimary
     case witheAndBlueColor
+    case warning
     
     var backgroundColor: UIColor? {
         switch self {
@@ -55,6 +56,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.linkColor
         case .plain, .witheAndBlueColor:
             return EmeraldTheme.darkTextColor
+        case .warning:
+            return EmeraldTheme.whiteColor
         }
     }
     
@@ -70,6 +73,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.errorButtonHighlightedColor
         case .plainPrimary:
             return nil
+        case .warning:
+            return .clear
         default:
             return backgroundColor
         }
