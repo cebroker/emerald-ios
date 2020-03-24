@@ -23,7 +23,8 @@ public enum EmeraldButtonStyle: String, Inspectable {
     case linkButton
     case plainPrimary
     case witheAndBlueColor
-    
+    case warning
+
     var backgroundColor: UIColor? {
         switch self {
         case .primary, .primarySmall, .primaryLarge:
@@ -44,7 +45,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return nil
         }
     }
-    
+
     var titleColor: UIColor? {
         switch self {
         case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError:
@@ -55,9 +56,11 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.linkColor
         case .plain, .witheAndBlueColor:
             return EmeraldTheme.darkTextColor
+        case .warning:
+            return EmeraldTheme.whiteColor
         }
     }
-    
+
     var highlightedBackgroundColor: UIColor? {
         switch self {
         case .primary, .primarySmall, .primaryLarge:
@@ -70,11 +73,13 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return EmeraldTheme.errorButtonHighlightedColor
         case .plainPrimary:
             return nil
+        case .warning:
+            return .clear
         default:
             return backgroundColor
         }
     }
-    
+
     var highlightedTitleColor: UIColor? {
         switch self {
         case .primary, .primarySmall, .primaryLarge, .primarySuccess, .primaryWarning, .primaryError, .plainPrimary:
@@ -85,7 +90,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return nil
         }
     }
-    
+
     var borderWidth: CGFloat {
         switch self {
         case .secondary, .secondarySmall, .secondaryLarge, .plain, .witheAndBlueColor:
@@ -94,7 +99,7 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return 0
         }
     }
-    
+
     var borderColor: UIColor? {
         switch self {
         case .secondary, .secondarySmall, .secondaryLarge:
@@ -107,31 +112,34 @@ public enum EmeraldButtonStyle: String, Inspectable {
             return nil
         }
     }
-    
+
     var font: UIFont? {
         switch self {
         case .primarySmall, .secondarySmall:
             return Font(size: .smallButton,
-                        weight: .bold).uiFont
+                weight: .bold).uiFont
         case .primaryLarge, .secondaryLarge:
             return Font(size: .largeButton,
-                        weight: .bold).uiFont
+                weight: .bold).uiFont
         case .link, .plainPrimary:
             return Font(size: .smallButton,
-                        weight: .semibold).uiFont
+                weight: .semibold).uiFont
         case .linkButton:
             return Font(size: .linkButton,
                 weight: .semibold).uiFont
+        case .warning:
+            return Font(size: .smallButton,
+                weight: .bold).uiFont
         default:
             return Font(size: .button,
-                        weight: .bold).uiFont
+                weight: .bold).uiFont
         }
     }
-    
+
     var IBInspectable: String {
         return rawValue
     }
-    
+
     init(IBInspectable: String) {
         self.init(stringValue: IBInspectable)
     }

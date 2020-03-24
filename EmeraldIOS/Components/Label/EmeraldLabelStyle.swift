@@ -17,6 +17,7 @@ public enum EmeraldLabelStyle: String, Inspectable {
     case tableHeader
     case link
     case custom
+    case warning
     
     var textColor: UIColor? {
         switch self {
@@ -34,6 +35,8 @@ public enum EmeraldLabelStyle: String, Inspectable {
             return EmeraldTheme.darkTextColor
         case .link:
             return EmeraldTheme.primaryColor
+        case .warning:
+            return EmeraldTheme.whiteColor
         default:
             return nil
         }
@@ -55,6 +58,8 @@ public enum EmeraldLabelStyle: String, Inspectable {
             return Font(size: .tableHeader, weight: .semibold).uiFont
         case .link:
             return Font(size: .h4, weight: .bold).uiFont
+        case .warning:
+            return Font(size: .h6, weight: .regular).uiFont
         default:
             return nil
         }

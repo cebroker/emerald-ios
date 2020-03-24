@@ -57,6 +57,7 @@ public class EmeraldTheme {
     public static let successColor = greenColor
     public static let errorColor = redColor
     public static let chipDefaultColor = UIColor(named: "chipDefaultColor", in: bundle, compatibleWith: nil)!
+    public static let warningBackgroundColor = UIColor(named: "warningColor", in: bundle, compatibleWith: nil)!
 
 
     // MARK: App Colors
