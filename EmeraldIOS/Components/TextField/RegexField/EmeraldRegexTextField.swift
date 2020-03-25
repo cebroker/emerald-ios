@@ -36,6 +36,13 @@ public class EmeraldRegexTextField: EmeraldTextField, EmeraldRegexTextFieldType 
         return self.innerRegex
     }
     
+    override public func isValid() -> Result<Bool, Error> {
+        guard getIsRequired() || !self.getValue().isNilOrEmpty else {
+            return .success(true)
+        }
+        return validateContent()
+    }
+    
     override func validateContent() -> Result<Bool, Error> {
         guard let text = self.getValue(), !text.isEmpty,
             let validationRegex = innerRegex.regex else {
@@ -49,5 +56,12 @@ public class EmeraldRegexTextField: EmeraldTextField, EmeraldRegexTextFieldType 
         }
         
         return .success(true)
+    }
+}
+
+extension Optional where Wrapped == String {
+    var isNilOrEmpty: Bool {
+        guard let string = self else { return true }
+        return string.isEmpty
     }
 }
