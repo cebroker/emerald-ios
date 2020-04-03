@@ -55,10 +55,11 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         applyTheme()
-        self.delegate = self
-        self.setupPickerView()
-        self.setupToolbar()
-        self.addDropdownIcon()
+        delegate = self
+        setupPickerView()
+        setupToolbar()
+        addDropdownIcon()
+        selectedRow = nil
     }
 
     public func set(notifiable: EmeraldSelectorFieldChangeNotifiable?) {
@@ -67,20 +68,20 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
 
     public func set(data: [Selectable]) {
         self.data = [emptySelectable] + data
-        self.selectedRow = self.data.first
-        self.reloadInputViews()
+        selectedRow = self.data.first
+        reloadInputViews()
     }
 
     public func clearData() {
-        self.selectedRow = nil
-        self.setText(with: nil)
-        self.set(selectedRow: emptySelectable)
-        self.data = []
-        self.reloadInputViews()
+        selectedRow = nil
+        setText(with: nil)
+        set(selectedRow: emptySelectable)
+        data = []
+        reloadInputViews()
     }
 
     public func set(emptyOptionText: String) {
-        self.emptySelectable.set(text: emptyOptionText)
+        emptySelectable.set(text: emptyOptionText)
     }
 
     public func getSelectedRow() -> Selectable? {
@@ -93,8 +94,8 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         } else {
             self.selectedRow = selectedRow
         }
-        self.setText(with: self.selectedRow?.getSelectableText())
-        pickerView.selectRow(self.data.firstIndex(where: { $0.getSelectableText() == selectedRow.getSelectableText() }) ?? 0, inComponent: 0, animated: true)
+        setText(with: self.selectedRow?.getSelectableText())
+        pickerView.selectRow(data.firstIndex(where: { $0.getSelectableText() == selectedRow.getSelectableText() }) ?? 0, inComponent: 0, animated: true)
         notifiable?.onSelected(row: selectedRow, from: self)
     }
 
@@ -115,7 +116,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     }
 
     override func validateContent() -> Result<Bool, Error> {
-        guard let text = self.getValue(), !text.isEmpty else {
+        guard let text = getValue(), !text.isEmpty else {
             return .failure(FormFieldError.emptyField)
         }
 
@@ -124,7 +125,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
             return .failure(EmeraldSelectorFieldError.missingSelectedValue)
         }
 
-        guard data.contains(where: { $0.getSelectableText() == self.getValue() }) else {
+        guard data.contains(where: { $0.getSelectableText() == getValue() }) else {
             return .failure(EmeraldSelectorFieldError.uiSelectedValueMismatch)
         }
 
@@ -132,37 +133,37 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     }
 
     private func setupToolbar() {
-        self.toolbar.barStyle = UIBarStyle.default
-        self.toolbar.isTranslucent = true
-        self.toolbar.sizeToFit()
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = true
+        toolbar.sizeToFit()
 
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDoneButtonPressed))
-        self.toolbar.setItems([flexibleSpace, doneButton], animated: false)
-        self.toolbar.isUserInteractionEnabled = true
-        self.inputAccessoryView = toolbar
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        inputAccessoryView = toolbar
     }
 
     private func addDropdownIcon() {
-        self.dropdownIcon = UIImage(named: InnerConstants.dropdownIconName,
+        dropdownIcon = UIImage(named: InnerConstants.dropdownIconName,
             in: Bundle(for: ClassBundle.self),
             compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
-        guard let image = self.dropdownIcon,
-            self.subviews.count <= 2 else {
+        guard let image = dropdownIcon,
+            subviews.count <= 2 else {
                 return
         }
 
         let imageView = UIImageView(image: image)
         imageView.tintColor = EmeraldTheme.primaryColor
-        self.addSubview(imageView)
+        addSubview(imageView)
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         imageView
             .rightAnchor
             .constraint(
-                equalTo: self.rightAnchor,
+                equalTo: rightAnchor,
                 constant: -10)
             .isActive = true
 
@@ -178,19 +179,19 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
 
         imageView
             .centerYAnchor
-            .constraint(equalTo: self.centerYAnchor)
+            .constraint(equalTo: centerYAnchor)
             .isActive = true
     }
 
     private func setupPickerView() {
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
-        self.inputView = pickerView
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        inputView = pickerView
     }
 
     @objc private func onDoneButtonPressed() {
-        self.text = self.selectedRow?.getSelectableText()
-        self.resignFirstResponder()
+        text = self.selectedRow?.getSelectableText()
+        resignFirstResponder()
         toolbar.removeFromSuperview()
         pickerView.removeFromSuperview()
 
