@@ -193,7 +193,6 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         text = self.selectedRow?.getSelectableText()
         resignFirstResponder()
         toolbar.removeFromSuperview()
-        pickerView.removeFromSuperview()
 
         if let selectedRow = self.selectedRow {
             notifiable?.onSelected(row: selectedRow, from: self)
