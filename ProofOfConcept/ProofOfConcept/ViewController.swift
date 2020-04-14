@@ -58,7 +58,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 
     @IBOutlet weak var currencyTextField: EmeraldRegexTextField!
     private var emeraldFields: [EmeraldValidableType] {
-        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView, currencyTextField]
+        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView, currencyTextField,emptyableSelector]
     }
     
     private var organizationName: EmeraldTextFieldType?
@@ -108,7 +108,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldSelectorByStory.set(selectedRow: State(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
         emeraldSelectorByStory.set(emptyOptionText: "Select a state")
         emptyableSelector.set(data: [
-            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+            State(name: "Antioquiaqqqqqqq", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
 
         emeraldMultipleSelectorByStory.enable(innerBorder: true)

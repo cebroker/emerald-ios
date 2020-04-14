@@ -48,7 +48,6 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        selectedRow = nil
         prepareForInterfaceBuilder()
     }
 
@@ -189,11 +188,19 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         inputView = pickerView
     }
 
+    private func shloulSetTextFirsTime() {
+        if selectedRow?.getSelectableText() == Constants.Values.select {
+            text = nil
+            selectedRow = nil
+        } else {
+            text = selectedRow?.getSelectableText()
+        }
+    }
+
     @objc private func onDoneButtonPressed() {
-        text = selectedRow?.getSelectableText()
         resignFirstResponder()
         toolbar.removeFromSuperview()
-
+        shloulSetTextFirsTime()
         if let selectedRow = self.selectedRow {
             notifiable?.onSelected(row: selectedRow, from: self)
         }
