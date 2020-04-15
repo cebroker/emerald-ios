@@ -17,7 +17,6 @@ public protocol EmeraldSelectorFieldType: EmeraldTextFieldType {
 
 @IBDesignable
 public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, UIPickerViewDelegate, UIPickerViewDataSource {
-
     private struct InnerConstants {
         static let numberOfComponents = 1
         static let dropdownIconName = "arrow_down_icon.png"
@@ -47,19 +46,18 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         super.init(coder: aDecoder)
     }
 
-    override public init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         prepareForInterfaceBuilder()
     }
 
-    override public func prepareForInterfaceBuilder() {
+    public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         applyTheme()
         delegate = self
         setupPickerView()
         setupToolbar()
         addDropdownIcon()
-        selectedRow = nil
     }
 
     public func set(notifiable: EmeraldSelectorFieldChangeNotifiable?) {
@@ -112,7 +110,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     }
 
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.set(selectedRow: data[row])
+        set(selectedRow: data[row])
     }
 
     override func validateContent() -> Result<Bool, Error> {
@@ -145,7 +143,8 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     }
 
     private func addDropdownIcon() {
-        dropdownIcon = UIImage(named: InnerConstants.dropdownIconName,
+        dropdownIcon = UIImage(
+            named: InnerConstants.dropdownIconName,
             in: Bundle(for: ClassBundle.self),
             compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
@@ -189,11 +188,18 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         inputView = pickerView
     }
 
+    private func setupTextByFirsTime() {
+        if selectedRow?.getSelectableText() == Constants.Values.select {
+            selectedRow = nil
+        } else {
+            text = selectedRow?.getSelectableText()
+        }
+    }
+
     @objc private func onDoneButtonPressed() {
-        text = self.selectedRow?.getSelectableText()
         resignFirstResponder()
         toolbar.removeFromSuperview()
-
+        setupTextByFirsTime()
         if let selectedRow = self.selectedRow {
             notifiable?.onSelected(row: selectedRow, from: self)
         }

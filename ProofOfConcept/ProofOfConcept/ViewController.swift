@@ -6,7 +6,6 @@
 //  Copyright © 2019 Luis David Goyes Garces. All rights reserved.
 //
 
-import UIKit
 import EmeraldIOS
 
 class State: Selectable {
@@ -24,7 +23,6 @@ class State: Selectable {
 }
 
 class ViewController: UIViewController, EmeraldValidableType {
-
     @IBOutlet private weak var formStackView: EmeraldStackView!
 
     @IBOutlet weak var chipCollectionView: EmeraldChipsCollectionView!
@@ -54,13 +52,24 @@ class ViewController: UIViewController, EmeraldValidableType {
     @IBOutlet weak var loadingIndicator: EmeraldLoadingIndicator!
     @IBOutlet weak var disabletextField: EmeraldTextField!
     @IBOutlet weak var disableEmeralCheckboxField: EmeraldCheckboxFormField!
-    
 
     @IBOutlet weak var currencyTextField: EmeraldRegexTextField!
     private var emeraldFields: [EmeraldValidableType] {
-        return [signatureBoxView, emeraldLabelByStory, emeraldTextByStory, emeraldButtonByStory, emeraldSelectorByStory, emeraldTextDependantFieldByStory, emeraldEndDateFieldByStory, emeraldStartDateFieldByStory, emeraldRegexFieldByStory, emeraldMultipleSelectorByStory, emeraldTextView, currencyTextField]
+        return [signatureBoxView,
+                emeraldLabelByStory,
+                emeraldTextByStory,
+                emeraldButtonByStory,
+                emeraldSelectorByStory,
+                emeraldTextDependantFieldByStory,
+                emeraldEndDateFieldByStory,
+                emeraldStartDateFieldByStory,
+                emeraldRegexFieldByStory,
+                emeraldMultipleSelectorByStory,
+                emeraldTextView,
+                currencyTextField,
+                emptyableSelector]
     }
-    
+
     private var organizationName: EmeraldTextFieldType?
     private var address: EmeraldTextFieldType?
     private var city: EmeraldTextDependantField?
@@ -74,17 +83,17 @@ class ViewController: UIViewController, EmeraldValidableType {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = EmeraldTheme.backgroundColor
-        self.createHideKeyboardGesture()
+        view.backgroundColor = EmeraldTheme.backgroundColor
+        createHideKeyboardGesture()
 //        self.createFields()
-        self.createStoryBoardFields()
+        createStoryBoardFields()
         loadingIndicator.startAnimating()
     }
 
     private func createHideKeyboardGesture() {
         let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleViewTap))
         viewTapGesture.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(viewTapGesture)
+        view.addGestureRecognizer(viewTapGesture)
     }
 
     @objc func handleViewTap(recognizer: UIGestureRecognizer) {
@@ -104,32 +113,39 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
         emeraldSelectorByStory.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+            State(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
+        ])
         emeraldSelectorByStory.set(selectedRow: State(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
         emeraldSelectorByStory.set(emptyOptionText: "Select a state")
         emptyableSelector.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+            State(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
+        ])
 
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
-        emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
+        emeraldMultipleSelectorByStory.set(data: [
+            MultipleSelectionGroupItem(title: "Uno"),
             MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
             MultipleSelectionGroupItem(id: "TresId", title: "tres"),
             MultipleSelectionGroupItem(title: "Cuatro"),
-            MultipleSelectionGroupItem(title: "Cinco")])
+            MultipleSelectionGroupItem(title: "Cinco"),
+        ])
         emeraldMultipleSelectorByStory.set(notifiable: self)
-        emeraldMultipleSelectorByStory.getChildren()?.forEach({ (item) in
+        emeraldMultipleSelectorByStory.getChildren()?.forEach { item in
             item.isEnable(false)
-        })
+        }
 
         disableEmeralCheckboxField.enable(innerBorder: true)
         disableEmeralCheckboxField.prepareForInterfaceBuilder()
-        disableEmeralCheckboxField.set(data: [MultipleSelectionGroupItem(title: "Uno disable"), MultipleSelectionGroupItem(title: "dos disable")])
+        disableEmeralCheckboxField.set(data: [
+            MultipleSelectionGroupItem(title: "Uno disable"),
+            MultipleSelectionGroupItem(title: "dos disable"),
+        ])
 
-        disableEmeralCheckboxField.getChildren()?.forEach({ (item) in
+        disableEmeralCheckboxField.getChildren()?.forEach { item in
             item.isEnable(false)
-        })
+        }
 
         emeraldRegexFieldByStory.set(regex: .custom("^([A-Z0-9]{1}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5})$"))
         emeraldSelectorByStory.set(notifiable: self)
@@ -151,14 +167,13 @@ class ViewController: UIViewController, EmeraldValidableType {
         regexView.set(placeholder: "example emerald selector field view")
         regexView.setDelegate(self)
         regexView.set(isRequired: true)
-        
+
         currencyTextField.set(placeholder: "Currency")
         currencyTextField.set(isRequired: true)
         currencyTextField.set(regex: .currency)
     }
 
     private func createFields() {
-
         let mainTitle = formStackView.createLabel()
         mainTitle?.themeStyle = EmeraldLabelStyle.mainTitle.rawValue
         mainTitle?.text = "Main title"
@@ -195,7 +210,8 @@ class ViewController: UIViewController, EmeraldValidableType {
         state = formStackView.createEmeraldSelectorFormField(placeholder: "State")
         state?.set(data: [
             State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-            State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
+            State(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
+        ])
         state?.set(notifiable: self)
         state?.set(hint: "Antioquia")
         state?.set(isRequired: true)
@@ -212,39 +228,35 @@ class ViewController: UIViewController, EmeraldValidableType {
         formStackView.reloadFields()
     }
 
-    @IBAction func submitFromStory(_ sender: Any) {
-        if areFieldsValid() {
-            // all good
-        }
-
-        // show alert or something
+    @IBAction func submitFromStory(_: Any) {
+        if areFieldsValid() {}
     }
 
-    @IBAction func addLanguage(_ sender: Any) {
+    @IBAction func addLanguage(_: Any) {
         let text = ["1", "abc", "Sergio Giraldo", "Medellin"]
         let vm2 = ChipViewModel(text: text.randomElement()!, type: .dismissable)
-        self.chipCollectionView.addNewChip(with: vm2)
+        chipCollectionView.addNewChip(with: vm2)
     }
 
-    @IBAction func showBarChart(_ sender: Any) {
+    @IBAction func showBarChart(_: Any) {
         let barChartVC = BarChartViewController()
-        self.navigationController?.pushViewController(barChartVC, animated: true)
+        navigationController?.pushViewController(barChartVC, animated: true)
     }
-    
-    @IBAction func popupAction(_ sender: Any) {
+
+    @IBAction func popupAction(_: Any) {
         let barChartVC = BarChartViewController()
         let popup = EmeraldPopupViewController(contentController: barChartVC, popupWidth: 320, popupHeight: 400)
         popup.shadowEnabled = false
-        self.present(popup, animated: true, completion: nil)
-    }
-    
-    private func areFieldsValid() -> Bool {
-        return validateEmeraldFields(with: self.emeraldFields)
+        present(popup, animated: true, completion: nil)
     }
 
-    @objc private func submitFormOnTouchUpInside(_ sender: UIButton) {
+    private func areFieldsValid() -> Bool {
+        return validateEmeraldFields(with: emeraldFields)
+    }
+
+    @objc private func submitFormOnTouchUpInside(_: UIButton) {
         emeraldTextByStory.clearText()
-        self.showToast(message: "Not good. Not good at all. Let's get this fixed.", status: .failure, duration: .short)
+        showToast(message: "Not good. Not good at all. Let's get this fixed.", status: .failure, duration: .short)
         formStackView.areFieldsValid()
         let selectedChildren = emeraldMultipleSelectorByStory.getData().map {
             MultipleSelectionGroupItem(title: $0.getTitle())
@@ -256,13 +268,7 @@ class ViewController: UIViewController, EmeraldValidableType {
 
 extension ViewController: EmeraldSelectorFieldChangeNotifiable {
     func onSelected(row: Selectable?, from selector: EmeraldSelectorField) {
-        //By code
-//        guard let stateField = self.state as? EmeraldSelectorField else {
-//            return
-//        }
-
-        //By Storyboard
-        guard let stateField = self.emeraldSelectorByStory else {
+        guard let stateField = emeraldSelectorByStory else {
             return
         }
 
@@ -274,7 +280,8 @@ extension ViewController: EmeraldSelectorFieldChangeNotifiable {
             emptyableSelector.clearData()
             emptyableSelector.set(data: [
                 State(name: "Antioquia2", cities: ["Medellin", "Envigado"]),
-                State(name: "Cundinamarca2", cities: ["Chia", "Bogota"])])
+                State(name: "Cundinamarca2", cities: ["Chia", "Bogota"]),
+            ])
             emeraldTextDependantFieldByStory.set(availableOptions: state.cities)
             city?.set(availableOptions: state.cities)
         default:
@@ -295,8 +302,8 @@ extension ViewController: SingleItemChangeNotifiable {
             break
         case "TresId":
             let textTextField = "test comon"
-            self.disabletextField.setText(with: textTextField)
-            self.disabletextField.isEnable(false)
+            disabletextField.setText(with: textTextField)
+            disabletextField.isEnable(false)
         default:
             break
         }
@@ -304,13 +311,11 @@ extension ViewController: SingleItemChangeNotifiable {
 }
 
 extension ViewController: CustomEmeraldTextFieldDelegate {
-    func valueDidChange(textField: UITextField, text: String?) {
-    }
+    func valueDidChange(textField: UITextField, text: String?) {}
 
-    func didBeginEditing(textField: UITextField) {
-    }
+    func didBeginEditing(textField: UITextField) {}
 
     func didEndEditing(textField: UITextField) {
-        let _ = regexView.validateAndHandle()
+        _ = regexView.validateAndHandle()
     }
 }
