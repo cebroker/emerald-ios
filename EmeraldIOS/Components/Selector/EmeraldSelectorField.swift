@@ -188,7 +188,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
         inputView = pickerView
     }
 
-    private func shloulSetTextFirsTime() {
+    private func setupTextByFirsTime() {
         if selectedRow?.getSelectableText() == Constants.Values.select {
             selectedRow = nil
         } else {
@@ -199,7 +199,7 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
     @objc private func onDoneButtonPressed() {
         resignFirstResponder()
         toolbar.removeFromSuperview()
-        shloulSetTextFirsTime()
+        setupTextByFirsTime()
         if let selectedRow = self.selectedRow {
             notifiable?.onSelected(row: selectedRow, from: self)
         }

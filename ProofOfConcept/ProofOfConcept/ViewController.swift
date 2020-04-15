@@ -7,7 +7,6 @@
 //
 
 import EmeraldIOS
-import UIKit
 
 class State: Selectable {
     let name: String
@@ -230,11 +229,7 @@ class ViewController: UIViewController, EmeraldValidableType {
     }
 
     @IBAction func submitFromStory(_: Any) {
-        if areFieldsValid() {
-            // all good
-        }
-
-        // show alert or something
+        if areFieldsValid() {}
     }
 
     @IBAction func addLanguage(_: Any) {
@@ -273,12 +268,6 @@ class ViewController: UIViewController, EmeraldValidableType {
 
 extension ViewController: EmeraldSelectorFieldChangeNotifiable {
     func onSelected(row: Selectable?, from selector: EmeraldSelectorField) {
-        // By code
-//        guard let stateField = self.state as? EmeraldSelectorField else {
-//            return
-//        }
-
-        // By Storyboard
         guard let stateField = emeraldSelectorByStory else {
             return
         }
