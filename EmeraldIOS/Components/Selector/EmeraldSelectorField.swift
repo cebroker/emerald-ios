@@ -190,7 +190,6 @@ public class EmeraldSelectorField: EmeraldTextField, EmeraldSelectorFieldType, U
 
     private func shloulSetTextFirsTime() {
         if selectedRow?.getSelectableText() == Constants.Values.select {
-            text = nil
             selectedRow = nil
         } else {
             text = selectedRow?.getSelectableText()

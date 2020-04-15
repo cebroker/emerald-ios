@@ -108,7 +108,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         emeraldSelectorByStory.set(selectedRow: State(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
         emeraldSelectorByStory.set(emptyOptionText: "Select a state")
         emptyableSelector.set(data: [
-            State(name: "Antioquiaqqqqqqq", cities: ["Medellin", "Envigado"]),
+            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
             State(name: "Cundinamarca", cities: ["Chia", "Bogota"])])
 
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
