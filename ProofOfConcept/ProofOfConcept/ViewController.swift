@@ -68,8 +68,7 @@ class ViewController: UIViewController, EmeraldValidableType {
                 emeraldMultipleSelectorByStory,
                 emeraldTextView,
                 currencyTextField,
-                emptyableSelector
-        ]
+                emptyableSelector]
     }
 
     private var organizationName: EmeraldTextFieldType?
@@ -126,11 +125,13 @@ class ViewController: UIViewController, EmeraldValidableType {
 
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
         emeraldMultipleSelectorByStory.prepareForInterfaceBuilder()
-        emeraldMultipleSelectorByStory.set(data: [MultipleSelectionGroupItem(title: "Uno"),
-                                                  MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
-                                                  MultipleSelectionGroupItem(id: "TresId", title: "tres"),
-                                                  MultipleSelectionGroupItem(title: "Cuatro"),
-                                                  MultipleSelectionGroupItem(title: "Cinco")])
+        emeraldMultipleSelectorByStory.set(data: [
+            MultipleSelectionGroupItem(title: "Uno"),
+            MultipleSelectionGroupItem(title: "Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos Dos "),
+            MultipleSelectionGroupItem(id: "TresId", title: "tres"),
+            MultipleSelectionGroupItem(title: "Cuatro"),
+            MultipleSelectionGroupItem(title: "Cinco"),
+        ])
         emeraldMultipleSelectorByStory.set(notifiable: self)
         emeraldMultipleSelectorByStory.getChildren()?.forEach { item in
             item.isEnable(false)
@@ -138,7 +139,10 @@ class ViewController: UIViewController, EmeraldValidableType {
 
         disableEmeralCheckboxField.enable(innerBorder: true)
         disableEmeralCheckboxField.prepareForInterfaceBuilder()
-        disableEmeralCheckboxField.set(data: [MultipleSelectionGroupItem(title: "Uno disable"), MultipleSelectionGroupItem(title: "dos disable")])
+        disableEmeralCheckboxField.set(data: [
+            MultipleSelectionGroupItem(title: "Uno disable"),
+            MultipleSelectionGroupItem(title: "dos disable"),
+        ])
 
         disableEmeralCheckboxField.getChildren()?.forEach { item in
             item.isEnable(false)
