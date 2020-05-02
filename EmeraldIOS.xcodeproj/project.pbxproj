@@ -513,12 +513,12 @@
 		9B3BCC402272033400DC5D79 /* EmeraldIOS */ = {
 			isa = PBXGroup;
 			children = (
-				6CB4999423918087002F6DBE /* Media.xcassets */,
 				9B3BCC6C2272033400DC5D79 /* EmeraldIOS.h */,
-				6C807C6B227C8E4300FC328E /* Theme */,
-				9B3BCC6E2272033400DC5D79 /* Helper */,
 				9B3BCC732272033400DC5D79 /* Info.plist */,
+				6CB4999423918087002F6DBE /* Media.xcassets */,
 				9B3BCC4B2272033400DC5D79 /* Components */,
+				9B3BCC6E2272033400DC5D79 /* Helper */,
+				6C807C6B227C8E4300FC328E /* Theme */,
 				9B3BCC412272033400DC5D79 /* Utils */,
 			);
 			path = EmeraldIOS;
@@ -543,10 +543,10 @@
 		9B3BCC4B2272033400DC5D79 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D1D039E0238DB54B00F560CF /* TextfieldView */,
-				49EC6EDD232BF2EC003BFEBD /* Chart */,
+				9B3BCC5A2272033400DC5D79 /* Selectable.swift */,
 				778BEF6422B92BD400AF8601 /* Avatar */,
 				9B3BCC552272033400DC5D79 /* Button */,
+				49EC6EDD232BF2EC003BFEBD /* Chart */,
 				77BF6E1322DF7B5500E4C448 /* Chip */,
 				6C2D328F228B0B94009D4B0F /* Date */,
 				9B3BCC702272033400DC5D79 /* FormStack */,
@@ -555,11 +555,11 @@
 				9B3BCC4C2272033400DC5D79 /* MultipleSelection */,
 				869BBDF323FEEEE5009FE3DD /* PopViewController */,
 				86AC4DE022974E1C00728FBA /* SegmentedBar */,
-				9B3BCC5A2272033400DC5D79 /* Selectable.swift */,
 				6CAFFA2C22847D8F00C690B9 /* Selector */,
 				6C0AC80622831B5A00AF4662 /* Signature */,
 				6C2D328A228AFDA5009D4B0F /* TextDependant */,
 				6C2D3F962280C84F00FD8ED9 /* TextField */,
+				D1D039E0238DB54B00F560CF /* TextfieldView */,
 				6CD5842122945A51001DE8D2 /* TextView */,
 			);
 			path = Components;
