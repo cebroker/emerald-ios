@@ -18,6 +18,30 @@ public enum EmeraldTextFieldState {
 @IBDesignable
 public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormatter {
 
+    // MARK: - Constants
+    private struct InnerConstants {
+        static let middleFontSize: CGFloat = FontSize.h6.cgFontSize
+        static let maximumFontSize: CGFloat = FontSize.body.cgFontSize
+        static let placeHolderLabelSize: CGFloat = FontSize.h3.cgFontSize * 1.3
+        static let animationDuration: Double = 0.15
+        static let delay: Double = 0.0
+        static var frameOriginFieldOff = CGPoint(x: 10, y: FontSize.h5.cgFontSize * 1.3)
+        static let frameOriginFieldOn = CGPoint(x: 10, y: 7)
+        static let maximumDoubleLength = 10
+        static let maximumDateLength = 10
+        static let maximumShortDateLength = 7
+        static let yUpConstant: CGFloat = -15
+        static let leadingUpConstant: CGFloat = -43
+        static let bounds: CGFloat = 10
+        struct Padding {
+            static let left: CGFloat = 10
+            static let right: CGFloat = 10
+            static let top: CGFloat = 10
+        }
+    }
+    
+    // MARK: - Properties
+    // MARK: - IBOutlet
     @objc
     @IBOutlet open weak var nextResponderField: UIResponder? {
         didSet {
@@ -29,7 +53,7 @@ public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormat
         }
     }
 
-    // MARK: - IBInspectables properties.
+    // MARK: - IBInspectables.
     @IBInspectable var id: String?
     @IBInspectable var isRequired: Bool = false
     @IBInspectable var maxLength: Int = 0
@@ -59,53 +83,21 @@ public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormat
         }
     }
 
+    // MARK: - Internals & Privates
     let placeholderLabel: UILabel = UILabel()
-    internal var rightButton: EmeraldButton? = nil
-    internal var fieldState: EmeraldTextFieldState = .normal
-
-    private func setUp() {
-        addTarget(self, action: #selector(actionKeyboardButtonTapped(sender:)), for: .editingDidEnd)
-    }
-
-    @objc private func actionKeyboardButtonTapped(sender: UITextField) {
-        switch nextResponderField {
-        case .some(let responder):
-            responder.becomeFirstResponder()
-        default:
-            resignFirstResponder()
-        }
-    }
+    var rightButton: EmeraldButton? = nil
+    var fieldState: EmeraldTextFieldState = .normal
+    
+    private var isErrored: Bool = false
+    private var initialPlaceHolder: String?
+    private var innerFormat: TextFormat = .none
+    private var customTextFieldDelegate: CustomEmeraldTextFieldDelegate?
+    
     private var originCenter: CGPoint {
         get {
             return CGPoint(x: 10, y: self.frame.height / 2 - InnerConstants.placeHolderLabelSize / 2)
         }
     }
-
-    private struct InnerConstants {
-        static let middleFontSize: CGFloat = FontSize.h6.cgFontSize
-        static let maximumFontSize: CGFloat = FontSize.body.cgFontSize
-        static let placeHolderLabelSize: CGFloat = FontSize.h3.cgFontSize * 1.3
-        static let animationDuration: Double = 0.15
-        static let delay: Double = 0.0
-        static var frameOriginFieldOff = CGPoint(x: 10, y: FontSize.h5.cgFontSize * 1.3)
-        static let frameOriginFieldOn = CGPoint(x: 10, y: 7)
-        static let maximumDoubleLength = 10
-        static let maximumDateLength = 10
-        static let maximumShortDateLength = 7
-        static let yUpConstant: CGFloat = -15
-        static let leadingUpConstant: CGFloat = -43
-        static let bounds: CGFloat = 10
-        struct Padding {
-            static let left: CGFloat = 10
-            static let right: CGFloat = 10
-            static let top: CGFloat = 10
-        }
-    }
-
-    private var isErrored: Bool = false
-    private var initialPlaceHolder: String?
-    private var innerFormat: TextFormat = .none
-    private var customTextFieldDelegate: CustomEmeraldTextFieldDelegate?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -122,6 +114,19 @@ public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormat
     override public func didMoveToWindow() {
         super.didMoveToWindow()
         prepareForInterfaceBuilder()
+    }
+    
+    private func setUp() {
+        addTarget(self, action: #selector(actionKeyboardButtonTapped(sender:)), for: .editingDidEnd)
+    }
+
+    @objc private func actionKeyboardButtonTapped(sender: UITextField) {
+        switch nextResponderField {
+        case .some(let responder):
+            responder.becomeFirstResponder()
+        default:
+            resignFirstResponder()
+        }
     }
 
     public override func prepareForInterfaceBuilder() {
