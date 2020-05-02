@@ -176,63 +176,6 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
             color: EmeraldTheme.borderColor)
     }
 
-    public func textField(
-        _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
-        replacementString string: String) -> Bool {
-        let beginning: UITextPosition = textField.beginningOfDocument
-        let cursorLocation: UITextPosition? = textField.position(
-            from: beginning,
-            offset: range.location + string.count)
-
-        guard let oldText = textField.text, let textRange = Range(range, in: oldText) else {
-            return true
-        }
-
-        if maxLength > 0 {
-            let newLength = (oldText.count - range.length) + string.count
-
-            guard newLength <= maxLength else {
-                return false
-            }
-        }
-
-        let updatedText = oldText.replacingCharacters(in: textRange, with: string)
-        customTextFieldDelegate?.valueDidChange?(textField: self, text: updatedText)
-
-        DispatchQueue.global(qos: .background).async {
-            do {
-                let textWithoutFormat = try self.remove(format: self.innerFormat, to: updatedText)
-                let newText = try self.apply(format: self.innerFormat, to: textWithoutFormat)
-
-                DispatchQueue.main.async {
-                    textField.text = newText
-
-                    if let cursorLocation = cursorLocation {
-                        textField.selectedTextRange = textField.textRange(
-                            from: cursorLocation,
-                            to: cursorLocation)
-                    }
-                }
-
-            } catch (let error) {
-                print(error)
-            }
-        }
-
-        return false
-    }
-
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        activateField()
-        customTextFieldDelegate?.didBeginEditing?(textField: textField)
-    }
-
-    public func textFieldDidEndEditing(_ textField: UITextField) {
-        deactivateField()
-        customTextFieldDelegate?.didEndEditing?(textField: textField)
-    }
-
     public func getValue() -> String? {
         if text?.isEmpty ?? true {
             return ""
@@ -327,6 +270,64 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
     }
 }
 
+// MARK: - UITextFieldDelegate Methods.
+extension EmeraldTextField {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        activateField()
+        customTextFieldDelegate?.didBeginEditing?(textField: textField)
+    }
+
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        deactivateField()
+        customTextFieldDelegate?.didEndEditing?(textField: textField)
+    }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let beginning: UITextPosition = textField.beginningOfDocument
+        let cursorLocation: UITextPosition? = textField.position(
+            from: beginning,
+            offset: range.location + string.count)
+
+        guard let oldText = textField.text, let textRange = Range(range, in: oldText) else {
+            return true
+        }
+
+        if maxLength > 0 {
+            let newLength = (oldText.count - range.length) + string.count
+
+            guard newLength <= maxLength else {
+                return false
+            }
+        }
+
+        let updatedText = oldText.replacingCharacters(in: textRange, with: string)
+        customTextFieldDelegate?.valueDidChange?(textField: self, text: updatedText)
+
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let textWithoutFormat = try self.remove(format: self.innerFormat, to: updatedText)
+                let newText = try self.apply(format: self.innerFormat, to: textWithoutFormat)
+
+                DispatchQueue.main.async {
+                    textField.text = newText
+
+                    if let cursorLocation = cursorLocation {
+                        textField.selectedTextRange = textField.textRange(
+                            from: cursorLocation,
+                            to: cursorLocation)
+                    }
+                }
+
+            } catch (let error) {
+                print(error)
+            }
+        }
+
+        return false
+    }
+}
+
+// MARK: - EmeraldTextFieldType Implementation
 extension EmeraldTextField: EmeraldTextFieldType {
     public func set(placeholder: String?) {
         initialPlaceHolder = placeholder
