@@ -8,41 +8,6 @@
 
 import UIKit
 
-@objc public protocol CustomEmeraldTextFieldDelegate {
-    @objc optional
-    func didEndEditing(textField: UITextField)
-    @objc optional
-    func didBeginEditing(textField: UITextField)
-    @objc optional
-    func valueDidChange(textField: UITextField, text: String?)
-}
-
-public protocol EmeraldTextFieldType {
-    func set(placeholder: String?)
-    func getPlaceholder() -> String?
-    func set(hint: String?)
-    func getHint() -> String?
-    func set(maxLength: Int)
-    func getMaxLength() -> Int
-    func set(format: TextFormat)
-    func getFormat() -> TextFormat
-    func getUnformattedText() -> String?
-    func set(inputType: UIKeyboardType)
-    func getInputType() -> UIKeyboardType?
-    func set(id: String?)
-    func getId() -> String?
-    func set(isRequired: Bool)
-    func getIsRequired() -> Bool
-    func isValid() -> Result<Bool, Error>
-    func handleResult(with validationResult: Result<Bool, Error>) -> Bool
-    func show(error: FormFieldErrorType)
-    func clearError()
-    func setText(with value: String?)
-    func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate)
-    func clearText()
-    func isEnable(_ enable: Bool)
-}
-
 @IBDesignable
 public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter, UITextFieldDelegate, EmeraldValidableType {
 
