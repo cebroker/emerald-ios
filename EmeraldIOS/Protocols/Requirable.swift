@@ -11,5 +11,8 @@ import Foundation
 public protocol Requirable {
     func set(isRequired: Bool)
     func getIsRequired() -> Bool
+}
+
+public protocol Validable {
     func isValid() -> Result<Bool, Error>
 }

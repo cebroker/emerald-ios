@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias BasicConfigurationType = Identifiable & Requirable & ErroHandable & EmeraldValidableType
+public typealias BasicConfigurationType = Identifiable & Requirable & ErroHandable & EmeraldValidableType & Validable
 public typealias TextFieldConfigurationType = TextConfigurable & TextFormattable
 public typealias UITextFieldType = UITextField & UITextFieldDelegate
 

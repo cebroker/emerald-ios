@@ -18,7 +18,7 @@ public enum EmeraldTextFieldState {
 @IBDesignable
 public class EmeraldTextField: UITextFieldType, TextFormatter {
     // MARK: - Constants
-    private struct InnerConstants {
+    struct InnerConstants {
         static let middleFontSize: CGFloat = FontSize.h6.cgFontSize
         static let maximumFontSize: CGFloat = FontSize.body.cgFontSize
         static let placeHolderLabelSize: CGFloat = FontSize.h3.cgFontSize * 1.3
@@ -85,11 +85,10 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
     let placeholderLabel: UILabel = UILabel()
     var rightButton: EmeraldButton?
     var fieldState: EmeraldTextFieldState = .normal
-
-    private var isErrored: Bool = false
-    private var initialPlaceHolder: String?
-    private var innerFormat: TextFormat = .none
-    private var customTextFieldDelegate: CustomEmeraldTextFieldDelegate?
+    var customTextFieldDelegate: CustomEmeraldTextFieldDelegate?
+    var innerFormat: TextFormat = .none
+    var isErrored: Bool = false
+    var initialPlaceHolder: String?
 
     private var originCenter: CGPoint {
         return CGPoint(x: 10, y: self.frame.height / 2 - InnerConstants.placeHolderLabelSize / 2)
@@ -164,6 +163,15 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
         return text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
+    // MARK: - Internal methods.
+    public func isValid() -> Result<Bool, Error> {
+        guard getIsRequired() else {
+            return .success(true)
+        }
+
+        return validateContent()
+    }
+    
     func validateContent() -> Result<Bool, Error> {
         guard let text = self.text, !text.isEmpty else {
             return .failure(FormFieldError.emptyField)
@@ -171,22 +179,8 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
 
         return .success(true)
     }
-    
-    // MARK: - Private methods.
-    @objc private func actionKeyboardButtonTapped(sender: UITextField) {
-        switch nextResponderField {
-        case .some(let responder):
-            responder.becomeFirstResponder()
-        default:
-            resignFirstResponder()
-        }
-    }
-    
-    private func setUp() {
-        addTarget(self, action: #selector(actionKeyboardButtonTapped(sender:)), for: .editingDidEnd)
-    }
 
-    private func activateField() {
+    func activateField() {
         let onActiveColor = EmeraldTheme.primaryColor
         layer.borderColor = onActiveColor.cgColor
 
@@ -202,7 +196,7 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
         }
     }
 
-    private func deactivateField() {
+    func deactivateField() {
         layer.borderColor = EmeraldTheme.borderColor.cgColor
         placeholderLabel.textColor = EmeraldTheme.placeholderColor
 
@@ -213,6 +207,20 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
         if let text = self.text, self.innerFormat == TextFormat.currency && !text.isEmpty {
             self.text = formatCurrency(resource: text)
         }
+    }
+
+    // MARK: - Private methods.
+    @objc private func actionKeyboardButtonTapped(sender: UITextField) {
+        switch nextResponderField {
+        case .some(let responder):
+            responder.becomeFirstResponder()
+        default:
+            resignFirstResponder()
+        }
+    }
+
+    private func setUp() {
+        addTarget(self, action: #selector(actionKeyboardButtonTapped(sender:)), for: .editingDidEnd)
     }
 
     private func setupPlaceholderLabelConstraints() {
@@ -262,217 +270,5 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
                 self.placeholderLabel.frame.origin = self.originCenter
             },
             completion: { _ in })
-    }
-}
-
-// MARK: - UITextFieldDelegate Methods.
-extension EmeraldTextField {
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        activateField()
-        customTextFieldDelegate?.didBeginEditing?(textField: textField)
-    }
-
-    public func textFieldDidEndEditing(_ textField: UITextField) {
-        deactivateField()
-        customTextFieldDelegate?.didEndEditing?(textField: textField)
-    }
-    
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let beginning: UITextPosition = textField.beginningOfDocument
-        let cursorLocation: UITextPosition? = textField.position(
-            from: beginning,
-            offset: range.location + string.count)
-
-        guard let oldText = textField.text, let textRange = Range(range, in: oldText) else {
-            return true
-        }
-
-        if maxLength > 0 {
-            let newLength = (oldText.count - range.length) + string.count
-
-            guard newLength <= maxLength else {
-                return false
-            }
-        }
-
-        let updatedText = oldText.replacingCharacters(in: textRange, with: string)
-        customTextFieldDelegate?.valueDidChange?(textField: self, text: updatedText)
-
-        DispatchQueue.global(qos: .background).async {
-            do {
-                let textWithoutFormat = try self.remove(format: self.innerFormat, to: updatedText)
-                let newText = try self.apply(format: self.innerFormat, to: textWithoutFormat)
-
-                DispatchQueue.main.async {
-                    textField.text = newText
-
-                    if let cursorLocation = cursorLocation {
-                        textField.selectedTextRange = textField.textRange(
-                            from: cursorLocation,
-                            to: cursorLocation)
-                    }
-                }
-
-            } catch (let error) {
-                print(error)
-            }
-        }
-
-        return false
-    }
-}
-
-// MARK: - EmeraldTextFieldType Implementation
-extension EmeraldTextField: EmeraldTextFieldType {
-    public func set(placeholder: String?) {
-        initialPlaceHolder = placeholder
-        placeholderLabel.text = placeholder
-        placeholderLabel.textColor = EmeraldTheme.placeholderColor
-    }
-
-    public func getPlaceholder() -> String? {
-        return initialPlaceHolder
-    }
-
-    public func set(hint: String?) {
-        self.hint = hint
-    }
-
-    public func getHint() -> String? {
-        return hint
-    }
-
-    public func setText(with value: String?) {
-        if let value = value, !value.isEmpty {
-            activateField()
-        } else {
-            deactivateField()
-        }
-        text = value
-    }
-
-    public func clearText() {
-        setText(with: nil)
-    }
-
-    public func set(id: String?) {
-        self.id = id
-    }
-
-    public func getId() -> String? {
-        return id
-    }
-
-    public func set(isRequired: Bool) {
-        self.isRequired = isRequired
-    }
-
-    public func getIsRequired() -> Bool {
-        return isRequired
-    }
-
-    public func isValid() -> Result<Bool, Error> {
-        guard getIsRequired() else {
-            return .success(true)
-        }
-
-        return validateContent()
-    }
-
-    public func handleResult(with validationResult: Result<Bool, Error>) -> Bool {
-        switch validationResult {
-        case .failure(let error):
-            guard let error = error as? FormFieldErrorType else {
-                return false
-            }
-
-            show(error: error)
-            return false
-        default:
-            clearError()
-            return true
-        }
-    }
-
-    public func show(error: FormFieldErrorType) {
-        isErrored = true
-        layer.borderColor = EmeraldTheme.redColor.cgColor
-    }
-
-    public func clearError() {
-        isErrored = false
-        layer.borderColor = EmeraldTheme.borderColor.cgColor
-    }
-
-    public func validateAndHandle() -> Bool {
-        return handleResult(with: isValid())
-    }
-
-    public func set(format: TextFormat) {
-        innerFormat = format
-        switch format {
-        case .currency:
-            set(maxLength: InnerConstants.maximumDoubleLength)
-            set(inputType: .decimalPad)
-        case .number:
-            set(inputType: .numberPad)
-        case .longDate:
-            set(maxLength: InnerConstants.maximumDateLength)
-            set(inputType: .numberPad)
-        case .shortDate:
-            set(maxLength: InnerConstants.maximumShortDateLength)
-            set(inputType: .numberPad)
-        default:
-            set(inputType: .asciiCapable)
-        }
-    }
-
-    public func getFormat() -> TextFormat {
-        return innerFormat
-    }
-
-    public func getUnformattedText() -> String? {
-        guard let textWithFormat = text else {
-            return nil
-        }
-
-        do {
-            return try remove(format: innerFormat, to: textWithFormat)
-        } catch {
-            return nil
-        }
-    }
-
-    public func set(inputType: UIKeyboardType) {
-        keyboardType = inputType
-    }
-
-    public func getInputType() -> UIKeyboardType? {
-        return keyboardType
-    }
-
-    public func set(maxLength: Int) {
-        if maxLength > 0 {
-            self.maxLength = maxLength
-        }
-    }
-
-    public func getMaxLength() -> Int {
-        return maxLength
-    }
-
-    public func isEnable(_ enable: Bool) {
-        alpha = enable == true ? 1 : 0.5
-        isEnabled = enable
-        deactivateField()
-    }
-
-    public func setCustomDelegate(with delegate: CustomEmeraldTextFieldDelegate) {
-        customTextFieldDelegate = delegate
     }
 }

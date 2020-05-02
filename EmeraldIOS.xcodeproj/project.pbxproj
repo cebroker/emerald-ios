@@ -68,6 +68,8 @@
 		774DE6A2245D446B009D5E8F /* ErroHandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774DE6A1245D446B009D5E8F /* ErroHandable.swift */; };
 		774DE6A5245D4513009D5E8F /* TextFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774DE6A4245D4513009D5E8F /* TextFormattable.swift */; };
 		774DE6A7245D456C009D5E8F /* TextConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774DE6A6245D456C009D5E8F /* TextConfigurable.swift */; };
+		774DE6AB245DC13D009D5E8F /* EmeraldTextField+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774DE6AA245DC13D009D5E8F /* EmeraldTextField+Delegates.swift */; };
+		774DE6AD245DC21C009D5E8F /* EmeraldTextField+TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774DE6AC245DC21C009D5E8F /* EmeraldTextField+TextFieldType.swift */; };
 		778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */; };
 		778BEF6822B92C2300AF8601 /* EmeralAvatarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */; };
 		77BF6E1522DF7C1500E4C448 /* EmeraldChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF6E1422DF7C1500E4C448 /* EmeraldChipView.swift */; };
@@ -200,6 +202,8 @@
 		774DE6A1245D446B009D5E8F /* ErroHandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErroHandable.swift; sourceTree = "<group>"; };
 		774DE6A4245D4513009D5E8F /* TextFormattable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormattable.swift; sourceTree = "<group>"; };
 		774DE6A6245D456C009D5E8F /* TextConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConfigurable.swift; sourceTree = "<group>"; };
+		774DE6AA245DC13D009D5E8F /* EmeraldTextField+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmeraldTextField+Delegates.swift"; sourceTree = "<group>"; };
+		774DE6AC245DC21C009D5E8F /* EmeraldTextField+TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmeraldTextField+TextFieldType.swift"; sourceTree = "<group>"; };
 		778BEF6522B92C1A00AF8601 /* EmeraldAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldAvatar.swift; sourceTree = "<group>"; };
 		778BEF6722B92C2300AF8601 /* EmeralAvatarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeralAvatarStyle.swift; sourceTree = "<group>"; };
 		77BF6E1422DF7C1500E4C448 /* EmeraldChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChipView.swift; sourceTree = "<group>"; };
@@ -374,8 +378,10 @@
 				774DE699245D4086009D5E8F /* Protocols */,
 				6CD5841822943174001DE8D2 /* RegexField */,
 				6C2D3F972280C89000FD8ED9 /* EmeraldTextField.swift */,
+				774DE6AC245DC21C009D5E8F /* EmeraldTextField+TextFieldType.swift */,
 				86FB68E122C58EF0009C184D /* EmeraldTextField+ViewStatus.swift */,
 				6C2AFCE32326B40600EBDE1C /* EmeraldTextField+ShowHide.swift */,
+				774DE6AA245DC13D009D5E8F /* EmeraldTextField+Delegates.swift */,
 				6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */,
 			);
 			path = TextField;
@@ -1069,8 +1075,10 @@
 				49B6D78423328BCF00FE78A1 /* EmeraldChartDelegates.swift in Sources */,
 				75BBFA4E22BA6FC10039319B /* EmeraldAlert.swift in Sources */,
 				49B6D78623328D2F00FE78A1 /* EmeraldChartView.swift in Sources */,
+				774DE6AD245DC21C009D5E8F /* EmeraldTextField+TextFieldType.swift in Sources */,
 				8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */,
 				778BEF6822B92C2300AF8601 /* EmeralAvatarStyle.swift in Sources */,
+				774DE6AB245DC13D009D5E8F /* EmeraldTextField+Delegates.swift in Sources */,
 				D119A13B2398540600C1BB17 /* EmeraldTextFieldView.swift in Sources */,
 				6CAFFA242284547600C690B9 /* Extensions+UIViewController.swift in Sources */,
 				6C807C78227CCF5700FC328E /* EmeraldLabel.swift in Sources */,
