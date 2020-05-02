@@ -113,7 +113,7 @@ public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormat
         super.didMoveToWindow()
         prepareForInterfaceBuilder()
     }
-    
+
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: InnerConstants.bounds, dy: InnerConstants.bounds)
     }
@@ -345,7 +345,7 @@ public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormat
             guard let error = error as? FormFieldErrorType else {
                 return false
             }
-            
+
             show(error: error)
             return false
         default:
@@ -452,9 +452,7 @@ public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormat
             delay: InnerConstants.delay,
             options: [],
             animations: {
-                self.placeholderLabel.transform = CGAffineTransform(
-                    scaleX: reducerScale,
-                    y: reducerScale)
+                self.placeholderLabel.transform = CGAffineTransform(scaleX: reducerScale, y: reducerScale)
                 self.placeholderLabel.frame.origin = InnerConstants.frameOriginFieldOn
                 self.layoutIfNeeded()
             },
@@ -470,8 +468,7 @@ public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormat
             delay: InnerConstants.delay,
             options: [],
             animations: {
-                self.placeholderLabel.transform =
-                    CGAffineTransform.identity
+                self.placeholderLabel.transform = CGAffineTransform.identity
                 self.placeholderLabel.frame.origin = self.originCenter
             },
             completion: { _ in })

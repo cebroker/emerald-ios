@@ -377,7 +377,6 @@
 				86FB68E122C58EF0009C184D /* EmeraldTextField+ViewStatus.swift */,
 				6C2AFCE32326B40600EBDE1C /* EmeraldTextField+ShowHide.swift */,
 				6C2D3F992280C8A800FD8ED9 /* EmeraldTextFieldStyle.swift */,
-				6CD5841F22945090001DE8D2 /* FormFieldErrorType.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -499,6 +498,7 @@
 		774DE69C245D4274009D5E8F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				6CD5841F22945090001DE8D2 /* FormFieldErrorType.swift */,
 				774DE69D245D4281009D5E8F /* Identifiable.swift */,
 				774DE69F245D436B009D5E8F /* Requirable.swift */,
 				774DE6A1245D446B009D5E8F /* ErroHandable.swift */,
