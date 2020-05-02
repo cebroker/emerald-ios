@@ -517,6 +517,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		774DE6A8245D4808009D5E8F /* TextFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				9B3BCC682272033400DC5D79 /* TextFormatter.swift */,
+			);
+			path = TextFormatter;
+			sourceTree = "<group>";
+		};
 		778BEF6422B92BD400AF8601 /* Avatar */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,8 +677,8 @@
 		9B3BCC6E2272033400DC5D79 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				774DE6A8245D4808009D5E8F /* TextFormatter */,
 				9B3BCC6F2272033400DC5D79 /* EmeraldInitializer.swift */,
-				9B3BCC682272033400DC5D79 /* TextFormatter.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class EmeraldTextField: UITextField, EmeraldTextFieldType, TextFormatter, UITextFieldDelegate, EmeraldValidableType {
+public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormatter, EmeraldValidableType {
 
     public enum EmeraldTextFieldState {
         case valid

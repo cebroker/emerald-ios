@@ -30,6 +30,8 @@ public enum TextFormatterError: Error {
 public protocol TextFormatter {
     func apply(format: TextFormat, to resource: String) throws -> String
     func remove(format: TextFormat, to resource: String) throws -> String
+    func formatCurrency(resource: String) -> String
+    func removeCurrencyFormat(from resource: String) -> String
 }
 
 public extension TextFormatter {
@@ -71,6 +73,42 @@ public extension TextFormatter {
         }
         
         return formatter.string(from: NSNumber(value: double)) ?? simpleFormat
+    }
+    
+    func removeCurrencyFormat(from resource: String) -> String {
+        if resource == Constants.Values.dollar {
+            return Constants.Values.empty
+        }
+
+        let firstCleaner = resource.replacingOccurrences(
+            of: Constants.Values.stringComma,
+            with: Constants.Values.empty)
+        
+        let secondCleaner = firstCleaner.replacingOccurrences(
+            of: Constants.Values.zeroDecimals,
+            with: Constants.Values.empty)
+        
+        var rawNumber = secondCleaner
+            .replacingOccurrences(
+                of: Constants.Values.dollar,
+                with: Constants.Values.empty)
+            .trimmingCharacters(in: .whitespaces)
+
+        if let dotIndex = rawNumber.firstIndex(
+            of: Constants.Values.dot) {
+
+            if let secondDotIndex = rawNumber.indices.first(where: { index in
+                rawNumber[index] == Constants.Values.dot && dotIndex != index
+            }) {
+                rawNumber.remove(at: secondDotIndex)
+            }
+
+            if rawNumber.count - 1 >= dotIndex.utf16Offset(in: Constants.Values.empty) + 3 {
+                rawNumber.remove(at: rawNumber.index(dotIndex, offsetBy: 3))
+            }
+        }
+
+        return rawNumber
     }
 
     private func formatResource(phoneNumber: String) -> String {
@@ -161,41 +199,5 @@ public extension TextFormatter {
         }
         
         return numbersOnly
-    }
-
-    func removeCurrencyFormat(from resource: String) -> String {
-        if resource == Constants.Values.dollar {
-            return Constants.Values.empty
-        }
-
-        let firstCleaner = resource.replacingOccurrences(
-            of: Constants.Values.stringComma,
-            with: Constants.Values.empty)
-        
-        let secondCleaner = firstCleaner.replacingOccurrences(
-            of: Constants.Values.zeroDecimals,
-            with: Constants.Values.empty)
-        
-        var rawNumber = secondCleaner
-            .replacingOccurrences(
-                of: Constants.Values.dollar,
-                with: Constants.Values.empty)
-            .trimmingCharacters(in: .whitespaces)
-
-        if let dotIndex = rawNumber.firstIndex(
-            of: Constants.Values.dot) {
-
-            if let secondDotIndex = rawNumber.indices.first(where: { index in
-                rawNumber[index] == Constants.Values.dot && dotIndex != index
-            }) {
-                rawNumber.remove(at: secondDotIndex)
-            }
-
-            if rawNumber.count - 1 >= dotIndex.utf16Offset(in: Constants.Values.empty) + 3 {
-                rawNumber.remove(at: rawNumber.index(dotIndex, offsetBy: 3))
-            }
-        }
-
-        return rawNumber
     }
 }
