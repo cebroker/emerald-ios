@@ -136,25 +136,6 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
         setupPlaceholderLabelConstraints()
     }
 
-    // MARK: - Private methods.
-    private func setUp() {
-        addTarget(self, action: #selector(actionKeyboardButtonTapped(sender:)), for: .editingDidEnd)
-    }
-
-    @objc private func actionKeyboardButtonTapped(sender: UITextField) {
-        switch nextResponderField {
-        case .some(let responder):
-            responder.becomeFirstResponder()
-        default:
-            resignFirstResponder()
-        }
-    }
-
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-
     // MARK: - Public & Open functions
     open func applyTheme() {
         let style = EmeraldTextFieldStyle(IBInspectable: themeStyle)
@@ -189,6 +170,20 @@ public class EmeraldTextField: UITextFieldType, TextFormatter {
         }
 
         return .success(true)
+    }
+    
+    // MARK: - Private methods.
+    @objc private func actionKeyboardButtonTapped(sender: UITextField) {
+        switch nextResponderField {
+        case .some(let responder):
+            responder.becomeFirstResponder()
+        default:
+            resignFirstResponder()
+        }
+    }
+    
+    private func setUp() {
+        addTarget(self, action: #selector(actionKeyboardButtonTapped(sender:)), for: .editingDidEnd)
     }
 
     private func activateField() {
@@ -280,6 +275,11 @@ extension EmeraldTextField {
     public func textFieldDidEndEditing(_ textField: UITextField) {
         deactivateField()
         customTextFieldDelegate?.didEndEditing?(textField: textField)
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
