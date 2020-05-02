@@ -10,7 +10,7 @@ import Foundation
 
 public class EmeraldTextFieldView: BaseInputView {
 
-    public var status: EmeraldTextField.EmeraldTextFieldState {
+    public var status: EmeraldTextFieldState {
         return self.textField.status
     }
 
@@ -112,7 +112,7 @@ public class EmeraldTextFieldView: BaseInputView {
         return self.textField.getValue()
     }
 
-    public func setStatus(_ status: EmeraldTextField.EmeraldTextFieldState) {
+    public func setStatus(_ status: EmeraldTextFieldState) {
         self.textField.setStatus(status)
     }
 }

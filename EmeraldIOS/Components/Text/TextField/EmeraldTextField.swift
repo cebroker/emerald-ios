@@ -8,15 +8,15 @@
 
 import UIKit
 
+public enum EmeraldTextFieldState {
+    case valid
+    case normal
+    case error
+    case loading
+}
+
 @IBDesignable
 public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormatter {
-
-    public enum EmeraldTextFieldState {
-        case valid
-        case normal
-        case error
-        case loading
-    }
 
     @objc
     @IBOutlet open weak var nextResponderField: UIResponder? {
@@ -29,6 +29,7 @@ public class EmeraldTextField: UITextFieldType, EmeraldTextFieldType, TextFormat
         }
     }
 
+    // MARK: - IBInspectables properties.
     @IBInspectable var id: String?
     @IBInspectable var isRequired: Bool = false
     @IBInspectable var maxLength: Int = 0
