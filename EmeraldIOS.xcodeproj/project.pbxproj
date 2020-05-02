@@ -462,6 +462,17 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		774DE695245D3F66009D5E8F /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				6C2D328A228AFDA5009D4B0F /* TextDependant */,
+				6C2D3F962280C84F00FD8ED9 /* TextField */,
+				D1D039E0238DB54B00F560CF /* TextfieldView */,
+				6CD5842122945A51001DE8D2 /* TextView */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		778BEF6422B92BD400AF8601 /* Avatar */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,10 +568,7 @@
 				86AC4DE022974E1C00728FBA /* SegmentedBar */,
 				6CAFFA2C22847D8F00C690B9 /* Selector */,
 				6C0AC80622831B5A00AF4662 /* Signature */,
-				6C2D328A228AFDA5009D4B0F /* TextDependant */,
-				6C2D3F962280C84F00FD8ED9 /* TextField */,
-				D1D039E0238DB54B00F560CF /* TextfieldView */,
-				6CD5842122945A51001DE8D2 /* TextView */,
+				774DE695245D3F66009D5E8F /* Text */,
 			);
 			path = Components;
 			sourceTree = "<group>";
