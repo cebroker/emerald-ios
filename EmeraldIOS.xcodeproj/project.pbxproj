@@ -596,7 +596,6 @@
 		9B3BCC412272033400DC5D79 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				7585BF5622C2CFC200CC086B /* Alert */,
 				9B3BCC422272033400DC5D79 /* Constants.swift */,
 				77BF6E1A22E0BC1E00E4C448 /* Constants+Icons.swift */,
 				9B3BCC432272033400DC5D79 /* Extensions+NSRegularExpression.swift */,
@@ -614,6 +613,7 @@
 			children = (
 				9B3BCC5A2272033400DC5D79 /* Selectable.swift */,
 				778BEF6422B92BD400AF8601 /* Avatar */,
+				7585BF5622C2CFC200CC086B /* Alert */,
 				9B3BCC552272033400DC5D79 /* Button */,
 				49EC6EDD232BF2EC003BFEBD /* Chart */,
 				77BF6E1322DF7B5500E4C448 /* Chip */,
