@@ -58,10 +58,3 @@ public class EmeraldRegexTextField: EmeraldTextField, EmeraldRegexTextFieldType 
         return .success(true)
     }
 }
-
-extension Optional where Wrapped == String {
-    var isNilOrEmpty: Bool {
-        guard let string = self else { return true }
-        return string.isEmpty
-    }
-}
