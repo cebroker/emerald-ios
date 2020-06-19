@@ -63,7 +63,7 @@ public extension TextFormatter {
 
     func formatCurrency(resource: String) -> String {
         let formatter = NumberFormatter()
-        formatter.currencyCode = "USD"
+        formatter.locale = Locale(identifier: "en_US")
         formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 2
         let simpleFormat = Constants.Values.dollarWithSpace + resource
