@@ -52,10 +52,12 @@ public class EmeraldTextViewField: UITextView, EmeraldTextViewFieldType, TextFor
     private struct InnerConstants {
         static let boundsX: CGFloat = 5
         static let boundsY: CGFloat = 10
+        static let mailType = "mail"
     }
     
     private var initialPlaceHolder: String?
     private var innerFormat: TextFormat = .none
+    public weak var textViewDelegate: EmeraldTextViewFieldDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -234,4 +236,11 @@ extension EmeraldTextViewField: UITextViewDelegate {
             clearError()
         }
     }
+    
+    public func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        if URL.absoluteString == InnerConstants.mailType {
+            textViewDelegate?.openEmail()
+         }
+         return true
+     }
 }
