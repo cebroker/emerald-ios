@@ -243,7 +243,7 @@ extension EmeraldTextViewField: UITextViewDelegate {
                          interaction: UITextItemInteraction) -> Bool {
         
         if URL.absoluteString == InnerConstants.mailType {
-            textViewDelegate?.openEmail()
+            textViewDelegate?.openEmail(URL)
          }
          return true
      }

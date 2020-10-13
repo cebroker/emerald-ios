@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol EmeraldTextViewFieldDelegate: AnyObject {
-    func openEmail()
+    func openEmail(_ url: URL)
 }
