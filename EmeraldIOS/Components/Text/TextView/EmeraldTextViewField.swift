@@ -237,7 +237,11 @@ extension EmeraldTextViewField: UITextViewDelegate {
         }
     }
     
-    public func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+    public func textView(_ textView: UITextView,
+                         shouldInteractWith URL: URL,
+                         in characterRange: NSRange,
+                         interaction: UITextItemInteraction) -> Bool {
+        
         if URL.absoluteString == InnerConstants.mailType {
             textViewDelegate?.openEmail()
          }
