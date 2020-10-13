@@ -127,6 +127,7 @@
 		D131BA78239717A100A8E376 /* BaseInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D131BA77239717A100A8E376 /* BaseInputView.xib */; };
 		D139718F2343E59C0061BA5C /* calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D139718E2343E59B0061BA5C /* calendar_icon.png */; };
 		D1570581239FEAD100486D64 /* ConstantIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1570580239FEAD100486D64 /* ConstantIdentifier.swift */; };
+		D172BE7925360C09003D6140 /* EmeraldTextViewFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7825360C09003D6140 /* EmeraldTextViewFieldDelegate.swift */; };
 		D19AB19923981BD4007DB93D /* EmeraldRegexTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AB19823981BD4007DB93D /* EmeraldRegexTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
@@ -268,6 +269,7 @@
 		D131BA77239717A100A8E376 /* BaseInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseInputView.xib; sourceTree = "<group>"; };
 		D139718E2343E59B0061BA5C /* calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_icon.png; sourceTree = "<group>"; };
 		D1570580239FEAD100486D64 /* ConstantIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantIdentifier.swift; sourceTree = "<group>"; };
+		D172BE7825360C09003D6140 /* EmeraldTextViewFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextViewFieldDelegate.swift; sourceTree = "<group>"; };
 		D19AB19823981BD4007DB93D /* EmeraldRegexTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexTextFieldView.swift; sourceTree = "<group>"; };
 		D418AA719E0A5CC5B252712C /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D454BD708479A75A97FAD19B /* Pods-EmeraldIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				6CD5842222945A63001DE8D2 /* EmeraldTextViewField.swift */,
 				6CD5842422945A7F001DE8D2 /* EmeraldTextViewFieldStyle.swift */,
 				6CE75DA922A15BC00035A731 /* EmeraldTextView.swift */,
+				D172BE7825360C09003D6140 /* EmeraldTextViewFieldDelegate.swift */,
 			);
 			path = TextView;
 			sourceTree = "<group>";
@@ -1035,6 +1038,7 @@
 				49D7DA5E233CFA3B000453BD /* EmeraldCustomBarChartRenderer.swift in Sources */,
 				774DE69B245D4097009D5E8F /* EmeraldTextFieldType.swift in Sources */,
 				6C2D328C228B034E009D4B0F /* EmeraldTextDependantField.swift in Sources */,
+				D172BE7925360C09003D6140 /* EmeraldTextViewFieldDelegate.swift in Sources */,
 				6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */,
 				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
 				9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */,
