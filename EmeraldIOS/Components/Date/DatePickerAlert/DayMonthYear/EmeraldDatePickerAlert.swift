@@ -76,7 +76,7 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
         }
         
         if #available(iOS 13.4, *) {
-            datePicker.preferredDatePickerStyle = UIDatePickerStyle.automatic
+            datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
         } 
         
         dialogView.layer.shouldRasterize = true
