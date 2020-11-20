@@ -75,6 +75,10 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
             return
         }
         
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = UIDatePickerStyle.automatic
+        } 
+        
         dialogView.layer.shouldRasterize = true
         dialogView.layer.rasterizationScale = UIScreen.main.scale
         
