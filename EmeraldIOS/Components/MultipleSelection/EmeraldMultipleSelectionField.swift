@@ -243,7 +243,7 @@ public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectio
         layer.borderWidth = style.borderWidth
         layer.borderColor = style.borderColor
         layer.cornerRadius = style.cornerRadius
-        layer.backgroundColor = UIColor.white.cgColor
+        layer.backgroundColor = EmeraldTheme.clearColor.cgColor
         
         getChildren()?.forEach {
             $0.setStyle(with: style)
