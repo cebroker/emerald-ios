@@ -51,7 +51,7 @@ public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectio
     
     @IBInspectable var isRequired: Bool = false
     
-    @IBInspectable var themeStyle: String = EmeraldMultipleSelectionFieldStyle.bordered.IBInspectable {
+    @IBInspectable var themeStyle: String = EmeraldMultipleSelectionFieldStyle.simple.IBInspectable {
         didSet {
             applyTheme()
         }
@@ -243,6 +243,7 @@ public class EmeraldMultipleSelectionField: UIStackView, EmeraldMultipleSelectio
         layer.borderWidth = style.borderWidth
         layer.borderColor = style.borderColor
         layer.cornerRadius = style.cornerRadius
+        layer.backgroundColor = UIColor.white.cgColor
         
         getChildren()?.forEach {
             $0.setStyle(with: style)
