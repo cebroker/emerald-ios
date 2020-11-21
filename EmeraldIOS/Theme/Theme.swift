@@ -31,6 +31,7 @@ public class EmeraldTheme {
     public static let headerImageColor = UIColor(named: "headerImageColor", in: bundle, compatibleWith: nil)!
     public static let headerSubtitleColor = UIColor(named: "headerSubtitleColor", in: bundle, compatibleWith: nil)!
     public static let witheAndBlueColor = UIColor(named: "witheAndBlueColor", in: bundle, compatibleWith: nil)!
+    public static let clearColor: UIColor = .clear
     
     // MARK: General Colors
 
