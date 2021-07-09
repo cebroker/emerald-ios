@@ -45,7 +45,7 @@ class EmeraldChipCollectionViewCell: UICollectionViewCell, EmeraldChipCollection
     }
 
     private func setupView() {
-        self.addSubview(self.chip)
+        self.contentView.addSubview(self.chip)
         self.chip.delegate = self
         chip.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor)
     }
