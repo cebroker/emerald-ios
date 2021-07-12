@@ -33,6 +33,13 @@ class EmeraldChipCollectionViewCell: UICollectionViewCell, EmeraldChipCollection
     override func prepareForReuse() {
         super.prepareForReuse()
         self.chip.setText("")
+        self.setupContentView()
+    }
+    
+    private func setupContentView() {
+        NSLayoutConstraint.activate([
+            self.contentView.widthAnchor.constraint(greaterThanOrEqualTo: self.chip.widthAnchor)
+        ])
     }
     
     override func prepareForInterfaceBuilder() {
@@ -45,7 +52,7 @@ class EmeraldChipCollectionViewCell: UICollectionViewCell, EmeraldChipCollection
     }
 
     private func setupView() {
-        self.addSubview(self.chip)
+        self.contentView.addSubview(self.chip)
         self.chip.delegate = self
         chip.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor)
     }
