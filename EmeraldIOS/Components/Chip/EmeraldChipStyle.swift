@@ -71,9 +71,9 @@ public enum EmeraldChipStyle: String, Inspectable {
     var font: UIFont! {
         switch self {
         case .error, .warning, .success:
-            return Font(size: .body, weight: .regular).uiFont
+            return Typography(size: .body, weight: .regular).uiFont
         default:
-            return Font(size: .h5, weight: .semibold).uiFont
+            return Typography(size: .h5, weight: .semibold).uiFont
         }
     }
 

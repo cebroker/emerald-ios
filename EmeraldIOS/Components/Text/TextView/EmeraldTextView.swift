@@ -35,7 +35,7 @@ public class EmeraldTextView: UIStackView, EmeraldValidableType {
         let label = EmeraldLabel()
         label.themeStyle = EmeraldLabelStyle.custom.IBInspectable
         label.themeFontSize = FontSize.h5.rawValue
-        label.themeColor = Color.red.rawValue
+        label.themeColor = ColorPallete.red.rawValue
         label.themeFontWeight = FontWeight.regular.rawValue
         label.isHidden = true
         return label

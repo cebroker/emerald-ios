@@ -45,21 +45,21 @@ public enum EmeraldLabelStyle: String, Inspectable {
     var font: UIFont? {
         switch self {
         case .largeHeader:
-            return Font(size: .h1, weight: .semibold).uiFont
+            return Typography(size: .h1, weight: .semibold).uiFont
         case .mainTitle:
-            return Font(size: .h4, weight: .semibold).uiFont
+            return Typography(size: .h4, weight: .semibold).uiFont
         case .subtitle:
-            return Font(size: .h5, weight: .semibold).uiFont
+            return Typography(size: .h5, weight: .semibold).uiFont
         case .body:
-            return Font(size: .body, weight: .regular).uiFont
+            return Typography(size: .body, weight: .regular).uiFont
         case .bodyBold:
-            return Font(size: .h5, weight: .semibold).uiFont
+            return Typography(size: .h5, weight: .semibold).uiFont
         case .tableHeader:
-            return Font(size: .tableHeader, weight: .semibold).uiFont
+            return Typography(size: .tableHeader, weight: .semibold).uiFont
         case .link:
-            return Font(size: .h4, weight: .bold).uiFont
+            return Typography(size: .h4, weight: .bold).uiFont
         case .warning:
-            return Font(size: .h6, weight: .regular).uiFont
+            return Typography(size: .h6, weight: .regular).uiFont
         default:
             return nil
         }

@@ -25,8 +25,8 @@ public struct EmeraldChartOptions {
     public var multipleValueDataColors: [UIColor]
     
     public init (cornerRadius: CGFloat = 0,
-                 titleFont: UIFont = Font(size: .body, weight: .regular).uiFont,
-                 subtitleFont: UIFont = Font(size: .h5, weight: .bold).uiFont,
+                 titleFont: UIFont = Typography(size: .body, weight: .regular).uiFont,
+                 subtitleFont: UIFont = Typography(size: .h5, weight: .bold).uiFont,
                  titleFontColor: UIColor = EmeraldTheme.chartBaseLineColor,
                  accessoryViewImage: UIImage? = nil,
                  barWidthPercentage: Double = 0.85,

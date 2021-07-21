@@ -116,22 +116,22 @@ public enum EmeraldButtonStyle: String, Inspectable {
     var font: UIFont? {
         switch self {
         case .primarySmall, .secondarySmall:
-            return Font(size: .smallButton,
+            return Typography(size: .smallButton,
                 weight: .bold).uiFont
         case .primaryLarge, .secondaryLarge:
-            return Font(size: .largeButton,
+            return Typography(size: .largeButton,
                 weight: .bold).uiFont
         case .link, .plainPrimary:
-            return Font(size: .smallButton,
+            return Typography(size: .smallButton,
                 weight: .semibold).uiFont
         case .linkButton:
-            return Font(size: .linkButton,
+            return Typography(size: .linkButton,
                 weight: .semibold).uiFont
         case .warning:
-            return Font(size: .smallButton,
+            return Typography(size: .smallButton,
                 weight: .bold).uiFont
         default:
-            return Font(size: .button,
+            return Typography(size: .button,
                 weight: .bold).uiFont
         }
     }

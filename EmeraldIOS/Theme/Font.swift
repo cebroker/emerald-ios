@@ -6,6 +6,7 @@
 //  Copyright © 2019 Condor Labs. All rights reserved.
 //
 
+import SwiftUI
 import UIKit
 
 public enum OpenSansFonts: String, CaseIterable {
@@ -31,15 +32,15 @@ public enum FontSize: String, Inspectable {
     case largeButton
     case label
     case tableHeader
-    
+
     var IBInspectable: String {
         return rawValue
     }
-    
+
     init(IBInspectable: String) {
         self.init(stringValue: IBInspectable)
     }
-    
+
     var cgFontSize: CGFloat {
         switch self {
         case .h1:
@@ -74,7 +75,7 @@ public enum FontSize: String, Inspectable {
             return 14
         }
     }
-    
+
     static func cgFontSize(_ IBInspectable: InspectableType) -> CGFloat {
         return FontSize(IBInspectable: IBInspectable).cgFontSize
     }
@@ -85,56 +86,119 @@ public enum FontWeight: String, Inspectable {
     case regular
     case semibold
     case bold
-    
+
     var IBInspectable: String {
         return rawValue
     }
-    
+
     init(IBInspectable: String) {
         self.init(stringValue: IBInspectable)
     }
 }
 
-public struct Font {
+public struct Typography {
     let size: FontSize
     let weight: FontWeight
-    
+
     public init(size: FontSize, weight: FontWeight) {
         self.size = size
         self.weight = weight
     }
-    
+
     public var uiFont: UIFont {
         var customFont: UIFont? {
             switch weight {
             case .light:
-                return UIFont(name: OpenSansFonts.Light.rawValue,
-                              size: size.cgFontSize)
+                return UIFont(
+                    name: OpenSansFonts.Light.rawValue,
+                    size: size.cgFontSize)
             case .regular:
-                return UIFont(name: OpenSansFonts.Regular.rawValue,
-                              size: size.cgFontSize)
+                return UIFont(
+                    name: OpenSansFonts.Regular.rawValue,
+                    size: size.cgFontSize)
             case .semibold:
-                return UIFont(name: OpenSansFonts.SemiBold.rawValue,
-                              size: size.cgFontSize)
+                return UIFont(
+                    name: OpenSansFonts.SemiBold.rawValue,
+                    size: size.cgFontSize)
             case .bold:
-                return UIFont(name: OpenSansFonts.Bold.rawValue,
-                              size: size.cgFontSize)
+                return UIFont(
+                    name: OpenSansFonts.Bold.rawValue,
+                    size: size.cgFontSize)
             }
         }
-        
+
         var systemFont: UIFont {
             switch weight {
             case .light:
-                return UIFont.systemFont(ofSize: size.cgFontSize, weight: .light)
+                return UIFont.systemFont(
+                    ofSize: size.cgFontSize,
+                    weight: .light)
             case .regular:
-                return UIFont.systemFont(ofSize: size.cgFontSize, weight: .regular)
+                return UIFont.systemFont(
+                    ofSize: size.cgFontSize,
+                    weight: .regular)
             case .semibold:
-                return UIFont.systemFont(ofSize: size.cgFontSize, weight: .semibold)
+                return UIFont.systemFont(
+                    ofSize: size.cgFontSize,
+                    weight: .semibold)
             case .bold:
-                return UIFont.systemFont(ofSize: size.cgFontSize, weight: .bold)
+                return UIFont.systemFont(
+                    ofSize: size.cgFontSize,
+                    weight: .bold)
             }
         }
-        
+
         return customFont ?? systemFont
+    }
+
+    @available(iOS 14.0, *)
+    public var suFont: Font {
+        var customSuFont: Font? {
+            switch weight {
+            case .light:
+                return Font.custom(
+                    OpenSansFonts.Light.rawValue,
+                    fixedSize: size.cgFontSize)
+            case .regular:
+                return Font.custom(
+                    OpenSansFonts.Regular.rawValue,
+                    fixedSize: size.cgFontSize)
+            case .semibold:
+                return Font.custom(
+                    OpenSansFonts.SemiBold.rawValue,
+                    fixedSize: size.cgFontSize)
+            case .bold:
+                return Font.custom(
+                    OpenSansFonts.Bold.rawValue,
+                    fixedSize: size.cgFontSize)
+            }
+        }
+
+        var systemSuFont: Font {
+            switch weight {
+            case .light:
+                return Font.system(
+                    size: size.cgFontSize,
+                    weight: .light,
+                    design: .default)
+            case .regular:
+                return Font.system(
+                    size: size.cgFontSize,
+                    weight: .regular,
+                    design: .default)
+            case .semibold:
+                return Font.system(
+                    size: size.cgFontSize,
+                    weight: .semibold,
+                    design: .default)
+            case .bold:
+                return Font.system(
+                    size: size.cgFontSize,
+                    weight: .bold,
+                    design: .default)
+            }
+        }
+
+        return customSuFont ?? systemSuFont
     }
 }

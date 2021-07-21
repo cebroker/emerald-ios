@@ -191,7 +191,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         tableHeader?.text = "Table header text"
 
         let customTitle = formStackView.createLabel()
-        customTitle?.themeColor = Color.primary.rawValue
+        customTitle?.themeColor = ColorPallete.primary.rawValue
         customTitle?.themeFontSize = FontSize.h1.rawValue
         customTitle?.themeFontWeight = FontWeight.bold.rawValue
         customTitle?.text = "H1 Custom title"

@@ -136,7 +136,7 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
         self.titleLabel = UILabel(frame: CGRect(x: 10, y: 10, width: 280, height: 30))
         self.titleLabel.textAlignment = .center
         self.titleLabel.textColor = EmeraldTheme.primaryColor
-        self.titleLabel.font = Font(size: FontSize.body, weight: FontWeight.regular).uiFont
+        self.titleLabel.font = Typography(size: FontSize.body, weight: FontWeight.regular).uiFont
         container.addSubview(self.titleLabel)
         
         self.datePicker = configuredDatePicker()
@@ -187,7 +187,7 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
             self.cancelButton.frame = isLeftToRightDirection ? leftButtonFrame : rightButtonFrame
             self.cancelButton.setTitleColor(EmeraldTheme.primaryColor, for: .normal)
             self.cancelButton.setTitleColor(EmeraldTheme.primaryColor, for: .highlighted)
-            self.cancelButton.titleLabel!.font = Font(size: FontSize.body, weight: FontWeight.regular).uiFont
+            self.cancelButton.titleLabel!.font = Typography(size: FontSize.body, weight: FontWeight.regular).uiFont
             self.cancelButton.layer.cornerRadius = InnerConstants.cornerRadius
             self.cancelButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             container.addSubview(self.cancelButton)
@@ -197,7 +197,7 @@ public class EmeraldDatePickerAlert: UIView, EmeraldDatePickerAlertType {
         self.doneButton.tag = InnerConstants.doneButtonTag
         self.doneButton.setTitleColor(EmeraldTheme.primaryColor, for: .normal)
         self.doneButton.setTitleColor(EmeraldTheme.primaryColor, for: .highlighted)
-        self.doneButton.titleLabel!.font = Font(size: FontSize.body, weight: FontWeight.regular).uiFont
+        self.doneButton.titleLabel!.font = Typography(size: FontSize.body, weight: FontWeight.regular).uiFont
         self.doneButton.layer.cornerRadius = InnerConstants.cornerRadius
         self.doneButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         container.addSubview(self.doneButton)

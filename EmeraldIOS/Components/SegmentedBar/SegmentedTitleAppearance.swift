@@ -14,13 +14,13 @@ public enum SegmentedTitleStyle: String, Inspectable {
     var fontWhenHighlighted: UIFont {
         switch self {
         case .primary:
-            return Font(size: .h5, weight: .semibold).uiFont
+            return Typography(size: .h5, weight: .semibold).uiFont
         }
     }
     var fontWhenSelected: UIFont {
         switch self {
         case .primary:
-            return Font(size: .h5, weight: .semibold).uiFont
+            return Typography(size: .h5, weight: .semibold).uiFont
         }
     }
     var colorWhenHighlighted: UIColor {
