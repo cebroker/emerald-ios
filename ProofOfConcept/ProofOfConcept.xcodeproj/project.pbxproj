@@ -14,6 +14,8 @@
 		9BC82E4D224278FB007BC5BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E4C224278FB007BC5BD /* Assets.xcassets */; };
 		9BC82E50224278FB007BC5BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E4E224278FB007BC5BD /* LaunchScreen.storyboard */; };
 		9BE1140F22720874007D1493 /* ProofOfConceptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E5A224278FB007BC5BD /* ProofOfConceptUITests.swift */; };
+		B47B079D26A9DD0500F638EC /* SwiftUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B079C26A9DD0500F638EC /* SwiftUiView.swift */; };
+		B47B079F26A9DE2300F638EC /* SwiftUiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B079E26A9DE2300F638EC /* SwiftUiViewController.swift */; };
 		BC804448D9D233C4E39BC142 /* Pods_ProofOfConcept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2428DF48A5982A37DF7B8651 /* Pods_ProofOfConcept.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		9BC82E56224278FB007BC5BD /* ProofOfConceptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProofOfConceptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC82E5A224278FB007BC5BD /* ProofOfConceptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfConceptUITests.swift; sourceTree = "<group>"; };
 		9BC82E5C224278FB007BC5BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B47B079C26A9DD0500F638EC /* SwiftUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiView.swift; sourceTree = "<group>"; };
+		B47B079E26A9DE2300F638EC /* SwiftUiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				9BC82E4E224278FB007BC5BD /* LaunchScreen.storyboard */,
 				9BC82E51224278FB007BC5BD /* Info.plist */,
 				492773CB233912A6007DB941 /* BarChartViewController.swift */,
+				B47B079C26A9DD0500F638EC /* SwiftUiView.swift */,
+				B47B079E26A9DE2300F638EC /* SwiftUiViewController.swift */,
 			);
 			path = ProofOfConcept;
 			sourceTree = "<group>";
@@ -270,7 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC82E48224278FA007BC5BD /* ViewController.swift in Sources */,
+				B47B079F26A9DE2300F638EC /* SwiftUiViewController.swift in Sources */,
 				9BC82E46224278FA007BC5BD /* AppDelegate.swift in Sources */,
+				B47B079D26A9DD0500F638EC /* SwiftUiView.swift in Sources */,
 				492773CC233912A6007DB941 /* BarChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

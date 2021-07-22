@@ -42,4 +42,28 @@ public enum EmeraldSwiftUiLabelStyle: String {
             return nil
         }
     }
+    
+    @available(iOS 13.0, *)
+    var font: Font? {
+        switch self {
+        case .largeHeader:
+            return Typography(size: .h1, weight: .semibold).suFont
+        case .mainTitle:
+            return Typography(size: .h4, weight: .semibold).suFont
+        case .subtitle:
+            return Typography(size: .h5, weight: .semibold).suFont
+        case .body:
+            return Typography(size: .body, weight: .regular).suFont
+        case .bodyBold:
+            return Typography(size: .h5, weight: .semibold).suFont
+        case .tableHeader:
+            return Typography(size: .tableHeader, weight: .semibold).suFont
+        case .link:
+            return Typography(size: .h4, weight: .bold).suFont
+        case .warning:
+            return Typography(size: .h6, weight: .regular).suFont
+        default:
+            return nil
+        }
+    }
 }

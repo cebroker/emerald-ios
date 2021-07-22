@@ -1,16 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NSi-CS-Fn9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NSi-CS-Fn9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Emerald Components-->
+        <!--Emerald SwiftUi Components-->
+        <scene sceneID="gCV-mw-GiH">
+            <objects>
+                <viewController id="6FO-vF-fro" customClass="SwiftUiViewController" customModule="ProofOfConcept" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YMS-Cz-UMI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-mh-3nI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2ff-mR-XwJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2ff-mR-XwJ" firstAttribute="trailing" secondItem="HTd-mh-3nI" secondAttribute="trailing" id="BVV-Ew-zMa"/>
+                            <constraint firstItem="2ff-mR-XwJ" firstAttribute="bottom" secondItem="HTd-mh-3nI" secondAttribute="bottom" id="E8V-zu-Gbm"/>
+                            <constraint firstItem="HTd-mh-3nI" firstAttribute="leading" secondItem="2ff-mR-XwJ" secondAttribute="leading" id="Ewh-l1-LtM"/>
+                            <constraint firstItem="HTd-mh-3nI" firstAttribute="top" secondItem="2ff-mR-XwJ" secondAttribute="top" id="Nae-RJ-V9N"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Emerald SwiftUi Components" id="Kfk-Ro-iPU"/>
+                    <connections>
+                        <outlet property="container" destination="HTd-mh-3nI" id="oA6-jL-fQY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zri-dB-Wd6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1090" y="662"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0rr-lE-5nS">
+            <objects>
+                <viewController id="YyO-bI-bba" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ses-sq-xmq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-3X-JgQ">
+                                <rect key="frame" x="20" y="374" width="374" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gym-z8-pW2">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <state key="normal" title="Ui Kit"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="oPq-2T-lpc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBO-kO-Ck2">
+                                        <rect key="frame" x="0.0" y="30" width="374" height="30"/>
+                                        <state key="normal" title="Swift Ui"/>
+                                        <connections>
+                                            <segue destination="6FO-vF-fro" kind="show" id="cKx-BE-8El"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bpW-RM-vN8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g1Y-3X-JgQ" firstAttribute="centerY" secondItem="ses-sq-xmq" secondAttribute="centerY" id="9Zh-E7-l8N"/>
+                            <constraint firstItem="bpW-RM-vN8" firstAttribute="trailing" secondItem="g1Y-3X-JgQ" secondAttribute="trailing" constant="20" id="AyY-UJ-C6K"/>
+                            <constraint firstItem="g1Y-3X-JgQ" firstAttribute="leading" secondItem="bpW-RM-vN8" secondAttribute="leading" constant="20" id="KpH-BI-ECx"/>
+                            <constraint firstItem="g1Y-3X-JgQ" firstAttribute="centerX" secondItem="ses-sq-xmq" secondAttribute="centerX" id="eWF-0i-pFB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lMi-Aw-ubT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="712-az-Ntm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-94" y="662"/>
+        </scene>
+        <!--Emerald Uikit Components-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProofOfConcept" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,14 +219,14 @@ GROUP 2</string>
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpM-Dl-RQY">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpM-Dl-RQY">
                                                 <rect key="frame" x="0.0" y="584.5" width="373" height="30"/>
                                                 <state key="normal" title="Add language"/>
                                                 <connections>
                                                     <action selector="addLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GC8-Yh-h03"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5a4-Ih-BY8" customClass="EmeraldButton" customModule="EmeraldIOS">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5a4-Ih-BY8" customClass="EmeraldButton" customModule="EmeraldIOS">
                                                 <rect key="frame" x="0.0" y="756" width="373" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="yQx-1m-5K1"/>
@@ -282,7 +357,7 @@ GROUP 2</string>
                                             </textField>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-Jg-SbH" customClass="EmeraldTextFieldView" customModule="EmeraldIOS">
                                                 <rect key="frame" x="0.0" y="2097" width="373" height="56"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-yB-paV" customClass="EmeraldRegexTextField" customModule="EmeraldIOS">
                                                 <rect key="frame" x="0.0" y="2294.5" width="373" height="34"/>
@@ -351,7 +426,7 @@ GROUP 2</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-jJ-wYo" customClass="EmeraldButton" customModule="EmeraldIOS">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKU-jJ-wYo" customClass="EmeraldButton" customModule="EmeraldIOS">
                                                 <rect key="frame" x="0.0" y="4166" width="373" height="49"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="cvJ-6d-zYc"/>
@@ -364,7 +439,7 @@ GROUP 2</string>
                                                     <action selector="submitFromStory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Chq-sB-AAG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nI-mz-9Cb">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nI-mz-9Cb">
                                                 <rect key="frame" x="0.0" y="4356.5" width="373" height="30"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -407,6 +482,7 @@ GROUP 2</string>
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5bQ-Gw-1eB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="28d-A8-AVU"/>
@@ -420,9 +496,8 @@ GROUP 2</string>
                             <constraint firstItem="luc-tT-pwp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iK8-aO-0Dc"/>
                             <constraint firstItem="mBN-35-axl" firstAttribute="top" secondItem="luc-tT-pwp" secondAttribute="bottom" constant="15" id="pAr-9G-yEa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Emerald Components" id="8M8-Do-9z6"/>
+                    <navigationItem key="navigationItem" title="Emerald Uikit Components" id="8M8-Do-9z6"/>
                     <size key="freeformSize" width="414" height="5000"/>
                     <connections>
                         <outlet property="chipCollectionView" destination="5EI-gk-g9M" id="Rek-lw-CT7"/>
@@ -456,7 +531,7 @@ GROUP 2</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046.376811594203" y="132.58928571428572"/>
+            <point key="canvasLocation" x="1143" y="662"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uWU-SW-QmA">
@@ -469,17 +544,25 @@ GROUP 2</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gQu-99-CIU"/>
+                        <segue destination="YyO-bI-bba" kind="relationship" relationship="rootViewController" id="hbk-rC-u1p"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmJ-Hv-bVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.23188405797103" y="132.58928571428572"/>
+            <point key="canvasLocation" x="-94" y="-80"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="DV6-cl-gbd">
+            <size key="intrinsicContentSize" width="69.5" height="20.5"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="whiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

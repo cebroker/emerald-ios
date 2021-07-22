@@ -143,7 +143,6 @@ public enum ColorPallete: String, Inspectable {
     static func uiColor(_ IBInspectable: InspectableType) -> UIColor {
         return ColorPallete(IBInspectable: IBInspectable).uiColor
     }
-
     var cgColor: CGColor {
         return uiColor.cgColor
     }

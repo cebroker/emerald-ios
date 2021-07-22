@@ -151,26 +151,26 @@ public struct Typography {
         return customFont ?? systemFont
     }
 
-    @available(iOS 14.0, *)
+    @available(iOS 13.0, *)
     public var suFont: Font {
         var customSuFont: Font? {
             switch weight {
             case .light:
                 return Font.custom(
                     OpenSansFonts.Light.rawValue,
-                    fixedSize: size.cgFontSize)
+                    size: size.cgFontSize)
             case .regular:
                 return Font.custom(
                     OpenSansFonts.Regular.rawValue,
-                    fixedSize: size.cgFontSize)
+                    size: size.cgFontSize)
             case .semibold:
                 return Font.custom(
                     OpenSansFonts.SemiBold.rawValue,
-                    fixedSize: size.cgFontSize)
+                    size: size.cgFontSize)
             case .bold:
                 return Font.custom(
                     OpenSansFonts.Bold.rawValue,
-                    fixedSize: size.cgFontSize)
+                    size: size.cgFontSize)
             }
         }
 
