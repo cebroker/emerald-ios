@@ -16,8 +16,12 @@ class SwiftUiViewController: UIViewController {
         if #available(iOS 14.0.0, *) {
             let childView = UIHostingController(rootView: SwiftUiView())
             addChild(childView)
-            childView.view.frame = container.bounds
             container.addSubview(childView.view)
+            childView.view.translatesAutoresizingMaskIntoConstraints = false
+            childView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            childView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            childView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            childView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         } else {
             // Fallback on earlier versions
         }

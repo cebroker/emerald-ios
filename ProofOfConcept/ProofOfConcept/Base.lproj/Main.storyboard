@@ -553,8 +553,35 @@ GROUP 2</string>
         </scene>
     </scenes>
     <designables>
+        <designable name="2NF-yB-paV">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="5a4-Ih-BY8">
+            <size key="intrinsicContentSize" width="130" height="30"/>
+        </designable>
+        <designable name="91Z-eS-81u">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
         <designable name="DV6-cl-gbd">
             <size key="intrinsicContentSize" width="69.5" height="20.5"/>
+        </designable>
+        <designable name="FEb-MD-dBK">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="Qbk-ri-QTF">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="dzn-pk-IR1">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="k5C-Xp-yJy">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="mKU-jJ-wYo">
+            <size key="intrinsicContentSize" width="121" height="30"/>
+        </designable>
+        <designable name="uDI-NN-qaw">
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
     </designables>
     <resources>
