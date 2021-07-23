@@ -21,6 +21,7 @@ public struct EmeraldSwiftUiTextView: View {
     public var maxLength: Int? = nil
     public var hideCounter: Bool = false
     public var clearable: Bool = false
+    public var disabled: Bool = false
     public var textFieldType: TextFieldType = .normal
     
     public init(text: Binding<String>,
@@ -33,6 +34,7 @@ public struct EmeraldSwiftUiTextView: View {
                 maxLength: Int? = nil,
                 hideCounter: Bool = false,
                 clearable: Bool = false,
+                disabled: Bool = false,
                 textFieldType: TextFieldType = .normal) {
         self._text = text
         self._focused = focused
@@ -44,11 +46,15 @@ public struct EmeraldSwiftUiTextView: View {
         self.maxLength = maxLength
         self.hideCounter = hideCounter
         self.clearable = clearable
+        self.disabled = disabled
         self.textFieldType = textFieldType
     }
     
     var textView: some View {
-        TextViewSwiftUi(text: $text, placeHolder: placeholder) {
+        TextViewSwiftUi(
+            text: $text,
+            disabled: disabled,
+            placeHolder: placeholder) {
             self.focused = $0
         }
         .onReceive(text.publisher.collect()) {
@@ -112,6 +118,7 @@ public struct EmeraldSwiftUiTextView: View {
         HStack(alignment: .top) {
             if errorText != nil || helperText != nil {
                 LabelHelperText(
+                    disabled: disabled,
                     helperText: helperText,
                     errorText: errorText)
             }
@@ -119,6 +126,7 @@ public struct EmeraldSwiftUiTextView: View {
                 Spacer()
                 LabelTextFieldCounter(
                     text: $text,
+                    disabled: disabled,
                     maxLength: maxLength)
             }
         }
@@ -131,6 +139,7 @@ public struct EmeraldSwiftUiTextView: View {
         HStack(alignment: .top) {
             LabelTextFieldTitle(
                 label: label,
+                disabled: disabled,
                 errorText: errorText,
                 focused: $focused)
                 .padding(

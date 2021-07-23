@@ -20,6 +20,7 @@ public struct EmeraldSecureTextField: View {
     var maxLength: Int? = nil
     var hideCounter: Bool = false
     var clearable: Bool = true
+    var disabled: Bool = false
     var keyboardType: UIKeyboardType = .default
     @State(initialValue: false) var show: Bool
     
@@ -50,6 +51,7 @@ public struct EmeraldSecureTextField: View {
                     text = String($0.prefix(maxLength ?? 0))
                 }
             }
+            .disabled(disabled)
             .keyboardType(keyboardType)
             .accessibility(identifier: accessibility)
             .disableAutocorrection(true)
@@ -88,6 +90,7 @@ public struct EmeraldSecureTextField: View {
         HStack(alignment: .top) {
             if errorText != nil || helperText != nil {
                 LabelHelperText(
+                    disabled: disabled,
                     helperText: helperText,
                     errorText: errorText)
             }
@@ -95,6 +98,7 @@ public struct EmeraldSecureTextField: View {
                 Spacer()
                 LabelTextFieldCounter(
                     text: $text,
+                    disabled: disabled,
                     maxLength: maxLength)
             }
         }
@@ -138,7 +142,9 @@ public struct EmeraldSecureTextField: View {
             .font(Typography(
                     size: .h4,
                     weight: .semibold).suFont)
-            .foregroundColor(ColorPallete.black.uiColor.suColor)
+            .foregroundColor(disabled ?
+                                Constants.EmeraldSwiftUiTextField.disabledColor :
+                                Constants.EmeraldSwiftUiTextField.textColor)
         }
     }
     
@@ -146,6 +152,7 @@ public struct EmeraldSecureTextField: View {
         HStack(alignment: .top) {
             LabelTextFieldTitle(
                 label: label,
+                disabled: disabled,
                 errorText: errorText,
                 focused: $focused)
                 .padding(

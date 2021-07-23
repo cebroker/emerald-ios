@@ -10,6 +10,8 @@ import SwiftUI
 
 @available(iOS 13.0.0, *)
 public struct CurrencySymbol: View {
+    var disabled: Bool = false
+    
     public var body: some View {
         HStack {
             Text("$")
@@ -17,7 +19,10 @@ public struct CurrencySymbol: View {
                 .font(Typography(
                         size: .h3,
                         weight: .semibold).suFont)
-                .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
+                .foregroundColor(
+                    disabled ?
+                        Constants.EmeraldSwiftUiTextField.disabledColor :
+                        Constants.EmeraldSwiftUiTextField.textColor)
             Spacer()
         }
     }

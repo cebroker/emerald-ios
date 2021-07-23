@@ -10,6 +10,7 @@ import SwiftUI
 @available(iOS 13.0.0, *)
 public struct LabelHelperText: View {
     
+    var disabled: Bool = false
     var helperText: String? = nil
     var errorText: String? = nil
     
@@ -26,7 +27,9 @@ public struct LabelHelperText: View {
                     weight: .semibold).suFont)
             .foregroundColor(errorText != nil ?
                                 Constants.EmeraldSwiftUiTextField.errorColor :
-                                Constants.EmeraldSwiftUiTextField.textColor)
+                                (disabled ?
+                                    Constants.EmeraldSwiftUiTextField.disabledColor :
+                                    Constants.EmeraldSwiftUiTextField.textColor))
     }
 }
 

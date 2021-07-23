@@ -31,6 +31,7 @@ extension Constants {
         static let textColor: Color = ColorPallete.black.uiColor.suColor
         static let borderColor: Color = ColorPallete.border.uiColor.suColor
         static let whiteColor: Color = ColorPallete.white.uiColor.suColor
+        static let disabledColor: Color = ColorPallete.extraLightGray.uiColor.suColor
         static let hide: String = "hide"
         static let show: String = "show"
     }

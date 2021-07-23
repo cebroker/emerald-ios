@@ -11,7 +11,8 @@ import SwiftUI
 struct TextViewSwiftUi: UIViewRepresentable {
     
     @Binding var text: String
-    var placeHolder:String = ""
+    var disabled: Bool = false
+    var placeHolder: String = ""
     var onEditingChanged: (Bool) -> Void
     var placeholderLabel : UILabel = UILabel()
     
@@ -23,8 +24,8 @@ struct TextViewSwiftUi: UIViewRepresentable {
         let textView = UITextView()
         textView.delegate = context.coordinator
         textView.isScrollEnabled = true
-        textView.isEditable = true
-        textView.isUserInteractionEnabled = true
+        textView.isEditable = !disabled
+        textView.isUserInteractionEnabled = !disabled
         textView.backgroundColor = UIColor.white
         let padding = textView.textContainer.lineFragmentPadding
         textView.textContainerInset =  UIEdgeInsets(

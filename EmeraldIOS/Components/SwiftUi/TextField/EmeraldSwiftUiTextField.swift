@@ -21,6 +21,7 @@ public struct EmeraldSwiftUiTextField: View {
     public var maxLength: Int? = nil
     public var hideCounter: Bool = false
     public var clearable: Bool = false
+    public var disabled: Bool = false
     @State public var show: Bool
     
     public init(textFieldType: TextFieldType = .normal,
@@ -34,6 +35,7 @@ public struct EmeraldSwiftUiTextField: View {
                 maxLength: Int? = nil,
                 hideCounter: Bool = false,
                 clearable: Bool = false,
+                disabled: Bool = false,
                 show: State<Bool> = State(initialValue: false)) {
         self.textFieldType = textFieldType
         self._text = text
@@ -46,6 +48,7 @@ public struct EmeraldSwiftUiTextField: View {
         self.maxLength = maxLength
         self.hideCounter = hideCounter
         self.clearable = clearable
+        self.disabled = disabled
         self._show = show
     }
     
@@ -63,6 +66,7 @@ public struct EmeraldSwiftUiTextField: View {
                 maxLength: maxLength,
                 hideCounter: hideCounter,
                 clearable: clearable,
+                disabled: disabled,
                 keyboardType: textFieldType.getKeyboardType(),
                 show: _show)
         case .currency:
@@ -77,6 +81,7 @@ public struct EmeraldSwiftUiTextField: View {
                 maxLength: maxLength,
                 hideCounter: hideCounter,
                 clearable: clearable,
+                disabled: disabled,
                 keyboardType: textFieldType.getKeyboardType())
         default:
             EmeraldGeneralTextField(
@@ -90,6 +95,7 @@ public struct EmeraldSwiftUiTextField: View {
                 maxLength: maxLength,
                 hideCounter: hideCounter,
                 clearable: clearable,
+                disabled: disabled,
                 keyboardType: textFieldType.getKeyboardType())
         }
     }

@@ -21,6 +21,7 @@ public struct EmeraldGeneralTextField: View {
     var maxLength: Int? = nil
     var hideCounter: Bool = false
     var clearable: Bool = false
+    var disabled: Bool = false
     var keyboardType: UIKeyboardType = .default
     
     var textField: some View {
@@ -37,6 +38,7 @@ public struct EmeraldGeneralTextField: View {
                     text = String($0.prefix(maxLength ?? 0))
                 }
             }
+            .disabled(disabled)
             .keyboardType(keyboardType)
             .accessibility(identifier: accessibility)
             .disableAutocorrection(true)
@@ -88,6 +90,7 @@ public struct EmeraldGeneralTextField: View {
         HStack(alignment: .top) {
             if errorText != nil || helperText != nil {
                 LabelHelperText(
+                    disabled: disabled,
                     helperText: helperText,
                     errorText: errorText)
             }
@@ -95,6 +98,7 @@ public struct EmeraldGeneralTextField: View {
                 Spacer()
                 LabelTextFieldCounter(
                     text: $text,
+                    disabled: disabled,
                     maxLength: maxLength)
             }
         }
@@ -107,6 +111,7 @@ public struct EmeraldGeneralTextField: View {
         HStack(alignment: .top) {
             LabelTextFieldTitle(
                 label: label,
+                disabled: disabled,
                 errorText: errorText,
                 focused: $focused)
                 .padding(

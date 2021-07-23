@@ -11,6 +11,7 @@ import SwiftUI
 public struct LabelTextFieldTitle: View {
     
     var label: String
+    var disabled: Bool = false
     var errorText: String? = nil
     @Binding var focused: Bool
     
@@ -30,7 +31,9 @@ public struct LabelTextFieldTitle: View {
                     Constants.EmeraldSwiftUiTextField.errorColor :
                     (focused ?
                         Constants.EmeraldSwiftUiTextField.focusColor :
-                        Constants.EmeraldSwiftUiTextField.textColor))
+                        (disabled ?
+                            Constants.EmeraldSwiftUiTextField.disabledColor :
+                            Constants.EmeraldSwiftUiTextField.textColor)))
             .lineLimit(1)
             .offset(
                 x: Constants.EmeraldSwiftUiTextField.leadingContentSpacing -

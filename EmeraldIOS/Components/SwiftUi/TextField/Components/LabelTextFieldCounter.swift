@@ -11,6 +11,7 @@ import SwiftUI
 public struct LabelTextFieldCounter: View {
     
     @Binding var text: String
+    var disabled: Bool = false
     var maxLength: Int? = nil
     
     public var body: some View {
@@ -21,7 +22,10 @@ public struct LabelTextFieldCounter: View {
             .font(Typography(
                     size: .h4,
                     weight: .semibold).suFont)
-            .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
+            .foregroundColor(
+                disabled ?
+                    Constants.EmeraldSwiftUiTextField.disabledColor :
+                    Constants.EmeraldSwiftUiTextField.textColor)
             .lineLimit(1)
     }
 }

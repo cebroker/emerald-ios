@@ -20,6 +20,7 @@ public struct EmeraldCurrencyTextField: View {
     var maxLength: Int? = nil
     var hideCounter: Bool = false
     var clearable: Bool = false
+    var disabled: Bool = false
     var keyboardType: UIKeyboardType = .default
     
     var textField: some View {
@@ -39,6 +40,7 @@ public struct EmeraldCurrencyTextField: View {
                     text = String($0).currencyInputFormatting()
                 }
             }
+            .disabled(disabled)
             .keyboardType(keyboardType)
             .accessibility(identifier: accessibility)
             .disableAutocorrection(true)
@@ -75,7 +77,7 @@ public struct EmeraldCurrencyTextField: View {
     }
     
     var currencyContent: some View {
-        CurrencySymbol()
+        CurrencySymbol(disabled: disabled)
             .padding(
                 .leading,
                 Constants.EmeraldSwiftUiTextField.leadingContentSpacing * 0.5)
@@ -98,6 +100,7 @@ public struct EmeraldCurrencyTextField: View {
         HStack(alignment: .top) {
             if errorText != nil || helperText != nil {
                 LabelHelperText(
+                    disabled: disabled,
                     helperText: helperText,
                     errorText: errorText)
             }
@@ -105,6 +108,7 @@ public struct EmeraldCurrencyTextField: View {
                 Spacer()
                 LabelTextFieldCounter(
                     text: $text,
+                    disabled: disabled,
                     maxLength: maxLength)
             }
         }
@@ -117,6 +121,7 @@ public struct EmeraldCurrencyTextField: View {
         HStack(alignment: .top) {
             LabelTextFieldTitle(
                 label: label,
+                disabled: disabled,
                 errorText: errorText,
                 focused: $focused)
                 .padding(

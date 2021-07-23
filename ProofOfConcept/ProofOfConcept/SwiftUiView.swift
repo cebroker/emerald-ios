@@ -17,6 +17,7 @@ struct SwiftUiView: View {
     @State(initialValue: "") var currency: String
     @State(initialValue: "") var numeric: String
     @State(initialValue: "") var textView: String
+    @State(initialValue: "") var disabledField: String
     @State(initialValue: nil) var errorText: String?
     
     init(normal: State<String> = State(initialValue: ""),
@@ -25,6 +26,7 @@ struct SwiftUiView: View {
          currency: State<String> = State(initialValue: ""),
          numeric: State<String> = State(initialValue: ""),
          textView: State<String> = State(initialValue: ""),
+         disabledField: State<String> = State(initialValue: ""),
          errorText: State<String?> = State(initialValue: nil)) {
         _normal = normal
         _email = email
@@ -32,6 +34,7 @@ struct SwiftUiView: View {
         _currency = currency
         _numeric = numeric
         _textView = textView
+        _disabledField = disabledField
         _errorText = errorText
     }
     
@@ -46,6 +49,9 @@ struct SwiftUiView: View {
         ScrollView {
             VStack {
                 emeraldLabelByStory
+            }
+            VStack {
+                Text("ENABLED")
                 EmeraldSwiftUiTextField(
                     text: $normal,
                     label: "Normal")
@@ -67,14 +73,43 @@ struct SwiftUiView: View {
                 EmeraldSwiftUiTextField(
                     textFieldType: .currency,
                     text: $currency,
-                    label: "Currency")
-                EmeraldSwiftUiTextField(
-                    textFieldType: .numeric,
-                    text: $numeric,
-                    label: "Numeric")
+                    label: "Currency",
+                    maxLength: 10)
                 EmeraldSwiftUiTextView(
                     text: $textView,
-                    label: "Text View")
+                    label: "Text View",
+                    helperText: "this is a helper text")
+            }
+            .padding()
+            VStack {
+                Text("DISABLED")
+                EmeraldSwiftUiTextField(
+                    text: $disabledField,
+                    label: "Normal",
+                    disabled: true)
+                EmeraldSwiftUiTextField(
+                    textFieldType: .email,
+                    text: $disabledField,
+                    label: "Email",
+                    placeholder: "correo@mail.com",
+                    errorText: errorText,
+                    disabled: true)
+                EmeraldSwiftUiTextField(
+                    textFieldType: .password,
+                    text: $disabledField,
+                    label: "Pasword",
+                    disabled: true)
+                EmeraldSwiftUiTextField(
+                    textFieldType: .currency,
+                    text: $disabledField,
+                    label: "Currency",
+                    maxLength: 10,
+                    disabled: true)
+                EmeraldSwiftUiTextView(
+                    text: $disabledField,
+                    label: "Text View",
+                    helperText: "this is a helper text",
+                    disabled: true)
             }
             .padding()
         }
