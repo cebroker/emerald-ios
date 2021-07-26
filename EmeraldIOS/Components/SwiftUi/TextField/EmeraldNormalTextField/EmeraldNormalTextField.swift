@@ -1,5 +1,5 @@
 //
-//  EmeraldGeneralTextField.swift
+//  EmeraldNormalTextField.swift
 //  Components
 //
 //  Created by Ronal Fabra on 21/07/21.
@@ -10,7 +10,7 @@ import SwiftUI
 import Introspect
 
 @available(iOS 13.0.0, *)
-public struct EmeraldGeneralTextField: View {
+public struct EmeraldNormalTextField: View {
     
     @Binding var text: String
     @State(initialValue: false) var focused: Bool
@@ -26,27 +26,19 @@ public struct EmeraldGeneralTextField: View {
     var keyboardType: UIKeyboardType = .default
     
     var textField: some View {
-        TextField(
-            placeholder,
+        EmeraldGenericTextField(
             text: $text,
-            onEditingChanged: {
-                self.focused = $0
-            }, onCommit: {
-                self.focused = false
-            })
+            focused: _focused,
+            placeholder: placeholder,
+            accessibility: accessibility,
+            errorText: errorText,
+            disabled: disabled,
+            keyboardType: keyboardType)
             .onReceive(text.publisher.collect()) {
                 if maxLength != nil {
                     text = String($0.prefix(maxLength ?? 0))
                 }
             }
-            .disabled(disabled)
-            .keyboardType(keyboardType)
-            .accessibility(identifier: accessibility)
-            .disableAutocorrection(true)
-            .font(Typography(
-                    size: .h3,
-                    weight: .semibold).suFont)
-            .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
             .padding(
                 .leading,
                 Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
@@ -56,7 +48,6 @@ public struct EmeraldGeneralTextField: View {
                         Constants.EmeraldSwiftUiTextField.trailingContentSpacing * 1.5 +
                         Constants.EmeraldSwiftUiTextField.widthClearButton :
                         Constants.EmeraldSwiftUiTextField.trailingContentSpacing))
-            .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
                         .stroke(
                             (errorText != nil ?
@@ -67,11 +58,6 @@ public struct EmeraldGeneralTextField: View {
                             lineWidth: self.focused ?
                                 Constants.EmeraldSwiftUiTextField.borderWidthFocused :
                                 Constants.EmeraldSwiftUiTextField.borderWidth))
-            .introspectTextField { textField in
-                if focused {
-                    textField.becomeFirstResponder()
-                }
-            }
     }
     
     var clearButtonContent: some View {
@@ -152,7 +138,7 @@ public struct EmeraldGeneralTextField: View {
 }
 
 @available(iOS 13.0.0, *)
-struct EmeraldGeneralTextField_Previews: PreviewProvider {
+struct EmeraldNormalTextField_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
     }
@@ -161,7 +147,7 @@ struct EmeraldGeneralTextField_Previews: PreviewProvider {
         @State(initialValue: "") var name: String
         
         var body: some View {
-            EmeraldGeneralTextField(
+            EmeraldNormalTextField(
                 text: $name,
                 label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 placeholder: "placeholder",

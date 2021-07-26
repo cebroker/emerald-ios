@@ -26,25 +26,17 @@ struct EmeraldDateTextField: View, TextFormatter {
     var keyboardType: UIKeyboardType = .default
     
     var textField: some View {
-        TextField(
-            placeholder,
+        EmeraldGenericTextField(
             text: $text,
-            onEditingChanged: {
-                self.focused = $0
-            }, onCommit: {
-                self.focused = false
-            })
+            focused: _focused,
+            placeholder: placeholder,
+            accessibility: accessibility,
+            errorText: errorText,
+            disabled: disabled,
+            keyboardType: keyboardType)
             .onReceive(text.publisher.collect()) {
                 formatText(String($0))
             }
-            .disabled(disabled)
-            .keyboardType(keyboardType)
-            .accessibility(identifier: accessibility)
-            .disableAutocorrection(true)
-            .font(Typography(
-                    size: .h3,
-                    weight: .semibold).suFont)
-            .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
             .padding(
                 .leading,
                 Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
@@ -55,7 +47,6 @@ struct EmeraldDateTextField: View, TextFormatter {
                                 Constants.EmeraldSwiftUiTextField.widthClearButton :
                                 Constants.EmeraldSwiftUiTextField.trailingContentSpacing +
                                 Constants.EmeraldSwiftUiTextField.widthIcon))
-            .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
                         .stroke(
                             (errorText != nil ?
@@ -66,11 +57,6 @@ struct EmeraldDateTextField: View, TextFormatter {
                             lineWidth: self.focused ?
                                 Constants.EmeraldSwiftUiTextField.borderWidthFocused :
                                 Constants.EmeraldSwiftUiTextField.borderWidth))
-            .introspectTextField { textField in
-                if focused {
-                    textField.becomeFirstResponder()
-                }
-            }
     }
     
     @ViewBuilder

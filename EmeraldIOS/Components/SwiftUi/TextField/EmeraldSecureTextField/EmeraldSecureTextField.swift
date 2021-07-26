@@ -28,20 +28,22 @@ public struct EmeraldSecureTextField: View {
     @ViewBuilder
     var textField: some View {
         if $show.wrappedValue {
-            TextField(
-                placeholder,
+            EmeraldGenericTextField(
                 text: $text,
-                onEditingChanged: {
-                    self.focused = $0
-                }, onCommit: {
-                    self.focused = false
-                })
+                focused: _focused,
+                placeholder: placeholder,
+                accessibility: accessibility,
+                errorText: errorText,
+                disabled: disabled,
+                keyboardType: keyboardType)
         } else {
             SecureTextFieldSwiftUI(
                 placeHolder: placeholder,
                 text: $text) {
                 self.focused = $0
             }
+            .disabled(disabled)
+            .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)
         }
     }
     
@@ -52,14 +54,6 @@ public struct EmeraldSecureTextField: View {
                     text = String($0.prefix(maxLength ?? 0))
                 }
             }
-            .disabled(disabled)
-            .keyboardType(keyboardType)
-            .accessibility(identifier: accessibility)
-            .disableAutocorrection(true)
-            .font(Typography(
-                    size: .h3,
-                    weight: .semibold).suFont)
-            .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
             .padding(
                 .leading,
                 Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
@@ -70,7 +64,6 @@ public struct EmeraldSecureTextField: View {
                         Constants.EmeraldSwiftUiTextField.widthShowButton +
                         Constants.EmeraldSwiftUiTextField.widthClearButton :
                         Constants.EmeraldSwiftUiTextField.widthShowButton))
-            .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
                         .stroke(
                             (errorText != nil ?
@@ -81,11 +74,6 @@ public struct EmeraldSecureTextField: View {
                             lineWidth: self.focused ?
                                 Constants.EmeraldSwiftUiTextField.borderWidthFocused :
                                 Constants.EmeraldSwiftUiTextField.borderWidth))
-            .introspectTextField { textField in
-                if focused {
-                    textField.becomeFirstResponder()
-                }
-            }
     }
     var helperTextContent: some View {
         HStack(alignment: .top) {

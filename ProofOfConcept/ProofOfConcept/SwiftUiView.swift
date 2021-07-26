@@ -103,7 +103,6 @@ struct SwiftUiView: View {
                     text: $disabledField,
                     label: "Email",
                     placeholder: "correo@mail.com",
-                    errorText: errorText,
                     disabled: true)
                 EmeraldSwiftUiTextField(
                     textFieldType: .password,

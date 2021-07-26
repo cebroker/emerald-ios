@@ -66,7 +66,7 @@ public struct EmeraldSwiftUiTextView: View {
         .keyboardType(textFieldType.getKeyboardType())
         .accessibility(identifier: accessibility)
         .font(Typography(
-                size: .h3,
+                size: .h5,
                 weight: .semibold).suFont)
         .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
         .padding(

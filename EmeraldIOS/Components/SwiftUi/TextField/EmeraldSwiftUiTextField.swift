@@ -102,7 +102,7 @@ public struct EmeraldSwiftUiTextField: View {
                 textFormat: textFormat,
                 keyboardType: textFieldType.getKeyboardType())
         default:
-            EmeraldGeneralTextField(
+            EmeraldNormalTextField(
                 text: $text,
                 focused: _focused,
                 label: label,

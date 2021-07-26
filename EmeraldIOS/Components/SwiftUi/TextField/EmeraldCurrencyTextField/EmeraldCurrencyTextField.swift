@@ -25,14 +25,14 @@ public struct EmeraldCurrencyTextField: View {
     var keyboardType: UIKeyboardType = .default
     
     var textField: some View {
-        TextField(
-            placeholder,
+        EmeraldGenericTextField(
             text: $text,
-            onEditingChanged: {
-                self.focused = $0
-            }, onCommit: {
-                self.focused = false
-            })
+            focused: _focused,
+            placeholder: placeholder,
+            accessibility: accessibility,
+            errorText: errorText,
+            disabled: disabled,
+            keyboardType: keyboardType)
             .onReceive(text.publisher.collect()) {
                 if maxLength != nil {
                     let str = String($0.prefix(maxLength ?? 0))
@@ -41,14 +41,6 @@ public struct EmeraldCurrencyTextField: View {
                     text = String($0).currencyInputFormatting()
                 }
             }
-            .disabled(disabled)
-            .keyboardType(keyboardType)
-            .accessibility(identifier: accessibility)
-            .disableAutocorrection(true)
-            .font(Typography(
-                    size: .h3,
-                    weight: .semibold).suFont)
-            .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
             .padding(
                 .leading,
                 Constants.EmeraldSwiftUiTextField.leadingContentSpacing +
@@ -59,7 +51,6 @@ public struct EmeraldCurrencyTextField: View {
                         Constants.EmeraldSwiftUiTextField.trailingContentSpacing * 1.5 +
                         Constants.EmeraldSwiftUiTextField.widthClearButton :
                         Constants.EmeraldSwiftUiTextField.trailingContentSpacing))
-            .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
                         .stroke(
                             (errorText != nil ?
@@ -70,11 +61,6 @@ public struct EmeraldCurrencyTextField: View {
                             lineWidth: self.focused ?
                                 Constants.EmeraldSwiftUiTextField.borderWidthFocused :
                                 Constants.EmeraldSwiftUiTextField.borderWidth))
-            .introspectTextField { textField in
-                if focused {
-                    textField.becomeFirstResponder()
-                }
-            }
     }
     
     var currencyContent: some View {
