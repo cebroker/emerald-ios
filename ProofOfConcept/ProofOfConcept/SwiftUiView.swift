@@ -12,36 +12,54 @@ import SwiftUI
 struct SwiftUiView: View {
     @State static var text = "Main title"
     @State(initialValue: "") var normal: String
+    @State(initialValue: "") var normalNew: String
     @State(initialValue: "") var email: String
+    @State(initialValue: "") var emailNew: String
     @State(initialValue: "") var password: String
+    @State(initialValue: "") var passwordNew: String
     @State(initialValue: "") var currency: String
     @State(initialValue: "") var currencyNew: String
     @State(initialValue: "") var shortDate: String
+    @State(initialValue: "") var shortDateNew: String
     @State(initialValue: "") var longDate: String
+    @State(initialValue: "") var longDateNew: String
     @State(initialValue: "") var textView: String
     @State(initialValue: "") var disabledField: String
     @State(initialValue: nil) var errorText: String?
+    @State(initialValue: nil) var errorTextNew: String?
     
     init(normal: State<String> = State(initialValue: ""),
+         normalNew: State<String> = State(initialValue: ""),
          email: State<String> = State(initialValue: ""),
+         emailNew: State<String> = State(initialValue: ""),
          password: State<String> = State(initialValue: ""),
+         passwordNew: State<String> = State(initialValue: ""),
          currency: State<String> = State(initialValue: ""),
          currencyNew: State<String> = State(initialValue: ""),
          shortDate: State<String> = State(initialValue: ""),
+         shortDateNew: State<String> = State(initialValue: ""),
          longDate: State<String> = State(initialValue: ""),
+         longDateNew: State<String> = State(initialValue: ""),
          textView: State<String> = State(initialValue: ""),
          disabledField: State<String> = State(initialValue: ""),
-         errorText: State<String?> = State(initialValue: nil)) {
+         errorText: State<String?> = State(initialValue: nil),
+         errorTextNew: State<String?> = State(initialValue: nil)) {
         _normal = normal
+        _normalNew = normalNew
         _email = email
+        _emailNew = emailNew
         _password = password
+        _passwordNew = passwordNew
         _currency = currency
         _currencyNew = currencyNew
         _shortDate = shortDate
+        _shortDateNew = shortDateNew
         _longDate = longDate
+        _longDateNew = longDateNew
         _textView = textView
         _disabledField = disabledField
         _errorText = errorText
+        _errorTextNew = errorTextNew
     }
     
     @ViewBuilder
@@ -61,20 +79,21 @@ struct SwiftUiView: View {
                 VStack {
                     EmeraldSwiftUiTextField(
                         text: $normal,
-                        label: "Normal")
+                        label: "Normal New")
                     EmeraldSwiftUiTextField(
-                        text: $normal,
-                        label: "Normal")
+                        text: $normalNew,
+                        label: "Normal",
+                        useLegacy: false)
                 }
                 VStack {
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
-                        text: $email,
-                        label: "Email",
+                        text: $emailNew,
+                        label: "Email New",
                         placeholder: "correo@mail.com",
-                        errorText: errorText)
-                        .onReceive(email.publisher.collect()) {
-                            errorText = isValidEmail(String($0)) || String($0).isEmpty ?
+                        errorText: errorTextNew)
+                        .onReceive(emailNew.publisher.collect()) {
+                            errorTextNew = isValidEmail(String($0)) || String($0).isEmpty ?
                                 nil :
                                 "email invalido"
                         }
@@ -83,7 +102,8 @@ struct SwiftUiView: View {
                         text: $email,
                         label: "Email",
                         placeholder: "correo@mail.com",
-                        errorText: errorText)
+                        errorText: errorText,
+                        useLegacy: false)
                         .onReceive(email.publisher.collect()) {
                             errorText = isValidEmail(String($0)) || String($0).isEmpty ?
                                 nil :
@@ -93,48 +113,51 @@ struct SwiftUiView: View {
                 VStack {
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
-                        text: $password,
-                        label: "Pasword")
-                    
+                        text: $passwordNew,
+                        label: "Pasword New")
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
                         text: $password,
-                        label: "Pasword")
+                        label: "Pasword",
+                        placeholder: "*********",
+                        useLegacy: false)
                 }
                 VStack {
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .currency,
+                        text: $currencyNew,
+                        label: "Currency New",
+                        placeholder: "300.000,00")
                     EmeraldSwiftUiTextField(
                         textFieldType: .currency,
                         text: $currency,
                         label: "Currency",
                         placeholder: "$300.000,00",
-                        maxLength: 10)
-                    EmeraldSwiftUiTextField(
-                        textFieldType: .currency,
-                        text: $currencyNew,
-                        label: "Currency New",
-                        placeholder: "300.000,00",
-                        maxLength: 10,
                         useLegacy: false)
                 }
                 VStack {
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
-                        text: $shortDate,
-                        label: "Short Date")
+                        text: $shortDateNew,
+                        label: "Short Date New")
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
                         text: $shortDate,
-                        label: "Short Date")
+                        label: "Short Date",
+                        placeholder: "12/2021",
+                        useLegacy: false)
                 }
                 VStack {
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
-                        text: $longDate,
-                        label: "Long Date")
+                        text: $longDateNew,
+                        label: "Long Date New")
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
                         text: $longDate,
-                        label: "Long Date")
+                        label: "Long Date",
+                        placeholder: "12/12/2021",
+                        useLegacy: false)
                 }
                 VStack {
                     EmeraldSwiftUiTextView(

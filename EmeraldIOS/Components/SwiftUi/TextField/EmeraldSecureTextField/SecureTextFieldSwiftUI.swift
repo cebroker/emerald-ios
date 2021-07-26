@@ -11,7 +11,7 @@ import SwiftUI
 @available(iOS 13.0.0, *)
 struct SecureTextFieldSwiftUI: UIViewRepresentable {
     
-    var placeHolder:String = ""
+    var placeholder:String = ""
     @Binding var text: String
     var onEditingChanged: (Bool) -> Void
     
@@ -24,7 +24,7 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
         textField.delegate = context.coordinator
         textField.isUserInteractionEnabled = true
         textField.backgroundColor = UIColor.white
-        textField.placeholder = placeHolder
+        textField.placeholder = placeholder
         textField.isSecureTextEntry = true
         textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return textField
@@ -68,7 +68,7 @@ struct SecureTextFieldSwiftUI_Previews: PreviewProvider {
         @State(initialValue: "") var name: String
         
         var body: some View {
-            SecureTextFieldSwiftUI(placeHolder: "", text: $name) { _ in }
+            SecureTextFieldSwiftUI(placeholder: "", text: $name) { _ in }
         }
     }
 }

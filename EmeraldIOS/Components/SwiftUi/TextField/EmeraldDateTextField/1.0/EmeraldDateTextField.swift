@@ -16,11 +16,8 @@ struct EmeraldDateTextField: View, TextFormatter {
     var label: String = ""
     var placeholder: String = ""
     var accessibility: String = ""
-    var helperText: String? = nil
     var errorText: String? = nil
     var maxLength: Int? = nil
-    var hideCounter: Bool = false
-    var clearable: Bool = true
     var disabled: Bool = false
     var textFormat: TextFormat = .shortDate
     var keyboardType: UIKeyboardType = .default
@@ -29,7 +26,9 @@ struct EmeraldDateTextField: View, TextFormatter {
         EmeraldGenericTextField(
             text: $text,
             focused: _focused,
-            placeholder: placeholder,
+            placeholder: focused ?
+                placeholder :
+                "",
             accessibility: accessibility,
             errorText: errorText,
             disabled: disabled,
@@ -41,26 +40,26 @@ struct EmeraldDateTextField: View, TextFormatter {
                 .leading,
                 Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
             .padding(
-                .trailing, (clearable ?
-                                Constants.EmeraldSwiftUiTextField.trailingContentSpacing * 3 +
-                                Constants.EmeraldSwiftUiTextField.widthIcon +
-                                Constants.EmeraldSwiftUiTextField.widthClearButton :
-                                Constants.EmeraldSwiftUiTextField.trailingContentSpacing +
-                                Constants.EmeraldSwiftUiTextField.widthIcon))
+                .trailing,
+                Constants.EmeraldSwiftUiTextField.trailingContentSpacing +
+                Constants.EmeraldSwiftUiTextField.widthIcon)
+            .padding(
+                .top, focused || !text.isEmpty ?
+                    Constants.EmeraldSwiftUiTextField.heightLabel * 0.7 :
+                    .zero)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                        .stroke(
-                            (errorText != nil ?
-                                Constants.EmeraldSwiftUiTextField.errorColor :
-                                (focused ?
-                                    Constants.EmeraldSwiftUiTextField.focusColor :
-                                    Constants.EmeraldSwiftUiTextField.borderColor)),
-                            lineWidth: self.focused ?
-                                Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                                Constants.EmeraldSwiftUiTextField.borderWidth))
+                        .stroke((errorText != nil ?
+                                    Constants.EmeraldSwiftUiTextField.errorColor :
+                                    (focused ?
+                                        Constants.EmeraldSwiftUiTextField.focusColor :
+                                        Constants.EmeraldSwiftUiTextField.placeHolderColor)),
+                                lineWidth: self.focused ?
+                                    Constants.EmeraldSwiftUiTextField.borderWidthFocused :
+                                    Constants.EmeraldSwiftUiTextField.borderWidth))
     }
     
     @ViewBuilder
-    var iConDateContent: some View {
+    var iconDateContent: some View {
         let calendarIcon = UIImage(
             named: Constants.Icons.calendar,
             in: Bundle(for: ClassBundle.self),
@@ -80,20 +79,13 @@ struct EmeraldDateTextField: View, TextFormatter {
         }
     }
     
-    var helperTextContent: some View {
+    var errorTextContent: some View {
         HStack(alignment: .top) {
-            if errorText != nil || helperText != nil {
+            if errorText != nil {
                 LabelHelperText(
                     disabled: disabled,
-                    helperText: helperText,
+                    helperText: nil,
                     errorText: errorText)
-            }
-            if maxLength != nil, !hideCounter {
-                Spacer()
-                LabelTextFieldCounter(
-                    text: $text,
-                    disabled: disabled,
-                    maxLength: maxLength)
             }
         }
         .padding(
@@ -102,44 +94,52 @@ struct EmeraldDateTextField: View, TextFormatter {
     }
     
     var labelFieldContent: some View {
-        HStack(alignment: .top) {
-            LabelTextFieldTitleNew(
+        HStack {
+            LabelTextFieldTitle(
                 label: label,
-                disabled: disabled,
+                text: text,
                 errorText: errorText,
                 focused: $focused)
-                .padding(
-                    .trailing,
-                    Constants.EmeraldSwiftUiTextField.horizontalLabelSpacing)
             Spacer()
         }
         .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
+        .padding(
+            .leading,
+            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
+        .padding(
+            .trailing,
+            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
+        .offset(
+            x: .zero,
+            y: focused ?
+                -Constants.EmeraldSwiftUiTextField.heightLabel :
+                text.isEmpty ?
+                .zero :
+                -Constants.EmeraldSwiftUiTextField.topContentSpacing)
+        .animation(.spring(
+                    response: 0.2,
+                    dampingFraction: 1,
+                    blendDuration: .zero))
     }
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            VStack(alignment: .leading) {
-                ZStack {
-                    textField
-                    HStack(spacing: Constants.EmeraldSwiftUiTextField.trailingContentSpacing) {
-                        Spacer()
-                        if clearable, !text.isEmpty {
-                            ClearButton {
-                                text = ""
-                            }
-                        }
-                        iConDateContent
+        VStack(alignment: .leading) {
+            ZStack {
+                textField
+                labelFieldContent
+                    .onTapGesture {
+                        self.focused = true
                     }
-                    .frame(alignment: .trailing)
-                    .padding(.trailing,
-                             Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
+                HStack {
+                    Spacer()
+                    iconDateContent
                 }
-                helperTextContent
+                .frame(alignment: .trailing)
+                .padding(
+                    .trailing,
+                    Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
             }
-            .offset(
-                x: .zero,
-                y: Constants.EmeraldSwiftUiTextField.heightLabel * 0.5)
-            labelFieldContent
+            errorTextContent
         }
         .fixedSize(
             horizontal: false,
@@ -192,8 +192,6 @@ struct EmeraldDateTextField_Previews: PreviewProvider {
                 text: $name,
                 label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 placeholder: "placeholder",
-                helperText: "this field is for help you",
-                clearable: true,
                 keyboardType: .default)
         }
     }

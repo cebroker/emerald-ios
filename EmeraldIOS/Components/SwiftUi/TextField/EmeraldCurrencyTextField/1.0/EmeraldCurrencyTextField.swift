@@ -21,15 +21,15 @@ struct EmeraldCurrencyTextField: View {
     var disabled: Bool = false
     var keyboardType: UIKeyboardType = .default
     
-    var textField: some View {
-        EmeraldGenericTextField(
+    var body: some View {
+        EmeraldNormalTextField(
             text: $text,
             focused: _focused,
-            placeholder: focused ?
-                placeholder :
-                "",
+            label: label,
+            placeholder: placeholder,
             accessibility: accessibility,
             errorText: errorText,
+            maxLength: maxLength,
             disabled: disabled,
             keyboardType: keyboardType)
             .onReceive(text.publisher.collect()) {
@@ -40,93 +40,6 @@ struct EmeraldCurrencyTextField: View {
                     text = String($0).currencyInputFormatting(with: "$")
                 }
             }
-            .padding(
-                .leading,
-                Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
-            .padding(
-                .trailing,
-                Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
-            .padding(
-                .top, focused || !text.isEmpty ?
-                    Constants.EmeraldSwiftUiTextField.heightLabel * 0.7 :
-                    .zero)
-            .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                        .stroke((errorText != nil ?
-                                    Constants.EmeraldSwiftUiTextField.errorColor :
-                                    (focused ?
-                                        Constants.EmeraldSwiftUiTextField.focusColor :
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor)),
-                                lineWidth: self.focused ?
-                                    Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                                    Constants.EmeraldSwiftUiTextField.borderWidth))
-    }
-    
-    var errorTextContent: some View {
-        HStack(alignment: .top) {
-            if errorText != nil {
-                LabelHelperText(
-                    helperText: nil,
-                    errorText: errorText)
-            }
-        }
-        .padding(
-            .leading,
-            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
-    }
-    
-    var labelFieldContent: some View {
-        HStack {
-            LabelTextFieldTitle(
-                label: label,
-                text: text,
-                errorText: errorText,
-                focused: $focused)
-            Spacer()
-        }
-        .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
-        .padding(
-            .trailing,
-            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
-        .padding(
-            .leading,
-            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
-        .offset(
-            x: .zero,
-            y: focused ?
-                -Constants.EmeraldSwiftUiTextField.heightLabel :
-                text.isEmpty ?
-                .zero :
-                -Constants.EmeraldSwiftUiTextField.topContentSpacing)
-        .animation(.spring(
-                    response: 0.2,
-                    dampingFraction: 1,
-                    blendDuration: .zero))
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            ZStack {
-                textField
-                labelFieldContent
-                    .onTapGesture {
-                        self.focused = true
-                    }
-            }
-            errorTextContent
-        }
-        .padding(
-            .leading,
-            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
-        .padding(
-            .trailing,
-            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
-        .padding(
-            .bottom,
-            Constants.EmeraldSwiftUiTextField.bottomContentPadding)
-        .fixedSize(
-            horizontal: false,
-            vertical: true)
-        .background(Constants.EmeraldSwiftUiTextField.whiteColor)
     }
 }
 

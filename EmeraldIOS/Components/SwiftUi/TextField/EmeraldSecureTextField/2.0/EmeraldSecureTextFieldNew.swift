@@ -1,16 +1,15 @@
 //
-//  EmeraldNormalTextField.swift
-//  Components
+//  EmeraldSecureTextFieldNew.swift
+//  EmeraldIOS
 //
-//  Created by Ronal Fabra on 21/07/21.
+//  Created by Ronal Fabra on 26/07/21.
 //  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI
-import Introspect
 
 @available(iOS 13.0.0, *)
-public struct EmeraldNormalTextField: View {
+public struct EmeraldSecureTextFieldNew: View {
     
     @Binding var text: String
     @State(initialValue: false) var focused: Bool
@@ -24,16 +23,32 @@ public struct EmeraldNormalTextField: View {
     var clearable: Bool = false
     var disabled: Bool = false
     var keyboardType: UIKeyboardType = .default
+    @State(initialValue: false) var show: Bool
     
+    @ViewBuilder
     var textField: some View {
-        EmeraldGenericTextField(
-            text: $text,
-            focused: _focused,
-            placeholder: placeholder,
-            accessibility: accessibility,
-            errorText: errorText,
-            disabled: disabled,
-            keyboardType: keyboardType)
+        if $show.wrappedValue {
+            EmeraldGenericTextField(
+                text: $text,
+                focused: _focused,
+                placeholder: placeholder,
+                accessibility: accessibility,
+                errorText: errorText,
+                disabled: disabled,
+                keyboardType: keyboardType)
+        } else {
+            SecureTextFieldSwiftUI(
+                placeholder: placeholder,
+                text: $text) {
+                self.focused = $0
+            }
+            .disabled(disabled)
+            .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)
+        }
+    }
+    
+    var secureTextField: some View {
+        textField
             .onReceive(text.publisher.collect()) {
                 if maxLength != nil {
                     text = String($0.prefix(maxLength ?? 0))
@@ -45,9 +60,11 @@ public struct EmeraldNormalTextField: View {
             .padding(
                 .trailing, (
                     clearable ?
-                        Constants.EmeraldSwiftUiTextField.trailingContentSpacing * 1.5 +
+                        Constants.EmeraldSwiftUiTextField.trailingContentSpacing * 3 +
+                        Constants.EmeraldSwiftUiTextField.widthShowButton +
                         Constants.EmeraldSwiftUiTextField.widthClearButton :
-                        Constants.EmeraldSwiftUiTextField.trailingContentSpacing))
+                        Constants.EmeraldSwiftUiTextField.trailingContentSpacing +
+                        Constants.EmeraldSwiftUiTextField.widthShowButton))
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
                         .stroke(
                             (errorText != nil ?
@@ -59,21 +76,6 @@ public struct EmeraldNormalTextField: View {
                                 Constants.EmeraldSwiftUiTextField.borderWidthFocused :
                                 Constants.EmeraldSwiftUiTextField.borderWidth))
     }
-    
-    var clearButtonContent: some View {
-        HStack(spacing: Constants.EmeraldSwiftUiTextField.trailingContentSpacing) {
-            Spacer()
-            if clearable, !text.isEmpty {
-                ClearButton {
-                    text = ""
-                }
-            }
-        }
-        .frame(alignment: .trailing)
-        .padding(.trailing,
-                 Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
-    }
-    
     var helperTextContent: some View {
         HStack(alignment: .top) {
             if errorText != nil || helperText != nil {
@@ -95,6 +97,29 @@ public struct EmeraldNormalTextField: View {
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
     }
     
+    var showButtonContent: some View {
+        Button(action: {
+            DispatchQueue.main.async {
+                self.show.toggle()
+            }
+        }) {
+            if $show.wrappedValue {
+                Text(Constants.EmeraldSwiftUiTextField.hide)
+                    .animation(.easeOut)
+            } else {
+                Text(Constants.EmeraldSwiftUiTextField.show)
+                    .animation(.easeIn)
+            }
+        }
+        .frame(width: Constants.EmeraldSwiftUiTextField.widthShowButton)
+        .font(Typography(
+                size: .h4,
+                weight: .semibold).suFont)
+        .foregroundColor(disabled ?
+                            Constants.EmeraldSwiftUiTextField.disabledColor :
+                            Constants.EmeraldSwiftUiTextField.textColor)
+    }
+    
     var labelFieldContent: some View {
         HStack(alignment: .top) {
             LabelTextFieldTitleNew(
@@ -114,8 +139,20 @@ public struct EmeraldNormalTextField: View {
         ZStack(alignment: .topLeading) {
             VStack(alignment: .leading) {
                 ZStack {
-                    textField
-                    clearButtonContent
+                    secureTextField
+                    HStack(spacing: Constants.EmeraldSwiftUiTextField.trailingContentSpacing) {
+                        Spacer()
+                        if clearable, !text.isEmpty {
+                            ClearButton {
+                                text = ""
+                            }
+                        }
+                        showButtonContent
+                    }
+                    .frame(alignment: .trailing)
+                    .padding(
+                        .trailing,
+                             Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
                 }
                 helperTextContent
             }
@@ -138,7 +175,7 @@ public struct EmeraldNormalTextField: View {
 }
 
 @available(iOS 13.0.0, *)
-struct EmeraldNormalTextField_Previews: PreviewProvider {
+struct EmeraldSecureTextFieldNew_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
     }
@@ -147,12 +184,11 @@ struct EmeraldNormalTextField_Previews: PreviewProvider {
         @State(initialValue: "") var name: String
         
         var body: some View {
-            EmeraldNormalTextField(
+            EmeraldSecureTextFieldNew(
                 text: $name,
                 label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 placeholder: "placeholder",
                 helperText: "this field is for help you",
-                clearable: true,
                 keyboardType: .default)
         }
     }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4791696726AB35F3008BC08B /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696626AB35F3008BC08B /* TextFieldType.swift */; };
 		4791696A26AB361F008BC08B /* EmeraldSwiftUiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696926AB361F008BC08B /* EmeraldSwiftUiTextField.swift */; };
-		4791696D26AB3668008BC08B /* EmeraldNormalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696C26AB3668008BC08B /* EmeraldNormalTextField.swift */; };
+		4791696D26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696C26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift */; };
 		4791697026AB36AC008BC08B /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 4791696F26AB36AC008BC08B /* Introspect */; };
 		4791697226AB36DF008BC08B /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697126AB36DF008BC08B /* ClearButton.swift */; };
 		4791697526AB372E008BC08B /* EmeraldSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697426AB372E008BC08B /* EmeraldSecureTextField.swift */; };
@@ -26,6 +26,9 @@
 		479C0D3D26AF430C0062CBBE /* EmeraldGenericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C0D3C26AF430C0062CBBE /* EmeraldGenericTextField.swift */; };
 		479C0D4226AF56920062CBBE /* EmeraldCurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C0D4126AF56920062CBBE /* EmeraldCurrencyTextField.swift */; };
 		479C0D4526AF61A50062CBBE /* LabelTextFieldTitleNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C0D4426AF61A50062CBBE /* LabelTextFieldTitleNew.swift */; };
+		479C0D4B26AF669E0062CBBE /* EmeraldNormalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C0D4A26AF669E0062CBBE /* EmeraldNormalTextField.swift */; };
+		479C0D4F26AF6AA70062CBBE /* EmeraldSecureTextFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C0D4E26AF6AA70062CBBE /* EmeraldSecureTextFieldNew.swift */; };
+		479C0D5326AF71DA0062CBBE /* EmeraldDateTextFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479C0D5226AF71DA0062CBBE /* EmeraldDateTextFieldNew.swift */; };
 		490E3C7B2335148B000FA6C9 /* EmeraldChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490E3C7A2335148B000FA6C9 /* EmeraldChartPresenter.swift */; };
 		49B6D78423328BCF00FE78A1 /* EmeraldChartDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */; };
 		49B6D78623328D2F00FE78A1 /* EmeraldChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6D78523328D2F00FE78A1 /* EmeraldChartView.swift */; };
@@ -166,7 +169,7 @@
 /* Begin PBXFileReference section */
 		4791696626AB35F3008BC08B /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
 		4791696926AB361F008BC08B /* EmeraldSwiftUiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUiTextField.swift; sourceTree = "<group>"; };
-		4791696C26AB3668008BC08B /* EmeraldNormalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldNormalTextField.swift; sourceTree = "<group>"; };
+		4791696C26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldNormalTextFieldNew.swift; sourceTree = "<group>"; };
 		4791697126AB36DF008BC08B /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		4791697426AB372E008BC08B /* EmeraldSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSecureTextField.swift; sourceTree = "<group>"; };
 		4791697726AB3767008BC08B /* LabelHelperText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHelperText.swift; sourceTree = "<group>"; };
@@ -182,6 +185,9 @@
 		479C0D3C26AF430C0062CBBE /* EmeraldGenericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldGenericTextField.swift; sourceTree = "<group>"; };
 		479C0D4126AF56920062CBBE /* EmeraldCurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldCurrencyTextField.swift; sourceTree = "<group>"; };
 		479C0D4426AF61A50062CBBE /* LabelTextFieldTitleNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldTitleNew.swift; sourceTree = "<group>"; };
+		479C0D4A26AF669E0062CBBE /* EmeraldNormalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldNormalTextField.swift; sourceTree = "<group>"; };
+		479C0D4E26AF6AA70062CBBE /* EmeraldSecureTextFieldNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSecureTextFieldNew.swift; sourceTree = "<group>"; };
+		479C0D5226AF71DA0062CBBE /* EmeraldDateTextFieldNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldDateTextFieldNew.swift; sourceTree = "<group>"; };
 		490E3C7A2335148B000FA6C9 /* EmeraldChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartPresenter.swift; sourceTree = "<group>"; };
 		4935643B233A777500344040 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B6D78323328BCF00FE78A1 /* EmeraldChartDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldChartDelegates.swift; sourceTree = "<group>"; };
@@ -369,7 +375,8 @@
 		4791696B26AB365E008BC08B /* EmeraldNormalTextField */ = {
 			isa = PBXGroup;
 			children = (
-				4791696C26AB3668008BC08B /* EmeraldNormalTextField.swift */,
+				479C0D4826AF66620062CBBE /* 1.0 */,
+				479C0D4926AF66680062CBBE /* 2.0 */,
 			);
 			path = EmeraldNormalTextField;
 			sourceTree = "<group>";
@@ -377,7 +384,8 @@
 		4791697326AB3723008BC08B /* EmeraldSecureTextField */ = {
 			isa = PBXGroup;
 			children = (
-				4791697426AB372E008BC08B /* EmeraldSecureTextField.swift */,
+				479C0D4D26AF6A920062CBBE /* 1.0 */,
+				479C0D4C26AF6A8A0062CBBE /* 2.0 */,
 				4791699026AB6463008BC08B /* SecureTextFieldSwiftUI.swift */,
 			);
 			path = EmeraldSecureTextField;
@@ -424,7 +432,8 @@
 		479C0D3926AF0E190062CBBE /* EmeraldDateTextField */ = {
 			isa = PBXGroup;
 			children = (
-				479C0D3A26AF0E270062CBBE /* EmeraldDateTextField.swift */,
+				479C0D5026AF71BB0062CBBE /* 1.0 */,
+				479C0D5126AF71C10062CBBE /* 2.0 */,
 			);
 			path = EmeraldDateTextField;
 			sourceTree = "<group>";
@@ -474,6 +483,54 @@
 			isa = PBXGroup;
 			children = (
 				479C0D4426AF61A50062CBBE /* LabelTextFieldTitleNew.swift */,
+			);
+			path = 2.0;
+			sourceTree = "<group>";
+		};
+		479C0D4826AF66620062CBBE /* 1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				479C0D4A26AF669E0062CBBE /* EmeraldNormalTextField.swift */,
+			);
+			path = 1.0;
+			sourceTree = "<group>";
+		};
+		479C0D4926AF66680062CBBE /* 2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				4791696C26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift */,
+			);
+			path = 2.0;
+			sourceTree = "<group>";
+		};
+		479C0D4C26AF6A8A0062CBBE /* 2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				479C0D4E26AF6AA70062CBBE /* EmeraldSecureTextFieldNew.swift */,
+			);
+			path = 2.0;
+			sourceTree = "<group>";
+		};
+		479C0D4D26AF6A920062CBBE /* 1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				4791697426AB372E008BC08B /* EmeraldSecureTextField.swift */,
+			);
+			path = 1.0;
+			sourceTree = "<group>";
+		};
+		479C0D5026AF71BB0062CBBE /* 1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				479C0D3A26AF0E270062CBBE /* EmeraldDateTextField.swift */,
+			);
+			path = 1.0;
+			sourceTree = "<group>";
+		};
+		479C0D5126AF71C10062CBBE /* 2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				479C0D5226AF71DA0062CBBE /* EmeraldDateTextFieldNew.swift */,
 			);
 			path = 2.0;
 			sourceTree = "<group>";
@@ -1242,6 +1299,7 @@
 				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
 				9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */,
 				860047CF233AB7B2003198AF /* EmeraldLoadingIndicator.swift in Sources */,
+				479C0D4F26AF6AA70062CBBE /* EmeraldSecureTextFieldNew.swift in Sources */,
 				9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */,
 				8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */,
 				6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */,
@@ -1255,7 +1313,7 @@
 				77BF6E1B22E0BC1E00E4C448 /* Constants+Icons.swift in Sources */,
 				6CD584322294A51D001DE8D2 /* EmeraldMultipleSelectionItem.swift in Sources */,
 				4791698526AB4221008BC08B /* Constants+EmeraldSwiftUiTextField.swift in Sources */,
-				4791696D26AB3668008BC08B /* EmeraldNormalTextField.swift in Sources */,
+				4791696D26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift in Sources */,
 				479C0D4526AF61A50062CBBE /* LabelTextFieldTitleNew.swift in Sources */,
 				6C2D32802289D99B009D4B0F /* EmeraldSelectorFieldError.swift in Sources */,
 				4791696726AB35F3008BC08B /* TextFieldType.swift in Sources */,
@@ -1276,6 +1334,7 @@
 				6C807C71227C99B300FC328E /* Theme.swift in Sources */,
 				4791697F26AB3A24008BC08B /* EmeraldCurrencyTextFieldNew.swift in Sources */,
 				D131BA762397015500A8E376 /* BaseInputView.swift in Sources */,
+				479C0D4B26AF669E0062CBBE /* EmeraldNormalTextField.swift in Sources */,
 				8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */,
 				774DE6A0245D436B009D5E8F /* Requirable.swift in Sources */,
 				49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */,
@@ -1336,6 +1395,7 @@
 				6CD5842C229496CB001DE8D2 /* Extensions+String.swift in Sources */,
 				4791696A26AB361F008BC08B /* EmeraldSwiftUiTextField.swift in Sources */,
 				6C2CCDD9228EECCB00181C25 /* EmeraldSignatureView.swift in Sources */,
+				479C0D5326AF71DA0062CBBE /* EmeraldDateTextFieldNew.swift in Sources */,
 				774DE69E245D4281009D5E8F /* Identifiable.swift in Sources */,
 				B418CBFB26A8CE9200646B38 /* Extensions+Color.swift in Sources */,
 				6C2D3295228B0BFE009D4B0F /* EmeraldDateFieldError.swift in Sources */,

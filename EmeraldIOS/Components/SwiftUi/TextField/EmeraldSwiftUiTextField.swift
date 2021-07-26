@@ -61,23 +61,23 @@ public struct EmeraldSwiftUiTextField: View {
     public var body: some View {
         switch textFieldType {
         case .password:
-            EmeraldSecureTextField(
-                text: $text,
-                focused: _focused,
-                label: label,
-                placeholder: placeholder,
-                accessibility: accessibility,
-                helperText: helperText,
-                errorText: errorText,
-                maxLength: maxLength,
-                hideCounter: hideCounter,
-                clearable: clearable,
-                disabled: disabled,
-                keyboardType: textFieldType.getKeyboardType(),
-                show: _show)
-        case .currency:
             if useLegacy {
-                EmeraldCurrencyTextField(
+                EmeraldSecureTextFieldNew(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    helperText: helperText,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    hideCounter: hideCounter,
+                    clearable: clearable,
+                    disabled: disabled,
+                    keyboardType: textFieldType.getKeyboardType(),
+                    show: _show)
+            } else {
+                EmeraldSecureTextField(
                     text: $text,
                     focused: _focused,
                     label: label,
@@ -86,8 +86,11 @@ public struct EmeraldSwiftUiTextField: View {
                     errorText: errorText,
                     maxLength: maxLength,
                     disabled: disabled,
-                    keyboardType: textFieldType.getKeyboardType())
-            } else {
+                    keyboardType: textFieldType.getKeyboardType(),
+                    show: _show)
+            }
+        case .currency:
+            if useLegacy {
                 EmeraldCurrencyTextFieldNew(
                     text: $text,
                     focused: _focused,
@@ -101,36 +104,74 @@ public struct EmeraldSwiftUiTextField: View {
                     clearable: clearable,
                     disabled: disabled,
                     keyboardType: textFieldType.getKeyboardType())
+            } else {
+                EmeraldCurrencyTextField(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    disabled: disabled,
+                    keyboardType: textFieldType.getKeyboardType())
             }
         case .shortDate, .longDate:
-            EmeraldDateTextField(
-                text: $text,
-                focused: _focused,
-                label: label,
-                placeholder: placeholder,
-                accessibility: accessibility,
-                helperText: helperText,
-                errorText: errorText,
-                maxLength: maxLength,
-                hideCounter: hideCounter,
-                clearable: clearable,
-                disabled: disabled,
-                textFormat: textFormat,
-                keyboardType: textFieldType.getKeyboardType())
+            if useLegacy {
+                EmeraldDateTextFieldNew(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    helperText: helperText,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    hideCounter: hideCounter,
+                    clearable: clearable,
+                    disabled: disabled,
+                    textFormat: textFormat,
+                    keyboardType: textFieldType.getKeyboardType())
+            } else {
+                EmeraldDateTextField(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    disabled: disabled,
+                    textFormat: textFormat,
+                    keyboardType: textFieldType.getKeyboardType())
+            }
         default:
-            EmeraldNormalTextField(
-                text: $text,
-                focused: _focused,
-                label: label,
-                placeholder: placeholder,
-                accessibility: accessibility,
-                helperText: helperText,
-                errorText: errorText,
-                maxLength: maxLength,
-                hideCounter: hideCounter,
-                clearable: clearable,
-                disabled: disabled,
-                keyboardType: textFieldType.getKeyboardType())
+            if useLegacy {
+                EmeraldNormalTextFieldNew(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    helperText: helperText,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    hideCounter: hideCounter,
+                    clearable: clearable,
+                    disabled: disabled,
+                    keyboardType: textFieldType.getKeyboardType())
+            } else {
+                EmeraldNormalTextField(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    disabled: disabled,
+                    keyboardType: textFieldType.getKeyboardType())
+            }
         }
     }
 }
