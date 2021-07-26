@@ -14,7 +14,8 @@ public enum TextFieldType {
     case password
     case currency
     case numeric
-    case date
+    case shortDate
+    case longDate
     
     func getKeyboardType() -> UIKeyboardType {
         switch self {
@@ -24,8 +25,19 @@ public enum TextFieldType {
             return .emailAddress
         case .numeric:
             return .decimalPad
-        case .currency, .date:
+        case .currency, .shortDate, .longDate:
             return .numberPad
+        }
+    }
+    
+    func getTextFormat() -> TextFormat {
+        switch self {
+        case .shortDate:
+            return .shortDate
+        case .longDate:
+            return .longDate
+        default:
+            return .none
         }
     }
 }

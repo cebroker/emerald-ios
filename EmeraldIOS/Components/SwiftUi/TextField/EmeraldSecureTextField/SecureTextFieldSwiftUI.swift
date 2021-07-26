@@ -3,6 +3,7 @@
 //  Components
 //
 //  Created by Ronal Fabra on 23/07/21.
+//  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI
@@ -25,7 +26,7 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
         textField.backgroundColor = UIColor.white
         textField.placeholder = placeHolder
         textField.isSecureTextEntry = true
-        textField.font = UIFont.systemFont(ofSize: 14)
+        textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return textField
     }
     

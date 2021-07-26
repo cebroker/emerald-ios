@@ -3,6 +3,7 @@
 //  Components
 //
 //  Created by Ronal Fabra on 22/07/21.
+//  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI

@@ -3,6 +3,7 @@
 //  Components
 //
 //  Created by Ronal Fabra on 21/07/21.
+//  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI
@@ -13,16 +14,16 @@ public struct EmeraldSwiftUiTextView: View {
     
     @Binding public var text: String
     @State public var focused: Bool
-    public var label: String = ""
-    public var placeholder: String = ""
-    public var accessibility: String = ""
-    public var helperText: String? = nil
-    public var errorText: String? = nil
-    public var maxLength: Int? = nil
-    public var hideCounter: Bool = false
-    public var clearable: Bool = false
-    public var disabled: Bool = false
-    public var textFieldType: TextFieldType = .normal
+    public var label: String
+    public var placeholder: String
+    public var accessibility: String
+    public var helperText: String?
+    public var errorText: String?
+    public var maxLength: Int?
+    public var hideCounter: Bool
+    public var clearable: Bool
+    public var disabled: Bool
+    public var textFieldType: TextFieldType
     
     public init(text: Binding<String>,
                 focused: State<Bool> = State(initialValue: false),
@@ -103,15 +104,21 @@ public struct EmeraldSwiftUiTextView: View {
     }
     
     var clearButtonContent: some View {
-        ClearButton {
-            text = ""
+        HStack(spacing: Constants.EmeraldSwiftUiTextField.trailingContentSpacing) {
+            Spacer()
+            if clearable, !text.isEmpty {
+                ClearButton {
+                    text = ""
+                }
+            }
         }
+        .frame(alignment: .trailing)
         .padding(
             .trailing,
             Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
         .padding(
             .top,
-            Constants.EmeraldSwiftUiTextField.topContentSpacing * 0.7)
+            -Constants.EmeraldSwiftUiTextField.topContentSpacing)
     }
     
     var helperTextContent: some View {
@@ -155,9 +162,7 @@ public struct EmeraldSwiftUiTextView: View {
             VStack(alignment: .leading) {
                 ZStack {
                     textView
-                    if clearable, !text.isEmpty {
-                        clearButtonContent
-                    }
+                    clearButtonContent
                 }
                 helperTextContent
             }

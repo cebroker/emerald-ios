@@ -1,15 +1,15 @@
 //
-//  EmeraldSecureTextField.swift
+//  EmeraldDateTextField.swift
 //  Components
 //
-//  Created by Ronal Fabra on 23/07/21.
+//  Created by Ronal Fabra on 26/07/21.
 //  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI
 
 @available(iOS 13.0.0, *)
-public struct EmeraldSecureTextField: View {
+struct EmeraldDateTextField: View, TextFormatter {
     
     @Binding var text: String
     @State(initialValue: false) var focused: Bool
@@ -20,37 +20,22 @@ public struct EmeraldSecureTextField: View {
     var errorText: String? = nil
     var maxLength: Int? = nil
     var hideCounter: Bool = false
-    var clearable: Bool = false
+    var clearable: Bool = true
     var disabled: Bool = false
+    var textFormat: TextFormat = .shortDate
     var keyboardType: UIKeyboardType = .default
-    @State(initialValue: false) var show: Bool
     
-    @ViewBuilder
     var textField: some View {
-        if $show.wrappedValue {
-            TextField(
-                placeholder,
-                text: $text,
-                onEditingChanged: {
-                    self.focused = $0
-                }, onCommit: {
-                    self.focused = false
-                })
-        } else {
-            SecureTextFieldSwiftUI(
-                placeHolder: placeholder,
-                text: $text) {
+        TextField(
+            placeholder,
+            text: $text,
+            onEditingChanged: {
                 self.focused = $0
-            }
-        }
-    }
-    
-    var secureTextField: some View {
-        textField
+            }, onCommit: {
+                self.focused = false
+            })
             .onReceive(text.publisher.collect()) {
-                if maxLength != nil {
-                    text = String($0.prefix(maxLength ?? 0))
-                }
+                formatText(String($0))
             }
             .disabled(disabled)
             .keyboardType(keyboardType)
@@ -64,12 +49,12 @@ public struct EmeraldSecureTextField: View {
                 .leading,
                 Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
             .padding(
-                .trailing, (
-                    clearable ?
-                        Constants.EmeraldSwiftUiTextField.trailingContentSpacing * 3 +
-                        Constants.EmeraldSwiftUiTextField.widthShowButton +
-                        Constants.EmeraldSwiftUiTextField.widthClearButton :
-                        Constants.EmeraldSwiftUiTextField.widthShowButton))
+                .trailing, (clearable ?
+                                Constants.EmeraldSwiftUiTextField.trailingContentSpacing * 3 +
+                                Constants.EmeraldSwiftUiTextField.widthIcon +
+                                Constants.EmeraldSwiftUiTextField.widthClearButton :
+                                Constants.EmeraldSwiftUiTextField.trailingContentSpacing +
+                                Constants.EmeraldSwiftUiTextField.widthIcon))
             .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
                         .stroke(
@@ -87,6 +72,28 @@ public struct EmeraldSecureTextField: View {
                 }
             }
     }
+    
+    @ViewBuilder
+    var iConDateContent: some View {
+        let calendarIcon = UIImage(
+            named: Constants.Icons.calendar,
+            in: Bundle(for: ClassBundle.self),
+            compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        if calendarIcon != nil {
+            Button(action: {}) {
+                Image(uiImage: calendarIcon ?? UIImage(systemName: "calendar")!)
+                    .resizable()
+                    .foregroundColor(
+                        disabled ?
+                            Constants.EmeraldSwiftUiTextField.disabledColor :
+                            Constants.EmeraldSwiftUiTextField.textColor)
+            }
+            .frame(
+                width: Constants.EmeraldSwiftUiTextField.widthIcon,
+                height: Constants.EmeraldSwiftUiTextField.widthIcon)
+        }
+    }
+    
     var helperTextContent: some View {
         HStack(alignment: .top) {
             if errorText != nil || helperText != nil {
@@ -108,29 +115,6 @@ public struct EmeraldSecureTextField: View {
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
     }
     
-    var showButtonContent: some View {
-        Button(action: {
-            DispatchQueue.main.async {
-                self.show.toggle()
-            }
-        }) {
-            if $show.wrappedValue {
-                Text(Constants.EmeraldSwiftUiTextField.hide)
-                    .animation(.easeOut)
-            } else {
-                Text(Constants.EmeraldSwiftUiTextField.show)
-                    .animation(.easeIn)
-            }
-        }
-        .frame(width: Constants.EmeraldSwiftUiTextField.widthShowButton)
-        .font(Typography(
-                size: .h4,
-                weight: .semibold).suFont)
-        .foregroundColor(disabled ?
-                            Constants.EmeraldSwiftUiTextField.disabledColor :
-                            Constants.EmeraldSwiftUiTextField.textColor)
-    }
-    
     var labelFieldContent: some View {
         HStack(alignment: .top) {
             LabelTextFieldTitle(
@@ -146,11 +130,11 @@ public struct EmeraldSecureTextField: View {
         .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
     }
     
-    public var body: some View {
+    var body: some View {
         ZStack(alignment: .topLeading) {
             VStack(alignment: .leading) {
                 ZStack {
-                    secureTextField
+                    textField
                     HStack(spacing: Constants.EmeraldSwiftUiTextField.trailingContentSpacing) {
                         Spacer()
                         if clearable, !text.isEmpty {
@@ -158,11 +142,10 @@ public struct EmeraldSecureTextField: View {
                                 text = ""
                             }
                         }
-                        showButtonContent
+                        iConDateContent
                     }
                     .frame(alignment: .trailing)
-                    .padding(
-                        .trailing,
+                    .padding(.trailing,
                              Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
                 }
                 helperTextContent
@@ -181,12 +164,36 @@ public struct EmeraldSecureTextField: View {
         .padding(
             .bottom,
             Constants.EmeraldSwiftUiTextField.bottomContentPadding)
-        .background(Constants.EmeraldSwiftUiTextField.whiteColor)
+        .background(Color.white)
+    }
+    
+    func formatText(_ text:String) {
+        let maxCharacter = maxLength != nil ?
+            maxLength! :
+            (textFormat == .shortDate ?
+                Constants.EmeraldSwiftUiTextField.maximumShortDateLength :
+                Constants.EmeraldSwiftUiTextField.maximumDateLength)
+        let str = String(text.prefix(maxCharacter))
+        if text.count > maxCharacter {
+            self.text = str
+        } else {
+            do {
+                let textWithoutFormat = try self.remove(format: self.textFormat, to: str)
+                let newText = try self.apply(format: self.textFormat, to: textWithoutFormat)
+                
+                DispatchQueue.main.async {
+                    self.text = newText
+                }
+                
+            } catch (let error) {
+                print(error)
+            }
+        }
     }
 }
 
 @available(iOS 13.0.0, *)
-struct EmeraldSecureTextField_Previews: PreviewProvider {
+struct EmeraldDateTextField_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
     }
@@ -195,11 +202,12 @@ struct EmeraldSecureTextField_Previews: PreviewProvider {
         @State(initialValue: "") var name: String
         
         var body: some View {
-            EmeraldSecureTextField(
+            EmeraldDateTextField(
                 text: $name,
                 label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 placeholder: "placeholder",
                 helperText: "this field is for help you",
+                clearable: true,
                 keyboardType: .default)
         }
     }

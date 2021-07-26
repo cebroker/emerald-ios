@@ -3,6 +3,7 @@
 //  Components
 //
 //  Created by Ronal Fabra on 21/07/21.
+//  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI
@@ -74,16 +75,17 @@ public struct EmeraldGeneralTextField: View {
     }
     
     var clearButtonContent: some View {
-        ClearButton {
-            text = ""
+        HStack(spacing: Constants.EmeraldSwiftUiTextField.trailingContentSpacing) {
+            Spacer()
+            if clearable, !text.isEmpty {
+                ClearButton {
+                    text = ""
+                }
+            }
         }
-        .padding(
-            .trailing,
-            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
-        .padding(
-            .top,
-            Constants.EmeraldSwiftUiTextField.textFieldHeight * 0.5 -
-                Constants.EmeraldSwiftUiTextField.widthClearButton * 0.5)
+        .frame(alignment: .trailing)
+        .padding(.trailing,
+                 Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
     }
     
     var helperTextContent: some View {
@@ -127,9 +129,7 @@ public struct EmeraldGeneralTextField: View {
             VStack(alignment: .leading) {
                 ZStack {
                     textField
-                    if clearable, !text.isEmpty {
-                        clearButtonContent
-                    }
+                    clearButtonContent
                 }
                 helperTextContent
             }

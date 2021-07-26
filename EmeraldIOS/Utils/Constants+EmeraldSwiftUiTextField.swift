@@ -25,7 +25,9 @@ extension Constants {
         static let heightLabel: CGFloat = 15
         static let widthClearButton:CGFloat = ClearButton.widthClearButton
         static let widthShowButton:CGFloat = 50
-        static let widthCurrencySymbol:CGFloat = 10
+        static let widthIcon:CGFloat = 20
+        static let maximumDateLength = 10
+        static let maximumShortDateLength = 7
         static let errorColor: Color = ColorPallete.error.uiColor.suColor
         static let focusColor: Color = ColorPallete.blue.uiColor.suColor
         static let textColor: Color = ColorPallete.black.uiColor.suColor

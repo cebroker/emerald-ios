@@ -3,6 +3,7 @@
 //  Components
 //
 //  Created by Ronal Fabra on 22/07/21.
+//  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI
@@ -15,21 +16,24 @@ public struct LabelHelperText: View {
     var errorText: String? = nil
     
     public var body: some View {
-        Text(errorText != nil ?
+        Text(
+            errorText != nil ?
                 errorText ?? "" :
                 helperText ?? "")
             .minimumScaleFactor(0.01)
-            .fixedSize(horizontal: false,
-                       vertical: true)
+            .fixedSize(
+                horizontal: false,
+                vertical: true)
             .multilineTextAlignment(.leading)
             .font(Typography(
                     size: .h4,
                     weight: .semibold).suFont)
-            .foregroundColor(errorText != nil ?
-                                Constants.EmeraldSwiftUiTextField.errorColor :
-                                (disabled ?
-                                    Constants.EmeraldSwiftUiTextField.disabledColor :
-                                    Constants.EmeraldSwiftUiTextField.textColor))
+            .foregroundColor(
+                errorText != nil ?
+                    Constants.EmeraldSwiftUiTextField.errorColor :
+                    (disabled ?
+                        Constants.EmeraldSwiftUiTextField.disabledColor :
+                        Constants.EmeraldSwiftUiTextField.textColor))
     }
 }
 

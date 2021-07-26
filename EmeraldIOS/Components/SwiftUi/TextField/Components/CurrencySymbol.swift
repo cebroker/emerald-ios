@@ -15,7 +15,7 @@ public struct CurrencySymbol: View {
     public var body: some View {
         HStack {
             Text("$")
-                .frame(width: Constants.EmeraldSwiftUiTextField.widthCurrencySymbol)
+                .frame(width: Constants.EmeraldSwiftUiTextField.widthIcon)
                 .font(Typography(
                         size: .h3,
                         weight: .semibold).suFont)

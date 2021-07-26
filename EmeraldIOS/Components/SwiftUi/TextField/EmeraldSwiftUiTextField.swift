@@ -3,6 +3,7 @@
 //  Components
 //
 //  Created by Ronal Fabra on 23/07/21.
+//  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI
@@ -10,18 +11,19 @@ import SwiftUI
 @available(iOS 13.0.0, *)
 public struct EmeraldSwiftUiTextField: View {
     
-    public var textFieldType: TextFieldType = .normal
+    public var textFieldType: TextFieldType
+    public var textFormat: TextFormat
     @Binding public var text: String
     @State public var focused: Bool
-    public var label: String = ""
-    public var placeholder: String = ""
-    public var accessibility: String = ""
-    public var helperText: String? = nil
-    public var errorText: String? = nil
-    public var maxLength: Int? = nil
-    public var hideCounter: Bool = false
-    public var clearable: Bool = false
-    public var disabled: Bool = false
+    public var label: String
+    public var placeholder: String
+    public var accessibility: String
+    public var helperText: String?
+    public var errorText: String?
+    public var maxLength: Int?
+    public var hideCounter: Bool
+    public var clearable: Bool
+    public var disabled: Bool
     @State public var show: Bool
     
     public init(textFieldType: TextFieldType = .normal,
@@ -38,6 +40,7 @@ public struct EmeraldSwiftUiTextField: View {
                 disabled: Bool = false,
                 show: State<Bool> = State(initialValue: false)) {
         self.textFieldType = textFieldType
+        self.textFormat = textFieldType.getTextFormat()
         self._text = text
         self._focused = focused
         self.label = label
@@ -82,6 +85,21 @@ public struct EmeraldSwiftUiTextField: View {
                 hideCounter: hideCounter,
                 clearable: clearable,
                 disabled: disabled,
+                keyboardType: textFieldType.getKeyboardType())
+        case .shortDate, .longDate:
+            EmeraldDateTextField(
+                text: $text,
+                focused: _focused,
+                label: label,
+                placeholder: placeholder,
+                accessibility: accessibility,
+                helperText: helperText,
+                errorText: errorText,
+                maxLength: maxLength,
+                hideCounter: hideCounter,
+                clearable: clearable,
+                disabled: disabled,
+                textFormat: textFormat,
                 keyboardType: textFieldType.getKeyboardType())
         default:
             EmeraldGeneralTextField(

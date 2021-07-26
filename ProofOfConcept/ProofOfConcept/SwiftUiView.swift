@@ -15,7 +15,8 @@ struct SwiftUiView: View {
     @State(initialValue: "") var email: String
     @State(initialValue: "") var password: String
     @State(initialValue: "") var currency: String
-    @State(initialValue: "") var numeric: String
+    @State(initialValue: "") var shortDate: String
+    @State(initialValue: "") var longDate: String
     @State(initialValue: "") var textView: String
     @State(initialValue: "") var disabledField: String
     @State(initialValue: nil) var errorText: String?
@@ -24,7 +25,8 @@ struct SwiftUiView: View {
          email: State<String> = State(initialValue: ""),
          password: State<String> = State(initialValue: ""),
          currency: State<String> = State(initialValue: ""),
-         numeric: State<String> = State(initialValue: ""),
+         shortDate: State<String> = State(initialValue: ""),
+         longDate: State<String> = State(initialValue: ""),
          textView: State<String> = State(initialValue: ""),
          disabledField: State<String> = State(initialValue: ""),
          errorText: State<String?> = State(initialValue: nil)) {
@@ -32,7 +34,8 @@ struct SwiftUiView: View {
         _email = email
         _password = password
         _currency = currency
-        _numeric = numeric
+        _shortDate = shortDate
+        _longDate = longDate
         _textView = textView
         _disabledField = disabledField
         _errorText = errorText
@@ -75,6 +78,14 @@ struct SwiftUiView: View {
                     text: $currency,
                     label: "Currency",
                     maxLength: 10)
+                EmeraldSwiftUiTextField(
+                    textFieldType: .shortDate,
+                    text: $shortDate,
+                    label: "Short Date")
+                EmeraldSwiftUiTextField(
+                    textFieldType: .longDate,
+                    text: $longDate,
+                    label: "Long Date")
                 EmeraldSwiftUiTextView(
                     text: $textView,
                     label: "Text View",
@@ -104,6 +115,16 @@ struct SwiftUiView: View {
                     text: $disabledField,
                     label: "Currency",
                     maxLength: 10,
+                    disabled: true)
+                EmeraldSwiftUiTextField(
+                    textFieldType: .shortDate,
+                    text: $disabledField,
+                    label: "Short Date",
+                    disabled: true)
+                EmeraldSwiftUiTextField(
+                    textFieldType: .longDate,
+                    text: $disabledField,
+                    label: "Long Date",
                     disabled: true)
                 EmeraldSwiftUiTextView(
                     text: $disabledField,
