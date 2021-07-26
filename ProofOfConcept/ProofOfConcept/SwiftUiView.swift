@@ -15,6 +15,7 @@ struct SwiftUiView: View {
     @State(initialValue: "") var email: String
     @State(initialValue: "") var password: String
     @State(initialValue: "") var currency: String
+    @State(initialValue: "") var currencyNew: String
     @State(initialValue: "") var shortDate: String
     @State(initialValue: "") var longDate: String
     @State(initialValue: "") var textView: String
@@ -25,6 +26,7 @@ struct SwiftUiView: View {
          email: State<String> = State(initialValue: ""),
          password: State<String> = State(initialValue: ""),
          currency: State<String> = State(initialValue: ""),
+         currencyNew: State<String> = State(initialValue: ""),
          shortDate: State<String> = State(initialValue: ""),
          longDate: State<String> = State(initialValue: ""),
          textView: State<String> = State(initialValue: ""),
@@ -34,6 +36,7 @@ struct SwiftUiView: View {
         _email = email
         _password = password
         _currency = currency
+        _currencyNew = currencyNew
         _shortDate = shortDate
         _longDate = longDate
         _textView = textView
@@ -55,41 +58,94 @@ struct SwiftUiView: View {
             }
             VStack {
                 Text("ENABLED")
-                EmeraldSwiftUiTextField(
-                    text: $normal,
-                    label: "Normal")
-                EmeraldSwiftUiTextField(
-                    textFieldType: .email,
-                    text: $email,
-                    label: "Email",
-                    placeholder: "correo@mail.com",
-                    errorText: errorText)
-                    .onReceive(email.publisher.collect()) {
-                        errorText = isValidEmail(String($0)) || String($0).isEmpty ?
-                            nil :
-                            "email invalido"
-                    }
-                EmeraldSwiftUiTextField(
-                    textFieldType: .password,
-                    text: $password,
-                    label: "Pasword")
-                EmeraldSwiftUiTextField(
-                    textFieldType: .currency,
-                    text: $currency,
-                    label: "Currency",
-                    maxLength: 10)
-                EmeraldSwiftUiTextField(
-                    textFieldType: .shortDate,
-                    text: $shortDate,
-                    label: "Short Date")
-                EmeraldSwiftUiTextField(
-                    textFieldType: .longDate,
-                    text: $longDate,
-                    label: "Long Date")
-                EmeraldSwiftUiTextView(
-                    text: $textView,
-                    label: "Text View",
-                    helperText: "this is a helper text")
+                VStack {
+                    EmeraldSwiftUiTextField(
+                        text: $normal,
+                        label: "Normal")
+                    EmeraldSwiftUiTextField(
+                        text: $normal,
+                        label: "Normal")
+                }
+                VStack {
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .email,
+                        text: $email,
+                        label: "Email",
+                        placeholder: "correo@mail.com",
+                        errorText: errorText)
+                        .onReceive(email.publisher.collect()) {
+                            errorText = isValidEmail(String($0)) || String($0).isEmpty ?
+                                nil :
+                                "email invalido"
+                        }
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .email,
+                        text: $email,
+                        label: "Email",
+                        placeholder: "correo@mail.com",
+                        errorText: errorText)
+                        .onReceive(email.publisher.collect()) {
+                            errorText = isValidEmail(String($0)) || String($0).isEmpty ?
+                                nil :
+                                "email invalido"
+                        }
+                }
+                VStack {
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .password,
+                        text: $password,
+                        label: "Pasword")
+                    
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .password,
+                        text: $password,
+                        label: "Pasword")
+                }
+                VStack {
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .currency,
+                        text: $currency,
+                        label: "Currency",
+                        placeholder: "$300.000,00",
+                        maxLength: 10)
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .currency,
+                        text: $currencyNew,
+                        label: "Currency New",
+                        placeholder: "300.000,00",
+                        maxLength: 10,
+                        useLegacy: false)
+                }
+                VStack {
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .shortDate,
+                        text: $shortDate,
+                        label: "Short Date")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .shortDate,
+                        text: $shortDate,
+                        label: "Short Date")
+                }
+                VStack {
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .longDate,
+                        text: $longDate,
+                        label: "Long Date")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .longDate,
+                        text: $longDate,
+                        label: "Long Date")
+                }
+                VStack {
+                    EmeraldSwiftUiTextView(
+                        text: $textView,
+                        label: "Text View",
+                        helperText: "this is a helper text")
+                    EmeraldSwiftUiTextView(
+                        text: $textView,
+                        label: "Text View",
+                        helperText: "this is a helper text")
+                }
             }
             .padding()
             VStack {

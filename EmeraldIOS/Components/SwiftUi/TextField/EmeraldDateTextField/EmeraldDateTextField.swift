@@ -103,7 +103,7 @@ struct EmeraldDateTextField: View, TextFormatter {
     
     var labelFieldContent: some View {
         HStack(alignment: .top) {
-            LabelTextFieldTitle(
+            LabelTextFieldTitleNew(
                 label: label,
                 disabled: disabled,
                 errorText: errorText,

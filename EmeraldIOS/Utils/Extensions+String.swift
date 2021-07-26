@@ -59,11 +59,11 @@ public extension String {
         }
     }
     
-    func currencyInputFormatting() -> String {
+    func currencyInputFormatting(with symbol:String = "") -> String {
         var number: NSNumber!
         let formatter = NumberFormatter()
         formatter.numberStyle = .currencyAccounting
-        formatter.currencySymbol = ""
+        formatter.currencySymbol = symbol
         formatter.maximumFractionDigits = 2
         formatter.minimumFractionDigits = 2
         

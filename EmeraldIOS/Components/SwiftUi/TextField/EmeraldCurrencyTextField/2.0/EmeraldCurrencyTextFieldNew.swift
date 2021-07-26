@@ -1,5 +1,5 @@
 //
-//  EmeraldCurrencyTextField.swift
+//  EmeraldCurrencyTextFieldNew.swift
 //  Components
 //
 //  Created by Ronal Fabra on 23/07/21.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available(iOS 13.0.0, *)
-public struct EmeraldCurrencyTextField: View {
+public struct EmeraldCurrencyTextFieldNew: View {
     
     @Binding var text: String
     @State(initialValue: false) var focused: Bool
@@ -107,7 +107,7 @@ public struct EmeraldCurrencyTextField: View {
     
     var labelFieldContent: some View {
         HStack(alignment: .top) {
-            LabelTextFieldTitle(
+            LabelTextFieldTitleNew(
                 label: label,
                 disabled: disabled,
                 errorText: errorText,
@@ -149,7 +149,7 @@ public struct EmeraldCurrencyTextField: View {
 }
 
 @available(iOS 13.0.0, *)
-struct EmeraldCurrencyTextField_Previews: PreviewProvider {
+struct EmeraldCurrencyTextFieldNew_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
     }
@@ -158,7 +158,7 @@ struct EmeraldCurrencyTextField_Previews: PreviewProvider {
         @State(initialValue: "") var name: String
         
         var body: some View {
-            EmeraldCurrencyTextField(
+            EmeraldCurrencyTextFieldNew(
                 text: $name,
                 label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 placeholder: "placeholder",

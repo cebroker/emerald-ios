@@ -16,8 +16,8 @@ extension Constants {
         static let borderWidthFocused: CGFloat = 2
         static let textFieldHeight: CGFloat = 54
         static let textAreaHeight: CGFloat = 60
-        static let leadingContentSpacing: CGFloat = 14
-        static let trailingContentSpacing: CGFloat = 14
+        static let leadingContentSpacing: CGFloat = 10
+        static let trailingContentSpacing: CGFloat = 10
         static let topContentSpacing: CGFloat = 14
         static let bottomContentSpacing: CGFloat = 5
         static let horizontalLabelSpacing: CGFloat = 4
@@ -34,6 +34,7 @@ extension Constants {
         static let borderColor: Color = ColorPallete.border.uiColor.suColor
         static let whiteColor: Color = ColorPallete.white.uiColor.suColor
         static let disabledColor: Color = ColorPallete.extraLightGray.uiColor.suColor
+        static let placeHolderColor: Color = EmeraldTheme.placeholderColor.suColor
         static let hide: String = "hide"
         static let show: String = "show"
     }

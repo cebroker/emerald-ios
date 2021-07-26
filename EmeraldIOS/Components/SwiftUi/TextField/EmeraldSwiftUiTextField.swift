@@ -24,6 +24,7 @@ public struct EmeraldSwiftUiTextField: View {
     public var hideCounter: Bool
     public var clearable: Bool
     public var disabled: Bool
+    public var useLegacy: Bool
     @State public var show: Bool
     
     public init(textFieldType: TextFieldType = .normal,
@@ -38,6 +39,7 @@ public struct EmeraldSwiftUiTextField: View {
                 hideCounter: Bool = false,
                 clearable: Bool = false,
                 disabled: Bool = false,
+                useLegacy: Bool = true,
                 show: State<Bool> = State(initialValue: false)) {
         self.textFieldType = textFieldType
         self.textFormat = textFieldType.getTextFormat()
@@ -52,6 +54,7 @@ public struct EmeraldSwiftUiTextField: View {
         self.hideCounter = hideCounter
         self.clearable = clearable
         self.disabled = disabled
+        self.useLegacy = useLegacy
         self._show = show
     }
     
@@ -73,19 +76,32 @@ public struct EmeraldSwiftUiTextField: View {
                 keyboardType: textFieldType.getKeyboardType(),
                 show: _show)
         case .currency:
-            EmeraldCurrencyTextField(
-                text: $text,
-                focused: _focused,
-                label: label,
-                placeholder: placeholder,
-                accessibility: accessibility,
-                helperText: helperText,
-                errorText: errorText,
-                maxLength: maxLength,
-                hideCounter: hideCounter,
-                clearable: clearable,
-                disabled: disabled,
-                keyboardType: textFieldType.getKeyboardType())
+            if useLegacy {
+                EmeraldCurrencyTextField(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    disabled: disabled,
+                    keyboardType: textFieldType.getKeyboardType())
+            } else {
+                EmeraldCurrencyTextFieldNew(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    helperText: helperText,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    hideCounter: hideCounter,
+                    clearable: clearable,
+                    disabled: disabled,
+                    keyboardType: textFieldType.getKeyboardType())
+            }
         case .shortDate, .longDate:
             EmeraldDateTextField(
                 text: $text,

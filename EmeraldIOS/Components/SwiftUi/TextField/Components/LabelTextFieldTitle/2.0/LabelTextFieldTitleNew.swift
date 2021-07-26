@@ -1,22 +1,22 @@
 //
-//  LabelTextFieldTitle.swift
-//  Components
+//  LabelTextFieldTitleNew.swift
+//  EmeraldIOS
 //
-//  Created by Ronal Fabra on 22/07/21.
+//  Created by Ronal Fabra on 26/07/21.
 //  Copyright © 2021 Condor Labs. All rights reserved.
 //
 
 import SwiftUI
 
 @available(iOS 13.0.0, *)
-public struct LabelTextFieldTitle: View {
+struct LabelTextFieldTitleNew: View {
     
     var label: String
     var disabled: Bool = false
     var errorText: String? = nil
     @Binding var focused: Bool
     
-    public var body: some View {
+    var body: some View {
         Text(label)
             .padding(
                 .horizontal,
@@ -34,7 +34,7 @@ public struct LabelTextFieldTitle: View {
                         Constants.EmeraldSwiftUiTextField.focusColor :
                         (disabled ?
                             Constants.EmeraldSwiftUiTextField.disabledColor :
-                            Constants.EmeraldSwiftUiTextField.textColor)))
+                            Constants.EmeraldSwiftUiTextField.placeHolderColor)))
             .lineLimit(1)
             .offset(
                 x: Constants.EmeraldSwiftUiTextField.leadingContentSpacing -
@@ -44,7 +44,7 @@ public struct LabelTextFieldTitle: View {
 }
 
 @available(iOS 13.0.0, *)
-struct LabelTextFieldTitle_Previews: PreviewProvider {
+struct LabelTextFieldTitleNew_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
     }
@@ -53,7 +53,7 @@ struct LabelTextFieldTitle_Previews: PreviewProvider {
         @State(initialValue: false) var focused: Bool
         
         var body: some View {
-            LabelTextFieldTitle(
+            LabelTextFieldTitleNew(
                 label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 focused: $focused)
         }
