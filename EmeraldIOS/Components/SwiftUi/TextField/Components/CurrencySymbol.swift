@@ -21,7 +21,7 @@ public struct CurrencySymbol: View {
                         weight: .semibold).suFont)
                 .foregroundColor(
                     disabled ?
-                        Constants.EmeraldSwiftUiTextField.disabledColor :
+                        Constants.EmeraldSwiftUiTextField.textColor.opacity(0.5) :
                         Constants.EmeraldSwiftUiTextField.textColor)
             Spacer()
         }

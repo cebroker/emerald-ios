@@ -30,7 +30,7 @@ public struct LabelTextFieldTitle: View {
                     (focused ?
                         Constants.EmeraldSwiftUiTextField.focusColor :
                         (disabled ?
-                            Constants.EmeraldSwiftUiTextField.disabledColor :
+                            Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
                             Constants.EmeraldSwiftUiTextField.placeHolderColor)))
             .lineLimit(1)
     }

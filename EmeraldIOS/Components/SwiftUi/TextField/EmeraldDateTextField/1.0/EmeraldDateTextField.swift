@@ -52,7 +52,9 @@ struct EmeraldDateTextField: View, TextFormatter {
                                     Constants.EmeraldSwiftUiTextField.errorColor :
                                     (focused ?
                                         Constants.EmeraldSwiftUiTextField.focusColor :
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor)),
+                                        (disabled ?
+                                        Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
+                                        Constants.EmeraldSwiftUiTextField.placeHolderColor))),
                                 lineWidth: self.focused ?
                                     Constants.EmeraldSwiftUiTextField.borderWidthFocused :
                                     Constants.EmeraldSwiftUiTextField.borderWidth))
@@ -128,7 +130,9 @@ struct EmeraldDateTextField: View, TextFormatter {
                 textField
                 labelFieldContent
                     .onTapGesture {
-                        self.focused = true
+                        if !disabled {
+                            self.focused = true
+                        }
                     }
                 HStack {
                     Spacer()

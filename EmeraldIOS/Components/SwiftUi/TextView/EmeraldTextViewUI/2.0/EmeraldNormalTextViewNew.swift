@@ -78,17 +78,17 @@ public struct EmeraldNormalTextViewNew: View {
         .padding(
             .bottom,
             Constants.EmeraldSwiftUiTextField.bottomContentSpacing)
-        .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                    .stroke(
-                        (errorText != nil ?
-                            Constants.EmeraldSwiftUiTextField.errorColor :
-                            (focused ?
-                                Constants.EmeraldSwiftUiTextField.focusColor :
-                                Constants.EmeraldSwiftUiTextField.borderColor)),
-                        lineWidth:
-                            self.focused ?
-                            Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                            Constants.EmeraldSwiftUiTextField.borderWidth))
+            .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
+                        .stroke((errorText != nil ?
+                                    Constants.EmeraldSwiftUiTextField.errorColor :
+                                    (focused ?
+                                        Constants.EmeraldSwiftUiTextField.focusColor :
+                                        (disabled ?
+                                        Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
+                                        Constants.EmeraldSwiftUiTextField.placeHolderColor))),
+                                lineWidth: self.focused ?
+                                    Constants.EmeraldSwiftUiTextField.borderWidthFocused :
+                                    Constants.EmeraldSwiftUiTextField.borderWidth))
     }
     
     var clearButtonContent: some View {

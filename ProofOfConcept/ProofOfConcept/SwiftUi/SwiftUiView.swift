@@ -202,10 +202,19 @@ struct SwiftUiView: View {
                         text: $normalNew,
                         label: "Normal",
                         useLegacy: false)
+                    EmeraldSwiftUiTextField(
+                        text: $normalNew,
+                        label: "Normal",
+                        disabled: true,
+                        useLegacy: false)
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         text: $normal,
                         label: "Normal")
+                    EmeraldSwiftUiTextField(
+                        text: $normal,
+                        label: "Normal",
+                        disabled: true)
                 }
                 Divider()
             }
@@ -224,6 +233,19 @@ struct SwiftUiView: View {
                                 nil :
                                 "email invalido"
                         }
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .email,
+                        text: $email,
+                        label: "Email",
+                        placeholder: "correo@mail.com",
+                        errorText: errorText,
+                        disabled: true,
+                        useLegacy: false)
+                        .onReceive(email.publisher.collect()) {
+                            errorText = isValidEmail(String($0)) || String($0).isEmpty ?
+                                nil :
+                                "email invalido"
+                        }
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
@@ -231,6 +253,18 @@ struct SwiftUiView: View {
                         label: "Email",
                         placeholder: "correo@mail.com",
                         errorText: errorTextNew)
+                        .onReceive(emailNew.publisher.collect()) {
+                            errorTextNew = isValidEmail(String($0)) || String($0).isEmpty ?
+                                nil :
+                                "email invalido"
+                        }
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .email,
+                        text: $emailNew,
+                        label: "Email",
+                        placeholder: "correo@mail.com",
+                        errorText: errorTextNew,
+                        disabled: true)
                         .onReceive(emailNew.publisher.collect()) {
                             errorTextNew = isValidEmail(String($0)) || String($0).isEmpty ?
                                 nil :
@@ -248,12 +282,25 @@ struct SwiftUiView: View {
                         label: "Pasword",
                         placeholder: "*********",
                         useLegacy: false)
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .password,
+                        text: $password,
+                        label: "Pasword",
+                        placeholder: "*********",
+                        disabled: true,
+                        useLegacy: false)
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
                         text: $passwordNew,
                         label: "Pasword",
                         placeholder: "*********")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .password,
+                        text: $passwordNew,
+                        label: "Pasword",
+                        placeholder: "*********",
+                        disabled: true)
                 }
                 Divider()
             }
@@ -266,12 +313,25 @@ struct SwiftUiView: View {
                         label: "Currency",
                         placeholder: "$300.000,00",
                         useLegacy: false)
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .currency,
+                        text: $currency,
+                        label: "Currency",
+                        placeholder: "$300.000,00",
+                        disabled: true,
+                        useLegacy: false)
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .currency,
                         text: $currencyNew,
                         label: "Currency",
                         placeholder: "300.000,00")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .currency,
+                        text: $currencyNew,
+                        label: "Currency",
+                        placeholder: "300.000,00",
+                        disabled: true)
                 }
                 Divider()
             }
@@ -284,11 +344,23 @@ struct SwiftUiView: View {
                         label: "Short Date",
                         placeholder: "12/2021",
                         useLegacy: false)
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .shortDate,
+                        text: $shortDate,
+                        label: "Short Date",
+                        placeholder: "12/2021",
+                        disabled: true,
+                        useLegacy: false)
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
                         text: $shortDateNew,
                         label: "Short Date")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .shortDate,
+                        text: $shortDateNew,
+                        label: "Short Date",
+                        disabled: true)
                 }
                 Divider()
             }
@@ -301,11 +373,23 @@ struct SwiftUiView: View {
                         label: "Long Date",
                         placeholder: "12/12/2021",
                         useLegacy: false)
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .longDate,
+                        text: $longDate,
+                        label: "Long Date",
+                        placeholder: "12/12/2021",
+                        disabled: true,
+                        useLegacy: false)
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
                         text: $longDateNew,
                         label: "Long Date")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .longDate,
+                        text: $longDateNew,
+                        label: "Long Date",
+                        disabled: true)
                 }
                 Divider()
             }
@@ -317,12 +401,24 @@ struct SwiftUiView: View {
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
                         useLegacy: false)
+                    EmeraldSwiftUiTextView(
+                        text: $textView,
+                        placeholder: "placeholder",
+                        helperText: "this is a helper text",
+                        disabled: true,
+                        useLegacy: false)
                     Text("V 2.0")
                     EmeraldSwiftUiTextView(
                         text: $textViewNew,
                         label: "Text View",
                         placeholder: "placeholder",
                         helperText: "this is a helper text")
+                    EmeraldSwiftUiTextView(
+                        text: $textViewNew,
+                        label: "Text View",
+                        placeholder: "placeholder",
+                        helperText: "this is a helper text",
+                        disabled: true)
                 }
             }
         }
