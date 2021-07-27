@@ -17,7 +17,7 @@ struct SwiftUiView: View {
     @State private var link = "link"
     @State private var hello = "hello"
     @State private var bodyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    @State(initialValue: "buttonName") var buttonName: String
+    @State(initialValue: "Button") var buttonName: String
     @State(initialValue: "") var normal: String
     @State(initialValue: "") var normalNew: String
     @State(initialValue: "") var email: String
