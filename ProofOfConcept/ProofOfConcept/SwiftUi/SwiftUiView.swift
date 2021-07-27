@@ -41,21 +41,21 @@ struct SwiftUiView: View {
             EmeraldSwiftUiLabel(
                 text: $mainTitle,
                 themeStyle: .mainTitle)
-            Spacer()
+            Divider()
             EmeraldSwiftUiLabel(
                 text: $subTitle,
                 themeStyle: .subtitle)
-            Spacer()
+            Divider()
             EmeraldSwiftUiLabel(
                 text: $tableHeader,
                 themeStyle: .tableHeader)
-            Spacer()
+            Divider()
             EmeraldSwiftUiLabel(
                 text: $link,
                 themeStyle: .link)
             Spacer()
-            
         }
+        Divider()
         VStack(alignment: .center, spacing: 5) {
             EmeraldSwiftUiLabel(
                 text: $bodyText,
@@ -66,7 +66,7 @@ struct SwiftUiView: View {
                 themeStyle: .bodyBold)
         }
     }
-
+    
     @ViewBuilder
     var emeraldChipViewByStory: some View {
         HStack(alignment: .center, spacing: 5) {
@@ -77,17 +77,28 @@ struct SwiftUiView: View {
             EmeraldSwiftUiChipView(text: $hello, themeStyle: .dismissable)
         }
     }
-
+    
     // MARK: Body
     var body: some View {
         ScrollView {
-            VStack(alignment: .center) {
+            VStack {
+                Text("LABELS")
+                Spacer()
+                Spacer()
                 emeraldLabelByStory
-                    .padding()
+            }
+            .padding()
+            Divider()
+            VStack {
+                Text("CHIPS VIEW")
+                Spacer()
                 emeraldChipViewByStory
             }
+            .padding()
+            Divider()
             VStack {
                 Text("TEXTFIELDS")
+                Spacer()
                 Spacer()
                 VStack {
                     VStack {
@@ -101,7 +112,6 @@ struct SwiftUiView: View {
                             text: $normal,
                             label: "Normal")
                     }
-                    .padding()
                     Divider()
                 }
                 VStack {
@@ -132,7 +142,6 @@ struct SwiftUiView: View {
                                     "email invalido"
                             }
                     }
-                    .padding()
                     Divider()
                 }
                 VStack {
@@ -151,7 +160,6 @@ struct SwiftUiView: View {
                             label: "Pasword",
                             placeholder: "*********")
                     }
-                    .padding()
                     Divider()
                 }
                 VStack {
@@ -170,7 +178,6 @@ struct SwiftUiView: View {
                             label: "Currency",
                             placeholder: "300.000,00")
                     }
-                    .padding()
                     Divider()
                 }
                 VStack {
@@ -188,7 +195,6 @@ struct SwiftUiView: View {
                             text: $shortDateNew,
                             label: "Short Date")
                     }
-                    .padding()
                     Divider()
                 }
                 VStack {
@@ -206,10 +212,7 @@ struct SwiftUiView: View {
                             text: $longDateNew,
                             label: "Long Date")
                     }
-                    .padding()
                     Divider()
-                }
-                VStack {
                 }
                 VStack {
                     VStack {
@@ -224,51 +227,8 @@ struct SwiftUiView: View {
                             label: "Text View",
                             helperText: "this is a helper text")
                     }
-                    .padding()
                 }
             }
-            Divider()
-            .padding()
-            VStack {
-                Text("DISABLED")
-                EmeraldSwiftUiTextField(
-                    text: $disabledField,
-                    label: "Normal",
-                    disabled: true)
-                EmeraldSwiftUiTextField(
-                    textFieldType: .email,
-                    text: $disabledField,
-                    label: "Email",
-                    placeholder: "correo@mail.com",
-                    disabled: true)
-                EmeraldSwiftUiTextField(
-                    textFieldType: .password,
-                    text: $disabledField,
-                    label: "Pasword",
-                    disabled: true)
-                EmeraldSwiftUiTextField(
-                    textFieldType: .currency,
-                    text: $disabledField,
-                    label: "Currency",
-                    maxLength: 10,
-                    disabled: true)
-                EmeraldSwiftUiTextField(
-                    textFieldType: .shortDate,
-                    text: $disabledField,
-                    label: "Short Date",
-                    disabled: true)
-                EmeraldSwiftUiTextField(
-                    textFieldType: .longDate,
-                    text: $disabledField,
-                    label: "Long Date",
-                    disabled: true)
-                EmeraldSwiftUiTextView(
-                    text: $disabledField,
-                    label: "Text View",
-                    helperText: "this is a helper text",
-                    disabled: true)
-            }
-            .padding()
         }
     }
     
