@@ -51,6 +51,9 @@ public enum ColorPallete: String, Inspectable {
     case headerImageColor
     case headerSubtitleColor
 
+    case pagerBackgroundColor
+    case chipDefaultColor
+
     var IBInspectable: String {
         return rawValue
     }
@@ -137,12 +140,17 @@ public enum ColorPallete: String, Inspectable {
             return EmeraldTheme.headerImageColor
         case .headerSubtitleColor:
             return EmeraldTheme.headerSubtitleColor
+        case .pagerBackgroundColor:
+            return EmeraldTheme.pagerBackgroundColor
+        case .chipDefaultColor:
+            return EmeraldTheme.chipDefaultColor
         }
     }
 
     static func uiColor(_ IBInspectable: InspectableType) -> UIColor {
         return ColorPallete(IBInspectable: IBInspectable).uiColor
     }
+
     var cgColor: CGColor {
         return uiColor.cgColor
     }
