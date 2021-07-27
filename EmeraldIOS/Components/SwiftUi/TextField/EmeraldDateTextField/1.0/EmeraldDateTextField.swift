@@ -42,22 +42,17 @@ struct EmeraldDateTextField: View, TextFormatter {
             .padding(
                 .trailing,
                 Constants.EmeraldSwiftUiTextField.trailingContentSpacing +
-                Constants.EmeraldSwiftUiTextField.widthIcon)
+                    Constants.EmeraldSwiftUiTextField.widthIcon)
             .padding(
                 .top, focused || !text.isEmpty ?
                     Constants.EmeraldSwiftUiTextField.heightLabel * 0.7 :
                     .zero)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                        .stroke((errorText != nil ?
-                                    Constants.EmeraldSwiftUiTextField.errorColor :
-                                    (focused ?
-                                        Constants.EmeraldSwiftUiTextField.focusColor :
-                                        (disabled ?
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor))),
-                                lineWidth: self.focused ?
-                                    Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                                    Constants.EmeraldSwiftUiTextField.borderWidth))
+                        .stroke(EmeraldSwiftUiTextField.getBorderColor(
+                                    errorText: errorText,
+                                    focused: focused,
+                                    disabled: disabled),
+                                lineWidth: EmeraldSwiftUiTextField.getBorderWidth(focused: focused)))
     }
     
     @ViewBuilder
@@ -68,7 +63,7 @@ struct EmeraldDateTextField: View, TextFormatter {
             compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         if calendarIcon != nil {
             Button(action: {}) {
-                Image(uiImage: calendarIcon ?? UIImage(systemName: "calendar")!)
+                Image(uiImage: calendarIcon ?? UIImage(systemName: Constants.Icons.systemCalendar)!)
                     .resizable()
                     .foregroundColor(
                         disabled ?
@@ -157,11 +152,12 @@ struct EmeraldDateTextField: View, TextFormatter {
     }
     
     func formatText(_ text:String) {
-        let maxCharacter = maxLength != nil ?
+        var maxCharacter = maxLength != nil ?
             maxLength! :
-            (textFormat == .shortDate ?
-                Constants.EmeraldSwiftUiTextField.maximumShortDateLength :
-                Constants.EmeraldSwiftUiTextField.maximumDateLength)
+            Constants.EmeraldSwiftUiTextField.maximumShortDateLength
+        maxCharacter = textFormat == .shortDate ?
+            maxCharacter :
+            Constants.EmeraldSwiftUiTextField.maximumDateLength
         let str = String(text.prefix(maxCharacter))
         if text.count > maxCharacter {
             self.text = str
@@ -169,18 +165,17 @@ struct EmeraldDateTextField: View, TextFormatter {
             do {
                 let textWithoutFormat = try self.remove(format: self.textFormat, to: str)
                 let newText = try self.apply(format: self.textFormat, to: textWithoutFormat)
-                
                 DispatchQueue.main.async {
                     self.text = newText
                 }
-                
             } catch (let error) {
-                print(error)
+                debugPrint(error)
             }
         }
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldDateTextField_Previews: PreviewProvider {
     static var previews: some View {
@@ -199,3 +194,4 @@ struct EmeraldDateTextField_Previews: PreviewProvider {
         }
     }
 }
+#endif

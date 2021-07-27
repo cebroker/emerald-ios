@@ -54,6 +54,7 @@ public struct EmeraldGenericTextView: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldGenericTextView_Previews: PreviewProvider {
     static var previews: some View {
@@ -71,3 +72,4 @@ struct EmeraldGenericTextView_Previews: PreviewProvider {
         }
     }
 }
+#endif

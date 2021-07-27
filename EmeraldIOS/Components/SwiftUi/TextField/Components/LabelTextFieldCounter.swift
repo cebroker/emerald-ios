@@ -31,6 +31,7 @@ public struct LabelTextFieldCounter: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct LabelTextFieldCounter_Previews: PreviewProvider {
     static var previews: some View {
@@ -46,3 +47,4 @@ struct LabelTextFieldCounter_Previews: PreviewProvider {
         }
     }
 }
+#endif

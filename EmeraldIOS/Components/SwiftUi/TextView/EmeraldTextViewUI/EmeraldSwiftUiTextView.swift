@@ -82,6 +82,7 @@ public struct EmeraldSwiftUiTextView: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldSwiftUiTextView_Previews: PreviewProvider {
     static var previews: some View {
@@ -100,3 +101,4 @@ struct EmeraldSwiftUiTextView_Previews: PreviewProvider {
         }
     }
 }
+#endif

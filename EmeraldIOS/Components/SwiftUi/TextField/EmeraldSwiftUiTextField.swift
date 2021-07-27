@@ -59,9 +59,9 @@ public struct EmeraldSwiftUiTextField: View {
     }
     
     public var body: some View {
-        switch textFieldType {
-        case .password:
-            if useLegacy {
+        if useLegacy {
+            switch textFieldType {
+            case .password:
                 EmeraldSecureTextFieldNew(
                     text: $text,
                     focused: _focused,
@@ -76,21 +76,7 @@ public struct EmeraldSwiftUiTextField: View {
                     disabled: disabled,
                     keyboardType: textFieldType.getKeyboardType(),
                     show: _show)
-            } else {
-                EmeraldSecureTextField(
-                    text: $text,
-                    focused: _focused,
-                    label: label,
-                    placeholder: placeholder,
-                    accessibility: accessibility,
-                    errorText: errorText,
-                    maxLength: maxLength,
-                    disabled: disabled,
-                    keyboardType: textFieldType.getKeyboardType(),
-                    show: _show)
-            }
-        case .currency:
-            if useLegacy {
+            case .currency:
                 EmeraldCurrencyTextFieldNew(
                     text: $text,
                     focused: _focused,
@@ -104,20 +90,7 @@ public struct EmeraldSwiftUiTextField: View {
                     clearable: clearable,
                     disabled: disabled,
                     keyboardType: textFieldType.getKeyboardType())
-            } else {
-                EmeraldCurrencyTextField(
-                    text: $text,
-                    focused: _focused,
-                    label: label,
-                    placeholder: placeholder,
-                    accessibility: accessibility,
-                    errorText: errorText,
-                    maxLength: maxLength,
-                    disabled: disabled,
-                    keyboardType: textFieldType.getKeyboardType())
-            }
-        case .shortDate, .longDate:
-            if useLegacy {
+            case .shortDate, .longDate:
                 EmeraldDateTextFieldNew(
                     text: $text,
                     focused: _focused,
@@ -132,21 +105,7 @@ public struct EmeraldSwiftUiTextField: View {
                     disabled: disabled,
                     textFormat: textFormat,
                     keyboardType: textFieldType.getKeyboardType())
-            } else {
-                EmeraldDateTextField(
-                    text: $text,
-                    focused: _focused,
-                    label: label,
-                    placeholder: placeholder,
-                    accessibility: accessibility,
-                    errorText: errorText,
-                    maxLength: maxLength,
-                    disabled: disabled,
-                    textFormat: textFormat,
-                    keyboardType: textFieldType.getKeyboardType())
-            }
-        default:
-            if useLegacy {
+            default:
                 EmeraldNormalTextFieldNew(
                     text: $text,
                     focused: _focused,
@@ -160,7 +119,45 @@ public struct EmeraldSwiftUiTextField: View {
                     clearable: clearable,
                     disabled: disabled,
                     keyboardType: textFieldType.getKeyboardType())
-            } else {
+            }
+        } else {
+            switch textFieldType {
+            case .password:
+                EmeraldSecureTextField(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    disabled: disabled,
+                    keyboardType: textFieldType.getKeyboardType(),
+                    show: _show)
+            case .currency:
+                EmeraldCurrencyTextField(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    disabled: disabled,
+                    keyboardType: textFieldType.getKeyboardType())
+            case .shortDate, .longDate:
+                EmeraldDateTextField(
+                    text: $text,
+                    focused: _focused,
+                    label: label,
+                    placeholder: placeholder,
+                    accessibility: accessibility,
+                    errorText: errorText,
+                    maxLength: maxLength,
+                    disabled: disabled,
+                    textFormat: textFormat,
+                    keyboardType: textFieldType.getKeyboardType())
+            default:
                 EmeraldNormalTextField(
                     text: $text,
                     focused: _focused,
@@ -176,6 +173,7 @@ public struct EmeraldSwiftUiTextField: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldSwiftUiTextField_Previews: PreviewProvider {
     static var previews: some View {
@@ -195,3 +193,4 @@ struct EmeraldSwiftUiTextField_Previews: PreviewProvider {
         }
     }
 }
+#endif

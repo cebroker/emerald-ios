@@ -36,7 +36,7 @@ public struct EmeraldNormalTextFieldNew: View {
             keyboardType: keyboardType)
             .onReceive(text.publisher.collect()) {
                 if maxLength != nil {
-                    text = String($0.prefix(maxLength ?? 0))
+                    text = String($0.prefix(maxLength ?? .zero))
                 }
             }
             .padding(
@@ -49,16 +49,11 @@ public struct EmeraldNormalTextFieldNew: View {
                         Constants.EmeraldSwiftUiTextField.widthClearButton :
                         Constants.EmeraldSwiftUiTextField.trailingContentSpacing))
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                        .stroke((errorText != nil ?
-                                    Constants.EmeraldSwiftUiTextField.errorColor :
-                                    (focused ?
-                                        Constants.EmeraldSwiftUiTextField.focusColor :
-                                        (disabled ?
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor))),
-                                lineWidth: self.focused ?
-                                    Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                                    Constants.EmeraldSwiftUiTextField.borderWidth))
+                        .stroke(EmeraldSwiftUiTextField.getBorderColor(
+                                    errorText: errorText,
+                                    focused: focused,
+                                    disabled: disabled),
+                                lineWidth: EmeraldSwiftUiTextField.getBorderWidth(focused: focused)))
     }
     
     var clearButtonContent: some View {
@@ -137,6 +132,7 @@ public struct EmeraldNormalTextFieldNew: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldNormalTextFieldNew_Previews: PreviewProvider {
     static var previews: some View {
@@ -157,3 +153,4 @@ struct EmeraldNormalTextFieldNew_Previews: PreviewProvider {
         }
     }
 }
+#endif

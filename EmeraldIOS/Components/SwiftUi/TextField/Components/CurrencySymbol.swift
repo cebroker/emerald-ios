@@ -14,7 +14,7 @@ public struct CurrencySymbol: View {
     
     public var body: some View {
         HStack {
-            Text("$")
+            Text(Constants.Values.dollar)
                 .frame(width: Constants.EmeraldSwiftUiTextField.widthIcon)
                 .font(Typography(
                         size: .h3,
@@ -28,9 +28,11 @@ public struct CurrencySymbol: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct CurrencySymbol_Previews: PreviewProvider {
     static var previews: some View {
         CurrencySymbol()
     }
 }
+#endif

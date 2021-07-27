@@ -37,6 +37,7 @@ public struct LabelHelperText: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct LabelHelperText_Previews: PreviewProvider {
     static var previews: some View {
@@ -51,3 +52,4 @@ struct LabelHelperText_Previews: PreviewProvider {
         }
     }
 }
+#endif

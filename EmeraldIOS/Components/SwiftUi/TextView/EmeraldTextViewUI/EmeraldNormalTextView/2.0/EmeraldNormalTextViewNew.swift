@@ -79,16 +79,11 @@ public struct EmeraldNormalTextViewNew: View {
             .bottom,
             Constants.EmeraldSwiftUiTextField.bottomContentSpacing)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                        .stroke((errorText != nil ?
-                                    Constants.EmeraldSwiftUiTextField.errorColor :
-                                    (focused ?
-                                        Constants.EmeraldSwiftUiTextField.focusColor :
-                                        (disabled ?
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor))),
-                                lineWidth: self.focused ?
-                                    Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                                    Constants.EmeraldSwiftUiTextField.borderWidth))
+                        .stroke(EmeraldSwiftUiTextView.getBorderColor(
+                                    errorText: errorText,
+                                    focused: focused,
+                                    disabled: disabled),
+                                lineWidth: EmeraldSwiftUiTextView.getBorderWidth(focused: focused)))
     }
     
     var clearButtonContent: some View {
@@ -171,6 +166,7 @@ public struct EmeraldNormalTextViewNew: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldNormalTextViewNew_Previews: PreviewProvider {
     static var previews: some View {
@@ -192,3 +188,4 @@ struct EmeraldNormalTextViewNew_Previews: PreviewProvider {
         }
     }
 }
+#endif

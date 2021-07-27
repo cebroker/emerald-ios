@@ -19,7 +19,7 @@ public struct ClearButton: View {
         Button(action: {
             action()
         }) {
-            Image(systemName: "xmark")
+            Image(systemName: Constants.Icons.systemXIcon)
                 .resizable()
                 .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
         }
@@ -30,9 +30,11 @@ public struct ClearButton: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct ClearButton_Previews: PreviewProvider {
     static var previews: some View {
         ClearButton {}
     }
 }
+#endif

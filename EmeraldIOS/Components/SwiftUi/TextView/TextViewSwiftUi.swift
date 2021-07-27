@@ -15,7 +15,7 @@ struct TextViewSwiftUi: UIViewRepresentable {
     var disabled: Bool = false
     var placeHolder: String = ""
     var onEditingChanged: (Bool) -> Void
-    var placeholderLabel : UILabel = UILabel()
+    var placeholderLabel: UILabel = UILabel()
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -27,12 +27,11 @@ struct TextViewSwiftUi: UIViewRepresentable {
         textView.isScrollEnabled = true
         textView.isEditable = !disabled
         textView.isUserInteractionEnabled = !disabled
-        textView.backgroundColor = UIColor.clear
         let padding = textView.textContainer.lineFragmentPadding
         textView.textContainerInset =  UIEdgeInsets(
-            top: 0,
+            top: .zero,
             left: -padding,
-            bottom: 0,
+            bottom: .zero,
             right: -padding)
         setPlaceHolderLabel(for: textView)
         return textView

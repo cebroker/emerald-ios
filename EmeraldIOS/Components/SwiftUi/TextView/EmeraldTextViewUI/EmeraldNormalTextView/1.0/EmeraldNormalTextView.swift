@@ -38,6 +38,7 @@ public struct EmeraldNormalTextView: View {
         self.keyboardType = keyboardType
     }
     
+    @ViewBuilder
     var textView: some View {
         EmeraldGenericTextView(
             text: $text,
@@ -46,34 +47,29 @@ public struct EmeraldNormalTextView: View {
             accessibility: accessibility,
             disabled: disabled,
             keyboardType: keyboardType)
-        .onReceive(text.publisher.collect()) {
-            if maxLength != nil {
-                text = String($0.prefix(maxLength ?? 0))
+            .onReceive(text.publisher.collect()) {
+                if maxLength != nil {
+                    text = String($0.prefix(maxLength ?? 0))
+                }
             }
-        }
-        .padding(
-            .leading,
-            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
-        .padding(
-            .trailing,
+            .padding(
+                .leading,
+                Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
+            .padding(
+                .trailing,
                 Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
-        .padding(
-            .top,
-            Constants.EmeraldSwiftUiTextField.topContentSpacing)
-        .padding(
-            .bottom,
-            Constants.EmeraldSwiftUiTextField.bottomContentSpacing)
+            .padding(
+                .top,
+                Constants.EmeraldSwiftUiTextField.topContentSpacing)
+            .padding(
+                .bottom,
+                Constants.EmeraldSwiftUiTextField.bottomContentSpacing)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                        .stroke((errorText != nil ?
-                                    Constants.EmeraldSwiftUiTextField.errorColor :
-                                    (focused ?
-                                        Constants.EmeraldSwiftUiTextField.focusColor :
-                                        (disabled ?
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor))),
-                                lineWidth: self.focused ?
-                                    Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                                    Constants.EmeraldSwiftUiTextField.borderWidth))
+                        .stroke(EmeraldSwiftUiTextView.getBorderColor(
+                                    errorText: errorText,
+                                    focused: focused,
+                                    disabled: disabled),
+                                lineWidth: EmeraldSwiftUiTextView.getBorderWidth(focused: focused)))
     }
     
     var errorTextContent: some View {
@@ -110,6 +106,7 @@ public struct EmeraldNormalTextView: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldNormalTextView_Previews: PreviewProvider {
     static var previews: some View {
@@ -128,3 +125,4 @@ struct EmeraldNormalTextView_Previews: PreviewProvider {
         }
     }
 }
+#endif

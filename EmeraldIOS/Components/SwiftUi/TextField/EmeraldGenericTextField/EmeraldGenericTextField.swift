@@ -8,9 +8,6 @@
 
 import SwiftUI
 
-import SwiftUI
-import Introspect
-
 @available(iOS 13.0.0, *)
 public struct EmeraldGenericTextField: View {
     
@@ -48,6 +45,7 @@ public struct EmeraldGenericTextField: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldGenericTextField_Previews: PreviewProvider {
     static var previews: some View {
@@ -65,3 +63,4 @@ struct EmeraldGenericTextField_Previews: PreviewProvider {
         }
     }
 }
+#endif

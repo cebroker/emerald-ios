@@ -67,6 +67,7 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct SecureTextFieldSwiftUI_Previews: PreviewProvider {
     static var previews: some View {
@@ -82,3 +83,4 @@ struct SecureTextFieldSwiftUI_Previews: PreviewProvider {
         }
     }
 }
+#endif

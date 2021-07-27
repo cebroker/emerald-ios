@@ -34,15 +34,16 @@ struct EmeraldCurrencyTextField: View {
             keyboardType: keyboardType)
             .onReceive(text.publisher.collect()) {
                 if maxLength != nil {
-                    let str = String($0.prefix(maxLength ?? 0))
-                    text = str.currencyInputFormatting(with: "$")
+                    let str = String($0.prefix(maxLength ?? .zero))
+                    text = str.currencyInputFormatting(with: Constants.Values.dollar)
                 } else {
-                    text = String($0).currencyInputFormatting(with: "$")
+                    text = String($0).currencyInputFormatting(with: Constants.Values.dollar)
                 }
             }
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldCurrencyTextField_Previews: PreviewProvider {
     static var previews: some View {
@@ -61,3 +62,4 @@ struct EmeraldCurrencyTextField_Previews: PreviewProvider {
         }
     }
 }
+#endif

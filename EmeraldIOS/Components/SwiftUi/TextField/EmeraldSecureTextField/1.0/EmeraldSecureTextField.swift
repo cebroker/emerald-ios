@@ -52,7 +52,7 @@ public struct EmeraldSecureTextField: View {
         field
             .onReceive(text.publisher.collect()) {
                 if maxLength != nil {
-                    text = String($0.prefix(maxLength ?? 0))
+                    text = String($0.prefix(maxLength ?? .zero))
                 }
             }
             .padding(
@@ -67,16 +67,11 @@ public struct EmeraldSecureTextField: View {
                     Constants.EmeraldSwiftUiTextField.heightLabel * 0.7 :
                     .zero)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                        .stroke((errorText != nil ?
-                                    Constants.EmeraldSwiftUiTextField.errorColor :
-                                    (focused ?
-                                        Constants.EmeraldSwiftUiTextField.focusColor :
-                                        (disabled ?
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
-                                        Constants.EmeraldSwiftUiTextField.placeHolderColor))),
-                                lineWidth: self.focused ?
-                                    Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                                    Constants.EmeraldSwiftUiTextField.borderWidth))
+                        .stroke(EmeraldSwiftUiTextField.getBorderColor(
+                                    errorText: errorText,
+                                    focused: focused,
+                                    disabled: disabled),
+                                lineWidth: EmeraldSwiftUiTextField.getBorderWidth(focused: focused)))
     }
     
     var errorTextContent: some View {
@@ -182,6 +177,7 @@ public struct EmeraldSecureTextField: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldSecureTextField_Previews: PreviewProvider {
     static var previews: some View {
@@ -200,3 +196,4 @@ struct EmeraldSecureTextField_Previews: PreviewProvider {
         }
     }
 }
+#endif

@@ -43,6 +43,7 @@ struct LabelTextFieldTitleNew: View {
     }
 }
 
+#if DEBUG
 @available(iOS 13.0.0, *)
 struct LabelTextFieldTitleNew_Previews: PreviewProvider {
     static var previews: some View {
@@ -59,3 +60,4 @@ struct LabelTextFieldTitleNew_Previews: PreviewProvider {
         }
     }
 }
+#endif
