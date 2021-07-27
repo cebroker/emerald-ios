@@ -42,13 +42,13 @@ struct TextViewSwiftUi: UIViewRepresentable {
         placeholderLabel.text = placeHolder
         placeholderLabel.sizeToFit()
         placeholderLabel.font = Typography(
-            size: .h3,
+            size: .h5,
             weight: .semibold).uiFont
         textView.addSubview(placeholderLabel)
         placeholderLabel.frame.origin = CGPoint(
             x: .zero,
             y: -4)
-        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.textColor = EmeraldTheme.placeholderColor
         placeholderLabel.isHidden = !text.isEmpty
     }
     

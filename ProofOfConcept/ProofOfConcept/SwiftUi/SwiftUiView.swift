@@ -30,6 +30,7 @@ struct SwiftUiView: View {
     @State(initialValue: "") var longDate: String
     @State(initialValue: "") var longDateNew: String
     @State(initialValue: "") var textView: String
+    @State(initialValue: "") var textViewNew: String
     @State(initialValue: "") var disabledField: String
     @State(initialValue: nil) var errorText: String?
     @State(initialValue: nil) var errorTextNew: String?
@@ -219,12 +220,14 @@ struct SwiftUiView: View {
                         Text("V 1.0")
                         EmeraldSwiftUiTextView(
                             text: $textView,
-                            label: "Text View",
-                            helperText: "this is a helper text")
+                            placeholder: "placeholder",
+                            helperText: "this is a helper text",
+                            useLegacy: false)
                         Text("V 2.0")
                         EmeraldSwiftUiTextView(
-                            text: $textView,
+                            text: $textViewNew,
                             label: "Text View",
+                            placeholder: "placeholder",
                             helperText: "this is a helper text")
                     }
                 }

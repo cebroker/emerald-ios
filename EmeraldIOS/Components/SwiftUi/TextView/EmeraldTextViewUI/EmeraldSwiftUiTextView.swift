@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import Introspect
 
 @available(iOS 13.0.0, *)
 public struct EmeraldSwiftUiTextView: View {
@@ -24,6 +23,7 @@ public struct EmeraldSwiftUiTextView: View {
     public var clearable: Bool
     public var disabled: Bool
     public var textFieldType: TextFieldType
+    public var useLegacy: Bool
     
     public init(text: Binding<String>,
                 focused: State<Bool> = State(initialValue: false),
@@ -36,7 +36,8 @@ public struct EmeraldSwiftUiTextView: View {
                 hideCounter: Bool = false,
                 clearable: Bool = false,
                 disabled: Bool = false,
-                textFieldType: TextFieldType = .normal) {
+                textFieldType: TextFieldType = .normal,
+                useLegacy: Bool = true) {
         self._text = text
         self._focused = focused
         self.label = label
@@ -49,138 +50,35 @@ public struct EmeraldSwiftUiTextView: View {
         self.clearable = clearable
         self.disabled = disabled
         self.textFieldType = textFieldType
-    }
-    
-    var textView: some View {
-        TextViewSwiftUi(
-            text: $text,
-            disabled: disabled,
-            placeHolder: placeholder) {
-            self.focused = $0
-        }
-        .onReceive(text.publisher.collect()) {
-            if maxLength != nil {
-                text = String($0.prefix(maxLength ?? 0))
-            }
-        }
-        .keyboardType(textFieldType.getKeyboardType())
-        .accessibility(identifier: accessibility)
-        .font(Typography(
-                size: .h5,
-                weight: .semibold).suFont)
-        .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
-        .padding(
-            .leading,
-            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
-        .padding(
-            .trailing, (
-                clearable ?
-                    Constants.EmeraldSwiftUiTextField.trailingContentSpacing +
-                    (Constants.EmeraldSwiftUiTextField.widthClearButton * 2.5) :
-                    Constants.EmeraldSwiftUiTextField.trailingContentSpacing))
-        .padding(
-            .top,
-            Constants.EmeraldSwiftUiTextField.topContentSpacing)
-        .padding(
-            .bottom,
-            Constants.EmeraldSwiftUiTextField.bottomContentSpacing)
-        .frame(height: Constants.EmeraldSwiftUiTextField.textAreaHeight)
-        .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                    .stroke(
-                        (errorText != nil ?
-                            Constants.EmeraldSwiftUiTextField.errorColor :
-                            (focused ?
-                                Constants.EmeraldSwiftUiTextField.focusColor :
-                                Constants.EmeraldSwiftUiTextField.borderColor)),
-                        lineWidth:
-                            self.focused ?
-                            Constants.EmeraldSwiftUiTextField.borderWidthFocused :
-                            Constants.EmeraldSwiftUiTextField.borderWidth))
-        .introspectTextView { textView in
-            if focused {
-                textView.becomeFirstResponder()
-            }
-        }
-    }
-    
-    var clearButtonContent: some View {
-        HStack(spacing: Constants.EmeraldSwiftUiTextField.trailingContentSpacing) {
-            Spacer()
-            if clearable, !text.isEmpty {
-                ClearButton {
-                    text = ""
-                }
-            }
-        }
-        .frame(alignment: .trailing)
-        .padding(
-            .trailing,
-            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
-        .padding(
-            .top,
-            -Constants.EmeraldSwiftUiTextField.topContentSpacing)
-    }
-    
-    var helperTextContent: some View {
-        HStack(alignment: .top) {
-            if errorText != nil || helperText != nil {
-                LabelHelperText(
-                    disabled: disabled,
-                    helperText: helperText,
-                    errorText: errorText)
-            }
-            if maxLength != nil, !hideCounter {
-                Spacer()
-                LabelTextFieldCounter(
-                    text: $text,
-                    disabled: disabled,
-                    maxLength: maxLength)
-            }
-        }
-        .padding(
-            .leading,
-            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
-    }
-    
-    var labelFieldContent: some View {
-        HStack(alignment: .top) {
-            LabelTextFieldTitle(
-                label: label,
-                disabled: disabled,
-                errorText: errorText,
-                focused: $focused)
-                .padding(
-                    .trailing,
-                    Constants.EmeraldSwiftUiTextField.horizontalLabelSpacing)
-            Spacer()
-        }
-        .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
+        self.useLegacy = useLegacy
     }
     
     public var body: some View {
-        ZStack(alignment: .topLeading) {
-            VStack(alignment: .leading) {
-                ZStack {
-                    textView
-                    clearButtonContent
-                }
-                helperTextContent
-            }
-            .offset(
-                x: .zero,
-                y: Constants.EmeraldSwiftUiTextField.heightLabel * 0.5)
-            labelFieldContent
+        if useLegacy {
+            EmeraldNormalTextViewNew(
+                text: $text,
+                focused: _focused,
+                label: label,
+                placeholder: placeholder,
+                accessibility: accessibility,
+                helperText: helperText,
+                errorText: errorText,
+                maxLength: maxLength,
+                hideCounter: hideCounter,
+                clearable: clearable,
+                disabled: disabled,
+                keyboardType: textFieldType.getKeyboardType())
+        } else {
+            EmeraldNormalTextView(
+                text: $text,
+                focused: _focused,
+                placeholder: placeholder,
+                accessibility: accessibility,
+                errorText: errorText,
+                maxLength: maxLength,
+                disabled: disabled,
+                keyboardType: textFieldType.getKeyboardType())
         }
-        .fixedSize(
-            horizontal: false,
-            vertical: true)
-        .padding(
-            .horizontal,
-            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
-        .padding(
-            .bottom,
-            Constants.EmeraldSwiftUiTextField.bottomContentPadding)
-        .background(Color.white)
     }
 }
 
@@ -196,11 +94,8 @@ struct EmeraldSwiftUiTextView_Previews: PreviewProvider {
         var body: some View {
             EmeraldSwiftUiTextView(
                 text: $name,
-                label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 placeholder: "placeholder",
                 accessibility: "name",
-                helperText: "this field is for help you",
-                clearable: true,
                 textFieldType: .email)
         }
     }
