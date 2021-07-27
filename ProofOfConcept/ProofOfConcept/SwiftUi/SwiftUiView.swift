@@ -17,6 +17,7 @@ struct SwiftUiView: View {
     @State private var link = "link"
     @State private var hello = "hello"
     @State private var bodyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    @State(initialValue: "buttonName") var buttonName: String
     @State(initialValue: "") var normal: String
     @State(initialValue: "") var normalNew: String
     @State(initialValue: "") var email: String
@@ -38,200 +39,261 @@ struct SwiftUiView: View {
     // MARK: ViewBuilder
     @ViewBuilder
     var emeraldLabelByStory: some View {
-        VStack(alignment: .center, spacing: 5) {
-            EmeraldSwiftUiLabel(
-                text: $mainTitle,
-                themeStyle: .mainTitle)
-            Divider()
-            EmeraldSwiftUiLabel(
-                text: $subTitle,
-                themeStyle: .subtitle)
-            Divider()
-            EmeraldSwiftUiLabel(
-                text: $tableHeader,
-                themeStyle: .tableHeader)
-            Divider()
-            EmeraldSwiftUiLabel(
-                text: $link,
-                themeStyle: .link)
+        VStack {
+            Text("Labels")
+                .padding(.horizontal, 20)
+                .padding(.vertical, 5)
+                .font(.title)
+                .foregroundColor(.red)
             Spacer()
-        }
-        Divider()
-        VStack(alignment: .center, spacing: 5) {
-            EmeraldSwiftUiLabel(
-                text: $bodyText,
-                themeStyle: .body)
-            Divider()
-            EmeraldSwiftUiLabel(
-                text: $bodyText,
-                themeStyle: .bodyBold)
+            VStack(alignment: .center, spacing: 5) {
+                EmeraldSwiftUiLabel(
+                    text: $mainTitle,
+                    themeStyle: .mainTitle)
+                EmeraldSwiftUiLabel(
+                    text: $subTitle,
+                    themeStyle: .subtitle)
+                EmeraldSwiftUiLabel(
+                    text: $tableHeader,
+                    themeStyle: .tableHeader)
+                EmeraldSwiftUiLabel(
+                    text: $link,
+                    themeStyle: .link)
+                Spacer()
+            }
+            VStack(alignment: .center, spacing: 5) {
+                EmeraldSwiftUiLabel(
+                    text: $bodyText,
+                    themeStyle: .body)
+                EmeraldSwiftUiLabel(
+                    text: $bodyText,
+                    themeStyle: .bodyBold)
+            }
         }
     }
     
     @ViewBuilder
     var emeraldChipViewByStory: some View {
-        HStack(alignment: .center, spacing: 5) {
-            EmeraldSwiftUiChipView(text: $hello, themeStyle: .simple)
-            EmeraldSwiftUiChipView(text: $hello, themeStyle: .error)
-            EmeraldSwiftUiChipView(text: $hello, themeStyle: .success)
-            EmeraldSwiftUiChipView(text: $hello, themeStyle: .warning)
-            EmeraldSwiftUiChipView(text: $hello, themeStyle: .dismissable)
+        VStack {
+            Text("Chips View")
+                .padding(.horizontal, 20)
+                .padding(.vertical, 5)
+                .font(.title)
+                .foregroundColor(.red)
+            Spacer()
+            HStack(alignment: .center, spacing: 5) {
+                EmeraldSwiftUiChipView(text: $hello, themeStyle: .simple)
+                EmeraldSwiftUiChipView(text: $hello, themeStyle: .error)
+                EmeraldSwiftUiChipView(text: $hello, themeStyle: .success)
+                EmeraldSwiftUiChipView(text: $hello, themeStyle: .warning)
+                EmeraldSwiftUiChipView(text: $hello, themeStyle: .dismissable)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var emeraldButtonsView: some View {
+        VStack {
+            Text("Buttons")
+                .padding(.horizontal, 20)
+                .padding(.vertical, 5)
+                .font(.title)
+                .foregroundColor(.red)
+            Spacer()
+            EmeraldSwiftUIButtonView(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(false),
+                themeStyle: .plain)
+            EmeraldSwiftUIButtonView(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(false),
+                themeStyle: .primary)
+            EmeraldSwiftUIButtonView(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(true),
+                themeStyle: .primarySuccess)
+            EmeraldSwiftUIButtonView(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(false),
+                themeStyle: .primaryWarning)
+            EmeraldSwiftUIButtonView(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(false),
+                themeStyle: .primaryError)
+            EmeraldSwiftUIButtonView(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(false),
+                themeStyle: .primarySmall)
+            EmeraldSwiftUIButtonView(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(false),
+                themeStyle: .primaryLarge)
+        }
+    }
+    
+    @ViewBuilder
+    var emeraldTextFieldsView: some View {
+        VStack {
+            Text("TextFields")
+                .padding(.horizontal, 20)
+                .padding(.vertical, 5)
+                .font(.title)
+                .foregroundColor(.red)
+            Spacer()
+            VStack {
+                VStack {
+                    Text("V 1.0")
+                    EmeraldSwiftUiTextField(
+                        text: $normalNew,
+                        label: "Normal",
+                        useLegacy: false)
+                    Text("V 2.0")
+                    EmeraldSwiftUiTextField(
+                        text: $normal,
+                        label: "Normal")
+                }
+                Divider()
+            }
+            VStack {
+                VStack {
+                    Text("V 1.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .email,
+                        text: $email,
+                        label: "Email",
+                        placeholder: "correo@mail.com",
+                        errorText: errorText,
+                        useLegacy: false)
+                        .onReceive(email.publisher.collect()) {
+                            errorText = isValidEmail(String($0)) || String($0).isEmpty ?
+                                nil :
+                                "email invalido"
+                        }
+                    Text("V 2.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .email,
+                        text: $emailNew,
+                        label: "Email",
+                        placeholder: "correo@mail.com",
+                        errorText: errorTextNew)
+                        .onReceive(emailNew.publisher.collect()) {
+                            errorTextNew = isValidEmail(String($0)) || String($0).isEmpty ?
+                                nil :
+                                "email invalido"
+                        }
+                }
+                Divider()
+            }
+            VStack {
+                VStack {
+                    Text("V 1.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .password,
+                        text: $password,
+                        label: "Pasword",
+                        placeholder: "*********",
+                        useLegacy: false)
+                    Text("V 2.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .password,
+                        text: $passwordNew,
+                        label: "Pasword",
+                        placeholder: "*********")
+                }
+                Divider()
+            }
+            VStack {
+                VStack {
+                    Text("V 1.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .currency,
+                        text: $currency,
+                        label: "Currency",
+                        placeholder: "$300.000,00",
+                        useLegacy: false)
+                    Text("V 2.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .currency,
+                        text: $currencyNew,
+                        label: "Currency",
+                        placeholder: "300.000,00")
+                }
+                Divider()
+            }
+            VStack {
+                VStack {
+                    Text("V 1.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .shortDate,
+                        text: $shortDate,
+                        label: "Short Date",
+                        placeholder: "12/2021",
+                        useLegacy: false)
+                    Text("V 2.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .shortDate,
+                        text: $shortDateNew,
+                        label: "Short Date")
+                }
+                Divider()
+            }
+            VStack {
+                VStack {
+                    Text("V 1.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .longDate,
+                        text: $longDate,
+                        label: "Long Date",
+                        placeholder: "12/12/2021",
+                        useLegacy: false)
+                    Text("V 2.0")
+                    EmeraldSwiftUiTextField(
+                        textFieldType: .longDate,
+                        text: $longDateNew,
+                        label: "Long Date")
+                }
+                Divider()
+            }
+            VStack {
+                VStack {
+                    Text("V 1.0")
+                    EmeraldSwiftUiTextView(
+                        text: $textView,
+                        placeholder: "placeholder",
+                        helperText: "this is a helper text",
+                        useLegacy: false)
+                    Text("V 2.0")
+                    EmeraldSwiftUiTextView(
+                        text: $textViewNew,
+                        label: "Text View",
+                        placeholder: "placeholder",
+                        helperText: "this is a helper text")
+                }
+            }
         }
     }
     
     // MARK: Body
     var body: some View {
         ScrollView {
-            VStack {
-                Text("LABELS")
-                Spacer()
-                Spacer()
-                emeraldLabelByStory
-            }
+            emeraldLabelByStory
             .padding()
             Divider()
-            VStack {
-                Text("CHIPS VIEW")
-                Spacer()
-                emeraldChipViewByStory
-            }
+            emeraldChipViewByStory
             .padding()
             Divider()
-            VStack {
-                Text("TEXTFIELDS")
-                Spacer()
-                Spacer()
-                VStack {
-                    VStack {
-                        Text("V 1.0")
-                        EmeraldSwiftUiTextField(
-                            text: $normalNew,
-                            label: "Normal",
-                            useLegacy: false)
-                        Text("V 2.0")
-                        EmeraldSwiftUiTextField(
-                            text: $normal,
-                            label: "Normal")
-                    }
-                    Divider()
-                }
-                VStack {
-                    VStack {
-                        Text("V 1.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .email,
-                            text: $email,
-                            label: "Email",
-                            placeholder: "correo@mail.com",
-                            errorText: errorText,
-                            useLegacy: false)
-                            .onReceive(email.publisher.collect()) {
-                                errorText = isValidEmail(String($0)) || String($0).isEmpty ?
-                                    nil :
-                                    "email invalido"
-                            }
-                        Text("V 2.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .email,
-                            text: $emailNew,
-                            label: "Email",
-                            placeholder: "correo@mail.com",
-                            errorText: errorTextNew)
-                            .onReceive(emailNew.publisher.collect()) {
-                                errorTextNew = isValidEmail(String($0)) || String($0).isEmpty ?
-                                    nil :
-                                    "email invalido"
-                            }
-                    }
-                    Divider()
-                }
-                VStack {
-                    VStack {
-                        Text("V 1.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .password,
-                            text: $password,
-                            label: "Pasword",
-                            placeholder: "*********",
-                            useLegacy: false)
-                        Text("V 2.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .password,
-                            text: $passwordNew,
-                            label: "Pasword",
-                            placeholder: "*********")
-                    }
-                    Divider()
-                }
-                VStack {
-                    VStack {
-                        Text("V 1.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .currency,
-                            text: $currency,
-                            label: "Currency",
-                            placeholder: "$300.000,00",
-                            useLegacy: false)
-                        Text("V 2.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .currency,
-                            text: $currencyNew,
-                            label: "Currency",
-                            placeholder: "300.000,00")
-                    }
-                    Divider()
-                }
-                VStack {
-                    VStack {
-                        Text("V 1.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .shortDate,
-                            text: $shortDate,
-                            label: "Short Date",
-                            placeholder: "12/2021",
-                            useLegacy: false)
-                        Text("V 2.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .shortDate,
-                            text: $shortDateNew,
-                            label: "Short Date")
-                    }
-                    Divider()
-                }
-                VStack {
-                    VStack {
-                        Text("V 1.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .longDate,
-                            text: $longDate,
-                            label: "Long Date",
-                            placeholder: "12/12/2021",
-                            useLegacy: false)
-                        Text("V 2.0")
-                        EmeraldSwiftUiTextField(
-                            textFieldType: .longDate,
-                            text: $longDateNew,
-                            label: "Long Date")
-                    }
-                    Divider()
-                }
-                VStack {
-                    VStack {
-                        Text("V 1.0")
-                        EmeraldSwiftUiTextView(
-                            text: $textView,
-                            placeholder: "placeholder",
-                            helperText: "this is a helper text",
-                            useLegacy: false)
-                        Text("V 2.0")
-                        EmeraldSwiftUiTextView(
-                            text: $textViewNew,
-                            label: "Text View",
-                            placeholder: "placeholder",
-                            helperText: "this is a helper text")
-                    }
-                }
-            }
+            emeraldButtonsView
+            .padding()
+            Divider()
+            emeraldTextFieldsView
+            .padding()
         }
     }
     
