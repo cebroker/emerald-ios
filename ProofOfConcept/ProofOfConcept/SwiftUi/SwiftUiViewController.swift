@@ -13,7 +13,7 @@ class SwiftUiViewController: UIViewController {
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 14.0.0, *) {
+        if #available(iOS 13.0.0, *) {
             let childView = UIHostingController(rootView: SwiftUiView())
             addChild(childView)
             childView.view.frame = container.bounds

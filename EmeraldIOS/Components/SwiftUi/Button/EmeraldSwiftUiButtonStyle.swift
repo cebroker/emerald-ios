@@ -33,6 +33,8 @@ public enum EmeraldSwiftUiButtonStyle: String {
             return EmeraldTheme.primaryButtonColor.suColor
         case .secondary, .secondarySmall, .secondaryLarge:
             return EmeraldTheme.secondaryButtonColor.suColor
+        case .primarySuccess:
+            return EmeraldTheme.successColor.suColor
         case .primaryWarning:
             return EmeraldTheme.warningColor.suColor
         case .primaryError:

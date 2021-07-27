@@ -13,13 +13,13 @@ protocol EmeraldSwiftUIButtonActionType {
 }
 
 @available(iOS 13.0.0, *)
-struct EmeraldSwiftUIButtonView: View {
+public struct EmeraldSwiftUIButton: View {
     
     private struct InnerConstant {
         static let minOpacity = 0.65
         static let maxOpacity = 1.0
         static let buttonPadding = CGFloat(integerLiteral: 12)
-        static let minWidth = CGFloat(integerLiteral: 100)
+        static let minWidth = CGFloat(integerLiteral: 180)
     }
     
     @Binding private var buttonName: String
@@ -47,11 +47,11 @@ struct EmeraldSwiftUIButtonView: View {
             
         } label: {
             Text(buttonName)
+                .font(themeStyle.font)
                 .padding(InnerConstant.buttonPadding)
                 .foregroundColor(themeStyle.highlightedTitleColor)
         }
         .frame(minWidth: InnerConstant.minWidth)
-        .font(themeStyle.font)
         .background(isHighlighted ? themeStyle.highlightedBackgroundColor : themeStyle.backgroundColor)
         .overlay(
             RoundedRectangle(cornerRadius: themeStyle.cornerRadious)
@@ -71,7 +71,7 @@ struct ContentView_Previews: PreviewProvider {
     @State static var isHighlighted = true
     
     static var previews: some View {
-        EmeraldSwiftUIButtonView(
+        EmeraldSwiftUIButton(
             buttonName: $buttonName,
             isEnabled: $isEnabled,
             isHighlighted: $isHighlighted)
