@@ -10,6 +10,10 @@ import SwiftUI
 
 @available(iOS 13.0.0, *)
 struct SwiftUiView: View {
+    
+    struct InnerConstant {
+        static let buttonTitle = "Buttons"
+    }
     // MARK: States
     @State private var mainTitle = "Main Title"
     @State private var subTitle = "Sub Title"
@@ -17,6 +21,9 @@ struct SwiftUiView: View {
     @State private var link = "link"
     @State private var hello = "hello"
     @State private var bodyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    @State var buttonName = "Info"
+    @State var isEnabled = true
+    @State var isHighlighted = false
     
     // MARK: ViewBuilder
     @ViewBuilder
@@ -38,6 +45,8 @@ struct SwiftUiView: View {
                 text: $link,
                 themeStyle: .link)
             Spacer()
+            
+            
             
         }
         VStack(alignment: .center, spacing: 5) {
@@ -61,6 +70,38 @@ struct SwiftUiView: View {
             EmeraldSwiftUiChipView(text: $hello, themeStyle: .dismissable)
         }
     }
+    
+    var emeraldButtonByStory: some View {
+        VStack(alignment: .center, spacing: 5) {
+            Text(InnerConstant.buttonTitle)
+            Spacer()
+            
+            EmeraldSwiftUIButton(buttonName: $buttonName,
+                                     isEnabled: $isEnabled,
+                                     isHighlighted: $isHighlighted,
+                                     themeStyle: .secondary)
+            EmeraldSwiftUIButton(buttonName: $buttonName,
+                                     isEnabled: $isEnabled,
+                                     isHighlighted: $isHighlighted,
+                                     themeStyle: .plain)
+            EmeraldSwiftUIButton(buttonName: $buttonName,
+                                     isEnabled: $isEnabled,
+                                     isHighlighted: $isHighlighted,
+                                     themeStyle: .primarySuccess)
+            EmeraldSwiftUIButton(buttonName: $buttonName,
+                                     isEnabled: $isEnabled,
+                                     isHighlighted: $isHighlighted,
+                                     themeStyle: .primaryWarning)
+            EmeraldSwiftUIButton(buttonName: $buttonName,
+                                     isEnabled: $isEnabled,
+                                     isHighlighted: $isHighlighted,
+                                     themeStyle: .primaryError)
+            EmeraldSwiftUIButton(buttonName: $buttonName,
+                                     isEnabled: $isEnabled,
+                                     isHighlighted: $isHighlighted,
+                                     themeStyle: .plainPrimary)
+        }
+    }
 
     // MARK: Body
     var body: some View {
@@ -69,6 +110,7 @@ struct SwiftUiView: View {
                 emeraldLabelByStory
                     .padding()
                 emeraldChipViewByStory
+                emeraldButtonByStory
             }
             .frame(
                 maxWidth: .infinity,
