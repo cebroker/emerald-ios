@@ -23,7 +23,7 @@ struct LabelTextFieldTitleNew: View {
                 label.isEmpty ?
                     .zero :
                     Constants.EmeraldSwiftUiTextField.horizontalLabelSpacing)
-            .background(Constants.EmeraldSwiftUiTextField.whiteColor)
+            .background(Color(UIColor.systemBackground))
             .font(Typography(
                     size: .h5,
                     weight: .semibold).suFont)

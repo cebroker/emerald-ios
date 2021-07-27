@@ -203,7 +203,7 @@ struct SwiftUiView: View {
                         label: "Normal",
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
-                        text: $normalNew,
+                        text: $disabledField,
                         label: "Normal",
                         disabled: true,
                         useLegacy: false)
@@ -212,7 +212,7 @@ struct SwiftUiView: View {
                         text: $normal,
                         label: "Normal")
                     EmeraldSwiftUiTextField(
-                        text: $normal,
+                        text: $disabledField,
                         label: "Normal",
                         disabled: true)
                 }
@@ -235,17 +235,11 @@ struct SwiftUiView: View {
                         }
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
-                        text: $email,
+                        text: $disabledField,
                         label: "Email",
                         placeholder: "correo@mail.com",
-                        errorText: errorText,
                         disabled: true,
                         useLegacy: false)
-                        .onReceive(email.publisher.collect()) {
-                            errorText = isValidEmail(String($0)) || String($0).isEmpty ?
-                                nil :
-                                "email invalido"
-                        }
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
@@ -260,16 +254,10 @@ struct SwiftUiView: View {
                         }
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
-                        text: $emailNew,
+                        text: $disabledField,
                         label: "Email",
                         placeholder: "correo@mail.com",
-                        errorText: errorTextNew,
                         disabled: true)
-                        .onReceive(emailNew.publisher.collect()) {
-                            errorTextNew = isValidEmail(String($0)) || String($0).isEmpty ?
-                                nil :
-                                "email invalido"
-                        }
                 }
                 Divider()
             }
@@ -284,7 +272,7 @@ struct SwiftUiView: View {
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
-                        text: $password,
+                        text: $disabledField,
                         label: "Pasword",
                         placeholder: "*********",
                         disabled: true,
@@ -297,7 +285,7 @@ struct SwiftUiView: View {
                         placeholder: "*********")
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
-                        text: $passwordNew,
+                        text: $disabledField,
                         label: "Pasword",
                         placeholder: "*********",
                         disabled: true)
@@ -315,7 +303,7 @@ struct SwiftUiView: View {
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
                         textFieldType: .currency,
-                        text: $currency,
+                        text: $disabledField,
                         label: "Currency",
                         placeholder: "$300.000,00",
                         disabled: true,
@@ -328,7 +316,7 @@ struct SwiftUiView: View {
                         placeholder: "300.000,00")
                     EmeraldSwiftUiTextField(
                         textFieldType: .currency,
-                        text: $currencyNew,
+                        text: $disabledField,
                         label: "Currency",
                         placeholder: "300.000,00",
                         disabled: true)
@@ -346,7 +334,7 @@ struct SwiftUiView: View {
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
-                        text: $shortDate,
+                        text: $disabledField,
                         label: "Short Date",
                         placeholder: "12/2021",
                         disabled: true,
@@ -358,7 +346,7 @@ struct SwiftUiView: View {
                         label: "Short Date")
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
-                        text: $shortDateNew,
+                        text: $disabledField,
                         label: "Short Date",
                         disabled: true)
                 }
@@ -375,7 +363,7 @@ struct SwiftUiView: View {
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
-                        text: $longDate,
+                        text: $disabledField,
                         label: "Long Date",
                         placeholder: "12/12/2021",
                         disabled: true,
@@ -387,7 +375,7 @@ struct SwiftUiView: View {
                         label: "Long Date")
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
-                        text: $longDateNew,
+                        text: $disabledField,
                         label: "Long Date",
                         disabled: true)
                 }
@@ -402,7 +390,7 @@ struct SwiftUiView: View {
                         helperText: "this is a helper text",
                         useLegacy: false)
                     EmeraldSwiftUiTextView(
-                        text: $textView,
+                        text: $disabledField,
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
                         disabled: true,
@@ -414,7 +402,7 @@ struct SwiftUiView: View {
                         placeholder: "placeholder",
                         helperText: "this is a helper text")
                     EmeraldSwiftUiTextView(
-                        text: $textViewNew,
+                        text: $disabledField,
                         label: "Text View",
                         placeholder: "placeholder",
                         helperText: "this is a helper text",

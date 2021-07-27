@@ -27,7 +27,7 @@ struct TextViewSwiftUi: UIViewRepresentable {
         textView.isScrollEnabled = true
         textView.isEditable = !disabled
         textView.isUserInteractionEnabled = !disabled
-        textView.backgroundColor = UIColor.white
+        textView.backgroundColor = UIColor.clear
         let padding = textView.textContainer.lineFragmentPadding
         textView.textContainerInset =  UIEdgeInsets(
             top: 0,

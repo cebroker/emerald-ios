@@ -23,7 +23,7 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
         let textField = UITextField()
         textField.delegate = context.coordinator
         textField.isUserInteractionEnabled = true
-        textField.backgroundColor = UIColor.white
+        textField.backgroundColor = .clear
         textField.placeholder = placeholder
         textField.isSecureTextEntry = true
         textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)

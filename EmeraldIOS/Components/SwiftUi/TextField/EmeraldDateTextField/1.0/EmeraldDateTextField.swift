@@ -154,7 +154,6 @@ struct EmeraldDateTextField: View, TextFormatter {
         .padding(
             .bottom,
             Constants.EmeraldSwiftUiTextField.bottomContentPadding)
-        .background(Color.white)
     }
     
     func formatText(_ text:String) {

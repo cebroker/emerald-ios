@@ -175,7 +175,6 @@ public struct EmeraldSecureTextField: View {
         .padding(
             .bottom,
             Constants.EmeraldSwiftUiTextField.bottomContentPadding)
-        .background(Constants.EmeraldSwiftUiTextField.whiteColor)
     }
 }
 

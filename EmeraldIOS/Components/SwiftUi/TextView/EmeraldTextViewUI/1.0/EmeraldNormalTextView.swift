@@ -107,7 +107,6 @@ public struct EmeraldNormalTextView: View {
         .fixedSize(
             horizontal: false,
             vertical: true)
-        .background(Constants.EmeraldSwiftUiTextField.whiteColor)
     }
 }
 

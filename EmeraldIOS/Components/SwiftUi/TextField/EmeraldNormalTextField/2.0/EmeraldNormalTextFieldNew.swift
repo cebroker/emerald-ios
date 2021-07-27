@@ -134,7 +134,6 @@ public struct EmeraldNormalTextFieldNew: View {
         .padding(
             .bottom,
             Constants.EmeraldSwiftUiTextField.bottomContentPadding)
-        .background(Constants.EmeraldSwiftUiTextField.whiteColor)
     }
 }
 
