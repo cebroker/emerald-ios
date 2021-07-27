@@ -100,37 +100,37 @@ struct SwiftUiView: View {
                 .font(.title)
                 .foregroundColor(.red)
             Spacer()
-            EmeraldSwiftUIButtonView(
+            EmeraldSwiftUIButton(
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .plain)
-            EmeraldSwiftUIButtonView(
+            EmeraldSwiftUIButton(
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primary)
-            EmeraldSwiftUIButtonView(
+            EmeraldSwiftUIButton(
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
-                isHighlighted: .constant(true),
+                isHighlighted: .constant(false),
                 themeStyle: .primarySuccess)
-            EmeraldSwiftUIButtonView(
+            EmeraldSwiftUIButton(
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primaryWarning)
-            EmeraldSwiftUIButtonView(
+            EmeraldSwiftUIButton(
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primaryError)
-            EmeraldSwiftUIButtonView(
+            EmeraldSwiftUIButton(
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primarySmall)
-            EmeraldSwiftUIButtonView(
+            EmeraldSwiftUIButton(
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
