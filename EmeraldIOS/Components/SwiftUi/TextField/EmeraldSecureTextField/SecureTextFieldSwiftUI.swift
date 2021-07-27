@@ -11,7 +11,8 @@ import SwiftUI
 @available(iOS 13.0.0, *)
 struct SecureTextFieldSwiftUI: UIViewRepresentable {
     
-    var placeholder:String = ""
+    @State(initialValue: "") var placeholder: String
+    @State(initialValue: false) var focused: Bool
     @Binding var text: String
     var onEditingChanged: (Bool) -> Void
     
@@ -32,6 +33,9 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
     
     func updateUIView(_ uiView: UITextField, context: Context) {
         uiView.text = text
+        if focused {
+            uiView.becomeFirstResponder()
+        }
     }
     
     class Coordinator : NSObject, UITextFieldDelegate {
@@ -55,6 +59,11 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
         func textFieldDidEndEditing(_ textField: UITextField) {
             parent.onEditingChanged(false)
         }
+        
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
     }
 }
 
@@ -66,9 +75,10 @@ struct SecureTextFieldSwiftUI_Previews: PreviewProvider {
     
     struct PreviewWrapper: View {
         @State(initialValue: "") var name: String
+        @State(initialValue: "") var placeholder: String
         
         var body: some View {
-            SecureTextFieldSwiftUI(placeholder: "", text: $name) { _ in }
+            SecureTextFieldSwiftUI(placeholder: _placeholder, text: $name) { _ in }
         }
     }
 }

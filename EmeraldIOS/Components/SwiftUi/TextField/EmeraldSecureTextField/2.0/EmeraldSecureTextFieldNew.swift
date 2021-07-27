@@ -15,6 +15,7 @@ public struct EmeraldSecureTextFieldNew: View {
     @State(initialValue: false) var focused: Bool
     var label: String = ""
     var placeholder: String = ""
+    @State(initialValue: "") var placeholderState: String
     var accessibility: String = ""
     var helperText: String? = nil
     var errorText: String? = nil
@@ -38,7 +39,7 @@ public struct EmeraldSecureTextFieldNew: View {
                 keyboardType: keyboardType)
         } else {
             SecureTextFieldSwiftUI(
-                placeholder: placeholder,
+                placeholder: _placeholderState,
                 text: $text) {
                 self.focused = $0
             }
@@ -172,6 +173,7 @@ public struct EmeraldSecureTextFieldNew: View {
             .bottom,
             Constants.EmeraldSwiftUiTextField.bottomContentPadding)
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            self.placeholderState = self.focused ? "" : placeholder
             self.focused = false
         }
     }
