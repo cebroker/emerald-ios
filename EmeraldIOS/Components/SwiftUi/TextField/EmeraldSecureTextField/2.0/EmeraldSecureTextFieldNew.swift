@@ -171,6 +171,9 @@ public struct EmeraldSecureTextFieldNew: View {
         .padding(
             .bottom,
             Constants.EmeraldSwiftUiTextField.bottomContentPadding)
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            self.focused = false
+        }
     }
 }
 
