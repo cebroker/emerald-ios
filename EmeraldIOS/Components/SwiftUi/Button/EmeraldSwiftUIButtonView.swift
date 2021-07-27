@@ -18,7 +18,7 @@ struct EmeraldSwiftUIButtonView: View {
     private struct InnerConstant {
         static let minOpacity = 0.65
         static let maxOpacity = 1.0
-        static let buttonPadding = CGFloat(integerLiteral: 6)
+        static let buttonPadding = CGFloat(integerLiteral: 12)
         static let minWidth = CGFloat(integerLiteral: 100)
     }
     
@@ -41,12 +41,14 @@ struct EmeraldSwiftUIButtonView: View {
     
     public var body: some View {
         Button {
-            delegate?.didTapButton()
+            if isEnabled {
+                delegate?.didTapButton()
+            }
+            
         } label: {
             Text(buttonName)
                 .padding(InnerConstant.buttonPadding)
                 .foregroundColor(themeStyle.highlightedTitleColor)
-                .padding(InnerConstant.buttonPadding)
         }
         .frame(minWidth: InnerConstant.minWidth)
         .font(themeStyle.font)
