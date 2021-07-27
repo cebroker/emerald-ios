@@ -100,11 +100,19 @@ struct SwiftUiView: View {
                 .font(.title)
                 .foregroundColor(.red)
             Spacer()
-            EmeraldSwiftUIButton(
-                buttonName: $buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .plain)
+            VStack {
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .plain)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .plainPrimary)
+            }
+            VStack {
             EmeraldSwiftUIButton(
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
@@ -135,6 +143,46 @@ struct SwiftUiView: View {
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primaryLarge)
+            }
+            VStack {
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .secondary)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .secondarySmall)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .secondaryLarge)
+            }
+            VStack {
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .link)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .linkButton)
+            }
+            EmeraldSwiftUIButton(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(false),
+                themeStyle: .witheAndBlueColor)
+            EmeraldSwiftUIButton(
+                buttonName: $buttonName,
+                isEnabled: .constant(true),
+                isHighlighted: .constant(false),
+                themeStyle: .warning)
         }
     }
     
