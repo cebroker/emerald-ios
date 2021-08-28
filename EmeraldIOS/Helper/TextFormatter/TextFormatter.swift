@@ -16,6 +16,8 @@ public enum TextFormat: Int {
     case shortDate
     case longDate
     case alternatePhone
+    case phoneCountries
+    case zipCountries
     case ssn
 }
 
@@ -47,6 +49,10 @@ public extension TextFormatter {
             return formatAlternatePhone(phoneNumber: resource)
         case .ssn:
             return formatSSN(ssnNumber: resource)
+        case .phoneCountries:
+            return formatCountriesPhone(phoneNumber: resource)
+        case .zipCountries:
+            return formatZipCountries(with: resource)
         default:
             return resource
         }
@@ -120,6 +126,23 @@ public extension TextFormatter {
             }
             return result + String(individualNumber)
         }
+    }
+    
+    private func formatCountriesPhone(phoneNumber: String) -> String {
+        var numberWithPlus: String = phoneNumber
+        
+        let characters: Set<Character> = [",", "*", ";", "#"]
+        numberWithPlus.removeAll(
+            where: {
+                characters.contains($0)
+            })
+        
+        return numberWithPlus
+    }
+    
+    private func formatZipCountries(with: String) -> String {
+        let zipOnly = with.components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
+        return zipOnly
     }
     
     private func formatSSN(ssnNumber: String) -> String {
