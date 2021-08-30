@@ -8,7 +8,7 @@
 public enum EmeraldRegexFormatType {
     case email
     case zip
-    case zipCountries
+    case internacionalZip
     case phone
     case alternatePhone
     case npi
@@ -17,7 +17,7 @@ public enum EmeraldRegexFormatType {
     case lowerCased
     case numbers
     case currency
-    case phoneCountries
+    case internationalPhone
     case custom(String)
     case any
     
@@ -62,8 +62,8 @@ public enum EmeraldRegexFormatType {
             return Constants.Regex.email
         case .zip:
             return Constants.Regex.zip
-        case .zipCountries:
-            return Constants.Regex.zipCountries
+        case .internacionalZip:
+            return Constants.Regex.internationalZip
         case .phone:
             return Constants.Regex.phone
         case .alternatePhone:
@@ -82,8 +82,8 @@ public enum EmeraldRegexFormatType {
             return Constants.Regex.currency
         case .any:
             return Constants.Regex.any
-        case .phoneCountries:
-            return Constants.Regex.phoneCountries
+        case .internationalPhone:
+            return Constants.Regex.internationalPhone
         case .custom(let regex):
             return regex
         }
