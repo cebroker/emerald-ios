@@ -46,6 +46,7 @@ struct Constants {
         static let phone = "^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}$"
         static let alternatePhone = "^[(]{1}[0-9]{3}[)]{1}\\s{1}[0-9]{3}[-]{1}[0-9]{4}$"
         static let zip = "^[0-9]{5}$"
+        static let internationalZip = "^[a-zA-Z0-9]{3,10}$"
         static let visa = "^[A-Z0-9a-z]*$"
         static let email = "^[a-zA-Z0-9!#$%&'*+=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])*$"
         static let any = "(.*?)"
@@ -53,6 +54,7 @@ struct Constants {
         static let lowerCased = "[a-z]"
         static let numbers = "^[0-9]*$"
         static let currency = "^\\$([0-9]\\d{0,2}(,\\d{3})*|([1-9]\\d*))(\\.\\d{2})?$"
+        static let internationalPhone = "^[\\+]?\\d{7,20}$"
     }
 
     struct TextFormating {
