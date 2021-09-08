@@ -34,7 +34,6 @@ public class EmeraldTheme {
     public static let clearColor: UIColor = .clear
     
     // MARK: General Colors
-
     public static let primaryColor = blueColor
     public static let secondaryColor = UIColor(named: "secondaryColor", in: bundle, compatibleWith: nil)!
     public static let backgroundColor = UIColor(named: "backgroundColor", in: bundle, compatibleWith: nil)!
@@ -59,7 +58,6 @@ public class EmeraldTheme {
     public static let errorColor = redColor
     public static let chipDefaultColor = UIColor(named: "chipDefaultColor", in: bundle, compatibleWith: nil)!
     public static let warningBackgroundColor = UIColor(named: "warningColor", in: bundle, compatibleWith: nil)!
-
 
     // MARK: App Colors
     public static let mainNavigationTintColor = whiteColor

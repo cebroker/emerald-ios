@@ -30,9 +30,9 @@ public enum EmeraldSwiftUiButtonStyle: String {
     var backgroundColor: Color? {
         switch self {
         case .primary, .primarySmall, .primaryLarge:
-            return EmeraldTheme.primaryButtonColor.suColor
+            return .cPrimaryButton
         case .secondary, .secondarySmall, .secondaryLarge:
-            return EmeraldTheme.secondaryButtonColor.suColor
+            return .cSecondaryButton
         case .primarySuccess:
             return EmeraldTheme.successColor.suColor
         case .primaryWarning:

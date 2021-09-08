@@ -36,6 +36,44 @@ struct SwiftUiView: View {
     @State(initialValue: nil) var errorText: String?
     @State(initialValue: nil) var errorTextNew: String?
     
+    
+    // MARK: ViewBuilder
+    @ViewBuilder
+    var emeraldTextByStory: some View {
+        VStack {
+            Text("Text in SwiftUI")
+                .bigTitleFont(color: .cRed)
+            VStack(alignment: .center, spacing: 5) {
+                Text(mainTitle)
+                    .bigTitleFont()
+                Text(subTitle)
+                    .titleFont()
+                Text(hello)
+                    .textFont()
+                Text(hello)
+                    .mediumTextFont()
+                Text(hello)
+                    .smallTextFont()
+                Text(link)
+                    .textFont(color: .cBlue, decoration: .Bold)
+            }
+            VStack(alignment: .center, spacing: 5) {
+                Text(bodyText)
+                    .lineLimit(2)
+                    .textFont(decoration: .Light)
+                Text(bodyText)
+                    .lineLimit(2)
+                    .textFont()
+                Text(bodyText)
+                    .lineLimit(2)
+                    .textFont(decoration: .SemiBold)
+                Text(bodyText)
+                    .lineLimit(2)
+                    .textFont(decoration: .Bold)
+            }
+        }
+    }
+    
     // MARK: ViewBuilder
     @ViewBuilder
     var emeraldLabelByStory: some View {
@@ -113,36 +151,36 @@ struct SwiftUiView: View {
                     themeStyle: .plainPrimary)
             }
             VStack {
-            EmeraldSwiftUIButton(
-                buttonName: $buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primary)
-            EmeraldSwiftUIButton(
-                buttonName: $buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primarySuccess)
-            EmeraldSwiftUIButton(
-                buttonName: $buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryWarning)
-            EmeraldSwiftUIButton(
-                buttonName: $buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryError)
-            EmeraldSwiftUIButton(
-                buttonName: $buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primarySmall)
-            EmeraldSwiftUIButton(
-                buttonName: $buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryLarge)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primary)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primarySuccess)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryWarning)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryError)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primarySmall)
+                EmeraldSwiftUIButton(
+                    buttonName: $buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryLarge)
             }
             VStack {
                 EmeraldSwiftUIButton(
@@ -415,17 +453,20 @@ struct SwiftUiView: View {
     // MARK: Body
     var body: some View {
         ScrollView {
+            emeraldTextByStory
+                .padding()
+            Divider()
             emeraldLabelByStory
-            .padding()
+                .padding()
             Divider()
             emeraldChipViewByStory
-            .padding()
+                .padding()
             Divider()
             emeraldButtonsView
-            .padding()
+                .padding()
             Divider()
             emeraldTextFieldsView
-            .padding()
+                .padding()
         }
     }
     
