@@ -25,8 +25,8 @@ public struct LabelTextFieldCounter: View {
                     weight: .semibold).suFont)
             .foregroundColor(
                 disabled ?
-                    Constants.EmeraldSwiftUiTextField.textColor.opacity(0.5) :
-                    Constants.EmeraldSwiftUiTextField.textColor)
+                    Constants.EmeraldSwiftUiTextField.textColor.suColor.opacity(0.5) :
+                    Constants.EmeraldSwiftUiTextField.textColor.suColor)
             .lineLimit(1)
     }
 }

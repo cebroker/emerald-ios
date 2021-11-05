@@ -140,11 +140,45 @@ public struct EmeraldNormalTextViewNew: View {
         .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
     }
     
+    var labelPlaceholderContent: some View {
+        HStack {
+            Text(placeholder)
+                .font(Typography(
+                        size: .h5,
+                        weight: .semibold).suFont)
+                .foregroundColor(Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor)
+            Spacer()
+        }
+        .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
+        .padding(
+            .trailing,
+            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
+        .padding(
+            .leading,
+            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
+        .offset(
+            x: .zero,
+            y: -(Constants.EmeraldSwiftUiTextField.topContentSpacing +
+                    Constants.EmeraldSwiftUiTextField.topContentSpacing / 2))
+        .animation(.spring(
+                    response: 0.2,
+                    dampingFraction: 1,
+                    blendDuration: .zero))
+    }
+    
     public var body: some View {
         ZStack(alignment: .topLeading) {
             VStack(alignment: .leading) {
                 ZStack {
                     textView
+                    if text.isEmpty {
+                        labelPlaceholderContent
+                            .onTapGesture {
+                                if !disabled {
+                                    self.focused = true
+                                }
+                            }
+                    }
                     clearButtonContent
                 }
                 helperTextContent

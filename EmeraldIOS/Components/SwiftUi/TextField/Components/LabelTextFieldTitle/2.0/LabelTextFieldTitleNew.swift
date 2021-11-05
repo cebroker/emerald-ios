@@ -29,12 +29,12 @@ struct LabelTextFieldTitleNew: View {
                     weight: .semibold).suFont)
             .foregroundColor(
                 errorText != nil ?
-                    Constants.EmeraldSwiftUiTextField.errorColor :
+                    Constants.EmeraldSwiftUiTextField.errorColor.suColor :
                     (focused ?
-                        Constants.EmeraldSwiftUiTextField.focusColor :
+                        Constants.EmeraldSwiftUiTextField.focusColor.suColor :
                         (disabled ?
-                            Constants.EmeraldSwiftUiTextField.placeHolderColor.opacity(0.5) :
-                            Constants.EmeraldSwiftUiTextField.placeHolderColor)))
+                            Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor.opacity(0.5) :
+                            Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor)))
             .lineLimit(1)
             .offset(
                 x: Constants.EmeraldSwiftUiTextField.leadingContentSpacing -

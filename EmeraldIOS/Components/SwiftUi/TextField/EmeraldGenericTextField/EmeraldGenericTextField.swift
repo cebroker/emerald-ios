@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 @available(iOS 13.0.0, *)
 public struct EmeraldGenericTextField: View {
@@ -35,7 +36,7 @@ public struct EmeraldGenericTextField: View {
             .font(Typography(
                     size: .h5,
                     weight: .semibold).suFont)
-            .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
+            .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor.suColor)
             .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)
             .introspectTextField { textField in
                 if focused {

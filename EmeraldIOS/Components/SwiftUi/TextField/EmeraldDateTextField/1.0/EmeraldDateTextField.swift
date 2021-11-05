@@ -67,8 +67,8 @@ struct EmeraldDateTextField: View, TextFormatter {
                     .resizable()
                     .foregroundColor(
                         disabled ?
-                            Constants.EmeraldSwiftUiTextField.disabledColor :
-                            Constants.EmeraldSwiftUiTextField.textColor)
+                            Constants.EmeraldSwiftUiTextField.disabledColor.suColor :
+                            Constants.EmeraldSwiftUiTextField.textColor.suColor)
             }
             .frame(
                 width: Constants.EmeraldSwiftUiTextField.widthIcon,

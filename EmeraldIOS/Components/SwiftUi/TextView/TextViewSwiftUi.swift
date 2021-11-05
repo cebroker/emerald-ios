@@ -13,9 +13,7 @@ struct TextViewSwiftUi: UIViewRepresentable {
     
     @Binding var text: String
     var disabled: Bool = false
-    var placeHolder: String = ""
     var onEditingChanged: (Bool) -> Void
-    var placeholderLabel: UILabel = UILabel()
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -33,22 +31,7 @@ struct TextViewSwiftUi: UIViewRepresentable {
             left: -padding,
             bottom: .zero,
             right: -padding)
-        setPlaceHolderLabel(for: textView)
         return textView
-    }
-    
-    func setPlaceHolderLabel(for textView:UITextView) {
-        placeholderLabel.text = placeHolder
-        placeholderLabel.sizeToFit()
-        placeholderLabel.font = Typography(
-            size: .h5,
-            weight: .semibold).uiFont
-        textView.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(
-            x: .zero,
-            y: -4)
-        placeholderLabel.textColor = EmeraldTheme.placeholderColor
-        placeholderLabel.isHidden = !text.isEmpty
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
@@ -72,7 +55,6 @@ struct TextViewSwiftUi: UIViewRepresentable {
         
         func textViewDidChange(_ textView: UITextView) {
             parent.text = textView.text
-            parent.placeholderLabel.isHidden = !textView.text.isEmpty
         }
         
         func textViewDidBeginEditing(_ textView: UITextView) {
@@ -95,9 +77,7 @@ struct TextViewSwiftUi_Previews: PreviewProvider {
         @State(initialValue: "") var name: String
         
         var body: some View {
-            TextViewSwiftUi(
-                text: $name,
-                placeHolder: "") { _ in }
+            TextViewSwiftUi(text: $name) { _ in }
         }
     }
 }

@@ -107,8 +107,8 @@ public struct EmeraldSecureTextField: View {
                 size: .h4,
                 weight: .semibold).suFont)
         .foregroundColor(disabled ?
-                            Constants.EmeraldSwiftUiTextField.disabledColor :
-                            Constants.EmeraldSwiftUiTextField.textColor)
+                            Constants.EmeraldSwiftUiTextField.disabledColor.suColor :
+                            Constants.EmeraldSwiftUiTextField.textColor.suColor)
     }
     
     var labelFieldContent: some View {

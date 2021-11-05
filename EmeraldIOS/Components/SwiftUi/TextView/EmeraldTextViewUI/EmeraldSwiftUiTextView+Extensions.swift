@@ -21,13 +21,13 @@ extension EmeraldSwiftUiTextView {
     
     static func getBorderColor(errorText: String?, focused: Bool, disabled: Bool) -> Color {
         var borderColor = errorText != nil ?
-                            Constants.EmeraldSwiftUiTextField.errorColor :
-                            Constants.EmeraldSwiftUiTextField.focusColor
+                            Constants.EmeraldSwiftUiTextField.errorColor.suColor :
+                            Constants.EmeraldSwiftUiTextField.focusColor.suColor
         
         if errorText == nil {
             borderColor = focused ?
                 borderColor :
-                Constants.EmeraldSwiftUiTextField.placeHolderColor
+                Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor
             
             borderColor = disabled ?
                 borderColor.opacity(0.5) :

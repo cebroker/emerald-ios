@@ -72,6 +72,7 @@ public struct EmeraldSwiftUiTextView: View {
             EmeraldNormalTextView(
                 text: $text,
                 focused: _focused,
+                label: label,
                 placeholder: placeholder,
                 accessibility: accessibility,
                 errorText: errorText,

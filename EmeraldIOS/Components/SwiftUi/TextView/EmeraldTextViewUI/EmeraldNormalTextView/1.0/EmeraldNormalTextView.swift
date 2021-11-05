@@ -13,6 +13,7 @@ public struct EmeraldNormalTextView: View {
     
     @Binding public var text: String
     @State public var focused: Bool
+    public var label: String
     public var placeholder: String
     public var accessibility: String
     public var errorText: String?
@@ -22,6 +23,7 @@ public struct EmeraldNormalTextView: View {
     
     public init(text: Binding<String>,
                 focused: State<Bool> = State(initialValue: false),
+                label: String = "",
                 placeholder: String = "",
                 accessibility: String = "",
                 errorText: String? = nil,
@@ -30,6 +32,7 @@ public struct EmeraldNormalTextView: View {
                 keyboardType: UIKeyboardType = .default) {
         self._text = text
         self._focused = focused
+        self.label = label
         self.placeholder = placeholder
         self.accessibility = accessibility
         self.errorText = errorText
@@ -43,7 +46,6 @@ public struct EmeraldNormalTextView: View {
         EmeraldGenericTextView(
             text: $text,
             focused: _focused,
-            placeholder: placeholder,
             accessibility: accessibility,
             disabled: disabled,
             keyboardType: keyboardType)
@@ -60,7 +62,8 @@ public struct EmeraldNormalTextView: View {
                 Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
             .padding(
                 .top,
-                Constants.EmeraldSwiftUiTextField.topContentSpacing)
+                Constants.EmeraldSwiftUiTextField.topContentSpacing +
+                    Constants.EmeraldSwiftUiTextField.topContentSpacing * 0.85)
             .padding(
                 .bottom,
                 Constants.EmeraldSwiftUiTextField.bottomContentSpacing)
@@ -86,9 +89,73 @@ public struct EmeraldNormalTextView: View {
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
     }
     
+    var labelFieldContent: some View {
+        HStack {
+            LabelTextFieldTitle(
+                label: label,
+                text: text,
+                errorText: errorText,
+                focused: $focused)
+            Spacer()
+        }
+        .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
+        .padding(
+            .trailing,
+            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
+        .padding(
+            .leading,
+            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
+        .offset(
+            x: .zero,
+            y: focused || !$text.wrappedValue.isEmpty ?
+                -(Constants.EmeraldSwiftUiTextField.heightLabel * 2) :
+                -(Constants.EmeraldSwiftUiTextField.topContentSpacing +
+                    Constants.EmeraldSwiftUiTextField.topContentSpacing / 2))
+        .animation(.spring(
+                    response: 0.2,
+                    dampingFraction: 1,
+                    blendDuration: .zero))
+    }
+    
+    var labelPlaceholderContent: some View {
+        HStack {
+            Text(placeholder)
+                .font(Typography(
+                        size: .h5,
+                        weight: .semibold).suFont)
+                .foregroundColor(Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor)
+            Spacer()
+        }
+        .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
+        .padding(
+            .trailing,
+            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
+        .padding(
+            .leading,
+            Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
+        .offset(
+            x: .zero,
+            y: -Constants.EmeraldSwiftUiTextField.topContentSpacing)
+        .animation(.spring(
+                    response: 0.2,
+                    dampingFraction: 1,
+                    blendDuration: .zero))
+    }
+    
     public var body: some View {
         VStack(alignment: .leading) {
-            textView
+            ZStack {
+                textView
+                labelFieldContent
+                    .onTapGesture {
+                        if !disabled {
+                            self.focused = true
+                        }
+                    }
+                if focused, text.isEmpty {
+                    labelPlaceholderContent
+                }
+            }
             errorTextContent
         }
         .padding(

@@ -94,7 +94,7 @@ struct SwiftUiView: View {
     @ViewBuilder
     var emeraldButtonsView: some View {
         VStack {
-            Text("Buttons")
+            /*Text("Buttons")
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
                 .font(.title)
@@ -182,14 +182,14 @@ struct SwiftUiView: View {
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .warning)
+                themeStyle: .warning)*/
         }
     }
     
     @ViewBuilder
     var emeraldTextFieldsView: some View {
         VStack {
-            Text("TextFields")
+            /*Text("TextFields")
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
                 .font(.title)
@@ -210,7 +210,9 @@ struct SwiftUiView: View {
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         text: $normal,
-                        label: "Normal")
+                        label: "Normal",
+                        maxLength: 10,
+                        clearable: true)
                     EmeraldSwiftUiTextField(
                         text: $disabledField,
                         label: "Normal",
@@ -380,17 +382,19 @@ struct SwiftUiView: View {
                         disabled: true)
                 }
                 Divider()
-            }
+            }*/
             VStack {
                 VStack {
                     Text("V 1.0")
                     EmeraldSwiftUiTextView(
                         text: $textView,
+                        label: "Text View",
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
                         useLegacy: false)
                     EmeraldSwiftUiTextView(
                         text: $disabledField,
+                        label: "Text View",
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
                         disabled: true,
@@ -400,7 +404,8 @@ struct SwiftUiView: View {
                         text: $textViewNew,
                         label: "Text View",
                         placeholder: "placeholder",
-                        helperText: "this is a helper text")
+                        helperText: "this is a helper text",
+                        clearable: true)
                     EmeraldSwiftUiTextView(
                         text: $disabledField,
                         label: "Text View",

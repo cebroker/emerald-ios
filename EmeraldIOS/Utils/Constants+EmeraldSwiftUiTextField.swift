@@ -28,13 +28,13 @@ extension Constants {
         static let widthIcon:CGFloat = 20
         static let maximumDateLength = 10
         static let maximumShortDateLength = 7
-        static let errorColor: Color = ColorPallete.error.uiColor.suColor
-        static let focusColor: Color = ColorPallete.blue.uiColor.suColor
-        static let textColor: Color = ColorPallete.black.uiColor.suColor
-        static let borderColor: Color = ColorPallete.border.uiColor.suColor
-        static let whiteColor: Color = ColorPallete.white.uiColor.suColor
-        static let disabledColor: Color = ColorPallete.extraLightGray.uiColor.suColor
-        static let placeHolderColor: Color = EmeraldTheme.placeholderColor.suColor
+        static let errorColor: UIColor = ColorPallete.error.uiColor
+        static let focusColor: UIColor = ColorPallete.blue.uiColor
+        static let textColor: UIColor = ColorPallete.black.uiColor
+        static let borderColor: UIColor = ColorPallete.border.uiColor
+        static let whiteColor: UIColor = ColorPallete.white.uiColor
+        static let disabledColor: UIColor = ColorPallete.extraLightGray.uiColor
+        static let placeHolderColor: UIColor = EmeraldTheme.placeholderColor
         static let hide: String = "hide"
         static let show: String = "show"
     }

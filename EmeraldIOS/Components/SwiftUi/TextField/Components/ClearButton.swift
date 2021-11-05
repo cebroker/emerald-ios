@@ -21,7 +21,7 @@ public struct ClearButton: View {
         }) {
             Image(systemName: Constants.Icons.systemXIcon)
                 .resizable()
-                .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
+                .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor.suColor)
         }
         .clipShape(Circle())
         .frame(

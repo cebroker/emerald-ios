@@ -13,7 +13,6 @@ public struct EmeraldGenericTextView: View {
     
     @Binding public var text: String
     @State public var focused: Bool
-    public var placeholder: String
     public var accessibility: String
     public var disabled: Bool
     public var keyboardType: UIKeyboardType
@@ -26,7 +25,6 @@ public struct EmeraldGenericTextView: View {
                 keyboardType: UIKeyboardType = .default) {
         self._text = text
         self._focused = focused
-        self.placeholder = placeholder
         self.accessibility = accessibility
         self.disabled = disabled
         self.keyboardType = keyboardType
@@ -35,8 +33,7 @@ public struct EmeraldGenericTextView: View {
     public var body: some View {
         TextViewSwiftUi(
             text: $text,
-            disabled: disabled,
-            placeHolder: placeholder) {
+            disabled: disabled) {
             self.focused = $0
         }
         .keyboardType(keyboardType)
@@ -44,7 +41,7 @@ public struct EmeraldGenericTextView: View {
         .font(Typography(
                 size: .h5,
                 weight: .semibold).suFont)
-        .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor)
+        .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor.suColor)
         .frame(height: Constants.EmeraldSwiftUiTextField.textAreaHeight)
         .introspectTextView { textView in
             if focused {
@@ -63,11 +60,11 @@ struct EmeraldGenericTextView_Previews: PreviewProvider {
     
     struct PreviewWrapper: View {
         @State(initialValue: "") var name: String
+        @State(initialValue: true) var canShowPlaceholder: Bool
         
         var body: some View {
             EmeraldGenericTextView(
                 text: $name,
-                placeholder: "placeholder",
                 accessibility: "name")
         }
     }

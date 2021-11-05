@@ -30,10 +30,10 @@ public struct LabelHelperText: View {
                     weight: .semibold).suFont)
             .foregroundColor(
                 errorText != nil ?
-                    Constants.EmeraldSwiftUiTextField.errorColor :
+                    Constants.EmeraldSwiftUiTextField.errorColor.suColor :
                     (disabled ?
-                        Constants.EmeraldSwiftUiTextField.textColor.opacity(0.5) :
-                        Constants.EmeraldSwiftUiTextField.textColor))
+                        Constants.EmeraldSwiftUiTextField.textColor.suColor.opacity(0.5) :
+                        Constants.EmeraldSwiftUiTextField.textColor.suColor))
     }
 }
 
