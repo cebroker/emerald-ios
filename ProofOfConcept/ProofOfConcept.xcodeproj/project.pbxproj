@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		478BBAFB2734C9FE00B6BC16 /* Pods_ProofOfConcept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2428DF48A5982A37DF7B8651 /* Pods_ProofOfConcept.framework */; };
 		47AE510F26B050CB000CEB31 /* SwiftUiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AE510D26B050CB000CEB31 /* SwiftUiViewController.swift */; };
 		47AE511026B050CB000CEB31 /* SwiftUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AE510E26B050CB000CEB31 /* SwiftUiView.swift */; };
 		492773CC233912A6007DB941 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492773CB233912A6007DB941 /* BarChartViewController.swift */; };
@@ -16,7 +17,6 @@
 		9BC82E4D224278FB007BC5BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E4C224278FB007BC5BD /* Assets.xcassets */; };
 		9BC82E50224278FB007BC5BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E4E224278FB007BC5BD /* LaunchScreen.storyboard */; };
 		9BE1140F22720874007D1493 /* ProofOfConceptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E5A224278FB007BC5BD /* ProofOfConceptUITests.swift */; };
-		BC804448D9D233C4E39BC142 /* Pods_ProofOfConcept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2428DF48A5982A37DF7B8651 /* Pods_ProofOfConcept.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC804448D9D233C4E39BC142 /* Pods_ProofOfConcept.framework in Frameworks */,
+				478BBAFB2734C9FE00B6BC16 /* Pods_ProofOfConcept.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,13 +149,15 @@
 				9BC82E3E224278FA007BC5BD /* Sources */,
 				9BC82E3F224278FA007BC5BD /* Frameworks */,
 				9BC82E40224278FA007BC5BD /* Resources */,
-				C743AA344FF128A41F469B18 /* [CP] Embed Pods Frameworks */,
+				F28A750086052C0DBD6CE499 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ProofOfConcept;
+			packageProductDependencies = (
+			);
 			productName = ProofOfConcept;
 			productReference = 9BC82E42224278FA007BC5BD /* ProofOfConcept.app */;
 			productType = "com.apple.product-type.application";
@@ -206,6 +208,8 @@
 				Base,
 			);
 			mainGroup = 9BC82E39224278FA007BC5BD;
+			packageReferences = (
+			);
 			productRefGroup = 9BC82E43224278FA007BC5BD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,23 +241,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C743AA344FF128A41F469B18 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D79F6DD7932F1F5E95BEA46F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +261,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F28A750086052C0DBD6CE499 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

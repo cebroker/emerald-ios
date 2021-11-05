@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 @available(iOS 13.0.0, *)
 public struct EmeraldGenericTextView: View {

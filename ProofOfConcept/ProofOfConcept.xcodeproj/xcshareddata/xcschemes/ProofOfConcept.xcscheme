@@ -63,8 +63,7 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9BC82E41224278FA007BC5BD"
@@ -72,7 +71,7 @@
             BlueprintName = "ProofOfConcept"
             ReferencedContainer = "container:ProofOfConcept.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "OS_ACTIVITY_MODE"
@@ -87,16 +86,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9BC82E41224278FA007BC5BD"
-            BuildableName = "ProofOfConcept.app"
-            BlueprintName = "ProofOfConcept"
-            ReferencedContainer = "container:ProofOfConcept.xcodeproj">
+            BlueprintIdentifier = "9BE5A5452228813A004A59B9"
+            BuildableName = "EmeraldIOS.framework"
+            BlueprintName = "EmeraldIOS"
+            ReferencedContainer = "container:../EmeraldIOS.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
