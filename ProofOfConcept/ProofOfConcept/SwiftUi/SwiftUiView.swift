@@ -94,7 +94,7 @@ struct SwiftUiView: View {
     @ViewBuilder
     var emeraldButtonsView: some View {
         VStack {
-            /*Text("Buttons")
+            Text("Buttons")
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
                 .font(.title)
@@ -182,14 +182,14 @@ struct SwiftUiView: View {
                 buttonName: $buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .warning)*/
+                themeStyle: .warning)
         }
     }
     
     @ViewBuilder
     var emeraldTextFieldsView: some View {
         VStack {
-            /*Text("TextFields")
+            Text("TextFields")
                 .padding(.horizontal, 20)
                 .padding(.vertical, 5)
                 .font(.title)
@@ -382,7 +382,7 @@ struct SwiftUiView: View {
                         disabled: true)
                 }
                 Divider()
-            }*/
+            }
             VStack {
                 VStack {
                     Text("V 1.0")
