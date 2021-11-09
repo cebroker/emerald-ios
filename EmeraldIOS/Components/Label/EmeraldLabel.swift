@@ -15,7 +15,7 @@ public class EmeraldLabel: UILabel, EmeraldValidableType {
         }
     }
     
-    @IBInspectable public var themeColor: String = Color.text.IBInspectable {
+    @IBInspectable public var themeColor: String = ColorPallete.text.IBInspectable {
         didSet {
             applyTheme()
         }
@@ -33,7 +33,7 @@ public class EmeraldLabel: UILabel, EmeraldValidableType {
         }
     }
     
-    private var themeFont: Font? {
+    private var themeFont: Typography? {
         guard let fontSize = FontSize(rawValue: themeFontSize) else {
             return nil
         }
@@ -42,7 +42,7 @@ public class EmeraldLabel: UILabel, EmeraldValidableType {
             return nil
         }
         
-        return Font(size: fontSize, weight: fontWeight)
+        return Typography(size: fontSize, weight: fontWeight)
     }
     
     public override init(frame: CGRect) {
@@ -68,7 +68,7 @@ public class EmeraldLabel: UILabel, EmeraldValidableType {
     open func applyTheme() {
         let style = EmeraldLabelStyle(IBInspectable: themeStyle)
         if case .custom = style {
-            textColor = Color.uiColor(themeColor)
+            textColor = ColorPallete.uiColor(themeColor)
             font = themeFont?.uiFont
         } else {
             textColor = style.textColor

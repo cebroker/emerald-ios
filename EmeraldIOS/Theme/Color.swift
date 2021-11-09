@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum Color: String, Inspectable {
+public enum ColorPallete: String, Inspectable {
     case white
     case black
     case green
@@ -46,10 +46,13 @@ public enum Color: String, Inspectable {
     case progressNotCompleted
     case elevatedViewPrimary
     case elevatedViewSecondary
-    
+
     case headerImageBorderColor
     case headerImageColor
     case headerSubtitleColor
+
+    case pagerBackgroundColor
+    case chipDefaultColor
 
     var IBInspectable: String {
         return rawValue
@@ -137,12 +140,15 @@ public enum Color: String, Inspectable {
             return EmeraldTheme.headerImageColor
         case .headerSubtitleColor:
             return EmeraldTheme.headerSubtitleColor
-
+        case .pagerBackgroundColor:
+            return EmeraldTheme.pagerBackgroundColor
+        case .chipDefaultColor:
+            return EmeraldTheme.chipDefaultColor
         }
     }
 
     static func uiColor(_ IBInspectable: InspectableType) -> UIColor {
-        return Color(IBInspectable: IBInspectable).uiColor
+        return ColorPallete(IBInspectable: IBInspectable).uiColor
     }
 
     var cgColor: CGColor {
@@ -150,6 +156,6 @@ public enum Color: String, Inspectable {
     }
 
     static func cgColor(_ IBInspectable: InspectableType) -> CGColor {
-        return Color(IBInspectable: IBInspectable).cgColor
+        return ColorPallete(IBInspectable: IBInspectable).cgColor
     }
 }

@@ -22,7 +22,7 @@ public enum EmeraldTextFieldStyle: String, Inspectable {
     var font: UIFont? {
         switch self {
         case .formField, .custom:
-            return Font(size: .h5, weight: .semibold).uiFont
+            return Typography(size: .h5, weight: .semibold).uiFont
         }
     }
 

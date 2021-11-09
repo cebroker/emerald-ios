@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47AE510F26B050CB000CEB31 /* SwiftUiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AE510D26B050CB000CEB31 /* SwiftUiViewController.swift */; };
+		47AE511026B050CB000CEB31 /* SwiftUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AE510E26B050CB000CEB31 /* SwiftUiView.swift */; };
 		492773CC233912A6007DB941 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492773CB233912A6007DB941 /* BarChartViewController.swift */; };
 		9BC82E46224278FA007BC5BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E45224278FA007BC5BD /* AppDelegate.swift */; };
 		9BC82E48224278FA007BC5BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E47224278FA007BC5BD /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		2428DF48A5982A37DF7B8651 /* Pods_ProofOfConcept.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProofOfConcept.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		329203E8E059CF4596AD782C /* Pods-ProofOfConcept.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofOfConcept.debug.xcconfig"; path = "Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept.debug.xcconfig"; sourceTree = "<group>"; };
+		47AE510D26B050CB000CEB31 /* SwiftUiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUiViewController.swift; sourceTree = "<group>"; };
+		47AE510E26B050CB000CEB31 /* SwiftUiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUiView.swift; sourceTree = "<group>"; };
 		492773CB233912A6007DB941 /* BarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
 		794B0674D7D91B5D6EF7111C /* Pods-ProofOfConcept.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProofOfConcept.release.xcconfig"; path = "Target Support Files/Pods-ProofOfConcept/Pods-ProofOfConcept.release.xcconfig"; sourceTree = "<group>"; };
 		9BC82E42224278FA007BC5BD /* ProofOfConcept.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProofOfConcept.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,7 @@
 		9BC82E44224278FA007BC5BD /* ProofOfConcept */ = {
 			isa = PBXGroup;
 			children = (
+				B4781ED126AB7230009638B8 /* SwiftUi */,
 				9BC82E45224278FA007BC5BD /* AppDelegate.swift */,
 				9BC82E47224278FA007BC5BD /* ViewController.swift */,
 				9BC82E49224278FA007BC5BD /* Main.storyboard */,
@@ -122,6 +127,15 @@
 				9BC82E5C224278FB007BC5BD /* Info.plist */,
 			);
 			path = ProofOfConceptUITests;
+			sourceTree = "<group>";
+		};
+		B4781ED126AB7230009638B8 /* SwiftUi */ = {
+			isa = PBXGroup;
+			children = (
+				47AE510E26B050CB000CEB31 /* SwiftUiView.swift */,
+				47AE510D26B050CB000CEB31 /* SwiftUiViewController.swift */,
+			);
+			path = SwiftUi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +284,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC82E48224278FA007BC5BD /* ViewController.swift in Sources */,
+				47AE510F26B050CB000CEB31 /* SwiftUiViewController.swift in Sources */,
 				9BC82E46224278FA007BC5BD /* AppDelegate.swift in Sources */,
+				47AE511026B050CB000CEB31 /* SwiftUiView.swift in Sources */,
 				492773CC233912A6007DB941 /* BarChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

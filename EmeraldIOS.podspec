@@ -14,4 +14,5 @@ Pod::Spec.new do |spec|
   spec.swift_version        = "5.0"
   spec.dependency 'BEMCheckBox'
   spec.dependency 'Charts'
+  spec.dependency 'Introspect'
 end

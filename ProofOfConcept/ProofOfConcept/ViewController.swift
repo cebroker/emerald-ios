@@ -8,7 +8,7 @@
 
 import EmeraldIOS
 
-class State: Selectable {
+class Department: Selectable {
     let name: String
     let cities: [String]
 
@@ -112,14 +112,14 @@ class ViewController: UIViewController, EmeraldValidableType {
         signatureBoxView.delegate = self
         emeraldButtonByStory.addTarget(self, action: #selector(submitFormOnTouchUpInside(_:)), for: .touchUpInside)
         emeraldSelectorByStory.set(data: [
-            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-            State(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
+            Department(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+            Department(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
         ])
-        emeraldSelectorByStory.set(selectedRow: State(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
+        emeraldSelectorByStory.set(selectedRow: Department(name: "Cundinamarca", cities: ["Chia", "Bogota"]))
         emeraldSelectorByStory.set(emptyOptionText: "Select a state")
         emptyableSelector.set(data: [
-            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-            State(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
+            Department(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+            Department(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
         ])
 
         emeraldMultipleSelectorByStory.enable(innerBorder: true)
@@ -191,7 +191,7 @@ class ViewController: UIViewController, EmeraldValidableType {
         tableHeader?.text = "Table header text"
 
         let customTitle = formStackView.createLabel()
-        customTitle?.themeColor = Color.primary.rawValue
+        customTitle?.themeColor = ColorPallete.primary.rawValue
         customTitle?.themeFontSize = FontSize.h1.rawValue
         customTitle?.themeFontWeight = FontWeight.bold.rawValue
         customTitle?.text = "H1 Custom title"
@@ -209,8 +209,8 @@ class ViewController: UIViewController, EmeraldValidableType {
 
         state = formStackView.createEmeraldSelectorFormField(placeholder: "State")
         state?.set(data: [
-            State(name: "Antioquia", cities: ["Medellin", "Envigado"]),
-            State(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
+            Department(name: "Antioquia", cities: ["Medellin", "Envigado"]),
+            Department(name: "Cundinamarca", cities: ["Chia", "Bogota"]),
         ])
         state?.set(notifiable: self)
         state?.set(hint: "Antioquia")
@@ -274,16 +274,16 @@ extension ViewController: EmeraldSelectorFieldChangeNotifiable {
 
         switch selector {
         case stateField:
-            guard let state = row as? State else {
+            guard let department = row as? Department else {
                 return
             }
             emptyableSelector.clearData()
             emptyableSelector.set(data: [
-                State(name: "Antioquia2", cities: ["Medellin", "Envigado"]),
-                State(name: "Cundinamarca2", cities: ["Chia", "Bogota"]),
+                Department(name: "Antioquia2", cities: ["Medellin", "Envigado"]),
+                Department(name: "Cundinamarca2", cities: ["Chia", "Bogota"]),
             ])
-            emeraldTextDependantFieldByStory.set(availableOptions: state.cities)
-            city?.set(availableOptions: state.cities)
+            emeraldTextDependantFieldByStory.set(availableOptions: department.cities)
+            city?.set(availableOptions: department.cities)
         default:
             break
         }
