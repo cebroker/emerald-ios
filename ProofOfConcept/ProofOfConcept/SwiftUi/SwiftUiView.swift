@@ -17,6 +17,8 @@ struct SwiftUiView: View {
     @State private var link = "link"
     @State private var hello = "hello"
     @State private var bodyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    @State private var titleText = "RadioButtonTitle"
+    @State private var subTitleText = "Radio Button SubTitle"
     @State(initialValue: "buttonName") var buttonName: String
     @State(initialValue: "") var normal: String
     @State(initialValue: "") var normalNew: String
@@ -35,7 +37,7 @@ struct SwiftUiView: View {
     @State(initialValue: "") var disabledField: String
     @State(initialValue: nil) var errorText: String?
     @State(initialValue: nil) var errorTextNew: String?
-    
+    @State var selected: String?
     // MARK: ViewBuilder
     @ViewBuilder
     var emeraldLabelByStory: some View {
@@ -417,9 +419,48 @@ struct SwiftUiView: View {
         }
     }
     
+    @ViewBuilder
+    var emeraldRadioButtonView: some View {
+        VStack {
+            EmeraldSwiftUiLabel(
+                text: $titleText,
+                themeStyle: .mainTitle)
+            EmeraldSwiftUiLabel(
+                text: $subTitleText,
+                themeStyle: .subtitle)
+        }
+        VStack {
+            if #available(iOS 14.0, *) {
+                ForEach(radioGroups,id: \.id){ data in
+                    EmeraldRadioButtonUI(selected: self.$selected,
+                                         textRadioButton: data.title,
+                                         key: data.id)
+                    if  self.selected == data.id && data.requiredExplanation == true {
+                        EmeraldSwiftUiTextView(
+                            text: $textViewNew,
+                            focused: State(initialValue: data.requiredExplanation),
+                            label: "",
+                            placeholder: "Description",
+                            helperText: "",
+                            clearable: true)
+                            .padding(-10)
+                    }
+                }.onChange(of: selected) { Equatable in
+                    self.textViewNew = ""
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    
+    
     // MARK: Body
     var body: some View {
         ScrollView {
+            emeraldRadioButtonView
+            .padding()
+            Divider()
             emeraldLabelByStory
             .padding()
             Divider()
@@ -447,4 +488,43 @@ struct SwiftUiView_Previews: PreviewProvider {
     static var previews: some View {
         SwiftUiView()
     }
+}
+
+
+let radioButton = [
+    [
+        "id": "1",
+        "title": "prueba1",
+        "requiredExplanation": "false"
+    ],
+    [
+        "id": "2",
+        "requiredExplanation": "true"
+    ],
+    [
+        "id": "3",
+        "requiredExplanation": "false"
+    ],
+    [
+        "id": "4",
+        "requiredExplanation": "true"
+    ]
+]
+
+typealias radioGroup = [String:String]
+
+let radioGroups: [radioButtonModel] = [
+    radioButtonModel(id: "1", title: "prueba1", requiredExplanation: false),
+    radioButtonModel(id: "2", title: "prueba2", requiredExplanation: true),
+    radioButtonModel(id: "3", title: "prueba3", requiredExplanation: false),
+    radioButtonModel(id: "4", title: "prueba4", requiredExplanation: true)
+  
+]
+
+struct radioButtonModel {
+
+    let id: String
+    let title: String
+    var requiredExplanation: Bool
+
 }
