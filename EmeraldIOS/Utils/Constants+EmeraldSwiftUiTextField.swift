@@ -13,7 +13,7 @@ extension Constants {
     public struct EmeraldSwiftUiTextField {
         static let cornerRadius: CGFloat = 3
         static let borderWidth: CGFloat = 1
-        static let borderWidthFocused: CGFloat = 2
+        static let borderWidthFocused: CGFloat = 1
         static let textFieldHeight: CGFloat = 54
         static let textAreaHeight: CGFloat = 60
         static let leadingContentSpacing: CGFloat = 10
