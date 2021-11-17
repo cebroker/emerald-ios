@@ -27,6 +27,7 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
         textField.backgroundColor = .clear
         textField.placeholder = placeholder
         textField.isSecureTextEntry = true
+        textField.font = Typography(size: .h6, weight: .semibold).uiFont
         textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return textField
     }
@@ -61,6 +62,7 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
         }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            parent.onEditingChanged(false)
             textField.resignFirstResponder()
             return true
         }
