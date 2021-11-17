@@ -21,8 +21,8 @@ public struct LabelTextFieldTitle: View {
         Text(label)
             .font(Typography(
                     size: focused || !text.isEmpty ?
-                        .h5 :
-                        .h6,
+                        .h6 :
+                        .h5,
                     weight: .semibold).suFont)
             .foregroundColor(
                 errorText != nil ?
@@ -30,8 +30,8 @@ public struct LabelTextFieldTitle: View {
                     (focused ?
                         Constants.EmeraldSwiftUiTextField.focusColor.suColor :
                         (disabled ?
-                            Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor.opacity(0.5) :
-                            Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor)))
+                            Constants.EmeraldSwiftUiTextField.borderColor.suColor.opacity(0.5) :
+                            Constants.EmeraldSwiftUiTextField.borderColor.suColor)))
             .lineLimit(1)
     }
 }

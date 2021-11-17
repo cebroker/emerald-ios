@@ -20,17 +20,17 @@ extension EmeraldSwiftUiTextField {
     }
     
     static func getBorderColor(errorText: String?, focused: Bool, disabled: Bool) -> Color {
-        var borderColor = errorText != nil ?
-                            Constants.EmeraldSwiftUiTextField.errorColor.suColor :
-                            Constants.EmeraldSwiftUiTextField.focusColor.suColor
+        var borderColor: Color
         if errorText == nil {
             borderColor = focused ?
-                borderColor :
-                Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor
+                Constants.EmeraldSwiftUiTextField.focusColor.suColor :
+                Constants.EmeraldSwiftUiTextField.borderColor.suColor
             
             borderColor = disabled ?
                 borderColor.opacity(0.5) :
                 borderColor
+        } else {
+            borderColor = Constants.EmeraldSwiftUiTextField.errorColor.suColor
         }
         
         return borderColor

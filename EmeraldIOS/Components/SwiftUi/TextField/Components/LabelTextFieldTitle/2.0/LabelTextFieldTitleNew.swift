@@ -33,8 +33,8 @@ struct LabelTextFieldTitleNew: View {
                     (focused ?
                         Constants.EmeraldSwiftUiTextField.focusColor.suColor :
                         (disabled ?
-                            Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor.opacity(0.5) :
-                            Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor)))
+                            Constants.EmeraldSwiftUiTextField.borderColor.suColor.opacity(0.5) :
+                            Constants.EmeraldSwiftUiTextField.borderColor.suColor)))
             .lineLimit(1)
             .offset(
                 x: Constants.EmeraldSwiftUiTextField.leadingContentSpacing -

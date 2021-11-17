@@ -34,7 +34,7 @@ public struct EmeraldGenericTextField: View {
             .accessibility(identifier: accessibility)
             .disableAutocorrection(true)
             .font(Typography(
-                    size: .h5,
+                    size: .h6,
                     weight: .semibold).suFont)
             .foregroundColor(Constants.EmeraldSwiftUiTextField.textColor.suColor)
             .frame(height: Constants.EmeraldSwiftUiTextField.textFieldHeight)

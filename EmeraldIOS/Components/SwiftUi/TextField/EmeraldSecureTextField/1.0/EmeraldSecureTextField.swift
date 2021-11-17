@@ -95,20 +95,21 @@ public struct EmeraldSecureTextField: View {
             }
         }) {
             if $show.wrappedValue {
-                Text(Constants.EmeraldSwiftUiTextField.hide)
+                Text(Constants.EmeraldSwiftUiTextField.hide.uppercased())
                     .animation(.easeOut)
             } else {
-                Text(Constants.EmeraldSwiftUiTextField.show)
+                Text(Constants.EmeraldSwiftUiTextField.show.uppercased())
                     .animation(.easeIn)
             }
         }
+        .disabled(self.disabled)
         .frame(width: Constants.EmeraldSwiftUiTextField.widthShowButton)
         .font(Typography(
-                size: .h4,
+                size: .h5,
                 weight: .semibold).suFont)
         .foregroundColor(disabled ?
                             Constants.EmeraldSwiftUiTextField.disabledColor.suColor :
-                            Constants.EmeraldSwiftUiTextField.textColor.suColor)
+                            Constants.EmeraldSwiftUiTextField.primaryColor.suColor)
     }
     
     var labelFieldContent: some View {
