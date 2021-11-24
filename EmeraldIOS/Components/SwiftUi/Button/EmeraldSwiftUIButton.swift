@@ -19,23 +19,22 @@ public struct EmeraldSwiftUIButton: View {
         static let minOpacity = 0.65
         static let maxOpacity = 1.0
         static let buttonPadding = CGFloat(integerLiteral: 12)
-        static let minWidth = CGFloat(integerLiteral: 180)
     }
     
-    @Binding private var buttonName: String
+    @State private var buttonName: String
     @Binding public var isEnabled: Bool
     @Binding public var isHighlighted: Bool
     public var themeStyle: EmeraldSwiftUiButtonStyle
     
     var delegate: EmeraldSwiftUIButtonActionType?
     
-    public init(buttonName: Binding<String>,
+    public init(buttonName: State<String>,
                 isEnabled: Binding<Bool>,
                 isHighlighted: Binding<Bool>,
                 themeStyle: EmeraldSwiftUiButtonStyle = .primaryError) {
-        _buttonName = buttonName
-        _isEnabled = isEnabled
-        _isHighlighted = isHighlighted
+        self._buttonName = buttonName
+        self._isEnabled = isEnabled
+        self._isHighlighted = isHighlighted
         self.themeStyle = themeStyle
     }
     
@@ -51,7 +50,7 @@ public struct EmeraldSwiftUIButton: View {
                 .padding(InnerConstant.buttonPadding)
                 .foregroundColor(themeStyle.highlightedTitleColor)
         }
-        .frame(minWidth: InnerConstant.minWidth)
+        .frame(minWidth: 0, maxWidth: .infinity)
         .background(isHighlighted ? themeStyle.highlightedBackgroundColor : themeStyle.backgroundColor)
         .overlay(
             RoundedRectangle(cornerRadius: themeStyle.cornerRadious)
@@ -72,7 +71,7 @@ struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
         EmeraldSwiftUIButton(
-            buttonName: $buttonName,
+            buttonName: _buttonName,
             isEnabled: $isEnabled,
             isHighlighted: $isHighlighted)
     }
