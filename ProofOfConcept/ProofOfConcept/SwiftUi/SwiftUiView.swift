@@ -104,84 +104,84 @@ struct SwiftUiView: View {
             Spacer()
             VStack {
                 EmeraldSwiftUIButton(
-                    buttonName: $buttonName,
+                    buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
                     themeStyle: .plain)
                 EmeraldSwiftUIButton(
-                    buttonName: $buttonName,
+                    buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
                     themeStyle: .plainPrimary)
             }
             VStack {
             EmeraldSwiftUIButton(
-                buttonName: $buttonName,
+                buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primary)
             EmeraldSwiftUIButton(
-                buttonName: $buttonName,
+                buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primarySuccess)
             EmeraldSwiftUIButton(
-                buttonName: $buttonName,
+                buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primaryWarning)
             EmeraldSwiftUIButton(
-                buttonName: $buttonName,
+                buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primaryError)
             EmeraldSwiftUIButton(
-                buttonName: $buttonName,
+                buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primarySmall)
             EmeraldSwiftUIButton(
-                buttonName: $buttonName,
+                buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .primaryLarge)
             }
             VStack {
                 EmeraldSwiftUIButton(
-                    buttonName: $buttonName,
+                    buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
                     themeStyle: .secondary)
                 EmeraldSwiftUIButton(
-                    buttonName: $buttonName,
+                    buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
                     themeStyle: .secondarySmall)
                 EmeraldSwiftUIButton(
-                    buttonName: $buttonName,
+                    buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
                     themeStyle: .secondaryLarge)
             }
             VStack {
                 EmeraldSwiftUIButton(
-                    buttonName: $buttonName,
+                    buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
                     themeStyle: .link)
                 EmeraldSwiftUIButton(
-                    buttonName: $buttonName,
+                    buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
                     themeStyle: .linkButton)
             }
             EmeraldSwiftUIButton(
-                buttonName: $buttonName,
+                buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .witheAndBlueColor)
             EmeraldSwiftUIButton(
-                buttonName: $buttonName,
+                buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .warning)
@@ -201,22 +201,22 @@ struct SwiftUiView: View {
                 VStack {
                     Text("V 1.0")
                     EmeraldSwiftUiTextField(
-                        text: $normalNew,
+                        text: _normalNew,
                         label: "Normal",
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Normal",
                         disabled: true,
                         useLegacy: false)
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
-                        text: $normal,
+                        text: _normal,
                         label: "Normal",
                         maxLength: 10,
                         clearable: true)
                     EmeraldSwiftUiTextField(
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Normal",
                         disabled: true)
                 }
@@ -227,7 +227,7 @@ struct SwiftUiView: View {
                     Text("V 1.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
-                        text: $email,
+                        text: _email,
                         label: "Email",
                         placeholder: "correo@mail.com",
                         errorText: errorText,
@@ -239,7 +239,7 @@ struct SwiftUiView: View {
                         }
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Email",
                         placeholder: "correo@mail.com",
                         disabled: true,
@@ -247,7 +247,7 @@ struct SwiftUiView: View {
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
-                        text: $emailNew,
+                        text: _emailNew,
                         label: "Email",
                         placeholder: "correo@mail.com",
                         errorText: errorTextNew)
@@ -258,7 +258,7 @@ struct SwiftUiView: View {
                         }
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Email",
                         placeholder: "correo@mail.com",
                         disabled: true)
@@ -270,13 +270,13 @@ struct SwiftUiView: View {
                     Text("V 1.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
-                        text: $password,
+                        text: _password,
                         label: "Pasword",
                         placeholder: "*********",
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Pasword",
                         placeholder: "*********",
                         disabled: true,
@@ -284,12 +284,12 @@ struct SwiftUiView: View {
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
-                        text: $passwordNew,
+                        text: _passwordNew,
                         label: "Pasword",
                         placeholder: "*********")
                     EmeraldSwiftUiTextField(
                         textFieldType: .password,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Pasword",
                         placeholder: "*********",
                         disabled: true)
@@ -301,13 +301,13 @@ struct SwiftUiView: View {
                     Text("V 1.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .currency,
-                        text: $currency,
+                        text: _currency,
                         label: "Currency",
                         placeholder: "$300.000,00",
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
                         textFieldType: .currency,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Currency",
                         placeholder: "$300.000,00",
                         disabled: true,
@@ -315,12 +315,12 @@ struct SwiftUiView: View {
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .currency,
-                        text: $currencyNew,
+                        text: _currencyNew,
                         label: "Currency",
                         placeholder: "300.000,00")
                     EmeraldSwiftUiTextField(
                         textFieldType: .currency,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Currency",
                         placeholder: "300.000,00",
                         disabled: true)
@@ -332,13 +332,13 @@ struct SwiftUiView: View {
                     Text("V 1.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
-                        text: $shortDate,
+                        text: _shortDate,
                         label: "Short Date",
                         placeholder: "12/2021",
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Short Date",
                         placeholder: "12/2021",
                         disabled: true,
@@ -346,11 +346,11 @@ struct SwiftUiView: View {
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
-                        text: $shortDateNew,
+                        text: _shortDateNew,
                         label: "Short Date")
                     EmeraldSwiftUiTextField(
                         textFieldType: .shortDate,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Short Date",
                         disabled: true)
                 }
@@ -361,13 +361,13 @@ struct SwiftUiView: View {
                     Text("V 1.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
-                        text: $longDate,
+                        text: _longDate,
                         label: "Long Date",
                         placeholder: "12/12/2021",
                         useLegacy: false)
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Long Date",
                         placeholder: "12/12/2021",
                         disabled: true,
@@ -375,11 +375,11 @@ struct SwiftUiView: View {
                     Text("V 2.0")
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
-                        text: $longDateNew,
+                        text: _longDateNew,
                         label: "Long Date")
                     EmeraldSwiftUiTextField(
                         textFieldType: .longDate,
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Long Date",
                         disabled: true)
                 }
@@ -389,13 +389,13 @@ struct SwiftUiView: View {
                 VStack {
                     Text("V 1.0")
                     EmeraldSwiftUiTextView(
-                        text: $textView,
+                        text: _textView,
                         label: "Text View",
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
                         useLegacy: false)
                     EmeraldSwiftUiTextView(
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Text View",
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
@@ -403,13 +403,13 @@ struct SwiftUiView: View {
                         useLegacy: false)
                     Text("V 2.0")
                     EmeraldSwiftUiTextView(
-                        text: $textViewNew,
+                        text: _textViewNew,
                         label: "Text View",
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
                         clearable: true)
                     EmeraldSwiftUiTextView(
-                        text: $disabledField,
+                        text: _disabledField,
                         label: "Text View",
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
@@ -437,7 +437,7 @@ struct SwiftUiView: View {
                                          key: data.id)
                     if  self.selected == data.id && data.requiredExplanation == true {
                         EmeraldSwiftUiTextView(
-                            text: $textViewNew,
+                            text: _textViewNew,
                             focused: State(initialValue: data.requiredExplanation),
                             label: "",
                             placeholder: "Description",

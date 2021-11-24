@@ -29,14 +29,17 @@ struct SecureTextFieldSwiftUI: UIViewRepresentable {
         textField.isSecureTextEntry = true
         textField.font = Typography(size: .h6, weight: .semibold).uiFont
         textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        textField.textContentType = .oneTimeCode
         return textField
     }
     
     func updateUIView(_ uiView: UITextField, context: Context) {
         uiView.text = text
-        if focused {
-            uiView.becomeFirstResponder()
-        }
+        DispatchQueue.main.async {
+               if focused {
+                   uiView.becomeFirstResponder()
+               }
+             }
     }
     
     class Coordinator : NSObject, UITextFieldDelegate {
