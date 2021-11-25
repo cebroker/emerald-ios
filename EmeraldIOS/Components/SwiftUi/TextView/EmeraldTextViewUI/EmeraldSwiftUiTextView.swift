@@ -95,7 +95,7 @@ struct EmeraldSwiftUiTextView_Previews: PreviewProvider {
         
         var body: some View {
             EmeraldSwiftUiTextView(
-                text: .constant(name),
+                text: $name,
                 placeholder: "placeholder",
                 accessibility: "name",
                 textFieldType: .email)

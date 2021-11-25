@@ -186,7 +186,7 @@ struct EmeraldSwiftUiTextField_Previews: PreviewProvider {
         var body: some View {
             EmeraldSwiftUiTextField(
                 textFieldType: .normal,
-                text: .constant(name),
+                text: $name,
                 label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 placeholder: "placeholder",
                 helperText: "this field is for help you")
