@@ -36,9 +36,6 @@ struct TextViewSwiftUi: UIViewRepresentable {
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
-        if text.isEmpty {
-            uiView.delegate?.textViewDidChange?(uiView)
-        }
     }
     
     class Coordinator : NSObject, UITextViewDelegate {

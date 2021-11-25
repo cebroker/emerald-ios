@@ -11,7 +11,7 @@ import SwiftUI
 @available(iOS 13.0.0, *)
 public struct EmeraldSwiftUiTextView: View {
     
-    @State public var text: String
+    @Binding public var text: String
     @State public var focused: Bool
     public var label: String
     public var placeholder: String
@@ -25,7 +25,7 @@ public struct EmeraldSwiftUiTextView: View {
     public var textFieldType: TextFieldType
     public var useLegacy: Bool
     
-    public init(text: State<String>,
+    public init(text: Binding<String>,
                 focused: State<Bool> = State(initialValue: false),
                 label: String = "",
                 placeholder: String = "",
@@ -95,7 +95,7 @@ struct EmeraldSwiftUiTextView_Previews: PreviewProvider {
         
         var body: some View {
             EmeraldSwiftUiTextView(
-                text: _name,
+                text: .constant(name),
                 placeholder: "placeholder",
                 accessibility: "name",
                 textFieldType: .email)
