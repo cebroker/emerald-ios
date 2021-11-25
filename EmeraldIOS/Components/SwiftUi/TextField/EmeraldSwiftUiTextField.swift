@@ -13,7 +13,7 @@ public struct EmeraldSwiftUiTextField: View {
     
     public var textFieldType: TextFieldType
     public var textFormat: TextFormat
-    @State public var text: String
+    @Binding public var text: String
     @State public var focused: Bool
     public var label: String
     public var placeholder: String
@@ -28,7 +28,7 @@ public struct EmeraldSwiftUiTextField: View {
     @State public var show: Bool
     
     public init(textFieldType: TextFieldType = .normal,
-                text: State<String>,
+                text: Binding<String>,
                 focused: State<Bool> = State(initialValue: false),
                 label: String = "",
                 placeholder: String = "",
@@ -186,7 +186,7 @@ struct EmeraldSwiftUiTextField_Previews: PreviewProvider {
         var body: some View {
             EmeraldSwiftUiTextField(
                 textFieldType: .normal,
-                text: _name,
+                text: $name,
                 label: "name asda s sada s asda sdasda s d sdas dasds as dfs dfs df",
                 placeholder: "placeholder",
                 helperText: "this field is for help you")
