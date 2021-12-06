@@ -10,6 +10,9 @@ import SwiftUI
 
 @available(iOS 13.0.0, *)
 struct SwiftUiView: View {
+    //MARK: Constants
+    private let actionButton = "Action button"
+    
     // MARK: States
     @State private var mainTitle = "Main Title"
     @State private var subTitle = "Sub Title"
@@ -107,84 +110,92 @@ struct SwiftUiView: View {
                     buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
-                    themeStyle: .plain)
+                    themeStyle: .plain) {
+                        print(actionButton)
+                    }
                 EmeraldSwiftUIButton(
                     buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
-                    themeStyle: .plainPrimary)
+                    themeStyle: .plainPrimary) {
+                        print(actionButton)
+                    }
             }
             VStack {
             EmeraldSwiftUIButton(
                 buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .primary)
+                themeStyle: .primary) {
+                    print(actionButton)
+                }
             EmeraldSwiftUIButton(
                 buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .primarySuccess)
+                themeStyle: .primarySuccess){}
             EmeraldSwiftUIButton(
                 buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .primaryWarning)
+                themeStyle: .primaryWarning) {
+                    print(actionButton)
+                }
             EmeraldSwiftUIButton(
                 buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .primaryError)
+                themeStyle: .primaryError) {}
             EmeraldSwiftUIButton(
                 buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .primarySmall)
+                themeStyle: .primarySmall) {}
             EmeraldSwiftUIButton(
                 buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .primaryLarge)
+                themeStyle: .primaryLarge) {}
             }
             VStack {
                 EmeraldSwiftUIButton(
                     buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
-                    themeStyle: .secondary)
+                    themeStyle: .secondary) {}
                 EmeraldSwiftUIButton(
                     buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
-                    themeStyle: .secondarySmall)
+                    themeStyle: .secondarySmall) {}
                 EmeraldSwiftUIButton(
                     buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
-                    themeStyle: .secondaryLarge)
+                    themeStyle: .secondaryLarge) {}
             }
             VStack {
                 EmeraldSwiftUIButton(
                     buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
-                    themeStyle: .link)
+                    themeStyle: .link) {}
                 EmeraldSwiftUIButton(
                     buttonName: _buttonName,
                     isEnabled: .constant(true),
                     isHighlighted: .constant(false),
-                    themeStyle: .linkButton)
+                    themeStyle: .linkButton) {}
             }
             EmeraldSwiftUIButton(
                 buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .witheAndBlueColor)
+                themeStyle: .witheAndBlueColor) {}
             EmeraldSwiftUIButton(
                 buttonName: _buttonName,
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
-                themeStyle: .warning)
+                themeStyle: .warning) {}
         }
     }
     

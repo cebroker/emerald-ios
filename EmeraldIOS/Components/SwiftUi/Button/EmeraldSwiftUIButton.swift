@@ -8,10 +8,6 @@
 
 import SwiftUI
 
-protocol EmeraldSwiftUIButtonActionType {
-    func didTapButton()
-}
-
 @available(iOS 13.0.0, *)
 public struct EmeraldSwiftUIButton: View {
     
@@ -25,23 +21,24 @@ public struct EmeraldSwiftUIButton: View {
     @Binding public var isEnabled: Bool
     @Binding public var isHighlighted: Bool
     public var themeStyle: EmeraldSwiftUiButtonStyle
-    
-    var delegate: EmeraldSwiftUIButtonActionType?
+    private var didTapButton: () -> ()
     
     public init(buttonName: State<String>,
                 isEnabled: Binding<Bool>,
                 isHighlighted: Binding<Bool>,
-                themeStyle: EmeraldSwiftUiButtonStyle = .primaryError) {
+                themeStyle: EmeraldSwiftUiButtonStyle = .primaryError,
+                didTapButton: @escaping () -> ()) {
         self._buttonName = buttonName
         self._isEnabled = isEnabled
         self._isHighlighted = isHighlighted
         self.themeStyle = themeStyle
+        self.didTapButton = didTapButton
     }
     
     public var body: some View {
         Button {
             if isEnabled {
-                delegate?.didTapButton()
+                didTapButton()
             }
             
         } label: {
@@ -73,7 +70,7 @@ struct ContentView_Previews: PreviewProvider {
         EmeraldSwiftUIButton(
             buttonName: _buttonName,
             isEnabled: $isEnabled,
-            isHighlighted: $isHighlighted)
+            isHighlighted: $isHighlighted) {}
     }
 }
 #endif
