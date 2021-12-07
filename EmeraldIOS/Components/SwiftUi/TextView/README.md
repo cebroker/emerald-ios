@@ -12,7 +12,7 @@
 ### Typical use
 
 `EmeraldSwiftUiTextView` is a subclass of TextView, but with more options to customize the style of the textview and
-behaviour. To initialize an EmeraldSwiftUiTextView, you must start an instance directly in your swiftui view, sending it a mandatory parameter of type `@State`, which then becomes a `Binding <String>` which is used to handle the content (text) of said textfield.
+behaviour. To initialize an EmeraldSwiftUiTextView, you must start an instance directly in your swiftui view, sending it a mandatory parameter of type `@State`, which then becomes a `Binding <String>` which is used to handle the content (text) of said textview.
 
 #### SwiftUI
 ```swift
