@@ -39,7 +39,7 @@ For example, to make a textfield of type email, the value `TextFieldType.email` 
     }
 ```
 
-In addition to the type, currently you can customize it by sending it the `label` (title of the textfield), `placehoder`, `helperText`, `errorText`, `maxLength`, `hideCounter` (hide character counter when maxLength is not nil), `clearable` (show X to clean the text), `disabled`, `useLegacy` (indicates if a new designs) and `show` (bool value to indicate if the text is masked or not when the textfield type is password)
+In addition to the type, currently you can customize it by sending it the  `focused` (indicates if the textview is active or not), `label` (title of the textfield), `placehoder`, `accessibility` (indicates accessibility Id), `helperText`, `errorText`, `maxLength`, `hideCounter` (hide character counter when maxLength is not nil), `clearable` (show X to clean the text), `disabled`, `useLegacy` (indicates if a new designs) and `show` (bool value to indicate if the text is masked or not when the textfield type is password)
 
 the types of textfields supported so far are the following:
 #### Swift

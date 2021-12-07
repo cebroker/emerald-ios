@@ -78,6 +78,9 @@ Emerald UI for iOS Apps
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="EmeraldIOS/Components/SwiftUi/TextField">TextField</a></li>
   </ul>
+   <ul class="icon-list">
+  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/SwiftUi/TextView">TextView</a></li>
+  </ul>
 
 ### CocoaPods
 
