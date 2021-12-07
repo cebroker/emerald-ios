@@ -12,7 +12,7 @@
 ### Typical use
 
 `EmeraldSwiftUiTextField` is a subclass of TextField, but with more options to customize the style of the textfield and
-behaviour. To initialize an EmeraldSwiftUiTextField, you must start an instance directly in your swiftui view, sending it a mandatory parameter of type @State, which then becomes a Binding <String> which is used to handle the content (text) of said textfield.
+behaviour. To initialize an EmeraldSwiftUiTextField, you must start an instance directly in your swiftui view, sending it a mandatory parameter of type `@State`, which then becomes a `Binding <String>` which is used to handle the content (text) of said textfield.
 
 #### SwiftUI
 ```swift

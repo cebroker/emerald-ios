@@ -75,25 +75,9 @@ Emerald UI for iOS Apps
   </ul>
   
 ### Components documentation V 2.0
-<ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/SwiftUi/Button">Buttons</a></li>
-  </ul>
-<ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/SwiftUi/Chip">Chips</a></li>
-  </ul>
- <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/SwiftUi/Label">Label</a></li>
-  </ul>
- <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/SwiftUi/Radio Button">Radio Button</a></li>
-  </ul>
   <ul class="icon-list">
   <li class="icon-list-item icon-list-item--spec"><a href="EmeraldIOS/Components/SwiftUi/TextField">TextField</a></li>
   </ul>
-   <ul class="icon-list">
-  <li class="icon-list-item icon-list-item--spec"><a href="/EmeraldIOS/Components/SwiftUi/TextView">TextView</a></li>
-  </ul>
-
 
 ### CocoaPods
 
