@@ -22,7 +22,7 @@ public struct EmeraldSwiftUiTextView: View {
     public var hideCounter: Bool
     public var clearable: Bool
     public var disabled: Bool
-    public var textFieldType: TextFieldType
+    public var textViewType: TextViewType
     public var useLegacy: Bool
     
     public init(text: Binding<String>,
@@ -36,7 +36,7 @@ public struct EmeraldSwiftUiTextView: View {
                 hideCounter: Bool = false,
                 clearable: Bool = false,
                 disabled: Bool = false,
-                textFieldType: TextFieldType = .normal,
+                textViewType: TextViewType = .normal,
                 useLegacy: Bool = true) {
         self._text = text
         self._focused = focused
@@ -49,7 +49,7 @@ public struct EmeraldSwiftUiTextView: View {
         self.hideCounter = hideCounter
         self.clearable = clearable
         self.disabled = disabled
-        self.textFieldType = textFieldType
+        self.textViewType = textViewType
         self.useLegacy = useLegacy
     }
     
@@ -67,7 +67,7 @@ public struct EmeraldSwiftUiTextView: View {
                 hideCounter: hideCounter,
                 clearable: clearable,
                 disabled: disabled,
-                keyboardType: textFieldType.getKeyboardType())
+                keyboardType: textViewType.getKeyboardType())
         } else {
             EmeraldNormalTextView(
                 text: $text,
@@ -78,7 +78,7 @@ public struct EmeraldSwiftUiTextView: View {
                 errorText: errorText,
                 maxLength: maxLength,
                 disabled: disabled,
-                keyboardType: textFieldType.getKeyboardType())
+                keyboardType: textViewType.getKeyboardType())
         }
     }
 }
@@ -98,7 +98,7 @@ struct EmeraldSwiftUiTextView_Previews: PreviewProvider {
                 text: $name,
                 placeholder: "placeholder",
                 accessibility: "name",
-                textFieldType: .email)
+                textViewType: .normal)
         }
     }
 }
