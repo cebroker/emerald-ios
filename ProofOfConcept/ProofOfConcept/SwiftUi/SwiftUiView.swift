@@ -23,6 +23,7 @@ struct SwiftUiView: View {
     @State private var titleText = "RadioButtonTitle"
     @State private var subTitleText = "Radio Button SubTitle"
     @State(initialValue: "buttonName") var buttonName: String
+    @State(initialValue: "") var text: String
     @State(initialValue: "") var normal: String
     @State(initialValue: "") var normalNew: String
     @State(initialValue: "") var email: String
@@ -41,6 +42,8 @@ struct SwiftUiView: View {
     @State(initialValue: nil) var errorText: String?
     @State(initialValue: nil) var errorTextNew: String?
     @State var selected: String?
+    
+    @State(initialValue: nil) var errorTextV2: String?
     // MARK: ViewBuilder
     @ViewBuilder
     var emeraldLabelByStory: some View {
@@ -122,40 +125,40 @@ struct SwiftUiView: View {
                     }
             }
             VStack {
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primary) {
-                    print(actionButton)
-                }
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primarySuccess){}
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryWarning) {
-                    print(actionButton)
-                }
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryError) {}
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primarySmall) {}
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryLarge) {}
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primary) {
+                        print(actionButton)
+                    }
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primarySuccess){}
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryWarning) {
+                        print(actionButton)
+                    }
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryError) {}
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primarySmall) {}
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryLarge) {}
             }
             VStack {
                 EmeraldSwiftUIButton(
@@ -197,6 +200,22 @@ struct SwiftUiView: View {
                 isHighlighted: .constant(false),
                 themeStyle: .warning) {}
         }
+    }
+    
+    
+    @ViewBuilder
+    var emeraldTextFieldsNewView: some View {
+        EmeraldTextFieldForm(text: $text,
+                             placeholder: "email@mail.com",
+                             hint: "ingresa tu email",
+                             errorText: errorTextV2)
+            .hasError(errorTextV2 != nil)
+            .disabled(false)
+            .onReceive(text.publisher.collect()) {
+                errorTextV2 = isValidEmail(String($0)) || String($0).isEmpty ?
+                nil :
+                "email invalido"
+            }
     }
     
     @ViewBuilder
@@ -245,8 +264,8 @@ struct SwiftUiView: View {
                         useLegacy: false)
                         .onReceive(email.publisher.collect()) {
                             errorText = isValidEmail(String($0)) || String($0).isEmpty ?
-                                nil :
-                                "email invalido"
+                            nil :
+                            "email invalido"
                         }
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
@@ -264,8 +283,8 @@ struct SwiftUiView: View {
                         errorText: errorTextNew)
                         .onReceive(emailNew.publisher.collect()) {
                             errorTextNew = isValidEmail(String($0)) || String($0).isEmpty ?
-                                nil :
-                                "email invalido"
+                            nil :
+                            "email invalido"
                         }
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
@@ -470,19 +489,24 @@ struct SwiftUiView: View {
     var body: some View {
         ScrollView {
             emeraldRadioButtonView
-            .padding()
+                .padding()
             Divider()
             emeraldLabelByStory
-            .padding()
+                .padding()
             Divider()
             emeraldChipViewByStory
-            .padding()
+                .padding()
             Divider()
             emeraldButtonsView
-            .padding()
+                .padding()
             Divider()
-            emeraldTextFieldsView
-            .padding()
+            VStack {
+                emeraldTextFieldsNewView
+                    .padding()
+                Divider()
+                emeraldTextFieldsView
+                    .padding()
+            }
         }
     }
     
@@ -529,13 +553,13 @@ let radioGroups: [radioButtonModel] = [
     radioButtonModel(id: "2", title: "prueba2", requiredExplanation: true),
     radioButtonModel(id: "3", title: "prueba3", requiredExplanation: false),
     radioButtonModel(id: "4", title: "prueba4", requiredExplanation: true)
-  
+    
 ]
 
 struct radioButtonModel {
-
+    
     let id: String
     let title: String
     var requiredExplanation: Bool
-
+    
 }
