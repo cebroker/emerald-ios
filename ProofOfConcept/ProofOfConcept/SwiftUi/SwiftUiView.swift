@@ -23,7 +23,6 @@ struct SwiftUiView: View {
     @State private var titleText = "RadioButtonTitle"
     @State private var subTitleText = "Radio Button SubTitle"
     @State(initialValue: "buttonName") var buttonName: String
-    @State(initialValue: "") var text: String
     @State(initialValue: "") var normal: String
     @State(initialValue: "") var normalNew: String
     @State(initialValue: "") var email: String
@@ -43,7 +42,10 @@ struct SwiftUiView: View {
     @State(initialValue: nil) var errorTextNew: String?
     @State var selected: String?
     
+    @State(initialValue: "") var textV2: String
     @State(initialValue: nil) var errorTextV2: String?
+    @State(initialValue: "") var textV3: String
+    @State(initialValue: nil) var errorTextV3: String?
     // MARK: ViewBuilder
     @ViewBuilder
     var emeraldLabelByStory: some View {
@@ -205,17 +207,27 @@ struct SwiftUiView: View {
     
     @ViewBuilder
     var emeraldTextFieldsNewView: some View {
-        EmeraldTextFieldForm(text: $text,
-                             placeholder: "email@mail.com",
-                             hint: "ingresa tu email",
-                             errorText: errorTextV2)
-            .hasError(errorTextV2 != nil)
-            .disabled(false)
-            .onReceive(text.publisher.collect()) {
-                errorTextV2 = isValidEmail(String($0)) || String($0).isEmpty ?
-                nil :
-                "email invalido"
-            }
+        VStack {
+            EmeraldTextFieldForm(text: $textV2,
+                                 hint: "ingresa tu email",
+                                 placeholder: "email@mail.com",
+                                 errorText: errorTextV2)
+                .hasError(errorTextV2 != nil)
+                .disabled(false)
+                .onReceive(textV2.publisher.collect()) {
+                    errorTextV2 = isValidEmail(String($0)) || String($0).isEmpty ?
+                    nil :
+                    "email invalido"
+                }
+            Spacer()
+            EmeraldTextFieldFormDate(text: $textV3,
+                                     hint: "ingresa la fecha",
+                                     placeholder: "12/12/2022",
+                                     errorText: errorTextV3,
+                                     keyboardType: .numberPad)
+                .hasError(errorTextV3 != nil)
+                .disabled(false)
+        }
     }
     
     @ViewBuilder

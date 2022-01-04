@@ -10,12 +10,12 @@ import SwiftUI
 
 @available(iOS 13.0.0, *)
 struct EmeraldTextFieldFormContainer<Content>: View where Content: View {
-    private let placeholder: String?
-    private let hint: String?
-    private let errorText: String?
     private let text: Binding<String>
+    private let hint: String?
+    private let placeholder: String?
+    private let errorText: String?
 
-    @State var isEditing: Bool = false
+    @State var isEditing: Bool
     private var hasError: Bool = false
 
     private var isActive: Bool {
@@ -25,14 +25,16 @@ struct EmeraldTextFieldFormContainer<Content>: View where Content: View {
     private var content: () -> Content
 
     init(text: Binding<String>,
-         placeholder: String? = nil,
          hint: String? = nil,
+         placeholder: String? = nil,
          errorText: String? = nil,
+         isEditing: State<Bool>,
          content: @escaping () -> Content) {
         self.text = text
-        self.placeholder = placeholder
         self.hint = hint
+        self.placeholder = placeholder
         self.errorText = errorText
+        self._isEditing = isEditing
         self.content = content
     }
 
@@ -40,7 +42,7 @@ struct EmeraldTextFieldFormContainer<Content>: View where Content: View {
         if self.placeholder == nil && hint == nil {
             return Constants.Values.empty
         } else if hint != nil && self.placeholder != nil {
-            return self.isActive ? self.placeholder! : hint!
+            return self.isActive ? self.hint! : placeholder!
         } else if let hint = hint {
             return hint
         } else {
