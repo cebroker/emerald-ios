@@ -13,6 +13,7 @@ extension Constants {
         static let calendar = "calendar_icon"
         static let systemCalendar = "calendar"
         static let arrowDown = "arrow_down_icon"
+        static let systemArrowDown = "arrow.down"
         static let xIcon = "xIcon"
         static let systemXIcon = "xmark"
         static let complete = "icon_complete"

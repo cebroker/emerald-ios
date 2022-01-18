@@ -10,14 +10,18 @@
 		470AEAD62783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD52783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift */; };
 		470AEAD827839211000E1BD5 /* Extensions+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD727839211000E1BD5 /* Extensions+SwiftUI.swift */; };
 		470AEADA278392CB000E1BD5 /* Extensions+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD9278392CB000E1BD5 /* Extensions+View.swift */; };
-		470AEADC27839483000E1BD5 /* EmeraldTextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEADB27839483000E1BD5 /* EmeraldTextFieldForm.swift */; };
+		470AEADC27839483000E1BD5 /* EmeraldTextFieldFormNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEADB27839483000E1BD5 /* EmeraldTextFieldFormNormal.swift */; };
 		470AEAE027849839000E1BD5 /* EmeraldTextFieldFormDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEADF27849839000E1BD5 /* EmeraldTextFieldFormDate.swift */; };
 		470AEAE227849912000E1BD5 /* EmeraldTextFieldFormDateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAE127849912000E1BD5 /* EmeraldTextFieldFormDateCoordinator.swift */; };
+		4762EDEC2797173700E6513A /* EmeraldTextFieldFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762EDEB2797173700E6513A /* EmeraldTextFieldFormPicker.swift */; };
+		4762EDEE27971DE500E6513A /* EmeraldTextFieldPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762EDED27971DE500E6513A /* EmeraldTextFieldPicker.swift */; };
+		4762EDF027971E3B00E6513A /* EmeraldTextFieldPickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762EDEF27971E3B00E6513A /* EmeraldTextFieldPickerCoordinator.swift */; };
+		4762EDF227971E9500E6513A /* EmeraldTextFieldPickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762EDF127971E9500E6513A /* EmeraldTextFieldPickerHelper.swift */; };
 		4780EBE7275FC8CD00FEB807 /* TextViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4780EBE6275FC8CD00FEB807 /* TextViewType.swift */; };
 		4791696726AB35F3008BC08B /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696626AB35F3008BC08B /* TextFieldType.swift */; };
 		4791696A26AB361F008BC08B /* EmeraldSwiftUiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696926AB361F008BC08B /* EmeraldSwiftUiTextField.swift */; };
 		4791696D26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696C26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift */; };
-		4791697026AB36AC008BC08B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4791696F26AB36AC008BC08B /* SwiftPackageProductDependency */; };
+		4791697026AB36AC008BC08B /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 4791696F26AB36AC008BC08B /* Introspect */; };
 		4791697226AB36DF008BC08B /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697126AB36DF008BC08B /* ClearButton.swift */; };
 		4791697526AB372E008BC08B /* EmeraldSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697426AB372E008BC08B /* EmeraldSecureTextField.swift */; };
 		4791697826AB3767008BC08B /* LabelHelperText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697726AB3767008BC08B /* LabelHelperText.swift */; };
@@ -185,9 +189,13 @@
 		470AEAD52783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldFormContainer.swift; sourceTree = "<group>"; };
 		470AEAD727839211000E1BD5 /* Extensions+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+SwiftUI.swift"; sourceTree = "<group>"; };
 		470AEAD9278392CB000E1BD5 /* Extensions+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+View.swift"; sourceTree = "<group>"; };
-		470AEADB27839483000E1BD5 /* EmeraldTextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldForm.swift; sourceTree = "<group>"; };
+		470AEADB27839483000E1BD5 /* EmeraldTextFieldFormNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldFormNormal.swift; sourceTree = "<group>"; };
 		470AEADF27849839000E1BD5 /* EmeraldTextFieldFormDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldFormDate.swift; sourceTree = "<group>"; };
 		470AEAE127849912000E1BD5 /* EmeraldTextFieldFormDateCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldFormDateCoordinator.swift; sourceTree = "<group>"; };
+		4762EDEB2797173700E6513A /* EmeraldTextFieldFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldFormPicker.swift; sourceTree = "<group>"; };
+		4762EDED27971DE500E6513A /* EmeraldTextFieldPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldPicker.swift; sourceTree = "<group>"; };
+		4762EDEF27971E3B00E6513A /* EmeraldTextFieldPickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldPickerCoordinator.swift; sourceTree = "<group>"; };
+		4762EDF127971E9500E6513A /* EmeraldTextFieldPickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldPickerHelper.swift; sourceTree = "<group>"; };
 		4780EBE6275FC8CD00FEB807 /* TextViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewType.swift; sourceTree = "<group>"; };
 		4791696626AB35F3008BC08B /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
 		4791696926AB361F008BC08B /* EmeraldSwiftUiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUiTextField.swift; sourceTree = "<group>"; };
@@ -363,7 +371,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4791697026AB36AC008BC08B /* BuildFile in Frameworks */,
+				4791697026AB36AC008BC08B /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,8 +390,10 @@
 		470AEAD427839068000E1BD5 /* TextFieldForm */ = {
 			isa = PBXGroup;
 			children = (
-				470AEADE278497FE000E1BD5 /* EmeraldTextFieldForm */,
+				4762EDEA2797171C00E6513A /* EmeraldTextFieldFormPicker */,
+				470AEADE278497FE000E1BD5 /* EmeraldTextFieldFormNormal */,
 				470AEADD278497E3000E1BD5 /* EmeraldTextFieldFormDate */,
+				470AEAD52783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift */,
 			);
 			path = TextFieldForm;
 			sourceTree = "<group>";
@@ -397,13 +407,23 @@
 			path = EmeraldTextFieldFormDate;
 			sourceTree = "<group>";
 		};
-		470AEADE278497FE000E1BD5 /* EmeraldTextFieldForm */ = {
+		470AEADE278497FE000E1BD5 /* EmeraldTextFieldFormNormal */ = {
 			isa = PBXGroup;
 			children = (
-				470AEAD52783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift */,
-				470AEADB27839483000E1BD5 /* EmeraldTextFieldForm.swift */,
+				470AEADB27839483000E1BD5 /* EmeraldTextFieldFormNormal.swift */,
 			);
-			path = EmeraldTextFieldForm;
+			path = EmeraldTextFieldFormNormal;
+			sourceTree = "<group>";
+		};
+		4762EDEA2797171C00E6513A /* EmeraldTextFieldFormPicker */ = {
+			isa = PBXGroup;
+			children = (
+				4762EDEB2797173700E6513A /* EmeraldTextFieldFormPicker.swift */,
+				4762EDED27971DE500E6513A /* EmeraldTextFieldPicker.swift */,
+				4762EDEF27971E3B00E6513A /* EmeraldTextFieldPickerCoordinator.swift */,
+				4762EDF127971E9500E6513A /* EmeraldTextFieldPickerHelper.swift */,
+			);
+			path = EmeraldTextFieldFormPicker;
 			sourceTree = "<group>";
 		};
 		4791695F26AB1966008BC08B /* TextField */ = {
@@ -1229,7 +1249,7 @@
 			);
 			name = EmeraldIOS;
 			packageProductDependencies = (
-				4791696F26AB36AC008BC08B /* SwiftPackageProductDependency */,
+				4791696F26AB36AC008BC08B /* Introspect */,
 			);
 			productName = CondorUIComponents;
 			productReference = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */;
@@ -1265,7 +1285,7 @@
 			);
 			mainGroup = 9BE5A53C2228813A004A59B9;
 			packageReferences = (
-				4791696E26AB36AC008BC08B /* RemoteSwiftPackageReference */,
+				4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
 			projectDirPath = "";
@@ -1353,7 +1373,9 @@
 				479C0D4F26AF6AA70062CBBE /* EmeraldSecureTextFieldNew.swift in Sources */,
 				9B3BCC902272033400DC5D79 /* EmeraldSelectorFieldChangeNotifiable.swift in Sources */,
 				8676D9C922976875005AF8F4 /* SegmentedTitleAppearance.swift in Sources */,
+				4762EDEC2797173700E6513A /* EmeraldTextFieldFormPicker.swift in Sources */,
 				6C2D3293228B0BF2009D4B0F /* EmeraldDateFieldChangeNotifiable.swift in Sources */,
+				4762EDF227971E9500E6513A /* EmeraldTextFieldPickerHelper.swift in Sources */,
 				6CD5841A2294318B001DE8D2 /* EmeraldRegexTextField.swift in Sources */,
 				778BEF6622B92C1A00AF8601 /* EmeraldAvatar.swift in Sources */,
 				9B3BCC802272033400DC5D79 /* Extensions+UIView.swift in Sources */,
@@ -1369,7 +1391,7 @@
 				479C0D4526AF61A50062CBBE /* LabelTextFieldTitleNew.swift in Sources */,
 				6C2D32802289D99B009D4B0F /* EmeraldSelectorFieldError.swift in Sources */,
 				4791696726AB35F3008BC08B /* TextFieldType.swift in Sources */,
-				470AEADC27839483000E1BD5 /* EmeraldTextFieldForm.swift in Sources */,
+				470AEADC27839483000E1BD5 /* EmeraldTextFieldFormNormal.swift in Sources */,
 				D128260C23AA916D00526277 /* EmeraldTextDependantFieldView.swift in Sources */,
 				490E3C7B2335148B000FA6C9 /* EmeraldChartPresenter.swift in Sources */,
 				9B3BCC7E2272033400DC5D79 /* Constants.swift in Sources */,
@@ -1420,6 +1442,7 @@
 				77BF6E1722DF7C1E00E4C448 /* EmeraldChipStyle.swift in Sources */,
 				8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */,
 				774DE6AF245DC694009D5E8F /* Extensions+Optional.swift in Sources */,
+				4762EDF027971E3B00E6513A /* EmeraldTextFieldPickerCoordinator.swift in Sources */,
 				6CD584382294ABBA001DE8D2 /* EmeraldMultipleSelectionFieldStyle.swift in Sources */,
 				D1570581239FEAD100486D64 /* ConstantIdentifier.swift in Sources */,
 				869BBDF523FEEF06009FE3DD /* EmeraldPopupViewController.swift in Sources */,
@@ -1458,6 +1481,7 @@
 				6CD5842C229496CB001DE8D2 /* Extensions+String.swift in Sources */,
 				4791696A26AB361F008BC08B /* EmeraldSwiftUiTextField.swift in Sources */,
 				47AE511426B06BD1000CEB31 /* EmeraldNormalTextViewNew.swift in Sources */,
+				4762EDEE27971DE500E6513A /* EmeraldTextFieldPicker.swift in Sources */,
 				6C2CCDD9228EECCB00181C25 /* EmeraldSignatureView.swift in Sources */,
 				479C0D5326AF71DA0062CBBE /* EmeraldDateTextFieldNew.swift in Sources */,
 				774DE69E245D4281009D5E8F /* Identifiable.swift in Sources */,
@@ -1662,7 +1686,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.7;
+				MARKETING_VERSION = 2.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1693,7 +1717,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.7;
+				MARKETING_VERSION = 2.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1735,7 +1759,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4791696E26AB36AC008BC08B /* RemoteSwiftPackageReference */ = {
+		4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
@@ -1746,9 +1770,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4791696F26AB36AC008BC08B /* SwiftPackageProductDependency */ = {
+		4791696F26AB36AC008BC08B /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4791696E26AB36AC008BC08B /* RemoteSwiftPackageReference */;
+			package = 4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */

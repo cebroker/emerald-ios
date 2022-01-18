@@ -8,6 +8,24 @@
 import EmeraldIOS
 import SwiftUI
 
+final class DataSelectable: Selectable {
+    public var id: String
+    public var name: String
+    
+    public init(
+        id: String,
+        name: String) {
+        self.id = id
+        self.name = name
+    }
+    
+    func getSelectableText() -> String {
+        name
+    }
+    
+    
+}
+
 @available(iOS 13.0.0, *)
 struct SwiftUiView: View {
     //MARK: Constants
@@ -46,6 +64,13 @@ struct SwiftUiView: View {
     @State(initialValue: nil) var errorTextV2: String?
     @State(initialValue: "") var textV3: String
     @State(initialValue: nil) var errorTextV3: String?
+    
+    @State var pickerData: [Selectable] = [DataSelectable(id: "1", name: "name 1"),
+                                           DataSelectable(id: "2", name: "name 2")]
+    @State var itemPickerSelected: Int?
+    @State(initialValue: "") var textV4: String
+    @State(initialValue: nil) var errorTextV4: String?
+    
     // MARK: ViewBuilder
     @ViewBuilder
     var emeraldLabelByStory: some View {
@@ -208,11 +233,10 @@ struct SwiftUiView: View {
     @ViewBuilder
     var emeraldTextFieldsNewView: some View {
         VStack {
-            EmeraldTextFieldForm(text: $textV2,
-                                 hint: "ingresa tu email",
-                                 placeholder: "email@mail.com",
-                                 errorText: errorTextV2)
-                .hasError(errorTextV2 != nil)
+            EmeraldTextFieldFormNormal(text: $textV2,
+                                       hint: "ingresa tu email",
+                                       placeholder: "email@mail.com")
+                .hasError(errorTextV2 != nil, errorText: errorTextV2)
                 .disabled(false)
                 .onReceive(textV2.publisher.collect()) {
                     errorTextV2 = isValidEmail(String($0)) || String($0).isEmpty ?
@@ -223,9 +247,15 @@ struct SwiftUiView: View {
             EmeraldTextFieldFormDate(text: $textV3,
                                      hint: "ingresa la fecha",
                                      placeholder: "12/12/2022",
-                                     errorText: errorTextV3,
                                      keyboardType: .numberPad)
-                .hasError(errorTextV3 != nil)
+                .hasError(errorTextV3 != nil, errorText: errorTextV3)
+                .disabled(false)
+            Spacer()
+            EmeraldTextFieldFormPicker(hint: "Selecciona una categoria",
+                                       placeholder: "este es mi placholder",
+                                       data: $pickerData,
+                                       lastSelectedIndex: $itemPickerSelected)
+                .hasError(errorTextV4 != nil, errorText: errorTextV4)
                 .disabled(false)
         }
     }

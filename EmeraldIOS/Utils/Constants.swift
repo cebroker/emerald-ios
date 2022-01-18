@@ -43,6 +43,7 @@ struct Constants {
     struct Configuration {
         static let cancel = "Cancel"
         static let done = "Done"
+        static let placeholderTextfieldPicker = "placeholder"
     }
 
     struct Regex {

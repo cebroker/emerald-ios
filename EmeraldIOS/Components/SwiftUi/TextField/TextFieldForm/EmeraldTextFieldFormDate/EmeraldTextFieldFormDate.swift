@@ -12,7 +12,7 @@ import SwiftUI
 public struct EmeraldTextFieldFormDate: View {
     private let hint: String?
     private let placeholder: String?
-    private let errorText: String?
+    private var errorText: String?
     @Binding private var text: String
     private let keyboardType: UIKeyboardType
     private let onEditingFinished: (() -> Void)?
@@ -25,15 +25,13 @@ public struct EmeraldTextFieldFormDate: View {
     public init(
         text: Binding<String>,
         hint: String? = nil,
-        placeholder: String? = nil,
-        errorText: String? = nil,
+        placeholder: String? = nil, 
         dateFormat: EmeraldIOS.TextFormat = .longDate,
         keyboardType: UIKeyboardType = .default,
         onEditingFinished: (() -> Void)? = nil
     ) {
         self.placeholder = placeholder
         self.hint = hint
-        self.errorText = errorText
         self._text = text
         self.keyboardType = keyboardType
         self.onEditingFinished = onEditingFinished
@@ -130,9 +128,10 @@ public struct EmeraldTextFieldFormDate: View {
         }
     }
     
-    public func hasError(_ hasError: Bool) -> Self {
+    public func hasError(_ hasError: Bool, errorText: String? = nil) -> Self {
         var view = self
         view.hasError = hasError
+        view.errorText = errorText
         return view
     }
 }
