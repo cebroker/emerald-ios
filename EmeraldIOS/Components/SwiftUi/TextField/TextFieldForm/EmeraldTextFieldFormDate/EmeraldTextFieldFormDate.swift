@@ -16,7 +16,7 @@ public struct EmeraldTextFieldFormDate: View {
     @Binding private var text: String
     private let keyboardType: UIKeyboardType
     private let onEditingFinished: (() -> Void)?
-    private let coordinator: EmeraldTextFieldFormDateCoordinator
+    private let coordinator: EmeraldTextFieldFormDateCoordinatorType
     private var hasError: Bool =  false
     private var dateFormat: EmeraldIOS.TextFormat = .longDate
     
@@ -37,7 +37,7 @@ public struct EmeraldTextFieldFormDate: View {
         self.onEditingFinished = onEditingFinished
         self.dateFormat = dateFormat
         
-        self.coordinator = .init(dateFormat: dateFormat)
+        self.coordinator = EmeraldTextFieldFormDateCoordinator(dateFormat: dateFormat)
     }
     
     public var body: some View {
@@ -93,11 +93,11 @@ public struct EmeraldTextFieldFormDate: View {
     func openDatePicker() {
         let datePicker = getPicker()
         
-        if let minimumDate = coordinator.minimumDate {
+        if let minimumDate = coordinator.getMinimumDate() {
             datePicker.set(minimumDate: minimumDate)
         }
         
-        if let maximumDate = coordinator.maximumDate {
+        if let maximumDate = coordinator.getMaximumDate() {
             datePicker.set(maximumDate: maximumDate)
         }
         let text = coordinator.fillYear(date: self.text)
@@ -118,7 +118,7 @@ public struct EmeraldTextFieldFormDate: View {
     }
     
     private func set(selectedDate: Date) {
-        let formattedDate = coordinator.getFormatDate(selectedDate)
+        let formattedDate = coordinator.getString(from: selectedDate)
         text = formattedDate
     }
     

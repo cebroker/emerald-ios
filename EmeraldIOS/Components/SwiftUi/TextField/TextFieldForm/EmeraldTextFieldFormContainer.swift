@@ -15,7 +15,7 @@ struct EmeraldTextFieldFormContainer<Content>: View where Content: View {
     private let placeholder: String?
     private let errorText: String?
 
-    @State var isEditing: Bool
+    @State private var isEditing: Bool
     private var hasError: Bool = false
 
     private var isActive: Bool {

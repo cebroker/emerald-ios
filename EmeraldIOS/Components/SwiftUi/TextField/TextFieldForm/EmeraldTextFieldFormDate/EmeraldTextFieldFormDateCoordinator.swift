@@ -8,23 +8,42 @@
 
 import Foundation
 
-final class EmeraldTextFieldFormDateCoordinator: TextFormatter {
+protocol EmeraldTextFieldFormDateCoordinatorType: TextFormatter {
+    func getFormat() -> TextFormat
+    func getMinimumDate() -> Date?
+    func getMaximumDate() -> Date?
+    func fillYear(date: String?) -> String
+    func getDate(from string: String) -> Date?
+    func getString(from date: Date) -> String
+    func formatText(_ text: String) -> String
+}
+
+final class EmeraldTextFieldFormDateCoordinator {
     private var formatValidator = FormatValidator()
     private let dateFormat: EmeraldIOS.TextFormat
     private lazy var dateFormatter = DateFormatter()
     
-    var minimumDate: Date?
-    var maximumDate: Date?
+    private var minimumDate: Date?
+    private var maximumDate: Date?
     
     init(dateFormat: TextFormat) {
         self.dateFormat = dateFormat
         setupDefaultDateFormat()
     }
     
-    func getFormat() -> TextFormat {
-        dateFormat
+    // MARK: Private methods
+    private func setupDefaultDateFormat() {
+        dateFormatter.locale = Locale(identifier: Constants.Values.localIdentifier)
+        //dateFormatter.timeZone = TimeZone(abbreviation: Constants.Values.gmt0)
+        dateFormatter.dateFormat = getDateFormat()
     }
     
+    private func getDateFormat() -> String {
+        dateFormat == .longDate ? Constants.DateFormat.defaultFormat : Constants.DateFormat.shortFormat
+    }
+}
+
+extension EmeraldTextFieldFormDateCoordinator : EmeraldTextFieldFormDateCoordinatorType {
     func apply(to date: String) -> String? {
         return try? apply(format: dateFormat, to: date)
     }
@@ -33,19 +52,28 @@ final class EmeraldTextFieldFormDateCoordinator: TextFormatter {
         return try? remove(format: dateFormat, to: date)
     }
     
+    func getFormat() -> TextFormat {
+        dateFormat
+    }
+    
+    func getMinimumDate() -> Date?{
+        minimumDate
+    }
+    
+    func getMaximumDate() -> Date? {
+        maximumDate
+    }
+    
     func fillYear(date: String?) -> String {
         formatValidator.fillYear(date: date)
     }
     
-    func getFormatDate(_ selectedDate: Date) -> String {
-        dateFormatter.string(from: selectedDate)
+    func getDate(from string: String) -> Date? {
+        return dateFormatter.date(from: string)
     }
     
-    func getDate(from string: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = getDateFormat()
-        dateFormatter.locale = Locale(identifier: Constants.Values.localIdentifier)
-        return dateFormatter.date(from: string)
+    func getString(from date: Date) -> String {
+        dateFormatter.string(from: date)
     }
     
     func formatText(_ text: String) -> String {
@@ -57,17 +85,5 @@ final class EmeraldTextFieldFormDateCoordinator: TextFormatter {
         let textWithoutFormat = remove(to: string)
         let newText = apply(to: textWithoutFormat ?? string)
         return String((newText ?? string).prefix(maxCharacter))
-    }
-    
-    // MARK: Private methods
-
-    private func setupDefaultDateFormat() {
-        dateFormatter.locale = Locale(identifier: Constants.Values.localIdentifier)
-        dateFormatter.timeZone = TimeZone(abbreviation: Constants.Values.gmt0)
-        dateFormatter.dateFormat = getDateFormat()
-    }
-    
-    private func getDateFormat() -> String {
-        dateFormat == .longDate ? Constants.DateFormat.defaultFormat : Constants.DateFormat.shortFormat
     }
 }
