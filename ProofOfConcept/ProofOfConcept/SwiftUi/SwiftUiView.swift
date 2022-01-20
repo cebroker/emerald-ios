@@ -8,6 +8,22 @@
 import EmeraldIOS
 import SwiftUI
 
+final class DataSelectable: Selectable {
+    public var id: String
+    public var name: String
+    
+    public init(
+        id: String,
+        name: String) {
+        self.id = id
+        self.name = name
+    }
+    
+    func getSelectableText() -> String {
+        name
+    }
+}
+
 @available(iOS 13.0.0, *)
 struct SwiftUiView: View {
     //MARK: Constants
@@ -23,24 +39,39 @@ struct SwiftUiView: View {
     @State private var titleText = "RadioButtonTitle"
     @State private var subTitleText = "Radio Button SubTitle"
     @State(initialValue: "buttonName") var buttonName: String
-    @State(initialValue: "") var normal: String
-    @State(initialValue: "") var normalNew: String
-    @State(initialValue: "") var email: String
-    @State(initialValue: "") var emailNew: String
-    @State(initialValue: "") var password: String
-    @State(initialValue: "") var passwordNew: String
-    @State(initialValue: "") var currency: String
-    @State(initialValue: "") var currencyNew: String
-    @State(initialValue: "") var shortDate: String
-    @State(initialValue: "") var shortDateNew: String
-    @State(initialValue: "") var longDate: String
-    @State(initialValue: "") var longDateNew: String
-    @State(initialValue: "") var textView: String
-    @State(initialValue: "") var textViewNew: String
-    @State(initialValue: "") var disabledField: String
-    @State(initialValue: nil) var errorText: String?
-    @State(initialValue: nil) var errorTextNew: String?
-    @State var selected: String?
+    @State(initialValue: "") private var normal: String
+    @State(initialValue: "") private var normalNew: String
+    @State(initialValue: "") private var email: String
+    @State(initialValue: "") private var emailNew: String
+    @State(initialValue: "") private var password: String
+    @State(initialValue: "") private var passwordNew: String
+    @State(initialValue: "") private var currency: String
+    @State(initialValue: "") private var currencyNew: String
+    @State(initialValue: "") private var shortDate: String
+    @State(initialValue: "") private var shortDateNew: String
+    @State(initialValue: "") private var longDate: String
+    @State(initialValue: "") private var longDateNew: String
+    @State(initialValue: "") private var textView: String
+    @State(initialValue: "") private var textViewNew: String
+    @State(initialValue: "") private var disabledField: String
+    @State(initialValue: nil) private var errorText: String?
+    @State(initialValue: nil) private var errorTextNew: String?
+    // MARK: It's for radioButton
+    @State private var selected: String?
+    
+    // MARK: It's for New Textfields
+    @State(initialValue: "") private var textV2: String
+    @State(initialValue: nil) private var errorTextV2: String?
+    @State(initialValue: "") private var textV3: String
+    @State(initialValue: nil) private var errorTextV3: String?
+    
+    // MARK: It's for New Textfields Picker
+    @State private var pickerData: [Selectable] = [DataSelectable(id: "1", name: "name 1"),
+                                           DataSelectable(id: "2", name: "name 2")]
+    @State private var itemPickerSelected: Int?
+    @State(initialValue: "") private var textV4: String
+    @State(initialValue: nil) private var errorTextV4: String?
+    
     // MARK: ViewBuilder
     @ViewBuilder
     var emeraldLabelByStory: some View {
@@ -122,40 +153,40 @@ struct SwiftUiView: View {
                     }
             }
             VStack {
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primary) {
-                    print(actionButton)
-                }
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primarySuccess){}
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryWarning) {
-                    print(actionButton)
-                }
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryError) {}
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primarySmall) {}
-            EmeraldSwiftUIButton(
-                buttonName: _buttonName,
-                isEnabled: .constant(true),
-                isHighlighted: .constant(false),
-                themeStyle: .primaryLarge) {}
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primary) {
+                        print(actionButton)
+                    }
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primarySuccess){}
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryWarning) {
+                        print(actionButton)
+                    }
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryError) {}
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primarySmall) {}
+                EmeraldSwiftUIButton(
+                    buttonName: _buttonName,
+                    isEnabled: .constant(true),
+                    isHighlighted: .constant(false),
+                    themeStyle: .primaryLarge) {}
             }
             VStack {
                 EmeraldSwiftUIButton(
@@ -196,6 +227,37 @@ struct SwiftUiView: View {
                 isEnabled: .constant(true),
                 isHighlighted: .constant(false),
                 themeStyle: .warning) {}
+        }
+    }
+    
+    
+    @ViewBuilder
+    var emeraldTextFieldsNewView: some View {
+        VStack {
+            EmeraldTextFieldFormNormal(text: $textV2,
+                                       hint: "ingresa tu email",
+                                       placeholder: "email@mail.com")
+                .hasError(errorTextV2 != nil, errorText: errorTextV2)
+                .disabled(false)
+                .onReceive(textV2.publisher.collect()) {
+                    errorTextV2 = isValidEmail(String($0)) || String($0).isEmpty ?
+                    nil :
+                    "email invalido"
+                }
+            Spacer()
+            EmeraldTextFieldFormDate(text: $textV3,
+                                     hint: "ingresa la fecha",
+                                     placeholder: "12/12/2022",
+                                     keyboardType: .numberPad)
+                .hasError(errorTextV3 != nil, errorText: errorTextV3)
+                .disabled(false)
+            Spacer()
+            EmeraldTextFieldFormPicker(hint: "Selecciona una categoria",
+                                       placeholder: "este es mi placholder",
+                                       data: $pickerData,
+                                       lastSelectedIndex: $itemPickerSelected)
+                .hasError(errorTextV4 != nil, errorText: errorTextV4)
+                .disabled(false)
         }
     }
     
@@ -245,8 +307,8 @@ struct SwiftUiView: View {
                         useLegacy: false)
                         .onReceive(email.publisher.collect()) {
                             errorText = isValidEmail(String($0)) || String($0).isEmpty ?
-                                nil :
-                                "email invalido"
+                            nil :
+                            "email invalido"
                         }
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
@@ -264,8 +326,8 @@ struct SwiftUiView: View {
                         errorText: errorTextNew)
                         .onReceive(emailNew.publisher.collect()) {
                             errorTextNew = isValidEmail(String($0)) || String($0).isEmpty ?
-                                nil :
-                                "email invalido"
+                            nil :
+                            "email invalido"
                         }
                     EmeraldSwiftUiTextField(
                         textFieldType: .email,
@@ -470,19 +532,24 @@ struct SwiftUiView: View {
     var body: some View {
         ScrollView {
             emeraldRadioButtonView
-            .padding()
+                .padding()
             Divider()
             emeraldLabelByStory
-            .padding()
+                .padding()
             Divider()
             emeraldChipViewByStory
-            .padding()
+                .padding()
             Divider()
             emeraldButtonsView
-            .padding()
+                .padding()
             Divider()
-            emeraldTextFieldsView
-            .padding()
+            VStack {
+                emeraldTextFieldsNewView
+                    .padding()
+                Divider()
+                emeraldTextFieldsView
+                    .padding()
+            }
         }
     }
     
@@ -529,13 +596,10 @@ let radioGroups: [radioButtonModel] = [
     radioButtonModel(id: "2", title: "prueba2", requiredExplanation: true),
     radioButtonModel(id: "3", title: "prueba3", requiredExplanation: false),
     radioButtonModel(id: "4", title: "prueba4", requiredExplanation: true)
-  
 ]
 
 struct radioButtonModel {
-
     let id: String
     let title: String
     var requiredExplanation: Bool
-
 }

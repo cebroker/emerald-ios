@@ -39,6 +39,12 @@ struct Constants {
             self.id = Int(value) ?? 0
         }
     }
+    
+    struct Configuration {
+        static let cancel = "Cancel"
+        static let done = "Done"
+        static let placeholderTextfieldPicker = "placeholder"
+    }
 
     struct Regex {
         static let ssn = "^[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{4}$"
@@ -74,6 +80,9 @@ struct Constants {
         static let ssnPrefixIndex = 3
         static let ssnSuffixIndex = 6
         static let ssnMaxLength = 11
+        static let maximumDateLength = 10
+        static let maximumShortDateLength = 7
+        static let numbers = "0123456789"
     }
 
     struct MockedData {
@@ -153,6 +162,7 @@ struct Constants {
         static let dollar = "$"
         static let dollarWithSpace = "$ "
         static let localIdentifier = "en_US_POSIX"
+        static let gmt0 = "GMT+0:00"
         static let dot: Character = "."
         static let space = " "
         static let zero = 0
