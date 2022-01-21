@@ -32,7 +32,7 @@ public struct LabelHelperText: View {
                 errorText != nil ?
                     Constants.EmeraldSwiftUiTextField.errorColor.suColor :
                     (disabled ?
-                        Constants.EmeraldSwiftUiTextField.lightTextColor.suColor :
+                        Constants.EmeraldSwiftUiTextField.lightTextColor.suColor.opacity(0.5) :
                         Constants.EmeraldSwiftUiTextField.lightTextColor.suColor))
             .padding(.leading, -10)
     }
