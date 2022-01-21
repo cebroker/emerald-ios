@@ -35,6 +35,7 @@ extension Constants {
         static let whiteColor: UIColor = ColorPallete.white.uiColor
         static let disabledColor: UIColor = ColorPallete.extraLightGray.uiColor
         static let placeHolderColor: UIColor = ColorPallete.border.uiColor
+        static let lightTextColor: UIColor = ColorPallete.lightText.uiColor
         static let primaryColor: UIColor = EmeraldTheme.primaryColor
         static let hide: String = "hide"
         static let show: String = "show"

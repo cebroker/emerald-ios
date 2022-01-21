@@ -75,6 +75,7 @@ public struct EmeraldSwiftUiTextView: View {
                 label: label,
                 placeholder: placeholder,
                 accessibility: accessibility,
+                helperText: helperText,
                 errorText: errorText,
                 maxLength: maxLength,
                 disabled: disabled,
