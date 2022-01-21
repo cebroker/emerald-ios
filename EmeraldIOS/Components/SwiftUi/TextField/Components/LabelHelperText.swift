@@ -26,14 +26,15 @@ public struct LabelHelperText: View {
                 vertical: true)
             .multilineTextAlignment(.leading)
             .font(Typography(
-                    size: .h4,
+                    size: .h5,
                     weight: .semibold).suFont)
             .foregroundColor(
                 errorText != nil ?
                     Constants.EmeraldSwiftUiTextField.errorColor.suColor :
                     (disabled ?
-                        Constants.EmeraldSwiftUiTextField.textColor.suColor.opacity(0.5) :
-                        Constants.EmeraldSwiftUiTextField.textColor.suColor))
+                        Constants.EmeraldSwiftUiTextField.lightTextColor.suColor.opacity(0.5) :
+                        Constants.EmeraldSwiftUiTextField.lightTextColor.suColor))
+            .padding(.leading, -10)
     }
 }
 

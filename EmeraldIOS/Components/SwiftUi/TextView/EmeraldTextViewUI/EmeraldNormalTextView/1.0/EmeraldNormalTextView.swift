@@ -16,6 +16,7 @@ public struct EmeraldNormalTextView: View {
     public var label: String
     public var placeholder: String
     public var accessibility: String
+    public var helperText: String?
     public var errorText: String?
     public var maxLength: Int?
     public var disabled: Bool
@@ -26,6 +27,7 @@ public struct EmeraldNormalTextView: View {
                 label: String = "",
                 placeholder: String = "",
                 accessibility: String = "",
+                helperText: String? = nil,
                 errorText: String? = nil,
                 maxLength: Int? = nil,
                 disabled: Bool = false,
@@ -35,6 +37,7 @@ public struct EmeraldNormalTextView: View {
         self.label = label
         self.placeholder = placeholder
         self.accessibility = accessibility
+        self.helperText = helperText
         self.errorText = errorText
         self.maxLength = maxLength
         self.disabled = disabled
@@ -77,11 +80,19 @@ public struct EmeraldNormalTextView: View {
     
     var errorTextContent: some View {
         HStack(alignment: .top) {
-            if errorText != nil {
+            if errorText != nil || helperText != nil {
                 LabelHelperText(
                     disabled: disabled,
-                    helperText: nil,
+                    helperText: helperText,
                     errorText: errorText)
+            }
+            
+            if maxLength != nil {
+                Spacer()
+                LabelTextFieldCounter(
+                    text: $text,
+                    disabled: disabled,
+                    maxLength: maxLength)
             }
         }
         .padding(

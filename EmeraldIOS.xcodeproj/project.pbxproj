@@ -21,7 +21,7 @@
 		4791696726AB35F3008BC08B /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696626AB35F3008BC08B /* TextFieldType.swift */; };
 		4791696A26AB361F008BC08B /* EmeraldSwiftUiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696926AB361F008BC08B /* EmeraldSwiftUiTextField.swift */; };
 		4791696D26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696C26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift */; };
-		4791697026AB36AC008BC08B /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 4791696F26AB36AC008BC08B /* Introspect */; };
+		4791697026AB36AC008BC08B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4791696F26AB36AC008BC08B /* SwiftPackageProductDependency */; };
 		4791697226AB36DF008BC08B /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697126AB36DF008BC08B /* ClearButton.swift */; };
 		4791697526AB372E008BC08B /* EmeraldSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697426AB372E008BC08B /* EmeraldSecureTextField.swift */; };
 		4791697826AB3767008BC08B /* LabelHelperText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697726AB3767008BC08B /* LabelHelperText.swift */; };
@@ -371,7 +371,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4791697026AB36AC008BC08B /* Introspect in Frameworks */,
+				4791697026AB36AC008BC08B /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,7 +1249,7 @@
 			);
 			name = EmeraldIOS;
 			packageProductDependencies = (
-				4791696F26AB36AC008BC08B /* Introspect */,
+				4791696F26AB36AC008BC08B /* SwiftPackageProductDependency */,
 			);
 			productName = CondorUIComponents;
 			productReference = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */;
@@ -1285,7 +1285,7 @@
 			);
 			mainGroup = 9BE5A53C2228813A004A59B9;
 			packageReferences = (
-				4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				4791696E26AB36AC008BC08B /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
 			projectDirPath = "";
@@ -1686,7 +1686,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.8;
+				MARKETING_VERSION = 2.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1717,7 +1717,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.8;
+				MARKETING_VERSION = 2.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1759,7 +1759,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+		4791696E26AB36AC008BC08B /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
@@ -1770,9 +1770,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4791696F26AB36AC008BC08B /* Introspect */ = {
+		4791696F26AB36AC008BC08B /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			package = 4791696E26AB36AC008BC08B /* RemoteSwiftPackageReference */;
 			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
