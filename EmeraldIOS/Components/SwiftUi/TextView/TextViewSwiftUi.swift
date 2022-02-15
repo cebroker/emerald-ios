@@ -25,6 +25,7 @@ struct TextViewSwiftUi: UIViewRepresentable {
         textView.isScrollEnabled = true
         textView.isEditable = !disabled
         textView.isUserInteractionEnabled = !disabled
+        textView.backgroundColor = .clear
         let padding = textView.textContainer.lineFragmentPadding
         textView.textContainerInset =  UIEdgeInsets(
             top: .zero,

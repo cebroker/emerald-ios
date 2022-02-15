@@ -52,6 +52,7 @@ struct SwiftUiView: View {
     @State(initialValue: "") private var longDate: String
     @State(initialValue: "") private var longDateNew: String
     @State(initialValue: "") private var textView: String
+    @State(initialValue: "") private var textViewtwo: String
     @State(initialValue: "") private var textViewNew: String
     @State(initialValue: "") private var disabledField: String
     @State(initialValue: nil) private var errorText: String?
@@ -463,10 +464,23 @@ struct SwiftUiView: View {
                     Text("V 1.0")
                     EmeraldSwiftUiTextView(
                         text: $textView,
-                        label: "Text View",
+                        label:"232131312312312312312312312312312323432432423442p4234324m3423423432423423j23423423q23423423424234234",
                         placeholder: "placeholder",
                         helperText: "this is a helper text",
-                        useLegacy: false)
+                        useLegacy: false).padding(.bottom, 100)
+                    EmeraldSwiftUiTextView(
+                        text: $textView,
+                        label:"232131312312312312312312312312312323432432423442p4234324m3423423432423423j2",
+                        placeholder: "placeholder",
+                        helperText: "this is a helper text",
+                        useLegacy: false).padding(.bottom, 100)
+                    Text("V 1.0")
+                    EmeraldSwiftUiTextView(
+                        text: $textViewtwo,
+                        label:"23232323",
+                        placeholder: "placeholder",
+                        helperText: "this is a helper text",
+                        useLegacy: false).padding(.bottom, 100)
                     EmeraldSwiftUiTextView(
                         text: $disabledField,
                         label: "Text View",

@@ -19,6 +19,10 @@ public struct LabelTextFieldTitle: View {
     
     public var body: some View {
         Text(label)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.top, 30)
+            .fixedSize(horizontal: false, vertical: true)
             .font(Typography(
                     size: focused || !text.isEmpty ?
                         .h6 :
@@ -32,8 +36,7 @@ public struct LabelTextFieldTitle: View {
                         (disabled ?
                             Constants.EmeraldSwiftUiTextField.borderColor.suColor.opacity(0.5) :
                             Constants.EmeraldSwiftUiTextField.borderColor.suColor)))
-            .lineLimit(1)
-    }
+   }
 }
 
 #if DEBUG
