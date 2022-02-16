@@ -69,7 +69,7 @@ public struct EmeraldNormalTextView: View {
                     Constants.EmeraldSwiftUiTextField.topContentSpacing * 0.85)
             .offset(
                 x: .zero,
-                y: -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent ))
+                y: label.isEmpty ? -Constants.EmeraldSwiftUiTextField.topContentSpacing : -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent))
             .padding(
                 .bottom, Constants.EmeraldSwiftUiTextField.spaceBottomContent)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
@@ -145,6 +145,9 @@ public struct EmeraldNormalTextView: View {
         .padding(
             .leading,
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
+        .offset(
+            x: .zero,
+            y: label.isEmpty ? -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3) : 0)
         .animation(.spring(
                     response: 0.2,
                     dampingFraction: 1,
