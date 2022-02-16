@@ -67,9 +67,11 @@ public struct EmeraldNormalTextView: View {
                 .top,
                 Constants.EmeraldSwiftUiTextField.topContentSpacing +
                     Constants.EmeraldSwiftUiTextField.topContentSpacing * 0.85)
+            .offset(
+                x: .zero,
+                y: label.isEmpty ? -Constants.EmeraldSwiftUiTextField.topContentSpacing : -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent))
             .padding(
-                .bottom,
-                Constants.EmeraldSwiftUiTextField.bottomContentSpacing)
+                .bottom, Constants.EmeraldSwiftUiTextField.spaceBottomContent)
             .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
                         .stroke(EmeraldSwiftUiTextView.getBorderColor(
                                     errorText: errorText,
@@ -119,9 +121,8 @@ public struct EmeraldNormalTextView: View {
         .offset(
             x: .zero,
             y: focused || !$text.wrappedValue.isEmpty ?
-                -(Constants.EmeraldSwiftUiTextField.heightLabel * 2) :
-                -(Constants.EmeraldSwiftUiTextField.topContentSpacing +
-                    Constants.EmeraldSwiftUiTextField.topContentSpacing / 2))
+            -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3) :
+                -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3))
         .animation(.spring(
                     response: 0.2,
                     dampingFraction: 1,
@@ -146,7 +147,7 @@ public struct EmeraldNormalTextView: View {
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
         .offset(
             x: .zero,
-            y: -Constants.EmeraldSwiftUiTextField.topContentSpacing)
+            y: label.isEmpty ? -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3) : 0)
         .animation(.spring(
                     response: 0.2,
                     dampingFraction: 1,

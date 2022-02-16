@@ -19,6 +19,8 @@ extension Constants {
         static let leadingContentSpacing: CGFloat = 10
         static let trailingContentSpacing: CGFloat = 10
         static let topContentSpacing: CGFloat = 14
+        static let spaceBetweenContent: CGFloat = 42
+        static let spaceBottomContent: CGFloat = 30
         static let bottomContentSpacing: CGFloat = 5
         static let horizontalLabelSpacing: CGFloat = 4
         static let bottomContentPadding:CGFloat = 5
