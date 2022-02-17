@@ -121,8 +121,8 @@ public struct EmeraldNormalTextView: View {
         .offset(
             x: .zero,
             y: focused || !$text.wrappedValue.isEmpty ?
-            -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3) :
-                -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3))
+            -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 2) :
+                -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 2))
         .animation(.spring(
                     response: 0.2,
                     dampingFraction: 1,
@@ -136,6 +136,8 @@ public struct EmeraldNormalTextView: View {
                         size: .h5,
                         weight: .semibold).suFont)
                 .foregroundColor(Constants.EmeraldSwiftUiTextField.placeHolderColor.suColor)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
             Spacer()
         }
         .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
@@ -147,7 +149,7 @@ public struct EmeraldNormalTextView: View {
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
         .offset(
             x: .zero,
-            y: label.isEmpty ? -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3) : 0)
+            y: label.isEmpty ? -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3) : placeholder.count == 100  ? -(Constants.EmeraldSwiftUiTextField.topContentSpacing - 40) : placeholder.count == 75  ? -(Constants.EmeraldSwiftUiTextField.topContentSpacing - 30) : 0)
         .animation(.spring(
                     response: 0.2,
                     dampingFraction: 1,
