@@ -52,6 +52,8 @@ public struct EmeraldRadioButtonUI: View {
                     EmeraldSwiftUiLabel(
                         text: $textRadioButton,
                         themeStyle: .bodyBold)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(Color.black)
                     Spacer()
                 }.padding(16)

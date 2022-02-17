@@ -21,7 +21,6 @@ public struct LabelTextFieldTitle: View {
         Text(label)
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top, 30)
             .fixedSize(horizontal: false, vertical: true)
             .font(Typography(
                     size: focused || !text.isEmpty ?
