@@ -1686,7 +1686,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.12;
+				MARKETING_VERSION = 2.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1717,7 +1717,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.12;
+				MARKETING_VERSION = 2.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

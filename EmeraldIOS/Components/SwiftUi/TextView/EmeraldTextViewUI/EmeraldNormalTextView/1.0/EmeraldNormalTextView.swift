@@ -143,7 +143,6 @@ public struct EmeraldNormalTextView: View {
                 .fixedSize(horizontal: false, vertical: true)
             Spacer()
         }
-        .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
         .padding(
             .trailing,
             Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
