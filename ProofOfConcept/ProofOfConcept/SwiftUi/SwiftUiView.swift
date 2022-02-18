@@ -479,13 +479,13 @@ struct SwiftUiView: View {
                     EmeraldSwiftUiTextView(
                         text: $textViewtwo,
                         label:"23232323",
-                        placeholder: "placeholderfdfofsofsofsodofsosfofsosfosdfdf",
+                        placeholder: "placeholderfdfofsofsofsodofsosfofsosfosdf",
                         helperText: "this is a helper text",
                         useLegacy: false).padding(.bottom, 50)
                     EmeraldSwiftUiTextView(
                         text: $textViewthree,
                         label:"",
-                        placeholder: "",
+                        placeholder: "er094500534503450345",
                         helperText: "this is a helper text",
                         useLegacy: false).padding(.bottom, 50)
                     EmeraldSwiftUiTextView(
