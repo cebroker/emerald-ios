@@ -467,20 +467,20 @@ struct SwiftUiView: View {
                         text: $textView,
                         label:"232131312312312312312312312312312323432432423442p4234324m3423423432423423j23423423q23423423424234234",
                         placeholder: "420i2423i0423i04i0234i0240i2340i4i02340i23i04230i423i04i2034i02340i2423i04i0234i0234i0234i0234i0234i",
-                        helperText: "this is a helper text",
+                        helperText: "420i2423i0423i04i0234i0240i2340i4i02340i23i04230i423i04i2034i02340i2423i04i0234i0234i0234i0234i0234i420i2423i0423i04i0234i0240i2340i4i02340i23i04230i423i04i2034i02340i2423i04i0234i0234i0234i0234i0234i",
                         useLegacy: false).padding(.bottom, 50)
                     EmeraldSwiftUiTextView(
                         text: $textView,
                         label:"232131312312312312312312312312312323432432423442p4234324m3423423432423423j2",
                         placeholder: "232131312312312312312312312312312323432432423442p4234324m3423423432423423j2",
-                        helperText: "this is a helper text",
+                        helperText: "420i2423i0423i04i0234i0240i2340i4i02340i23i04230i423i04i2034i02340i2423i04i0234i0234i0234i0234i0234i",
                         useLegacy: false).padding(.bottom, 50)
                     Text("V 1.0")
                     EmeraldSwiftUiTextView(
                         text: $textViewtwo,
                         label:"23232323",
                         placeholder: "placeholderfdfofsofsofsodofsosfofsosfosdf",
-                        helperText: "this is a helper text",
+                        helperText: "232131312312312312312312312312312323432432423442p4234324m3423423432423423j2",
                         useLegacy: false).padding(.bottom, 50)
                     EmeraldSwiftUiTextView(
                         text: $textViewthree,
