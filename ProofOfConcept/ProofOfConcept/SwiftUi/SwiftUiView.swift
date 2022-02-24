@@ -53,7 +53,7 @@ struct SwiftUiView: View {
     @State(initialValue: "") private var longDateNew: String
     @State(initialValue: "") private var textView: String
     @State(initialValue: "") private var textViewtwo: String
-    @State(initialValue: "") private var textViewthree: String
+    @State(initialValue: "eferewrwrwerwerewrerewr") private var textViewthree: String
     @State(initialValue: "") private var textViewNew: String
     @State(initialValue: "") private var disabledField: String
     @State(initialValue: nil) private var errorText: String?

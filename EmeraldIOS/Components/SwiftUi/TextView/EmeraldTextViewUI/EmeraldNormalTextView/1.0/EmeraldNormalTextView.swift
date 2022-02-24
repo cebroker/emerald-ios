@@ -72,25 +72,24 @@ public struct EmeraldNormalTextView: View {
                 y: validatePositionText())
             .padding(
                 .bottom, Constants.EmeraldSwiftUiTextField.spaceBottomContent)
-           
     }
     
      func validatePositionText() -> CGFloat {
+         var position: CGFloat = 0.0
          if label.isEmpty {
-             return -Constants.EmeraldSwiftUiTextField.topContentSpacing
+             position = -Constants.EmeraldSwiftUiTextField.topContentSpacing
          } else  {
              if !text.isEmpty {
-                 return -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
-                 
+                 position = -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
              } else {
                  if focused {
-                     return -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
+                     position = -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
                  } else {
-                     
-                     return -Constants.EmeraldSwiftUiTextField.topContentSpacing
+                     position = -Constants.EmeraldSwiftUiTextField.topContentSpacing
                  }
              }
          }
+         return position
      }
   
     var errorTextContent: some View {
@@ -133,14 +132,22 @@ public struct EmeraldNormalTextView: View {
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
         .offset(
             x: .zero,
-            y: focused || !$text.wrappedValue.isEmpty ?
-            geo.size.height - 115 :
-                geo.size.height - 115 )
+            y: validatePositionLabelField(height: geo.size.height))
         .animation(.spring(
                     response: 0.2,
                     dampingFraction: 1,
                     blendDuration: .zero))
         }
+    }
+    
+    private func validatePositionLabelField(height: CGFloat ) -> CGFloat  {
+        var position: CGFloat = 0.0
+        if focused || !$text.wrappedValue.isEmpty {
+            position = height - 115
+        } else {
+            position = height - 110
+        }
+        return position
     }
     
     var labelPlaceholderContent: some View {
