@@ -73,25 +73,7 @@ public struct EmeraldNormalTextView: View {
             .padding(
                 .bottom, Constants.EmeraldSwiftUiTextField.spaceBottomContent)
     }
-    
-     func validatePositionText() -> CGFloat {
-         var position: CGFloat = 0.0
-         if label.isEmpty {
-             position = -Constants.EmeraldSwiftUiTextField.topContentSpacing
-         } else  {
-             if !text.isEmpty {
-                 position = -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
-             } else {
-                 if focused {
-                     position = -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
-                 } else {
-                     position = -Constants.EmeraldSwiftUiTextField.topContentSpacing
-                 }
-             }
-         }
-         return position
-     }
-  
+      
     var errorTextContent: some View {
         HStack(alignment: .top) {
             if errorText != nil || helperText != nil {
@@ -138,16 +120,6 @@ public struct EmeraldNormalTextView: View {
                     dampingFraction: 1,
                     blendDuration: .zero))
         }
-    }
-    
-    private func validatePositionLabelField(height: CGFloat ) -> CGFloat  {
-        var position: CGFloat = 0.0
-        if focused || !$text.wrappedValue.isEmpty {
-            position = height - 115
-        } else {
-            position = height - 110
-        }
-        return position
     }
     
     var labelPlaceholderContent: some View {
@@ -208,6 +180,39 @@ public struct EmeraldNormalTextView: View {
     }
 }
 
+
+@available(iOS 13.0.0, *)
+extension EmeraldNormalTextView {
+    
+   private func validatePositionText() -> CGFloat {
+        var position: CGFloat = 0.0
+        if label.isEmpty {
+            position = -Constants.EmeraldSwiftUiTextField.topContentSpacing
+        } else  {
+            if !text.isEmpty {
+                position = -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
+            } else {
+                if focused {
+                    position = -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
+                } else {
+                    position = -Constants.EmeraldSwiftUiTextField.topContentSpacing
+                }
+            }
+        }
+        return position
+    }
+    
+    private func validatePositionLabelField(height: CGFloat ) -> CGFloat  {
+        var position: CGFloat = 0.0
+        if focused || !$text.wrappedValue.isEmpty {
+            position = height - 115
+        } else {
+            position = height - 110
+        }
+        return position
+    }
+}
+
 #if DEBUG
 @available(iOS 13.0.0, *)
 struct EmeraldNormalTextView_Previews: PreviewProvider {
@@ -228,4 +233,3 @@ struct EmeraldNormalTextView_Previews: PreviewProvider {
     }
 }
 #endif
-
