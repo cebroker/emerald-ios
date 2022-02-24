@@ -69,17 +69,11 @@ public struct EmeraldNormalTextView: View {
                     Constants.EmeraldSwiftUiTextField.topContentSpacing * 0.85)
             .offset(
                 x: .zero,
-                y: label.isEmpty ? -Constants.EmeraldSwiftUiTextField.topContentSpacing : -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent))
+                y: validatePositionText())
             .padding(
                 .bottom, Constants.EmeraldSwiftUiTextField.spaceBottomContent)
-            .overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
-                        .stroke(EmeraldSwiftUiTextView.getBorderColor(
-                                    errorText: errorText,
-                                    focused: focused,
-                                    disabled: disabled),
-                                lineWidth: EmeraldSwiftUiTextView.getBorderWidth(focused: focused)))
     }
-    
+      
     var errorTextContent: some View {
         HStack(alignment: .top) {
             if errorText != nil || helperText != nil {
@@ -112,7 +106,6 @@ public struct EmeraldNormalTextView: View {
                 focused: $focused)
             Spacer()
         }
-        .frame(height: Constants.EmeraldSwiftUiTextField.heightLabel)
         .padding(
             .trailing,
             Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
@@ -121,9 +114,7 @@ public struct EmeraldNormalTextView: View {
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
         .offset(
             x: .zero,
-            y: focused || !$text.wrappedValue.isEmpty ?
-            geo.size.height - 100 :
-                geo.size.height - 90  )
+            y: validatePositionLabelField(height: geo.size.height))
         .animation(.spring(
                     response: 0.2,
                     dampingFraction: 1,
@@ -133,7 +124,7 @@ public struct EmeraldNormalTextView: View {
     
     var labelPlaceholderContent: some View {
         GeometryReader { geo in
-        HStack {
+         HStack {
             Text(placeholder)
                 .font(Typography(
                         size: .h5,
@@ -144,14 +135,11 @@ public struct EmeraldNormalTextView: View {
             Spacer()
         }
         .padding(
-            .trailing,
-            Constants.EmeraldSwiftUiTextField.trailingContentSpacing)
-        .padding(
             .leading,
             Constants.EmeraldSwiftUiTextField.leadingContentSpacing)
         .offset(
             x: .zero,
-            y: label.isEmpty ? -(Constants.EmeraldSwiftUiTextField.topContentSpacing * 3) : 50)
+            y: label.isEmpty ? 10 : 50)
         .animation(.spring(
                     response: 0.2,
                     dampingFraction: 1,
@@ -160,18 +148,20 @@ public struct EmeraldNormalTextView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .leading) {
-            ZStack {
-                textView
+        VStack(alignment: .leading, spacing: 3) {
+            VStack {
+               ZStack {
                 labelFieldContent
-                    .onTapGesture {
-                        if !disabled {
-                            self.focused = true
-                        }
-                    }
+                textView
                 if focused, text.isEmpty {
                     labelPlaceholderContent
                 }
+               }.overlay(RoundedRectangle(cornerRadius: Constants.EmeraldSwiftUiTextField.cornerRadius)
+                .stroke(EmeraldSwiftUiTextView.getBorderColor(
+                                        errorText: errorText,
+                                        focused: focused,
+                                        disabled: disabled),
+                                    lineWidth: EmeraldSwiftUiTextView.getBorderWidth(focused: focused)))
             }
             errorTextContent
         }
@@ -187,6 +177,39 @@ public struct EmeraldNormalTextView: View {
         .fixedSize(
             horizontal: false,
             vertical: true)
+    }
+}
+
+
+@available(iOS 13.0.0, *)
+extension EmeraldNormalTextView {
+    
+   private func validatePositionText() -> CGFloat {
+        var position: CGFloat = 0.0
+        if label.isEmpty {
+            position = -Constants.EmeraldSwiftUiTextField.topContentSpacing
+        } else  {
+            if !text.isEmpty {
+                position = -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
+            } else {
+                if focused {
+                    position = -(Constants.EmeraldSwiftUiTextField.topContentSpacing - Constants.EmeraldSwiftUiTextField.spaceBetweenContent)
+                } else {
+                    position = -Constants.EmeraldSwiftUiTextField.topContentSpacing
+                }
+            }
+        }
+        return position
+    }
+    
+    private func validatePositionLabelField(height: CGFloat ) -> CGFloat  {
+        var position: CGFloat = 0.0
+        if focused || !$text.wrappedValue.isEmpty {
+            position = height - 115
+        } else {
+            position = height - 110
+        }
+        return position
     }
 }
 
