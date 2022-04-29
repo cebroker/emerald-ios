@@ -53,7 +53,7 @@ struct EmeraldTextFieldFormContainer<Content>: View where Content: View {
     @ViewBuilder
     var errorTextContent: some View {
         HStack(alignment: .top) {
-            if hasError {
+            if hasError, !(errorText?.isEmpty ?? true) {
                 Text(errorText ?? Constants.Values.empty)
                     .bodyBold(color: Color.fieldColor(hasError: hasError,
                                                       isActive: isActive),

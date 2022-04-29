@@ -57,7 +57,7 @@ struct EmeraldNormalTextField: View {
     
     var errorTextContent: some View {
         HStack(alignment: .top) {
-            if errorText != nil {
+            if errorText != nil, !(errorText?.isEmpty ?? true) {
                 LabelHelperText(
                     helperText: nil,
                     errorText: errorText)

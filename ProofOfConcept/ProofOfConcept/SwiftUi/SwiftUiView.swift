@@ -527,7 +527,7 @@ struct SwiftUiView: View {
             if #available(iOS 14.0, *) {
                 ForEach(radioGroups,id: \.id){ data in
                     EmeraldRadioButtonUI(selected: self.$selected,
-                                         textRadioButton: data.title,
+                                         textRadioButton: .constant(data.title),
                                          key: data.id)
                     if  self.selected == data.id && data.requiredExplanation == true {
                         EmeraldSwiftUiTextView(

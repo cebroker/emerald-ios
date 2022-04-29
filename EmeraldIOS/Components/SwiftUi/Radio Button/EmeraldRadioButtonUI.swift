@@ -18,16 +18,16 @@ struct InnerConstant {
 public struct EmeraldRadioButtonUI: View {
     
     @Binding public var selected: String?
-    @State var textRadioButton: String
+    @Binding var textRadioButton: String
     public var key: String
     public var isRequired: Bool
     
     public init(selected: Binding<String?>,
-                textRadioButton: String,
+                textRadioButton: Binding<String>,
                 key: String,
                 isRequired: Bool = false) {
         self._selected = selected
-        self.textRadioButton = textRadioButton
+        self._textRadioButton = textRadioButton
         self.key = key
         self.isRequired = isRequired
     }
@@ -75,7 +75,7 @@ struct EmeraldRadioButtonUI_Previews: PreviewProvider {
     @State static var select: String?
     static var previews: some View {
         EmeraldRadioButtonUI(selected: $select,
-                             textRadioButton: textRadioButton,
+                             textRadioButton: .constant(textRadioButton),
                              key: InnerConstant.empty )
     }
 }
