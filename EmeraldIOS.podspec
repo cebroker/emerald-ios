@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.homepage             = "https://github.com/cebroker/emerald-ios.git"
   spec.license              = { :type => "MIT", :file => "LICENSE" }
   spec.author               = { "CE Broker" => ""}
-  spec.platform             = :ios, "11.0"
+  spec.platform             = :ios, "13.0"
   spec.source               = { :git => "https://github.com/cebroker/emerald-ios.git", :tag => "#{spec.version}" }
   spec.source_files         = "EmeraldIOS/**/*.{swift}"
   spec.swift_version        = "5.0"
