@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		47AE510F26B050CB000CEB31 /* SwiftUiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AE510D26B050CB000CEB31 /* SwiftUiViewController.swift */; };
 		47AE511026B050CB000CEB31 /* SwiftUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AE510E26B050CB000CEB31 /* SwiftUiView.swift */; };
 		492773CC233912A6007DB941 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492773CB233912A6007DB941 /* BarChartViewController.swift */; };
+		7D1F1C9F28298846009EFDE9 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 7D1F1C9E28298846009EFDE9 /* Introspect */; };
 		9BC82E46224278FA007BC5BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E45224278FA007BC5BD /* AppDelegate.swift */; };
 		9BC82E48224278FA007BC5BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC82E47224278FA007BC5BD /* ViewController.swift */; };
 		9BC82E4B224278FA007BC5BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC82E49224278FA007BC5BD /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC804448D9D233C4E39BC142 /* Pods_ProofOfConcept.framework in Frameworks */,
+				7D1F1C9F28298846009EFDE9 /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +158,9 @@
 			dependencies = (
 			);
 			name = ProofOfConcept;
+			packageProductDependencies = (
+				7D1F1C9E28298846009EFDE9 /* Introspect */,
+			);
 			productName = ProofOfConcept;
 			productReference = 9BC82E42224278FA007BC5BD /* ProofOfConcept.app */;
 			productType = "com.apple.product-type.application";
@@ -206,6 +211,9 @@
 				Base,
 			);
 			mainGroup = 9BC82E39224278FA007BC5BD;
+			packageReferences = (
+				7D1F1C9D28298846009EFDE9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+			);
 			productRefGroup = 9BC82E43224278FA007BC5BD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -436,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -455,7 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XRFNDLT6FX;
 				INFOPLIST_FILE = ProofOfConcept/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XRFNDLT6FX;
 				INFOPLIST_FILE = ProofOfConcept/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +566,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7D1F1C9D28298846009EFDE9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7D1F1C9E28298846009EFDE9 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D1F1C9D28298846009EFDE9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9BC82E3A224278FA007BC5BD /* Project object */;
 }
