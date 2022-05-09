@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00217055853533D8ACA7D5E5 /* Pods_EmeraldIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7A1C1B2C6542CA1864814E /* Pods_EmeraldIOS.framework */; };
 		470AEAD62783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD52783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift */; };
 		470AEAD827839211000E1BD5 /* Extensions+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD727839211000E1BD5 /* Extensions+SwiftUI.swift */; };
 		470AEADA278392CB000E1BD5 /* Extensions+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD9278392CB000E1BD5 /* Extensions+View.swift */; };
@@ -21,7 +22,6 @@
 		4791696726AB35F3008BC08B /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696626AB35F3008BC08B /* TextFieldType.swift */; };
 		4791696A26AB361F008BC08B /* EmeraldSwiftUiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696926AB361F008BC08B /* EmeraldSwiftUiTextField.swift */; };
 		4791696D26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696C26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift */; };
-		4791697026AB36AC008BC08B /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 4791696F26AB36AC008BC08B /* Introspect */; };
 		4791697226AB36DF008BC08B /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697126AB36DF008BC08B /* ClearButton.swift */; };
 		4791697526AB372E008BC08B /* EmeraldSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697426AB372E008BC08B /* EmeraldSecureTextField.swift */; };
 		4791697826AB3767008BC08B /* LabelHelperText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697726AB3767008BC08B /* LabelHelperText.swift */; };
@@ -116,6 +116,7 @@
 		77CA14B222E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B122E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift */; };
 		77CA14B422E902A50081EFE2 /* EmeraldChipsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B322E902A50081EFE2 /* EmeraldChipsCollectionView.swift */; };
 		77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1851422B2BE250002CE09 /* EmeraldValidable.swift */; };
+		7DC6165D28299C5800853EC8 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 7DC6165C28299C5800853EC8 /* Introspect */; };
 		860047CF233AB7B2003198AF /* EmeraldLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */; };
 		8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */; };
 		8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */; };
@@ -160,6 +161,7 @@
 		B4781ECF26AB1240009638B8 /* EmeraldSwiftUiChipViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4781ECE26AB1240009638B8 /* EmeraldSwiftUiChipViewStyle.swift */; };
 		C24DBB3026AF133500A23252 /* EmeraldSwiftUiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24DBB2F26AF133500A23252 /* EmeraldSwiftUiButtonStyle.swift */; };
 		C24DBB3226AF173A00A23252 /* EmeraldSwiftUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24DBB3126AF173A00A23252 /* EmeraldSwiftUIButton.swift */; };
+		CFCB5F14BD301CF08D63F962 /* Pods_EmeraldIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5AD2555BE0273D838192F9 /* Pods_EmeraldIOSTests.framework */; };
 		D119A137239844DB00C1BB17 /* EmeraldSelectorFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119A136239844DB00C1BB17 /* EmeraldSelectorFieldView.swift */; };
 		D119A139239849FF00C1BB17 /* EmeraldDateFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119A138239849FF00C1BB17 /* EmeraldDateFieldView.swift */; };
 		D119A13B2398540600C1BB17 /* EmeraldTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119A13A2398540600C1BB17 /* EmeraldTextFieldView.swift */; };
@@ -186,6 +188,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EA24BD42E7083AD7DAFE14C /* Pods-EmeraldIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		10CF10F6CA06BCCF6EF5FFD6 /* Pods-EmeraldIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.release.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.release.xcconfig"; sourceTree = "<group>"; };
 		470AEAD52783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldFormContainer.swift; sourceTree = "<group>"; };
 		470AEAD727839211000E1BD5 /* Extensions+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+SwiftUI.swift"; sourceTree = "<group>"; };
 		470AEAD9278392CB000E1BD5 /* Extensions+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+View.swift"; sourceTree = "<group>"; };
@@ -336,6 +340,8 @@
 		9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		AF12984BEE48C74F55D22EE9 /* Pods-EmeraldIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOS/Pods-EmeraldIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		AF5AD2555BE0273D838192F9 /* Pods_EmeraldIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B418CBF426A8BA9300646B38 /* EmeraldSwiftUiLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUiLabel.swift; sourceTree = "<group>"; };
 		B418CBF626A8BD6500646B38 /* EmeraldSwiftUiLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUiLabelStyle.swift; sourceTree = "<group>"; };
 		B418CBFA26A8CE9200646B38 /* Extensions+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Color.swift"; sourceTree = "<group>"; };
@@ -356,6 +362,8 @@
 		D172BE7825360C09003D6140 /* EmeraldTextViewFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextViewFieldDelegate.swift; sourceTree = "<group>"; };
 		D19AB19823981BD4007DB93D /* EmeraldRegexTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRegexTextFieldView.swift; sourceTree = "<group>"; };
 		E94A41D6273C607400266214 /* EmeraldRadioButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldRadioButtonUI.swift; sourceTree = "<group>"; };
+		ECD509D8DBF3ECA318582987 /* Pods-EmeraldIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmeraldIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA7A1C1B2C6542CA1864814E /* Pods_EmeraldIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmeraldIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC82E2A2242777F007BC5BD /* EmeraldIOS.framework in Frameworks */,
+				CFCB5F14BD301CF08D63F962 /* Pods_EmeraldIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +380,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4791697026AB36AC008BC08B /* Introspect in Frameworks */,
+				00217055853533D8ACA7D5E5 /* Pods_EmeraldIOS.framework in Frameworks */,
+				7DC6165D28299C5800853EC8 /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +393,8 @@
 			children = (
 				4935643B233A777500344040 /* Charts.framework */,
 				9BA491A422288FEE00837D07 /* BEMCheckBox.framework */,
+				FA7A1C1B2C6542CA1864814E /* Pods_EmeraldIOS.framework */,
+				AF5AD2555BE0273D838192F9 /* Pods_EmeraldIOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1120,6 +1132,10 @@
 		A6AE4D6358A62159C26DC1BE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				AF12984BEE48C74F55D22EE9 /* Pods-EmeraldIOS.debug.xcconfig */,
+				10CF10F6CA06BCCF6EF5FFD6 /* Pods-EmeraldIOS.release.xcconfig */,
+				ECD509D8DBF3ECA318582987 /* Pods-EmeraldIOSTests.debug.xcconfig */,
+				0EA24BD42E7083AD7DAFE14C /* Pods-EmeraldIOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1220,9 +1236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BC82E2D2242777F007BC5BD /* Build configuration list for PBXNativeTarget "EmeraldIOSTests" */;
 			buildPhases = (
+				DA01ABB713FCE9539CF88EFC /* [CP] Check Pods Manifest.lock */,
 				9BC82E212242777F007BC5BD /* Sources */,
 				9BC82E222242777F007BC5BD /* Frameworks */,
 				9BC82E232242777F007BC5BD /* Resources */,
+				CC29CCC5B6318827FBEB4819 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1238,6 +1256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BE5A55A2228813B004A59B9 /* Build configuration list for PBXNativeTarget "EmeraldIOS" */;
 			buildPhases = (
+				90D0BE134E07FF513366523A /* [CP] Check Pods Manifest.lock */,
 				9BE5A5412228813A004A59B9 /* Headers */,
 				9BE5A5422228813A004A59B9 /* Sources */,
 				9BE5A5432228813A004A59B9 /* Frameworks */,
@@ -1249,7 +1268,7 @@
 			);
 			name = EmeraldIOS;
 			packageProductDependencies = (
-				4791696F26AB36AC008BC08B /* Introspect */,
+				7DC6165C28299C5800853EC8 /* Introspect */,
 			);
 			productName = CondorUIComponents;
 			productReference = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */;
@@ -1285,7 +1304,7 @@
 			);
 			mainGroup = 9BE5A53C2228813A004A59B9;
 			packageReferences = (
-				4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
 			projectDirPath = "";
@@ -1335,6 +1354,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		90D0BE134E07FF513366523A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmeraldIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC29CCC5B6318827FBEB4819 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmeraldIOSTests/Pods-EmeraldIOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA01ABB713FCE9539CF88EFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmeraldIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BC82E212242777F007BC5BD /* Sources */ = {
@@ -1505,6 +1588,7 @@
 /* Begin XCBuildConfiguration section */
 		9BC82E2E2242777F007BC5BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECD509D8DBF3ECA318582987 /* Pods-EmeraldIOSTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XRFNDLT6FX;
@@ -1523,6 +1607,7 @@
 		};
 		9BC82E2F2242777F007BC5BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EA24BD42E7083AD7DAFE14C /* Pods-EmeraldIOSTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XRFNDLT6FX;
@@ -1591,7 +1676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1651,7 +1736,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
@@ -1667,6 +1752,7 @@
 		};
 		9BE5A55B2228813B004A59B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF12984BEE48C74F55D22EE9 /* Pods-EmeraldIOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1680,7 +1766,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = EmeraldIOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1698,6 +1784,7 @@
 		};
 		9BE5A55C2228813B004A59B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10CF10F6CA06BCCF6EF5FFD6 /* Pods-EmeraldIOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1711,7 +1798,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = EmeraldIOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1759,7 +1846,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+		7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
@@ -1770,9 +1857,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4791696F26AB36AC008BC08B /* Introspect */ = {
+		7DC6165C28299C5800853EC8 /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			package = 7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */

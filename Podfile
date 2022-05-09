@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+platform :ios, '13.0'
 workspace 'EmeraldIOS.xcworkspace'
 use_frameworks!
 
@@ -6,7 +6,7 @@ target 'EmeraldIOS' do
   project 'EmeraldIOS'
   inherit! :search_paths
   pod 'BEMCheckBox'
-  pod 'Charts'
+  pod 'Charts', '3.6.0'
 end
 
 target 'EmeraldIOSTests' do
