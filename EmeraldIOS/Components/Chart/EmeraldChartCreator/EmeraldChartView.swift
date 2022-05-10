@@ -130,7 +130,7 @@ public class EmeraldChart: UIView {
 
         let xAxisRenderer = EmeraldChartXAxisRenderer(
             viewPortHandler: self.barChartView.viewPortHandler,
-            xAxis: self.barChartView.xAxis,
+            axis: self.barChartView.xAxis,
             transformer: self.barChartView.getTransformer(forAxis: .left),
             icon: self.chartOptions.accessoryViewImage)
 
@@ -157,7 +157,7 @@ public class EmeraldChart: UIView {
 
         self.barChartView.xAxisRenderer = XAxisRenderer(
             viewPortHandler: self.barChartView.viewPortHandler,
-            xAxis: self.barChartView.xAxis,
+            axis: self.barChartView.xAxis,
             transformer: self.barChartView.getTransformer(forAxis: .left))
 
         self.commonSetupChartData(chartDataSet, colors: self.presenter.getMultipleValueDataSetColors())
