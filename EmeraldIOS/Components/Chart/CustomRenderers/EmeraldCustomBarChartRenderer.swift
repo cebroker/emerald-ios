@@ -30,7 +30,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
                 }
             }
 
-            let dataSets = barData.dataSets.compactMap({ $0 as? IBarChartDataSet })
+            let dataSets = barData.dataSets.compactMap({ $0 as? BarChartDataSetProtocol })
             for set in dataSets.enumerated() {
                 let size = set.element.entryCount * (set.element.isStacked ? set.element.stackSize : 1)
                 if buffers[set.offset].rects.count != size {
@@ -42,7 +42,7 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
         }
     }
 
-    private func prepareBuffer(dataSet: IBarChartDataSet, index: Int) {
+    private func prepareBuffer(dataSet: BarChartDataSetProtocol, index: Int) {
         guard let dataProvider = dataProvider,
             let barData = dataProvider.barData else {
                 return
@@ -158,11 +158,11 @@ class EmeraldCustomBarChartRenderer: BarChartRenderer {
         }
     }
 
-    func shouldDrawValues(forDataSet set: IChartDataSet) -> Bool {
+    func shouldDrawValues(forDataSet set: ChartDataSetProtocol) -> Bool {
         return set.isVisible && (set.isDrawValuesEnabled || set.isDrawIconsEnabled)
     }
 
-    override func drawDataSet(context: CGContext, dataSet: IBarChartDataSet, index: Int) {
+    override func drawDataSet(context: CGContext, dataSet: BarChartDataSetProtocol, index: Int) {
         guard let dataProvider = dataProvider else { return }
 
         let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
