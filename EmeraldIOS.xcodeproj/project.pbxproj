@@ -115,6 +115,7 @@
 		77CA14B222E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B122E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift */; };
 		77CA14B422E902A50081EFE2 /* EmeraldChipsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B322E902A50081EFE2 /* EmeraldChipsCollectionView.swift */; };
 		77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1851422B2BE250002CE09 /* EmeraldValidable.swift */; };
+		7D5726EE282A033700202B1C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7D5726ED282A033700202B1C /* Charts */; };
 		7DC6165D28299C5800853EC8 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 7DC6165C28299C5800853EC8 /* Introspect */; };
 		860047CF233AB7B2003198AF /* EmeraldLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */; };
 		8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */; };
@@ -372,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC6165D28299C5800853EC8 /* Introspect in Frameworks */,
+				7D5726EE282A033700202B1C /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1250,6 +1252,7 @@
 			name = EmeraldIOS;
 			packageProductDependencies = (
 				7DC6165C28299C5800853EC8 /* Introspect */,
+				7D5726ED282A033700202B1C /* Charts */,
 			);
 			productName = CondorUIComponents;
 			productReference = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */;
@@ -1286,6 +1289,7 @@
 			mainGroup = 9BE5A53C2228813A004A59B9;
 			packageReferences = (
 				7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
 			projectDirPath = "";
@@ -1686,7 +1690,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.19;
+				MARKETING_VERSION = 2.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1717,7 +1721,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.19;
+				MARKETING_VERSION = 2.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1767,9 +1771,22 @@
 				minimumVersion = 0.1.3;
 			};
 		};
+		7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7D5726ED282A033700202B1C /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		7DC6165C28299C5800853EC8 /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
