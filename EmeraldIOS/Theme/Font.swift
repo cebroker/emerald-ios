@@ -14,6 +14,9 @@ public enum OpenSansFonts: String, CaseIterable {
     case Regular = "OpenSans-Regular"
     case SemiBold = "OpenSans-SemiBold"
     case Bold = "OpenSans-Bold"
+    case italic = "OpenSans-Italic"
+    case BoldItalic = "OpenSans-BoldItalic"
+    case LightItalic = "OpenSans-LightItalic"
 }
 
 public enum FontSize: String, Inspectable {
@@ -32,6 +35,11 @@ public enum FontSize: String, Inspectable {
     case largeButton
     case label
     case tableHeader
+    case bodyItalic
+    case linkItalic
+    case linkBold
+    case titleBold
+    case titleItalic
 
     var IBInspectable: String {
         return rawValue
@@ -73,6 +81,14 @@ public enum FontSize: String, Inspectable {
             return UIFont.labelFontSize
         case .tableHeader:
             return 14
+        case .bodyItalic:
+            return 14
+        case .titleBold:
+            return 16
+        case .linkItalic:
+            return 14
+        case .linkBold:
+            return 16
         }
     }
 
@@ -86,7 +102,14 @@ public enum FontWeight: String, Inspectable {
     case regular
     case semibold
     case bold
-
+    case bold_italic
+    case italic
+    case light_italic
+    case link_italic
+    case link_bold
+    case title_bold
+    case body_italic
+    
     var IBInspectable: String {
         return rawValue
     }
@@ -124,6 +147,25 @@ public struct Typography {
                 return UIFont(
                     name: OpenSansFonts.Bold.rawValue,
                     size: size.cgFontSize)
+            case .bold_italic:
+                return UIFont(
+                    name:   OpenSansFonts.BoldItalic.rawValue,
+                    size: size.cgFontSize)
+            case .light_italic:
+                return UIFont(
+                    name: OpenSansFonts.LightItalic.rawValue,
+                    size: size.cgFontSize)
+            case .body_italic:
+                return UIFont(
+                    name: OpenSansFonts.body_italic.rawValue,
+                    size: size.cgFontSize)
+            case .link_bold:
+                return UIFont(
+                    name: OpenSansFonts.linkBold.rawValue,
+                    size: size.cgFontSize)
+            case .link_italic:
+                UIFont(name: OpenSansFonts.linkItalic.rawValue,
+                       size: size.cgFontSize)
             }
         }
 

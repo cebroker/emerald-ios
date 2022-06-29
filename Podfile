@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+platform :ios, '13.0'
 workspace 'EmeraldIOS.xcworkspace'
 use_frameworks!
 
