@@ -21,7 +21,6 @@
 		4791696726AB35F3008BC08B /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696626AB35F3008BC08B /* TextFieldType.swift */; };
 		4791696A26AB361F008BC08B /* EmeraldSwiftUiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696926AB361F008BC08B /* EmeraldSwiftUiTextField.swift */; };
 		4791696D26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791696C26AB3668008BC08B /* EmeraldNormalTextFieldNew.swift */; };
-		4791697026AB36AC008BC08B /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 4791696F26AB36AC008BC08B /* Introspect */; };
 		4791697226AB36DF008BC08B /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697126AB36DF008BC08B /* ClearButton.swift */; };
 		4791697526AB372E008BC08B /* EmeraldSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697426AB372E008BC08B /* EmeraldSecureTextField.swift */; };
 		4791697826AB3767008BC08B /* LabelHelperText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4791697726AB3767008BC08B /* LabelHelperText.swift */; };
@@ -116,6 +115,8 @@
 		77CA14B222E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B122E8F0080081EFE2 /* EmeraldChipCollectionViewCell.swift */; };
 		77CA14B422E902A50081EFE2 /* EmeraldChipsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA14B322E902A50081EFE2 /* EmeraldChipsCollectionView.swift */; };
 		77E1851522B2BE250002CE09 /* EmeraldValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1851422B2BE250002CE09 /* EmeraldValidable.swift */; };
+		7D5726EE282A033700202B1C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7D5726ED282A033700202B1C /* Charts */; };
+		7DC6165D28299C5800853EC8 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 7DC6165C28299C5800853EC8 /* Introspect */; };
 		860047CF233AB7B2003198AF /* EmeraldLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860047CE233AB7B2003198AF /* EmeraldLoadingIndicator.swift */; };
 		8676D9C5229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C4229767FC005AF8F4 /* EmeraldSegmentedBarBaseCell.swift */; };
 		8676D9C722976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676D9C622976836005AF8F4 /* EmeraldSegmentedBarItemCell.swift */; };
@@ -371,7 +372,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4791697026AB36AC008BC08B /* Introspect in Frameworks */,
+				7DC6165D28299C5800853EC8 /* Introspect in Frameworks */,
+				7D5726EE282A033700202B1C /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,7 +1251,8 @@
 			);
 			name = EmeraldIOS;
 			packageProductDependencies = (
-				4791696F26AB36AC008BC08B /* Introspect */,
+				7DC6165C28299C5800853EC8 /* Introspect */,
+				7D5726ED282A033700202B1C /* Charts */,
 			);
 			productName = CondorUIComponents;
 			productReference = 9BE5A5462228813A004A59B9 /* EmeraldIOS.framework */;
@@ -1285,7 +1288,8 @@
 			);
 			mainGroup = 9BE5A53C2228813A004A59B9;
 			packageReferences = (
-				4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
 			projectDirPath = "";
@@ -1591,7 +1595,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1651,7 +1655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
@@ -1680,13 +1684,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = EmeraldIOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.15;
+				MARKETING_VERSION = 2.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1711,13 +1715,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = EmeraldIOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.15;
+				MARKETING_VERSION = 2.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1759,7 +1763,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+		7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
@@ -1767,12 +1771,25 @@
 				minimumVersion = 0.1.3;
 			};
 		};
+		7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4791696F26AB36AC008BC08B /* Introspect */ = {
+		7D5726ED282A033700202B1C /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4791696E26AB36AC008BC08B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			package = 7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		7DC6165C28299C5800853EC8 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */

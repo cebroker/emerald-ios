@@ -21,9 +21,9 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
     internal var dataEntries: [EmeraldChartSimpleDataEntry]?
     internal var subtitlesFont: UIFont?
 
-    init(viewPortHandler: ViewPortHandler, xAxis: XAxis?, transformer: Transformer?, icon: UIImage?) {
+    init(viewPortHandler: ViewPortHandler, axis: XAxis, transformer: Transformer?, icon: UIImage?) {
         self.icon = icon
-        super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: transformer)
+        super.init(viewPortHandler: viewPortHandler, axis: axis, transformer: transformer)
     }
     
     /// This is the functions that we needs to override to allow add custom conent to X axis.
@@ -43,7 +43,7 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
         x: CGFloat,
         y: CGFloat,
         attributes: Attributes,
-        constrainedToSize: CGSize,
+        constrainedTo constrainedToSize: CGSize,
         anchor: CGPoint,
         angleRadians: CGFloat) {
 
@@ -53,7 +53,7 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
             x: x,
             y: y,
             attributes: attributes,
-            constrainedToSize: constrainedToSize,
+            constrainedTo: constrainedToSize,
             anchor: anchor,
             angleRadians: angleRadians)
 
@@ -68,21 +68,22 @@ class EmeraldChartXAxisRenderer: XAxisRenderer {
                 valueSize: subtitle.size(withAttributes: subtitlesAttributes))
             let subtitlePositionPoint = CGPoint(x: subtitleXPosition, y: y + 20)
 
-            ChartUtils.drawText(
-                context: context,
-                text: subtitle,
-                point: subtitlePositionPoint,
-                attributes: subtitlesAttributes,
+            context.drawText(
+                subtitle,
+                at: subtitlePositionPoint,
                 anchor: anchor,
-                angleRadians: angleRadians)
+                angleRadians: angleRadians,
+                attributes: subtitlesAttributes)
         }
 
         if self.icon != nil {
             let labelSize = formattedLabel.size(withAttributes: attributes)
-            ChartUtils.drawImage(context: context,
-                image: self.icon!,
+            let point: CGPoint = CGPoint(
                 x: x + (labelSize.width / 1.5),
-                y: y + ((labelSize.height / 2) + 1),
+                y: y + ((labelSize.height / 2) + 1))
+            context.drawImage(
+                self.icon!,
+                atCenter: point,
                 size: CGSize(width: 10, height: 12))
         }
     }
