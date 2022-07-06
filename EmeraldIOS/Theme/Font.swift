@@ -113,7 +113,7 @@ public enum FontWeight: String, Inspectable {
     case lightItalic
     case linkItalic
     case linkBold
-    case titlBold
+    case titleBold
     case bodyItalic
     
     var IBInspectable: String {
