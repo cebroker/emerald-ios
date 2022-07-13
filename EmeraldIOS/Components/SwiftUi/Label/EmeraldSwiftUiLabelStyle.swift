@@ -18,7 +18,15 @@ public enum EmeraldSwiftUiLabelStyle: String {
     case link
     case custom
     case warning
-
+    
+    case bodyNormal
+    case linkItalic
+    case linkNormal
+    case linkBold
+    case titleBold
+    case titleItalic
+    case titleNormal
+    
     @available(iOS 13.0, *)
     var textColor: Color? {
         switch self {
@@ -44,7 +52,7 @@ public enum EmeraldSwiftUiLabelStyle: String {
     }
     
     @available(iOS 13.0, *)
-    var font: Font? {
+    public var font: Font? {
         switch self {
         case .largeHeader:
             return Typography(size: .h1, weight: .semibold).suFont
@@ -62,6 +70,20 @@ public enum EmeraldSwiftUiLabelStyle: String {
             return Typography(size: .h4, weight: .bold).suFont
         case .warning:
             return Typography(size: .h6, weight: .regular).suFont
+        case .bodyNormal:
+            return Typography(size: .bodyNormal, weight: .normal).suFont
+        case .linkItalic:
+            return Typography(size: .linkItalic, weight: .linkItalic).suFont
+        case .linkNormal:
+            return Typography(size: .linkNormal, weight: .normal).suFont
+        case .linkBold:
+            return Typography(size: .linkBold, weight: .linkBold).suFont
+        case .titleBold:
+            return Typography(size: .titleBold, weight: .titleBold).suFont
+        case .titleItalic:
+            return Typography(size: .titleItalic, weight: .italic).suFont
+        case .titleNormal:
+            return Typography(size: .titleNormal, weight: .normal).suFont
         default:
             return nil
         }
