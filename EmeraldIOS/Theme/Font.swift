@@ -41,9 +41,12 @@ public enum FontSize: String, Inspectable {
     case tableHeader
     case bodyItalic
     case linkItalic
+    case linkNormal
     case linkBold
     case titleBold
     case titleItalic
+    case titleNormal
+    case bodyNormal
 
     var IBInspectable: String {
         return rawValue
@@ -95,6 +98,12 @@ public enum FontSize: String, Inspectable {
             return 16
         case .titleItalic:
             return 16
+        case .linkNormal:
+            return 14
+        case .bodyNormal:
+            return 14
+        case .titleNormal:
+            return 14
         }
     }
 

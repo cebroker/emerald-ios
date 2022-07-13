@@ -1289,7 +1289,7 @@
 			mainGroup = 9BE5A53C2228813A004A59B9;
 			packageReferences = (
 				7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
-				7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */,
+				7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts.git" */,
 			);
 			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
 			projectDirPath = "";
@@ -1690,7 +1690,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.22;
+				MARKETING_VERSION = 2.0.23;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1721,7 +1721,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.22;
+				MARKETING_VERSION = 2.0.23;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1771,7 +1771,7 @@
 				minimumVersion = 0.1.3;
 			};
 		};
-		7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */ = {
+		7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
@@ -1784,7 +1784,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		7D5726ED282A033700202B1C /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */;
+			package = 7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts.git" */;
 			productName = Charts;
 		};
 		7DC6165C28299C5800853EC8 /* Introspect */ = {
