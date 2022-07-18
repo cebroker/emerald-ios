@@ -14,8 +14,10 @@ public enum OpenSansFonts: String, CaseIterable {
     case Regular = "OpenSans-Regular"
     case SemiBold = "OpenSans-SemiBold"
     case Bold = "OpenSans-Bold"
+    case ExtraBold = "OpenSans-ExtraBold"
     case Italic = "OpenSans-Italic"
     case BoldItalic = "OpenSans-BoldItalic"
+    case ExtraBoldItalic = "OpenSans-ExtraBoldItalic"
     case LightItalic = "OpenSans-LightItalic"
     case BodyItalic =  "OpenSans-body_italic"
     case LinkBold = "OpenSans-linkBold"
@@ -45,8 +47,12 @@ public enum FontSize: String, Inspectable {
     case linkBold
     case titleBold
     case titleItalic
+    case lightItalic
     case titleNormal
     case bodyNormal
+    case extraBold
+    case extraBoldItalic
+    case boldItalic
 
     var IBInspectable: String {
         return rawValue
@@ -104,6 +110,14 @@ public enum FontSize: String, Inspectable {
             return 14
         case .titleNormal:
             return 14
+        case .extraBold:
+            return 16
+        case .extraBoldItalic:
+            return 16
+        case .lightItalic:
+            return 14
+        case .boldItalic:
+            return 16
         }
     }
 
@@ -124,6 +138,8 @@ public enum FontWeight: String, Inspectable {
     case linkBold
     case titleBold
     case bodyItalic
+    case extraBold
+    case extraBoldItalic
     
     var IBInspectable: String {
         return rawValue
@@ -164,7 +180,7 @@ public struct Typography {
                     size: size.cgFontSize)
             case .boldItalic:
                 return UIFont(
-                    name:   OpenSansFonts.BoldItalic.rawValue,
+                    name: OpenSansFonts.BoldItalic.rawValue,
                     size: size.cgFontSize)
             case .lightItalic:
                 return UIFont(
@@ -186,6 +202,12 @@ public struct Typography {
                        size: size.cgFontSize)
             case .titleBold:
                 return UIFont(name: OpenSansFonts.TitleBold.rawValue,
+                       size: size.cgFontSize)
+            case .extraBold:
+                return UIFont(name: OpenSansFonts.ExtraBold.rawValue,
+                       size: size.cgFontSize)
+            case .extraBoldItalic:
+                return UIFont(name: OpenSansFonts.ExtraBoldItalic.rawValue,
                        size: size.cgFontSize)
             }
         }
@@ -236,6 +258,14 @@ public struct Typography {
                 return UIFont.systemFont(
                     ofSize: size.cgFontSize,
                     weight: .regular)
+            case .extraBold:
+                return UIFont.systemFont(
+                    ofSize: size.cgFontSize,
+                    weight: .bold)
+            case .extraBoldItalic:
+                return UIFont.systemFont(
+                    ofSize: size.cgFontSize,
+                    weight: .bold)
             }
         }
 
@@ -289,6 +319,14 @@ public struct Typography {
             case .bodyItalic:
                 return Font.custom(
                     OpenSansFonts.BodyItalic.rawValue,
+                    size: size.cgFontSize)
+            case .extraBold:
+                return Font.custom(
+                    OpenSansFonts.ExtraBold.rawValue,
+                    size: size.cgFontSize)
+            case .extraBoldItalic:
+                return Font.custom(
+                    OpenSansFonts.ExtraBoldItalic.rawValue,
                     size: size.cgFontSize)
             }
         }
@@ -349,6 +387,16 @@ public struct Typography {
                 return Font.system(
                     size: size.cgFontSize,
                     weight: .regular,
+                    design: .default)
+            case .extraBold:
+                return Font.system(
+                    size: size.cgFontSize,
+                    weight: .bold,
+                    design: .default)
+            case .extraBoldItalic:
+                return Font.system(
+                    size: size.cgFontSize,
+                    weight: .bold,
                     design: .default)
             }
         }

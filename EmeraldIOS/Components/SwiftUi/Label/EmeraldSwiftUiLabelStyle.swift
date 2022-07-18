@@ -26,6 +26,10 @@ public enum EmeraldSwiftUiLabelStyle: String {
     case titleBold
     case titleItalic
     case titleNormal
+    case lightItalic
+    case italic
+    case boldItalic
+    case extraBoldItalic
     
     @available(iOS 13.0, *)
     var textColor: Color? {
@@ -84,6 +88,14 @@ public enum EmeraldSwiftUiLabelStyle: String {
             return Typography(size: .titleItalic, weight: .italic).suFont
         case .titleNormal:
             return Typography(size: .titleNormal, weight: .regular).suFont
+        case .lightItalic:
+            return Typography(size: .lightItalic, weight: .lightItalic).suFont
+        case .italic:
+            return Typography(size: .lightItalic, weight: .italic).suFont
+        case .boldItalic:
+            return Typography(size: .boldItalic, weight: .boldItalic).suFont
+        case .extraBoldItalic:
+            return Typography(size: .extraBoldItalic, weight: .extraBoldItalic).suFont
         default:
             return nil
         }
