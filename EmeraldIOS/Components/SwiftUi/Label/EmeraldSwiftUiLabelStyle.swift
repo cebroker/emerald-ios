@@ -77,13 +77,13 @@ public enum EmeraldSwiftUiLabelStyle: String {
         case .bodyNormal:
             return Typography(size: .bodyNormal, weight: .regular).suFont
         case .linkItalic:
-            return Typography(size: .linkItalic, weight: .linkItalic).suFont
+            return Typography(size: .linkItalic, weight: .italic).suFont
         case .linkNormal:
             return Typography(size: .linkNormal, weight: .regular).suFont
         case .linkBold:
-            return Typography(size: .linkBold, weight: .linkBold).suFont
+            return Typography(size: .linkBold, weight: .bold).suFont
         case .titleBold:
-            return Typography(size: .titleBold, weight: .titleBold).suFont
+            return Typography(size: .titleBold, weight: .extraBold).suFont
         case .titleItalic:
             return Typography(size: .titleItalic, weight: .italic).suFont
         case .titleNormal:
