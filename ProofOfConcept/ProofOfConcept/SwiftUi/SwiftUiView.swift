@@ -37,6 +37,7 @@ struct SwiftUiView: View {
     @State private var hello = "hello"
     @State private var bodyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     @State private var titleText = "RadioButtonTitle"
+    @State private var checkBox = "CheckBox"
     @State private var subTitleText = "Radio Button SubTitle"
     @State(initialValue: "buttonName") var buttonName: String
     @State(initialValue: "") private var normal: String
@@ -58,6 +59,7 @@ struct SwiftUiView: View {
     @State(initialValue: "") private var disabledField: String
     @State(initialValue: nil) private var errorText: String?
     @State(initialValue: nil) private var errorTextNew: String?
+    @State private var currentWorkHere: Bool = false
     // MARK: It's for radioButton
     @State private var selected: String?
     
@@ -548,13 +550,30 @@ struct SwiftUiView: View {
         }
     }
     
+    @ViewBuilder
+    var emeraldCheckbox: some View {
+        VStack {
+            EmeraldSwiftUiLabel(
+                text: $checkBox,
+                themeStyle: .mainTitle)
+            
+            EmeraldSwiftUICheckbox(checked: $currentWorkHere,
+                            text: "Text Emeral CheckBox")
+        }
+    }
     
     // MARK: Body
     var body: some View {
         ScrollView {
-            emeraldRadioButtonView
-                .padding()
-            Divider()
+            VStack {
+                emeraldRadioButtonView
+                    .padding()
+                Divider()
+                emeraldCheckbox
+                    .padding()
+                    
+                Divider()
+            }
             emeraldLabelByStory
                 .padding()
             Divider()

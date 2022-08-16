@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27CDA62028AB946A00F78C8C /* EmeraldSwiftUICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDA61F28AB946A00F78C8C /* EmeraldSwiftUICheckbox.swift */; };
 		470AEAD62783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD52783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift */; };
 		470AEAD827839211000E1BD5 /* Extensions+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD727839211000E1BD5 /* Extensions+SwiftUI.swift */; };
 		470AEADA278392CB000E1BD5 /* Extensions+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470AEAD9278392CB000E1BD5 /* Extensions+View.swift */; };
@@ -187,6 +188,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27CDA61F28AB946A00F78C8C /* EmeraldSwiftUICheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUICheckbox.swift; sourceTree = "<group>"; };
 		470AEAD52783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldTextFieldFormContainer.swift; sourceTree = "<group>"; };
 		470AEAD727839211000E1BD5 /* Extensions+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+SwiftUI.swift"; sourceTree = "<group>"; };
 		470AEAD9278392CB000E1BD5 /* Extensions+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+View.swift"; sourceTree = "<group>"; };
@@ -387,6 +389,14 @@
 				9BA491A422288FEE00837D07 /* BEMCheckBox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27CDA61E28AB944800F78C8C /* SwiftUICheckbox */ = {
+			isa = PBXGroup;
+			children = (
+				27CDA61F28AB946A00F78C8C /* EmeraldSwiftUICheckbox.swift */,
+			);
+			path = SwiftUICheckbox;
 			sourceTree = "<group>";
 		};
 		470AEAD427839068000E1BD5 /* TextFieldForm */ = {
@@ -1129,6 +1139,7 @@
 		B418CBF226A8B9A200646B38 /* SwiftUi */ = {
 			isa = PBXGroup;
 			children = (
+				27CDA61E28AB944800F78C8C /* SwiftUICheckbox */,
 				E94A41D5273C605300266214 /* Radio Button */,
 				4791698626AB429F008BC08B /* TextView */,
 				4791695F26AB1966008BC08B /* TextField */,
@@ -1289,7 +1300,7 @@
 			mainGroup = 9BE5A53C2228813A004A59B9;
 			packageReferences = (
 				7D4FB036282984F3002D8392 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
-				7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */,
+				7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts.git" */,
 			);
 			productRefGroup = 9BE5A5472228813A004A59B9 /* Products */;
 			projectDirPath = "";
@@ -1403,6 +1414,7 @@
 				9B3BCC862272033400DC5D79 /* EmeraldCheckboxFormField.swift in Sources */,
 				4791697226AB36DF008BC08B /* ClearButton.swift in Sources */,
 				4791698326AB3F62008BC08B /* CurrencySymbol.swift in Sources */,
+				27CDA62028AB946A00F78C8C /* EmeraldSwiftUICheckbox.swift in Sources */,
 				4791697526AB372E008BC08B /* EmeraldSecureTextField.swift in Sources */,
 				D12E88302356635F00178214 /* FormatValidator.swift in Sources */,
 				6C807C6F227C8E7F00FC328E /* Inspectable.swift in Sources */,
@@ -1690,7 +1702,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.26;
+				MARKETING_VERSION = 2.0.27;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1721,7 +1733,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.26;
+				MARKETING_VERSION = 2.0.27;
 				PRODUCT_BUNDLE_IDENTIFIER = io.condorlabs.EmeraldIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1771,7 +1783,7 @@
 				minimumVersion = 0.1.3;
 			};
 		};
-		7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */ = {
+		7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
@@ -1784,7 +1796,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		7D5726ED282A033700202B1C /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts" */;
+			package = 7D5726EC282A033700202B1C /* XCRemoteSwiftPackageReference "Charts.git" */;
 			productName = Charts;
 		};
 		7DC6165C28299C5800853EC8 /* Introspect */ = {
