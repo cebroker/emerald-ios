@@ -562,6 +562,16 @@ struct SwiftUiView: View {
         }
     }
     
+    @ViewBuilder
+    var loadingIndicator: some View {
+        VStack(spacing: 30) {
+            Text("Loading Indicator")
+                .font(.caption)
+                .fontWeight(.semibold)
+            EmeraldSwiftUIActivityIndicator()
+        }
+    }
+    
     // MARK: Body
     var body: some View {
         ScrollView {
@@ -574,6 +584,9 @@ struct SwiftUiView: View {
                     
                 Divider()
             }
+            loadingIndicator
+                .padding()
+            Divider()
             emeraldLabelByStory
                 .padding()
             Divider()

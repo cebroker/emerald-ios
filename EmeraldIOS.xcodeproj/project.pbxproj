@@ -155,6 +155,9 @@
 		9BF263392270B6A8004AD6F7 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */; };
 		9BF2633A2270B6A8004AD6F7 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */; };
 		9BF2633B2270B6A8004AD6F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */; };
+		B2C625F928AE8B0A00421A8F /* EmeraldSwiftUIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C625F828AE8B0A00421A8F /* EmeraldSwiftUIActivityIndicator.swift */; };
+		B2C625FB28AEC7E700421A8F /* EmeraldSwiftUICompatibleActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C625FA28AEC7E700421A8F /* EmeraldSwiftUICompatibleActivityIndicator.swift */; };
+		B2C625FD28AEE35500421A8F /* ActivityIndicatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C625FC28AEE35500421A8F /* ActivityIndicatorType.swift */; };
 		B418CBF526A8BA9300646B38 /* EmeraldSwiftUiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B418CBF426A8BA9300646B38 /* EmeraldSwiftUiLabel.swift */; };
 		B418CBF726A8BD6500646B38 /* EmeraldSwiftUiLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B418CBF626A8BD6500646B38 /* EmeraldSwiftUiLabelStyle.swift */; };
 		B418CBFB26A8CE9200646B38 /* Extensions+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B418CBFA26A8CE9200646B38 /* Extensions+Color.swift */; };
@@ -339,6 +342,9 @@
 		9BF2632E2270B6A7004AD6F7 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		9BF2632F2270B6A7004AD6F7 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		9BF263302270B6A8004AD6F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		B2C625F828AE8B0A00421A8F /* EmeraldSwiftUIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUIActivityIndicator.swift; sourceTree = "<group>"; };
+		B2C625FA28AEC7E700421A8F /* EmeraldSwiftUICompatibleActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUICompatibleActivityIndicator.swift; sourceTree = "<group>"; };
+		B2C625FC28AEE35500421A8F /* ActivityIndicatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorType.swift; sourceTree = "<group>"; };
 		B418CBF426A8BA9300646B38 /* EmeraldSwiftUiLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUiLabel.swift; sourceTree = "<group>"; };
 		B418CBF626A8BD6500646B38 /* EmeraldSwiftUiLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmeraldSwiftUiLabelStyle.swift; sourceTree = "<group>"; };
 		B418CBFA26A8CE9200646B38 /* Extensions+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Color.swift"; sourceTree = "<group>"; };
@@ -1136,9 +1142,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B2C625F728AE8AE100421A8F /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				B2C625F828AE8B0A00421A8F /* EmeraldSwiftUIActivityIndicator.swift */,
+				B2C625FA28AEC7E700421A8F /* EmeraldSwiftUICompatibleActivityIndicator.swift */,
+				B2C625FC28AEE35500421A8F /* ActivityIndicatorType.swift */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
 		B418CBF226A8B9A200646B38 /* SwiftUi */ = {
 			isa = PBXGroup;
 			children = (
+				B2C625F728AE8AE100421A8F /* ActivityIndicator */,
 				27CDA61E28AB944800F78C8C /* SwiftUICheckbox */,
 				E94A41D5273C605300266214 /* Radio Button */,
 				4791698626AB429F008BC08B /* TextView */,
@@ -1381,6 +1398,7 @@
 				6C2D328C228B034E009D4B0F /* EmeraldTextDependantField.swift in Sources */,
 				D172BE7925360C09003D6140 /* EmeraldTextViewFieldDelegate.swift in Sources */,
 				6CAFFA2E22847E4200C690B9 /* EmeraldSelectorField.swift in Sources */,
+				B2C625F928AE8B0A00421A8F /* EmeraldSwiftUIActivityIndicator.swift in Sources */,
 				6C807C76227CCF3300FC328E /* EmeraldLabelStyle.swift in Sources */,
 				C24DBB3026AF133500A23252 /* EmeraldSwiftUiButtonStyle.swift in Sources */,
 				9B3BCC812272033400DC5D79 /* Extensions+UIStackView.swift in Sources */,
@@ -1429,6 +1447,7 @@
 				D131BA762397015500A8E376 /* BaseInputView.swift in Sources */,
 				479C0D4B26AF669E0062CBBE /* EmeraldNormalTextField.swift in Sources */,
 				470AEAD62783908E000E1BD5 /* EmeraldTextFieldFormContainer.swift in Sources */,
+				B2C625FD28AEE35500421A8F /* ActivityIndicatorType.swift in Sources */,
 				8676D9CB22976898005AF8F4 /* EmeraldSegmentedBarAppearance.swift in Sources */,
 				774DE6A0245D436B009D5E8F /* Requirable.swift in Sources */,
 				49EC6EDF232BF51F003BFEBD /* EmeraldChartDataEntry.swift in Sources */,
@@ -1486,6 +1505,7 @@
 				479C0D3D26AF430C0062CBBE /* EmeraldGenericTextField.swift in Sources */,
 				47AE511D26B0B371000CEB31 /* EmeraldSwiftUiTextField+Extensions.swift in Sources */,
 				6CD5842022945090001DE8D2 /* FormFieldErrorType.swift in Sources */,
+				B2C625FB28AEC7E700421A8F /* EmeraldSwiftUICompatibleActivityIndicator.swift in Sources */,
 				4791699126AB6463008BC08B /* SecureTextFieldSwiftUI.swift in Sources */,
 				4791697A26AB3794008BC08B /* LabelTextFieldCounter.swift in Sources */,
 				9B3BCC8C2272033400DC5D79 /* Selectable.swift in Sources */,
