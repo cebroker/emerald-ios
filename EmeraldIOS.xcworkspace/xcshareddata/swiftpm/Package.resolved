@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/danielgindi/Charts.git",
       "state" : {
-        "revision" : "b61fc9b97829ab9b954d01f96e601d52045ef5dc",
-        "version" : "4.0.2"
+        "revision" : "07b23476ad52b926be772f317d8f1d4511ee8d02",
+        "version" : "4.1.0"
       }
     },
     {
