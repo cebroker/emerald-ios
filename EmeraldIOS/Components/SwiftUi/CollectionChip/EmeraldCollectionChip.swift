@@ -24,7 +24,7 @@ public struct ChipsDataModel: Swift.Identifiable {
 public class ChipsViewLogic: ObservableObject {
     @Published var dataObject: [ChipsDataModel]
     
-    public init(){
+    public init() {
         self.dataObject = []
     }
     
