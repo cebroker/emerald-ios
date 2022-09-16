@@ -72,7 +72,7 @@ struct SwiftUiView: View {
     @State(initialValue: nil) private var errorTextV2: String?
     @State(initialValue: "") private var textV3: String
     @State(initialValue: nil) private var errorTextV3: String?
-    
+    @StateObject var Logic = ChipsViewLogic()
     // MARK: It's for New Textfields Picker
     @State private var pickerData: [Selectable] = [DataSelectable(id: "1", name: "name 1"),
                                            DataSelectable(id: "2", name: "name 2")]
@@ -604,6 +604,35 @@ struct SwiftUiView: View {
             .padding(.horizontal)
     }
     
+    @ViewBuilder
+    var collectionChip: some View {
+        VStack {
+            EmeraldCollectionChip(Logic)
+            Spacer()
+            HStack {
+                Spacer()
+                Button("Remove Chips") {
+                    withAnimation {
+                        Logic.removeLast()
+                    }
+                }.padding(.all, 20).accentColor(.red)
+                Spacer()
+                Button("Add Chips") {
+                    withAnimation {
+                        Logic.add(ChipsDataModel(isSelected: false,
+                                                 title: dataTestCollectionChip.data[Int.random(in: 0...6)]))
+                    }
+                }.padding(.all, 20)
+                Spacer()
+                Button("remove all") {
+                    withAnimation {
+                        Logic.removeAll()
+                    }
+                }.padding(.all, 20)
+            }
+        }.frame(maxWidth: .infinity, minHeight: 200, maxHeight: 500)
+    }
+    
     // MARK: Body
     var body: some View {
         ZStack {
@@ -637,6 +666,8 @@ struct SwiftUiView: View {
                     Divider()
                     emeraldTextFieldsView
                         .padding()
+                    Divider()
+                    collectionChip
                 }
             }
             
@@ -734,4 +765,17 @@ struct radioButtonModel {
     let id: String
     let title: String
     var requiredExplanation: Bool
+}
+
+struct dataTestCollectionChip {
+    static let data = [
+        "Medellín",
+        "Bogotá",
+        "Cali",
+        "Manzan",
+        "Apple",
+        "Red",
+        "NORTH DAKOTA",
+        "Northern Mariana Islands"
+    ]
 }
