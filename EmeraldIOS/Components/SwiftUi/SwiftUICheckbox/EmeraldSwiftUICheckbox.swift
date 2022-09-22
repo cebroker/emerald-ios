@@ -39,10 +39,10 @@ public struct EmeraldSwiftUICheckbox: View {
             .frame(width: InnerConstant.twenty,
                    height: InnerConstant.twenty)
             
-            Spacer()
-            
             Text(text)
                 .bodyBold()
+            
+            Spacer()
         }
         .padding(.vertical, InnerConstant.twenty)
         .padding(.leading, InnerConstant.ten)

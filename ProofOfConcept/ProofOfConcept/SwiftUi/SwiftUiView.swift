@@ -64,6 +64,9 @@ struct SwiftUiView: View {
     @State private var currentWorkHere: Bool = false
     @State private var showPopup: Bool = false
     @State private var showImagePopup: Bool = false
+    @State private var phone: String = ""
+    @State private var startDate: String = ""
+    @State private var endDate: String = ""
     // MARK: It's for radioButton
     @State private var selected: String?
     
@@ -302,6 +305,47 @@ struct SwiftUiView: View {
                         disabled: true)
                 }
                 Divider()
+                
+                VStack {
+                    Text("Phone textfield")
+                    EmeraldSwiftUIPhoneTextField(
+                        text: $phone,
+                        label: "Phone",
+                        placeholder: "(999) 999-9999")
+                    
+                    EmeraldSwiftUIPhoneTextField(
+                        text: $phone,
+                        label: "Phone",
+                        placeholder: "(999) 999-9999",
+                        errorText: "This field can not be empty"
+                    )
+                    
+                    Divider()
+                    
+                    Text("Date picker")
+                    
+                    EmeraldTextFieldFormDate(
+                        text: $startDate,
+                        hint: "Start Date",
+                        placeholder: "12/2022",
+                        dateFormat: .shortDate,
+                        keyboardType: .numberPad,
+                        maxDate: Date()
+                    )
+                    .padding(.vertical, 5)
+                    
+                    EmeraldTextFieldFormDate(
+                        text: $endDate,
+                        hint: "End Date",
+                        placeholder: "12/2022",
+                        dateFormat: .shortDate,
+                        keyboardType: .numberPad,
+                        minDate: startDate.toDate()
+                    )
+                    .padding(.vertical, 5)
+                    
+                    Divider()
+                }
             }
             VStack {
                 VStack {
