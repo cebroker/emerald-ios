@@ -129,7 +129,9 @@ public struct EmeraldTextFieldFormDate: View {
     
     private func set(selectedDate: Date) {
         let formattedDate = coordinator.getString(from: selectedDate)
-        text = formattedDate
+        DispatchQueue.main.async {
+            text = formattedDate
+        }
     }
     
     private func formatDate(_ text: String) {
