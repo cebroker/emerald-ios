@@ -39,6 +39,8 @@ struct SwiftUiView: View {
     @State private var titleText = "RadioButtonTitle"
     @State private var checkBox = "CheckBox"
     @State private var subTitleText = "Radio Button SubTitle"
+    @State private var imageSignature: UIImage = UIImage()
+    @State private var textSignature = "Tap to sign"
     @State(initialValue: "buttonName") var buttonName: String
     @State var popUpButtonName: String = "Show popup"
     @State var imagePopUpButtonName: String = "Show popup with Image"
@@ -611,6 +613,17 @@ struct SwiftUiView: View {
     }
     
     @ViewBuilder
+    var emeraldSignature: some View {
+        VStack {
+            EmeraldSwiftUiLabel(
+                text: $checkBox,
+                themeStyle: .mainTitle)
+            
+            DrawControl(image: $imageSignature, labelButton: $textSignature)
+        }
+    }
+    
+    @ViewBuilder
     var loadingIndicator: some View {
         VStack(spacing: 30) {
             Text("Loading Indicator")
@@ -709,6 +722,8 @@ struct SwiftUiView: View {
                         .padding()
                     Divider()
                     emeraldTextFieldsView
+                    .padding()
+                emeraldSignature
                         .padding()
                     Divider()
                     collectionChip
