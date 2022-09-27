@@ -42,7 +42,7 @@ struct EmeraldTextFieldFormContainer<Content>: View where Content: View {
         if self.placeholder == nil && hint == nil {
             return Constants.Values.empty
         } else if hint != nil && self.placeholder != nil {
-            return self.isActive ? self.hint! : placeholder!
+            return self.hint!
         } else if let hint = hint {
             return hint
         } else {

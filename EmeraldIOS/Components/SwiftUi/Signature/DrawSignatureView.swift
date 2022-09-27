@@ -84,7 +84,7 @@ struct DrawSignatureView: View {
                     if self.lines.count == 0 {
                         presentedNotSign = true
                     } else {
-                        self.imageDraw = drawingControl.frame(width: widthImage,height: 250).snapshot()
+                        self.imageDraw = board.frame(width: widthImage,height: 250).snapshot()
                         self.showBoard.toggle()
                     }
                 } label: {
@@ -161,34 +161,80 @@ struct DrawSignatureView: View {
             .padding(.horizontal,20)
         }
     }
+    @ViewBuilder
+    var board: some View {
+        if #available(iOS 15.0, *) {
+            Canvas { context, size in
+                for line in lines {
+                    var path = Path()
+                    path.addLines(line.points)
+                    context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
+                }
+            }
+            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                .onChanged({ value in
+                    let newPoint = value.location
+                    currentLine.points.append(newPoint)
+                    self.lines.append(currentLine)
+                })
+                    .onEnded({ value in
+                        self.lines.append(currentLine)
+                        self.currentLine = Line(points: [], color: currentLine.color, lineWidth: thickness)
+                    })
+            )
+        }
+    }
     
     @ViewBuilder
     var drawingControl: some View {
         VStack(alignment: .center) {
             ZStack {
                 if #available(iOS 15.0, *) {
-                    Canvas { context, size in
-                        for line in lines {
-                            var path = Path()
-                            path.addLines(line.points)
-                            context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
+                    VStack {
+                        VStack {
+                            HStack {
+                                Image(systemName: "xmark")
+                                    .frame(width: 30, height: 30)
+                                Spacer()
+                            }
+                            
+                            Rectangle().frame(height: 2)
+                            Text("Sign Here")
+                                .frame(maxWidth: .infinity)
+                                
                         }
+                        .frame(maxWidth: .infinity)
                     }
-                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                        .onChanged({ value in
-                            let newPoint = value.location
-                            currentLine.points.append(newPoint)
-                            self.lines.append(currentLine)
-                        })
-                            .onEnded({ value in
-                                self.lines.append(currentLine)
-                                self.currentLine = Line(points: [], color: currentLine.color, lineWidth: thickness)
-                            })
-                    )
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 20)
+                    .frame(maxWidth: .infinity, maxHeight: 250,alignment: .bottom)
                     .background(Color.white)
-                    .padding(.horizontal, 20)
-                    .frame(maxWidth: .infinity, maxHeight: 250)
+                    
+                    board
+                        .background(Color.clear)
+                        .padding(.horizontal, 20)
+                        .frame(maxWidth: .infinity, maxHeight: 250)
                 } else {
+                    VStack {
+                        VStack {
+                            HStack {
+                                Image(systemName: "xmark")
+                                    .frame(width: 30, height: 30)
+                                Spacer()
+                            }
+                            
+                            Rectangle().frame(height: 2)
+                            Text("Firmar Aqui")
+                                .frame(maxWidth: .infinity)
+                                
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 20)
+                    .frame(maxWidth: .infinity, maxHeight: 250,alignment: .bottom)
+                    .background(Color.white)
+                    
                     MyCanvas(canvasView: $canvasView)
                     .background(Color.white)
                     .padding(.horizontal, 20)
@@ -199,6 +245,8 @@ struct DrawSignatureView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
+
+    
 
 struct MyCanvas: UIViewRepresentable {
     @Binding var canvasView: PKCanvasView
@@ -213,9 +261,3 @@ struct MyCanvas: UIViewRepresentable {
 
     func updateUIView(_ canvasView: PKCanvasView, context: Context) { }
 }
-
-//struct DrawSignatureView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DrawSignatureView()
-//    }
-//}

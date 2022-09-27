@@ -42,6 +42,8 @@ struct SwiftUiView: View {
     @State private var imageSignature: UIImage = UIImage()
     @State private var textSignature = "Tap to sign"
     @State(initialValue: "buttonName") var buttonName: String
+    @State var popUpButtonName: String = "Show popup"
+    @State var imagePopUpButtonName: String = "Show popup with Image"
     @State(initialValue: "") private var normal: String
     @State(initialValue: "") private var normalNew: String
     @State(initialValue: "") private var email: String
@@ -62,6 +64,11 @@ struct SwiftUiView: View {
     @State(initialValue: nil) private var errorText: String?
     @State(initialValue: nil) private var errorTextNew: String?
     @State private var currentWorkHere: Bool = false
+    @State private var showPopup: Bool = false
+    @State private var showImagePopup: Bool = false
+    @State private var phone: String = ""
+    @State private var startDate: String = ""
+    @State private var endDate: String = ""
     // MARK: It's for radioButton
     @State private var selected: String?
     
@@ -70,7 +77,7 @@ struct SwiftUiView: View {
     @State(initialValue: nil) private var errorTextV2: String?
     @State(initialValue: "") private var textV3: String
     @State(initialValue: nil) private var errorTextV3: String?
-    
+    @StateObject var Logic = ChipsViewLogic()
     // MARK: It's for New Textfields Picker
     @State private var pickerData: [Selectable] = [DataSelectable(id: "1", name: "name 1"),
                                            DataSelectable(id: "2", name: "name 2")]
@@ -300,6 +307,47 @@ struct SwiftUiView: View {
                         disabled: true)
                 }
                 Divider()
+                
+                VStack {
+                    Text("Phone textfield")
+                    EmeraldSwiftUIPhoneTextField(
+                        text: $phone,
+                        label: "Phone",
+                        placeholder: "(999) 999-9999")
+                    
+                    EmeraldSwiftUIPhoneTextField(
+                        text: $phone,
+                        label: "Phone",
+                        placeholder: "(999) 999-9999",
+                        errorText: "This field can not be empty"
+                    )
+                    
+                    Divider()
+                    
+                    Text("Date picker")
+                    
+                    EmeraldTextFieldFormDate(
+                        text: $startDate,
+                        hint: "Start Date",
+                        placeholder: "12/2022",
+                        dateFormat: .shortDate,
+                        keyboardType: .numberPad,
+                        maxDate: Date()
+                    )
+                    .padding(.vertical, 5)
+                    
+                    EmeraldTextFieldFormDate(
+                        text: $endDate,
+                        hint: "End Date",
+                        placeholder: "12/2022",
+                        dateFormat: .shortDate,
+                        keyboardType: .numberPad,
+                        minDate: startDate.toDate()
+                    )
+                    .padding(.vertical, 5)
+                    
+                    Divider()
+                }
             }
             VStack {
                 VStack {
@@ -585,38 +633,144 @@ struct SwiftUiView: View {
         }
     }
     
+    @ViewBuilder
+    var popupView: some View {
+        EmeraldSwiftUIButton(
+            buttonName: _popUpButtonName,
+            isEnabled: .constant(true),
+            isHighlighted: .constant(false),
+            themeStyle: .primary) {
+                withAnimation {
+                    self.showPopup.toggle()
+                }
+            }
+            .padding(.horizontal)
+    }
+    
+    @ViewBuilder
+    var imagePopupView: some View {
+        EmeraldSwiftUIButton(
+            buttonName: _imagePopUpButtonName,
+            isEnabled: .constant(true),
+            isHighlighted: .constant(false),
+            themeStyle: .primarySuccess) {
+                withAnimation {
+                    self.showImagePopup.toggle()
+                }
+            }
+            .padding(.horizontal)
+    }
+    
+    @ViewBuilder
+    var collectionChip: some View {
+        VStack {
+            EmeraldCollectionChip(Logic)
+            Spacer()
+            HStack {
+                Spacer()
+                Button("Remove Chips") {
+                    withAnimation {
+                        Logic.removeLast()
+                    }
+                }.padding(.all, 20).accentColor(.red)
+                Spacer()
+                Button("Add Chips") {
+                    withAnimation {
+                        Logic.add(ChipsDataModel(isSelected: false,
+                                                 title: dataTestCollectionChip.data[Int.random(in: 0...6)]))
+                    }
+                }.padding(.all, 20)
+                Spacer()
+                Button("remove all") {
+                    withAnimation {
+                        Logic.removeAll()
+                    }
+                }.padding(.all, 20)
+            }
+        }.frame(maxWidth: .infinity, minHeight: 200, maxHeight: 500)
+    }
+    
     // MARK: Body
     var body: some View {
-        ScrollView {
-            VStack {
-                emeraldRadioButtonView
+        ZStack {
+            ScrollView {
+                VStack {
+                    emeraldRadioButtonView
+                        .padding()
+                    Divider()
+                    emeraldCheckbox
+                        .padding()
+                    Divider()
+                    loadingIndicator
+                        .padding()
+                    Divider()
+                    popupView
+                    imagePopupView
+                    Divider()
+                }
+                emeraldLabelByStory
                     .padding()
                 Divider()
-                emeraldCheckbox
-                    .padding()
-                    
-                Divider()
-            }
-            loadingIndicator
-                .padding()
-            Divider()
-            emeraldLabelByStory
-                .padding()
-            Divider()
-            emeraldChipViewByStory
-                .padding()
-            Divider()
-            emeraldButtonsView
-                .padding()
-            Divider()
-            VStack {
-                emeraldTextFieldsNewView
+                emeraldChipViewByStory
                     .padding()
                 Divider()
-                emeraldTextFieldsView
+                emeraldButtonsView
+                    .padding()
+                Divider()
+                VStack {
+                    emeraldTextFieldsNewView
+                        .padding()
+                    Divider()
+                    emeraldTextFieldsView
                     .padding()
                 emeraldSignature
-                    .padding()
+                        .padding()
+                    Divider()
+                    collectionChip
+                }
+            }
+            
+            if self.showPopup {
+                EmeraldSwiftUIPopup(
+                    content: {
+                        VStack {
+                            Text("This is the new Emerald 2.0 PopUp")
+                                .font(.title)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.black)
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .frame(
+                            width: UIScreen.main.bounds.width * 0.9,
+                            height: UIScreen.main.bounds.height * 0.6
+                        )
+                    },
+                    onCloseTapped: { self.showPopup.toggle() }
+                )
+            }
+            
+            if self.showImagePopup {
+                EmeraldSwiftUIPopup(
+                    content: {
+                        VStack {
+                            Image(systemName: "applelogo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(.black)
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .frame(
+                            width: UIScreen.main.bounds.width * 0.9,
+                            height: UIScreen.main.bounds.height * 0.6
+                        )
+                    },
+                    onCloseTapped: { self.showImagePopup.toggle() }
+                )
             }
         }
     }
@@ -670,4 +824,17 @@ struct radioButtonModel {
     let id: String
     let title: String
     var requiredExplanation: Bool
+}
+
+struct dataTestCollectionChip {
+    static let data = [
+        "Medellín",
+        "Bogotá",
+        "Cali",
+        "Manzan",
+        "Apple",
+        "Red",
+        "NORTH DAKOTA",
+        "Northern Mariana Islands"
+    ]
 }

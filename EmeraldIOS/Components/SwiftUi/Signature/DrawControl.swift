@@ -63,12 +63,6 @@ public struct DrawControl: View {
     }
 }
 
-//struct DrawControl_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DrawControl(image: UIImage())
-//    }
-//}
-
 struct CounterView: View {
     
     @Binding var imageDraw: UIImage

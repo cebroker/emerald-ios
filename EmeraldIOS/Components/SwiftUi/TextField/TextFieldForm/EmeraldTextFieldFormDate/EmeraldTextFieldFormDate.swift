@@ -21,6 +21,9 @@ public struct EmeraldTextFieldFormDate: View {
     private var dateFormat: EmeraldIOS.TextFormat = .longDate
     
     @State private var isEditing: Bool = false
+    private var isActive: Bool {
+        self.isEditing || !self.text.isEmpty
+    }
     
     public init(
         text: Binding<String>,
@@ -28,6 +31,8 @@ public struct EmeraldTextFieldFormDate: View {
         placeholder: String? = nil, 
         dateFormat: EmeraldIOS.TextFormat = .longDate,
         keyboardType: UIKeyboardType = .default,
+        minDate: Date? = nil,
+        maxDate: Date? = nil,
         onEditingFinished: (() -> Void)? = nil
     ) {
         self.placeholder = placeholder
@@ -37,17 +42,22 @@ public struct EmeraldTextFieldFormDate: View {
         self.onEditingFinished = onEditingFinished
         self.dateFormat = dateFormat
         
-        self.coordinator = EmeraldTextFieldFormDateCoordinator(dateFormat: dateFormat)
+        self.coordinator = EmeraldTextFieldFormDateCoordinator(
+            dateFormat: dateFormat,
+            minimumDate: minDate,
+            maximunDate: maxDate)
     }
     
     public var body: some View {
-        EmeraldTextFieldFormContainer(text: $text,
-                                      hint: hint,
-                                      placeholder: placeholder,
-                                      errorText: errorText,
-                                      isEditing: _isEditing) {
+        EmeraldTextFieldFormContainer(
+            text: $text,
+            hint: hint,
+            placeholder: placeholder,
+            errorText: errorText,
+            isEditing: _isEditing
+        ) {
             HStack {
-                TextField(Constants.Values.empty,
+                TextField(isActive ? placeholder ?? Constants.Values.empty : Constants.Values.empty,
                           text: $text,
                           onEditingChanged: {
                     isEditing = $0
@@ -119,7 +129,9 @@ public struct EmeraldTextFieldFormDate: View {
     
     private func set(selectedDate: Date) {
         let formattedDate = coordinator.getString(from: selectedDate)
-        text = formattedDate
+        DispatchQueue.main.async {
+            text = formattedDate
+        }
     }
     
     private func formatDate(_ text: String) {

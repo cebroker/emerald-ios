@@ -26,8 +26,14 @@ final class EmeraldTextFieldFormDateCoordinator {
     private var minimumDate: Date?
     private var maximumDate: Date?
     
-    init(dateFormat: TextFormat) {
+    init(
+        dateFormat: TextFormat,
+        minimumDate: Date? = nil,
+        maximunDate: Date? = nil
+    ) {
         self.dateFormat = dateFormat
+        self.minimumDate = minimumDate
+        self.maximumDate = maximunDate
         setupDefaultDateFormat()
     }
     

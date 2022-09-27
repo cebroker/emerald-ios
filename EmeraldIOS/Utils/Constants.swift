@@ -66,6 +66,7 @@ struct Constants {
     struct TextFormating {
         static let currency = "$%.0f"
         static let phone = "PHONE_FORMAT"
+        static let phoneFormat = "(XXX) XXX-XXXX"
         static let phoneLength = 10
         static let phonePrefixIndex = 3
         static let alternatePhonePrefixIndex = 4
@@ -171,6 +172,7 @@ struct Constants {
         static let select = "Select"
         static let openingParenthesis = "("
         static let closingParenthesis = ")"
+        static let x: Character = "X"
     }
 
     struct Design {
