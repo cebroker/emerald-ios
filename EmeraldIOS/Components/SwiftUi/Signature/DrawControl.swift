@@ -22,12 +22,12 @@ public struct DrawControl: View {
         if image == UIImage() {
             buttonControlDraw
         } else {
-            chageDraw
+            changeDrawing
         }
     }
     
     @ViewBuilder
-    var chageDraw: some View {
+    var changeDrawing: some View {
         VStack {
             Image(uiImage: self.image)
                 .resizable()
