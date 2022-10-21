@@ -18,7 +18,7 @@ extension SwiftUI.Color {
         if hasError {
             return Constants.EmeraldSwiftUiTextField.errorColor.suColor
         } else {
-            return isActive ? Constants.EmeraldSwiftUiTextField.focusColor.suColor : Constants.EmeraldSwiftUiTextField.borderColor.suColor
+            return isActive ? Constants.EmeraldSwiftUiTextField.focusColor.suColor : Color.gray.opacity(0.8)
         }
     }
 }

@@ -24,7 +24,7 @@ extension EmeraldSwiftUiTextField {
         if errorText == nil {
             borderColor = focused ?
                 Constants.EmeraldSwiftUiTextField.focusColor.suColor :
-                Constants.EmeraldSwiftUiTextField.borderColor.suColor
+            Color.gray.opacity(0.8)
             
             borderColor = disabled ?
                 borderColor.opacity(0.5) :

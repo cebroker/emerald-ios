@@ -14,7 +14,7 @@ extension Constants {
         static let cornerRadius: CGFloat = 3
         static let borderWidth: CGFloat = 1
         static let borderWidthFocused: CGFloat = 1
-        static let textFieldHeight: CGFloat = 44
+        static let textFieldHeight: CGFloat = 50
         static let textAreaHeight: CGFloat = 60
         static let leadingContentSpacing: CGFloat = 10
         static let trailingContentSpacing: CGFloat = 10

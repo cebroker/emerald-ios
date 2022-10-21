@@ -24,11 +24,36 @@ public struct EmeraldSwiftUIPopup<Content: View>: View {
         ZStack {
             Color.black.opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    withAnimation {
-                        onCloseTapped?()
-                    }
+            
+            VStack {
+                HStack {
+                    Button(action: {
+                        withAnimation {
+                            onCloseTapped?()
+                        }
+                    }, label: {
+                        Image(
+                            uiImage: UIImage(named: Constants.Icons.xIcon,
+                                             in: Bundle(for: ClassBundle.self),
+                                             compatibleWith: nil) ??
+                            UIImage(systemName: Constants.Icons.systemXIcon)!
+                        )
+                        .resizable()
+                        .renderingMode(.template)
+                        .padding(5)
+                        .foregroundColor(Color.white)
+                        .background(EmeraldTheme.lightGrayColor.suColor)
+                        .clipShape(Circle())
+                        .frame(
+                            width: 30,
+                            height: 30
+                        )
+                    })
+                    Spacer()
                 }
+                Spacer()
+            }
+            .padding()
             
             content
         }
