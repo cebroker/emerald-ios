@@ -48,7 +48,7 @@ public struct EmeraldRadioButtonUI: View {
                                             Constants.EmeraldSwiftUiTextField.errorColor.suColor :
                                             selected == key ?
                                             Constants.EmeraldSwiftUiTextField.focusColor.suColor :
-                                            Constants.EmeraldSwiftUiTextField.borderColor.suColor)
+                                            Color.gray.opacity(0.8))
                     EmeraldSwiftUiLabel(
                         text: $textRadioButton,
                         themeStyle: .bodyBold)
@@ -61,7 +61,7 @@ public struct EmeraldRadioButtonUI: View {
                         Constants.EmeraldSwiftUiTextField.errorColor.suColor :
                         selected == key ?
                         Constants.EmeraldSwiftUiTextField.focusColor.suColor:
-                        Constants.EmeraldSwiftUiTextField.borderColor.suColor, width: 1)
+                        Color.gray.opacity(0.8), width: 1)
        
         }
     }

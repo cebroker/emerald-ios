@@ -13,7 +13,7 @@ public struct EmeraldSwiftUICheckbox: View {
     var text: String
     
     private struct InnerConstant {
-        static let twenty: CGFloat = 12
+        static let twenty: CGFloat = 20
         static let ten: CGFloat = 10
         static let thirty: CGFloat = 30
         static let one: CGFloat = 1
@@ -34,8 +34,7 @@ public struct EmeraldSwiftUICheckbox: View {
                     InnerConstant.squareImage)
             .resizable()
             .scaledToFit()
-            .foregroundColor(checked ? EmeraldTheme.primaryColor.suColor :
-                                       EmeraldTheme.borderColor.suColor)
+            .foregroundColor(Color.fieldColor(hasError: false, isActive: checked))
             .frame(width: InnerConstant.twenty,
                    height: InnerConstant.twenty)
             
@@ -49,8 +48,7 @@ public struct EmeraldSwiftUICheckbox: View {
         .padding(.trailing, InnerConstant.thirty)
         .background(
             RoundedRectangle(cornerRadius: InnerConstant.three)
-                .stroke(checked ? EmeraldTheme.primaryColor.suColor :
-                            EmeraldTheme.borderColor.suColor,
+                .stroke(Color.fieldColor(hasError: false, isActive: checked),
                         lineWidth: InnerConstant.one)
         )
         .onTapGesture {

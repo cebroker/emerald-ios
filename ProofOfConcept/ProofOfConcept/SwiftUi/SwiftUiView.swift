@@ -773,6 +773,7 @@ struct SwiftUiView: View {
                 )
             }
         }
+        .navigationBarHidden(self.showImagePopup || self.showPopup)
     }
     
     func isValidEmail(_ email: String) -> Bool {
